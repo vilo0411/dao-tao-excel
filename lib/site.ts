@@ -94,6 +94,27 @@ export function hvsUrl(
   return url.toString();
 }
 
+/**
+ * Chuẩn hóa dấu gạch chéo cuối URL cho khớp `trailingSlash` trong
+ * next.config.ts — bản preview bật, bản trên domain thật thì không.
+ *
+ * Sai chỗ này không gãy trang nhưng hỏng SEO: sitemap khai `/mau-excel` trong
+ * khi trang thật nằm ở `/mau-excel/` thì mỗi URL Google lấy về đều ăn một cú
+ * redirect, và canonical lại tự trỏ sang một URL khác chính nó.
+ *
+ * Đường dẫn tới file (`/sitemap.xml`, `.xlsx`) phải đứng yên: thêm dấu `/` vào
+ * là 404.
+ */
+function withTrailingSlash(path: string): string {
+  if (!IS_PREVIEW) return path;
+  if (path.endsWith("/")) return path;
+
+  const lastSegment = path.split("/").pop() ?? "";
+  if (lastSegment.includes(".")) return path;
+
+  return `${path}/`;
+}
+
 export function absoluteUrl(path: string): string {
-  return new URL(withBasePath(path), SITE_URL).toString();
+  return new URL(withTrailingSlash(withBasePath(path)), SITE_URL).toString();
 }
