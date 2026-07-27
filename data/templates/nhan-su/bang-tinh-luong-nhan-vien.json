@@ -1,0 +1,177 @@
+{
+  "slug": "bang-tinh-luong-nhan-vien",
+  "category": "nhan-su",
+  "h1": "Mẫu Excel tính lương nhân viên 2026 (đã cập nhật thuế TNCN mới)",
+  "metaTitle": "Mẫu Excel Tính Lương Nhân Viên 2026 - Tải Miễn Phí",
+  "metaDesc": "Mẫu Excel tính lương nhân viên 2026 tự tính bảo hiểm, giảm trừ gia cảnh 15,5 triệu và thuế TNCN theo biểu 5 bậc mới. Tải ngay, dùng được luôn.",
+  "primaryKeyword": "mẫu excel tính lương nhân viên",
+  "intro": "Mẫu Excel tính lương nhân viên này tự động tính các khoản bảo hiểm bắt buộc, giảm trừ gia cảnh, thuế thu nhập cá nhân và lương thực lĩnh cho từng người. Toàn bộ số liệu thuế đã cập nhật theo quy định áp dụng từ kỳ tính thuế 2026: giảm trừ bản thân 15,5 triệu đồng, mỗi người phụ thuộc 6,2 triệu đồng, và biểu thuế lũy tiến rút còn 5 bậc. Bạn chỉ cần nhập lương cơ bản, phụ cấp và số người phụ thuộc.",
+  "difficulty": "trung-cap",
+  "features": [
+    "Tự tính bảo hiểm bắt buộc phần nhân viên đóng theo tỷ lệ 10,5%",
+    "Tự tính giảm trừ gia cảnh theo số người phụ thuộc của từng nhân viên",
+    "Tự tính thuế TNCN theo biểu lũy tiến 5 bậc áp dụng từ năm 2026",
+    "Tự tính lương thực lĩnh sau khi trừ bảo hiểm và thuế",
+    "Có sẵn 20 dòng trống đã cài công thức để nhập thêm nhân viên"
+  ],
+  "howToUse": [
+    {
+      "step": "Nhập thông tin và lương cơ bản",
+      "detail": "Điền mã nhân viên, họ tên và mức lương cơ bản ghi trên hợp đồng lao động. Đây là mức dùng làm căn cứ đóng bảo hiểm bắt buộc."
+    },
+    {
+      "step": "Nhập phụ cấp",
+      "detail": "Điền tổng các khoản phụ cấp trong tháng như ăn trưa, xăng xe, điện thoại. Các khoản này cộng vào tổng thu nhập nhưng không dùng làm căn cứ tính bảo hiểm trong mẫu này."
+    },
+    {
+      "step": "Nhập số người phụ thuộc",
+      "detail": "Điền số người phụ thuộc đã đăng ký với cơ quan thuế của từng nhân viên. Mỗi người phụ thuộc được giảm trừ 6,2 triệu đồng một tháng, ảnh hưởng trực tiếp tới số thuế phải nộp."
+    },
+    {
+      "step": "Đọc kết quả",
+      "detail": "Năm cột cuối tự tính toàn bộ: tổng thu nhập, bảo hiểm, thu nhập tính thuế, thuế TNCN và lương thực lĩnh. Bạn không cần nhập gì vào các cột này."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Vì sao giảm trừ gia cảnh trong file là 15,5 triệu chứ không phải 11 triệu?",
+      "a": "Từ kỳ tính thuế năm 2026, mức giảm trừ cho bản thân người nộp thuế tăng từ 11 triệu lên 15,5 triệu đồng một tháng, và mỗi người phụ thuộc tăng từ 4,4 triệu lên 6,2 triệu đồng, theo Nghị quyết 110/2025/UBTVQH15. Rất nhiều file mẫu đang lưu hành trên mạng vẫn dùng số cũ nên tính ra tiền thuế cao hơn thực tế."
+    },
+    {
+      "q": "Biểu thuế 5 bậc khác gì biểu cũ?",
+      "a": "Biểu thuế lũy tiến rút từ 7 bậc xuống 5 bậc: đến 10 triệu chịu 5%, trên 10 đến 30 triệu chịu 10%, trên 30 đến 60 triệu chịu 20%, trên 60 đến 100 triệu chịu 30%, trên 100 triệu chịu 35%. Hai bậc giữa được giảm thuế suất so với trước."
+    },
+    {
+      "q": "Tỷ lệ bảo hiểm 10,5% gồm những khoản nào?",
+      "a": "Gồm bảo hiểm xã hội 8%, bảo hiểm y tế 1,5% và bảo hiểm thất nghiệp 1%, đây là phần người lao động đóng. Phần doanh nghiệp đóng thêm không nằm trong bảng lương thực lĩnh nên mẫu này không tính."
+    },
+    {
+      "q": "Lương cao thì mức đóng bảo hiểm có bị giới hạn không?",
+      "a": "Có. Tiền lương làm căn cứ đóng bảo hiểm xã hội và y tế bị khống chế trần, phần vượt trần không phải đóng thêm. Mẫu này tính thẳng theo tỷ lệ để giữ công thức dễ hiểu, nên với các mức lương rất cao bạn cần chỉnh lại cột bảo hiểm cho đúng trần hiện hành."
+    }
+  ],
+  "ctaText": "Học cách tự dựng bảng lương và dashboard nhân sự trên Excel",
+  "relatedSlugs": ["bang-cham-cong-nhan-vien"],
+  "updatedAt": "2026-07-27",
+  "sheets": [
+    {
+      "name": "Bảng lương",
+      "description": "Bảng tính lương tháng, tự tính bảo hiểm và thuế TNCN theo quy định 2026.",
+      "blankRows": 20,
+      "columns": [
+        { "key": "stt", "header": "STT", "type": "number", "width": 6 },
+        { "key": "maNV", "header": "Mã NV", "type": "text", "width": 12 },
+        { "key": "hoTen", "header": "Họ và tên", "type": "text", "width": 24 },
+        {
+          "key": "luongCoBan",
+          "header": "Lương cơ bản",
+          "type": "currency",
+          "width": 16,
+          "validation": { "type": "decimal", "min": 0, "max": 1000000000 }
+        },
+        {
+          "key": "phuCap",
+          "header": "Phụ cấp",
+          "type": "currency",
+          "width": 14,
+          "validation": { "type": "decimal", "min": 0, "max": 1000000000 }
+        },
+        {
+          "key": "nguoiPhuThuoc",
+          "header": "Số người phụ thuộc",
+          "type": "number",
+          "width": 16,
+          "validation": { "type": "whole", "min": 0, "max": 20 }
+        },
+        {
+          "key": "tongThuNhap",
+          "header": "Tổng thu nhập",
+          "type": "formula",
+          "width": 16,
+          "format": "currency",
+          "formula": "=IF([hoTen]{row}=\"\",\"\",[luongCoBan]{row}+[phuCap]{row})",
+          "note": "Cộng lương cơ bản với phụ cấp để ra tổng thu nhập trước khi trừ bảo hiểm và thuế."
+        },
+        {
+          "key": "baoHiem",
+          "header": "Bảo hiểm (10,5%)",
+          "type": "formula",
+          "width": 16,
+          "format": "currency",
+          "formula": "=IF([hoTen]{row}=\"\",\"\",[luongCoBan]{row}*10.5%)",
+          "note": "Phần người lao động đóng: bảo hiểm xã hội 8% cộng y tế 1,5% cộng thất nghiệp 1%. Tính trên lương cơ bản, không tính trên phụ cấp."
+        },
+        {
+          "key": "giamTru",
+          "header": "Giảm trừ gia cảnh",
+          "type": "formula",
+          "width": 18,
+          "format": "currency",
+          "formula": "=IF([hoTen]{row}=\"\",\"\",15500000+[nguoiPhuThuoc]{row}*6200000)",
+          "note": "Giảm trừ bản thân 15.500.000đ cộng 6.200.000đ cho mỗi người phụ thuộc, theo mức áp dụng từ kỳ tính thuế 2026. Sửa hai con số này nếu quy định thay đổi."
+        },
+        {
+          "key": "thuNhapTinhThue",
+          "header": "Thu nhập tính thuế",
+          "type": "formula",
+          "width": 18,
+          "format": "currency",
+          "formula": "=IF([hoTen]{row}=\"\",\"\",MAX(0,[tongThuNhap]{row}-[baoHiem]{row}-[giamTru]{row}))",
+          "note": "Lấy tổng thu nhập trừ bảo hiểm và giảm trừ gia cảnh. Bọc MAX với 0 để thu nhập thấp hơn mức giảm trừ thì trả về 0 thay vì số âm."
+        },
+        {
+          "key": "thueTNCN",
+          "header": "Thuế TNCN",
+          "type": "formula",
+          "width": 16,
+          "format": "currency",
+          "formula": "=IF([hoTen]{row}=\"\",\"\",IF([thuNhapTinhThue]{row}<=10000000,[thuNhapTinhThue]{row}*5%,IF([thuNhapTinhThue]{row}<=30000000,[thuNhapTinhThue]{row}*10%-500000,IF([thuNhapTinhThue]{row}<=60000000,[thuNhapTinhThue]{row}*20%-3500000,IF([thuNhapTinhThue]{row}<=100000000,[thuNhapTinhThue]{row}*30%-9500000,[thuNhapTinhThue]{row}*35%-14500000)))))",
+          "note": "Biểu lũy tiến 5 bậc năm 2026 viết theo cách tính rút gọn: mỗi bậc lấy thu nhập nhân thuế suất rồi trừ đi một số cố định, thay vì phải tách thu nhập ra từng phần. Các số trừ 500.000, 3.500.000, 9.500.000 và 14.500.000 chính là phần chênh lệch tích lũy giữa các bậc."
+        },
+        {
+          "key": "thucLinh",
+          "header": "Thực lĩnh",
+          "type": "formula",
+          "width": 16,
+          "format": "currency",
+          "formula": "=IF([hoTen]{row}=\"\",\"\",[tongThuNhap]{row}-[baoHiem]{row}-[thueTNCN]{row})",
+          "note": "Tổng thu nhập trừ bảo hiểm và thuế TNCN. Đây là số tiền thực nhận của nhân viên."
+        }
+      ],
+      "sampleRows": [
+        {
+          "stt": 1,
+          "maNV": "NV001",
+          "hoTen": "Nguyễn Thị Mai",
+          "luongCoBan": 18000000,
+          "phuCap": 2000000,
+          "nguoiPhuThuoc": 0
+        },
+        {
+          "stt": 2,
+          "maNV": "NV002",
+          "hoTen": "Trần Văn Hùng",
+          "luongCoBan": 35000000,
+          "phuCap": 3000000,
+          "nguoiPhuThuoc": 2
+        },
+        {
+          "stt": 3,
+          "maNV": "NV003",
+          "hoTen": "Lê Thu Hà",
+          "luongCoBan": 12000000,
+          "phuCap": 1500000,
+          "nguoiPhuThuoc": 1
+        },
+        {
+          "stt": 4,
+          "maNV": "NV004",
+          "hoTen": "Phạm Minh Đức",
+          "luongCoBan": 70000000,
+          "phuCap": 5000000,
+          "nguoiPhuThuoc": 2
+        }
+      ]
+    }
+  ]
+}

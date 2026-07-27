@@ -1,0 +1,31 @@
+{
+  "name": "excel-template-hub",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "validate": "node --experimental-strip-types scripts/validate-templates.mts",
+    "xlsx": "./.venv/bin/python scripts/build_xlsx.py",
+    "qa": "./.venv/bin/python scripts/qa_check.py",
+    "check": "npm run validate && npm run xlsx && npm run qa"
+  },
+  "dependencies": {
+    "next": "16.2.12",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.2.12",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  }
+}

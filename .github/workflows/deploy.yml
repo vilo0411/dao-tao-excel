@@ -1,0 +1,90 @@
+# Build ban xem thu tinh va deploy len GitHub Pages.
+#
+# Pages chi phuc vu file tinh nen khong chay duoc route handler: buoc build xoa
+# app/api trong ban dung cua CI, khong dung toi ma nguon trong repo.
+#
+# basePath va SITE_URL lay tu chinh repo (actions/configure-pages) chu khong
+# hardcode, nen doi ten repo hay chuyen sang user site deu khong gay 404 link
+# tai .xlsx.
+name: Deploy GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Khong huy giua chung: mot lan deploy bi cat co the de Pages o trang thai do.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+
+      - run: npm ci
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Cai dat pipeline xlsx
+        run: |
+          python -m venv .venv
+          .venv/bin/pip install --disable-pip-version-check -r requirements.txt
+
+      # Cong QA cua du an: spec sai, cong thuc chet hay o bao loi se lam gay
+      # build o day thay vi lot len ban da deploy.
+      - name: Kiem tra spec, sinh lai .xlsx, chay QA
+        run: npm run check
+
+      - run: npm run lint
+
+      - uses: actions/configure-pages@v5
+        id: pages
+
+      - name: Chuan hoa basePath
+        id: cfg
+        env:
+          BASE_PATH: ${{ steps.pages.outputs.base_path }}
+        run: |
+          # Project site cho ra "/ten-repo", user site cho ra "/". Chuoi "/" phai
+          # thanh rong, neu khong withBasePath() sinh ra duong dan "//..." hong.
+          if [ "$BASE_PATH" = "/" ]; then BASE_PATH=""; fi
+          echo "base_path=$BASE_PATH" >> "$GITHUB_OUTPUT"
+
+      - name: Xoa route handler
+        run: rm -rf app/api
+
+      - name: Build tinh
+        env:
+          NEXT_PUBLIC_PREVIEW: "1"
+          NEXT_PUBLIC_BASE_PATH: ${{ steps.cfg.outputs.base_path }}
+          NEXT_PUBLIC_SITE_URL: ${{ steps.pages.outputs.origin }}
+        run: npm run build
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: out
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

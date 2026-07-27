@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+/*
+  Hệ thiết kế lấy từ ngôn ngữ của chính bảng tính.
+
+  Nguyên tắc màu: không có màu trang trí. Hai màu nhấn mã hóa đúng sự phân biệt
+  mà cả site đang dạy — ô người dùng gõ vào, và ô Excel tự tính ra. Người đọc
+  học được quy ước này ngay ở bảng preview đầu tiên rồi dùng lại nó ở mọi trang.
+*/
+@theme {
+  --color-ink: #14181c;
+  --color-ink-soft: #525d68;
+  --color-ink-faint: #8a949d;
+
+  --color-paper: #fcfcfb;
+  --color-panel: #f4f6f4;
+  --color-rule: #dee3df;
+
+  /* Ô người dùng nhập tay */
+  --color-input: #1f4b99;
+  --color-input-bg: #eaf0f9;
+
+  /* Ô Excel tự tính bằng công thức */
+  --color-computed: #0e6b4a;
+  --color-computed-bg: #e6f2ec;
+
+  /* Chỉ dùng cho ô báo lỗi (#DIV/0!, #REF!) */
+  --color-flag: #a63a21;
+
+  --font-display: var(--font-archivo), system-ui, sans-serif;
+  --font-sans: var(--font-be-vietnam), system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, monospace;
+}
+
+body {
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  /* Dấu tiếng Việt chồng nhiều tầng nên cần nới dòng hơn mặc định. */
+  line-height: 1.65;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+/* Tham chiếu ô, công thức, chữ cái cột — mọi thứ vốn là nội dung bảng tính. */
+code,
+kbd,
+.cell-ref {
+  font-family: var(--font-mono);
+  font-feature-settings: "zero" 1;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-input);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

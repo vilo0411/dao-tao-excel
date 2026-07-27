@@ -1,0 +1,180 @@
+{
+  "slug": "bang-cham-cong-nhan-vien",
+  "category": "nhan-su",
+  "h1": "Mẫu Excel bảng chấm công nhân viên theo tháng (có sẵn công thức)",
+  "metaTitle": "Mẫu Excel Bảng Chấm Công Nhân Viên - Tải Miễn Phí 2026",
+  "metaDesc": "Mẫu Excel bảng chấm công nhân viên theo tháng, tự tính tổng công, tỷ lệ chuyên cần và xếp loại bằng công thức có sẵn. Tải ngay, dùng được luôn.",
+  "primaryKeyword": "mẫu excel bảng chấm công nhân viên",
+  "intro": "Mẫu Excel bảng chấm công nhân viên này giúp bộ phận nhân sự theo dõi ngày công thực tế, nghỉ phép, nghỉ không lương và giờ tăng ca của cả phòng ban trong một bảng duy nhất. Toàn bộ phần tổng công, tỷ lệ chuyên cần và xếp loại đều đã cài công thức sẵn, nên bạn chỉ cần nhập số ngày công là các cột còn lại tự chạy. File nhận thêm dòng mới mà không vỡ công thức.",
+  "difficulty": "co-ban",
+  "features": [
+    "Tự tính tổng công hưởng lương từ ngày công thực tế và ngày nghỉ phép",
+    "Tự tính tỷ lệ chuyên cần theo công chuẩn của tháng",
+    "Tự xếp loại chuyên cần thành Đủ công / Khá / Cần xem lại",
+    "Có sẵn 20 dòng trống đã cài công thức để nhập thêm nhân viên",
+    "Chọn bộ phận từ danh sách có sẵn, tránh gõ sai tên phòng ban"
+  ],
+  "howToUse": [
+    {
+      "step": "Nhập công chuẩn của tháng",
+      "detail": "Cột Công chuẩn là số ngày làm việc theo quy định của tháng đó, ví dụ 26 ngày. Nhập đúng số này thì tỷ lệ chuyên cần mới chính xác."
+    },
+    {
+      "step": "Nhập danh sách nhân viên",
+      "detail": "Điền mã nhân viên, họ tên và chọn bộ phận từ danh sách sổ xuống. Bộ phận dùng danh sách cố định để về sau lọc và cộng theo phòng ban không bị lệch do gõ sai chính tả."
+    },
+    {
+      "step": "Nhập số liệu chấm công",
+      "detail": "Điền ngày công thực tế, ngày nghỉ phép, nghỉ không lương và giờ tăng ca. Ba cột cuối cùng sẽ tự tính, bạn không cần gõ gì vào đó."
+    },
+    {
+      "step": "Thêm nhân viên mới",
+      "detail": "Nhập tiếp vào các dòng trống bên dưới, công thức đã được cài sẵn nên sẽ tự chạy. Nếu hết dòng trống, bôi đen dòng cuối rồi kéo thả nút vuông nhỏ ở góc dưới bên phải xuống thêm."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Vì sao cột tỷ lệ chuyên cần hiện 0% dù đã nhập ngày công?",
+      "a": "Do cột Công chuẩn của dòng đó đang để trống hoặc bằng 0. Công thức dùng IFERROR để tránh lỗi chia cho 0 nên trả về 0% thay vì báo lỗi. Nhập công chuẩn của tháng vào là cột này chạy lại ngay."
+    },
+    {
+      "q": "Nghỉ phép có được tính vào tổng công hưởng lương không?",
+      "a": "Có. Trong mẫu này, tổng công hưởng lương bằng ngày công thực tế cộng ngày nghỉ phép, vì nghỉ phép năm là ngày nghỉ có hưởng lương. Ngày nghỉ không lương được tách riêng và không cộng vào."
+    },
+    {
+      "q": "Tôi muốn đổi ngưỡng xếp loại thì sửa ở đâu?",
+      "a": "Sửa trực tiếp hai mốc 100% và 90% trong công thức của cột Xếp loại, rồi kéo công thức xuống các dòng còn lại. Đây chính là kiểu tùy chỉnh mà bạn sẽ tự làm được sau khi nắm hàm IF lồng nhau."
+    }
+  ],
+  "ctaText": "Học cách tự dựng bảng chấm công và dashboard nhân sự trên Excel",
+  "relatedSlugs": ["bang-tinh-luong-nhan-vien"],
+  "updatedAt": "2026-07-27",
+  "sheets": [
+    {
+      "name": "Chấm công",
+      "description": "Bảng chấm công tổng hợp theo tháng cho từng nhân viên.",
+      "blankRows": 20,
+      "columns": [
+        { "key": "stt", "header": "STT", "type": "number", "width": 6 },
+        { "key": "maNV", "header": "Mã NV", "type": "text", "width": 12 },
+        { "key": "hoTen", "header": "Họ và tên", "type": "text", "width": 24 },
+        {
+          "key": "boPhan",
+          "header": "Bộ phận",
+          "type": "text",
+          "width": 18,
+          "validation": {
+            "type": "list",
+            "options": ["Kinh doanh", "Kế toán", "Nhân sự", "Kỹ thuật", "Kho vận"]
+          }
+        },
+        {
+          "key": "congChuan",
+          "header": "Công chuẩn",
+          "type": "number",
+          "width": 12,
+          "validation": { "type": "decimal", "min": 0, "max": 31 }
+        },
+        {
+          "key": "ngayCong",
+          "header": "Ngày công thực tế",
+          "type": "number",
+          "width": 16,
+          "validation": { "type": "decimal", "min": 0, "max": 31 }
+        },
+        {
+          "key": "nghiPhep",
+          "header": "Nghỉ phép",
+          "type": "number",
+          "width": 12,
+          "validation": { "type": "decimal", "min": 0, "max": 31 }
+        },
+        {
+          "key": "nghiKhongLuong",
+          "header": "Nghỉ không lương",
+          "type": "number",
+          "width": 16,
+          "validation": { "type": "decimal", "min": 0, "max": 31 }
+        },
+        {
+          "key": "gioTangCa",
+          "header": "Giờ tăng ca",
+          "type": "number",
+          "width": 12,
+          "validation": { "type": "decimal", "min": 0, "max": 200 }
+        },
+        {
+          "key": "tongCong",
+          "header": "Tổng công hưởng lương",
+          "type": "formula",
+          "width": 18,
+          "formula": "=IF([hoTen]{row}=\"\",\"\",[ngayCong]{row}+[nghiPhep]{row})",
+          "note": "Cộng ngày công thực tế với ngày nghỉ phép, vì nghỉ phép năm vẫn được hưởng lương. Hàm IF ở ngoài để dòng chưa có tên nhân viên thì để trống thay vì hiện số 0."
+        },
+        {
+          "key": "tyLeChuyenCan",
+          "header": "Tỷ lệ chuyên cần",
+          "type": "formula",
+          "width": 16,
+          "format": "percent",
+          "formula": "=IF([hoTen]{row}=\"\",\"\",IFERROR([tongCong]{row}/[congChuan]{row},0))",
+          "note": "Lấy tổng công hưởng lương chia cho công chuẩn của tháng. Bọc IFERROR để khi cột Công chuẩn còn trống thì trả về 0 thay vì báo lỗi #DIV/0!."
+        },
+        {
+          "key": "xepLoai",
+          "header": "Xếp loại",
+          "type": "formula",
+          "width": 16,
+          "formula": "=IF([hoTen]{row}=\"\",\"\",IF([tyLeChuyenCan]{row}>=1,\"Đủ công\",IF([tyLeChuyenCan]{row}>=0.9,\"Khá\",\"Cần xem lại\")))",
+          "note": "Hai hàm IF lồng nhau: từ 100% trở lên là Đủ công, từ 90% đến dưới 100% là Khá, còn lại là Cần xem lại. Đổi ngưỡng bằng cách sửa hai số 1 và 0.9."
+        }
+      ],
+      "sampleRows": [
+        {
+          "stt": 1,
+          "maNV": "NV001",
+          "hoTen": "Nguyễn Thị Mai",
+          "boPhan": "Kinh doanh",
+          "congChuan": 26,
+          "ngayCong": 24,
+          "nghiPhep": 2,
+          "nghiKhongLuong": 0,
+          "gioTangCa": 8
+        },
+        {
+          "stt": 2,
+          "maNV": "NV002",
+          "hoTen": "Trần Văn Hùng",
+          "boPhan": "Kỹ thuật",
+          "congChuan": 26,
+          "ngayCong": 26,
+          "nghiPhep": 0,
+          "nghiKhongLuong": 0,
+          "gioTangCa": 12
+        },
+        {
+          "stt": 3,
+          "maNV": "NV003",
+          "hoTen": "Lê Thu Hà",
+          "boPhan": "Kế toán",
+          "congChuan": 26,
+          "ngayCong": 21,
+          "nghiPhep": 1,
+          "nghiKhongLuong": 4,
+          "gioTangCa": 0
+        },
+        {
+          "stt": 4,
+          "maNV": "NV004",
+          "hoTen": "Phạm Minh Đức",
+          "boPhan": "Kho vận",
+          "congChuan": 26,
+          "ngayCong": 25,
+          "nghiPhep": 0,
+          "nghiKhongLuong": 1,
+          "gioTangCa": 16
+        }
+      ]
+    }
+  ]
+}
