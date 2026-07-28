@@ -1,0 +1,181 @@
+{
+  "slug": "danh-sach-nhan-vien",
+  "category": "nhan-su",
+  "h1": "Mẫu Excel danh sách nhân viên (hồ sơ gốc của cả bộ file nhân sự)",
+  "metaTitle": "Mẫu Excel Danh Sách Nhân Viên - Tải Miễn Phí",
+  "metaDesc": "Mẫu Excel danh sách nhân viên quản lý mã NV, bộ phận, ngày vào, ngày nghỉ và lương hợp đồng. Là file gốc để bảng chấm công và bảng lương tra sang. Tải miễn phí.",
+  "primaryKeyword": "mẫu excel danh sách nhân viên",
+  "intro": "Mẫu Excel danh sách nhân viên này là hồ sơ gốc của cả quy trình nhân sự: mỗi người một dòng, một mã nhân viên duy nhất, kèm bộ phận, ngày vào, ngày nghỉ và mức lương theo hợp đồng. Mọi file khác trong bộ đều tra ngược về đây theo mã nhân viên, nên chỉ cần sửa bộ phận hay lương ở file này là bảng chấm công và bảng lương cập nhật theo, không phải sửa lại ở ba chỗ. Cột trạng thái tự phân biệt người đang làm với người đã nghỉ dựa vào ô ngày nghỉ có trống hay không.",
+  "difficulty": "co-ban",
+  "features": [
+    "Mỗi nhân viên một mã duy nhất, dùng làm khóa nối sang mọi file khác",
+    "Tự gắn trạng thái Đang làm hay Đã nghỉ theo ô ngày nghỉ việc",
+    "Tự tính thu nhập cố định hằng tháng, người đã nghỉ trả về 0",
+    "Chọn bộ phận từ danh sách có sẵn nên không bao giờ gõ lệch tên",
+    "Giữ nguyên dòng của người đã nghỉ để còn tra cứu lịch sử"
+  ],
+  "howToUse": [
+    {
+      "step": "Đặt quy tắc mã nhân viên rồi giữ nguyên mãi mãi",
+      "detail": "Mã nhân viên là thứ mọi file khác dùng để tra sang, nên khi đã cấp thì không đổi và không dùng lại cho người khác. Dạng NV001 tăng dần là đủ. Người nghỉ việc rồi quay lại vẫn giữ mã cũ."
+    },
+    {
+      "step": "Nhập thông tin và lương theo hợp đồng",
+      "detail": "Lương cơ bản điền đúng mức ghi trên hợp đồng lao động vì đó là căn cứ đóng bảo hiểm. Phụ cấp điền tổng các khoản cố định hằng tháng như ăn trưa, xăng xe, điện thoại — khoản nào thay đổi theo tháng thì đừng để ở đây."
+    },
+    {
+      "step": "Nhập ngày vào, để trống ngày nghỉ",
+      "detail": "Ô ngày nghỉ chỉ điền khi người đó thực sự nghỉ việc. Đang làm thì để trống, cột Trạng thái sẽ tự hiện Đang làm. Đây là ô duy nhất quyết định người đó còn được tính vào quân số hay không."
+    },
+    {
+      "step": "Khi có người nghỉ việc, đừng xóa dòng",
+      "detail": "Chỉ điền ngày nghỉ vào. Xóa dòng thì bảng lương và bảng chấm công của các tháng trước mất chỗ tra mã nhân viên, và mọi báo cáo cũ đều hỏng theo."
+    },
+    {
+      "step": "Cập nhật số người phụ thuộc khi có thay đổi",
+      "detail": "Số người phụ thuộc đã đăng ký với cơ quan thuế, ảnh hưởng trực tiếp tới thuế TNCN bên bảng lương. Sinh con hay đăng ký thêm cha mẹ thì sửa ở đây, bảng lương tự lấy sang."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Vì sao phải có mã nhân viên, dùng họ tên không được à?",
+      "a": "Vì họ tên trùng nhau rất thường xuyên và hay bị gõ lệch dấu, lệch khoảng trắng. Hai người cùng tên Nguyễn Văn Nam thì mọi công thức tra cứu đều trả về người đầu tiên, và bạn sẽ trả lương của người này cho người kia mà không có gì báo lỗi. Mã nhân viên là thứ duy nhất chắc chắn không trùng."
+    },
+    {
+      "q": "Người nghỉ việc giữa tháng thì tính lương thế nào?",
+      "a": "Vẫn để nguyên dòng và điền ngày nghỉ. Tháng đó họ vẫn có số công trong bảng chấm công, nên bảng lương vẫn tính đúng phần lương theo công của những ngày đã làm. Sang tháng sau họ không còn công nào nên tự động không phát sinh lương."
+    },
+    {
+      "q": "Cột Thu nhập cố định khác gì cột Thực lĩnh bên bảng lương?",
+      "a": "Cột này chỉ là lương cơ bản cộng phụ cấp theo hợp đồng, tức là con số lý thuyết khi đi làm đủ công và chưa trừ gì. Thực lĩnh bên bảng lương mới là số tiền thật, đã tính theo số công và đã trừ bảo hiểm với thuế. Dùng cột này để ước lượng nhanh quỹ lương kế hoạch của tháng."
+    },
+    {
+      "q": "Tôi muốn thêm cột số điện thoại, số CCCD thì có sao không?",
+      "a": "Thêm được, chèn cột mới vào bên phải các cột có sẵn. Đừng chèn xen vào giữa và đừng đổi thứ tự cột hiện có, vì công thức tra cứu ở các file khác đếm theo vị trí cột. Lưu ý dữ liệu cá nhân như CCCD thì file này cần được đặt quyền truy cập hạn chế."
+    }
+  ],
+  "ctaText": "Học cách dựng hệ thống hồ sơ nhân sự chuẩn trên Excel",
+  "relatedSlugs": ["bang-cham-cong-nhan-vien", "bang-tinh-luong-nhan-vien"],
+  "updatedAt": "2026-07-28",
+  "sheets": [
+    {
+      "name": "Danh sách NV",
+      "description": "Hồ sơ gốc, mỗi nhân viên một dòng. Giữ cả người đã nghỉ để tra cứu lịch sử.",
+      "blankRows": 25,
+      "columns": [
+        { "key": "stt", "header": "STT", "type": "number", "width": 6 },
+        { "key": "maNV", "header": "Mã NV", "type": "text", "width": 12 },
+        { "key": "hoTen", "header": "Họ và tên", "type": "text", "width": 24 },
+        {
+          "key": "boPhan",
+          "header": "Bộ phận",
+          "type": "text",
+          "width": 18,
+          "validation": {
+            "type": "list",
+            "options": ["Kinh doanh", "Kế toán", "Nhân sự", "Kỹ thuật", "Kho vận"]
+          }
+        },
+        { "key": "chucDanh", "header": "Chức danh", "type": "text", "width": 22 },
+        { "key": "ngayVao", "header": "Ngày vào làm", "type": "date", "width": 14 },
+        { "key": "ngayNghi", "header": "Ngày nghỉ việc", "type": "date", "width": 14 },
+        {
+          "key": "luongCoBan",
+          "header": "Lương cơ bản",
+          "type": "currency",
+          "width": 16,
+          "validation": { "type": "decimal", "min": 0, "max": 1000000000 }
+        },
+        {
+          "key": "phuCap",
+          "header": "Phụ cấp",
+          "type": "currency",
+          "width": 14,
+          "validation": { "type": "decimal", "min": 0, "max": 1000000000 }
+        },
+        {
+          "key": "nguoiPhuThuoc",
+          "header": "Số người phụ thuộc",
+          "type": "number",
+          "width": 16,
+          "validation": { "type": "whole", "min": 0, "max": 20 }
+        },
+        {
+          "key": "trangThai",
+          "header": "Trạng thái",
+          "type": "formula",
+          "width": 14,
+          "formula": "=IF([hoTen]{row}=\"\",\"\",IF([ngayNghi]{row}=\"\",\"Đang làm\",\"Đã nghỉ\"))",
+          "note": "Chỉ đọc ô Ngày nghỉ việc: trống thì Đang làm, có ngày thì Đã nghỉ. Nhờ vậy bạn không phải giữ thêm một cột trạng thái nhập tay, vốn là chỗ hay quên cập nhật nhất."
+        },
+        {
+          "key": "thuNhapCoDinh",
+          "header": "Thu nhập cố định",
+          "type": "formula",
+          "width": 18,
+          "format": "currency",
+          "formula": "=IF([hoTen]{row}=\"\",\"\",IF([trangThai]{row}=\"Đã nghỉ\",0,[luongCoBan]{row}+[phuCap]{row}))",
+          "note": "Lương cơ bản cộng phụ cấp của người đang làm, người đã nghỉ trả về 0. Cộng cả cột này lại được quỹ lương kế hoạch hằng tháng khi mọi người đi làm đủ công."
+        }
+      ],
+      "sampleRows": [
+        {
+          "stt": 1,
+          "maNV": "NV001",
+          "hoTen": "Nguyễn Thị Mai",
+          "boPhan": "Kinh doanh",
+          "chucDanh": "Nhân viên kinh doanh",
+          "ngayVao": "2023-03-06",
+          "luongCoBan": 18000000,
+          "phuCap": 2000000,
+          "nguoiPhuThuoc": 0
+        },
+        {
+          "stt": 2,
+          "maNV": "NV002",
+          "hoTen": "Trần Văn Hùng",
+          "boPhan": "Kỹ thuật",
+          "chucDanh": "Trưởng phòng kỹ thuật",
+          "ngayVao": "2021-08-16",
+          "luongCoBan": 35000000,
+          "phuCap": 3000000,
+          "nguoiPhuThuoc": 2
+        },
+        {
+          "stt": 3,
+          "maNV": "NV003",
+          "hoTen": "Lê Thu Hà",
+          "boPhan": "Kế toán",
+          "chucDanh": "Kế toán tổng hợp",
+          "ngayVao": "2024-01-02",
+          "luongCoBan": 12000000,
+          "phuCap": 1500000,
+          "nguoiPhuThuoc": 1
+        },
+        {
+          "stt": 4,
+          "maNV": "NV004",
+          "hoTen": "Phạm Minh Đức",
+          "boPhan": "Kho vận",
+          "chucDanh": "Giám đốc vận hành",
+          "ngayVao": "2020-05-04",
+          "luongCoBan": 70000000,
+          "phuCap": 5000000,
+          "nguoiPhuThuoc": 2
+        },
+        {
+          "stt": 5,
+          "maNV": "NV005",
+          "hoTen": "Vũ Hải Yến",
+          "boPhan": "Nhân sự",
+          "chucDanh": "Chuyên viên tuyển dụng",
+          "ngayVao": "2022-11-01",
+          "ngayNghi": "2026-06-30",
+          "luongCoBan": 15000000,
+          "phuCap": 1500000,
+          "nguoiPhuThuoc": 0
+        }
+      ]
+    }
+  ]
+}

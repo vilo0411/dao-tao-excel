@@ -9,10 +9,13 @@ import { Analytics } from "@/components/Analytics";
 // Cả ba font đều phải có subset vietnamese, nếu không dấu sẽ rơi về font hệ
 // thống và gây layout shift. Instrument Serif từng cân nhắc nhưng bị loại vì
 // không hỗ trợ tiếng Việt.
+//
+// Archivo nạp weight nhẹ chứ không nạp 700: tiêu đề ở đây to mà không đậm.
+// 600 giữ lại cho wordmark trên nav, chỗ duy nhất cần nặng hơn thân bài.
 const display = Archivo({
   variable: "--font-archivo",
   subsets: ["latin", "vietnamese"],
-  weight: ["600", "700"],
+  weight: ["400", "500", "600"],
   display: "swap",
 });
 
@@ -71,13 +74,17 @@ export default function RootLayout({
 
         <header className="border-b border-rule">
           <nav className="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-x-6 gap-y-2 px-5 py-4">
-            <Link href="/" className="font-display font-bold tracking-tight">
+            <Link href="/" className="font-display font-semibold tracking-tight">
               {SITE_NAME}
               <span className="ml-2 font-sans text-sm font-normal text-ink-soft">
                 của {AUTHOR.name}
               </span>
             </Link>
             <div className="flex items-center gap-6 text-sm">
+              {/* Một cửa vào duy nhất cho thư viện. Bộ file nằm bên trong nó
+                  (/mau-excel/bo-file), không đứng riêng trên nav — hai mục nav
+                  cho cùng một tập file thì người đọc phải đoán xem mục nào
+                  chứa thứ mình cần. */}
               <Link href="/mau-excel" className="hover:text-input">
                 Thư viện file
               </Link>
@@ -90,7 +97,7 @@ export default function RootLayout({
 
         <main className="flex-1">{children}</main>
 
-        <footer className="mt-20 border-t border-rule py-10 text-sm text-ink-soft">
+        <footer className="mt-24 border-t border-rule py-16 text-sm text-ink-soft">
           <div className="mx-auto max-w-5xl px-5">
             <p className="max-w-prose">{AUTHOR.disclosure}</p>
             <p className="mt-4">

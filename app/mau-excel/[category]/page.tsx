@@ -2,21 +2,27 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { CourseCta } from "@/components/CourseCta";
-import { TemplateCard } from "@/components/TemplateCard";
+import { SystemCard } from "@/components/SystemCard";
+import { cardGridClass, TemplateCard } from "@/components/TemplateCard";
 import { getTemplatesByCategory } from "@/lib/templates";
 import {
-  absoluteUrl,
-  CATEGORIES,
-  CATEGORY_SLUGS,
-  isCategorySlug,
-} from "@/lib/site";
+  getPopulatedCategories,
+  getSystemsByCategory,
+  toSystemCardData,
+} from "@/lib/systems";
+import { absoluteUrl, CATEGORIES, isCategorySlug } from "@/lib/site";
 
 type Params = { category: string };
 
 export const dynamicParams = false;
 
+/**
+ * Chỉ dựng nhóm việc đã có nội dung. Nhóm rỗng thành 404 chứ không thành một
+ * trang chỉ có h1 và một câu mô tả — xem getPopulatedCategories() để biết vì
+ * sao loại khỏi sitemap thôi là chưa đủ.
+ */
 export function generateStaticParams(): Params[] {
-  return CATEGORY_SLUGS.map((category) => ({ category }));
+  return getPopulatedCategories().map((category) => ({ category }));
 }
 
 export async function generateMetadata({
@@ -45,6 +51,7 @@ export default async function CategoryPage({
 
   const meta = CATEGORIES[category];
   const templates = getTemplatesByCategory(category);
+  const systems = getSystemsByCategory(category);
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -68,7 +75,7 @@ export default async function CategoryPage({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <div className="mx-auto max-w-5xl px-5 py-14">
+      <div className="mx-auto max-w-5xl px-5 py-24">
         <nav aria-label="Breadcrumb" className="text-sm text-ink-soft">
           <ol className="flex flex-wrap items-center gap-2">
             <li>
@@ -81,26 +88,39 @@ export default async function CategoryPage({
           </ol>
         </nav>
 
-        <h1 className="font-display mt-5 text-3xl font-bold sm:text-4xl">
+        <h1 className="font-display mt-6 text-4xl leading-[1.05] sm:text-5xl">
           File Excel {meta.name}
         </h1>
-        <p className="mt-5 max-w-prose text-lg text-ink-soft">
+        <p className="mt-6 max-w-prose text-lg text-ink-soft">
           {meta.description}
         </p>
 
+        {/* Bộ file đứng trên lưới file lẻ: người vào nhóm việc thường đang tìm
+            cách làm cả quy trình, không phải một file đơn. */}
+        {systems.length > 0 && (
+          <section className="mt-10">
+            <h2 className="font-display text-2xl">Bộ file của nhóm này</h2>
+            <ul className={`mt-5 ${cardGridClass(systems.length)}`}>
+              {systems.map((system) => (
+                <SystemCard key={system.slug} system={toSystemCardData(system)} />
+              ))}
+            </ul>
+          </section>
+        )}
+
         {templates.length > 0 ? (
-          <ul className="mt-10 grid gap-px border border-rule bg-rule sm:grid-cols-2 lg:grid-cols-3">
+          <ul className={`mt-10 ${cardGridClass(templates.length)}`}>
             {templates.map((template) => (
               <TemplateCard key={template.slug} template={template} />
             ))}
           </ul>
         ) : (
-          <p className="mt-10 border border-rule bg-panel p-6 text-ink-soft">
+          <p className="mt-10 rounded-md border border-rule bg-panel p-6 text-ink-soft">
             Nhóm này tôi đang dựng, chưa có file nào.
           </p>
         )}
 
-        <div className="mt-14">
+        <div className="mt-24">
           <CourseCta
             target={meta.defaultCta}
             text={`Muốn tự dựng bộ file ${meta.name.toLowerCase()} của riêng mình?`}

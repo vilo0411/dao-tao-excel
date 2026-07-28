@@ -57,11 +57,11 @@ export function AuthorByline() {
 /** Khối giới thiệu đầy đủ, dùng ở trang chủ và trang khóa học. */
 export function AuthorCard() {
   return (
-    <section className="border border-rule bg-panel p-6 sm:p-8">
+    <section className="rounded-md border border-rule bg-panel p-6 sm:p-8">
       <div className="flex flex-wrap items-center gap-4">
         <Avatar size={64} />
         <div>
-          <p className="font-display text-lg font-bold">{AUTHOR.name}</p>
+          <p className="font-display text-xl font-medium">{AUTHOR.name}</p>
           <p className="text-sm text-ink-soft">{AUTHOR.role}</p>
         </div>
       </div>

@@ -1,20 +1,43 @@
 @import "tailwindcss";
 
 /*
-  Hệ thiết kế lấy từ ngôn ngữ của chính bảng tính.
+  Hệ thiết kế có hai tầng, và ranh giới giữa chúng là luật cứng.
 
-  Nguyên tắc màu: không có màu trang trí. Hai màu nhấn mã hóa đúng sự phân biệt
-  mà cả site đang dạy — ô người dùng gõ vào, và ô Excel tự tính ra. Người đọc
-  học được quy ước này ngay ở bảng preview đầu tiên rồi dùng lại nó ở mọi trang.
+  TẦNG BIÊN TẬP — mọi thứ nằm ngoài lưới bảng tính. Canvas trắng, chữ ink
+  gần đen, nhịp dọc 96px, nhấn bằng cỡ chữ chứ không bằng độ đậm. Điện áp
+  thương hiệu nằm ở các band signature (coral, forest, dark, cream) cứ vài
+  màn hình lại chen vào một lần để cắt sự đều đều của bài dài.
+
+  TẦNG BẢNG TÍNH — bên trong SheetPreview. Đây là phương ngữ riêng: bo góc 0
+  tuyệt đối, font mono, và hai màu mang nghĩa chứ không trang trí — ô người
+  dùng gõ vào, và ô Excel tự tính ra. Người đọc học quy ước này ngay ở bảng
+  preview đầu tiên rồi dùng lại nó ở mọi trang.
+
+  LUẬT RANH GIỚI, cả hai chiều:
+  - coral / forest / cream / surface-* và mọi rounded-* KHÔNG được dùng bên
+    trong lưới. Một bảng tính bo góc là một bảng tính sai.
+  - input / computed KHÔNG được dùng làm màu trang trí ngoài lưới (nút, hover,
+    band). Chúng đang mang nghĩa; dùng sai chỗ là làm nhiễu thứ site đang dạy.
 */
 @theme {
-  --color-ink: #14181c;
-  --color-ink-soft: #525d68;
-  --color-ink-faint: #8a949d;
+  /* ---- Tầng biên tập ---- */
+  --color-ink: #181d26;
+  --color-ink-soft: #41454d;
+  --color-ink-faint: #6b7280;
 
-  --color-paper: #fcfcfb;
-  --color-panel: #f4f6f4;
-  --color-rule: #dee3df;
+  --color-paper: #ffffff;
+  --color-panel: #f8fafc;
+  --color-rule: #dddddd;
+
+  /* Bề mặt của band signature. Dùng full-bleed cho cả khối, không bao giờ
+     làm màu nhấn cho một chi tiết nhỏ. */
+  --color-surface-strong: #e0e2e6;
+  --color-surface-dark: #181d26;
+  --color-coral: #aa2d00;
+  --color-forest: #0a2e0e;
+  --color-cream: #f5e9d4;
+
+  /* ---- Tầng bảng tính: mang nghĩa, không đụng vào ---- */
 
   /* Ô người dùng nhập tay */
   --color-input: #1f4b99;
@@ -24,8 +47,14 @@
   --color-computed: #0e6b4a;
   --color-computed-bg: #e6f2ec;
 
-  /* Chỉ dùng cho ô báo lỗi (#DIV/0!, #REF!) */
-  --color-flag: #a63a21;
+  /* Chỉ dùng cho ô báo lỗi (#DIV/0!, #REF!) và lỗi form. Tông cam hổ phách,
+     cố ý tách xa coral để không ai nhầm một band nhấn với một ô hỏng. */
+  --color-flag: #b45309;
+
+  /* ---- Hình khối ---- */
+  --radius-sm: 6px; /* ô nhập liệu */
+  --radius-md: 10px; /* card nội dung, khung ngoài của lưới card */
+  --radius-lg: 12px; /* nút chính, band signature */
 
   --font-display: var(--font-archivo), system-ui, sans-serif;
   --font-sans: var(--font-be-vietnam), system-ui, sans-serif;
@@ -40,11 +69,16 @@ body {
   line-height: 1.65;
 }
 
+/*
+  Tiêu đề không bao giờ đậm hơn 500. Sức nặng đến từ cỡ chữ và từ nền của
+  band bên dưới nó — thêm độ đậm vào là quay về giọng trang bán hàng.
+*/
 h1,
 h2,
 h3 {
   font-family: var(--font-display);
-  letter-spacing: -0.02em;
+  font-weight: 400;
+  letter-spacing: -0.01em;
   line-height: 1.15;
 }
 
@@ -59,6 +93,34 @@ kbd,
 :focus-visible {
   outline: 2px solid var(--color-input);
   outline-offset: 2px;
+}
+
+/* Trên band tối và band coral, viền focus xanh chìm mất. Đổi sang trắng. */
+.on-dark :focus-visible {
+  outline-color: var(--color-paper);
+}
+
+/*
+  Ô công thức chớp một cái khi tính lại.
+  Excel thật không làm vậy, nhưng ở đây nó gánh một việc cụ thể: chứng minh ô
+  xanh lá phụ thuộc vào ô xanh dương. Không có cú chớp, người sửa số rất dễ
+  bỏ lỡ những ô đã đổi theo ở phía dưới màn hình.
+*/
+@keyframes cell-recalc {
+  from {
+    background-color: var(--color-computed);
+    color: var(--color-paper);
+  }
+  to {
+    background-color: transparent;
+    color: inherit;
+  }
+}
+
+.cell-recalc {
+  animation: cell-recalc 600ms ease-out backwards;
+  /* Nền chỉ được phủ đúng dãy số, không tràn ra cả ô. */
+  padding-inline: 2px;
 }
 
 @media (prefers-reduced-motion: reduce) {

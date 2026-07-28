@@ -53,10 +53,19 @@ export function CourseCta({
     );
   }
 
+  /*
+   * Bề mặt tối, không phải hộp viền xanh nhạt như trước. Đây là lời mời
+   * thương mại duy nhất trong cả bài, nên nó được là khoảnh khắc to tiếng —
+   * và một khối đặc cắt ngang dòng chảy trắng thì khó lướt qua hơn nhiều.
+   *
+   * Xanh `input` cố tình không xuất hiện ở đây: màu đó đang mang nghĩa "ô
+   * người dùng gõ vào" trong bảng preview, dùng lại làm nút quảng cáo là làm
+   * nhiễu đúng quy ước mà cả site đang dạy.
+   */
   return (
-    <aside className="border-l-2 border-input bg-input-bg/50 p-6 sm:p-7">
-      <p className="font-display text-lg font-bold text-balance">{text}</p>
-      <p className="mt-3 max-w-prose text-ink-soft">
+    <aside className="on-dark rounded-lg bg-surface-dark p-8 text-paper sm:p-12">
+      <p className="font-display text-2xl text-balance sm:text-3xl">{text}</p>
+      <p className="mt-5 max-w-prose">
         Chỗ tôi thấy đáng học là khóa Excel của HVS Tài Chính Số. Họ dạy đúng
         phần mà file mẫu không dạy được: cách tự dựng lại bảng biểu khi yêu cầu
         thay đổi, thay vì đi tìm file khác.
@@ -66,7 +75,7 @@ export function CourseCta({
         onClick={handleClick}
         target="_blank"
         rel="noopener"
-        className="mt-5 inline-block bg-input px-5 py-3 font-medium text-paper hover:bg-ink"
+        className="mt-8 inline-block rounded-lg bg-paper px-6 py-4 font-medium text-ink hover:bg-paper/90"
       >
         Xem khóa học bên HVS
       </a>

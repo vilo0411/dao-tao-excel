@@ -1,0 +1,246 @@
+{
+  "slug": "bang-tong-hop-nhan-su-thang",
+  "category": "nhan-su",
+  "h1": "Mẫu Excel tổng hợp nhân sự theo tháng cho cả công ty",
+  "metaTitle": "Mẫu Excel Tổng Hợp Nhân Sự Tháng - Tải Miễn Phí",
+  "metaDesc": "Mẫu Excel tổng hợp nhân sự theo tháng, gom quỹ lương, tỷ lệ đi làm và biến động nhân sự của từng bộ phận vào một trang. Tải miễn phí, có sẵn công thức.",
+  "primaryKeyword": "mẫu excel tổng hợp nhân sự",
+  "intro": "Mẫu Excel tổng hợp nhân sự này là file cuối cùng trong quy trình hằng tháng: nó không dùng để nhập số liệu thô mà để đọc kết quả. Bạn gõ vào bốn con số đã chốt của từng bộ phận, còn tỷ lệ đi làm, lương bình quân, chi phí mỗi ngày công và cảnh báo đều tự tính. Đây là trang một dòng một bộ phận mà trưởng phòng hay giám đốc cần, thay vì phải mở lần lượt bảng chấm công và bảng lương của cả công ty.",
+  "difficulty": "trung-cap",
+  "features": [
+    "Tự tính tỷ lệ đi làm của từng bộ phận từ tổng công và công chuẩn",
+    "Tự tính lương bình quân đầu người và chi phí lương cho mỗi ngày công",
+    "Tự gắn cảnh báo Đạt / Theo dõi / Cần xem lại theo tỷ lệ đi làm",
+    "Sheet biến động nhân sự tự tính quân số cuối kỳ và tỷ lệ nghỉ việc",
+    "Chọn bộ phận từ danh sách có sẵn, khớp đúng với bảng chấm công"
+  ],
+  "howToUse": [
+    {
+      "step": "Chốt số liệu ở các file đầu vào trước",
+      "detail": "File này chỉ tổng hợp lại, nên phải chốt bảng chấm công và bảng tính lương của tháng xong đã. Mở file tổng khi số liệu còn đang chạy thì con số bạn đọc được là con số sai."
+    },
+    {
+      "step": "Nhập quân số và công chuẩn của từng bộ phận",
+      "detail": "Cột Số nhân viên lấy từ hồ sơ nhân viên tại thời điểm cuối tháng. Công chuẩn là số ngày làm việc theo quy định của tháng đó, thường giống nhau ở mọi bộ phận."
+    },
+    {
+      "step": "Nhập tổng công và quỹ lương từ hai file kia",
+      "detail": "Tổng công thực tế là tổng cột Tổng công hưởng lương trong bảng chấm công, lọc theo từng bộ phận. Quỹ lương là tổng cột Thực lĩnh trong bảng tính lương, cũng lọc theo bộ phận. Dùng SUMIF theo cột Bộ phận thì nhanh hơn lọc tay."
+    },
+    {
+      "step": "Đọc cột cảnh báo trước, rồi mới đọc số",
+      "detail": "Cột Cảnh báo chỉ ra ngay bộ phận nào đang có tỷ lệ đi làm thấp. Bộ phận nào bị Cần xem lại thì quay ngược về bảng chấm công của bộ phận đó để tìm nguyên nhân."
+    },
+    {
+      "step": "Nhập sheet Biến động NS vào cuối tháng",
+      "detail": "Quân số đầu kỳ là số cuối kỳ của tháng trước, chép sang. Số vào mới và nghỉ việc lấy từ hồ sơ nhân viên. Cột Cuối kỳ tự tính, và nó phải khớp với cột Số nhân viên ở sheet đầu — lệch nhau là có chỗ ghi sót."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Vì sao file tổng vẫn phải nhập tay, không tự lấy số từ file kia?",
+      "a": "Vì liên kết giữa các file Excel rời rất dễ gãy: chỉ cần đổi tên file hoặc chuyển thư mục là toàn bộ công thức trả về #REF!, mà lỗi đó thì người không rành Excel không sửa được. Bốn ô nhập tay mỗi bộ phận, một lần mỗi tháng, đổi lại là một file không bao giờ vỡ."
+    },
+    {
+      "q": "Cột Cuối kỳ lệch với cột Số nhân viên ở sheet đầu thì sao?",
+      "a": "Đó là dấu hiệu số liệu có chỗ sai, và file cố tình để bạn thấy điều đó. Thường là do ai đó vào hoặc nghỉ giữa tháng mà chưa ghi vào hồ sơ nhân viên. Kiểm lại danh sách rồi sửa ở file hồ sơ trước, đừng sửa thẳng vào file tổng."
+    },
+    {
+      "q": "Tôi muốn đổi ngưỡng cảnh báo thì sửa ở đâu?",
+      "a": "Sửa hai số 0.95 và 0.9 trong công thức cột Cảnh báo, rồi kéo xuống các dòng còn lại. Ngưỡng mặc định phù hợp với công ty làm giờ hành chính; nơi có nhiều ca kíp hoặc lao động thời vụ thường phải hạ xuống."
+    },
+    {
+      "q": "Chi phí mỗi ngày công dùng để làm gì?",
+      "a": "Nó cho biết một ngày công của bộ phận đó tốn bao nhiêu tiền lương, nên so được giữa các bộ phận và so được giữa các tháng. Con số này nhảy vọt mà quỹ lương không tăng thì nghĩa là số ngày công giảm — thường là dấu hiệu nghỉ việc hoặc nghỉ không lương tăng."
+    }
+  ],
+  "ctaText": "Học cách tự dựng file tổng hợp và dashboard nhân sự trên Excel",
+  "relatedSlugs": ["bang-cham-cong-nhan-vien", "bang-tinh-luong-nhan-vien"],
+  "updatedAt": "2026-07-28",
+  "sheets": [
+    {
+      "name": "Tổng hợp",
+      "description": "Mỗi dòng là một bộ phận, gom lại số liệu đã chốt của cả tháng.",
+      "blankRows": 15,
+      "columns": [
+        { "key": "stt", "header": "STT", "type": "number", "width": 6 },
+        {
+          "key": "boPhan",
+          "header": "Bộ phận",
+          "type": "text",
+          "width": 18,
+          "validation": {
+            "type": "list",
+            "options": ["Kinh doanh", "Kế toán", "Nhân sự", "Kỹ thuật", "Kho vận"]
+          }
+        },
+        {
+          "key": "soNV",
+          "header": "Số nhân viên",
+          "type": "number",
+          "width": 14,
+          "validation": { "type": "whole", "min": 0, "max": 5000 }
+        },
+        {
+          "key": "congChuan",
+          "header": "Công chuẩn",
+          "type": "number",
+          "width": 12,
+          "validation": { "type": "decimal", "min": 0, "max": 31 }
+        },
+        {
+          "key": "tongCong",
+          "header": "Tổng công thực tế",
+          "type": "number",
+          "width": 18,
+          "validation": { "type": "decimal", "min": 0, "max": 100000 }
+        },
+        {
+          "key": "quyLuong",
+          "header": "Quỹ lương thực chi",
+          "type": "currency",
+          "width": 20
+        },
+        {
+          "key": "tyLeDiLam",
+          "header": "Tỷ lệ đi làm",
+          "type": "formula",
+          "width": 14,
+          "format": "percent",
+          "formula": "=IF([boPhan]{row}=\"\",\"\",IFERROR([tongCong]{row}/([soNV]{row}*[congChuan]{row}),0))",
+          "note": "Tổng công thực tế chia cho số công đáng lẽ phải có, tức số nhân viên nhân công chuẩn. Bọc IFERROR để dòng chưa nhập quân số thì trả về 0 thay vì báo lỗi #DIV/0!."
+        },
+        {
+          "key": "luongBinhQuan",
+          "header": "Lương bình quân",
+          "type": "formula",
+          "width": 18,
+          "format": "currency",
+          "formula": "=IF([boPhan]{row}=\"\",\"\",IFERROR([quyLuong]{row}/[soNV]{row},0))",
+          "note": "Quỹ lương thực chi chia cho số nhân viên của bộ phận. Đây là lương bình quân đầu người thực lĩnh, không phải lương gộp trước bảo hiểm và thuế."
+        },
+        {
+          "key": "chiPhiMoiCong",
+          "header": "Chi phí mỗi ngày công",
+          "type": "formula",
+          "width": 20,
+          "format": "currency",
+          "formula": "=IF([boPhan]{row}=\"\",\"\",IFERROR([quyLuong]{row}/[tongCong]{row},0))",
+          "note": "Quỹ lương chia cho tổng công thực tế. Khác với lương bình quân ở chỗ nó không bị bóp méo khi trong tháng có người nghỉ dài ngày."
+        },
+        {
+          "key": "canhBao",
+          "header": "Cảnh báo",
+          "type": "formula",
+          "width": 16,
+          "formula": "=IF([boPhan]{row}=\"\",\"\",IF([soNV]{row}=0,\"Không có NV\",IF([tyLeDiLam]{row}>=0.95,\"Đạt\",IF([tyLeDiLam]{row}>=0.9,\"Theo dõi\",\"Cần xem lại\"))))",
+          "note": "Đọc cột Tỷ lệ đi làm: từ 95% trở lên là Đạt, từ 90% đến dưới 95% là Theo dõi, dưới nữa là Cần xem lại. Đổi ngưỡng bằng cách sửa hai số 0.95 và 0.9. Hàm IF ngoài cùng tách riêng trường hợp bộ phận không còn ai: tỷ lệ đi làm khi đó bằng 0 và sẽ bị gắn nhầm là Cần xem lại, trong khi thực ra không có gì để xem."
+        }
+      ],
+      "sampleRows": [
+        {
+          "stt": 1,
+          "boPhan": "Kinh doanh",
+          "soNV": 8,
+          "congChuan": 26,
+          "tongCong": 198,
+          "quyLuong": 152000000
+        },
+        {
+          "stt": 2,
+          "boPhan": "Kế toán",
+          "soNV": 4,
+          "congChuan": 26,
+          "tongCong": 101,
+          "quyLuong": 78000000
+        },
+        {
+          "stt": 3,
+          "boPhan": "Nhân sự",
+          "soNV": 3,
+          "congChuan": 26,
+          "tongCong": 77,
+          "quyLuong": 54000000
+        },
+        {
+          "stt": 4,
+          "boPhan": "Kỹ thuật",
+          "soNV": 6,
+          "congChuan": 26,
+          "tongCong": 152,
+          "quyLuong": 138000000
+        },
+        {
+          "stt": 5,
+          "boPhan": "Kho vận",
+          "soNV": 5,
+          "congChuan": 26,
+          "tongCong": 118,
+          "quyLuong": 76000000
+        }
+      ]
+    },
+    {
+      "name": "Biến động NS",
+      "description": "Quân số ra vào trong tháng, dùng để đối chiếu ngược với sheet Tổng hợp.",
+      "blankRows": 15,
+      "columns": [
+        {
+          "key": "boPhan",
+          "header": "Bộ phận",
+          "type": "text",
+          "width": 18,
+          "validation": {
+            "type": "list",
+            "options": ["Kinh doanh", "Kế toán", "Nhân sự", "Kỹ thuật", "Kho vận"]
+          }
+        },
+        {
+          "key": "dauKy",
+          "header": "Đầu kỳ",
+          "type": "number",
+          "width": 12,
+          "validation": { "type": "whole", "min": 0, "max": 5000 }
+        },
+        {
+          "key": "vaoMoi",
+          "header": "Vào mới",
+          "type": "number",
+          "width": 12,
+          "validation": { "type": "whole", "min": 0, "max": 5000 }
+        },
+        {
+          "key": "nghiViec",
+          "header": "Nghỉ việc",
+          "type": "number",
+          "width": 12,
+          "validation": { "type": "whole", "min": 0, "max": 5000 }
+        },
+        {
+          "key": "cuoiKy",
+          "header": "Cuối kỳ",
+          "type": "formula",
+          "width": 12,
+          "formula": "=IF([boPhan]{row}=\"\",\"\",[dauKy]{row}+[vaoMoi]{row}-[nghiViec]{row})",
+          "note": "Quân số đầu kỳ cộng người vào mới trừ người nghỉ việc. Con số này phải khớp với cột Số nhân viên ở sheet Tổng hợp — lệch nhau là có chỗ ghi sót."
+        },
+        {
+          "key": "tyLeNghiViec",
+          "header": "Tỷ lệ nghỉ việc",
+          "type": "formula",
+          "width": 16,
+          "format": "percent",
+          "formula": "=IF([boPhan]{row}=\"\",\"\",IFERROR([nghiViec]{row}/[dauKy]{row},0))",
+          "note": "Số người nghỉ việc chia cho quân số đầu kỳ. Tính trên đầu kỳ chứ không phải cuối kỳ, để tháng nào tuyển bù nhiều cũng không làm tỷ lệ đẹp lên một cách giả tạo."
+        }
+      ],
+      "sampleRows": [
+        { "boPhan": "Kinh doanh", "dauKy": 8, "vaoMoi": 1, "nghiViec": 1 },
+        { "boPhan": "Kế toán", "dauKy": 4, "vaoMoi": 0, "nghiViec": 0 },
+        { "boPhan": "Nhân sự", "dauKy": 3, "vaoMoi": 0, "nghiViec": 0 },
+        { "boPhan": "Kỹ thuật", "dauKy": 6, "vaoMoi": 1, "nghiViec": 1 },
+        { "boPhan": "Kho vận", "dauKy": 6, "vaoMoi": 0, "nghiViec": 1 }
+      ]
+    }
+  ]
+}

@@ -1,5 +1,5 @@
 /**
- * Kiểm tra toàn bộ spec template và in ra bản tóm tắt để soát nội dung.
+ * Kiểm tra toàn bộ spec template và bộ file, in ra bản tóm tắt để soát nội dung.
  *
  *   npm run validate
  *
@@ -7,6 +7,7 @@
  * chính là lỗi sẽ làm gãy build — phát hiện sớm thay vì đợi deploy.
  */
 import { getAllTemplates, resolveFormula } from "../lib/templates.ts";
+import { getAllSystems, ROLE_LABEL } from "../lib/systems.ts";
 
 const templates = getAllTemplates();
 
@@ -36,3 +37,25 @@ for (const t of templates) {
 }
 
 console.log(`\n✓ ${templates.length} template hợp lệ`);
+
+const systems = getAllSystems();
+
+for (const s of systems) {
+  console.log(`\nbộ file: ${s.slug}  [${s.category}]`);
+  console.log(`  H1        ${s.h1}`);
+  console.log(`  metaTitle ${s.metaTitle.length} ký tự`);
+  console.log(`  metaDesc  ${s.metaDesc.length} ký tự`);
+  console.log(`  nhịp      ${s.cadence}`);
+  console.log(`  file      ${s.liveCount}/${s.totalCount} đã có`);
+  for (const node of s.nodes) {
+    const mark = node.status === "live" ? "✓" : "…";
+    console.log(`    ${mark} [${ROLE_LABEL[node.role]}] ${node.slug}`);
+  }
+  for (const edge of s.edges) {
+    console.log(`    ${edge.from} —(${edge.label})→ ${edge.to}`);
+  }
+}
+
+console.log(
+  `\n✓ ${systems.length} bộ file hợp lệ${systems.length === 0 ? " (chưa dựng bộ nào)" : ""}`,
+);

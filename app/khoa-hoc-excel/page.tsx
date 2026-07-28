@@ -77,12 +77,12 @@ export default function CoursePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <div className="mx-auto max-w-5xl px-5 py-14">
+      <div className="mx-auto max-w-5xl px-5 py-24">
         <div className="max-w-2xl">
           <p className="cell-ref text-sm text-ink-faint">
             {AUTHOR.name} giới thiệu
           </p>
-          <h1 className="font-display mt-3 text-4xl leading-[1.1] font-bold text-balance sm:text-5xl">
+          <h1 className="font-display mt-3 text-5xl leading-[1.05] text-balance sm:text-6xl">
             Đến lúc nào thì nên đi học Excel
           </h1>
           <p className="mt-6 max-w-prose text-lg text-ink-soft">
@@ -92,9 +92,9 @@ export default function CoursePage() {
           </p>
         </div>
 
-        <div className="mt-14 grid gap-14 lg:grid-cols-[1fr_360px]">
+        <div className="mt-24 grid gap-14 lg:grid-cols-[1fr_360px]">
           <div>
-            <h2 className="font-display text-2xl font-bold">
+            <h2 className="font-display text-3xl">
               Vì sao tôi giới thiệu khóa này
             </h2>
             <ul className="mt-6 space-y-6">
@@ -108,7 +108,7 @@ export default function CoursePage() {
               ))}
             </ul>
 
-            <h2 className="font-display mt-14 text-2xl font-bold">Học những gì</h2>
+            <h2 className="font-display mt-24 text-3xl">Học những gì</h2>
             {/* Đánh số vì đây là lộ trình có thứ tự, học phần sau cần phần trước. */}
             <ol className="mt-6 space-y-5">
               {MODULES.map((module, index) => (
@@ -129,7 +129,7 @@ export default function CoursePage() {
               ))}
             </ol>
 
-            <h2 className="font-display mt-14 text-2xl font-bold">
+            <h2 className="font-display mt-24 text-3xl">
               Ai thì đừng học
             </h2>
             <p className="mt-4 max-w-prose text-ink-soft">
@@ -139,7 +139,7 @@ export default function CoursePage() {
               Tôi nói trước để bạn khỏi mất tiền oan.
             </p>
 
-            <div className="mt-10 space-y-5">
+            <div className="mt-24 space-y-5">
               <CourseCta
                 target="hrCourse"
                 text="Nếu bạn làm nhân sự, đây là khóa sát nhất"
@@ -159,13 +159,13 @@ export default function CoursePage() {
               </p>
             </div>
 
-            <div className="mt-14">
+            <div className="mt-24">
               <AuthorCard />
             </div>
           </div>
 
-          <aside className="h-fit border border-rule bg-panel p-6 lg:sticky lg:top-6">
-            <h2 className="font-display text-xl font-bold">
+          <aside className="h-fit rounded-md border border-rule bg-panel p-6 lg:sticky lg:top-6">
+            <h2 className="font-display text-2xl">
               Muốn hỏi trước khi quyết định
             </h2>
 

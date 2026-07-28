@@ -65,7 +65,7 @@ export function LeadForm({ source }: { source?: string }) {
           type="text"
           autoComplete="name"
           required
-          className="w-full border border-rule bg-paper px-3 py-2"
+          className="w-full rounded-sm border border-rule bg-paper px-4 py-3"
         />
       </Field>
 
@@ -76,7 +76,7 @@ export function LeadForm({ source }: { source?: string }) {
           type="email"
           autoComplete="email"
           required
-          className="w-full border border-rule bg-paper px-3 py-2"
+          className="w-full rounded-sm border border-rule bg-paper px-4 py-3"
         />
       </Field>
 
@@ -91,7 +91,7 @@ export function LeadForm({ source }: { source?: string }) {
           type="tel"
           inputMode="numeric"
           autoComplete="tel"
-          className="w-full border border-rule bg-paper px-3 py-2"
+          className="w-full rounded-sm border border-rule bg-paper px-4 py-3"
         />
       </Field>
 
@@ -100,7 +100,7 @@ export function LeadForm({ source }: { source?: string }) {
           id="goal"
           name="goal"
           defaultValue={LEAD_GOALS[0].value}
-          className="w-full border border-rule bg-paper px-3 py-2"
+          className="w-full rounded-sm border border-rule bg-paper px-4 py-3"
         >
           {LEAD_GOALS.map((goal) => (
             <option key={goal.value} value={goal.value}>
@@ -119,7 +119,7 @@ export function LeadForm({ source }: { source?: string }) {
       <button
         type="submit"
         disabled={submitting}
-        className="w-full bg-ink px-6 py-3 font-medium text-paper hover:bg-input disabled:opacity-60"
+        className="w-full rounded-lg bg-ink px-6 py-4 font-medium text-paper hover:bg-ink/85 disabled:opacity-60"
       >
         {submitting ? "Đang gửi..." : "Nhận tư vấn khóa học"}
       </button>

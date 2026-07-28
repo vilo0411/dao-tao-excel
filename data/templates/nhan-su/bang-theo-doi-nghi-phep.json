@@ -1,0 +1,204 @@
+{
+  "slug": "bang-theo-doi-nghi-phep",
+  "category": "nhan-su",
+  "h1": "Mẫu Excel theo dõi nghỉ phép, tự tách ngày có lương và không lương",
+  "metaTitle": "Mẫu Excel Theo Dõi Nghỉ Phép - Tải Miễn Phí",
+  "metaDesc": "Mẫu Excel theo dõi nghỉ phép ghi từng đơn nghỉ, tự tách ngày nghỉ có hưởng lương với ngày nghỉ không lương và chỉ tính đơn đã duyệt. Tải miễn phí, có công thức.",
+  "primaryKeyword": "mẫu excel theo dõi nghỉ phép",
+  "intro": "Mẫu Excel theo dõi nghỉ phép này ghi theo từng đơn nghỉ chứ không ghi gộp theo tháng, nên bạn luôn truy được ai nghỉ ngày nào và ai đã duyệt. Ba cột cuối tự phân loại số ngày trong đơn thành ngày có hưởng lương, ngày không lương và ngày trừ vào quỹ phép năm — đây chính là ba con số mà bảng chấm công và bảng lương cần lấy sang. Đơn còn ở trạng thái chờ duyệt hay bị từ chối thì mọi cột tính đều trả về 0, nên số liệu chưa chốt không bao giờ lọt vào lương.",
+  "difficulty": "co-ban",
+  "features": [
+    "Ghi theo từng đơn nghỉ, truy được ngày nghỉ và người duyệt",
+    "Tự tách ngày nghỉ có hưởng lương với ngày nghỉ không lương",
+    "Đơn chờ duyệt hoặc bị từ chối tự trả về 0, không lọt vào lương",
+    "Tách riêng ngày trừ vào quỹ phép năm để đối chiếu cuối năm",
+    "Chọn loại nghỉ và trạng thái duyệt từ danh sách có sẵn"
+  ],
+  "howToUse": [
+    {
+      "step": "Ghi một dòng cho mỗi đơn nghỉ",
+      "detail": "Một người nghỉ ba lần trong tháng thì ghi ba dòng, đừng gộp lại. Gộp thì mất ngày cụ thể, và khi có tranh chấp về công hay lương thì không còn gì để đối chiếu."
+    },
+    {
+      "step": "Chọn đúng loại nghỉ",
+      "detail": "Phép năm là ngày trừ vào quỹ phép và vẫn hưởng lương. Nghỉ chế độ gồm cưới hỏi, tang chế theo luật, hưởng lương nhưng không trừ phép. Nghỉ ốm do bảo hiểm xã hội chi trả nên công ty không trả lương ngày đó. Nghỉ không lương là ngày bị trừ thẳng vào lương."
+    },
+    {
+      "step": "Nhập số ngày, đừng để công thức tự đếm",
+      "detail": "Từ ngày và đến ngày chỉ để ghi nhận, còn cột Số ngày bạn tự điền. Lý do là khoảng giữa hai mốc có thể vắt qua thứ bảy, chủ nhật hoặc ngày lễ, và mỗi công ty tính khác nhau — máy đếm hộ thì sai nhiều hơn đúng."
+    },
+    {
+      "step": "Cập nhật trạng thái duyệt ngay khi có quyết định",
+      "detail": "Chỉ đơn Đã duyệt mới được tính vào ba cột cuối. Để quên ở Chờ duyệt thì đến kỳ lương số ngày nghỉ đó bằng 0, người lao động bị tính thừa công còn công ty tính thiếu tiền phải trừ."
+    },
+    {
+      "step": "Cuối tháng cộng theo mã nhân viên rồi chuyển sang chấm công",
+      "detail": "Dùng SUMIF theo cột Mã NV để ra tổng ngày có lương và tổng ngày không lương của từng người, rồi điền vào hai cột tương ứng trong bảng chấm công."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Vì sao nghỉ ốm không được tính là ngày có hưởng lương?",
+      "a": "Vì chế độ ốm đau do quỹ bảo hiểm xã hội chi trả chứ không phải doanh nghiệp, mức hưởng thường là 75% tiền lương đóng bảo hiểm và được cơ quan bảo hiểm thanh toán riêng. Nếu bạn tính luôn vào lương tháng thì người lao động được trả hai lần cho cùng một ngày. Công ty nào có chính sách trả bù thêm thì ghi phần bù đó thành một khoản phụ cấp, đừng nhét vào đây."
+    },
+    {
+      "q": "Nghỉ nửa ngày thì ghi thế nào?",
+      "a": "Điền 0,5 vào cột Số ngày, cột này nhận số lẻ. Từ ngày và đến ngày ghi cùng một ngày. Nếu công ty bạn tính phép theo giờ thì nên quy đổi ra ngày ngay tại đây thay vì thêm cột giờ, để số liệu chuyển sang bảng chấm công vẫn cùng đơn vị."
+    },
+    {
+      "q": "File này có tự trừ quỹ phép năm còn lại không?",
+      "a": "Không, cột Trừ phép năm chỉ ghi nhận số ngày đã dùng trong từng đơn. Quỹ phép năm còn lại phụ thuộc thâm niên, số ngày phép được cộng thêm và phần chuyển từ năm trước sang, mỗi công ty một quy định. Cuối năm bạn dùng SUMIF cột này theo mã nhân viên để ra tổng đã nghỉ, rồi lấy quỹ phép của người đó trừ đi."
+    },
+    {
+      "q": "Đơn nghỉ vắt qua hai tháng thì ghi vào tháng nào?",
+      "a": "Tách thành hai dòng, mỗi dòng một tháng, vì lương tính theo tháng. Ví dụ nghỉ từ 28/6 đến 3/7 thì một dòng 28/6 đến 30/6 và một dòng 1/7 đến 3/7. Ghi gộp một dòng thì tháng nào cũng nhận nhầm toàn bộ số ngày."
+    }
+  ],
+  "ctaText": "Học cách dựng hệ thống theo dõi phép và chấm công trên Excel",
+  "relatedSlugs": ["bang-cham-cong-nhan-vien", "danh-sach-nhan-vien"],
+  "updatedAt": "2026-07-28",
+  "sheets": [
+    {
+      "name": "Nghỉ phép",
+      "description": "Mỗi dòng là một đơn nghỉ. Ba cột cuối tự phân loại số ngày để chuyển sang chấm công.",
+      "blankRows": 25,
+      "columns": [
+        { "key": "stt", "header": "STT", "type": "number", "width": 6 },
+        { "key": "maNV", "header": "Mã NV", "type": "text", "width": 12 },
+        { "key": "hoTen", "header": "Họ và tên", "type": "text", "width": 24 },
+        {
+          "key": "boPhan",
+          "header": "Bộ phận",
+          "type": "text",
+          "width": 18,
+          "validation": {
+            "type": "list",
+            "options": ["Kinh doanh", "Kế toán", "Nhân sự", "Kỹ thuật", "Kho vận"]
+          }
+        },
+        {
+          "key": "loaiNghi",
+          "header": "Loại nghỉ",
+          "type": "text",
+          "width": 20,
+          "validation": {
+            "type": "list",
+            "options": [
+              "Phép năm",
+              "Nghỉ chế độ",
+              "Nghỉ ốm",
+              "Nghỉ không lương",
+              "Nghỉ bù"
+            ]
+          }
+        },
+        { "key": "tuNgay", "header": "Từ ngày", "type": "date", "width": 13 },
+        { "key": "denNgay", "header": "Đến ngày", "type": "date", "width": 13 },
+        {
+          "key": "soNgay",
+          "header": "Số ngày",
+          "type": "number",
+          "width": 10,
+          "validation": { "type": "decimal", "min": 0, "max": 31 }
+        },
+        {
+          "key": "pheDuyet",
+          "header": "Trạng thái duyệt",
+          "type": "text",
+          "width": 16,
+          "validation": {
+            "type": "list",
+            "options": ["Đã duyệt", "Chờ duyệt", "Từ chối"]
+          }
+        },
+        { "key": "lyDo", "header": "Lý do", "type": "text", "width": 28 },
+        {
+          "key": "ngayCoLuong",
+          "header": "Ngày có hưởng lương",
+          "type": "formula",
+          "width": 18,
+          "formula": "=IF([hoTen]{row}=\"\",\"\",IF(AND([pheDuyet]{row}=\"Đã duyệt\",OR([loaiNghi]{row}=\"Phép năm\",[loaiNghi]{row}=\"Nghỉ chế độ\",[loaiNghi]{row}=\"Nghỉ bù\")),[soNgay]{row},0))",
+          "note": "Chỉ ba loại nghỉ do công ty trả lương mới được tính: phép năm, nghỉ chế độ và nghỉ bù. Hàm AND bắt buộc đơn phải Đã duyệt, nên đơn còn chờ duyệt trả về 0. Nghỉ ốm không nằm trong nhóm này vì do bảo hiểm xã hội chi trả."
+        },
+        {
+          "key": "ngayKhongLuong",
+          "header": "Ngày không lương",
+          "type": "formula",
+          "width": 16,
+          "formula": "=IF([hoTen]{row}=\"\",\"\",IF(AND([pheDuyet]{row}=\"Đã duyệt\",[loaiNghi]{row}=\"Nghỉ không lương\"),[soNgay]{row},0))",
+          "note": "Đúng một loại nghỉ bị trừ thẳng vào lương. Đây là con số bảng chấm công lấy sang cột Nghỉ không lương, và nó làm giảm số công hưởng lương ở bảng tính lương."
+        },
+        {
+          "key": "truPhepNam",
+          "header": "Trừ phép năm",
+          "type": "formula",
+          "width": 14,
+          "formula": "=IF([hoTen]{row}=\"\",\"\",IF(AND([pheDuyet]{row}=\"Đã duyệt\",[loaiNghi]{row}=\"Phép năm\"),[soNgay]{row},0))",
+          "note": "Tách riêng khỏi cột ngày có hưởng lương vì nghỉ chế độ và nghỉ bù cũng hưởng lương nhưng không trừ vào quỹ phép năm. Cuối năm cộng cột này theo mã nhân viên để biết mỗi người đã dùng bao nhiêu ngày phép."
+        }
+      ],
+      "sampleRows": [
+        {
+          "stt": 1,
+          "maNV": "NV001",
+          "hoTen": "Nguyễn Thị Mai",
+          "boPhan": "Kinh doanh",
+          "loaiNghi": "Phép năm",
+          "tuNgay": "2026-07-09",
+          "denNgay": "2026-07-10",
+          "soNgay": 2,
+          "pheDuyet": "Đã duyệt",
+          "lyDo": "Việc gia đình"
+        },
+        {
+          "stt": 2,
+          "maNV": "NV003",
+          "hoTen": "Lê Thu Hà",
+          "boPhan": "Kế toán",
+          "loaiNghi": "Phép năm",
+          "tuNgay": "2026-07-06",
+          "denNgay": "2026-07-06",
+          "soNgay": 1,
+          "pheDuyet": "Đã duyệt",
+          "lyDo": "Khám sức khỏe định kỳ"
+        },
+        {
+          "stt": 3,
+          "maNV": "NV003",
+          "hoTen": "Lê Thu Hà",
+          "boPhan": "Kế toán",
+          "loaiNghi": "Nghỉ không lương",
+          "tuNgay": "2026-07-20",
+          "denNgay": "2026-07-23",
+          "soNgay": 4,
+          "pheDuyet": "Đã duyệt",
+          "lyDo": "Về quê giải quyết việc riêng"
+        },
+        {
+          "stt": 4,
+          "maNV": "NV004",
+          "hoTen": "Phạm Minh Đức",
+          "boPhan": "Kho vận",
+          "loaiNghi": "Nghỉ không lương",
+          "tuNgay": "2026-07-15",
+          "denNgay": "2026-07-15",
+          "soNgay": 1,
+          "pheDuyet": "Đã duyệt",
+          "lyDo": "Việc cá nhân"
+        },
+        {
+          "stt": 5,
+          "maNV": "NV002",
+          "hoTen": "Trần Văn Hùng",
+          "boPhan": "Kỹ thuật",
+          "loaiNghi": "Phép năm",
+          "tuNgay": "2026-08-03",
+          "denNgay": "2026-08-03",
+          "soNgay": 1,
+          "pheDuyet": "Chờ duyệt",
+          "lyDo": "Đưa con nhập học"
+        }
+      ]
+    }
+  ]
+}

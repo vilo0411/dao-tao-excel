@@ -1,6 +1,7 @@
 [
   [
     {
+      "luongTheoCong": 18000000.0,
       "tongThuNhap": 20000000.0,
       "baoHiem": 1890000.0,
       "giamTru": 15500000.0,
@@ -9,6 +10,7 @@
       "thucLinh": 17979500.0
     },
     {
+      "luongTheoCong": 35000000.0,
       "tongThuNhap": 38000000.0,
       "baoHiem": 3675000.0,
       "giamTru": 27900000.0,
@@ -17,20 +19,22 @@
       "thucLinh": 34003750.0
     },
     {
-      "tongThuNhap": 13500000.0,
+      "luongTheoCong": 10153846.0,
+      "tongThuNhap": 11653846.0,
       "baoHiem": 1260000.0,
       "giamTru": 21700000.0,
       "thuNhapTinhThue": 0,
       "thueTNCN": 0.0,
-      "thucLinh": 12240000.0
+      "thucLinh": 10393846.0
     },
     {
-      "tongThuNhap": 75000000.0,
+      "luongTheoCong": 67307692.0,
+      "tongThuNhap": 72307692.0,
       "baoHiem": 7350000.0,
       "giamTru": 27900000.0,
-      "thuNhapTinhThue": 39750000.0,
-      "thueTNCN": 4450000.0,
-      "thucLinh": 63200000.0
+      "thuNhapTinhThue": 37057692.0,
+      "thueTNCN": 3911538.4000000004,
+      "thucLinh": 61046153.6
     }
   ]
 ]

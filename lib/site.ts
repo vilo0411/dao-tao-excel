@@ -79,6 +79,39 @@ export function isCategorySlug(value: string): value is CategorySlug {
 }
 
 /**
+ * Ngày sửa nội dung trang khóa học, khai tay.
+ *
+ * Mọi trang khác lấy lastmod từ `updatedAt` của dữ liệu đứng sau nó. Trang này
+ * là văn biên tập thuần, không có file JSON nào để bám, nên nó là chỗ duy nhất
+ * phải nhớ sửa bằng tay — sửa nội dung trang thì sửa luôn ngày ở đây.
+ */
+export const COURSE_PAGE_UPDATED = "2026-07-28";
+
+/**
+ * Ngày sửa gần nhất trong một nhóm nội dung.
+ *
+ * Dùng cho lastmod của các trang tổng hợp (trang chủ, hub, trang nhóm việc):
+ * chúng không có `updatedAt` riêng, nội dung của chúng chính là những gì nằm
+ * bên dưới. Khai sai chỗ này đắt hơn là khai thiếu — Google chỉ tin lastmod
+ * khi nó nhất quán, thấy một site khai ngày mới cho mọi URL sau mỗi lần deploy
+ * thì họ bỏ luôn tín hiệu này cho cả site, kéo theo cả những URL đang đúng.
+ *
+ * `updatedAt` là "YYYY-MM-DD" nên so sánh chuỗi cũng chính là so sánh ngày.
+ * `fallback` chỉ dùng khi nhóm rỗng, không phải làm sàn — nó không được đẩy
+ * ngày lên cao hơn dữ liệu thật.
+ */
+export function latestUpdate(
+  items: readonly { updatedAt: string }[],
+  fallback: string,
+): string {
+  if (items.length === 0) return fallback;
+  return items.reduce(
+    (max, item) => (item.updatedAt > max ? item.updatedAt : max),
+    items[0].updatedAt,
+  );
+}
+
+/**
  * Gắn UTM vào link ra HVS. `content` dùng slug template để biết chính xác
  * trang nào đẩy được lead, không chỉ biết chung chung là "từ site template".
  */

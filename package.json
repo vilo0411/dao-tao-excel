@@ -9,8 +9,9 @@
     "lint": "eslint",
     "validate": "node --experimental-strip-types scripts/validate-templates.mts",
     "xlsx": "./.venv/bin/python scripts/build_xlsx.py",
+    "bundle": "./.venv/bin/python scripts/build_bundle.py",
     "qa": "./.venv/bin/python scripts/qa_check.py",
-    "check": "npm run validate && npm run xlsx && npm run qa"
+    "check": "npm run validate && npm run xlsx && npm run bundle && npm run qa"
   },
   "dependencies": {
     "next": "16.2.12",

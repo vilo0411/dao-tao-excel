@@ -1,0 +1,227 @@
+{
+  "slug": "quan-ly-nhan-su-thang",
+  "category": "nhan-su",
+  "h1": "Bộ file Excel quản lý nhân sự theo tháng (5 file nối sẵn trong một workbook)",
+  "name": "Bộ file quản lý nhân sự theo tháng",
+  "metaTitle": "Bộ File Excel Quản Lý Nhân Sự Tháng - Tải Miễn Phí",
+  "metaDesc": "Bộ file Excel quản lý nhân sự theo tháng: chấm công, hồ sơ, nghỉ phép tự đổ vào bảng lương rồi kết vào sheet tổng. Tải một file duy nhất, sửa một ô là cập nhật hết.",
+  "primaryKeyword": "bộ file excel quản lý nhân sự",
+  "intro": "Bộ file Excel quản lý nhân sự này tải về là một file duy nhất, năm sheet nối sẵn vào nhau bằng công thức thật. Bạn gõ một ngày công vào sheet Chấm công thì lương của người đó và quỹ lương của cả bộ phận trên sheet Tổng hợp đổi ngay, không phải copy sang đâu cả. Sơ đồ bên dưới chỉ rõ sheet nào đưa dữ liệu gì sang sheet nào. Ai chỉ cần đúng một bảng thì vẫn tải riêng từng file được, mỗi file chạy độc lập đầy đủ.",
+  "cadence": "Chốt một lần mỗi tháng",
+
+  "nodes": [
+    {
+      "slug": "danh-sach-nhan-vien",
+      "role": "input",
+      "status": "live",
+      "shortName": "Danh sách nhân viên",
+      "owner": "HR cập nhật mỗi khi có người vào hoặc nghỉ việc"
+    },
+    {
+      "slug": "bang-cham-cong-nhan-vien",
+      "role": "input",
+      "status": "live",
+      "shortName": "Bảng chấm công",
+      "owner": "HR nhập hằng ngày, chốt vào ngày cuối tháng"
+    },
+    {
+      "slug": "bang-theo-doi-nghi-phep",
+      "role": "input",
+      "status": "live",
+      "shortName": "Theo dõi nghỉ phép",
+      "owner": "HR ghi vào ngay khi duyệt đơn"
+    },
+    {
+      "slug": "bang-tinh-luong-nhan-vien",
+      "role": "process",
+      "status": "live",
+      "shortName": "Bảng tính lương",
+      "owner": "Kế toán lương chạy một lần vào đầu tháng sau"
+    },
+    {
+      "slug": "bang-tong-hop-nhan-su-thang",
+      "role": "master",
+      "status": "live",
+      "shortName": "Tổng hợp nhân sự",
+      "owner": "Trưởng phòng chỉ đọc, không nhập gì vào đây"
+    }
+  ],
+
+  "edges": [
+    {
+      "from": "danh-sach-nhan-vien",
+      "to": "bang-tinh-luong-nhan-vien",
+      "label": "danh sách NV, người phụ thuộc"
+    },
+    {
+      "from": "bang-cham-cong-nhan-vien",
+      "to": "bang-tinh-luong-nhan-vien",
+      "label": "số công, giờ tăng ca"
+    },
+    {
+      "from": "bang-theo-doi-nghi-phep",
+      "to": "bang-tinh-luong-nhan-vien",
+      "label": "ngày nghỉ không lương"
+    },
+    {
+      "from": "bang-tinh-luong-nhan-vien",
+      "to": "bang-tong-hop-nhan-su-thang",
+      "label": "quỹ lương tháng"
+    },
+    {
+      "from": "bang-cham-cong-nhan-vien",
+      "to": "bang-tong-hop-nhan-su-thang",
+      "label": "tỷ lệ đi làm"
+    },
+    {
+      "from": "danh-sach-nhan-vien",
+      "to": "bang-tong-hop-nhan-su-thang",
+      "label": "biến động nhân sự"
+    }
+  ],
+
+  "bundle": {
+    "summary": "Cả 5 file trong một workbook, 6 sheet nối sẵn bằng công thức",
+    "keyName": "Mã NV",
+
+    "sheets": [
+      { "node": "danh-sach-nhan-vien", "sheet": 0, "name": "Danh sách NV" },
+      { "node": "bang-theo-doi-nghi-phep", "sheet": 0, "name": "Nghỉ phép" },
+      { "node": "bang-cham-cong-nhan-vien", "sheet": 0, "name": "Chấm công" },
+      { "node": "bang-tinh-luong-nhan-vien", "sheet": 0, "name": "Bảng lương" },
+      { "node": "bang-tong-hop-nhan-su-thang", "sheet": 0, "name": "Tổng hợp" },
+      { "node": "bang-tong-hop-nhan-su-thang", "sheet": 1, "name": "Biến động NS" }
+    ],
+
+    "links": [
+      {
+        "sheet": "Nghỉ phép",
+        "column": "hoTen",
+        "formula": "=IFERROR(INDEX([Danh sách NV!hoTen],MATCH([maNV]{row},[Danh sách NV!maNV],0)),\"\")",
+        "note": "MATCH tìm mã nhân viên trong cột Mã NV của sheet Danh sách NV rồi trả về vị trí dòng, INDEX lấy họ tên ở đúng vị trí đó. Gõ sai mã thì MATCH không tìm thấy, IFERROR biến lỗi thành ô trống — đó chính là tín hiệu cho bạn biết mã vừa gõ không có trong hồ sơ."
+      },
+      {
+        "sheet": "Nghỉ phép",
+        "column": "boPhan",
+        "formula": "=IFERROR(INDEX([Danh sách NV!boPhan],MATCH([maNV]{row},[Danh sách NV!maNV],0)),\"\")",
+        "note": "Bộ phận lấy từ hồ sơ gốc chứ không cho gõ tay. Nhờ vậy khi ai đó chuyển bộ phận, bạn sửa đúng một chỗ ở sheet Danh sách NV là mọi sheet còn lại đổi theo."
+      },
+      {
+        "sheet": "Chấm công",
+        "column": "hoTen",
+        "formula": "=IFERROR(INDEX([Danh sách NV!hoTen],MATCH([maNV]{row},[Danh sách NV!maNV],0)),\"\")",
+        "note": "Cùng cách tra như sheet Nghỉ phép. Bảng chấm công vì thế chỉ cần gõ mã nhân viên, không phải gõ lại họ tên mỗi tháng — vốn là chỗ hay sai chính tả nhất và làm hỏng mọi phép cộng theo tên."
+      },
+      {
+        "sheet": "Chấm công",
+        "column": "boPhan",
+        "formula": "=IFERROR(INDEX([Danh sách NV!boPhan],MATCH([maNV]{row},[Danh sách NV!maNV],0)),\"\")",
+        "note": "Bộ phận tra từ hồ sơ gốc. Đây là cột mà sheet Tổng hợp cộng theo, nên nếu để gõ tay thì chỉ cần một dòng ghi \"Kế toán \" thừa dấu cách là bộ phận đó hụt số liệu mà không ai thấy."
+      },
+      {
+        "sheet": "Chấm công",
+        "column": "nghiPhep",
+        "formula": "=IF([maNV]{row}=\"\",\"\",SUMIF([Nghỉ phép!maNV],[maNV]{row},[Nghỉ phép!ngayCoLuong]))",
+        "note": "Cộng tất cả ngày nghỉ có hưởng lương đã duyệt của người này bên sheet Nghỉ phép. Một người nghỉ ba đợt trong tháng thì SUMIF gom cả ba, còn đơn đang chờ duyệt thì bên kia đã trả về 0 nên không lọt vào đây."
+      },
+      {
+        "sheet": "Chấm công",
+        "column": "nghiKhongLuong",
+        "formula": "=IF([maNV]{row}=\"\",\"\",SUMIF([Nghỉ phép!maNV],[maNV]{row},[Nghỉ phép!ngayKhongLuong]))",
+        "note": "Cộng ngày nghỉ không lương đã duyệt. Đây là con số kéo theo cả chuỗi: nó không được cộng vào tổng công hưởng lương, nên bảng lương tính ra ít tiền hơn và tỷ lệ đi làm ở sheet Tổng hợp tụt xuống."
+      },
+      {
+        "sheet": "Bảng lương",
+        "column": "hoTen",
+        "formula": "=IFERROR(INDEX([Danh sách NV!hoTen],MATCH([maNV]{row},[Danh sách NV!maNV],0)),\"\")",
+        "note": "Tra họ tên từ hồ sơ gốc. Mọi công thức khác trong sheet này đều mở đầu bằng kiểm tra họ tên có rỗng không, nên khi mã nhân viên chưa nhập thì cả dòng tự nằm im."
+      },
+      {
+        "sheet": "Bảng lương",
+        "column": "boPhan",
+        "formula": "=IFERROR(INDEX([Danh sách NV!boPhan],MATCH([maNV]{row},[Danh sách NV!maNV],0)),\"\")",
+        "note": "Bộ phận tra từ hồ sơ gốc, và sheet Tổng hợp cộng quỹ lương theo đúng cột này."
+      },
+      {
+        "sheet": "Bảng lương",
+        "column": "luongCoBan",
+        "formula": "=IFERROR(INDEX([Danh sách NV!luongCoBan],MATCH([maNV]{row},[Danh sách NV!maNV],0)),0)",
+        "note": "Lương hợp đồng lấy từ hồ sơ gốc. Tăng lương cho ai thì sửa ở sheet Danh sách NV, bảng lương tháng này và mọi tháng sau tự lấy mức mới — không còn cảnh mỗi tháng chép lại một cột lương rồi quên cập nhật một người."
+      },
+      {
+        "sheet": "Bảng lương",
+        "column": "phuCap",
+        "formula": "=IFERROR(INDEX([Danh sách NV!phuCap],MATCH([maNV]{row},[Danh sách NV!maNV],0)),0)",
+        "note": "Phụ cấp cố định hằng tháng lấy từ hồ sơ gốc. Tháng nào có khoản phát sinh riêng thì gõ đè lên ô đó, nhưng nhớ là gõ đè sẽ xóa công thức của riêng ô đó."
+      },
+      {
+        "sheet": "Bảng lương",
+        "column": "nguoiPhuThuoc",
+        "formula": "=IFERROR(INDEX([Danh sách NV!nguoiPhuThuoc],MATCH([maNV]{row},[Danh sách NV!maNV],0)),0)",
+        "note": "Số người phụ thuộc lấy từ hồ sơ gốc vì nó thay đổi rất ít nhưng lại ảnh hưởng thẳng tới thuế TNCN. Đăng ký thêm một người phụ thuộc thì sửa ở hồ sơ, thuế tháng này tính lại ngay."
+      },
+      {
+        "sheet": "Bảng lương",
+        "column": "congChuan",
+        "formula": "=IFERROR(INDEX([Chấm công!congChuan],MATCH([maNV]{row},[Chấm công!maNV],0)),0)",
+        "note": "Công chuẩn lấy đúng con số đã ghi ở bảng chấm công của chính người đó, để hai bảng không bao giờ dùng hai mẫu số khác nhau khi chia lương theo ngày công."
+      },
+      {
+        "sheet": "Bảng lương",
+        "column": "congThucTe",
+        "formula": "=IF([maNV]{row}=\"\",\"\",SUMIF([Chấm công!maNV],[maNV]{row},[Chấm công!tongCong]))",
+        "note": "Cộng cột Tổng công hưởng lương bên sheet Chấm công. Dùng SUMIF thay vì tra một dòng để phòng trường hợp một người có nhiều dòng chấm công trong tháng, ví dụ chuyển bộ phận giữa kỳ. Đây là cột làm cho lương thực sự phụ thuộc vào việc đi làm."
+      },
+      {
+        "sheet": "Tổng hợp",
+        "column": "soNV",
+        "formula": "=IF([boPhan]{row}=\"\",\"\",COUNTIFS([Danh sách NV!boPhan],[boPhan]{row},[Danh sách NV!trangThai],\"Đang làm\"))",
+        "note": "Đếm người của bộ phận này còn trạng thái Đang làm trong hồ sơ gốc. Hai điều kiện nên phải dùng COUNTIFS chứ không phải COUNTIF. Người đã nghỉ vẫn nằm trong hồ sơ nhưng không được tính vào quân số."
+      },
+      {
+        "sheet": "Tổng hợp",
+        "column": "congChuan",
+        "formula": "=IF([boPhan]{row}=\"\",\"\",IFERROR(SUMIF([Chấm công!boPhan],[boPhan]{row},[Chấm công!congChuan])/COUNTIF([Chấm công!boPhan],[boPhan]{row}),0))",
+        "note": "Công chuẩn bình quân của bộ phận: cộng công chuẩn của mọi dòng chấm công thuộc bộ phận rồi chia cho số dòng. Lấy từ bảng chấm công thay vì gõ tay để mẫu số của tỷ lệ đi làm luôn khớp với tử số. Bộ phận nào chưa có dòng chấm công nào thì COUNTIF ra 0 và IFERROR đưa về 0."
+      },
+      {
+        "sheet": "Tổng hợp",
+        "column": "tongCong",
+        "formula": "=IF([boPhan]{row}=\"\",\"\",SUMIF([Chấm công!boPhan],[boPhan]{row},[Chấm công!tongCong]))",
+        "note": "Cộng tổng công hưởng lương của mọi người trong bộ phận. Trước đây đây là ô bạn phải tự lọc bảng chấm công rồi gõ vào; giờ nó đổi theo ngay khi có người sửa một ngày công."
+      },
+      {
+        "sheet": "Tổng hợp",
+        "column": "quyLuong",
+        "formula": "=IF([boPhan]{row}=\"\",\"\",SUMIF([Bảng lương!boPhan],[boPhan]{row},[Bảng lương!thucLinh]))",
+        "note": "Cộng cột Thực lĩnh của bộ phận bên sheet Bảng lương. Là số tiền thật phải chi, đã trừ bảo hiểm và thuế — không phải tổng lương hợp đồng."
+      }
+    ]
+  },
+
+  "faq": [
+    {
+      "q": "Các sheet có tự động cập nhật cho nhau không?",
+      "a": "Có. Nhập một ngày công vào sheet Chấm công thì sheet Bảng lương tính lại lương theo công của người đó, và sheet Tổng hợp cập nhật quỹ lương của bộ phận, ngay trong lúc bạn gõ. Duyệt một đơn nghỉ không lương ở sheet Nghỉ phép cũng chạy hết chuỗi đó. Lý do làm được là cả bộ nằm trong một file: liên kết giữa các sheet trong cùng workbook không bao giờ gãy vì đổi tên file hay chuyển thư mục, khác hẳn liên kết giữa các file rời."
+    },
+    {
+      "q": "Vì sao gộp vào một file thay vì để năm file nối với nhau?",
+      "a": "Vì liên kết giữa các file .xlsx rời rất dễ vỡ: đổi tên file, chuyển thư mục hay gửi qua Zalo cho người khác là công thức trả về #REF! hàng loạt, và Excel còn bắt bấm Enable Links mỗi lần mở. Người không rành Excel gặp lỗi đó thì không sửa được. Trong cùng một workbook thì không có rủi ro nào trong số đó, đổi lại bạn phải chấp nhận cả phòng dùng chung một file."
+    },
+    {
+      "q": "Tôi có bắt buộc phải dùng cả bộ không?",
+      "a": "Không. Mỗi file vẫn tải riêng được và chạy độc lập đầy đủ — tải riêng bảng chấm công về dùng vẫn đúng. Khác biệt là ở bản rời bạn tự nhập họ tên, bộ phận và số công; ở file gộp những cột đó là công thức tra sang sheet khác. Bảng liệt kê công thức nối ngay dưới đây cho biết chính xác cột nào đổi."
+    },
+    {
+      "q": "Nên nhập sheet nào trước?",
+      "a": "Theo thứ tự tab từ trái sang phải, đúng như sơ đồ. Danh sách NV nhập một lần rồi chỉ sửa khi có người vào hoặc nghỉ. Nghỉ phép và Chấm công nhập trong suốt tháng. Bảng lương và Tổng hợp bạn không nhập gì cả trừ mã nhân viên và tên bộ phận, mở ra là đọc."
+    },
+    {
+      "q": "File tổng có thay được phần mềm nhân sự không?",
+      "a": "Với công ty dưới khoảng 50 người thì thay được, và nhiều nơi vẫn đang chạy như vậy. Vượt qua mức đó, việc nhập tay ba file đầu vào mỗi ngày bắt đầu chiếm quá nhiều thời gian và sai sót tăng nhanh — lúc đó nên tính tới phần mềm."
+    }
+  ],
+
+  "ctaText": "Muốn tự dựng bộ file như thế này cho công ty mình?",
+  "updatedAt": "2026-07-28"
+}

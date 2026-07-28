@@ -174,6 +174,30 @@ export type TemplateSpec = z.infer<typeof templateSchema>;
  */
 export type ComputedValues = Record<string, unknown>[][];
 
+export const DIFFICULTY_LABEL: Record<TemplateSpec["difficulty"], string> = {
+  "co-ban": "Cơ bản",
+  "trung-cap": "Trung cấp",
+  "nang-cao": "Nâng cao",
+};
+
+/**
+ * Phần dữ liệu vừa đủ để vẽ một card.
+ *
+ * Bộ lọc ở trang thư viện chạy phía client, nghĩa là mọi thứ truyền vào nó đều
+ * bị serialize xuống HTML. `Template` đầy đủ mang theo cả `sheets` — hàng chục
+ * KB cột, công thức và dòng mẫu cho mỗi file, không dùng đến ở tầng danh sách.
+ */
+export type TemplateCardData = {
+  slug: string;
+  href: string;
+  h1: string;
+  metaDesc: string;
+  functions: string[];
+  difficulty: TemplateSpec["difficulty"];
+  category: string;
+  categoryName: string;
+};
+
 export type Template = TemplateSpec & {
   /** Hàm Excel trích tự động từ công thức thật — không khai báo thủ công. */
   functions: string[];

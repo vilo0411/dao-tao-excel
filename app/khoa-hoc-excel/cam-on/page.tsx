@@ -10,16 +10,16 @@ export const metadata: Metadata = {
 
 export default function ThankYouPage() {
   return (
-    <div className="mx-auto max-w-2xl px-5 py-20">
-      <h1 className="font-display text-3xl font-bold sm:text-4xl">
+    <div className="mx-auto max-w-2xl px-5 py-24">
+      <h1 className="font-display text-4xl leading-[1.05] sm:text-5xl">
         Đã nhận thông tin của bạn
       </h1>
-      <p className="mt-5 max-w-prose text-lg text-ink-soft">
+      <p className="mt-6 max-w-prose text-lg text-ink-soft">
         Đội ngũ HVS sẽ liên hệ để tư vấn lộ trình. Trong lúc chờ, bạn cứ tải
         thêm file về dùng — không cần đợi học xong mới làm được việc.
       </p>
 
-      <div className="mt-10">
+      <div className="mt-24">
         <CourseCta
           target="consult"
           text="Xem trước chương trình Excel bên HVS"

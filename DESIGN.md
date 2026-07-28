@@ -1,130 +1,99 @@
 ---
 version: alpha
-name: Airtable-design-analysis
-description: A sober, editorial workflow-software interface anchored on white canvas and dark-ink type, where brand voltage comes from full-bleed signature cards in coral, dark green, peach, and dark navy that punctuate long-scroll explainer pages. Primary actions use a near-black pill CTA; secondary actions sit in a white outlined button. Type runs Haas Grotesk in modest weights — never bold for its own sake.
+name: excel-template-hub-design
+description: A sober, editorial workflow interface on white canvas and dark-ink type, where brand voltage comes from full-bleed signature bands in coral, forest, and dark navy that punctuate long-scroll explainer pages. Inside those pages sits a second dialect — the spreadsheet grid — with zero radius, monospace type, and two colors that carry meaning rather than decoration: blue for cells the reader types into, green for cells Excel computes. Type runs Archivo in modest weights, never bold for its own sake, over Be Vietnam Pro body copy.
 
 colors:
-  primary: "#181d26"
-  primary-active: "#0d1218"
   ink: "#181d26"
-  body: "#333840"
-  muted: "#41454d"
-  hairline: "#dddddd"
-  border-strong: "#9297a0"
-  canvas: "#ffffff"
-  surface-soft: "#f8fafc"
+  ink-soft: "#41454d"
+  ink-faint: "#6b7280"
+  paper: "#ffffff"
+  panel: "#f8fafc"
+  rule: "#dddddd"
   surface-strong: "#e0e2e6"
   surface-dark: "#181d26"
-  surface-dark-elevated: "#1d1f25"
-  signature-coral: "#aa2d00"
-  signature-forest: "#0a2e0e"
-  signature-cream: "#f5e9d4"
-  signature-peach: "#fcab79"
-  signature-mint: "#a8d8c4"
-  signature-yellow: "#f4d35e"
-  signature-mustard: "#d9a441"
-  on-primary: "#ffffff"
-  on-dark: "#ffffff"
-  link: "#1b61c9"
-  link-active: "#1a3866"
-  info: "#254fad"
-  info-border: "#458fff"
-  success: "#006400"
-  success-border: "#39bf45"
-  pricing-ink: "#1d1f25"
+  coral: "#aa2d00"
+  forest: "#0a2e0e"
+  cream: "#f5e9d4"
+  input: "#1f4b99"
+  input-bg: "#eaf0f9"
+  computed: "#0e6b4a"
+  computed-bg: "#e6f2ec"
+  flag: "#b45309"
 
 typography:
   display-xl:
-    fontFamily: "Haas Groot Disp, Haas, sans-serif"
-    fontSize: 48px
-    fontWeight: 500
-    lineHeight: 1.1
-    letterSpacing: 0
+    fontFamily: "Archivo, system-ui, sans-serif"
+    fontSize: 60px
+    fontWeight: 400
+    lineHeight: 1.05
+    letterSpacing: -0.01em
   display-lg:
-    fontFamily: "Haas Groot Disp, Haas, sans-serif"
-    fontSize: 40px
+    fontFamily: "Archivo, system-ui, sans-serif"
+    fontSize: 48px
     fontWeight: 400
-    lineHeight: 1.2
-    letterSpacing: 0
+    lineHeight: 1.05
+    letterSpacing: -0.01em
   display-md:
-    fontFamily: "Haas Groot Disp, Haas, sans-serif"
-    fontSize: 32px
+    fontFamily: "Archivo, system-ui, sans-serif"
+    fontSize: 30px
     fontWeight: 400
-    lineHeight: 1.2
-    letterSpacing: 0
+    lineHeight: 1.15
+    letterSpacing: -0.01em
   title-lg:
-    fontFamily: "Haas, sans-serif"
+    fontFamily: "Archivo, system-ui, sans-serif"
     fontSize: 24px
     fontWeight: 400
-    lineHeight: 1.35
-    letterSpacing: 0.12px
-  title-md:
-    fontFamily: "Haas Groot Disp, Haas, sans-serif"
-    fontSize: 20px
-    fontWeight: 400
-    lineHeight: 1.5
-    letterSpacing: 0
+    lineHeight: 1.15
+    letterSpacing: -0.01em
   title-sm:
-    fontFamily: "Haas, sans-serif"
-    fontSize: 18px
-    fontWeight: 500
-    lineHeight: 1.4
-    letterSpacing: 0
-  label-md:
-    fontFamily: "Haas, sans-serif"
+    fontFamily: "Archivo, system-ui, sans-serif"
     fontSize: 16px
     fontWeight: 500
     lineHeight: 1.4
+    letterSpacing: 0
+  lead:
+    fontFamily: "Be Vietnam Pro, system-ui, sans-serif"
+    fontSize: 18px
+    fontWeight: 400
+    lineHeight: 1.65
+    letterSpacing: 0
+  body:
+    fontFamily: "Be Vietnam Pro, system-ui, sans-serif"
+    fontSize: 16px
+    fontWeight: 400
+    lineHeight: 1.65
     letterSpacing: 0
   button:
-    fontFamily: "Haas, sans-serif"
+    fontFamily: "Be Vietnam Pro, system-ui, sans-serif"
     fontSize: 16px
     fontWeight: 500
     lineHeight: 1.4
     letterSpacing: 0
-  body-md:
-    fontFamily: "Haas, sans-serif"
+  caption:
+    fontFamily: "Be Vietnam Pro, system-ui, sans-serif"
     fontSize: 14px
     fontWeight: 400
-    lineHeight: 1.25
+    lineHeight: 1.65
     letterSpacing: 0
-  caption:
-    fontFamily: "Haas, sans-serif"
+  cell:
+    fontFamily: "JetBrains Mono, ui-monospace, monospace"
     fontSize: 14px
-    fontWeight: 500
-    lineHeight: 1.35
-    letterSpacing: 0.16px
-  legal:
-    fontFamily: "Haas, sans-serif"
-    fontSize: 13.12px
-    fontWeight: 600
-    lineHeight: 1.2
+    fontWeight: 400
+    lineHeight: 1.4
     letterSpacing: 0
-  pricing-display:
-    fontFamily: "Inter Display, system-ui, sans-serif"
-    fontSize: 44.8px
-    fontWeight: 475
-    lineHeight: 1.1
-    letterSpacing: 0
-  pricing-section:
-    fontFamily: "Inter Display, system-ui, sans-serif"
-    fontSize: 28px
-    fontWeight: 475
-    lineHeight: 1.2
-    letterSpacing: 0
-  pricing-card-title:
-    fontFamily: "Inter Display, system-ui, sans-serif"
-    fontSize: 20px
-    fontWeight: 475
-    lineHeight: 1.3
+  cell-chrome:
+    fontFamily: "JetBrains Mono, ui-monospace, monospace"
+    fontSize: 12px
+    fontWeight: 400
+    lineHeight: 1.4
     letterSpacing: 0
 
 rounded:
-  xs: 2px
+  none: 0px
   sm: 6px
   md: 10px
   lg: 12px
-  pill: 9999px
   full: 9999px
 
 spacing:
@@ -139,416 +108,372 @@ spacing:
 
 components:
   button-primary:
-    backgroundColor: "{colors.primary}"
-    textColor: "{colors.on-primary}"
+    backgroundColor: "{colors.ink}"
+    textColor: "{colors.paper}"
     typography: "{typography.button}"
     rounded: "{rounded.lg}"
     padding: 16px 24px
-  button-primary-active:
-    backgroundColor: "{colors.primary-active}"
-    textColor: "{colors.on-primary}"
-    rounded: "{rounded.lg}"
   button-secondary:
-    backgroundColor: "{colors.canvas}"
+    backgroundColor: "{colors.paper}"
     textColor: "{colors.ink}"
     typography: "{typography.button}"
     rounded: "{rounded.lg}"
     padding: 16px 24px
   button-secondary-on-dark:
-    backgroundColor: "{colors.canvas}"
+    backgroundColor: "{colors.paper}"
     textColor: "{colors.ink}"
     typography: "{typography.button}"
     rounded: "{rounded.lg}"
     padding: 16px 24px
-  button-legal:
-    backgroundColor: "{colors.link}"
-    textColor: "{colors.on-primary}"
-    typography: "{typography.legal}"
-    rounded: "{rounded.xs}"
-    padding: 12px 10px
-  button-icon-circular:
-    backgroundColor: "{colors.canvas}"
-    textColor: "{colors.ink}"
-    rounded: "{rounded.full}"
-    size: 40px
-  button-pricing-pill:
-    backgroundColor: "{colors.canvas}"
-    textColor: "{colors.pricing-ink}"
-    typography: "{typography.button}"
-    rounded: "{rounded.pill}"
-    padding: 12px 24px
   text-link:
     backgroundColor: transparent
-    textColor: "{colors.link}"
-    typography: "{typography.body-md}"
+    textColor: "{colors.input}"
+    typography: "{typography.body}"
   top-nav:
-    backgroundColor: "{colors.canvas}"
+    backgroundColor: "{colors.paper}"
     textColor: "{colors.ink}"
-    typography: "{typography.body-md}"
-    height: 64px
+    typography: "{typography.caption}"
   hero-band:
-    backgroundColor: "{colors.canvas}"
+    backgroundColor: "{colors.paper}"
     textColor: "{colors.ink}"
-    typography: "{typography.display-lg}"
+    typography: "{typography.display-xl}"
     padding: 96px
-  signature-coral-card:
-    backgroundColor: "{colors.signature-coral}"
-    textColor: "{colors.on-primary}"
+  signature-coral-band:
+    backgroundColor: "{colors.coral}"
+    textColor: "{colors.paper}"
     typography: "{typography.display-md}"
     rounded: "{rounded.lg}"
     padding: 48px
-  signature-forest-card:
-    backgroundColor: "{colors.signature-forest}"
-    textColor: "{colors.on-primary}"
-    typography: "{typography.display-md}"
-    rounded: "{rounded.lg}"
-    padding: 48px
-  hero-card-dark:
+  signature-dark-band:
     backgroundColor: "{colors.surface-dark}"
-    textColor: "{colors.on-dark}"
+    textColor: "{colors.paper}"
     typography: "{typography.display-md}"
     rounded: "{rounded.lg}"
     padding: 48px
-  feature-card-tabbed:
-    backgroundColor: "{colors.surface-soft}"
-    textColor: "{colors.ink}"
-    typography: "{typography.title-lg}"
-    rounded: "{rounded.lg}"
-    padding: 32px
-  cream-callout-card:
-    backgroundColor: "{colors.signature-cream}"
-    textColor: "{colors.ink}"
-    typography: "{typography.title-lg}"
-    rounded: "{rounded.md}"
-    padding: 24px
-  demo-grid-card:
-    backgroundColor: "{colors.canvas}"
-    textColor: "{colors.ink}"
-    typography: "{typography.label-md}"
-    rounded: "{rounded.md}"
-    padding: 16px
-  logo-strip:
-    backgroundColor: "{colors.canvas}"
-    textColor: "{colors.muted}"
-    typography: "{typography.body-md}"
-    padding: 32px
-  article-card:
-    backgroundColor: "{colors.canvas}"
-    textColor: "{colors.ink}"
-    typography: "{typography.title-sm}"
-    rounded: "{rounded.md}"
-    padding: 16px
-  topic-filter-rail:
-    backgroundColor: "{colors.canvas}"
-    textColor: "{colors.body}"
-    typography: "{typography.body-md}"
-    width: 240px
-  text-input:
-    backgroundColor: "{colors.canvas}"
-    textColor: "{colors.ink}"
-    typography: "{typography.body-md}"
-    rounded: "{rounded.sm}"
-    padding: 12px 16px
-    height: 44px
-  text-input-focus:
-    backgroundColor: "{colors.canvas}"
-    textColor: "{colors.ink}"
-    rounded: "{rounded.sm}"
-  pricing-tier-card:
-    backgroundColor: "{colors.canvas}"
-    textColor: "{colors.pricing-ink}"
-    typography: "{typography.pricing-card-title}"
-    rounded: "{rounded.md}"
-    padding: 32px
-  pricing-tier-card-featured:
-    backgroundColor: "{colors.surface-soft}"
-    textColor: "{colors.pricing-ink}"
-    typography: "{typography.pricing-card-title}"
-    rounded: "{rounded.md}"
-    padding: 32px
-  pricing-comparison-row:
-    backgroundColor: "{colors.canvas}"
-    textColor: "{colors.body}"
-    typography: "{typography.body-md}"
-    padding: 12px
   cta-band-light:
     backgroundColor: "{colors.surface-strong}"
     textColor: "{colors.ink}"
     typography: "{typography.display-md}"
     rounded: "{rounded.lg}"
     padding: 48px
+  card-grid:
+    backgroundColor: "{colors.rule}"
+    textColor: "{colors.ink}"
+    typography: "{typography.title-sm}"
+    rounded: "{rounded.md}"
+    gap: 1px
+  card-grid-cell:
+    backgroundColor: "{colors.paper}"
+    textColor: "{colors.ink}"
+    typography: "{typography.title-sm}"
+    rounded: "{rounded.none}"
+    padding: 24px
+  panel-card:
+    backgroundColor: "{colors.panel}"
+    textColor: "{colors.ink}"
+    typography: "{typography.body}"
+    rounded: "{rounded.md}"
+    padding: 32px
+  text-input:
+    backgroundColor: "{colors.paper}"
+    textColor: "{colors.ink}"
+    typography: "{typography.body}"
+    rounded: "{rounded.sm}"
+    padding: 12px 16px
+    height: 44px
+  avatar:
+    backgroundColor: "{colors.ink}"
+    textColor: "{colors.paper}"
+    rounded: "{rounded.full}"
   footer:
-    backgroundColor: "{colors.canvas}"
-    textColor: "{colors.body}"
-    typography: "{typography.body-md}"
+    backgroundColor: "{colors.paper}"
+    textColor: "{colors.ink-soft}"
+    typography: "{typography.caption}"
     padding: 64px
+  sheet-formula-bar:
+    backgroundColor: "{colors.panel}"
+    textColor: "{colors.computed}"
+    typography: "{typography.cell-chrome}"
+    rounded: "{rounded.none}"
+    padding: 8px 12px
+  sheet-chrome-cell:
+    backgroundColor: "{colors.panel}"
+    textColor: "{colors.ink-faint}"
+    typography: "{typography.cell-chrome}"
+    rounded: "{rounded.none}"
+  sheet-input-cell:
+    backgroundColor: "{colors.input-bg}"
+    textColor: "{colors.ink}"
+    typography: "{typography.cell}"
+    rounded: "{rounded.none}"
+    padding: 8px 12px
+  sheet-computed-cell:
+    backgroundColor: "{colors.computed-bg}"
+    textColor: "{colors.computed}"
+    typography: "{typography.cell}"
+    rounded: "{rounded.none}"
+    padding: 8px 12px
+  sheet-error-cell:
+    backgroundColor: "{colors.paper}"
+    textColor: "{colors.flag}"
+    typography: "{typography.cell}"
+    rounded: "{rounded.none}"
+  signature-forest-band:
+    backgroundColor: "{colors.forest}"
+    textColor: "{colors.cream}"
+    typography: "{typography.display-md}"
+    rounded: "{rounded.lg}"
+    padding: 48px
+  system-map-node-input:
+    backgroundColor: "{colors.input-bg}"
+    borderColor: "{colors.input}"
+    textColor: "{colors.ink}"
+    typography: "{typography.cell}"
+    rounded: "{rounded.none}"
+    padding: 12px
+  system-map-node-computed:
+    backgroundColor: "{colors.computed-bg}"
+    borderColor: "{colors.computed}"
+    textColor: "{colors.ink}"
+    typography: "{typography.cell}"
+    rounded: "{rounded.none}"
+    padding: 12px
+  system-map-node-planned:
+    backgroundColor: "{colors.panel}"
+    borderColor: "{colors.rule}"
+    borderStyle: dashed
+    textColor: "{colors.ink-faint}"
+    typography: "{typography.cell}"
+    rounded: "{rounded.none}"
+    padding: 12px
+  system-map-edge:
+    strokeColor: "{colors.ink-faint}"
+    strokeWidth: 1px
+    textColor: "{colors.ink-faint}"
+    typography: "{typography.cell-chrome}"
+  system-strip:
+    backgroundColor: "{colors.panel}"
+    borderColor: "{colors.rule}"
+    textColor: "{colors.ink-soft}"
+    typography: "{typography.body}"
+    rounded: "{rounded.none}"
+    padding: 16px
 ---
 
 ## Overview
 
-Airtable's marketing surfaces are quietly editorial. The base atmosphere is white canvas, dark ink type, generous whitespace, and a near-black pill CTA — nothing is fighting for attention until a section needs to. The brand voltage doesn't come from gradient washes or accent walls; it comes from **full-bleed signature cards** in `{colors.signature-coral}`, `{colors.signature-forest}`, and `{colors.surface-dark}` that punctuate long-scroll explainer pages every two or three screens. Between those signature bands, the page reads like a print magazine: a headline, supporting copy, a small image cluster, then breathing room.
+This is a Vietnamese pSEO site that publishes free Excel templates. Every page exists to make one argument: *other sites hand you a file and hide how it works; here the formulas are on the page*. The design has to carry that argument, not decorate around it.
 
-Type voice is Haas Grotesk at modest weights (400 for display, 500 for sub-titles and buttons). Display headlines never go bolder than 500 — emphasis comes from size and color contrast, not from weight. Body copy stays at 14px / 400 throughout. The pricing surface runs its own dialect: **Inter Display** at unusual mid-weights (475 / 575) and **pill-shaped buttons** (`{rounded.pill}`) that don't appear on any other page — a deliberate sub-system signaling "this page is about commercial precision."
+So the system runs two dialects, and the boundary between them is a hard rule.
+
+**The editorial layer** is everything outside the spreadsheet grid. White canvas, near-black ink, generous whitespace, a `{spacing.section}` (96px) vertical constant between bands, and a near-black `{component.button-primary}`. Nothing competes for attention until a section earns it. Brand voltage comes from **full-bleed signature bands** in `{colors.coral}` and `{colors.surface-dark}` that cut across the white every few screens — never from gradients, meshes, or accent walls.
+
+**The spreadsheet layer** is inside `{component.sheet-input-cell}` and its siblings. Zero radius, monospace type, and two colors that carry meaning: `{colors.input}` for cells the reader types into, `{colors.computed}` for cells Excel calculates. The reader learns this convention at the first preview table and reuses it on every page after. These are not accent colors — they are the vocabulary of the thing being taught.
 
 **Key Characteristics:**
-- Primary CTA is `{colors.primary}` (near-black ink) with white text and a `{rounded.lg}` (12px) corner — it reads as confident and final, never decorative.
-- Secondary CTA is a `{colors.canvas}` button with `{colors.ink}` text and a hairline outline. The two together form Airtable's signature button pair.
-- Hero is white canvas. There is no atmospheric gradient, no mesh, no background flourish. The brand strength comes from the type and the buttons sitting in clean whitespace.
-- Brand voltage lives in **signature surface cards**: `{colors.signature-coral}`, `{colors.signature-forest}`, and `{colors.surface-dark}` carry full-bleed product callouts every few screens.
-- Demo-card grids carry product UI fragments on `{colors.signature-peach}`, `{colors.signature-mint}`, `{colors.signature-cream}` and other warm pastel surfaces.
-- Section rhythm: white canvas → coral signature card → white body → cream callout band → dark navy CTA → light gray CTA banner → footer. The canvas resets between every signature surface.
-- Border radius is hierarchical: `{rounded.lg}` (12px) for primary CTAs and large signature cards, `{rounded.md}` (10px) for content cards and demo grids, `{rounded.sm}` (6px) for inputs, `{rounded.full}` for icon buttons. Pricing buttons jump to `{rounded.pill}` to mark themselves as a separate dialect.
-- Vertical rhythm is `{spacing.section}` (96px) between major bands — universal across every page.
+- Primary CTA is `{colors.ink}` with white text and `{rounded.lg}`. It reads as final, not decorative, so it appears at most once per viewport.
+- Display type is **never bold**. `{typography.display-xl}` and `{typography.display-lg}` are weight 400. Emphasis comes from size and from the band underneath, never from weight.
+- Section rhythm alternates surfaces: white hero → white card grid → coral band → white grid → panel card → footer. Two identical surfaces never sit adjacent.
+- The card grid is a hairline lattice (`gap-px` over a `{colors.rule}` background), not a set of floating cards. This is a spreadsheet's own geometry, and it costs no shadow.
+- Radius is hierarchical: `{rounded.lg}` for primary CTAs and signature bands, `{rounded.md}` for content cards and grid outer frames, `{rounded.sm}` for inputs and inline code, `{rounded.full}` for avatars, and `{rounded.none}` — mandatory — everywhere inside the grid.
+- Vietnamese diacritics stack two levels high, so body `line-height` is 1.65 rather than a typical 1.5, and every font must ship a `vietnamese` subset.
 
 ## Colors
 
-### Brand & Accent
-- **Primary** (`{colors.primary}` — #181d26): The dominant brand color. Used for the primary CTA background, h1/h2 display type, and the `{component.surface-dark}` band. Not "blue, then black" — black IS the primary throughout the marketing system.
-- **Primary Active** (`{colors.primary-active}` — #0d1218): The press state on primary buttons.
+### Editorial
 
-### Surface
-- **Canvas** (`{colors.canvas}` — #ffffff): The default page surface; the floor of every editorial body.
-- **Surface Soft** (`{colors.surface-soft}` — #f8fafc): Tabbed feature cards and the featured pricing tier.
-- **Surface Strong** (`{colors.surface-strong}` — #e0e2e6): The light gray "Start building with Airtable" CTA banner near the footer.
-- **Surface Dark** (`{colors.surface-dark}` — #181d26): The dark navy CTA cards used mid-page (for example "The path to 10× every person in your organization").
-- **Surface Dark Elevated** (`{colors.surface-dark-elevated}` — #1d1f25): The articles-page hero base behind the rainbow-stripe overlay.
-- **Hairline** (`{colors.hairline}` — #dddddd): The 1px border tone for input outlines, table dividers, secondary-button outlines.
+- **Ink** (`{colors.ink}` — #181d26): The strongest text, and the primary CTA background. 16.9:1 on paper.
+- **Ink Soft** (`{colors.ink-soft}` — #41454d): Running body copy and footer text. 9.6:1 on paper.
+- **Ink Faint** (`{colors.ink-faint}` — #6b7280): Column letters, row numbers, timestamps, separators. 4.8:1 on paper — still AA, because some of it is real text (the formula-bar hint), not just chrome.
+- **Paper** (`{colors.paper}` — #ffffff): The default canvas. The hero is white, full stop.
+- **Panel** (`{colors.panel}` — #f8fafc): Author card, form sidebar, inline code blocks, spreadsheet chrome.
+- **Rule** (`{colors.rule}` — #dddddd): The 1px hairline. Borders, table dividers, secondary-button outlines, and the mortar of the card grid.
 
-### Text
-- **Ink** (`{colors.ink}` — #181d26): The strongest text — h1/h2 display type and primary button text-on-light. Same hex as `{colors.primary}` because they are the same role expressed at type and button layers.
-- **Body** (`{colors.body}` — #333840): The default running-text color.
-- **Muted** (`{colors.muted}` — #41454d): Footer links, breadcrumbs, captions.
-- **Border Strong** (`{colors.border-strong}` — #9297a0): The 1px outline color on disabled secondary buttons.
-- **On Primary / On Dark** (`{colors.on-primary}` — #ffffff): The text color on primary buttons and dark surfaces.
+### Signature Bands
 
-### Signature Card Surfaces
-These are the colors that carry Airtable's brand voltage. They appear as full-bleed, full-card surfaces — never as accents on a small element.
-- **Coral** (`{colors.signature-coral}` — #aa2d00): The largest signature card on the homepage ("Production apps in prototype speed"). Full-bleed dark coral with white type.
-- **Forest** (`{colors.signature-forest}` — #0a2e0e): A deep-green signature card used in the homepage demo-grid cluster.
-- **Cream** (`{colors.signature-cream}` — #f5e9d4): The cream callout band ("The path to 10× every person in your organization") — a soft beige surface holding dark type and product UI fragments.
-- **Peach** (`{colors.signature-peach}` — #fcab79), **Mint** (`{colors.signature-mint}` — #a8d8c4), **Yellow** (`{colors.signature-yellow}` — #f4d35e), **Mustard** (`{colors.signature-mustard}` — #d9a441): Demo-card surfaces that carry small product UI fragments inside the multi-card grid sections.
+Full-bleed surfaces that punctuate long pages. Never accents on small elements.
 
-### Semantic
-- **Link** (`{colors.link}` — #1b61c9): Inline body links and anchor text. Darker on press to `{colors.link-active}` (#1a3866). Despite the `--theme_button-background-primary` CSS-variable name, this color is **not** the primary button color — it is the link color.
-- **Info** (`{colors.info}` — #254fad) and **Info Border** (`{colors.info-border}` — #458fff): Inline info badges and focused-input outline.
-- **Success** (`{colors.success}` — #006400) and **Success Border** (`{colors.success-border}` — #39bf45): Confirmation states.
+- **Coral** (`{colors.coral}` — #aa2d00): The homepage thesis band. White type at 6.8:1.
+- **Surface Dark** (`{colors.surface-dark}` — #181d26): The `{component.signature-dark-band}` carrying the course CTA. Same hex as `{colors.ink}` because ink serves as both type color and signature dark surface.
+- **Surface Strong** (`{colors.surface-strong}` — #e0e2e6): The light gray closing band on the library index.
+- **Forest + Cream** (`{colors.forest}` — #0a2e0e on `{colors.cream}` — #f5e9d4): The `{component.signature-forest-band}`, reserved for the **bundle layer** (`/mau-excel/bo-file/*`). It is not a decorative alternative to coral: it marks a different tier of page. Coral belongs to the homepage, dark navy to the course CTA, forest to a bundle. Landing on a page and recognizing the tier from the band color is the point.
+
+### Spreadsheet Semantics
+
+These carry meaning. They are the one thing in the system that must never be repurposed.
+
+- **Input** (`{colors.input}` — #1f4b99) on **Input BG** (`{colors.input-bg}` — #eaf0f9): Cells the reader types into. Also serves as the link color and the `:focus-visible` ring, both of which are consistent with "this is where you act."
+- **Computed** (`{colors.computed}` — #0e6b4a) on **Computed BG** (`{colors.computed-bg}` — #e6f2ec): Cells Excel calculates. 5.7:1 on its own background.
+- **Flag** (`{colors.flag}` — #b45309): Error cells (`#DIV/0!`, `#REF!`), form validation errors, and the preview-build banner. Deliberately an amber-orange rather than a red, because a red would sit too close to `{colors.coral}` and let a brand band read as a broken cell.
 
 ## Typography
 
 ### Font Family
-The system runs **Haas / Haas Groot Disp** (Airtable's licensed display + text type). Haas Groot Disp covers display sizes (h1 / h2); Haas Grotesk covers everything 24px and below. The fallback stack walks `-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif`.
 
-The pricing surface runs a separate **Inter Display** stack at mid-weights (475 / 575) — a deliberate sub-system signaling commercial precision.
+Three families, all loaded through `next/font/google` in `app/layout.tsx` with `subsets: ["latin", "vietnamese"]` — non-negotiable, since a missing Vietnamese subset drops diacritics to a system font and causes layout shift.
+
+- **Archivo** — display. A grotesk in the Haas family tree. Loaded at weights 400 / 500 / 600 only; 700 is deliberately absent so nobody can reach for it.
+- **Be Vietnam Pro** — body. Drawn for Vietnamese, which is why it carries every paragraph on the site.
+- **JetBrains Mono** — formulas, cell references, column letters. Not decorative: formulas only read comparably when they line up in columns. `font-feature-settings: "zero" 1` keeps the slashed zero.
 
 ### Hierarchy
 
-| Token | Size | Weight | Line Height | Letter Spacing | Use |
-|---|---|---|---|---|---|
-| `{typography.display-xl}` | 48px | 500 | 1.1 | 0 | Articles page h2 — second-tier editorial headline |
-| `{typography.display-lg}` | 40px | 400 | 1.2 | 0 | Homepage h1 hero |
-| `{typography.display-md}` | 32px | 400 | 1.2 | 0 | Platform-page h2 — feature-section headlines |
-| `{typography.title-lg}` | 24px | 400 | 1.35 | 0.12px | Section titles |
-| `{typography.title-md}` | 20px | 400 | 1.5 | 0 | Sub-section titles in tabbed feature cards |
-| `{typography.title-sm}` | 18px | 500 | 1.4 | 0 | Article-card titles |
-| `{typography.label-md}` | 16px | 500 | 1.4 | 0 | Demo-card titles, list labels |
-| `{typography.button}` | 16px | 500 | 1.4 | 0 | Standard CTA button labels |
-| `{typography.body-md}` | 14px | 400 | 1.25 | 0 | Body copy, footer links, top-nav items |
-| `{typography.caption}` | 14px | 500 | 1.35 | 0.16px | Light captions and meta text |
-| `{typography.legal}` | 13.12px | 600 | 1.2 | 0 | Cookie/legal CTA buttons |
-| `{typography.pricing-display}` | 44.8px | 475 | 1.1 | 0 | Pricing-page h1 |
-| `{typography.pricing-section}` | 28px | 475 | 1.2 | 0 | Pricing-page section heads |
-| `{typography.pricing-card-title}` | 20px | 475 | 1.3 | 0 | Pricing tier card plan name |
+| Token | Size | Weight | Use |
+|---|---|---|---|
+| `{typography.display-xl}` | 60px | 400 | Homepage and course-page h1 |
+| `{typography.display-lg}` | 48px | 400 | Library, category, and template h1 |
+| `{typography.display-md}` | 30px | 400 | Section h2 and signature-band headlines |
+| `{typography.title-lg}` | 24px | 400 | Sidebar and author-card headings |
+| `{typography.title-sm}` | 16px | 500 | Card titles, step names, field labels |
+| `{typography.lead}` | 18px | 400 | Intro paragraph under an h1 |
+| `{typography.body}` | 16px | 400 | Running copy |
+| `{typography.button}` | 16px | 500 | CTA labels |
+| `{typography.caption}` | 14px | 400 | Meta lines, footer, breadcrumbs |
+| `{typography.cell}` | 14px | 400 | Cell values and formulas |
+| `{typography.cell-chrome}` | 12px | 400 | Column letters, row numbers, cell-name box |
 
 ### Principles
-The Haas system prefers weight 400 for display sizes — a 40px h1 is **not** bold. Visual emphasis is delegated to size, color contrast, and the signature surface cards. Where the system does want weight, it pivots to 500 (sub-titles, buttons, article titles), never 600 or 700 in the editorial body. The only true bold (600) lives in `{typography.legal}` — a sign that boldness is reserved for terms-of-service surfaces, not marketing.
 
-The pricing-page sub-system uses Inter Display at `font-weight: 475` — a custom mid-weight between regular (400) and medium (500), shipped as a variable font.
+Weight 400 for every display size. Where the system wants emphasis it goes to 500 — card titles, buttons, step names — and stops there. 600 exists only on the nav wordmark. There is no 700 in the loaded font, which is the enforcement mechanism.
 
-### Note on Font Substitutes
-If Haas Groot Disp and Haas Grotesk are unavailable, **Inter Display** (variable) is the closest open-source substitute for both — adjust line-height down by ~5% to match Haas's tighter cap-height. For the pricing sub-system, use Inter Display directly. On macOS / iOS, **system-ui** is sufficient; on Windows, the chain falls through to Segoe UI, which is a usable but slightly cooler substitute.
+When in doubt: bigger before bolder, and a signature band before a solid accent.
 
 ## Layout
 
-### Spacing System
-- **Base unit:** 4px (all spacing snaps to 4-multiples).
-- **Tokens:** `{spacing.xxs}` 4px · `{spacing.xs}` 8px · `{spacing.sm}` 12px · `{spacing.md}` 16px · `{spacing.lg}` 24px · `{spacing.xl}` 32px · `{spacing.xxl}` 48px · `{spacing.section}` 96px.
-- **Section padding (vertical):** `{spacing.section}` (96px) is the universal vertical rhythm constant — every major editorial band on every page uses 96px top + 96px bottom internal padding.
-- **Card internal padding:** `{spacing.xl}` (32px) for tabbed feature cards and pricing tier cards; `{spacing.xxl}` (48px) inside signature coral / forest / dark cards; `{spacing.lg}` (24px) for cream callouts and demo-grid cards.
-- **Gutters:** `{spacing.lg}` (24px) between cards in 3-up grids; `{spacing.md}` (16px) inside denser logo strips and footer column gutters.
+### Spacing
+
+- **Base unit:** 4px.
+- **`{spacing.section}` (96px) is the universal vertical rhythm.** Every gap between major bands, and every page's top and bottom padding, is 96px. Gaps *within* a band (heading to content) stay at 20–24px — the 96px constant is for band-to-band only, and mixing the two scales is what made the pre-rewrite pages feel arrhythmic.
+- **Card padding:** `{spacing.xxl}` (48px) inside signature bands, `{spacing.xl}` (32px) in panel cards, `{spacing.lg}` (24px) in grid cells.
 
 ### Grid & Container
-- **Max content width:** ~1280px centered, with `{spacing.xxl}` (48px) horizontal breathing room.
-- **Editorial body:** Single 8/12-column at large breakpoints, collapsing to single-column on mobile.
-- **Demo-card grids:** 3 or 4 columns at desktop, 2 at tablet, 1 at mobile. Card sizes are deliberately uneven within the grid to dodge a uniform "spec sheet" feel.
-- **Logo strip:** 6 monochrome partner logos in a single row at desktop; wraps to 3-up on mobile.
 
-### Whitespace Philosophy
-Airtable uses whitespace as the dominant atmospheric tool. Hero sections sit in 96px+ of pure whitespace above and below the headline + sub-headline pair, with no decoration in that whitespace. The hero is intentionally calm — there is no gradient, no aurora, no atmospheric mesh behind the type. The system trusts whitespace alone to do the framing.
+- Editorial pages cap at `max-w-5xl` (1024px); the template article caps at `max-w-3xl` (768px) because it is long-form reading.
+- Card grids run 3-up at desktop, 2-up at tablet, 1-up at mobile.
+- The grid is built as `gap-px` over a `{colors.rule}` background with `{rounded.md} overflow-hidden` on the outer frame only. Individual cells stay square — the lattice is the point.
+
+### Whitespace
+
+Whitespace is the hero's only atmosphere. No gradient, no mesh, no illustration behind the type. The hero carries one headline, one paragraph, and one button pair; anything more belongs in a band further down.
 
 ## Elevation & Depth
 
 | Level | Treatment | Use |
 |---|---|---|
-| Flat | No shadow, no border | Body sections, top nav, footer |
-| Soft hairline | 1px `{colors.hairline}` border | Inputs, sub-nav rails, comparison-table dividers, secondary buttons |
-| Button rest | Soft drop with subtle blue-tinted glow at low alpha | Primary CTA buttons (the blue tint is a holdover from the link color and reads as a faint accent under the dark button) |
-| Button focus | Outer 2px blue ring at higher alpha | Keyboard focus state on primary buttons |
-| Card flat | No shadow; relies on color contrast against the surface band | Signature coral / forest / dark cards, cream callouts, demo-grid cards |
+| Flat | No shadow, no border | Body sections, nav, footer, hero |
+| Hairline | 1px `{colors.rule}` | Inputs, table dividers, card lattice, secondary buttons |
+| Color block | No shadow; contrast against the surrounding surface | Signature bands, panel cards, spreadsheet cells |
 
-The elevation philosophy is **color-block first, shadow second**. Shadows are minimal; depth is delegated to the contrast between white canvas and signature surface cards. There is no soft-glow / atmospheric-shadow / heavy-elevation language anywhere in the marketing system.
-
-### Decorative Depth
-- **Vertical rainbow stripes** appear on the articles hero only — multi-color vertical bands sitting on `{colors.surface-dark-elevated}`. This is a single-page treatment, not a system-wide signature.
-- **Photography-as-depth** in the demo-card grid: every card carries a real product UI screenshot or mockup, contributing depth through legible artifact density rather than decorative effects.
-
-## Shapes
-
-### Border Radius Scale
-
-| Token | Value | Use |
-|---|---|---|
-| `{rounded.xs}` | 2px | Cookie-consent and legal CTA buttons — system-required surfaces |
-| `{rounded.sm}` | 6px | Text inputs, small inline buttons |
-| `{rounded.md}` | 10px | Secondary content cards, article cards, cream callouts |
-| `{rounded.lg}` | 12px | Primary CTA buttons, signature surface cards, tabbed feature cards |
-| `{rounded.pill}` | 9999px | Pricing-page CTA buttons (sub-system only) |
-| `{rounded.full}` | 9999px / 50% | Circular icon buttons, avatar surfaces |
-
-### Photography Geometry
-Product UI screenshots inside demo-card grids retain native aspect ratios (typically 4:3 or 16:10) and crop into `{rounded.md}` containers. Hero illustrations bleed full-width with no rounding. Article-card thumbnails use 16:9 with `{rounded.md}` corners. Avatars in testimonials use `{rounded.full}` (perfect circles). Pricing comparison table images stay rectangular with no rounding.
+**Color-block first, shadow never.** There is not a single `box-shadow` in the system. Depth comes from the contrast between white canvas and a saturated band.
 
 ## Components
 
-> **No hover states documented.** Per the global no-hover policy (Step 6), every component spec below documents only Default and Active/Pressed states. Variants live as separate entries in the `components:` front matter.
-
-**`top-nav`** — A 64px-tall white bar pinned to the top of every page. Airtable wordmark sits at left; primary horizontal menu (Platform, Solutions, Resources, Enterprise, Pricing) sits center-left in `{typography.body-md}`; the right cluster carries a "Book Demo" outline link, "Sign up for free" `{component.button-primary}`, and "Log In" text link. The nav stays light on every page — Airtable does not invert the nav over dark sections.
+> Only Default and Active/Pressed states are specified. Hover is an affordance, not a documented layer — keep it to the minimum that signals clickability.
 
 ### Buttons
 
-**`button-primary`** — The signature primary CTA. Background `{colors.primary}` (near-black), text `{colors.on-primary}`, type `{typography.button}`, padding 16px × 24px, rounded `{rounded.lg}` (12px). This is the "Get started for free" / "Sign up for free" button visible on every hero. It reads as confident and final — not decorative — which is why the system uses it sparingly (one per viewport).
-- Active state: `button-primary-active` darkens to `{colors.primary-active}` (#0d1218).
+**`button-primary`** — `{colors.ink}` background, `{colors.paper}` text, `{typography.button}`, 16px × 24px padding, `{rounded.lg}`. One per viewport. Hover lightens to 85% opacity.
 
-**`button-secondary`** — White outline button (e.g. "Book demo"). Background `{colors.canvas}`, text `{colors.ink}`, type `{typography.button}`, rounded `{rounded.lg}` (12px), 1px hairline outline. Sits next to `{component.button-primary}` as the "less-committed" choice.
+**`button-secondary`** — `{colors.paper}` with a 1px `{colors.rule}` outline and `{colors.ink}` text, same shape. The natural pair beside `{component.button-primary}`.
 
-**`button-secondary-on-dark`** — Same shape as `{component.button-secondary}` but used on signature coral / forest / dark surfaces. Background `{colors.canvas}`, text `{colors.ink}` — the white button stays white over dark surfaces because the system never inverts to a translucent on-dark style on the marketing site.
+**`button-secondary-on-dark`** — Same white button, used on `{component.signature-coral-band}` and `{component.signature-dark-band}`. The button stays solid white on dark surfaces; the system never inverts to a translucent on-dark style.
 
-**`button-pricing-pill`** — The pricing-page CTA family. Background `{colors.canvas}`, text `{colors.pricing-ink}`, rounded `{rounded.pill}` (9999px), padding 12px × 24px. The only place pill-shape appears in the marketing system. Treat it as part of the pricing sub-system signaling.
+**`text-link`** — `{colors.input}` with a `{colors.input}`/40% underline that solidifies on hover. Blue here is consistent with its spreadsheet meaning: the place where you act.
 
-**`button-legal`** — Cookie-consent and legal-banner CTAs. Background `{colors.link}`, text `{colors.on-primary}`, type `{typography.legal}` (13.12px / 600), rounded `{rounded.xs}` (2px), padding 12px × 10px. The 2px corner radius and 600 weight signal "this is a required system surface," not a designed brand surface.
+### Bands & Cards
 
-**`button-icon-circular`** — 40px × 40px circular button with `{colors.canvas}` background, hairline border, and `{colors.ink}` icon. Used for carousel controls, "share", and "back" affordances.
+**`hero-band`** — Full-width white. Headline, one lead paragraph, one button pair, 96px of vertical air.
 
-**`text-link`** — Inline body links in `{colors.link}` (#1b61c9, the actual link blue). No underline by default. Type inherits `{typography.body-md}`.
+**`signature-coral-band`** — `{colors.coral}`, white type, `{rounded.lg}`, 48px padding, `{component.button-secondary-on-dark}` as CTA. Carries the site's central claim, placed between two white card grids so it interrupts rather than decorates.
 
-### Cards & Containers
+**`signature-dark-band`** — `{colors.surface-dark}`, white type, same geometry. This is the commercial ask (`components/CourseCta.tsx`), and it is the loudest moment in any article.
 
-**`hero-band`** — The full-page-width white-canvas hero. No surface card, no border, no shadow, no atmospheric gradient — just the headline, sub-headline, and primary + secondary button pair sitting in 96px of whitespace. Vertical padding `{spacing.section}` (96px).
+**`cta-band-light`** — `{colors.surface-strong}`, ink type, `{rounded.lg}`, closing the library index with a `{component.button-primary}`.
 
-**`signature-coral-card`** — The large full-bleed coral card on the homepage ("Production apps in prototype speed"). Background `{colors.signature-coral}` (#aa2d00, a dark coral / oxide red), text `{colors.on-primary}`, rounded `{rounded.lg}` (12px), internal padding `{spacing.xxl}` (48px). Carries an h2 in `{typography.display-md}`, supporting copy in `{typography.body-md}`, and `{component.button-secondary-on-dark}` as the CTA.
+**`card-grid`** / **`card-grid-cell`** — A hairline lattice. `{colors.rule}` background showing through 1px gaps, `{colors.paper}` cells, `{rounded.md}` and `overflow-hidden` on the outer frame only.
 
-**`signature-forest-card`** — A deep green signature card (`{colors.signature-forest}` — #0a2e0e) used as a demo-grid sibling to the coral card on the homepage.
+**`panel-card`** — `{colors.panel}` with a `{colors.rule}` hairline and `{rounded.md}`. The author card and the lead-form sidebar.
 
-**`hero-card-dark`** — The dark navy mid-page CTA card (e.g. "The path to 10× every person in your organization"). Background `{colors.surface-dark}` (#181d26), text `{colors.on-dark}`, rounded `{rounded.lg}` (12px), internal padding `{spacing.xxl}` (48px). The same color as `{colors.primary}` because the system uses ink as both type color and signature dark surface.
+### Inputs
 
-**`feature-card-tabbed`** — Light-cream cards (e.g. the "Coke / Pelosi / Conde Nast / Time Inc" tabbed feature card on the homepage). Background `{colors.surface-soft}`, rounded `{rounded.lg}` (12px), internal padding `{spacing.xl}` (32px). Left rail carries vertically-stacked tab labels in `{typography.title-md}`; right pane shows the active tab's content (illustration + body copy + small CTA).
+**`text-input`** — `{colors.paper}`, 1px `{colors.rule}`, `{rounded.sm}`, 12px × 16px padding, 44px tall. Focus draws the global 2px `{colors.input}` ring at 2px offset.
 
-**`cream-callout-card`** — Beige callout cards (`{colors.signature-cream}`). Rounded `{rounded.md}` (10px), internal padding `{spacing.lg}` (24px). Carry product UI fragments or stat callouts — softer than the dark/coral signature cards but still a deliberate brand surface.
+### Spreadsheet Sub-System
 
-**`demo-grid-card`** — Used in multi-card grids that punctuate every page. Background `{colors.canvas}` or one of the demo-grid surfaces (`{colors.signature-peach}`, `{colors.signature-mint}`, `{colors.signature-yellow}`, `{colors.signature-mustard}`), rounded `{rounded.md}` (10px), internal padding `{spacing.md}` (16px). Each card frames a product UI fragment. Card heights vary deliberately to dodge a uniform "spec sheet" feel.
+This is the site's own dialect, sitting inside `components/SheetPreview.tsx`. It has its own radius (zero), its own font (mono), and its own colors — and **none of it leaks outward, and nothing from the editorial layer leaks in**. Structurally it plays the role that a pricing sub-system plays on a SaaS marketing site: a bounded region that announces itself by breaking the house style on purpose.
 
-**`logo-strip`** — Horizontal monochrome partner-logo row (HBO, Netflix, Amazon, Time, Conde Nast). Logos render in `{colors.muted}`, surface is `{colors.canvas}`, vertical padding `{spacing.xl}` (32px). 6 logos at desktop, 3 at mobile.
+**`sheet-formula-bar`** — Excel's formula bar, rebuilt: cell-name box on the left, an italic `fx` divider, then the resolved formula in `{colors.computed}`. It is an `aria-live` region so screen readers announce the formula as focus moves.
 
-**`article-card`** — The trending-stories grid on the articles page. Background `{colors.canvas}`, rounded `{rounded.md}` (10px), internal padding `{spacing.md}` (16px). Each card carries a colorful illustrated thumbnail (16:9), a small uppercase category tag, an `{typography.title-sm}` title, and a meta line. 3-up at desktop.
+**`sheet-chrome-cell`** — The column-letter strip and row-number gutter. `{colors.panel}` background, `{colors.ink-faint}` mono type, `aria-hidden` — this is the frame of a spreadsheet, not data.
 
-**`topic-filter-rail`** — The left rail on the articles page. 240px wide, `{colors.canvas}` background, `{typography.body-md}`, vertically grouped category headings ("Marketing", "Product", "Project management", "Operations") with sub-bullets. Active item carries a small numeric count badge.
+**`sheet-input-cell`** — Cells the reader types into. `{colors.input-bg}` background. Tinted rather than left white so the convention the caption declares is actually visible; a white input cell is indistinguishable from an empty one.
 
-### Inputs & Forms
+**`sheet-computed-cell`** — Cells Excel calculates. `{colors.computed-bg}` background, `{colors.computed}` text, rendered as a real `<button>` so mouse and keyboard both reveal the formula. Carries a 6px triangle in the top-right corner — borrowed from Excel's own comment marker — because touch devices have no hover and otherwise nothing signals the cell is interactive.
 
-**`text-input`** — Standard text input. Background `{colors.canvas}`, text `{colors.ink}`, type `{typography.body-md}`, rounded `{rounded.sm}` (6px), padding 12px × 16px, height 44px. 1px hairline border in `{colors.hairline}`.
+**`sheet-error-cell`** — `{colors.flag}` text for `#DIV/0!` and `#REF!` values.
 
-**`text-input-focus`** — Focus state. Border thickens or recolors to `{colors.info-border}`.
+### Bundle Map — the one sanctioned promotion of the semantic colors
 
-### Pricing Sub-System
+`components/SystemMap.tsx` draws a bundle as a spreadsheet, not a flowchart: square corners, mono labels, an A/B/C column strip across the top. Three columns are three roles — input, process, master.
 
-**`pricing-tier-card`** — Standard tier card. Background `{colors.canvas}`, text `{colors.pricing-ink}`, type `{typography.pricing-card-title}` for the plan name, rounded `{rounded.md}` (10px), internal padding `{spacing.xl}` (32px). Carries the plan name, a price block in `{typography.pricing-display}` (44.8px / 475), feature checklist, and a `{component.button-pricing-pill}` at the bottom.
+It is the only place outside `SheetPreview` allowed to use `{colors.input}` and `{colors.computed}`, and the reason is that it does not repurpose them. It **promotes them one level**, from cell to file: blue still means "you type into this," green still means "Excel pulls the numbers in." The reader learns the convention on a cell and reads it again on a file without being taught twice. That is the test any future use has to pass — if a proposed use cannot state the same sentence about the same meaning, it is decoration and the answer is no.
 
-**`pricing-tier-card-featured`** — The featured tier (typically "Team" or "Business"). Background shifts to `{colors.surface-soft}`. No accent border, no badge — the background tone shift is the only signal.
+**`system-map-node-input`** / **`system-map-node-computed`** — A file in the bundle. `{rounded.none}`, 1px semantic border over the matching `-bg` tint. The master node takes a 2px border and a mono `FILE TỔNG` label; it is the only node whose role tag is not simply its column name.
 
-**`pricing-comparison-row`** — Each row of the long comparison table at the bottom of the pricing page. Labels in the left column; checkmarks or values across 4 plan columns. 12px vertical padding per row, hairline divider between rows.
+**`system-map-node-planned`** — A file not written yet. `{colors.panel}` on a dashed `{colors.rule}` border, `{colors.ink-faint}` type, and **not a link**. Showing an unbuilt file greys-out is honest about the bundle's coverage; linking it to a 404 to make the bundle look complete is not.
 
-### Navigation Variants
+**`system-map-edge`** — Data moving between two files. A 1px `{colors.ink-faint}` elbow with an arrowhead, drawn in an SVG layer measured from the real DOM boxes. The label on it names the data ("số công tháng"), never the relationship — a diagram whose arrows say "→" carries no information the layout did not already carry. Below 640px the SVG is dropped entirely and each node carries text chips instead; a diagram collapsed to one column is a list, so it should be drawn as one.
 
-**`footer`** — Light surface (`{colors.canvas}`), 6-column link list at desktop covering Platform / Solutions / Resources / Learn / Company sub-trees. Vertical padding `{spacing.section}` divided across upper link block and lower legal row. Type `{typography.body-md}`.
-
-**`cta-band-light`** — The light gray "Start building with Airtable" CTA strip near the footer. Background `{colors.surface-strong}` (#e0e2e6), text `{colors.ink}`, rounded `{rounded.lg}` (12px), padding `{spacing.xxl}` (48px). Carries an h2 in `{typography.display-md}` and a `{component.button-primary}`.
-
-### Signature Components
-
-**Articles Vertical Rainbow Stripe Hero** — The articles-page hero treatment. Multi-color vertical bands at varying widths sitting on `{colors.surface-dark-elevated}`. The h1 + sub-head + CTA cluster sits center-left on top of the stripes. This is a single-page hero treatment, not a system-wide signature — do not promote it to a multi-page pattern.
+**`system-strip`** — The compact version on a single-file page, answering "where does this file sit." Same node sequence, one row, current file inverted to `{colors.ink}`.
 
 ## Do's and Don'ts
 
 ### Do
-- Keep `{component.button-primary}` near-black. The brand's primary CTA is `{colors.primary}`, not the link blue. Mixing them up turns a confident hero into a confused one.
-- Reserve `{component.button-primary}` for one primary action per viewport. The system is designed for scarcity at the brand-action layer.
-- Use `{component.button-secondary}` (white with hairline outline) as the natural pair with `{component.button-primary}`. The two together form Airtable's signature button row.
-- Trust whitespace as the hero atmosphere. Hero bands are intentionally calm — no gradient, no mesh, no atmospheric backdrop. Going against this reads as off-brand.
-- Use `{component.signature-coral-card}`, `{component.signature-forest-card}`, and `{component.hero-card-dark}` to break editorial monotony. These are the brand's voltage moments.
-- Keep `{component.demo-grid-card}` heights uneven within a grid. Uniform heights feel like a spec sheet.
-- Treat the pricing surface as its own dialect: keep `{typography.pricing-display}`, `{typography.pricing-card-title}`, and `{component.button-pricing-pill}` together. Mixing them with Haas Grotesk button type breaks the sub-system's voice.
-- Anchor every editorial band with `{spacing.section}` (96px) vertical padding.
+- Keep `{component.button-primary}` near-black, and keep it to one per viewport.
+- Trust whitespace as the hero atmosphere. Calm is the brand.
+- Use `{component.signature-coral-band}` and `{component.signature-dark-band}` to break editorial monotony — they are the voltage moments.
+- Alternate surfaces band to band. White → coral → white → panel reads as rhythm; white → white reads as a typography blog.
+- Anchor every band gap at `{spacing.section}` (96px).
+- Load every font with the `vietnamese` subset and keep body `line-height` at 1.65.
 
 ### Don't
-- Don't make `{colors.link}` (#1b61c9) the primary button color. It is the link color. The primary button is `{colors.primary}` (#181d26, near-black). Treating link-blue as the brand action is the most common mistake when reading Airtable's CSS variables.
-- Don't add a gradient backdrop to the hero. Airtable's hero is white, full stop. Mesh, aurora, spotlight gradients all read as "another SaaS template" — not Airtable.
-- Don't bold display-weight type. `{typography.display-xl}` and `{typography.display-lg}` are intentionally weight 400 / 500 — going to 700 reads as marketing-page-template.
-- Don't use `{rounded.pill}` outside the pricing surface. It's a sub-system signal, not a general radius option.
-- Don't repeat the same surface mode in two consecutive bands. The editorial pacing depends on rhythm: white → signature card → white → cream → dark → white. Two whites in a row read as a typography blog.
-- Don't add hover state styling beyond what the system already encodes. The system documents Default and Active/Pressed only.
-- Don't introduce additional accent colors beyond the documented signature card palette. The system's voltage already uses coral, forest, dark navy, cream, peach, mint, yellow, and mustard.
+- **Don't use `{colors.input}` or `{colors.computed}` as decoration** — not as a button fill, not as a hover color, not as a band. They mean "you type here" and "Excel computes this." Spending them on ornament dissolves the one convention the whole site teaches. The bundle map is the sole exception and it earns it by keeping the meaning intact; see the sub-section above for the test.
+- **Don't reuse `{component.signature-forest-band}` outside `/mau-excel/bo-file/*`.** Band color encodes page tier, not variety.
+- **Don't round anything inside the spreadsheet grid.** `{rounded.none}` is mandatory there.
+- Don't bold display type. The loaded Archivo weights stop at 600 precisely so this stays impossible; don't add 700 back.
+- Don't add a gradient, mesh, or illustration behind the hero.
+- Don't introduce a `box-shadow`. Depth is color contrast.
+- Don't introduce accent colors beyond the declared signature set.
+- Don't let `{colors.flag}` drift back toward red — it has to stay clearly distinct from `{colors.coral}`.
 
 ## Responsive Behavior
 
-### Breakpoints
-
 | Name | Width | Key Changes |
 |---|---|---|
-| Mobile | < 768px | Single-column body; top nav collapses to hamburger; demo-grid drops to 1-up; signature cards stay full-bleed; logo strip wraps to 2 rows; footer collapses to single-column |
-| Tablet | 768–1024px | 2-up demo-grid; top nav stays horizontal but tightens; cream-callout cards stack 2-up; pricing comparison table becomes horizontally scrollable |
-| Desktop | 1024–1440px | 3-up demo-grid (and 4-up for tighter content); full top-nav with all menu items visible; pricing tier cards render 4-across |
-| Wide | > 1440px | Same as Desktop with more outer breathing room; max content width caps at ~1280px and the page adds outer margin rather than scaling type up |
+| Mobile | < 640px | Single-column; card grids 1-up; signature bands drop to 40px padding; the sheet table scrolls horizontally with a visible "cuộn ngang" hint |
+| Tablet | 640–1024px | 2-up card grids; course page still single-column |
+| Desktop | ≥ 1024px | 3-up card grids; course page splits to content + 360px sticky sidebar |
 
 ### Touch Targets
-- `{component.button-primary}` and siblings render at 48 × 48px minimum (16px vertical padding + 16px line-height) — comfortably above WCAG AAA's 44 × 44.
-- `{component.button-icon-circular}` is exactly 40 × 40px — slightly under WCAG's recommended 44, but the centered icon and dot-radius compensate visually.
-- `{component.text-input}` height is 44px.
-
-### Collapsing Strategy
-- Top nav collapses to a hamburger at < 768px; the menu opens as a full-screen sheet rather than a dropdown.
-- Card grids reduce columns rather than scaling cards down.
-- The `{component.feature-card-tabbed}` re-stacks the tab rail above the content pane on mobile.
-- The pricing comparison table converts to horizontally-scrollable swipe at < 1024px; the four plan headers stay visible while body rows scroll.
-
-### Image Behavior
-- Demo-card UI screenshots crop to fit their container rather than scaling up.
-- Hero illustrations bleed full-width on mobile, losing horizontal margin.
-- Signature card images (inside coral / forest / dark cards) compress to their card width without cropping.
+- `{component.button-primary}` renders at 16px padding + 22px line-height ≈ 54px tall — above WCAG AAA's 44px.
+- `{component.text-input}` is 44px.
+- `{component.sheet-computed-cell}` buttons fill their cell, roughly 38px tall — under 44px, but they are a progressive enhancement (the value is readable without interacting) rather than a required action.
 
 ## Iteration Guide
 
-1. Focus on ONE component at a time. Reference its YAML key directly (`{component.button-primary}`, `{component.signature-coral-card}`).
-2. When adding a new component, decide first which sub-system it belongs to: the main editorial system (Haas, `{rounded.lg}`/`{rounded.md}`) or the pricing sub-system (Inter Display, `{rounded.pill}`).
-3. Variants of an existing component (`-active`, `-disabled`, `-focus`) live as separate entries in `components:` — never as nested state objects.
-4. Use `{token.refs}` everywhere prose mentions a color, a radius, a typography role, or a spacing value. Hex codes appear at most once next to the reference.
-5. Never document hover. The system documents Default and Active/Pressed states only.
-6. Run `npx @google/design.md lint DESIGN.md` after edits — `broken-ref`, `contrast-ratio`, and `orphaned-tokens` warnings flag issues automatically.
-7. When in doubt about emphasis: bigger type before bolder type, signature surface card before solid accent.
+1. Focus on ONE component at a time and reference its YAML key directly.
+2. Before adding a component, decide which dialect it belongs to: editorial (Archivo, `{rounded.lg}`/`{rounded.md}`) or spreadsheet (mono, `{rounded.none}`, semantic colors). Nothing belongs to both.
+3. Variants live as separate entries in `components:`, never as nested state objects.
+4. Use `{token.refs}` in prose wherever a color, radius, type role, or spacing value is named. A hex appears at most once, next to its reference.
+5. Check contrast whenever a color value moves. Body text needs 4.5:1; `{colors.ink-faint}` is the tightest at 4.8:1 and has no headroom.
+6. Token definitions live in `app/globals.css` under `@theme`. Tailwind v4 generates utilities from them — there is no `tailwind.config.js`.
 
 ## Known Gaps
 
-- The exact hex values of pastel demo-grid surfaces (`{colors.signature-peach}`, `{colors.signature-mint}`, `{colors.signature-yellow}`, `{colors.signature-mustard}`) are inferred from screenshot pixel sampling. Some product launches may swap these surfaces seasonally.
-- Hover behavior across all components is not documented (per global no-hover policy).
-- Animation and transition timings are not in scope.
-- Form validation states beyond `text-input-focus` are not extracted — error and success states for inputs would need a dedicated form page to confirm.
-- The pricing comparison table's checkmark glyph and column-divider widths are described structurally but not formalized as tokens.
-- The CSS variable `--theme_button-background-primary: #1b61c9` exists at `:root` but is not used as the primary CTA color anywhere on the marketing site. It maps to the link/info color role instead. Documented here so future extractions don't re-trip over the misleading variable name.
+- `{component.system-map-edge}` positions arrows from measured DOM boxes, so the diagram is the one component whose correctness depends on layout having settled. It re-measures on `ResizeObserver` and on `document.fonts.ready`; a box that changes size through neither of those paths (CSS `zoom`, for instance) will leave the arrows stale.
+- The bundle map is laid out for at most 3 columns × 8 nodes. Past that the lane-stagger for arrows in a single gap runs out of room.
+- Hover is applied but not formally specified per component.
+- Animation and transition timings are out of scope; the only motion rule is the `prefers-reduced-motion` clamp in `app/globals.css`.
+- Input validation is specified for the error state only. Success and warning states for `{component.text-input}` are not drawn.
+- Dark mode is not designed. The system assumes a light canvas throughout.
+- `npx @google/design.md lint` is referenced in tooling conventions but is **not** installed in this repo — there is no such dependency in `package.json` and no lint script wired to it.

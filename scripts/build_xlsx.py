@@ -13,6 +13,7 @@ from __future__ import annotations
 import json
 import re
 import sys
+from datetime import date
 from pathlib import Path
 
 from openpyxl import Workbook
@@ -41,6 +42,23 @@ NUMBER_FORMATS = {
     "currency": '#,##0 "₫"',
     "percent": "0.0%",
 }
+
+
+def cell_input(col: dict, value):
+    """Giá trị trong sampleRows → giá trị openpyxl ghi được.
+
+    JSON không có kiểu ngày, nên spec viết ngày dưới dạng "YYYY-MM-DD". Ghi
+    thẳng chuỗi đó vào ô thì Excel coi là chữ: định dạng dd/mm/yyyy không ăn,
+    và mọi phép so sánh ngày ở công thức đều sai một cách im lặng.
+    """
+    if col["type"] == "date" and isinstance(value, str):
+        try:
+            return date.fromisoformat(value)
+        except ValueError as exc:
+            raise ValueError(
+                f"cột ngày \"{col['key']}\" cần dạng YYYY-MM-DD, nhận được {value!r}"
+            ) from exc
+    return value
 
 
 def resolve_formula(formula: str, columns: list[dict], row: int) -> str:
@@ -87,10 +105,25 @@ def apply_validation(ws, col: dict, letter: str, first_row: int, last_row: int) 
     dv.add(f"{letter}{first_row}:{letter}{last_row}")
 
 
-def build_sheet(wb: Workbook, sheet: dict, first: bool) -> None:
-    ws = wb.active if first else wb.create_sheet()
-    ws.title = sheet["name"]
+def build_sheet(
+    wb: Workbook,
+    sheet: dict,
+    first: bool,
+    *,
+    title: str | None = None,
+    links: dict[str, str] | None = None,
+) -> None:
+    """Dựng một sheet từ spec.
 
+    `links` là phần dành cho file gộp: {key cột: công thức đã resolve theo dạng
+    còn giữ {row}}. Cột nào có trong đó thì đổi từ ô nhập liệu thành ô công
+    thức nối sang sheet khác — bỏ luôn data validation và dữ liệu mẫu của cột
+    đó, vì người dùng không còn gõ vào đấy nữa.
+    """
+    ws = wb.active if first else wb.create_sheet()
+    ws.title = title or sheet["name"]
+
+    links = links or {}
     columns = sheet["columns"]
     sample_rows = sheet["sampleRows"]
     blank_rows = sheet.get("blankRows", 20)
@@ -116,7 +149,11 @@ def build_sheet(wb: Workbook, sheet: dict, first: bool) -> None:
             cell = ws.cell(row=row_num, column=i)
             cell.border = BORDER
 
-            if col["type"] == "formula":
+            if col["key"] in links:
+                cell.value = links[col["key"]].replace("{row}", str(row_num))
+                cell.fill = FORMULA_FILL
+                fmt = col["type"]
+            elif col["type"] == "formula":
                 # Dòng trống cũng cài sẵn công thức, để người dùng nhập tiếp
                 # mà không phải tự kéo công thức xuống.
                 cell.value = resolve_formula(col["formula"], columns, row_num)
@@ -124,12 +161,14 @@ def build_sheet(wb: Workbook, sheet: dict, first: bool) -> None:
                 fmt = col.get("format", "number")
             else:
                 if col["key"] in values:
-                    cell.value = values[col["key"]]
+                    cell.value = cell_input(col, values[col["key"]])
                 fmt = col["type"]
 
             cell.number_format = NUMBER_FORMATS[fmt]
 
     for i, col in enumerate(columns, start=1):
+        if col["key"] in links:
+            continue
         apply_validation(ws, col, get_column_letter(i), first_data_row, last_data_row)
 
     ws.freeze_panes = "A2"

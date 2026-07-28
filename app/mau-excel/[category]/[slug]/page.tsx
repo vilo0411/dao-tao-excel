@@ -4,11 +4,14 @@ import { notFound } from "next/navigation";
 import { AuthorByline } from "@/components/Author";
 import { CourseCta } from "@/components/CourseCta";
 import { FormulaTable, SheetPreview } from "@/components/SheetPreview";
+import { SystemStrip } from "@/components/SystemStrip";
+import { cardGridClass } from "@/components/TemplateCard";
 import {
   getAllTemplates,
   getRelatedTemplates,
   getTemplate,
 } from "@/lib/templates";
+import { getSystemForTemplate } from "@/lib/systems";
 import {
   absoluteUrl,
   CATEGORIES,
@@ -71,6 +74,7 @@ export default async function TemplatePage({
 
   const related = getRelatedTemplates(template);
   const categoryName = CATEGORIES[category as CategorySlug].name;
+  const membership = getSystemForTemplate(template.slug);
 
   // JSON-LD: site HVS hiện không có structured data ở bất kỳ trang nào, nên
   // đây là một trong số ít chỗ ta hơn được họ mà không tốn gì.
@@ -88,6 +92,14 @@ export default async function TemplatePage({
           "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
         learningResourceType: "Excel template",
         isAccessibleForFree: true,
+        // Nói với Google rằng file này là một mắt trong chuỗi, không đứng lẻ.
+        ...(membership && {
+          isPartOf: {
+            "@type": "Collection",
+            name: membership.system.name,
+            url: absoluteUrl(membership.system.href),
+          },
+        }),
         associatedMedia: {
           "@type": "MediaObject",
           contentUrl: absoluteUrl(template.downloadUrl),
@@ -127,7 +139,7 @@ export default async function TemplatePage({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <article className="mx-auto max-w-3xl px-5 py-10">
+      <article className="mx-auto max-w-3xl px-5 py-24">
         <nav aria-label="Breadcrumb" className="text-sm text-ink-soft">
           <ol className="flex flex-wrap items-center gap-2">
             <li>
@@ -146,7 +158,7 @@ export default async function TemplatePage({
           </ol>
         </nav>
 
-        <h1 className="font-display mt-5 text-3xl leading-[1.15] font-bold text-balance sm:text-4xl">
+        <h1 className="font-display mt-6 text-4xl leading-[1.05] text-balance sm:text-5xl">
           {template.h1}
         </h1>
 
@@ -166,11 +178,17 @@ export default async function TemplatePage({
           {template.intro}
         </p>
 
-        <div className="mt-8">
+        {membership && (
+          <SystemStrip system={membership.system} node={membership.node} />
+        )}
+
+        <div className="mt-10">
+          {/* Hover cũ dùng màu `computed` — xanh lá đó là nghĩa "ô Excel tự
+              tính", không phải màu trang trí cho nút. Đổi về sắc độ của ink. */}
           <a
             href={withBasePath(template.downloadUrl)}
             download
-            className="inline-block bg-ink px-6 py-3 text-lg font-medium text-paper hover:bg-computed"
+            className="inline-block rounded-lg bg-ink px-6 py-4 text-lg font-medium text-paper hover:bg-ink/85"
           >
             Tải file .xlsx
           </a>
@@ -179,7 +197,7 @@ export default async function TemplatePage({
           </p>
         </div>
 
-        <h2 className="font-display mt-14 text-2xl font-bold">
+        <h2 className="font-display mt-24 text-3xl">
           Bên trong file có gì
         </h2>
         <div className="mt-5 space-y-10">
@@ -192,7 +210,7 @@ export default async function TemplatePage({
           ))}
         </div>
 
-        <h2 className="font-display mt-14 text-2xl font-bold">
+        <h2 className="font-display mt-24 text-3xl">
           File này làm được gì
         </h2>
         <ul className="mt-5 space-y-3">
@@ -206,7 +224,7 @@ export default async function TemplatePage({
           ))}
         </ul>
 
-        <h2 className="font-display mt-14 text-2xl font-bold">
+        <h2 className="font-display mt-24 text-3xl">
           Từng công thức, giải thích ra
         </h2>
         <p className="mt-3 max-w-prose text-ink-soft">
@@ -219,7 +237,7 @@ export default async function TemplatePage({
           ))}
         </div>
 
-        <h2 className="font-display mt-14 text-2xl font-bold">Cách dùng</h2>
+        <h2 className="font-display mt-24 text-3xl">Cách dùng</h2>
         {/* Đánh số ở đây có nghĩa: các bước phải làm theo đúng thứ tự. */}
         <ol className="mt-5 space-y-5">
           {template.howToUse.map((step, index) => (
@@ -235,7 +253,7 @@ export default async function TemplatePage({
           ))}
         </ol>
 
-        <div className="mt-10">
+        <div className="mt-24">
           <CourseCta
             target={template.ctaTarget}
             text={template.ctaText}
@@ -243,7 +261,7 @@ export default async function TemplatePage({
           />
         </div>
 
-        <h2 className="font-display mt-14 text-2xl font-bold">Hay bị hỏi</h2>
+        <h2 className="font-display mt-24 text-3xl">Hay bị hỏi</h2>
         <dl className="mt-5 divide-y divide-rule border-y border-rule">
           {template.faq.map((item) => (
             <div key={item.q} className="py-5">
@@ -255,10 +273,8 @@ export default async function TemplatePage({
 
         {related.length > 0 && (
           <>
-            <h2 className="font-display mt-14 text-2xl font-bold">
-              File liên quan
-            </h2>
-            <ul className="mt-5 grid gap-px border border-rule bg-rule sm:grid-cols-2">
+            <h2 className="font-display mt-24 text-3xl">File liên quan</h2>
+            <ul className={`mt-5 ${cardGridClass(related.length)}`}>
               {related.map((item) => (
                 <li key={item.slug} className="bg-paper">
                   <Link href={item.href} className="block h-full p-5 hover:bg-panel">
@@ -273,7 +289,7 @@ export default async function TemplatePage({
           </>
         )}
 
-        <p className="mt-12 text-sm text-ink-faint">
+        <p className="mt-24 text-sm text-ink-faint">
           Cập nhật{" "}
           <time dateTime={template.updatedAt}>
             {new Date(template.updatedAt).toLocaleDateString("vi-VN")}

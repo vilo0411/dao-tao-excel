@@ -1,0 +1,29 @@
+[
+  [
+    {
+      "ngayCoLuong": 2,
+      "ngayKhongLuong": 0,
+      "truPhepNam": 2
+    },
+    {
+      "ngayCoLuong": 1,
+      "ngayKhongLuong": 0,
+      "truPhepNam": 1
+    },
+    {
+      "ngayCoLuong": 0,
+      "ngayKhongLuong": 4,
+      "truPhepNam": 0
+    },
+    {
+      "ngayCoLuong": 0,
+      "ngayKhongLuong": 1,
+      "truPhepNam": 0
+    },
+    {
+      "ngayCoLuong": 0,
+      "ngayKhongLuong": 0,
+      "truPhepNam": 0
+    }
+  ]
+]

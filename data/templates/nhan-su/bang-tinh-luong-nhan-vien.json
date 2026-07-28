@@ -5,9 +5,10 @@
   "metaTitle": "Mẫu Excel Tính Lương Nhân Viên 2026 - Tải Miễn Phí",
   "metaDesc": "Mẫu Excel tính lương nhân viên 2026 tự tính bảo hiểm, giảm trừ gia cảnh 15,5 triệu và thuế TNCN theo biểu 5 bậc mới. Tải ngay, dùng được luôn.",
   "primaryKeyword": "mẫu excel tính lương nhân viên",
-  "intro": "Mẫu Excel tính lương nhân viên này tự động tính các khoản bảo hiểm bắt buộc, giảm trừ gia cảnh, thuế thu nhập cá nhân và lương thực lĩnh cho từng người. Toàn bộ số liệu thuế đã cập nhật theo quy định áp dụng từ kỳ tính thuế 2026: giảm trừ bản thân 15,5 triệu đồng, mỗi người phụ thuộc 6,2 triệu đồng, và biểu thuế lũy tiến rút còn 5 bậc. Bạn chỉ cần nhập lương cơ bản, phụ cấp và số người phụ thuộc.",
+  "intro": "Mẫu Excel tính lương nhân viên này tự động tính lương theo số công thực hưởng, các khoản bảo hiểm bắt buộc, giảm trừ gia cảnh, thuế thu nhập cá nhân và lương thực lĩnh cho từng người. Toàn bộ số liệu thuế đã cập nhật theo quy định áp dụng từ kỳ tính thuế 2026: giảm trừ bản thân 15,5 triệu đồng, mỗi người phụ thuộc 6,2 triệu đồng, và biểu thuế lũy tiến rút còn 5 bậc. Bạn chỉ cần nhập lương cơ bản, phụ cấp, số công và số người phụ thuộc.",
   "difficulty": "trung-cap",
   "features": [
+    "Tự chia lương cơ bản theo công chuẩn rồi nhân số công thực hưởng",
     "Tự tính bảo hiểm bắt buộc phần nhân viên đóng theo tỷ lệ 10,5%",
     "Tự tính giảm trừ gia cảnh theo số người phụ thuộc của từng nhân viên",
     "Tự tính thuế TNCN theo biểu lũy tiến 5 bậc áp dụng từ năm 2026",
@@ -24,15 +25,23 @@
       "detail": "Điền tổng các khoản phụ cấp trong tháng như ăn trưa, xăng xe, điện thoại. Các khoản này cộng vào tổng thu nhập nhưng không dùng làm căn cứ tính bảo hiểm trong mẫu này."
     },
     {
+      "step": "Nhập công chuẩn và công hưởng lương",
+      "detail": "Công chuẩn là số ngày làm việc theo quy định của tháng đó. Công hưởng lương lấy từ bảng chấm công, là ngày công thực tế cộng ngày nghỉ phép có hưởng lương — không cộng ngày nghỉ không lương. Hai cột này quyết định cột Lương theo công."
+    },
+    {
       "step": "Nhập số người phụ thuộc",
       "detail": "Điền số người phụ thuộc đã đăng ký với cơ quan thuế của từng nhân viên. Mỗi người phụ thuộc được giảm trừ 6,2 triệu đồng một tháng, ảnh hưởng trực tiếp tới số thuế phải nộp."
     },
     {
       "step": "Đọc kết quả",
-      "detail": "Năm cột cuối tự tính toàn bộ: tổng thu nhập, bảo hiểm, thu nhập tính thuế, thuế TNCN và lương thực lĩnh. Bạn không cần nhập gì vào các cột này."
+      "detail": "Bảy cột cuối tự tính toàn bộ: lương theo công, tổng thu nhập, bảo hiểm, giảm trừ, thu nhập tính thuế, thuế TNCN và lương thực lĩnh. Bạn không cần nhập gì vào các cột này."
     }
   ],
   "faq": [
+    {
+      "q": "Vì sao bảo hiểm vẫn tính trên lương cơ bản chứ không theo số công?",
+      "a": "Vì căn cứ đóng bảo hiểm là mức lương ghi trong hợp đồng lao động, không phải số tiền thực nhận trong tháng. Người nghỉ không lương vài ngày thì lương theo công giảm nhưng mức đóng bảo hiểm vẫn giữ nguyên. Chỉ khi nghỉ không lương từ 14 ngày trở lên trong tháng thì tháng đó mới không đóng bảo hiểm xã hội — trường hợp này bạn phải sửa tay cột Bảo hiểm về 0."
+    },
     {
       "q": "Vì sao giảm trừ gia cảnh trong file là 15,5 triệu chứ không phải 11 triệu?",
       "a": "Từ kỳ tính thuế năm 2026, mức giảm trừ cho bản thân người nộp thuế tăng từ 11 triệu lên 15,5 triệu đồng một tháng, và mỗi người phụ thuộc tăng từ 4,4 triệu lên 6,2 triệu đồng, theo Nghị quyết 110/2025/UBTVQH15. Rất nhiều file mẫu đang lưu hành trên mạng vẫn dùng số cũ nên tính ra tiền thuế cao hơn thực tế."
@@ -51,8 +60,12 @@
     }
   ],
   "ctaText": "Học cách tự dựng bảng lương và dashboard nhân sự trên Excel",
-  "relatedSlugs": ["bang-cham-cong-nhan-vien"],
-  "updatedAt": "2026-07-27",
+  "relatedSlugs": [
+    "bang-cham-cong-nhan-vien",
+    "danh-sach-nhan-vien",
+    "bang-theo-doi-nghi-phep"
+  ],
+  "updatedAt": "2026-07-28",
   "sheets": [
     {
       "name": "Bảng lương",
@@ -62,6 +75,16 @@
         { "key": "stt", "header": "STT", "type": "number", "width": 6 },
         { "key": "maNV", "header": "Mã NV", "type": "text", "width": 12 },
         { "key": "hoTen", "header": "Họ và tên", "type": "text", "width": 24 },
+        {
+          "key": "boPhan",
+          "header": "Bộ phận",
+          "type": "text",
+          "width": 18,
+          "validation": {
+            "type": "list",
+            "options": ["Kinh doanh", "Kế toán", "Nhân sự", "Kỹ thuật", "Kho vận"]
+          }
+        },
         {
           "key": "luongCoBan",
           "header": "Lương cơ bản",
@@ -77,6 +100,20 @@
           "validation": { "type": "decimal", "min": 0, "max": 1000000000 }
         },
         {
+          "key": "congChuan",
+          "header": "Công chuẩn",
+          "type": "number",
+          "width": 12,
+          "validation": { "type": "decimal", "min": 1, "max": 31 }
+        },
+        {
+          "key": "congThucTe",
+          "header": "Công hưởng lương",
+          "type": "number",
+          "width": 16,
+          "validation": { "type": "decimal", "min": 0, "max": 31 }
+        },
+        {
           "key": "nguoiPhuThuoc",
           "header": "Số người phụ thuộc",
           "type": "number",
@@ -84,13 +121,22 @@
           "validation": { "type": "whole", "min": 0, "max": 20 }
         },
         {
+          "key": "luongTheoCong",
+          "header": "Lương theo công",
+          "type": "formula",
+          "width": 16,
+          "format": "currency",
+          "formula": "=IF([hoTen]{row}=\"\",\"\",IFERROR(ROUND([luongCoBan]{row}/[congChuan]{row}*[congThucTe]{row},0),0))",
+          "note": "Lương cơ bản chia công chuẩn ra đơn giá một ngày công, rồi nhân với số công thực sự được hưởng lương. Người đi làm đủ công thì cột này bằng đúng lương cơ bản; nghỉ không lương bao nhiêu ngày thì hụt đi bấy nhiêu ngày công."
+        },
+        {
           "key": "tongThuNhap",
           "header": "Tổng thu nhập",
           "type": "formula",
           "width": 16,
           "format": "currency",
-          "formula": "=IF([hoTen]{row}=\"\",\"\",[luongCoBan]{row}+[phuCap]{row})",
-          "note": "Cộng lương cơ bản với phụ cấp để ra tổng thu nhập trước khi trừ bảo hiểm và thuế."
+          "formula": "=IF([hoTen]{row}=\"\",\"\",[luongTheoCong]{row}+[phuCap]{row})",
+          "note": "Cộng lương theo công với phụ cấp để ra tổng thu nhập trước khi trừ bảo hiểm và thuế. Lấy lương theo công chứ không lấy thẳng lương cơ bản, nếu không thì người nghỉ nửa tháng vẫn nhận đủ lương."
         },
         {
           "key": "baoHiem",
@@ -143,32 +189,44 @@
           "stt": 1,
           "maNV": "NV001",
           "hoTen": "Nguyễn Thị Mai",
+          "boPhan": "Kinh doanh",
           "luongCoBan": 18000000,
           "phuCap": 2000000,
+          "congChuan": 26,
+          "congThucTe": 26,
           "nguoiPhuThuoc": 0
         },
         {
           "stt": 2,
           "maNV": "NV002",
           "hoTen": "Trần Văn Hùng",
+          "boPhan": "Kỹ thuật",
           "luongCoBan": 35000000,
           "phuCap": 3000000,
+          "congChuan": 26,
+          "congThucTe": 26,
           "nguoiPhuThuoc": 2
         },
         {
           "stt": 3,
           "maNV": "NV003",
           "hoTen": "Lê Thu Hà",
+          "boPhan": "Kế toán",
           "luongCoBan": 12000000,
           "phuCap": 1500000,
+          "congChuan": 26,
+          "congThucTe": 22,
           "nguoiPhuThuoc": 1
         },
         {
           "stt": 4,
           "maNV": "NV004",
           "hoTen": "Phạm Minh Đức",
+          "boPhan": "Kho vận",
           "luongCoBan": 70000000,
           "phuCap": 5000000,
+          "congChuan": 26,
+          "congThucTe": 25,
           "nguoiPhuThuoc": 2
         }
       ]

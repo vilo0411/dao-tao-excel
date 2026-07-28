@@ -8,6 +8,7 @@ import {
   templateSchema,
   type ComputedValues,
   type Template,
+  type TemplateCardData,
   type TemplateSpec,
 } from "./schema.ts";
 
@@ -15,9 +16,11 @@ export {
   templateSchema,
   columnLetter,
   resolveFormula,
+  DIFFICULTY_LABEL,
   type TemplateSpec,
   type ComputedValues,
   type Template,
+  type TemplateCardData,
 } from "./schema.ts";
 
 /**
@@ -151,6 +154,23 @@ export function getTemplate(
   return getAllTemplates().find(
     (t) => t.category === category && t.slug === slug,
   );
+}
+
+/**
+ * Cắt gọn còn đúng những trường tầng danh sách cần, trước khi đưa sang
+ * component chạy phía client. Xem `TemplateCardData` để biết vì sao.
+ */
+export function toCardData(t: Template): TemplateCardData {
+  return {
+    slug: t.slug,
+    href: t.href,
+    h1: t.h1,
+    metaDesc: t.metaDesc,
+    functions: t.functions,
+    difficulty: t.difficulty,
+    category: t.category,
+    categoryName: t.categoryName,
+  };
 }
 
 /**
