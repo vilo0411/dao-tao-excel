@@ -100,6 +100,12 @@ export default async function CategoryPage({
         {systems.length > 0 && (
           <section className="mt-10">
             <h2 className="font-display text-2xl">Bộ file của nhóm này</h2>
+            {/* Trang thư viện giờ chỉ dẫn tới nghề, không giải thích bộ file là
+                gì nữa — nên câu giải thích đó phải đứng ở đây. */}
+            <p className="mt-3 max-w-prose text-ink-soft">
+              Mỗi bộ gom các file chạy chung một quy trình, kèm sơ đồ chỉ rõ file
+              nào nối vào file nào.
+            </p>
             <ul className={`mt-5 ${cardGridClass(systems.length)}`}>
               {systems.map((system) => (
                 <SystemCard key={system.slug} system={toSystemCardData(system)} />

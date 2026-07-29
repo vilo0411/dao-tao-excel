@@ -20,6 +20,30 @@ export default function HomePage() {
   const templateCount = getAllTemplates().length;
   const systems = getAllSystems();
 
+  // Ngày cập nhật lấy từ spec mới nhất chứ không viết tay: gõ cứng một tháng
+  // vào JSX thì ba tháng nữa nó thành lời nói dối, mà không ai nhớ ra để sửa.
+  // updatedAt là ISO date nên sort chuỗi đã đúng thứ tự thời gian.
+  const lastUpdated = getAllTemplates()
+    .map((t) => t.updatedAt)
+    .sort()
+    .at(-1);
+  const [year, month] = lastUpdated?.split("-") ?? [];
+
+  /*
+   * Khối thông số bên phải hero. Nó trả lời đúng bốn câu hỏi người mới vào
+   * hỏi trước khi chịu đọc: có bao nhiêu file, tải về là định dạng gì, có
+   * dính macro không, trang này còn sống không.
+   *
+   * "0 macro" là sự thật kiểm được: file dựng bằng openpyxl ra .xlsx, mà
+   * .xlsx theo chuẩn thì không chứa macro — muốn có macro phải là .xlsm.
+   */
+  const heroSpecs = [
+    { label: "file", value: String(templateCount) },
+    { label: "định dạng", value: ".xlsx" },
+    { label: "macro", value: "0" },
+    ...(year ? [{ label: "cập nhật", value: `${month}/${year}` }] : []),
+  ];
+
   // Bảng demo dựng theo file bảng lương. Link tới file thật nếu nó còn tồn
   // tại — đổi slug hay bỏ file đi thì phần chú thích tự rút link, không gãy.
   const demoHref = getAllTemplates().find(
@@ -27,40 +51,90 @@ export default function HomePage() {
   )?.href;
 
   return (
-    <div className="mx-auto max-w-5xl px-5 py-24">
+    <div className="mx-auto max-w-5xl px-5 pt-16 pb-24 sm:pt-20">
       {/*
         Hero không có nền, không viền, không hình minh họa — nhưng cũng không
         để trống. Thứ đặt dưới câu mở đầu là chính sản phẩm: một bảng tính sửa
         được. Site đi bán ý "bạn sẽ hiểu file chạy bằng gì", mà ý đó chứng minh
         bằng một cú kéo số thì nhanh hơn mọi đoạn văn viết thêm.
-      */}
-      <section className="max-w-2xl">
-        <h1 className="font-display text-5xl leading-[1.05] text-balance sm:text-6xl">
-          File Excel tôi dựng cho việc của mình
-        </h1>
-        <p className="mt-8 max-w-prose text-lg text-ink-soft">
-          Tải một file mẫu về là chuyện dễ. Sửa được nó khi sếp đổi yêu cầu mới
-          là chuyện khó, và đó là lúc phần lớn file tải trên mạng bó tay vì
-          không ai nói cho bạn biết bên trong nó chạy bằng gì.
-        </p>
 
-        <div className="mt-10 flex flex-wrap gap-3">
-          <Link
-            href="/mau-excel"
-            className="rounded-lg bg-ink px-6 py-4 font-medium text-paper hover:bg-ink/85"
-          >
-            Xem thư viện file
-          </Link>
-          <Link
-            href="/khoa-hoc-excel"
-            className="rounded-lg border border-rule px-6 py-4 font-medium hover:border-ink"
-          >
-            Khóa học tôi giới thiệu
-          </Link>
+        Chiều dọc bị cắt bớt so với nhịp 96px chuẩn (pt-16 thay vì py-24, và
+        bảng cách hero mt-10 thay vì mt-16) vì lý do cụ thể: bảng demo phải lọt
+        vào màn hình đầu trên laptop 13". Bảng là phần tiếp nối của hero, không
+        phải một band mới, nên nhịp band-to-band không áp dụng giữa hai khối
+        này — 96px được giữ nguyên từ bảng xuống khối kế tiếp.
+
+        Từ lg trở lên chia hai cột: cột phải trước đây là khoảng trắng chết
+        (h1 max-w-2xl trong khung max-w-5xl), giờ mang khối thông số.
+      */}
+      <section className="grid items-start gap-x-12 gap-y-10 lg:grid-cols-[minmax(0,2fr)_minmax(0,1fr)]">
+        <div className="max-w-2xl">
+          {/*
+            Kicker dựng đúng hình thanh công thức của HeroSheet ngay bên dưới:
+            hộp tên ô, nhãn fx, rồi nội dung. Người đọc gặp lại ký hiệu đó sau
+            vài trăm pixel, nên hero và bảng đọc ra là một khối thay vì hai
+            phương ngữ va nhau không có chuyển tiếp.
+          */}
+          <p aria-hidden className="mb-6 flex text-xs">
+            <span className="border border-rule bg-panel px-2 py-1 font-mono text-ink-soft">
+              A1
+            </span>
+            <span className="border-y border-r border-rule bg-panel px-2 py-1 font-mono text-ink-faint italic">
+              fx
+            </span>
+            <span className="min-w-0 truncate border-y border-r border-rule px-3 py-1 text-ink-soft">
+              Thư viện file Excel miễn phí
+            </span>
+          </p>
+
+          <h1 className="font-display text-5xl leading-[1.05] text-balance sm:text-6xl">
+            File Excel tôi dựng cho việc của mình
+          </h1>
+          <p className="mt-8 max-w-prose text-lg text-ink-soft">
+            Tải một file mẫu về là chuyện dễ. Sửa được nó khi sếp đổi yêu cầu
+            mới là chuyện khó, và đó là lúc phần lớn file tải trên mạng bó tay
+            vì không ai nói cho bạn biết bên trong nó chạy bằng gì.
+          </p>
+
+          <div className="mt-10 flex flex-wrap gap-3">
+            <Link
+              href="/mau-excel"
+              className="rounded-lg bg-ink px-6 py-4 font-medium text-paper hover:bg-ink/85"
+            >
+              Xem thư viện file
+            </Link>
+            <Link
+              href="/khoa-hoc-excel"
+              className="rounded-lg border border-rule px-6 py-4 font-medium hover:border-ink"
+            >
+              Khóa học tôi giới thiệu
+            </Link>
+          </div>
         </div>
+
+        {/*
+          Thông số dựng theo phương ngữ bảng tính: bo góc 0, viền hairline, số
+          để mono canh phải. Không dùng màu ngữ nghĩa vì đây không phải ô nhập
+          hay ô công thức — chỉ là một bảng thông số.
+
+          Trên lg nó nằm cột phải ngang tầm h1; dưới lg nó rơi xuống dưới cặp
+          nút, chỗ đó vẫn hợp lý vì người vừa đọc xong lời hứa thì câu hỏi tiếp
+          theo đúng là "có bao nhiêu file".
+        */}
+        <dl className="max-w-2xl border border-rule bg-paper text-sm lg:max-w-none">
+          {heroSpecs.map((spec) => (
+            <div
+              key={spec.label}
+              className="flex items-baseline justify-between gap-4 border-b border-rule px-3 py-2 last:border-b-0"
+            >
+              <dt className="text-ink-soft">{spec.label}</dt>
+              <dd className="font-mono tabular-nums text-ink">{spec.value}</dd>
+            </div>
+          ))}
+        </dl>
       </section>
 
-      <section className="mt-16">
+      <section className="mt-10">
         <h2 className="sr-only">Thử một bảng tính lương</h2>
         <HeroSheet templateHref={demoHref} />
       </section>

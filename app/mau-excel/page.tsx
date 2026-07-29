@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { SystemCard } from "@/components/SystemCard";
+import { CategoryCard } from "@/components/CategoryCard";
 import { TemplateBrowser } from "@/components/TemplateBrowser";
 import { cardGridClass } from "@/components/TemplateCard";
 import { getAllTemplates, toCardData } from "@/lib/templates";
-import { getAllSystems, toSystemCardData } from "@/lib/systems";
+import { getAllSystems, getPopulatedCategories } from "@/lib/systems";
 import { absoluteUrl, CATEGORIES, CATEGORY_SLUGS } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -17,6 +17,18 @@ export const metadata: Metadata = {
 export default function TemplateIndexPage() {
   const templates = getAllTemplates();
   const systems = getAllSystems();
+
+  /*
+   * Chỉ liệt kê nghề đã có nội dung: getPopulatedCategories() không dựng trang
+   * cho nghề rỗng, nên link tới nó là link vào 404.
+   */
+  const categories = getPopulatedCategories().map((slug) => ({
+    slug,
+    name: CATEGORIES[slug].name,
+    description: CATEGORIES[slug].description,
+    templateCount: templates.filter((t) => t.category === slug).length,
+    systemCount: systems.filter((s) => s.category === slug).length,
+  }));
 
   /*
    * Mô tả nhóm việc gửi kèm cả ba, không chỉ nhóm đang chọn: bộ lọc chạy phía
@@ -39,21 +51,23 @@ export default function TemplateIndexPage() {
       </p>
 
       {/*
-        Dải bộ file đứng trên bộ lọc: người chưa biết mình cần file nào thì
-        lọc kiểu gì cũng không ra: họ cần được chỉ cho cả một quy trình.
+        Dải theo nghề đứng trên bộ lọc: người chưa biết mình cần file nào thì
+        lọc kiểu gì cũng không ra — nhưng ai cũng biết mình làm nghề gì. Vào
+        trang nghề rồi mới gặp bộ file của nghề đó, thay vì xổ hết bộ của mọi
+        nghề ra ngay đây.
       */}
-      {systems.length > 0 && (
+      {categories.length > 0 && (
         <section className="mt-14 border-y border-rule py-8">
           <h2 className="font-display text-2xl">
-            Chưa biết bắt đầu từ đâu? Lấy nguyên một bộ.
+            Chưa biết bắt đầu từ đâu? Chọn theo nghề của bạn.
           </h2>
           <p className="mt-3 max-w-prose text-ink-soft">
-            Mỗi bộ gom các file chạy chung một quy trình, kèm sơ đồ chỉ rõ file
-            nào nối vào file nào.
+            Mỗi nghề có trang riêng, mở đầu bằng những bộ file chạy trọn một quy
+            trình rồi mới tới các file lẻ.
           </p>
-          <ul className={`mt-6 ${cardGridClass(systems.length)}`}>
-            {systems.map((system) => (
-              <SystemCard key={system.slug} system={toSystemCardData(system)} />
+          <ul className={`mt-6 ${cardGridClass(categories.length)}`}>
+            {categories.map((category) => (
+              <CategoryCard key={category.slug} category={category} />
             ))}
           </ul>
         </section>

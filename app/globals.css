@@ -123,6 +123,88 @@ kbd,
   padding-inline: 2px;
 }
 
+/*
+  Hiệu ứng cho FeatureGrid.
+
+  Mỗi thẻ tính năng mang một mảnh bảng tính nhỏ minh họa đúng câu nó đang nói:
+  thanh fx gõ ra công thức, cột kiểm tra tick xanh, thanh tải chạy, hai biểu đồ
+  song song. Luật ở đây: TRẠNG THÁI TĨNH LUÔN LÀ TRẠNG THÁI ĐÃ XONG — công thức
+  đủ chữ, cột đủ cao, thanh tải đầy. Animation chỉ tua lại khi rê chuột hoặc tab
+  vào thẻ, nên người không tương tác (và mọi thiết bị cảm ứng) vẫn thấy hình
+  hoàn chỉnh, không thấy một khối rỗng chờ hover.
+
+  Vì vậy mỗi @keyframes dưới đây chỉ khai báo `from`: `to` chính là giá trị tĩnh
+  đang có sẵn trên phần tử.
+*/
+@keyframes fx-type {
+  from {
+    width: 0;
+  }
+}
+
+@keyframes fx-caret {
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes fx-row-in {
+  from {
+    opacity: 0;
+    transform: translateY(3px);
+  }
+}
+
+@keyframes fx-bar-rise {
+  from {
+    transform: scaleY(0.06);
+  }
+}
+
+@keyframes fx-fill {
+  from {
+    transform: scaleX(0);
+  }
+}
+
+.feature-card:hover .fx-type,
+.feature-card:focus-within .fx-type {
+  animation: fx-type 620ms steps(14, end) both;
+}
+
+.fx-caret {
+  opacity: 0;
+}
+
+.feature-card:hover .fx-caret,
+.feature-card:focus-within .fx-caret {
+  opacity: 1;
+  animation: fx-caret 760ms steps(1, end) infinite;
+}
+
+.feature-card:hover .fx-row,
+.feature-card:focus-within .fx-row {
+  animation: fx-row-in 340ms ease-out backwards;
+}
+
+.fx-bar {
+  transform-origin: bottom;
+}
+
+.feature-card:hover .fx-bar,
+.feature-card:focus-within .fx-bar {
+  animation: fx-bar-rise 520ms cubic-bezier(0.22, 1, 0.36, 1) backwards;
+}
+
+.fx-fill {
+  transform-origin: left;
+}
+
+.feature-card:hover .fx-fill,
+.feature-card:focus-within .fx-fill {
+  animation: fx-fill 780ms ease-out backwards;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
