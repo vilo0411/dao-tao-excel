@@ -56,16 +56,6 @@ export default function TemplateIndexPage() {
               <SystemCard key={system.slug} system={toSystemCardData(system)} />
             ))}
           </ul>
-          {/* Bộ file không có mục riêng trên nav, nên trang này là đường duy
-              nhất tới hub của chúng — link phải luôn hiện. */}
-          <p className="mt-6 text-sm">
-            <Link
-              href="/mau-excel/bo-file"
-              className="underline decoration-rule underline-offset-4 hover:decoration-ink"
-            >
-              Xem tất cả bộ file, xếp theo nhóm việc →
-            </Link>
-          </p>
         </section>
       )}
 

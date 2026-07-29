@@ -1,6 +1,8 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { AuthorCard } from "@/components/Author";
+import { Faq } from "@/components/Faq";
+import { FeatureGrid } from "@/components/FeatureGrid";
 import { HeroSheet } from "@/components/HeroSheet";
 import { SystemCard } from "@/components/SystemCard";
 import { cardGridClass, TemplateCard } from "@/components/TemplateCard";
@@ -61,6 +63,18 @@ export default function HomePage() {
       <section className="mt-16">
         <h2 className="sr-only">Thử một bảng tính lương</h2>
         <HeroSheet templateHref={demoHref} />
+      </section>
+
+      {/*
+        Demo ở trên vừa chứng minh luận điểm chính bằng một cú kéo số. Khối
+        này gom lại thành 4 câu scannable, để người lướt nhanh không phải đọc
+        lại đoạn văn ở hero hay ở band coral mới nắm được vì sao khác.
+      */}
+      <section className="mt-24">
+        <h2 className="font-display text-3xl">Vì sao khác</h2>
+        <div className="mt-6">
+          <FeatureGrid />
+        </div>
       </section>
 
       {templates.length > 0 && (
@@ -128,6 +142,13 @@ export default function HomePage() {
           </p>
         </section>
       )}
+
+      <section className="mt-24">
+        <h2 className="font-display text-3xl">Câu hỏi thường gặp</h2>
+        <div className="mt-6">
+          <Faq />
+        </div>
+      </section>
 
       <div className="mt-24">
         <h2 className="sr-only">Về {AUTHOR.name}</h2>

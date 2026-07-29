@@ -258,6 +258,20 @@ components:
     typography: "{typography.body}"
     rounded: "{rounded.none}"
     padding: 16px
+  feature-grid-card:
+    backgroundColor: "{colors.panel}"
+    borderColor: "{colors.rule}"
+    textColor: "{colors.ink}"
+    typography: "{typography.title-lg}"
+    rounded: "{rounded.md}"
+    padding: 24px
+  faq-item:
+    backgroundColor: "{colors.paper}"
+    borderColor: "{colors.rule}"
+    textColor: "{colors.ink}"
+    typography: "{typography.title-lg}"
+    rounded: "{rounded.none}"
+    padding: 20px 0
 ---
 
 ## Overview
@@ -296,7 +310,7 @@ Full-bleed surfaces that punctuate long pages. Never accents on small elements.
 - **Coral** (`{colors.coral}` — #aa2d00): The homepage thesis band. White type at 6.8:1.
 - **Surface Dark** (`{colors.surface-dark}` — #181d26): The `{component.signature-dark-band}` carrying the course CTA. Same hex as `{colors.ink}` because ink serves as both type color and signature dark surface.
 - **Surface Strong** (`{colors.surface-strong}` — #e0e2e6): The light gray closing band on the library index.
-- **Forest + Cream** (`{colors.forest}` — #0a2e0e on `{colors.cream}` — #f5e9d4): The `{component.signature-forest-band}`, reserved for the **bundle layer** (`/mau-excel/bo-file/*`). It is not a decorative alternative to coral: it marks a different tier of page. Coral belongs to the homepage, dark navy to the course CTA, forest to a bundle. Landing on a page and recognizing the tier from the band color is the point.
+- **Forest + Cream** (`{colors.forest}` — #0a2e0e on `{colors.cream}` — #f5e9d4): The `{component.signature-forest-band}`, reserved for the **bundle layer** (a system page under `/mau-excel/[category]/[slug]`). It is not a decorative alternative to coral: it marks a different tier of page. Coral belongs to the homepage, dark navy to the course CTA, forest to a bundle. Landing on a page and recognizing the tier from the band color is the point.
 
 ### Spreadsheet Semantics
 
@@ -394,6 +408,10 @@ Whitespace is the hero's only atmosphere. No gradient, no mesh, no illustration 
 
 **`panel-card`** — `{colors.panel}` with a `{colors.rule}` hairline and `{rounded.md}`. The author card and the lead-form sidebar.
 
+**`feature-grid-card`** — Same shape as `panel-card`, laid out 2-up with a `{spacing.md}` (16px) gap rather than as a hairline lattice — this is scannable feature copy, not a file listing, so cards stay visually separate instead of fusing into `{component.card-grid}`'s grid geometry.
+
+**`faq-item`** — A native `<details>`/`<summary>` pair, `{rounded.none}`, divided by `{colors.rule}` hairlines top and bottom rather than boxed — an accordion needs no shadow or card surface, just a rule to mark where one answer ends and the next question begins.
+
 ### Inputs
 
 **`text-input`** — `{colors.paper}`, 1px `{colors.rule}`, `{rounded.sm}`, 12px × 16px padding, 44px tall. Focus draws the global 2px `{colors.input}` ring at 2px offset.
@@ -438,7 +456,7 @@ It is the only place outside `SheetPreview` allowed to use `{colors.input}` and 
 
 ### Don't
 - **Don't use `{colors.input}` or `{colors.computed}` as decoration** — not as a button fill, not as a hover color, not as a band. They mean "you type here" and "Excel computes this." Spending them on ornament dissolves the one convention the whole site teaches. The bundle map is the sole exception and it earns it by keeping the meaning intact; see the sub-section above for the test.
-- **Don't reuse `{component.signature-forest-band}` outside `/mau-excel/bo-file/*`.** Band color encodes page tier, not variety.
+- **Don't reuse `{component.signature-forest-band}` outside a bundle (system) page.** Band color encodes page tier, not variety.
 - **Don't round anything inside the spreadsheet grid.** `{rounded.none}` is mandatory there.
 - Don't bold display type. The loaded Archivo weights stop at 600 precisely so this stays impossible; don't add 700 back.
 - Don't add a gradient, mesh, or illustration behind the hero.

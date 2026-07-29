@@ -29,7 +29,7 @@ from build_xlsx import SITE_URL, TITLE_FONT, build_sheet
 ROOT = Path(__file__).resolve().parent.parent
 SYSTEMS_DIR = ROOT / "data" / "systems"
 TEMPLATES_DIR = ROOT / "data" / "templates"
-OUT_DIR = ROOT / "public" / "downloads" / "bo-file"
+DOWNLOADS_DIR = ROOT / "public" / "downloads"
 
 # Phải khớp BUNDLE_ROW_LIMIT và BUNDLE_GUIDE_SHEET trong lib/systems-schema.ts.
 ROW_LIMIT = 500
@@ -137,7 +137,7 @@ def build_guide_sheet(wb: Workbook, system: dict, links: list[dict]) -> None:
     )
     rows.append(("", None))
 
-    url = f"{SITE_URL}/mau-excel/bo-file/{system['slug']}"
+    url = f"{SITE_URL}/mau-excel/{system['category']}/{system['slug']}"
     rows.append(("Bản cập nhật mới nhất và sơ đồ liên kết:", Font(bold=True)))
     rows.append((url, Font(color="1D4ED8", underline="single")))
 
@@ -193,7 +193,7 @@ class Bundle:
 
     @property
     def out_path(self) -> Path:
-        return OUT_DIR / f"{self.system['slug']}.xlsx"
+        return DOWNLOADS_DIR / self.system["category"] / f"{self.system['slug']}.xlsx"
 
 
 def load(system_path: Path) -> Bundle | None:

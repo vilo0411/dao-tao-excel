@@ -85,15 +85,18 @@ Google search "mẫu excel tính lương"
 │   ├── /mau-excel/ke-toan                 ⬜ Category hub — Kế toán (CTA → consult)
 │   │   └── 12 template                    ⬜ (bảng 2.3)
 │   │
-│   ├── /mau-excel/quan-ly-cong-viec       ⬜ Category hub — Quản lý công việc (CTA → consult)
-│   │   └── 12 template                    ⬜ (bảng 2.4)
-│   │
-│   └── /mau-excel/bo-file                 ✅ Hub bộ file (nhóm theo category)
-│       ├── quan-ly-nhan-su-thang          ✅ Bộ nhân sự — 5 node, 3 file đã có
-│       └── … 2 bộ nữa                     ⬜ (ke-toan, quan-ly-cong-viec)
+│   └── /mau-excel/quan-ly-cong-viec       ⬜ Category hub — Quản lý công việc (CTA → consult)
+│       └── 12 template                    ⬜ (bảng 2.4)
+│
+│   Bộ file không có nhánh riêng: mỗi bộ sống ngay dưới category của nó,
+│   cùng route với template lẻ — /mau-excel/nhan-su/quan-ly-nhan-su-thang
+│   chẳng hạn, không phải /mau-excel/bo-file/quan-ly-nhan-su-thang.
 │
 ├── /khoa-hoc-excel                        ✅ Bridge page + form lead
 │   └── /khoa-hoc-excel/cam-on             ✅ Xác nhận + đẩy sang HVS
+│
+├── /ham-excel                             ⬜ Glossary hàm Excel (mục 2.8) — nhánh riêng, không nằm dưới /mau-excel
+│   └── /ham-excel/[function]              ⬜ 1 hàm/trang, chỉ mở khi có template thật dùng hàm đó
 │
 ├── /sitemap.xml                           ✅ Tự sinh, lọc category rỗng
 ├── /robots.txt                            ✅ Allow all, disallow /api/
@@ -163,9 +166,9 @@ CTA mặc định: `consult` · Mục tiêu Phase 1: 12 template
 **Tổng khung Phase 1: 36 trang template + 3 category hub + 4 trang hệ thống = 43 trang.**
 Đây là con số thay thế mốc "125–170 trang" của v1.0 — làm 36 trang chất lượng cao trước, đo tốc độ index rồi mới quyết định scale.
 
-Cộng thêm **lớp bộ file** (mục 2.7): 3 trang bộ + 1 hub + 3 file tổng = 7 trang, đưa Phase 1 lên **50 trang**.
+Cộng thêm **lớp bộ file** (mục 2.7): 3 trang bộ + 3 file tổng = 6 trang, đưa Phase 1 lên **49 trang**.
 
-### 2.7 Lớp bộ file — `/mau-excel/bo-file` ⭐
+### 2.7 Lớp bộ file — `/mau-excel/[category]/[slug]` ⭐
 
 Category chỉ là một cái thùng phẳng: nó nói "đây là 12 file nhân sự", không nói file nào nhập tay, file nào ăn dữ liệu từ file nào, file nào là bản tổng cuối. Người làm hành chính tải ba file rời về rồi tự đoán cách ghép.
 
@@ -178,9 +181,22 @@ Mô hình lấy từ nghề SEO — onpage / offpage / technical mỗi mảng m�
 | **Ràng buộc build** | Đúng một `master`, edge chỉ chảy `input → process → master`, node `live` phải có template thật và ngược lại, mỗi file thuộc tối đa một bộ |
 | **File tổng** | Là template thật, tải được, đi qua đúng pipeline `build_xlsx` + `qa_check`. Không có ngoại lệ "trang web đóng vai file tổng" |
 | **Điều kiện mở một bộ** | ≥ 3 node `live`, và node `master` bắt buộc `live` |
-| **Vị trí URL** | Nằm **dưới** `/mau-excel`, không phải nhánh gốc song song. Bộ file là một cách xếp thư viện, không phải một loại nội dung khác; tách ra gốc sẽ chia đôi thư viện thành hai cửa vào cho cùng một tập file — chia đôi cả internal link lẫn tín hiệu SEO. Nav vì vậy chỉ có một mục "Thư viện file" |
+| **Vị trí URL** | Nằm ngay dưới category của nó, chung route `/mau-excel/[category]/[slug]` với template lẻ — không có nhánh `bo-file` riêng. Bộ file là một cách xếp thư viện, không phải một loại nội dung khác; tách ra một nhánh riêng sẽ chia đôi thư viện thành hai cửa vào cho cùng một tập file — chia đôi cả internal link lẫn tín hiệu SEO. Nav vì vậy chỉ có một mục "Thư viện file", và mỗi category chỉ có một cửa vào |
 
 Lớp này cũng vá điểm yếu internal linking: trước đây một file chỉ nối sang file khác qua `relatedSlugs` phẳng; giờ mỗi file lẻ mang một dải `SystemStrip` trỏ về bộ và các file anh em, còn trang bộ trỏ ngược xuống toàn bộ file con.
+
+### 2.8 Glossary hàm Excel — `/ham-excel/[function]` ⭐ (bổ sung, chưa triển khai)
+
+Ngoài trang template, một nguồn traffic khác đang bị bỏ trống: người tìm "hàm vlookup trong excel", "hàm sumif" — intent học hàm, không phải intent tải mẫu nghiệp vụ. Đối thủ (Gitiho, hocexcel.online, Thegioididong) chiếm nhóm từ khóa này bằng bài hướng dẫn hàm thuần, không gắn với file nghiệp vụ thật nào. Site này có thể chiếm cùng nhóm từ khóa với chi phí gần bằng 0, vì dữ liệu đã tồn tại sẵn.
+
+| | |
+| :---- | :---- |
+| **Vị trí URL** | `/ham-excel/[function]` — nhánh riêng ở gốc, **không** nằm dưới `/mau-excel`. Lý do: intent "học hàm X" khác intent "tải mẫu Excel Y"; gộp chung cây sẽ làm loãng breadcrumb/category của `/mau-excel` (vốn chỉ có 3 category theo mục 2, không có chỗ cho một "category" là tên hàm) |
+| **Nguồn dữ liệu** | Trường `functions` — đã tự trích từ công thức thật trong spec template (mục 3.1, "Trường tự sinh, không khai tay"), không cần viết thêm nội dung nghiệp vụ mới |
+| **Nội dung mỗi trang** | Tên hàm + giải thích (lấy từ `note` của các cột dùng hàm đó) + danh sách template thật nào đang dùng hàm này, link thẳng tới trang template ở `/mau-excel/...` (internal link 2 chiều, không phải trang mồ côi) |
+| **Vai trò** | Nội dung phụ trợ / hub liên kết nội bộ — **không phải** một loại trang lọc thay thế category (khác với "trang lọc theo hàm" đã loại ở mục 2.6 khi nó được hình dung là trang danh mục độc lập cạnh tranh với category) |
+| **Điều kiện mở** | Một hàm chỉ lên trang khi có ≥ 1 template thật dùng hàm đó — cùng nguyên tắc chống thin content với category (mục 2.1) |
+| **Vị trí ưu tiên** | Không chặn Giai đoạn A–C (viết 34 template còn lại vẫn là nút cổ chai chính, mục 6). Đây là hạng mục có thể làm xen kẽ vì chi phí thấp, không phải hạng mục phải hoàn thành trước khi mở category tiếp theo |
 
 ### 2.5 Cấu trúc liên kết nội bộ (không được có trang mồ côi)
 
@@ -202,12 +218,12 @@ Mỗi trang template link ra:             ▼
 | Trang | Lý do |
 | :---- | :---- |
 | `/blog`, bài viết dài | Ưu tiên template trước; blog chỉ xét sau khi 36 trang đã index |
-| Trang lọc theo hàm Excel (`/ham/vlookup`) | Chỉ có giá trị khi ≥ 100 template |
+| Trang lọc theo hàm Excel như một trang danh mục độc lập | Tách khỏi mục 2.8 — trang glossary hàm (mục 2.8) không phải trang lọc, mà là nội dung phụ trợ dựng từ dữ liệu đã có sẵn |
 | Trang lọc theo độ khó | Trùng ý định tìm kiếm với category, dễ thành duplicate |
 | Đăng nhập, tài khoản, thanh toán | Nằm bên HVS |
 | Trang khóa học riêng lẻ | Ta không bán khóa học, chỉ giới thiệu |
 
-*(Lưu ý: `/mau-excel/bo-file` **không** nằm trong danh sách này. Nó là scope mới bổ sung ở mục 2.7, không phải một biến thể của trang lọc bị loại — trang lọc chỉ xáo lại cùng một tập file, còn trang bộ mang thông tin mới mà không trang nào khác có: quan hệ dữ liệu giữa các file.)*
+*(Lưu ý: trang bộ file (`/mau-excel/[category]/[slug]`, xem mục 2.7) **không** nằm trong danh sách này. Nó là scope mới bổ sung, không phải một biến thể của trang lọc bị loại — trang lọc chỉ xáo lại cùng một tập file, còn trang bộ mang thông tin mới mà không trang nào khác có: quan hệ dữ liệu giữa các file.)*
 
 ---
 
@@ -309,6 +325,7 @@ Toàn bộ hạ tầng: 3 loại trang template, SSG, meta động, canonical kh
 | 4 | Cấu hình `NEXT_PUBLIC_GA_ID` + verify GSC | Không có số liệu thì mọi chỉ số mục 5 đều vô nghĩa |
 | 5 | Trỏ domain thật, deploy Vercel | Hiện mới có bản xem thử chặn index |
 | 6 | Đo Lighthouse mobile, submit sitemap | Sau khi lên domain thật |
+| 7 | Glossary hàm Excel (mục 2.8) | Không chặn 1–6, làm xen kẽ được vì chi phí thấp — dữ liệu `functions` đã tự sinh sẵn |
 
 ### Định nghĩa hoàn thành cho mỗi trang template
 

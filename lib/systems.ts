@@ -185,14 +185,14 @@ function loadAll(): System[] {
         spec.ctaTarget ?? CATEGORIES[spec.category as CategorySlug].defaultCta,
       categoryName: CATEGORIES[spec.category as CategorySlug].name,
       /*
-       * Nằm dưới /mau-excel chứ không phải một nhánh gốc riêng: bộ file là một
-       * cách xếp thư viện, không phải một loại nội dung song song. Đặt ngang
-       * hàng /mau-excel sẽ tách đôi thư viện thành hai cửa vào cho cùng một tập
-       * file, và chia đôi cả internal link lẫn tín hiệu SEO trỏ về nó.
+       * Bộ file nằm ngay dưới category, cùng route với template lẻ
+       * (/mau-excel/[category]/[slug]) — không có nhánh "bo-file" riêng. Một
+       * bộ và một template không bao giờ là hai loại cửa vào khác nhau cho
+       * cùng một chủ đề, nên chúng chia sẻ luôn một không gian slug.
        */
-      href: `/mau-excel/bo-file/${spec.slug}`,
+      href: `/mau-excel/${spec.category}/${spec.slug}`,
       bundleUrl: spec.bundle
-        ? `/downloads/bo-file/${spec.slug}.xlsx`
+        ? `/downloads/${spec.category}/${spec.slug}.xlsx`
         : undefined,
       bundleLinks: resolveBundle(spec, templateBySlug),
       liveCount,
@@ -206,10 +206,8 @@ function loadAll(): System[] {
   }
 
   /*
-   * Route /mau-excel/bo-file/[slug] và /mau-excel/[category]/[slug] nằm ở hai
-   * nhánh khác nhau nên slug trùng không gây va chạm URL, nhưng nó phá mọi thứ
-   * khác: sitemap đọc mơ hồ, và getSystemForTemplate không còn biết đang nói
-   * về file nào.
+   * Bộ file và template lẻ cùng chia sẻ /mau-excel/[category]/[slug], nên slug
+   * trùng nhau bây giờ là một va chạm URL thật, không chỉ là mơ hồ về sau.
    */
   for (const system of systems) {
     if (templateBySlug.has(system.slug)) {
@@ -220,17 +218,6 @@ function loadAll(): System[] {
     if ((CATEGORY_SLUGS as readonly string[]).includes(system.slug)) {
       throw new Error(`Bộ file "${system.slug}" trùng slug với một category`);
     }
-  }
-
-  /*
-   * "bo-file" là đoạn đường dẫn tĩnh nằm cạnh /mau-excel/[category]. Next ưu
-   * tiên đoạn tĩnh, nên một category tên "bo-file" sẽ build ra trang nhưng
-   * không bao giờ truy cập được. Chặn ở đây vì lỗi đó im lặng hoàn toàn.
-   */
-  if ((CATEGORY_SLUGS as readonly string[]).includes("bo-file")) {
-    throw new Error(
-      'Không được đặt category slug là "bo-file" — trùng với nhánh bộ file dưới /mau-excel',
-    );
   }
 
   // Một template chỉ thuộc tối đa một bộ, để dải "file này nằm ở đâu" trên

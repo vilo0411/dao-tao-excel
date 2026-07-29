@@ -62,7 +62,7 @@ Số 13 là **file tổng** của bộ `quan-ly-nhan-su-thang`, nằm ngoài 12 
 
 ---
 
-## Bộ file — `/mau-excel/bo-file`
+## Bộ file — `/mau-excel/[category]/[slug]`
 
 Một bộ = một quy trình công việc có thật: vài file đầu vào, vài file xử lý, đúng một file tổng. Node `planned` phải trỏ tới slug **đã có trong bảng roadmap ở trên** — viết xong template đó là loader tự bắt phải đổi node sang `live`, không có cách nào quên.
 
@@ -176,7 +176,7 @@ CTA: `consult` · Hub chưa mở (cần ≥ 5 template)
 1. Viết `data/systems/[slug].json` theo schema (`lib/systems-schema.ts`). Node `planned` phải dùng đúng slug đã ghi trong roadmap ở trên.
 2. `npm run validate` — loader chặn: edge chảy ngược vai trò, hai `master`, node lạc lõng, một file nằm trong hai bộ, slug trùng template/category.
 3. Viết **file tổng** trước khi công bố bộ (xem cảnh báo ở mục Bộ file).
-4. Mở `/mau-excel/bo-file/[slug]` ở local: sơ đồ phải vẽ đúng ở màn rộng, và thu hẹp dưới 640px phải rớt sang chip chữ.
+4. Mở `/mau-excel/[category]/[slug]` ở local: sơ đồ phải vẽ đúng ở màn rộng, và thu hẹp dưới 640px phải rớt sang chip chữ.
 5. Cập nhật bảng Bộ file + Tổng quan + Nhật ký, rồi commit.
 
 ## Quy trình thêm file gộp cho một bộ

@@ -81,10 +81,10 @@ export default function RootLayout({
               </span>
             </Link>
             <div className="flex items-center gap-6 text-sm">
-              {/* Một cửa vào duy nhất cho thư viện. Bộ file nằm bên trong nó
-                  (/mau-excel/bo-file), không đứng riêng trên nav — hai mục nav
-                  cho cùng một tập file thì người đọc phải đoán xem mục nào
-                  chứa thứ mình cần. */}
+              {/* Một cửa vào duy nhất cho thư viện. Bộ file sống ngay trong
+                  từng trang category (/mau-excel/[category]), không đứng
+                  riêng trên nav — hai mục nav cho cùng một tập file thì người
+                  đọc phải đoán xem mục nào chứa thứ mình cần. */}
               <Link href="/mau-excel" className="hover:text-input">
                 Thư viện file
               </Link>

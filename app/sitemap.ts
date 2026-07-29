@@ -40,15 +40,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: absoluteUrl("/khoa-hoc-excel"),
       lastModified: COURSE_PAGE_UPDATED,
     },
-    // Cùng cách xử lý category rỗng: hub bộ file chỉ đáng submit khi có bộ.
-    ...(systems.length > 0
-      ? [
-          {
-            url: absoluteUrl("/mau-excel/bo-file"),
-            lastModified: latestUpdate(systems, siteUpdated),
-          },
-        ]
-      : []),
     ...systems.map((system) => ({
       url: absoluteUrl(system.href),
       lastModified: system.updatedAt,
