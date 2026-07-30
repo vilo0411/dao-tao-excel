@@ -64,7 +64,45 @@ export default function HomePage() {
         Từ lg trở lên chia hai cột: cột phải trước đây là khoảng trắng chết
         (h1 max-w-2xl trong khung max-w-5xl), giờ mang khối thông số.
       */}
-      <section className="grid items-start gap-x-12 gap-y-10 lg:grid-cols-[minmax(0,2fr)_minmax(0,1fr)]">
+      <section className="relative grid items-start gap-x-12 gap-y-10 lg:grid-cols-[minmax(0,2fr)_minmax(0,1fr)]">
+        {/*
+          Chữ EXCEL bằng ô bảng tính, tan thành ô rời ở cuối — thủ pháp lấy từ
+          efexbg.svg của efex.vn, làm nền cho đúng khối hero này.
+
+          Nằm dọc, quay 90° như bản gốc, và chạy ở LỀ NGOÀI khung nội dung
+          (`-right-32`) chứ không ở trong cột phải. Trong cột phải thì khối thông
+          số nền bg-paper đặc cao ~164px che mất một chữ rưỡi đầu tiên; ở lề
+          ngoài thì không có gì che, cả chữ hiện đủ và mỗi chữ được ~104px.
+
+          Bề rộng dải bám theo lề, không gõ cứng: `min(189px, lề − 8px)`.
+
+          189px là cỡ GỐC của file SVG, tức ô 29px trên bước lưới 40px — đúng
+          cỡ ô efex dùng. Đây là trần: to hơn nữa là ảnh bị kéo giãn, ô mất nét
+          sắc. Còn `(100vw − 64rem) / 2` chính là lề phải, vì khung nội dung khoá
+          ở max-w-5xl = 64rem. Nên trên màn 1512px dải được đủ 189px, còn ở
+          1280px nó tự co về ~120px thay vì biến mất hay đẩy ra thanh cuộn.
+
+          Hai con số còn lại:
+
+          - `xl:block`. Dưới 1280px lề phải còn dưới ~110px, hẹp hơn thế thì
+            hoa văn không còn ra hình nữa, nên tắt hẳn.
+
+          - `aspect-[189/1349]` thay vì gõ cứng chiều cao: tỉ lệ đúng bằng
+            viewBox của file SVG, nên bề rộng co giãn thì chiều cao tự theo, chữ
+            không bao giờ bị méo hay bị cắt cụt ở chữ L.
+
+          Chữ cao tới ~1349px, dài hơn hero (~395px) nên nó chạy xuống quá bảng
+          demo. Không sao: nó ở ngoài khung, mà mọi khối nội dung đều nằm trong
+          khung nên không khối nào chồng lên nó.
+
+          -z-10 để nó nằm dưới chữ. Nền trắng đặt trên body nên nền vẫn được vẽ
+          vào canvas, dưới cả lớp z âm — hoa văn không bị nền trang ăn mất.
+        */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute top-0 -right-[calc((100vw-64rem)/2+8px)] -z-10 hidden aspect-[189/1349] w-[min(189px,calc((100vw-64rem)/2-8px))] bg-[url('/excel-wordmark.svg')] bg-top bg-no-repeat bg-size-[100%_auto] xl:block"
+        />
+
         <div className="max-w-2xl">
           {/*
             Kicker dựng đúng hình thanh công thức của HeroSheet ngay bên dưới:
@@ -167,34 +205,7 @@ export default function HomePage() {
         chứng minh xong điều đó, nên nhắc lại chỉ là nói dai. Chuyển sang rào
         cản thứ hai khiến người ta bỏ đi: sợ phải trả bằng email.
       */}
-      <section className="on-dark relative mt-24 overflow-hidden rounded-lg bg-coral p-10 text-paper sm:p-12">
-        {/*
-          Chữ EXCEL bằng ô bảng tính, quay 90° chạy xuống dọc mép phải rồi tan
-          thành ô rời — thủ pháp lấy từ efexbg.svg của efex.vn.
-
-          Ba quyết định neo ở đây, không phải trong file SVG:
-
-          - Đặt đúng band này chứ không phải hero. Chữ trắng cần nền tối mới
-            hiện ra, và đây là chỗ duy nhất trên trang chủ được phép to tiếng
-            nên hoa văn không phá nhịp trắng của các band còn lại.
-
-          - `bg-size-[auto_100%]` chứ không phải một bề rộng cố định. Chiều cao
-            band đổi theo cách đoạn văn ngắt dòng, mà chữ chìm dài 35 ô trên 5 ô
-            ngang — đặt cứng bề rộng thì ở một bề ngang nào đó chữ dài quá band
-            và chữ L bị mép dưới cắt mất. Khớp theo chiều cao thì chữ luôn vừa,
-            và đuôi tan luôn rơi đúng vào khoảng 20% cuối.
-
-          - Tràn hẳn ra mép phải (right-0), không thụt vào theo padding. Hoa văn
-            chạm mép thì chìm; thụt vào là thành một cái hình được đặt cạnh chữ.
-
-          Chỉ bật từ lg: hẹp hơn thế thì đoạn văn max-w-prose ăn hết bề ngang
-          và chữ chìm nằm đè lên chữ thật.
-        */}
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-y-0 right-0 hidden w-20 bg-[url('/excel-wordmark.svg')] bg-right-top bg-no-repeat bg-size-[auto_100%] lg:block"
-        />
-
+      <section className="on-dark mt-24 rounded-lg bg-coral p-10 text-paper sm:p-12">
         <h2 className="font-display max-w-2xl text-3xl text-balance sm:text-4xl">
           Tải thẳng, không cần để lại email
         </h2>

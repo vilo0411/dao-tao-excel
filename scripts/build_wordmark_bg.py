@@ -1,7 +1,7 @@
-"""Dựng public/excel-wordmark.svg — chữ EXCEL bằng ô bảng tính, chìm dưới band.
+"""Dựng public/excel-wordmark.svg — chữ EXCEL bằng ô bảng tính, chìm dưới nền.
 
-Cách đọc hình: chữ quay 90°, chạy từ trên xuống dọc mép band, rồi tan thành các
-ô rời. Đúng thủ pháp file efexbg.svg của efex.vn, khác ba chỗ có lý do:
+Cách đọc hình: chữ quay 90°, chạy từ trên xuống dọc lề phải trang, rồi tan thành
+các ô rời. Đúng thủ pháp file efexbg.svg của efex.vn, khác ba chỗ có lý do:
 
 1. Ô SẮC GÓC. efex bo góc ~4px mỗi ô. Ở đây không được: globals.css đặt luật
    "một bảng tính bo góc là một bảng tính sai", và ô ở đây đọc ra là ô bảng
@@ -12,10 +12,15 @@ Cách đọc hình: chữ quay 90°, chạy từ trên xuống dọc mép band, 
    phải tự dựng vì trong file gốc nó đã tan mất, nên nó theo cùng độ dày để
    không nhẹ hơn bốn chữ còn lại.
 
-3. ĐỘ MỜ THẤP HƠN NHIỀU. efex để 0.4 vì hoa văn của họ là một tầng hình có mặt
-   thật sự. Ở đây chữ nằm dưới một band đang mang chữ thật phải đọc được, nên
-   OP_WORD quanh 0.17 — thấp hơn efex nhiều, nhưng dưới mức đó thì ở bề rộng
-   ~50px mà band coral cho phép, chữ chỉ còn đọc ra là vân chứ không ra chữ.
+3. MÀU INK, KHÔNG PHẢI TRẮNG. efex để ô màu trắng xanh vì nền trang họ tối. Nền
+   trang này là --color-paper trắng, nên trắng trên trắng là vô hình — chữ phải
+   là --color-ink ở độ mờ rất thấp. Đây là lý do kỹ thuật, không phải lựa chọn
+   thẩm mỹ: đổi COLOR về #ffffff thì hoa văn biến mất hẳn khỏi trang.
+
+   OP_WORD 0.18 ra khoảng #d5d7da trên giấy trắng — đậm hơn một chút so với
+   --color-rule (#dddddd, tức ink ở ~0.135), nên nó đọc ra là một hình có chủ ý
+   chứ không phải một vệt bẩn. Đây là mức trần: đậm hơn nữa thì chữ h1 và đoạn
+   văn nằm trên nó bắt đầu khó đọc.
 
 Toạ độ hoá: một pixel glyph (hàng r, cột k) đặt vào ô (x = (4-r), y = k). Đây
 là phép quay lấy nguyên từ file efex, không phải rotate() tự chọn — nên chữ
@@ -31,19 +36,19 @@ from pathlib import Path
 
 OUT = Path(__file__).resolve().parent.parent / "public" / "excel-wordmark.svg"
 
-WHITE = "#ffffff"
+COLOR = "#181d26"  # --color-ink; xem mục 3 ở docstring về việc vì sao không trắng
 
 PITCH = 40  # bước lưới
 TILE = 29  # cạnh ô; tỉ lệ ô/bước 0.725 lấy từ efex (28.8/39.58)
 
-OP_WORD = 0.17  # ô thuộc nét chữ
+OP_WORD = 0.18  # ô thuộc nét chữ
 OP_TAIL = 0.14  # ô ở đuôi tan, còn giảm tiếp theo khoảng cách
 
 GAP = 1  # số ô trống giữa hai chữ
 TAIL = 4  # chiều dài đuôi tan, tính theo ô
 
 # Font 5x5. Thanh ngang phủ kín, thân đứng dày 2 ô — đọc được ở cỡ nhỏ mà vẫn
-# đủ nặng để không biến thành hoa văn vô nghĩa khi độ mờ xuống 12%.
+# đủ nặng để không biến thành hoa văn vô nghĩa ở độ mờ 18%.
 GLYPHS = {
     "E": ["11111", "11000", "11111", "11000", "11111"],
     "X": ["11011", "01110", "00100", "01110", "11011"],
@@ -56,11 +61,9 @@ WORD = "EXCEL"
 # "vertical" = quay 90°, chữ chạy xuống dọc mép, đúng như efex. "horizontal" =
 # chữ đọc ngang bình thường.
 #
-# Đây không thuần là chuyện thẩm mỹ mà là chuyện hình học: chữ nằm dọc dài 5 ô
-# ngang trên ~33 ô dài, nên nhét vào một band cao ~340px thì mỗi chữ chỉ được
-# ~48px và nó đọc ra là vân nhiều hơn là chữ. Xoay ngang thì chữ cao ~160px,
-# đọc rõ như efex — đổi lại nó không còn là một dải mép mà thành một tầng hình
-# chiếm cả band. Đổi cờ này thì phải đổi cả class ở app/page.tsx cho khớp.
+# Đổi cờ này thì phải đổi cả class ở app/page.tsx cho khớp: bản dọc cần một dải
+# hẹp cao ~742px đặt ở lề ngoài khung nội dung, bản ngang cần một dải thấp rộng
+# đặt trong khung. Tỉ lệ ảnh là 189:1349 (dọc) hoặc 1349:189 (ngang).
 ORIENT = "vertical"
 
 cells: list[tuple[int, int, float]] = []  # (ô x, ô y, độ mờ)
@@ -98,7 +101,7 @@ else:
 
 parts = [
     f'<rect x="{cx * PITCH}" y="{cy * PITCH}" width="{TILE}" height="{TILE}"'
-    f' fill="{WHITE}" fill-opacity="{op:.3f}"/>'
+    f' fill="{COLOR}" fill-opacity="{op:.3f}"/>'
     for cx, cy, op in cells
 ]
 
