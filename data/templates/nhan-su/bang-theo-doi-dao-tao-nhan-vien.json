@@ -1,0 +1,239 @@
+{
+  "slug": "bang-theo-doi-dao-tao-nhan-vien",
+  "category": "nhan-su",
+  "h1": "Mẫu Excel theo dõi đào tạo nội bộ, tính được cả chi phí bỏ dở",
+  "metaTitle": "Mẫu Excel Theo Dõi Đào Tạo Nội Bộ - Tải Ngay",
+  "metaDesc": "Mẫu Excel theo dõi đào tạo nhân viên ghi từng lượt học, tính chi phí trên mỗi giờ hoàn thành và tách riêng phần chi phí mất trắng do bỏ dở. Tải ngay, có công thức.",
+  "primaryKeyword": "mẫu excel theo dõi đào tạo nội bộ",
+  "intro": "Mẫu Excel theo dõi đào tạo nội bộ này ghi mỗi lượt một người học một khóa thành một dòng, nên trả lời được cả hai câu hỏi mà lãnh đạo hay hỏi: người này năm nay được đào tạo bao nhiêu giờ, và khóa này tốn bao nhiêu tiền cho mỗi giờ học thật sự hoàn thành. Cột mà các file khác thường không có là chi phí bỏ dở: tiền đã chi cho người đăng ký rồi không học hết. Đó là con số duy nhất khiến bộ phận đào tạo phải siết lại khâu chọn người, vì nó biến một chuyện tưởng như vô hại thành một dòng tiền mất trắng nhìn thấy được.",
+  "difficulty": "co-ban",
+  "features": [
+    "Ghi theo từng lượt học, một người nhiều khóa vẫn cộng được theo mã",
+    "Tính chi phí trên mỗi giờ đào tạo để so hiệu quả giữa các khóa",
+    "Tách riêng chi phí mất trắng do người học bỏ dở giữa khóa",
+    "Chỉ tính giờ đào tạo của khóa đã hoàn thành vào chỉ tiêu năm",
+    "Tự xếp đạt hay chưa đạt theo điểm kiểm tra cuối khóa"
+  ],
+  "howToUse": [
+    {
+      "step": "Ghi một dòng cho mỗi cặp người và khóa học",
+      "detail": "Mười người học cùng một khóa thì ghi mười dòng, cùng tên khóa và cùng chi phí phần của mỗi người. Chia chi phí ra từng người ngay từ đầu thì mọi cột tính sau này đều cộng được theo cả hai chiều: theo người để biết ai được đào tạo, và theo tên khóa để biết khóa nào đắt."
+    },
+    {
+      "step": "Nhập chi phí là chi phí phân bổ cho một người, không phải cả khóa",
+      "detail": "Khóa nội bộ mời giảng viên ngoài 20 triệu cho 10 người thì mỗi dòng ghi 2 triệu. Nếu ghi 20 triệu ở mọi dòng thì cộng cột lên thành 200 triệu và mọi con số hiệu quả sai gấp mười lần. Nhớ cộng cả chi phí tài liệu, thuê phòng và ăn trưa nếu có, đừng chỉ ghi học phí."
+    },
+    {
+      "step": "Cập nhật trạng thái ngay khi khóa kết thúc",
+      "detail": "Trạng thái quyết định ba cột tính. Chỉ khóa Hoàn thành mới được tính giờ vào chỉ tiêu đào tạo và mới được xếp đạt hay chưa đạt. Khóa Bỏ dở thì toàn bộ chi phí chuyển sang cột chi phí bỏ dở. Để quên ở Đang học thì cuối năm số giờ đào tạo báo cáo lên sẽ thấp hơn thực tế."
+    },
+    {
+      "step": "Chỉ điền điểm kiểm tra khi khóa có kiểm tra thật",
+      "detail": "Khóa có bài kiểm tra cuối khóa thì điền điểm theo thang 10, ngưỡng đạt để mặc định là 7. Khóa chỉ dự nghe không kiểm tra thì để trống, cột kết quả sẽ hiện là không kiểm tra thay vì xếp oan cho người học là chưa đạt."
+    },
+    {
+      "step": "Cuối năm cộng theo mã nhân viên và theo tên khóa",
+      "detail": "SUMIF cột Giờ được tính theo Mã NV cho ra số giờ đào tạo của từng người, dùng cho báo cáo nhân sự và cho hồ sơ đánh giá. SUMIF theo Tên khóa học rồi so cột Chi phí một giờ giữa các khóa cho biết nên giữ khóa nào và bỏ khóa nào năm sau."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Vì sao phải tách riêng cột chi phí bỏ dở?",
+      "a": "Vì nếu gộp vào tổng chi phí đào tạo thì khoản này biến mất trong một con số lớn và không ai chịu trách nhiệm. Tách ra thành một cột, cuối năm cộng lại, bạn có một câu rất cụ thể để mang vào cuộc họp: năm nay công ty mất bao nhiêu tiền cho những người đăng ký rồi không học hết. Con số đó thường đủ để bộ phận đào tạo siết khâu chọn người và khâu xin cam kết của quản lý trực tiếp trước khi cho đăng ký. Đây cũng là lý do chi phí bỏ dở không được trừ khỏi tổng chi phí: tiền đã chi rồi, chỉ là chi mà không thu lại được gì."
+    },
+    {
+      "q": "Chi phí một giờ tính trên giờ đăng ký hay giờ hoàn thành?",
+      "a": "Trên giờ hoàn thành, và đó là điểm khác biệt quan trọng. Nếu chia cho số giờ đăng ký thì một khóa có nửa số người bỏ dở vẫn hiện ra là rẻ như khóa mà mọi người học hết. Chia cho giờ hoàn thành thì khóa nào bị bỏ dở nhiều sẽ tự đắt lên, đúng với thực tế. Dòng của người bỏ dở có chi phí một giờ bằng 0 vì họ không góp giờ hoàn thành nào, nên đừng đọc riêng dòng đó mà hãy cộng theo tên khóa."
+    },
+    {
+      "q": "Có nên ghi cả khóa học người lao động tự đi học không?",
+      "a": "Nên, nhưng để chi phí bằng 0 nếu công ty không chi tiền. Số giờ vẫn được tính vào hồ sơ phát triển của người đó, và khi rà lại cuối năm bạn thấy ai đang tự đầu tư cho mình. Nhiều công ty phát hiện ra rằng nhóm tự học chủ động chính là nhóm nên được ưu tiên cho khóa đắt tiền, vì tỷ lệ bỏ dở của họ thấp hơn hẳn."
+    },
+    {
+      "q": "Công ty chi tiền đào tạo rồi người lao động nghỉ việc thì có đòi lại được không?",
+      "a": "Chỉ khi hai bên đã ký hợp đồng đào tạo nghề riêng, trong đó ghi rõ chi phí đào tạo và thời gian người lao động cam kết làm việc sau khi học. Khi đó nếu họ tự ý nghỉ trước hạn cam kết thì phải hoàn trả chi phí đào tạo theo hợp đồng đã ký. Không có văn bản này thì công ty không có căn cứ đòi lại, dù chi phí có lớn đến đâu. Vì vậy với các khóa đắt tiền, nên thêm một cột ghi số hợp đồng đào tạo ngay bên cạnh cột chi phí."
+    }
+  ],
+  "ctaText": "Học cách dựng bộ file quản lý nhân sự và đào tạo trên Excel",
+  "relatedSlugs": [
+    "bang-danh-gia-kpi-nhan-vien",
+    "danh-sach-nhan-vien",
+    "bang-theo-doi-tuyen-dung"
+  ],
+  "updatedAt": "2026-07-30",
+  "sheets": [
+    {
+      "name": "Đào tạo nội bộ",
+      "description": "Mỗi dòng là một lượt một người học một khóa. Chi phí ghi theo phần phân bổ cho từng người, không ghi chi phí cả khóa.",
+      "blankRows": 30,
+      "columns": [
+        { "key": "stt", "header": "STT", "type": "number", "width": 6 },
+        { "key": "maNV", "header": "Mã NV", "type": "text", "width": 12 },
+        { "key": "hoTen", "header": "Họ và tên", "type": "text", "width": 24 },
+        {
+          "key": "boPhan",
+          "header": "Bộ phận",
+          "type": "text",
+          "width": 16,
+          "validation": {
+            "type": "list",
+            "options": ["Kinh doanh", "Kế toán", "Nhân sự", "Kỹ thuật", "Kho vận"]
+          }
+        },
+        {
+          "key": "tenKhoaHoc",
+          "header": "Tên khóa học",
+          "type": "text",
+          "width": 34
+        },
+        {
+          "key": "hinhThuc",
+          "header": "Hình thức",
+          "type": "text",
+          "width": 16,
+          "validation": {
+            "type": "list",
+            "options": ["Nội bộ", "Bên ngoài", "E-learning", "Kèm việc"]
+          }
+        },
+        { "key": "ngayBatDau", "header": "Ngày bắt đầu", "type": "date", "width": 14 },
+        { "key": "ngayKetThuc", "header": "Ngày kết thúc", "type": "date", "width": 14 },
+        {
+          "key": "soGio",
+          "header": "Số giờ",
+          "type": "number",
+          "width": 10,
+          "validation": { "type": "decimal", "min": 0, "max": 500 }
+        },
+        {
+          "key": "chiPhi",
+          "header": "Chi phí một người",
+          "type": "currency",
+          "width": 17
+        },
+        {
+          "key": "trangThai",
+          "header": "Trạng thái",
+          "type": "text",
+          "width": 15,
+          "validation": {
+            "type": "list",
+            "options": ["Chưa bắt đầu", "Đang học", "Hoàn thành", "Bỏ dở"]
+          }
+        },
+        {
+          "key": "diemKiemTra",
+          "header": "Điểm kiểm tra",
+          "type": "number",
+          "width": 14,
+          "validation": { "type": "decimal", "min": 0, "max": 10 }
+        },
+        {
+          "key": "gioDuocTinh",
+          "header": "Giờ được tính",
+          "type": "formula",
+          "width": 14,
+          "format": "number",
+          "formula": "=IF([hoTen]{row}=\"\",\"\",IF([trangThai]{row}=\"Hoàn thành\",[soGio]{row},0))",
+          "note": "Chỉ khóa đã hoàn thành mới góp giờ vào chỉ tiêu đào tạo năm. Người bỏ dở giữa khóa vẫn ngồi học một số giờ nhưng không được tính, vì chỉ tiêu đào tạo đo năng lực nhận được chứ không đo thời gian có mặt."
+        },
+        {
+          "key": "chiPhiMotGio",
+          "header": "Chi phí một giờ",
+          "type": "formula",
+          "width": 16,
+          "format": "currency",
+          "formula": "=IF([hoTen]{row}=\"\",\"\",IFERROR(ROUND([chiPhi]{row}/[gioDuocTinh]{row},0),0))",
+          "note": "Chia cho giờ được tính chứ không chia cho số giờ đăng ký, nên khóa nào bị bỏ dở nhiều sẽ tự đắt lên khi cộng theo tên khóa. IFERROR đưa dòng bỏ dở về 0 vì mẫu số bằng 0, đó là lý do phải đọc cột này theo nhóm khóa thay vì đọc từng dòng."
+        },
+        {
+          "key": "chiPhiBoDo",
+          "header": "Chi phí bỏ dở",
+          "type": "formula",
+          "width": 15,
+          "format": "currency",
+          "formula": "=IF([hoTen]{row}=\"\",\"\",IF([trangThai]{row}=\"Bỏ dở\",[chiPhi]{row},0))",
+          "note": "Tiền đã chi cho người không học hết. Không trừ khỏi tổng chi phí đào tạo vì tiền đã ra khỏi công ty rồi, cột này chỉ đánh dấu phần không thu lại được gì. Cộng cả cột cuối năm là có một con số rất cụ thể để mang vào cuộc họp ngân sách."
+        },
+        {
+          "key": "ketQua",
+          "header": "Kết quả",
+          "type": "formula",
+          "width": 16,
+          "format": "text",
+          "formula": "=IF([hoTen]{row}=\"\",\"\",IF([trangThai]{row}<>\"Hoàn thành\",[trangThai]{row},IF([diemKiemTra]{row}=\"\",\"Không kiểm tra\",IF([diemKiemTra]{row}>=7,\"Đạt\",\"Chưa đạt\"))))",
+          "note": "Khóa chưa hoàn thành thì cột này lặp lại trạng thái để bảng đọc theo dòng vẫn đủ nghĩa. Khóa hoàn thành mà bỏ trống điểm thì hiện Không kiểm tra, không xếp oan là chưa đạt — nhiều khóa dự nghe vốn không có bài kiểm tra nào. Ngưỡng đạt là 7, sửa số này nếu công ty bạn đặt ngưỡng khác."
+        }
+      ],
+      "sampleRows": [
+        {
+          "stt": 1,
+          "maNV": "NV001",
+          "hoTen": "Nguyễn Thị Mai",
+          "boPhan": "Kinh doanh",
+          "tenKhoaHoc": "Kỹ năng đàm phán với khách hàng lớn",
+          "hinhThuc": "Bên ngoài",
+          "ngayBatDau": "2026-05-11",
+          "ngayKetThuc": "2026-05-13",
+          "soGio": 18,
+          "chiPhi": 4500000,
+          "trangThai": "Hoàn thành",
+          "diemKiemTra": 8.5
+        },
+        {
+          "stt": 2,
+          "maNV": "NV003",
+          "hoTen": "Lê Thu Hà",
+          "boPhan": "Kế toán",
+          "tenKhoaHoc": "Cập nhật chính sách thuế và bảo hiểm 2026",
+          "hinhThuc": "Nội bộ",
+          "ngayBatDau": "2026-06-02",
+          "ngayKetThuc": "2026-06-02",
+          "soGio": 4,
+          "chiPhi": 800000,
+          "trangThai": "Hoàn thành",
+          "diemKiemTra": 6.5
+        },
+        {
+          "stt": 3,
+          "maNV": "NV002",
+          "hoTen": "Trần Văn Hùng",
+          "boPhan": "Kỹ thuật",
+          "tenKhoaHoc": "An toàn lao động định kỳ",
+          "hinhThuc": "Nội bộ",
+          "ngayBatDau": "2026-03-16",
+          "ngayKetThuc": "2026-03-16",
+          "soGio": 8,
+          "chiPhi": 600000,
+          "trangThai": "Hoàn thành"
+        },
+        {
+          "stt": 4,
+          "maNV": "NV004",
+          "hoTen": "Phạm Minh Đức",
+          "boPhan": "Kho vận",
+          "tenKhoaHoc": "Vận hành hệ thống quản lý kho mới",
+          "hinhThuc": "E-learning",
+          "ngayBatDau": "2026-06-15",
+          "ngayKetThuc": "2026-07-15",
+          "soGio": 20,
+          "chiPhi": 2000000,
+          "trangThai": "Bỏ dở"
+        },
+        {
+          "stt": 5,
+          "maNV": "NV005",
+          "hoTen": "Hoàng Thị Lan",
+          "boPhan": "Nhân sự",
+          "tenKhoaHoc": "Luật lao động cho người làm nhân sự",
+          "hinhThuc": "Bên ngoài",
+          "ngayBatDau": "2026-07-20",
+          "ngayKetThuc": "2026-07-24",
+          "soGio": 24,
+          "chiPhi": 6000000,
+          "trangThai": "Đang học"
+        }
+      ]
+    }
+  ]
+}

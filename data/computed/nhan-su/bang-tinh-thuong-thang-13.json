@@ -1,0 +1,49 @@
+[
+  [
+    {
+      "tyLeThoiGian": 1.0,
+      "thuongTruocThue": 21600000.0,
+      "tongThuNhapThang": 37700000.0,
+      "giamTru": 21700000.0,
+      "thuNhapTinhThue": 16000000.0,
+      "thueTNCN": 1100000.0,
+      "thucNhanTrongThang": 36600000.0
+    },
+    {
+      "tyLeThoiGian": 1.0,
+      "thuongTruocThue": 15000000.0,
+      "tongThuNhapThang": 28400000.0,
+      "giamTru": 27900000.0,
+      "thuNhapTinhThue": 500000.0,
+      "thueTNCN": 25000.0,
+      "thucNhanTrongThang": 28375000.0
+    },
+    {
+      "tyLeThoiGian": 0.75,
+      "thuongTruocThue": 10500000.0,
+      "tongThuNhapThang": 23000000.0,
+      "giamTru": 15500000.0,
+      "thuNhapTinhThue": 7500000.0,
+      "thueTNCN": 375000.0,
+      "thucNhanTrongThang": 22625000.0
+    },
+    {
+      "tyLeThoiGian": 0.2916666666666667,
+      "thuongTruocThue": 2566667.0,
+      "tongThuNhapThang": 12366667.0,
+      "giamTru": 15500000.0,
+      "thuNhapTinhThue": 0,
+      "thueTNCN": 0.0,
+      "thucNhanTrongThang": 12366667.0
+    },
+    {
+      "tyLeThoiGian": 1.0,
+      "thuongTruocThue": 90000000.0,
+      "tongThuNhapThang": 144900000.0,
+      "giamTru": 27900000.0,
+      "thuNhapTinhThue": 117000000.0,
+      "thueTNCN": 26450000.0,
+      "thucNhanTrongThang": 118450000.0
+    }
+  ]
+]

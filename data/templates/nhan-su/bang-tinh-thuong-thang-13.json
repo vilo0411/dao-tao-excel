@@ -1,0 +1,254 @@
+{
+  "slug": "bang-tinh-thuong-thang-13",
+  "category": "nhan-su",
+  "h1": "Mẫu Excel tính thưởng tháng 13 theo số tháng làm việc thực tế",
+  "metaTitle": "Mẫu Excel Tính Thưởng Tháng 13 - Tải Miễn Phí",
+  "metaDesc": "Mẫu Excel tính thưởng tháng 13 chia theo số tháng làm việc thực tế và hệ số đánh giá, tính luôn thuế TNCN của tháng chi trả. Tải ngay, có giải thích công thức.",
+  "primaryKeyword": "mẫu excel tính thưởng tháng 13",
+  "intro": "Mẫu Excel tính thưởng tháng 13 này không chia đều cho mọi người một tháng lương, vì cách chia đều gây tranh chấp ngay với hai nhóm: người vào giữa năm và người nghỉ việc trước Tết. File tính theo tỷ lệ thời gian làm việc thực tế trong năm rồi nhân với hệ số đánh giá, nên ai làm 7 tháng nhận đúng phần của 7 tháng. Phần thứ hai của file là thuế: thưởng tháng 13 là thu nhập chịu thuế của tháng chi trả, cộng dồn với lương tháng đó rồi mới tính lũy tiến, nên nhiều người bị nhảy bậc thuế đúng vào tháng nhận thưởng mà không hiểu vì sao.",
+  "difficulty": "trung-cap",
+  "features": [
+    "Chia thưởng theo số tháng làm việc thực tế, không chia đều cả năm",
+    "Hệ số đánh giá nhân vào sau, tách bạch phần thời gian và phần hiệu suất",
+    "Tính thuế TNCN của tháng chi trả trên tổng lương cộng thưởng",
+    "Dùng đúng bộ số thuế 2026: giảm trừ 15,5 triệu và biểu 5 bậc",
+    "Cột tỷ lệ thời gian hiện dạng phần trăm để người lao động tự soát"
+  ],
+  "howToUse": [
+    {
+      "step": "Chốt công thức thưởng và công bố trước khi điền số",
+      "detail": "Thưởng tháng 13 không phải nghĩa vụ luật định mà là cam kết của công ty, nên căn cứ duy nhất là quy chế thưởng hoặc thỏa ước lao động. Chốt trước công thức, cách tính số tháng và thang hệ số, rồi mới mở file. Làm ngược lại thì mọi con số đều bị coi là tùy ý."
+    },
+    {
+      "step": "Nhập lương bình quân, không nhập lương tháng 12",
+      "detail": "Lương bình quân của cả thời gian làm việc trong năm mới phản ánh đúng, vì người được tăng lương giữa năm nếu lấy lương tháng 12 sẽ được thưởng trên mức cao hơn mức họ hưởng phần lớn thời gian. Công ty nào quy chế ghi rõ lấy lương tháng 12 thì cứ điền lương tháng 12, nhưng phải nhất quán cho mọi người."
+    },
+    {
+      "step": "Đếm số tháng làm việc theo quy tắc đã công bố",
+      "detail": "Vào làm ngày 20 tháng 3 thì tính 9 tháng hay 9,5 tháng phụ thuộc quy chế: có nơi làm đủ 15 ngày trở lên tính một tháng, có nơi tính theo ngày rồi chia 30. Cột này nhận số lẻ nên chọn cách nào cũng ghi được, miễn là một cách cho tất cả."
+    },
+    {
+      "step": "Điền hệ số đánh giá theo thang đã thống nhất",
+      "detail": "Thang thường dùng là 0,8 cho mức cần cải thiện, 1,0 cho mức đạt, 1,2 cho mức tốt và 1,5 cho mức xuất sắc. Lấy kết quả từ bảng đánh giá KPI để hệ số có căn cứ, đừng để trưởng bộ phận tự điền một con số không gắn với gì."
+    },
+    {
+      "step": "Điền thu nhập chịu thuế của tháng chi trả rồi đọc cột thuế",
+      "detail": "Cột Lương tháng chi trả nhận phần thu nhập chịu thuế của tháng đó, tức đã trừ bảo hiểm. Thuế được tính trên tổng lương cộng thưởng vì cả hai đều là thu nhập của cùng một tháng. Nếu công ty chi thưởng vào tháng 1 năm sau thì con số này là lương tháng 1, không phải lương tháng 12."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Vì sao file không tách riêng số thuế của phần thưởng?",
+      "a": "Vì thuế thu nhập cá nhân tính lũy tiến trên tổng thu nhập của tháng, nên phần thuế của riêng khoản thưởng không tồn tại như một con số duy nhất. Bạn có thể tính tổng thuế khi có thưởng trừ đi tổng thuế khi không có thưởng để ra phần thuế tăng thêm do thưởng, nhưng con số đó phụ thuộc lương tháng đó cao hay thấp, và hai người thưởng bằng nhau có thể chịu thuế tăng thêm khác nhau. Cách trung thực là hiển thị tổng thuế của tháng chi trả và giải thích cho người lao động rằng thưởng đã đẩy họ lên bậc cao hơn."
+    },
+    {
+      "q": "Người đã nghỉ việc trong năm có được thưởng tháng 13 không?",
+      "a": "Phụ thuộc hoàn toàn vào quy chế thưởng của công ty, vì đây không phải khoản luật buộc trả. Nhiều quy chế đặt điều kiện còn làm việc tại thời điểm chi trả, và điều kiện đó hợp pháp nếu đã công bố trước. Nếu quy chế không nói gì mà công ty vẫn từ chối trả cho người đã nghỉ thì rủi ro tranh chấp là thật, nhất là khi người đó đã làm gần hết năm. Muốn chi cho họ thì cứ điền số tháng thực tế vào file, công thức không phân biệt người đang làm hay đã nghỉ."
+    },
+    {
+      "q": "Thưởng tháng 13 có phải đóng bảo hiểm xã hội không?",
+      "a": "Không. Tiền thưởng theo quy chế thưởng không nằm trong tiền lương làm căn cứ đóng bảo hiểm xã hội, nên khoản này không làm tăng số tiền đóng bảo hiểm của tháng chi trả. Nhưng nó chịu thuế thu nhập cá nhân, đó là lý do file có cột thuế mà không có cột bảo hiểm."
+    },
+    {
+      "q": "Thưởng tháng 13 khác thưởng Tết thế nào?",
+      "a": "Thưởng tháng 13 gắn với thời gian làm việc trong năm, bản chất là một tháng lương thứ mười ba nên chia theo tỷ lệ tháng. Thưởng Tết gắn với kết quả kinh doanh và thường chia theo mức cố định hoặc theo hệ số chức danh, không nhất thiết theo số tháng. Nhiều công ty gộp hai khoản thành một lần chi nhưng vẫn nên tách hai cột trong quy chế, vì khi kinh doanh kém thì thưởng Tết có thể cắt còn thưởng tháng 13 đã cam kết theo hợp đồng thì khó cắt hơn."
+    },
+    {
+      "q": "Hệ số đánh giá lấy ở đâu cho khách quan?",
+      "a": "Lấy từ kết quả bảng đánh giá KPI của cùng năm đó. Bảng KPI cho ra điểm có trọng số theo từng chỉ tiêu, bạn quy điểm đó thành bốn mức rồi ánh xạ sang hệ số. Cách này khiến hệ số thưởng có đường truy về từng chỉ tiêu cụ thể, nên khi người lao động thắc mắc vì sao mình chỉ được hệ số 1,0 thì bạn có số liệu để trả lời."
+    }
+  ],
+  "ctaText": "Học cách tự dựng bảng thưởng và bảng lương có tính thuế trên Excel",
+  "relatedSlugs": [
+    "bang-tinh-luong-nhan-vien",
+    "bang-danh-gia-kpi-nhan-vien",
+    "danh-sach-nhan-vien"
+  ],
+  "updatedAt": "2026-07-30",
+  "sheets": [
+    {
+      "name": "Thưởng tháng 13",
+      "description": "Mỗi dòng là một nhân viên. Thưởng chia theo tỷ lệ thời gian làm việc rồi nhân hệ số, sau đó tính thuế của tháng chi trả.",
+      "blankRows": 25,
+      "columns": [
+        { "key": "stt", "header": "STT", "type": "number", "width": 6 },
+        { "key": "maNV", "header": "Mã NV", "type": "text", "width": 12 },
+        { "key": "hoTen", "header": "Họ và tên", "type": "text", "width": 24 },
+        {
+          "key": "boPhan",
+          "header": "Bộ phận",
+          "type": "text",
+          "width": 16,
+          "validation": {
+            "type": "list",
+            "options": ["Kinh doanh", "Kế toán", "Nhân sự", "Kỹ thuật", "Kho vận"]
+          }
+        },
+        {
+          "key": "ngayVaoLam",
+          "header": "Ngày vào làm",
+          "type": "date",
+          "width": 14
+        },
+        {
+          "key": "luongBinhQuan",
+          "header": "Lương bình quân",
+          "type": "currency",
+          "width": 17
+        },
+        {
+          "key": "soThangLamViec",
+          "header": "Số tháng làm việc",
+          "type": "number",
+          "width": 17,
+          "validation": { "type": "decimal", "min": 0, "max": 12 }
+        },
+        {
+          "key": "heSoDanhGia",
+          "header": "Hệ số đánh giá",
+          "type": "number",
+          "width": 15,
+          "validation": { "type": "decimal", "min": 0, "max": 2 }
+        },
+        {
+          "key": "luongThangChiTra",
+          "header": "Lương tháng chi trả",
+          "type": "currency",
+          "width": 19
+        },
+        {
+          "key": "nguoiPhuThuoc",
+          "header": "Số người phụ thuộc",
+          "type": "number",
+          "width": 18,
+          "validation": { "type": "whole", "min": 0, "max": 10 }
+        },
+        {
+          "key": "tyLeThoiGian",
+          "header": "Tỷ lệ thời gian",
+          "type": "formula",
+          "width": 15,
+          "format": "percent",
+          "formula": "=IF([hoTen]{row}=\"\",\"\",[soThangLamViec]{row}/12)",
+          "note": "Số tháng làm việc chia 12. Cột này để trần ra cho người lao động tự soát: ai vào tháng 4 thấy 75% là hiểu ngay vì sao thưởng của mình thấp hơn đồng nghiệp, không cần hỏi lại nhân sự."
+        },
+        {
+          "key": "thuongTruocThue",
+          "header": "Thưởng trước thuế",
+          "type": "formula",
+          "width": 17,
+          "format": "currency",
+          "formula": "=IF([hoTen]{row}=\"\",\"\",ROUND([luongBinhQuan]{row}*[tyLeThoiGian]{row}*[heSoDanhGia]{row},0))",
+          "note": "Lương bình quân nhân tỷ lệ thời gian nhân hệ số đánh giá. Thứ tự này quan trọng: phần thời gian là quyền theo thâm niên trong năm, phần hệ số là phần thưởng theo hiệu suất, tách hai bước thì tranh chấp về mức nào cũng chỉ vào đúng một cột."
+        },
+        {
+          "key": "tongThuNhapThang",
+          "header": "Tổng thu nhập tháng",
+          "type": "formula",
+          "width": 19,
+          "format": "currency",
+          "formula": "=IF([hoTen]{row}=\"\",\"\",[luongThangChiTra]{row}+[thuongTruocThue]{row})",
+          "note": "Thưởng và lương của cùng một tháng chi trả phải cộng vào nhau trước khi tính thuế, vì thuế thu nhập cá nhân tính theo tổng thu nhập của tháng chứ không tính riêng từng khoản."
+        },
+        {
+          "key": "giamTru",
+          "header": "Giảm trừ gia cảnh",
+          "type": "formula",
+          "width": 17,
+          "format": "currency",
+          "formula": "=IF([hoTen]{row}=\"\",\"\",15500000+[nguoiPhuThuoc]{row}*6200000)",
+          "note": "Giảm trừ bản thân 15,5 triệu một tháng cộng 6,2 triệu cho mỗi người phụ thuộc, theo mức áp dụng từ 2026. Đây đúng là bộ số mà bảng tính lương đang dùng, sửa một bên thì phải sửa cả hai."
+        },
+        {
+          "key": "thuNhapTinhThue",
+          "header": "Thu nhập tính thuế",
+          "type": "formula",
+          "width": 18,
+          "format": "currency",
+          "formula": "=IF([hoTen]{row}=\"\",\"\",MAX(0,[tongThuNhapThang]{row}-[giamTru]{row}))",
+          "note": "MAX chặn ở 0 vì thu nhập dưới mức giảm trừ thì không nộp thuế, không có chuyện thuế âm. Cột Lương tháng chi trả phải là thu nhập đã trừ bảo hiểm, nên ở đây không trừ bảo hiểm lần nữa."
+        },
+        {
+          "key": "thueTNCN",
+          "header": "Thuế TNCN",
+          "type": "formula",
+          "width": 15,
+          "format": "currency",
+          "formula": "=IF([hoTen]{row}=\"\",\"\",IF([thuNhapTinhThue]{row}<=10000000,[thuNhapTinhThue]{row}*5%,IF([thuNhapTinhThue]{row}<=30000000,[thuNhapTinhThue]{row}*10%-500000,IF([thuNhapTinhThue]{row}<=60000000,[thuNhapTinhThue]{row}*20%-3500000,IF([thuNhapTinhThue]{row}<=100000000,[thuNhapTinhThue]{row}*30%-9500000,[thuNhapTinhThue]{row}*35%-14500000)))))",
+          "note": "Biểu lũy tiến 5 bậc viết dạng thuế suất trừ số giảm nhanh, nên bốn hàm IF lồng nhau là đủ thay cho một bảng tra. Đây là thuế của cả tháng chi trả gồm cả lương và thưởng, không phải thuế của riêng khoản thưởng."
+        },
+        {
+          "key": "thucNhanTrongThang",
+          "header": "Thực nhận trong tháng",
+          "type": "formula",
+          "width": 20,
+          "format": "currency",
+          "formula": "=IF([hoTen]{row}=\"\",\"\",[tongThuNhapThang]{row}-[thueTNCN]{row})",
+          "note": "Số tiền người lao động thực nhận trong tháng có thưởng, đã gồm cả lương. Đưa con số này lên phiếu thưởng thì người nhận thấy ngay vì sao thưởng 20 triệu mà tài khoản không tăng đúng 20 triệu."
+        }
+      ],
+      "sampleRows": [
+        {
+          "stt": 1,
+          "maNV": "NV001",
+          "hoTen": "Nguyễn Thị Mai",
+          "boPhan": "Kinh doanh",
+          "ngayVaoLam": "2022-03-01",
+          "luongBinhQuan": 18000000,
+          "soThangLamViec": 12,
+          "heSoDanhGia": 1.2,
+          "luongThangChiTra": 16100000,
+          "nguoiPhuThuoc": 1
+        },
+        {
+          "stt": 2,
+          "maNV": "NV002",
+          "hoTen": "Trần Văn Hùng",
+          "boPhan": "Kỹ thuật",
+          "ngayVaoLam": "2024-06-17",
+          "luongBinhQuan": 15000000,
+          "soThangLamViec": 12,
+          "heSoDanhGia": 1,
+          "luongThangChiTra": 13400000,
+          "nguoiPhuThuoc": 2
+        },
+        {
+          "stt": 3,
+          "maNV": "NV003",
+          "hoTen": "Lê Thu Hà",
+          "boPhan": "Kế toán",
+          "ngayVaoLam": "2026-04-06",
+          "luongBinhQuan": 14000000,
+          "soThangLamViec": 9,
+          "heSoDanhGia": 1,
+          "luongThangChiTra": 12500000,
+          "nguoiPhuThuoc": 0
+        },
+        {
+          "stt": 4,
+          "maNV": "NV004",
+          "hoTen": "Phạm Minh Đức",
+          "boPhan": "Kho vận",
+          "ngayVaoLam": "2026-09-15",
+          "luongBinhQuan": 11000000,
+          "soThangLamViec": 3.5,
+          "heSoDanhGia": 0.8,
+          "luongThangChiTra": 9800000,
+          "nguoiPhuThuoc": 0
+        },
+        {
+          "stt": 5,
+          "maNV": "NV006",
+          "hoTen": "Vũ Quốc Thắng",
+          "boPhan": "Kinh doanh",
+          "ngayVaoLam": "2020-01-02",
+          "luongBinhQuan": 60000000,
+          "soThangLamViec": 12,
+          "heSoDanhGia": 1.5,
+          "luongThangChiTra": 54900000,
+          "nguoiPhuThuoc": 2
+        }
+      ]
+    }
+  ]
+}

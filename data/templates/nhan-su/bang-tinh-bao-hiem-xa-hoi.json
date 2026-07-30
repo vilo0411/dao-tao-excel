@@ -1,0 +1,255 @@
+{
+  "slug": "bang-tinh-bao-hiem-xa-hoi",
+  "category": "nhan-su",
+  "h1": "Mẫu Excel tính bảo hiểm xã hội, tách rõ phần nhân viên và phần công ty",
+  "metaTitle": "Mẫu Excel Tính Bảo Hiểm Xã Hội - Tải Miễn Phí",
+  "metaDesc": "Mẫu Excel tính bảo hiểm xã hội tách 10,5% nhân viên đóng và 21,5% công ty đóng, tự chặn hai mức trần khác nhau của BHXH và BHTN. Tải ngay, có công thức.",
+  "primaryKeyword": "mẫu excel tính bảo hiểm xã hội",
+  "intro": "Mẫu Excel tính bảo hiểm xã hội này tách hai bên đóng thành hai nhóm cột riêng, vì đó là hai con số đi hai đường khác nhau: 10,5% trừ vào lương người lao động và hiện trên phiếu lương, còn 21,5% là chi phí công ty và chỉ hiện trên sổ kế toán. Điểm mà phần lớn file trên mạng bỏ qua là hai mức trần: bảo hiểm xã hội và bảo hiểm y tế chặn ở 20 lần mức tham chiếu, còn bảo hiểm thất nghiệp chặn ở 20 lần lương tối thiểu vùng, nên với người lương cao thì hai trần này cho ra hai mức nền hoàn toàn khác nhau. File tự tính cả hai và có cột chọn vùng.",
+  "difficulty": "trung-cap",
+  "features": [
+    "Tách riêng 10,5% nhân viên đóng và 21,5% công ty đóng",
+    "Chia nhỏ từng loại: BHXH, BHYT và BHTN đóng riêng từng cột",
+    "Tự chặn trần 20 lần mức tham chiếu cho BHXH và BHYT",
+    "Trần bảo hiểm thất nghiệp đổi theo vùng lương tối thiểu đã chọn",
+    "Cột tổng chi phí bảo hiểm để đưa thẳng vào dự toán quỹ lương"
+  ],
+  "howToUse": [
+    {
+      "step": "Nhập tiền lương làm căn cứ đóng, không nhập tổng thu nhập",
+      "detail": "Căn cứ đóng gồm lương theo hợp đồng, phụ cấp chức vụ, phụ cấp thâm niên và các khoản bổ sung xác định được trước. Không gồm tiền tăng ca, tiền làm đêm, thưởng theo kết quả kinh doanh, tiền ăn giữa ca hay tiền xăng xe. Lấy nhầm tổng thu nhập vào đây là đóng vượt, và phần vượt không đòi lại được dễ dàng."
+    },
+    {
+      "step": "Chọn đúng vùng lương tối thiểu của nơi đặt trụ sở làm việc",
+      "detail": "Vùng quyết định trần của bảo hiểm thất nghiệp, không quyết định trần của bảo hiểm xã hội. Vùng lấy theo địa bàn nơi người lao động làm việc thực tế, không lấy theo nơi đăng ký kinh doanh của công ty."
+    },
+    {
+      "step": "Đọc hai cột mức nền trước khi tin các cột tiền",
+      "detail": "Hai cột Nền BHXH và BHYT với Nền BHTN là chỗ trần được áp. Với người lương dưới cả hai trần thì hai cột này bằng nhau và bằng lương đóng. Thấy chúng lệch nhau tức là người đó đã chạm trần, và đó là dấu hiệu để bạn soát lại con số lương đóng."
+    },
+    {
+      "step": "Chuyển cột tổng nhân viên đóng sang bảng lương",
+      "detail": "Dùng SUMIF theo cột Mã NV lấy cột Tổng NV đóng rồi điền vào cột Bảo hiểm của bảng tính lương. Đừng để bảng lương tự nhân 10,5% nếu công ty có người chạm trần, vì khi đó 10,5% của lương đóng sẽ khác 10,5% của mức nền đã bị chặn."
+    },
+    {
+      "step": "Cộng cột tổng công ty đóng vào chi phí nhân sự hằng tháng",
+      "detail": "Phần 21,5% không xuất hiện trên phiếu lương nhưng vẫn là tiền thật công ty phải chi. Khi lập dự toán quỹ lương, chi phí một nhân sự bằng lương cộng phần này, không phải chỉ bằng lương."
+    }
+  ],
+  "faq": [
+    {
+      "q": "10,5% và 21,5% gồm những khoản nào?",
+      "a": "Phần người lao động đóng 10,5% gồm bảo hiểm xã hội 8%, bảo hiểm y tế 1,5% và bảo hiểm thất nghiệp 1%. Phần người sử dụng lao động đóng 21,5% gồm bảo hiểm xã hội 17,5%, bảo hiểm y tế 3% và bảo hiểm thất nghiệp 1%. Trong 17,5% của công ty có 14% vào quỹ hưu trí và tử tuất, 3% vào quỹ ốm đau và thai sản, 0,5% vào quỹ bảo hiểm tai nạn lao động và bệnh nghề nghiệp. Tổng hai bên là 32% tiền lương làm căn cứ đóng."
+    },
+    {
+      "q": "Vì sao bảo hiểm thất nghiệp lại có trần riêng, không dùng chung trần với BHXH?",
+      "a": "Vì hai loại này neo vào hai mốc khác nhau. Bảo hiểm xã hội và bảo hiểm y tế chặn ở 20 lần mức tham chiếu do Nhà nước công bố, hiện là 2.340.000 đồng nên trần bằng 46.800.000 đồng, và mốc này giống nhau trên toàn quốc. Bảo hiểm thất nghiệp chặn ở 20 lần lương tối thiểu vùng, mà lương tối thiểu vùng khác nhau theo địa bàn, nên trần vùng I lên tới 99.200.000 đồng trong khi vùng IV chỉ 69.000.000 đồng. Với người lương 60 triệu ở vùng I, BHXH tính trên 46,8 triệu còn BHTN tính trên đúng 60 triệu."
+    },
+    {
+      "q": "Người thử việc và người làm hợp đồng dưới một tháng có phải đóng không?",
+      "a": "Người làm việc theo hợp đồng lao động từ một tháng trở lên thuộc diện đóng bảo hiểm xã hội bắt buộc, kể cả hợp đồng thử việc nếu nội dung thử việc được ghi trong hợp đồng lao động. Nếu thử việc ký bằng một hợp đồng thử việc riêng thì thời gian đó không đóng, nhưng khoản tiền tương ứng phải trả thêm vào lương cho người lao động tự đóng. Hợp đồng dưới một tháng không thuộc diện đóng bảo hiểm xã hội và bảo hiểm thất nghiệp."
+    },
+    {
+      "q": "Mức tham chiếu là gì, có phải mức lương cơ sở cũ không?",
+      "a": "Từ khi Luật Bảo hiểm xã hội 2024 có hiệu lực, các mốc trước đây neo vào mức lương cơ sở được chuyển sang neo vào mức tham chiếu. Ở thời điểm chuyển tiếp, mức tham chiếu được ấn định bằng mức lương cơ sở đang áp dụng là 2.340.000 đồng, nên trần đóng chưa đổi. Về sau mức tham chiếu sẽ được điều chỉnh riêng, khi đó bạn chỉ cần sửa con số 46800000 trong cột Nền BHXH và BHYT."
+    },
+    {
+      "q": "File có tính được bảo hiểm cho người nước ngoài không?",
+      "a": "Được với phần bảo hiểm xã hội và bảo hiểm y tế, nhưng bạn phải sửa cột bảo hiểm thất nghiệp về 0 cho những dòng đó. Người lao động nước ngoài làm việc tại Việt Nam không thuộc đối tượng tham gia bảo hiểm thất nghiệp, nên giữ nguyên 1% ở cả hai bên là đóng sai."
+    }
+  ],
+  "ctaText": "Học cách tự dựng bảng bảo hiểm và bảng lương khớp nhau trên Excel",
+  "relatedSlugs": [
+    "bang-tinh-luong-nhan-vien",
+    "danh-sach-nhan-vien",
+    "bang-tinh-luong-lam-them-gio"
+  ],
+  "updatedAt": "2026-07-30",
+  "sheets": [
+    {
+      "name": "Bảo hiểm xã hội",
+      "description": "Mỗi dòng là một nhân viên trong một tháng. Hai cột mức nền cho thấy trần nào đang được áp, các cột tiền chia theo bên đóng.",
+      "blankRows": 25,
+      "columns": [
+        { "key": "stt", "header": "STT", "type": "number", "width": 6 },
+        { "key": "maNV", "header": "Mã NV", "type": "text", "width": 12 },
+        { "key": "hoTen", "header": "Họ và tên", "type": "text", "width": 24 },
+        {
+          "key": "boPhan",
+          "header": "Bộ phận",
+          "type": "text",
+          "width": 16,
+          "validation": {
+            "type": "list",
+            "options": ["Kinh doanh", "Kế toán", "Nhân sự", "Kỹ thuật", "Kho vận"]
+          }
+        },
+        {
+          "key": "soBHXH",
+          "header": "Số sổ BHXH",
+          "type": "text",
+          "width": 15
+        },
+        {
+          "key": "luongDongBH",
+          "header": "Lương đóng BH",
+          "type": "currency",
+          "width": 16
+        },
+        {
+          "key": "vung",
+          "header": "Vùng",
+          "type": "text",
+          "width": 9,
+          "validation": { "type": "list", "options": ["I", "II", "III", "IV"] }
+        },
+        {
+          "key": "nenBHXH",
+          "header": "Nền BHXH và BHYT",
+          "type": "formula",
+          "width": 18,
+          "format": "currency",
+          "formula": "=IF([hoTen]{row}=\"\",\"\",MIN([luongDongBH]{row},46800000))",
+          "note": "Trần bằng 20 lần mức tham chiếu 2.340.000 đồng, tức 46.800.000 đồng, giống nhau ở mọi vùng. MIN cắt phần lương vượt trần nên người lương 60 triệu vẫn chỉ đóng trên 46,8 triệu. Mức tham chiếu đổi thì sửa đúng một con số ở đây."
+        },
+        {
+          "key": "nenBHTN",
+          "header": "Nền BHTN",
+          "type": "formula",
+          "width": 16,
+          "format": "currency",
+          "formula": "=IF([hoTen]{row}=\"\",\"\",MIN([luongDongBH]{row},IF([vung]{row}=\"I\",99200000,IF([vung]{row}=\"II\",88200000,IF([vung]{row}=\"III\",77200000,69000000)))))",
+          "note": "Trần bảo hiểm thất nghiệp bằng 20 lần lương tối thiểu vùng, nên bốn vùng có bốn trần: 99,2 triệu, 88,2 triệu, 77,2 triệu và 69 triệu. Đây là lý do cột này thường khác cột Nền BHXH và BHYT với người lương cao."
+        },
+        {
+          "key": "nvBHXH",
+          "header": "NV: BHXH 8%",
+          "type": "formula",
+          "width": 15,
+          "format": "currency",
+          "formula": "=IF([hoTen]{row}=\"\",\"\",ROUND([nenBHXH]{row}*8%,0))",
+          "note": "Phần người lao động đóng vào quỹ hưu trí và tử tuất. Nhân với mức nền đã chặn trần, không nhân với lương đóng, nên người chạm trần không bị tính vượt."
+        },
+        {
+          "key": "nvBHYT",
+          "header": "NV: BHYT 1,5%",
+          "type": "formula",
+          "width": 15,
+          "format": "currency",
+          "formula": "=IF([hoTen]{row}=\"\",\"\",ROUND([nenBHXH]{row}*1.5%,0))",
+          "note": "Bảo hiểm y tế dùng chung mức nền với bảo hiểm xã hội vì cùng chặn ở 20 lần mức tham chiếu."
+        },
+        {
+          "key": "nvBHTN",
+          "header": "NV: BHTN 1%",
+          "type": "formula",
+          "width": 14,
+          "format": "currency",
+          "formula": "=IF([hoTen]{row}=\"\",\"\",ROUND([nenBHTN]{row}*1%,0))",
+          "note": "Cột duy nhất của người lao động nhân với nền BHTN. Người nước ngoài không tham gia bảo hiểm thất nghiệp, dòng của họ phải sửa cột này về 0."
+        },
+        {
+          "key": "tongNV",
+          "header": "Tổng NV đóng",
+          "type": "formula",
+          "width": 15,
+          "format": "currency",
+          "formula": "=IF([hoTen]{row}=\"\",\"\",[nvBHXH]{row}+[nvBHYT]{row}+[nvBHTN]{row})",
+          "note": "Bằng 10,5% lương đóng với người chưa chạm trần. Đây là con số trừ vào lương và phải hiện trên phiếu lương, cũng là con số bảng tính lương lấy sang cột Bảo hiểm."
+        },
+        {
+          "key": "dnBHXH",
+          "header": "DN: BHXH 17,5%",
+          "type": "formula",
+          "width": 16,
+          "format": "currency",
+          "formula": "=IF([hoTen]{row}=\"\",\"\",ROUND([nenBHXH]{row}*17.5%,0))",
+          "note": "Gồm 14% quỹ hưu trí và tử tuất, 3% quỹ ốm đau và thai sản, 0,5% quỹ bảo hiểm tai nạn lao động và bệnh nghề nghiệp."
+        },
+        {
+          "key": "dnBHYT",
+          "header": "DN: BHYT 3%",
+          "type": "formula",
+          "width": 14,
+          "format": "currency",
+          "formula": "=IF([hoTen]{row}=\"\",\"\",ROUND([nenBHXH]{row}*3%,0))",
+          "note": "Phần công ty đóng bảo hiểm y tế, gấp đôi phần 1,5% của người lao động."
+        },
+        {
+          "key": "dnBHTN",
+          "header": "DN: BHTN 1%",
+          "type": "formula",
+          "width": 14,
+          "format": "currency",
+          "formula": "=IF([hoTen]{row}=\"\",\"\",ROUND([nenBHTN]{row}*1%,0))",
+          "note": "Hai bên cùng đóng 1% bảo hiểm thất nghiệp trên cùng một mức nền, nên cột này luôn bằng cột NV: BHTN 1%."
+        },
+        {
+          "key": "tongDN",
+          "header": "Tổng DN đóng",
+          "type": "formula",
+          "width": 15,
+          "format": "currency",
+          "formula": "=IF([hoTen]{row}=\"\",\"\",[dnBHXH]{row}+[dnBHYT]{row}+[dnBHTN]{row})",
+          "note": "Bằng 21,5% lương đóng với người chưa chạm trần. Khoản này không hiện trên phiếu lương nhưng là chi phí thật, phải cộng vào dự toán quỹ lương."
+        },
+        {
+          "key": "tongCong",
+          "header": "Tổng nộp cơ quan BH",
+          "type": "formula",
+          "width": 19,
+          "format": "currency",
+          "formula": "=IF([hoTen]{row}=\"\",\"\",[tongNV]{row}+[tongDN]{row})",
+          "note": "Số thực nộp cho cơ quan bảo hiểm của riêng người này, bằng 32% lương đóng khi chưa chạm trần. Cộng cả cột là số tiền công ty chuyển đi trong tháng."
+        }
+      ],
+      "sampleRows": [
+        {
+          "stt": 1,
+          "maNV": "NV001",
+          "hoTen": "Nguyễn Thị Mai",
+          "boPhan": "Kinh doanh",
+          "soBHXH": "0123456789",
+          "luongDongBH": 18000000,
+          "vung": "I"
+        },
+        {
+          "stt": 2,
+          "maNV": "NV002",
+          "hoTen": "Trần Văn Hùng",
+          "boPhan": "Kỹ thuật",
+          "soBHXH": "0123456790",
+          "luongDongBH": 15000000,
+          "vung": "I"
+        },
+        {
+          "stt": 3,
+          "maNV": "NV003",
+          "hoTen": "Lê Thu Hà",
+          "boPhan": "Kế toán",
+          "soBHXH": "0123456791",
+          "luongDongBH": 14000000,
+          "vung": "II"
+        },
+        {
+          "stt": 4,
+          "maNV": "NV004",
+          "hoTen": "Phạm Minh Đức",
+          "boPhan": "Kho vận",
+          "soBHXH": "0123456792",
+          "luongDongBH": 11000000,
+          "vung": "III"
+        },
+        {
+          "stt": 5,
+          "maNV": "NV006",
+          "hoTen": "Vũ Quốc Thắng",
+          "boPhan": "Kinh doanh",
+          "soBHXH": "0123456793",
+          "luongDongBH": 60000000,
+          "vung": "I"
+        }
+      ]
+    }
+  ]
+}

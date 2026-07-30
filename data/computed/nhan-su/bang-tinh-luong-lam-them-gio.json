@@ -1,0 +1,54 @@
+[
+  [
+    {
+      "donGiaGio": 86538.0,
+      "tienNgayThuong": 1557684.0,
+      "tienNgayNghi": 1384608.0,
+      "tienNgayLe": 0.0,
+      "tienTangCaDem": 0.0,
+      "tienPhuCapDem": 0.0,
+      "tongTienTangCa": 2942292.0,
+      "tongGioTangCa": 20.0
+    },
+    {
+      "donGiaGio": 72115.0,
+      "tienNgayThuong": 649035.0,
+      "tienNgayNghi": 0.0,
+      "tienNgayLe": 1730760.0,
+      "tienTangCaDem": 576920.0,
+      "tienPhuCapDem": 0.0,
+      "tongTienTangCa": 2956715.0,
+      "tongGioTangCa": 18.0
+    },
+    {
+      "donGiaGio": 67308.0,
+      "tienNgayThuong": 1009620.0,
+      "tienNgayNghi": 0.0,
+      "tienNgayLe": 0.0,
+      "tienTangCaDem": 0.0,
+      "tienPhuCapDem": 0.0,
+      "tongTienTangCa": 1009620.0,
+      "tongGioTangCa": 10.0
+    },
+    {
+      "donGiaGio": 52885.0,
+      "tienNgayThuong": 0.0,
+      "tienNgayNghi": 1692320.0,
+      "tienNgayLe": 0.0,
+      "tienTangCaDem": 634620.0,
+      "tienPhuCapDem": 761544.0,
+      "tongTienTangCa": 3088484.0,
+      "tongGioTangCa": 22.0
+    },
+    {
+      "donGiaGio": 62500.0,
+      "tienNgayThuong": 375000.0,
+      "tienNgayNghi": 0.0,
+      "tienNgayLe": 0.0,
+      "tienTangCaDem": 0.0,
+      "tienPhuCapDem": 0.0,
+      "tongTienTangCa": 375000.0,
+      "tongGioTangCa": 4.0
+    }
+  ]
+]

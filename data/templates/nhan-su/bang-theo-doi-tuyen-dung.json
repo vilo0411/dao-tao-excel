@@ -1,0 +1,234 @@
+{
+  "slug": "bang-theo-doi-tuyen-dung",
+  "category": "nhan-su",
+  "h1": "Mẫu Excel theo dõi tuyển dụng, đo được nguồn nào ra người thật",
+  "metaTitle": "Mẫu Excel Theo Dõi Tuyển Dụng - Tải Miễn Phí",
+  "metaDesc": "Mẫu Excel theo dõi tuyển dụng ghi từng ứng viên theo vòng, tự tính số ngày xử lý và đánh dấu hồ sơ còn mở để đo hiệu quả từng nguồn. Tải ngay, có công thức.",
+  "primaryKeyword": "mẫu excel theo dõi tuyển dụng",
+  "intro": "Mẫu Excel theo dõi tuyển dụng này ghi mỗi ứng viên một dòng và chỉ có đúng một cột nói ứng viên đang ở đâu, nên không bao giờ xảy ra chuyện một hồ sơ vừa đánh dấu đã phỏng vấn vừa đánh dấu chưa liên hệ. Ba cột tính cuối biến bảng danh sách thành bảng đo được: số ngày từ lúc nhận hồ sơ đến lúc phỏng vấn cho biết bạn có đang để ứng viên nguội mất hay không, cột hồ sơ còn mở lọc ra việc phải làm hôm nay, và cột tuyển được cộng theo nguồn để trả lời câu hỏi đáng giá nhất: nguồn nào ra người thật, chứ không phải nguồn nào ra nhiều hồ sơ.",
+  "difficulty": "co-ban",
+  "features": [
+    "Đúng một cột trạng thái theo vòng, không có hồ sơ ở hai trạng thái",
+    "Tính số ngày từ nhận hồ sơ đến phỏng vấn để thấy chỗ bị nghẽn",
+    "Cột hồ sơ còn mở lọc ra ngay danh sách việc phải làm",
+    "Cột tuyển được cộng theo nguồn để so hiệu quả từng kênh",
+    "So mức lương đề xuất với mức duyệt để soát lại khung lương"
+  ],
+  "howToUse": [
+    {
+      "step": "Ghi một dòng cho mỗi ứng viên cho mỗi vị trí",
+      "detail": "Một người ứng tuyển hai vị trí thì hai dòng, vì họ có thể đỗ vị trí này và trượt vị trí kia. Ngược lại đừng tạo dòng mới khi ứng viên chuyển vòng — chuyển vòng là sửa cột Vòng hiện tại của dòng cũ, không phải thêm dòng."
+    },
+    {
+      "step": "Chỉ cập nhật cột Vòng hiện tại, đừng thêm cột đánh dấu",
+      "detail": "Đây là quy tắc quan trọng nhất khi dùng file. Thấy thiếu thông tin thì thêm cột ghi chú, đừng thêm cột kiểu đã gọi điện hay đã gửi thư mời. Có nhiều cột trạng thái song song thì chúng sẽ lệch nhau sau vài tuần, và không ai biết cột nào đúng."
+    },
+    {
+      "step": "Điền ngày phỏng vấn ngay khi hẹn được, đừng chờ phỏng vấn xong",
+      "detail": "Cột Số ngày xử lý đo từ ngày nhận hồ sơ đến ngày phỏng vấn đã hẹn. Điền ngay khi hẹn thì con số này phản ánh tốc độ phản hồi của bạn, đúng thứ cần đo. Chờ phỏng vấn xong mới điền thì bảng luôn tụt lại phía sau thực tế."
+    },
+    {
+      "step": "Không đóng hồ sơ bằng cách xóa dòng",
+      "detail": "Ứng viên bị loại thì chuyển Vòng hiện tại sang Từ chối, ứng viên nhận việc thì chuyển sang Nhận việc, cả hai trường hợp cột Còn mở tự về 0. Xóa dòng thì mất mẫu số: bạn không còn biết đã sàng bao nhiêu hồ sơ để tuyển được một người, và mọi tỷ lệ chuyển đổi tính ra đều đẹp hơn thực tế."
+    },
+    {
+      "step": "Cuối tháng cộng cột Tuyển được theo nguồn",
+      "detail": "SUMIF cột Tuyển được theo cột Nguồn cho ra số người thật sự vào làm từ mỗi kênh, rồi chia cho số hồ sơ của kênh đó là ra tỷ lệ chuyển đổi. Kênh ra nhiều hồ sơ nhất thường không phải kênh ra nhiều người nhất, và đây là chỗ để cắt ngân sách quảng cáo tuyển dụng đúng chỗ."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Vì sao cột Còn mở lại là số 1 và 0 chứ không phải chữ Còn mở và Đã đóng?",
+      "a": "Vì số cộng được còn chữ thì không. Để dạng 1 và 0 thì cộng cả cột ra ngay số hồ sơ đang phải xử lý, và cộng theo người phụ trách ra khối lượng việc của từng người. Nếu bạn muốn nhìn dễ hơn thì dùng định dạng có điều kiện tô màu ô bằng 1, giữ nguyên giá trị số bên dưới. Đây là nguyên tắc chung khi dựng bảng tính: cột để máy cộng thì để số, cột để người đọc thì để chữ, đừng bắt một cột làm cả hai việc."
+    },
+    {
+      "q": "Số ngày xử lý bao nhiêu là chấp nhận được?",
+      "a": "Dưới 7 ngày từ lúc nhận hồ sơ đến lúc phỏng vấn là mức nên nhắm với vị trí phổ thông, dưới 14 ngày với vị trí cần chuyên môn sâu. Quá mốc đó thì ứng viên tốt thường đã nhận lời chỗ khác, và bạn sẽ thấy điều này thể hiện ở cột Vòng hiện tại đứng mãi ở Sàng lọc CV rồi chuyển thẳng sang Từ chối. Con số này đo tốc độ của công ty bạn, không đo chất lượng ứng viên, nên đừng để nó nằm trong báo cáo mà không có người chịu trách nhiệm."
+    },
+    {
+      "q": "Vì sao cần cột chênh lệch giữa lương đề xuất và lương duyệt?",
+      "a": "Vì nó phát hiện hai vấn đề khác nhau. Nếu chênh lệch âm liên tục, tức duyệt thấp hơn ứng viên đề xuất, thì khung lương của công ty đang thấp hơn thị trường và bạn sẽ mất người ở vòng cuối, thường sau khi đã tốn ba vòng phỏng vấn. Nếu chênh lệch dương thường xuyên thì người tuyển dụng đang phải trả cao hơn khung để lấp chỗ, dấu hiệu vị trí đó khó tuyển hoặc mô tả công việc chưa đúng. Ô bỏ trống nghĩa là chưa tới bước duyệt lương, cột này trả về rỗng chứ không trả về 0."
+    },
+    {
+      "q": "Có nên ghi cả ứng viên tự nộp hồ sơ nhưng không phù hợp không?",
+      "a": "Nên, và ghi ngay với vòng hiện tại là Từ chối. Số hồ sơ không phù hợp của một kênh chính là thước đo chất lượng của kênh đó: một kênh gửi về 200 hồ sơ mà 190 hồ sơ sai hoàn toàn yêu cầu thì nó đang tiêu thời gian của bạn chứ không giúp bạn. Không ghi thì kênh đó trông vô hại trong mọi báo cáo."
+    },
+    {
+      "q": "File này có thay được phần mềm quản lý tuyển dụng không?",
+      "a": "Thay được ở quy mô dưới khoảng năm vị trí mở cùng lúc. Trên mức đó, thứ Excel không làm được là tự động gửi thư cho ứng viên, lưu file CV kèm theo dòng dữ liệu và ghi lại lịch sử ai đổi trạng thái lúc nào. Nhưng ngay cả khi chuyển sang phần mềm, cách nghĩ trong file này vẫn đúng: một cột trạng thái duy nhất, không xóa hồ sơ đã đóng, và đo theo nguồn thay vì đếm tổng hồ sơ."
+    }
+  ],
+  "ctaText": "Học cách dựng bảng theo dõi tuyển dụng và hồ sơ nhân sự trên Excel",
+  "relatedSlugs": [
+    "danh-sach-nhan-vien",
+    "bang-theo-doi-hop-dong-lao-dong",
+    "bang-theo-doi-dao-tao-nhan-vien"
+  ],
+  "updatedAt": "2026-07-30",
+  "sheets": [
+    {
+      "name": "Theo dõi tuyển dụng",
+      "description": "Mỗi dòng là một ứng viên cho một vị trí. Cột Vòng hiện tại là nguồn sự thật duy nhất về trạng thái hồ sơ.",
+      "blankRows": 30,
+      "columns": [
+        { "key": "stt", "header": "STT", "type": "number", "width": 6 },
+        { "key": "maUngVien", "header": "Mã ứng viên", "type": "text", "width": 14 },
+        { "key": "hoTen", "header": "Họ và tên", "type": "text", "width": 24 },
+        { "key": "viTri", "header": "Vị trí ứng tuyển", "type": "text", "width": 28 },
+        {
+          "key": "nguon",
+          "header": "Nguồn",
+          "type": "text",
+          "width": 20,
+          "validation": {
+            "type": "list",
+            "options": [
+              "Website công ty",
+              "TopCV",
+              "Giới thiệu nội bộ",
+              "LinkedIn",
+              "Facebook",
+              "Trung tâm giới thiệu"
+            ]
+          }
+        },
+        { "key": "ngayNhanCV", "header": "Ngày nhận CV", "type": "date", "width": 14 },
+        { "key": "ngayPhongVan", "header": "Ngày phỏng vấn", "type": "date", "width": 15 },
+        {
+          "key": "vongHienTai",
+          "header": "Vòng hiện tại",
+          "type": "text",
+          "width": 18,
+          "validation": {
+            "type": "list",
+            "options": [
+              "Sàng lọc CV",
+              "Phỏng vấn vòng 1",
+              "Phỏng vấn vòng 2",
+              "Chờ nhận offer",
+              "Nhận việc",
+              "Từ chối"
+            ]
+          }
+        },
+        {
+          "key": "luongDeXuat",
+          "header": "Lương đề xuất",
+          "type": "currency",
+          "width": 16
+        },
+        {
+          "key": "luongDuyet",
+          "header": "Lương duyệt",
+          "type": "currency",
+          "width": 16
+        },
+        {
+          "key": "nguoiPhuTrach",
+          "header": "Người phụ trách",
+          "type": "text",
+          "width": 20
+        },
+        {
+          "key": "soNgayXuLy",
+          "header": "Số ngày xử lý",
+          "type": "formula",
+          "width": 14,
+          "format": "number",
+          "formula": "=IF([hoTen]{row}=\"\",\"\",IF([ngayPhongVan]{row}=\"\",\"\",[ngayPhongVan]{row}-[ngayNhanCV]{row}))",
+          "note": "Số ngày từ lúc nhận hồ sơ đến ngày phỏng vấn đã hẹn. Chưa hẹn được thì trả về rỗng chứ không trả về 0, vì 0 sẽ bị hiểu là xử lý trong ngày và làm số bình quân của cả bảng đẹp lên một cách sai."
+        },
+        {
+          "key": "conMo",
+          "header": "Còn mở",
+          "type": "formula",
+          "width": 10,
+          "format": "number",
+          "formula": "=IF([hoTen]{row}=\"\",\"\",IF(OR([vongHienTai]{row}=\"Nhận việc\",[vongHienTai]{row}=\"Từ chối\"),0,1))",
+          "note": "Hồ sơ đã kết thúc theo cả hai hướng thì về 0, còn lại là 1. Để dạng số vì cột này để cộng: cộng cả cột ra số hồ sơ đang phải xử lý, cộng theo người phụ trách ra khối lượng việc của từng người."
+        },
+        {
+          "key": "tuyenDuoc",
+          "header": "Tuyển được",
+          "type": "formula",
+          "width": 12,
+          "format": "number",
+          "formula": "=IF([hoTen]{row}=\"\",\"\",IF([vongHienTai]{row}=\"Nhận việc\",1,0))",
+          "note": "Cột đáng giá nhất của bảng. Cộng theo cột Nguồn bằng SUMIF rồi chia cho số hồ sơ của nguồn đó là ra tỷ lệ chuyển đổi thật của từng kênh, thay vì chỉ biết kênh nào gửi về nhiều hồ sơ."
+        },
+        {
+          "key": "chenhLechLuong",
+          "header": "Chênh lệch lương",
+          "type": "formula",
+          "width": 17,
+          "format": "currency",
+          "formula": "=IF([hoTen]{row}=\"\",\"\",IF([luongDuyet]{row}=\"\",\"\",[luongDuyet]{row}-[luongDeXuat]{row}))",
+          "note": "Lương duyệt trừ lương ứng viên đề xuất. Âm liên tục là khung lương công ty thấp hơn thị trường và bạn sẽ mất người ở vòng cuối. Dương thường xuyên là đang phải trả vượt khung để lấp chỗ. Chưa tới bước duyệt thì rỗng, không phải 0."
+        }
+      ],
+      "sampleRows": [
+        {
+          "stt": 1,
+          "maUngVien": "UV-2026-031",
+          "hoTen": "Đỗ Thanh Tùng",
+          "viTri": "Nhân viên kinh doanh",
+          "nguon": "TopCV",
+          "ngayNhanCV": "2026-07-06",
+          "ngayPhongVan": "2026-07-10",
+          "vongHienTai": "Nhận việc",
+          "luongDeXuat": 14000000,
+          "luongDuyet": 13000000,
+          "nguoiPhuTrach": "Hoàng Thị Lan"
+        },
+        {
+          "stt": 2,
+          "maUngVien": "UV-2026-032",
+          "hoTen": "Bùi Khánh Linh",
+          "viTri": "Nhân viên kinh doanh",
+          "nguon": "TopCV",
+          "ngayNhanCV": "2026-07-06",
+          "ngayPhongVan": "2026-07-13",
+          "vongHienTai": "Từ chối",
+          "luongDeXuat": 15000000,
+          "nguoiPhuTrach": "Hoàng Thị Lan"
+        },
+        {
+          "stt": 3,
+          "maUngVien": "UV-2026-033",
+          "hoTen": "Ngô Gia Bảo",
+          "viTri": "Kế toán tổng hợp",
+          "nguon": "Giới thiệu nội bộ",
+          "ngayNhanCV": "2026-07-09",
+          "ngayPhongVan": "2026-07-14",
+          "vongHienTai": "Chờ nhận offer",
+          "luongDeXuat": 17000000,
+          "luongDuyet": 18000000,
+          "nguoiPhuTrach": "Hoàng Thị Lan"
+        },
+        {
+          "stt": 4,
+          "maUngVien": "UV-2026-034",
+          "hoTen": "Trịnh Mỹ Duyên",
+          "viTri": "Kỹ thuật viên bảo trì",
+          "nguon": "Facebook",
+          "ngayNhanCV": "2026-06-22",
+          "vongHienTai": "Sàng lọc CV",
+          "luongDeXuat": 12000000,
+          "nguoiPhuTrach": "Nguyễn Thị Mai"
+        },
+        {
+          "stt": 5,
+          "maUngVien": "UV-2026-035",
+          "hoTen": "Lý Hoàng Nam",
+          "viTri": "Kỹ thuật viên bảo trì",
+          "nguon": "Trung tâm giới thiệu",
+          "ngayNhanCV": "2026-07-02",
+          "ngayPhongVan": "2026-07-21",
+          "vongHienTai": "Phỏng vấn vòng 2",
+          "luongDeXuat": 13500000,
+          "nguoiPhuTrach": "Nguyễn Thị Mai"
+        }
+      ]
+    }
+  ]
+}

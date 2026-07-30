@@ -1,0 +1,243 @@
+{
+  "slug": "bang-theo-doi-hop-dong-lao-dong",
+  "category": "nhan-su",
+  "h1": "Mẫu Excel theo dõi hợp đồng lao động, tự cảnh báo bốn lỗi thường gặp",
+  "metaTitle": "Mẫu Excel Theo Dõi Hợp Đồng Lao Động - Tải Ngay",
+  "metaDesc": "Mẫu Excel theo dõi hợp đồng lao động tự tính ngày phải báo trước, chặn thử việc vượt trần và nhắc khi đã ký hai lần có hạn. Tải miễn phí, có công thức.",
+  "primaryKeyword": "mẫu excel theo dõi hợp đồng lao động",
+  "intro": "Mẫu Excel theo dõi hợp đồng lao động này không chỉ là một danh sách ngày hết hạn. Nó soát bốn lỗi mà doanh nghiệp thường mắc và chỉ phát hiện khi đã bị thanh tra hoặc đã ra tòa: thử việc dài hơn mức luật cho phép của nhóm chức danh đó, hợp đồng xác định thời hạn quá 36 tháng, ký lần thứ ba mà vẫn để loại có thời hạn, và quên mốc báo trước 30 ngày khi không muốn gia hạn. Mỗi lỗi là một nhánh trong cột Cảnh báo, và cột đó tự đọc từ ngày tháng bạn đã nhập nên không cần ai ngồi rà bằng mắt.",
+  "difficulty": "trung-cap",
+  "features": [
+    "Trần thử việc tự đổi theo nhóm chức danh: 180, 60, 30 hoặc 6 ngày",
+    "Cảnh báo khi hợp đồng xác định thời hạn vượt 36 tháng",
+    "Nhắc chuyển sang loại không xác định thời hạn từ lần ký thứ ba",
+    "Tự tính mốc phải thông báo trước 30 ngày khi hợp đồng sắp hết hạn",
+    "Cột thời hạn quy ra tháng để đối chiếu nhanh với hợp đồng giấy"
+  ],
+  "howToUse": [
+    {
+      "step": "Chọn nhóm chức danh trước khi nhập ngày thử việc",
+      "detail": "Trần thử việc phụ thuộc nhóm chức danh chứ không phải một con số chung: 180 ngày cho người quản lý doanh nghiệp, 60 ngày cho công việc cần trình độ đại học trở lên, 30 ngày cho trình độ trung cấp và công nhân kỹ thuật, 6 ngày làm việc cho các công việc còn lại. Bỏ trống cột này thì file lấy mức 6 ngày, tức mức chặt nhất, để cảnh báo thà nhạy hơn là bỏ sót."
+    },
+    {
+      "step": "Ghi một dòng cho mỗi lần ký, không sửa dòng cũ",
+      "detail": "Gia hạn hợp đồng là ký một hợp đồng mới, nên thêm dòng mới và tăng số ở cột Lần ký. Sửa thẳng ngày kết thúc trên dòng cũ thì mất lịch sử, và bạn không còn cách nào biết người đó đã ký mấy lần có thời hạn — chính là con số quyết định lần sau bắt buộc phải ký loại nào."
+    },
+    {
+      "step": "Để trống ngày kết thúc với hợp đồng không xác định thời hạn",
+      "detail": "Loại không xác định thời hạn thì không có ngày kết thúc, để trống là đúng. Các cột tính tự nhận biết và trả về rỗng thay vì tính ra một con số vô nghĩa. Ngược lại, chọn loại xác định thời hạn mà quên ngày kết thúc thì cột Cảnh báo báo thiếu ngày ngay."
+    },
+    {
+      "step": "Sắp xếp theo cột Ngày cần báo trước để lên việc hằng tuần",
+      "detail": "Cột này là ngày kết thúc trừ 30 ngày. Sắp tăng dần rồi lọc bỏ dòng trống là ra thứ tự việc phải làm. Luật buộc thông báo bằng văn bản trước ít nhất 15 ngày về thời điểm chấm dứt, nhưng thực tế nên để 30 ngày để còn kịp thương lượng gia hạn hoặc tuyển người thay."
+    },
+    {
+      "step": "Rà cột Cảnh báo trước mỗi kỳ báo cáo nhân sự",
+      "detail": "Lọc cột Cảnh báo bỏ giá trị Hợp lệ là ra danh sách hồ sơ có vấn đề. Cột này không bao giờ để trống: hồ sơ không có vấn đề thì ghi rõ Hợp lệ, nhờ vậy ô trống luôn có nghĩa là dòng chưa điền xong. Xử lý xong thì cảnh báo tự mất vì nó tính từ dữ liệu chứ không phải một ô tích tay, nên không có chuyện ai đó tắt cảnh báo cho gọn bảng."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Vì sao ký hai lần hợp đồng xác định thời hạn thì lần thứ ba phải ký không xác định thời hạn?",
+      "a": "Vì Bộ luật Lao động 2019 chỉ cho phép ký hợp đồng xác định thời hạn tối đa hai lần liên tiếp với cùng một người cho cùng một công việc. Hết hạn hợp đồng lần thứ hai mà người lao động vẫn tiếp tục làm việc thì phải ký hợp đồng không xác định thời hạn. Có một số ngoại lệ hẹp, chẳng hạn hợp đồng với người lao động cao tuổi, người nước ngoài làm việc theo giấy phép lao động, hoặc người được thuê làm giám đốc trong doanh nghiệp có vốn nhà nước. Cột Cảnh báo không phân biệt các ngoại lệ đó, nên gặp trường hợp thuộc ngoại lệ thì bạn ghi chú lại và bỏ qua cảnh báo."
+    },
+    {
+      "q": "Ngày kết thúc hợp đồng qua rồi mà người lao động vẫn đi làm thì sao?",
+      "a": "Đây là tình huống nguy hiểm nhất và cũng phổ biến nhất. Nếu hết hạn mà hai bên không ký hợp đồng mới, người lao động vẫn làm việc thì trong 30 ngày đầu quan hệ lao động vẫn tiếp tục theo hợp đồng cũ, còn quá 30 ngày mà chưa ký mới thì hợp đồng xác định thời hạn đó trở thành hợp đồng không xác định thời hạn. Nghĩa là công ty mất quyền chấm dứt theo mốc hết hạn mà không hề hay biết. Cột Ngày cần báo trước tồn tại chính để tình huống này không xảy ra."
+    },
+    {
+      "q": "Thời gian thử việc có được ký thành hợp đồng thử việc riêng không?",
+      "a": "Được, hoặc ghi nội dung thử việc ngay trong hợp đồng lao động, luật cho cả hai cách. Điểm khác nhau nằm ở bảo hiểm: ghi trong hợp đồng lao động từ một tháng trở lên thì phải đóng bảo hiểm xã hội cho thời gian thử việc, còn ký hợp đồng thử việc riêng thì không đóng. Lương thử việc ít nhất phải bằng 85% mức lương của công việc đó, và không được thử việc quá một lần cho một công việc."
+    },
+    {
+      "q": "Vì sao cột thời hạn quy ra tháng lại chia cho 30,44 mà không chia 30?",
+      "a": "Vì 30,44 là số ngày bình quân của một tháng trong năm, bằng 365 chia 12. Chia 30 thì hợp đồng đúng 36 tháng tính ra 36,5 tháng và cột Cảnh báo báo vượt trần một cách oan. Con số này chỉ dùng để đối chiếu nhanh với hợp đồng giấy nên sai số vài ngày không quan trọng, còn thời hạn pháp lý thì luôn lấy theo hai mốc ngày ghi trong hợp đồng."
+    },
+    {
+      "q": "File có tự cảnh báo hợp đồng sắp hết hạn dựa vào ngày hôm nay không?",
+      "a": "Không, và đây là lựa chọn có chủ ý. Dùng hàm TODAY thì con số trên trang web này sẽ đứng lại ở ngày file được dựng và nói sai ngày mai. Trong file tải về bạn thêm được dễ dàng: chèn một cột mới với công thức lấy Ngày cần báo trước trừ TODAY để ra số ngày còn lại, rồi tô màu ô nào nhỏ hơn 0. Cách sắp xếp theo cột Ngày cần báo trước thì không cần hàm nào và không bao giờ lỗi thời."
+    }
+  ],
+  "ctaText": "Học cách dựng hệ thống quản lý hồ sơ và hợp đồng nhân sự trên Excel",
+  "relatedSlugs": [
+    "danh-sach-nhan-vien",
+    "bang-tinh-bao-hiem-xa-hoi",
+    "bang-theo-doi-tuyen-dung"
+  ],
+  "updatedAt": "2026-07-30",
+  "sheets": [
+    {
+      "name": "Hợp đồng lao động",
+      "description": "Mỗi dòng là một lần ký hợp đồng. Cột cảnh báo soát bốn lỗi pháp lý thường gặp từ chính ngày tháng đã nhập.",
+      "blankRows": 25,
+      "columns": [
+        { "key": "stt", "header": "STT", "type": "number", "width": 6 },
+        { "key": "maNV", "header": "Mã NV", "type": "text", "width": 12 },
+        { "key": "hoTen", "header": "Họ và tên", "type": "text", "width": 24 },
+        {
+          "key": "boPhan",
+          "header": "Bộ phận",
+          "type": "text",
+          "width": 16,
+          "validation": {
+            "type": "list",
+            "options": ["Kinh doanh", "Kế toán", "Nhân sự", "Kỹ thuật", "Kho vận"]
+          }
+        },
+        { "key": "chucDanh", "header": "Chức danh", "type": "text", "width": 24 },
+        {
+          "key": "nhomChucDanh",
+          "header": "Nhóm chức danh",
+          "type": "text",
+          "width": 26,
+          "validation": {
+            "type": "list",
+            "options": [
+              "Quản lý doanh nghiệp",
+              "Trình độ đại học trở lên",
+              "Trung cấp và công nhân kỹ thuật",
+              "Công việc khác"
+            ]
+          }
+        },
+        { "key": "soHopDong", "header": "Số hợp đồng", "type": "text", "width": 16 },
+        {
+          "key": "loaiHopDong",
+          "header": "Loại hợp đồng",
+          "type": "text",
+          "width": 24,
+          "validation": {
+            "type": "list",
+            "options": [
+              "Thử việc",
+              "Xác định thời hạn",
+              "Không xác định thời hạn"
+            ]
+          }
+        },
+        {
+          "key": "lanKy",
+          "header": "Lần ký",
+          "type": "number",
+          "width": 9,
+          "validation": { "type": "whole", "min": 1, "max": 10 }
+        },
+        { "key": "ngayBatDau", "header": "Ngày bắt đầu", "type": "date", "width": 14 },
+        { "key": "ngayKetThuc", "header": "Ngày kết thúc", "type": "date", "width": 14 },
+        {
+          "key": "luongHopDong",
+          "header": "Lương hợp đồng",
+          "type": "currency",
+          "width": 16
+        },
+        {
+          "key": "tranThuViec",
+          "header": "Trần thử việc (ngày)",
+          "type": "formula",
+          "width": 19,
+          "format": "number",
+          "formula": "=IF([hoTen]{row}=\"\",\"\",IF([nhomChucDanh]{row}=\"Quản lý doanh nghiệp\",180,IF([nhomChucDanh]{row}=\"Trình độ đại học trở lên\",60,IF([nhomChucDanh]{row}=\"Trung cấp và công nhân kỹ thuật\",30,6))))",
+          "note": "Bốn mức trần thử việc theo Bộ luật Lao động, chọn theo nhóm chức danh. Nhánh cuối trả về 6 nên bỏ trống nhóm chức danh sẽ lấy mức chặt nhất — cảnh báo thà nhạy hơn là bỏ sót một hợp đồng thử việc trái luật."
+        },
+        {
+          "key": "thoiHanThang",
+          "header": "Thời hạn (tháng)",
+          "type": "formula",
+          "width": 16,
+          "format": "number",
+          "formula": "=IF([hoTen]{row}=\"\",\"\",IF([ngayKetThuc]{row}=\"\",\"\",ROUND(([ngayKetThuc]{row}-[ngayBatDau]{row})/30.44,1)))",
+          "note": "Hai ngày trừ nhau ra số ngày, chia 30,44 là số ngày bình quân một tháng nên hợp đồng đúng 36 tháng ra đúng 36 chứ không ra 36,5. Hợp đồng không xác định thời hạn để trống ngày kết thúc nên cột này trả về rỗng."
+        },
+        {
+          "key": "ngayCanBaoTruoc",
+          "header": "Ngày cần báo trước",
+          "type": "formula",
+          "width": 18,
+          "format": "date",
+          "formula": "=IF([hoTen]{row}=\"\",\"\",IF([ngayKetThuc]{row}=\"\",\"\",[ngayKetThuc]{row}-30))",
+          "note": "Ngày kết thúc trừ 30 ngày. Luật buộc thông báo bằng văn bản trước ít nhất 15 ngày, nhưng để 30 ngày mới còn kịp thương lượng gia hạn hoặc tuyển người thay. Sắp xếp tăng dần theo cột này là ra danh sách việc phải làm."
+        },
+        {
+          "key": "canhBao",
+          "header": "Cảnh báo",
+          "type": "formula",
+          "width": 34,
+          "format": "text",
+          "formula": "=IF([hoTen]{row}=\"\",\"\",IF(AND([loaiHopDong]{row}=\"Xác định thời hạn\",[ngayKetThuc]{row}=\"\"),\"Thiếu ngày kết thúc\",IF(AND([loaiHopDong]{row}=\"Thử việc\",[ngayKetThuc]{row}-[ngayBatDau]{row}>[tranThuViec]{row}),\"Thử việc vượt trần cho phép\",IF(AND([loaiHopDong]{row}=\"Xác định thời hạn\",[thoiHanThang]{row}>36),\"Hợp đồng có hạn vượt 36 tháng\",IF(AND([loaiHopDong]{row}=\"Xác định thời hạn\",[lanKy]{row}>=2),\"Lần sau phải ký không xác định thời hạn\",\"Hợp lệ\")))))",
+          "note": "Bốn nhánh IF xếp theo mức nghiêm trọng giảm dần, mỗi dòng chỉ hiện cảnh báo đầu tiên gặp phải. Thứ tự này có chủ ý: thiếu ngày kết thúc phải sửa trước vì mọi cột tính khác đều dựa vào nó. Nhánh cuối ghi Hợp lệ chứ không để trống, vì ô trống thì không phân biệt được hồ sơ đã soát mà không có vấn đề với hồ sơ chưa soát. Cảnh báo tự mất khi dữ liệu được sửa, không phải ô tích tay nên không ai tắt được cho gọn bảng."
+        }
+      ],
+      "sampleRows": [
+        {
+          "stt": 1,
+          "maNV": "NV001",
+          "hoTen": "Nguyễn Thị Mai",
+          "boPhan": "Kinh doanh",
+          "chucDanh": "Trưởng nhóm kinh doanh",
+          "nhomChucDanh": "Trình độ đại học trở lên",
+          "soHopDong": "HD-2024-011",
+          "loaiHopDong": "Không xác định thời hạn",
+          "lanKy": 3,
+          "ngayBatDau": "2024-03-01",
+          "luongHopDong": 18000000
+        },
+        {
+          "stt": 2,
+          "maNV": "NV002",
+          "hoTen": "Trần Văn Hùng",
+          "boPhan": "Kỹ thuật",
+          "chucDanh": "Kỹ thuật viên bảo trì",
+          "nhomChucDanh": "Trung cấp và công nhân kỹ thuật",
+          "soHopDong": "HD-2026-004",
+          "loaiHopDong": "Xác định thời hạn",
+          "lanKy": 2,
+          "ngayBatDau": "2026-06-17",
+          "ngayKetThuc": "2027-06-16",
+          "luongHopDong": 15000000
+        },
+        {
+          "stt": 3,
+          "maNV": "NV003",
+          "hoTen": "Lê Thu Hà",
+          "boPhan": "Kế toán",
+          "chucDanh": "Kế toán tổng hợp",
+          "nhomChucDanh": "Trình độ đại học trở lên",
+          "soHopDong": "TV-2026-009",
+          "loaiHopDong": "Thử việc",
+          "lanKy": 1,
+          "ngayBatDau": "2026-04-06",
+          "ngayKetThuc": "2026-07-06",
+          "luongHopDong": 12000000
+        },
+        {
+          "stt": 4,
+          "maNV": "NV004",
+          "hoTen": "Phạm Minh Đức",
+          "boPhan": "Kho vận",
+          "chucDanh": "Nhân viên kho",
+          "nhomChucDanh": "Công việc khác",
+          "soHopDong": "HD-2026-012",
+          "loaiHopDong": "Xác định thời hạn",
+          "lanKy": 1,
+          "ngayBatDau": "2026-09-15",
+          "ngayKetThuc": "2029-11-14",
+          "luongHopDong": 11000000
+        },
+        {
+          "stt": 5,
+          "maNV": "NV005",
+          "hoTen": "Hoàng Thị Lan",
+          "boPhan": "Nhân sự",
+          "chucDanh": "Chuyên viên nhân sự",
+          "nhomChucDanh": "Trình độ đại học trở lên",
+          "soHopDong": "HD-2026-002",
+          "loaiHopDong": "Xác định thời hạn",
+          "lanKy": 1,
+          "ngayBatDau": "2026-01-05",
+          "ngayKetThuc": "2027-01-04",
+          "luongHopDong": 13000000
+        }
+      ]
+    }
+  ]
+}

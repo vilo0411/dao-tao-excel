@@ -1,0 +1,32 @@
+[
+  [
+    {
+      "tranThuViec": 60,
+      "canhBao": "Hợp lệ"
+    },
+    {
+      "tranThuViec": 30,
+      "thoiHanThang": 12.0,
+      "ngayCanBaoTruoc": 46524.0,
+      "canhBao": "Lần sau phải ký không xác định thời hạn"
+    },
+    {
+      "tranThuViec": 60,
+      "thoiHanThang": 3.0,
+      "ngayCanBaoTruoc": 46179.0,
+      "canhBao": "Thử việc vượt trần cho phép"
+    },
+    {
+      "tranThuViec": 6,
+      "thoiHanThang": 38.0,
+      "ngayCanBaoTruoc": 47406.0,
+      "canhBao": "Hợp đồng có hạn vượt 36 tháng"
+    },
+    {
+      "tranThuViec": 60,
+      "thoiHanThang": 12.0,
+      "ngayCanBaoTruoc": 46361.0,
+      "canhBao": "Hợp lệ"
+    }
+  ]
+]

@@ -1,0 +1,34 @@
+[
+  [
+    {
+      "gioDuocTinh": 18,
+      "chiPhiMotGio": 250000.0,
+      "chiPhiBoDo": 0,
+      "ketQua": "Đạt"
+    },
+    {
+      "gioDuocTinh": 4,
+      "chiPhiMotGio": 200000.0,
+      "chiPhiBoDo": 0,
+      "ketQua": "Chưa đạt"
+    },
+    {
+      "gioDuocTinh": 8,
+      "chiPhiMotGio": 75000.0,
+      "chiPhiBoDo": 0,
+      "ketQua": "Không kiểm tra"
+    },
+    {
+      "gioDuocTinh": 0,
+      "chiPhiMotGio": 0,
+      "chiPhiBoDo": 2000000,
+      "ketQua": "Bỏ dở"
+    },
+    {
+      "gioDuocTinh": 0,
+      "chiPhiMotGio": 0,
+      "chiPhiBoDo": 0,
+      "ketQua": "Đang học"
+    }
+  ]
+]

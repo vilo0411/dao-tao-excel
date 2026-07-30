@@ -1,0 +1,30 @@
+[
+  [
+    {
+      "soNgayXuLy": 4.0,
+      "conMo": 0,
+      "tuyenDuoc": 1,
+      "chenhLechLuong": -1000000.0
+    },
+    {
+      "soNgayXuLy": 7.0,
+      "conMo": 0,
+      "tuyenDuoc": 0
+    },
+    {
+      "soNgayXuLy": 5.0,
+      "conMo": 1,
+      "tuyenDuoc": 0,
+      "chenhLechLuong": 1000000.0
+    },
+    {
+      "conMo": 1,
+      "tuyenDuoc": 0
+    },
+    {
+      "soNgayXuLy": 19.0,
+      "conMo": 1,
+      "tuyenDuoc": 0
+    }
+  ]
+]

@@ -15,8 +15,35 @@ const FORMATTERS: Record<string, (value: unknown) => string> = {
   number: (v) => Number(v).toLocaleString("vi-VN"),
 };
 
+const ngay = new Intl.DateTimeFormat("vi-VN", {
+  day: "2-digit",
+  month: "2-digit",
+  year: "numeric",
+  timeZone: "UTC",
+});
+
+/**
+ * Ngày đến đây bằng hai dạng khác nhau và phải ra cùng một chuỗi.
+ *
+ * Ô nhập tay giữ nguyên chuỗi ISO của spec ("2026-07-09"). Ô công thức thì đi
+ * qua qa_check nên mang số serial của Excel — cột "Ngày cần báo trước" trả về
+ * 46524, và in thẳng con số đó lên trang thì vô nghĩa với người đọc.
+ *
+ * Mốc 0 của Excel là 30/12/1899 chứ không phải 31/12: Excel coi 1900 là năm
+ * nhuận nên đếm thừa một ngày, và lùi mốc đi một ngày là cách bù lại. Dùng UTC
+ * xuyên suốt để ngày không lệch theo múi giờ của người xem.
+ */
+function formatDate(value: unknown): string {
+  const serial = Number(value);
+  const ms = Number.isNaN(serial)
+    ? Date.parse(String(value))
+    : Date.UTC(1899, 11, 30) + serial * 86_400_000;
+  return Number.isNaN(ms) ? String(value) : ngay.format(new Date(ms));
+}
+
 function display(value: unknown, type: string): string {
   if (value === undefined || value === null || value === "") return "";
+  if (type === "date") return formatDate(value);
   const formatter = FORMATTERS[type];
   if (!formatter) return String(value);
   /*

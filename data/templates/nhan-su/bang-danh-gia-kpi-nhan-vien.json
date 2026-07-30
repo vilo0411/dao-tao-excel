@@ -1,0 +1,237 @@
+{
+  "slug": "bang-danh-gia-kpi-nhan-vien",
+  "category": "nhan-su",
+  "h1": "Mẫu Excel đánh giá KPI nhân viên, chấm được cả chỉ tiêu càng thấp càng tốt",
+  "metaTitle": "Mẫu Excel Đánh Giá KPI Nhân Viên - Tải Miễn Phí",
+  "metaDesc": "Mẫu Excel đánh giá KPI nhân viên tính tỷ lệ hoàn thành theo hai chiều chỉ tiêu, có trọng số và mức chặn điểm tối đa. Tải ngay, xem rõ từng công thức.",
+  "primaryKeyword": "mẫu excel đánh giá kpi nhân viên",
+  "intro": "Mẫu Excel đánh giá KPI nhân viên này ghi mỗi chỉ tiêu thành một dòng thay vì nhồi mọi chỉ tiêu của một người vào một dòng, vì số chỉ tiêu mỗi vị trí một khác và nhồi ngang thì thêm một chỉ tiêu là phải sửa cả bảng. Điểm mà phần lớn file KPI trên mạng làm sai là chiều của chỉ tiêu: doanh thu càng cao càng tốt nên lấy thực hiện chia mục tiêu, còn tỷ lệ lỗi hay số ngày trễ thì càng thấp càng tốt, phải lấy mục tiêu chia thực hiện. File có cột chọn chiều nên một bảng chấm được cả hai loại, và điểm có trọng số bị chặn ở mức tối đa để một chỉ tiêu vượt xa không kéo cả bảng lên.",
+  "difficulty": "trung-cap",
+  "features": [
+    "Mỗi chỉ tiêu một dòng, thêm bớt chỉ tiêu không phải sửa cấu trúc bảng",
+    "Chọn chiều chỉ tiêu: càng cao càng tốt hoặc càng thấp càng tốt",
+    "Điểm có trọng số bị chặn ở 120% để một chỉ tiêu không kéo cả bảng",
+    "Tự xếp loại từng chỉ tiêu theo bốn mức để thấy ngay chỗ cần cải thiện",
+    "Cột trọng số cộng lại phải bằng 100%, sai là thấy ngay khi soát"
+  ],
+  "howToUse": [
+    {
+      "step": "Ghi một dòng cho mỗi chỉ tiêu của mỗi người",
+      "detail": "Một nhân viên có 5 chỉ tiêu thì ghi 5 dòng cùng mã nhân viên. Cách này khiến bảng dài nhưng lọc theo mã là ra ngay bộ chỉ tiêu của một người, và thêm chỉ tiêu mới chỉ là thêm một dòng chứ không phải chèn cột rồi sửa lại mọi công thức."
+    },
+    {
+      "step": "Đặt trọng số sao cho tổng của mỗi người bằng 100%",
+      "detail": "Dùng SUMIF cột Trọng số theo Mã NV để kiểm, kết quả phải ra đúng 1. Tổng vượt 100% thì điểm cuối bị thổi lên, tổng thiếu thì người đó bị chấm thấp một cách oan. Đây là lỗi phổ biến nhất khi có người thêm chỉ tiêu giữa kỳ mà quên chia lại trọng số."
+    },
+    {
+      "step": "Chọn chiều chỉ tiêu trước khi nhập số",
+      "detail": "Doanh thu, số hợp đồng, số khách mới thì chọn càng cao càng tốt. Tỷ lệ lỗi, số ngày trễ hạn, tỷ lệ khách rời đi thì chọn càng thấp càng tốt. Chọn sai chiều là con số vẫn ra, vẫn đẹp, nhưng ý nghĩa ngược hoàn toàn, và đây là lỗi khó phát hiện nhất trong mọi bảng KPI."
+    },
+    {
+      "step": "Nhập mục tiêu và thực hiện cùng một đơn vị",
+      "detail": "Mục tiêu doanh thu ghi triệu đồng thì thực hiện cũng ghi triệu đồng. Cột tỷ lệ hoàn thành là một phép chia nên đơn vị tự triệt tiêu, nhưng lệch đơn vị giữa hai cột thì tỷ lệ sai gấp cả nghìn lần mà không có cột nào báo lỗi."
+    },
+    {
+      "step": "Cộng điểm theo mã nhân viên để ra điểm tổng",
+      "detail": "SUMIF cột Điểm có trọng số theo Mã NV cho ra điểm tổng của từng người, thang 0 đến 1,2. Từ đó ánh xạ sang hệ số thưởng để chuyển sang bảng thưởng tháng 13, nhờ vậy hệ số thưởng có đường truy về từng chỉ tiêu cụ thể."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Vì sao phải chặn tỷ lệ hoàn thành ở 120%?",
+      "a": "Vì không chặn thì một chỉ tiêu dễ đạt sẽ gánh cho cả bảng. Người bán vượt mục tiêu doanh thu ba lần được 300% ở chỉ tiêu trọng số 40%, tức riêng chỉ tiêu đó đã cho 120% điểm, nên dù bốn chỉ tiêu còn lại bằng 0 họ vẫn đạt loại tốt. Chặn ở 120% giữ lại phần thưởng cho việc vượt mục tiêu nhưng buộc người ta vẫn phải làm những chỉ tiêu khác. Muốn thưởng riêng cho phần vượt xa thì làm bằng hoa hồng, đừng làm bằng điểm KPI."
+    },
+    {
+      "q": "Chỉ tiêu càng thấp càng tốt tính tỷ lệ hoàn thành thế nào?",
+      "a": "Đảo mẫu số và tử số: lấy mục tiêu chia thực hiện. Mục tiêu tỷ lệ lỗi là 2% mà thực hiện 1% thì 2 chia 1 bằng 200%, tức làm tốt gấp đôi yêu cầu, đúng ý nghĩa. Nếu để nguyên thực hiện chia mục tiêu thì ra 50% và người làm tốt nhất lại bị chấm kém nhất. Trường hợp thực hiện bằng 0, ví dụ không có lỗi nào, thì phép chia lỗi và hàm IFERROR đưa về mức chặn 120% vì đó là kết quả tốt nhất có thể."
+    },
+    {
+      "q": "Nên đặt bao nhiêu chỉ tiêu cho một người?",
+      "a": "Ba đến năm chỉ tiêu. Ít hơn ba thì một chỉ tiêu chiếm trọng số quá lớn và người ta chỉ tập trung vào đúng cái đó. Nhiều hơn bảy thì mỗi chỉ tiêu còn dưới 15% trọng số, không đủ để ai thay đổi hành vi, và bảng đánh giá biến thành thủ tục giấy tờ. Đây là lý do file không giới hạn số dòng mỗi người nhưng bạn nên tự giới hạn."
+    },
+    {
+      "q": "Bảng này có thay được đánh giá của quản lý không?",
+      "a": "Không, và không nên. Bảng chỉ tính phần đo được bằng số. Những thứ như thái độ hợp tác, khả năng kèm người mới hay chất lượng tư duy thì không có mục tiêu số nào đo đúng, mà cố gán số vào sẽ tạo ra chỉ tiêu hình thức. Cách dùng đúng là đưa phần định tính thành một dòng chỉ tiêu riêng với trọng số nhỏ, mục tiêu là 5 và thực hiện là điểm quản lý cho từ 1 đến 5, rồi ghi rõ trong biên bản đánh giá rằng dòng đó là nhận định của người quản lý."
+    },
+    {
+      "q": "Kỳ đánh giá nên theo tháng, quý hay năm?",
+      "a": "Theo quý cho phần lớn vị trí. Theo tháng thì nhiều chỉ tiêu chưa kịp có kết quả, nhất là chỉ tiêu về chất lượng hay về khách hàng, nên số liệu nhiễu và ai cũng mất thời gian nhập. Theo năm thì quá muộn để điều chỉnh. Cột Kỳ trong file nhận cả ba dạng, chỉ cần ghi nhất quán, ví dụ Q3-2026, để lọc và cộng theo kỳ không bị lẫn."
+    }
+  ],
+  "ctaText": "Học cách dựng hệ thống KPI và bảng lương thưởng gắn với nhau trên Excel",
+  "relatedSlugs": [
+    "bang-tinh-thuong-thang-13",
+    "danh-sach-nhan-vien",
+    "bang-theo-doi-dao-tao-nhan-vien"
+  ],
+  "updatedAt": "2026-07-30",
+  "sheets": [
+    {
+      "name": "Đánh giá KPI",
+      "description": "Mỗi dòng là một chỉ tiêu của một người trong một kỳ. Cột chiều quyết định tỷ lệ hoàn thành tính theo hướng nào.",
+      "blankRows": 30,
+      "columns": [
+        { "key": "stt", "header": "STT", "type": "number", "width": 6 },
+        { "key": "ky", "header": "Kỳ", "type": "text", "width": 11 },
+        { "key": "maNV", "header": "Mã NV", "type": "text", "width": 12 },
+        { "key": "hoTen", "header": "Họ và tên", "type": "text", "width": 24 },
+        {
+          "key": "boPhan",
+          "header": "Bộ phận",
+          "type": "text",
+          "width": 16,
+          "validation": {
+            "type": "list",
+            "options": ["Kinh doanh", "Kế toán", "Nhân sự", "Kỹ thuật", "Kho vận"]
+          }
+        },
+        { "key": "chiTieu", "header": "Chỉ tiêu", "type": "text", "width": 30 },
+        {
+          "key": "donVi",
+          "header": "Đơn vị",
+          "type": "text",
+          "width": 12
+        },
+        {
+          "key": "chieu",
+          "header": "Chiều chỉ tiêu",
+          "type": "text",
+          "width": 18,
+          "validation": {
+            "type": "list",
+            "options": ["Càng cao càng tốt", "Càng thấp càng tốt"]
+          }
+        },
+        {
+          "key": "trongSo",
+          "header": "Trọng số",
+          "type": "percent",
+          "width": 11,
+          "validation": { "type": "decimal", "min": 0, "max": 1 }
+        },
+        { "key": "mucTieu", "header": "Mục tiêu", "type": "number", "width": 13 },
+        { "key": "thucHien", "header": "Thực hiện", "type": "number", "width": 13 },
+        {
+          "key": "tyLeHoanThanh",
+          "header": "Tỷ lệ hoàn thành",
+          "type": "formula",
+          "width": 17,
+          "format": "percent",
+          "formula": "=IF([hoTen]{row}=\"\",\"\",MIN(1.2,IF([chieu]{row}=\"Càng thấp càng tốt\",IFERROR([mucTieu]{row}/[thucHien]{row},1.2),IFERROR([thucHien]{row}/[mucTieu]{row},0))))",
+          "note": "Hàm IF đảo tử số và mẫu số theo chiều chỉ tiêu: càng thấp càng tốt thì lấy mục tiêu chia thực hiện, còn lại lấy thực hiện chia mục tiêu. MIN chặn ở 120% để một chỉ tiêu vượt xa không gánh cho cả bảng. Hai hàm IFERROR xử lý mẫu số 0 theo hai hướng ngược nhau: không có lỗi nào là kết quả tốt nhất nên cho 120%, còn chưa đặt mục tiêu thì cho 0."
+        },
+        {
+          "key": "diemCoTrongSo",
+          "header": "Điểm có trọng số",
+          "type": "formula",
+          "width": 17,
+          "format": "number",
+          "formula": "=IF([hoTen]{row}=\"\",\"\",ROUND([tyLeHoanThanh]{row}*[trongSo]{row},4))",
+          "note": "Tỷ lệ hoàn thành nhân trọng số của chỉ tiêu. Cộng cột này theo mã nhân viên bằng SUMIF là ra điểm tổng thang 0 đến 1,2. Điểm tổng chỉ đúng khi trọng số của người đó cộng lại bằng 100%."
+        },
+        {
+          "key": "xepLoai",
+          "header": "Xếp loại chỉ tiêu",
+          "type": "formula",
+          "width": 17,
+          "format": "text",
+          "formula": "=IF([hoTen]{row}=\"\",\"\",IF([tyLeHoanThanh]{row}>=1.1,\"Xuất sắc\",IF([tyLeHoanThanh]{row}>=1,\"Đạt\",IF([tyLeHoanThanh]{row}>=0.8,\"Cần cải thiện\",\"Không đạt\"))))",
+          "note": "Xếp loại của riêng từng chỉ tiêu, không phải của cả người. Đọc theo dòng để thấy ngay chỗ nào kéo điểm xuống, vì một người điểm tổng 0,9 có thể do đều đều thiếu một chút hoặc do một chỉ tiêu sụp hẳn, và hai trường hợp đó cần hai cách xử lý khác nhau."
+        }
+      ],
+      "sampleRows": [
+        {
+          "stt": 1,
+          "ky": "Q3-2026",
+          "maNV": "NV001",
+          "hoTen": "Nguyễn Thị Mai",
+          "boPhan": "Kinh doanh",
+          "chiTieu": "Doanh thu ký mới",
+          "donVi": "triệu đồng",
+          "chieu": "Càng cao càng tốt",
+          "trongSo": 0.5,
+          "mucTieu": 900,
+          "thucHien": 1080
+        },
+        {
+          "stt": 2,
+          "ky": "Q3-2026",
+          "maNV": "NV001",
+          "hoTen": "Nguyễn Thị Mai",
+          "boPhan": "Kinh doanh",
+          "chiTieu": "Số khách hàng mới",
+          "donVi": "khách",
+          "chieu": "Càng cao càng tốt",
+          "trongSo": 0.3,
+          "mucTieu": 12,
+          "thucHien": 9
+        },
+        {
+          "stt": 3,
+          "ky": "Q3-2026",
+          "maNV": "NV001",
+          "hoTen": "Nguyễn Thị Mai",
+          "boPhan": "Kinh doanh",
+          "chiTieu": "Tỷ lệ khách rời đi",
+          "donVi": "%",
+          "chieu": "Càng thấp càng tốt",
+          "trongSo": 0.2,
+          "mucTieu": 8,
+          "thucHien": 5
+        },
+        {
+          "stt": 4,
+          "ky": "Q3-2026",
+          "maNV": "NV003",
+          "hoTen": "Lê Thu Hà",
+          "boPhan": "Kế toán",
+          "chiTieu": "Số ngày trễ hạn báo cáo",
+          "donVi": "ngày",
+          "chieu": "Càng thấp càng tốt",
+          "trongSo": 0.6,
+          "mucTieu": 2,
+          "thucHien": 0
+        },
+        {
+          "stt": 5,
+          "ky": "Q3-2026",
+          "maNV": "NV003",
+          "hoTen": "Lê Thu Hà",
+          "boPhan": "Kế toán",
+          "chiTieu": "Tỷ lệ bút toán sai phải điều chỉnh",
+          "donVi": "%",
+          "chieu": "Càng thấp càng tốt",
+          "trongSo": 0.4,
+          "mucTieu": 1,
+          "thucHien": 1.6
+        },
+        {
+          "stt": 6,
+          "ky": "Q3-2026",
+          "maNV": "NV002",
+          "hoTen": "Trần Văn Hùng",
+          "boPhan": "Kỹ thuật",
+          "chiTieu": "Số phiếu bảo trì hoàn thành đúng hạn",
+          "donVi": "phiếu",
+          "chieu": "Càng cao càng tốt",
+          "trongSo": 0.7,
+          "mucTieu": 40,
+          "thucHien": 40
+        },
+        {
+          "stt": 7,
+          "ky": "Q3-2026",
+          "maNV": "NV002",
+          "hoTen": "Trần Văn Hùng",
+          "boPhan": "Kỹ thuật",
+          "chiTieu": "Số lần sự cố lặp lại",
+          "donVi": "lần",
+          "chieu": "Càng thấp càng tốt",
+          "trongSo": 0.3,
+          "mucTieu": 3,
+          "thucHien": 6
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+[
+  [
+    {
+      "soGioLam": 8.0,
+      "gioTrongDem": 8.0,
+      "congQuyDoi": 1.0,
+      "gioVuotCa": 0
+    },
+    {
+      "soGioLam": 8.0,
+      "gioTrongDem": 0,
+      "congQuyDoi": 1.0,
+      "gioVuotCa": 0
+    },
+    {
+      "soGioLam": 9.0,
+      "gioTrongDem": 0,
+      "congQuyDoi": 1.0,
+      "gioVuotCa": 1.0
+    },
+    {
+      "soGioLam": 0,
+      "gioTrongDem": 0,
+      "congQuyDoi": 0.0,
+      "gioVuotCa": 0
+    },
+    {
+      "soGioLam": 8.0,
+      "gioTrongDem": 0,
+      "congQuyDoi": 1.0,
+      "gioVuotCa": 0
+    },
+    {
+      "soGioLam": 0,
+      "gioTrongDem": 0,
+      "congQuyDoi": 1,
+      "gioVuotCa": 0
+    }
+  ]
+]

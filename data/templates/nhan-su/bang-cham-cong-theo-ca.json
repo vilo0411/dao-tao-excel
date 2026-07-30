@@ -1,0 +1,230 @@
+{
+  "slug": "bang-cham-cong-theo-ca",
+  "category": "nhan-su",
+  "h1": "Mẫu Excel chấm công theo ca, tính đúng cả ca đêm vắt sang ngày sau",
+  "metaTitle": "Mẫu Excel Chấm Công Theo Ca - Tải Miễn Phí",
+  "metaDesc": "Mẫu Excel chấm công theo ca ghi từng lượt vào ca, tự tính số giờ làm kể cả ca đêm vắt qua nửa đêm, tách giờ trong đêm và giờ vượt ca. Tải miễn phí, có công thức.",
+  "primaryKeyword": "mẫu excel chấm công theo ca",
+  "intro": "Mẫu Excel chấm công theo ca này ghi mỗi lượt vào ca thành một dòng, không xếp 31 cột ngày như bảng chấm công hành chính. Lý do là nhà máy hay cửa hàng đổi ca liên tục, một người trong tháng có thể chạy cả ba ca, nên thứ cần truy là từng lượt chứ không phải một ký hiệu trên ô ngày. Điểm khó nhất của chấm công theo ca là ca đêm vắt qua nửa đêm: vào 22 giờ ra 6 giờ, lấy giờ ra trừ giờ vào thì ra âm 16 tiếng. File xử lý bằng một hàm IF cộng thêm 24 khi giờ ra nhỏ hơn giờ vào, và cột giờ trong đêm tách riêng để chuyển sang bảng tính lương làm thêm giờ.",
+  "difficulty": "trung-cap",
+  "features": [
+    "Ghi theo từng lượt vào ca, một người chạy nhiều ca vẫn truy được",
+    "Ca đêm vắt qua nửa đêm vẫn tính đúng số giờ, không ra số âm",
+    "Nghỉ giữa giờ của ca liên tục được tính vào giờ làm theo Điều 109",
+    "Tách giờ nằm trong khung ban đêm để chuyển sang bảng tăng ca",
+    "Quy đổi giờ thành công và tách phần giờ vượt quá 8 tiếng một ca"
+  ],
+  "howToUse": [
+    {
+      "step": "Nhập giờ dưới dạng số nguyên hoặc số lẻ, đừng nhập kiểu giờ phút",
+      "detail": "Vào lúc 22 giờ thì điền 22, ra lúc 6 giờ 30 thì điền 6.5. Dùng định dạng giờ của Excel ở đây sẽ làm phép trừ vắt qua nửa đêm khó đọc hơn nhiều, còn nhập số thì công thức chỉ là phép cộng trừ mà ai cũng kiểm lại được bằng mắt."
+    },
+    {
+      "step": "Chọn ca trước khi điền giờ",
+      "detail": "Cột Ca quyết định cột Giờ trong đêm tính ra bao nhiêu, nên bỏ trống cột này thì giờ đêm về 0 và người làm ca đêm mất phụ cấp. Ca hành chính dùng cho nhân viên khối văn phòng vẫn chấm chung trên file này."
+    },
+    {
+      "step": "Ghi giờ nghỉ giữa ca đúng thực tế, kể cả khi nó không bị trừ",
+      "detail": "Nghỉ ăn 30 phút thì điền 0.5, nghỉ một tiếng thì điền 1. Số này chỉ bị trừ khỏi giờ làm với Ca hành chính; ba ca sản xuất thì nghỉ giữa giờ được tính vào giờ làm việc nên không trừ. Vẫn phải điền cho cả ba ca đó, vì đây là bằng chứng công ty đã cho nghỉ giữa giờ đủ mức luật yêu cầu."
+    },
+    {
+      "step": "Dùng cột Trạng thái cho ngày vắng, đừng xóa dòng",
+      "detail": "Người được phân ca mà không đến thì vẫn giữ dòng đó và đổi trạng thái sang Vắng, mọi cột tính tự về 0. Xóa dòng đi thì cuối tháng bạn không còn bằng chứng là người đó đã được phân ca, và tỷ lệ đi làm tính ra sẽ đẹp hơn thực tế."
+    },
+    {
+      "step": "Cuối tháng cộng theo mã nhân viên rồi chuyển sang hai file kia",
+      "detail": "SUMIF cột Công quy đổi theo Mã NV cho ra số công hưởng lương của bảng tính lương. SUMIF cột Giờ trong đêm và cột Giờ vượt ca cho ra hai con số mà bảng tính lương làm thêm giờ cần."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Công thức xử lý ca đêm vắt qua nửa đêm hoạt động thế nào?",
+      "a": "Hàm IF so giờ ra với giờ vào. Nếu giờ ra lớn hơn hoặc bằng giờ vào thì đó là ca trong cùng một ngày, lấy giờ ra trừ giờ vào là xong. Nếu giờ ra nhỏ hơn giờ vào thì ca đã vắt sang ngày sau, khi đó cộng 24 vào giờ ra trước khi trừ: vào 22 ra 6 thành 6 cộng 24 trừ 22 bằng 8 tiếng. Cách này chỉ sai khi một ca dài hơn 24 tiếng, mà điều đó thì luật không cho phép nên bạn không cần lo."
+    },
+    {
+      "q": "Vì sao cột Giờ trong đêm chỉ nhìn cột Ca mà không tính từ giờ vào giờ ra?",
+      "a": "Vì tính chính xác phần giao giữa khoảng làm việc và khung 22 giờ đến 6 giờ đòi một công thức dài với nhiều trường hợp, và công thức đó rất khó soát bằng mắt. Trong thực tế ca đêm đã được thiết kế nằm trọn trong khung ban đêm nên lấy luôn số giờ làm của ca đó là đúng. Nếu công ty bạn có ca lệch, ví dụ vào 18 giờ ra 2 giờ chỉ có 4 tiếng nằm trong khung đêm, thì thêm một loại ca mới vào danh sách và sửa công thức cột này cho loại ca đó."
+    },
+    {
+      "q": "Giờ vượt ca có phải là giờ làm thêm để trả 150% không?",
+      "a": "Là căn cứ để xác định, nhưng chưa đủ. Cột Giờ vượt ca chỉ đếm phần quá 8 tiếng trong một ca. Muốn ra tiền thì còn phải biết ca đó rơi vào ngày thường, ngày nghỉ hằng tuần hay ngày lễ, vì ba trường hợp đó trả 150%, 200% và 300%. Vì vậy con số này được chuyển sang mẫu tính lương làm thêm giờ, nơi bạn xếp nó vào đúng cột, chứ không nhân tiền ngay tại đây."
+    },
+    {
+      "q": "Vì sao ca đêm nghỉ 30 phút vẫn được tính đủ 8 giờ, còn ca hành chính thì bị trừ?",
+      "a": "Vì Điều 109 Bộ luật Lao động quy định người làm việc theo ca liên tục từ 6 giờ trở lên thì thời gian nghỉ giữa giờ được tính vào giờ làm việc. Ba ca sản xuất thuộc diện này: người vào ca 22 giờ ra 6 giờ có nghỉ ăn 30 phút vẫn được tính đủ 8 giờ và một công. Riêng ca hành chính không phải ca liên tục, người đi làm 8 giờ đến 17 giờ nghỉ trưa một tiếng thì có mặt 9 tiếng nhưng giờ làm việc là 8 tiếng, nên giờ nghỉ bị trừ. Luật còn đòi mức nghỉ giữa giờ tối thiểu khác nhau: ít nhất 30 phút với ca ngày và ít nhất 45 phút với ca đêm."
+    },
+    {
+      "q": "Người làm hai ca liền trong một ngày thì ghi thế nào?",
+      "a": "Ghi hai dòng, mỗi ca một dòng, cùng ngày và cùng mã nhân viên. Ghi gộp một dòng thì công thức tính giờ sẽ hiểu sai là một ca dài, và cột Giờ vượt ca chỉ trừ 8 tiếng một lần thay vì soi từng ca. Đây cũng là lý do file chọn mô hình mỗi dòng một lượt vào ca."
+    },
+    {
+      "q": "Bảng này thay được bảng chấm công hành chính không?",
+      "a": "Thay được nếu công ty bạn chỉ làm theo ca, nhưng hai bảng trả lời hai câu hỏi khác nhau. Bảng chấm công hành chính xếp ngày thành cột nên nhìn một cái là thấy cả tháng của một người, tiện để dán lên bảng tin và để người lao động tự soát. Bảng theo ca mạnh ở chỗ truy được từng lượt và tính được giờ. Nhiều nơi dùng cả hai: bảng theo ca để tính, bảng hành chính để công bố."
+    }
+  ],
+  "ctaText": "Học cách dựng hệ thống chấm công theo ca và tính lương trên Excel",
+  "relatedSlugs": [
+    "bang-cham-cong-nhan-vien",
+    "bang-tinh-luong-lam-them-gio",
+    "bang-theo-doi-nghi-phep"
+  ],
+  "updatedAt": "2026-07-30",
+  "sheets": [
+    {
+      "name": "Chấm công theo ca",
+      "description": "Mỗi dòng là một lượt vào ca của một người. Giờ nhập dạng số, công thức tự xử lý ca vắt qua nửa đêm.",
+      "blankRows": 30,
+      "columns": [
+        { "key": "stt", "header": "STT", "type": "number", "width": 6 },
+        { "key": "ngay", "header": "Ngày", "type": "date", "width": 13 },
+        { "key": "maNV", "header": "Mã NV", "type": "text", "width": 12 },
+        { "key": "hoTen", "header": "Họ và tên", "type": "text", "width": 24 },
+        {
+          "key": "ca",
+          "header": "Ca",
+          "type": "text",
+          "width": 16,
+          "validation": {
+            "type": "list",
+            "options": ["Ca sáng", "Ca chiều", "Ca đêm", "Ca hành chính"]
+          }
+        },
+        {
+          "key": "trangThai",
+          "header": "Trạng thái",
+          "type": "text",
+          "width": 14,
+          "validation": {
+            "type": "list",
+            "options": ["Đi làm", "Vắng", "Nghỉ phép", "Đổi ca"]
+          }
+        },
+        {
+          "key": "gioVao",
+          "header": "Giờ vào",
+          "type": "number",
+          "width": 10,
+          "validation": { "type": "decimal", "min": 0, "max": 24 }
+        },
+        {
+          "key": "gioRa",
+          "header": "Giờ ra",
+          "type": "number",
+          "width": 10,
+          "validation": { "type": "decimal", "min": 0, "max": 24 }
+        },
+        {
+          "key": "nghiGiuaCa",
+          "header": "Nghỉ giữa ca",
+          "type": "number",
+          "width": 14,
+          "validation": { "type": "decimal", "min": 0, "max": 4 }
+        },
+        {
+          "key": "soGioLam",
+          "header": "Số giờ làm",
+          "type": "formula",
+          "width": 13,
+          "format": "number",
+          "formula": "=IF([hoTen]{row}=\"\",\"\",IF([trangThai]{row}<>\"Đi làm\",0,MAX(0,IF([gioRa]{row}>=[gioVao]{row},[gioRa]{row}-[gioVao]{row},[gioRa]{row}+24-[gioVao]{row})-IF([ca]{row}=\"Ca hành chính\",[nghiGiuaCa]{row},0))))",
+          "note": "Hàm IF bên trong xử lý ca vắt qua nửa đêm: giờ ra nhỏ hơn giờ vào thì cộng 24 trước khi trừ, nên vào 22 ra 6 ra đúng 8 tiếng chứ không ra âm 16. Giờ nghỉ giữa ca chỉ bị trừ với Ca hành chính, vì người làm ca liên tục từ 6 giờ trở lên được tính thời gian nghỉ giữa giờ vào giờ làm việc theo Điều 109 Bộ luật Lao động. MAX chặn kết quả âm khi điền giờ sai, còn IF ngoài cùng đưa mọi dòng không phải Đi làm về 0."
+        },
+        {
+          "key": "gioTrongDem",
+          "header": "Giờ trong đêm",
+          "type": "formula",
+          "width": 14,
+          "format": "number",
+          "formula": "=IF([hoTen]{row}=\"\",\"\",IF([ca]{row}=\"Ca đêm\",[soGioLam]{row},0))",
+          "note": "Khung ban đêm theo luật là từ 22 giờ đến 6 giờ sáng hôm sau, và ca đêm được thiết kế nằm trọn trong khung đó nên lấy luôn số giờ làm. Công ty có ca lệch chỉ nằm một phần trong khung đêm thì thêm loại ca mới và sửa công thức cho riêng loại đó."
+        },
+        {
+          "key": "congQuyDoi",
+          "header": "Công quy đổi",
+          "type": "formula",
+          "width": 14,
+          "format": "number",
+          "formula": "=IF([hoTen]{row}=\"\",\"\",IF([trangThai]{row}=\"Nghỉ phép\",1,ROUND(MIN([soGioLam]{row},8)/8,2)))",
+          "note": "Một ca đủ 8 tiếng tính một công. MIN chặn ở 8 nên làm 10 tiếng vẫn chỉ một công, phần dôi ra đã nằm ở cột Giờ vượt ca và được trả theo mức làm thêm giờ. Nghỉ phép hưởng lương vẫn tính đủ một công vì đó là ngày có hưởng lương."
+        },
+        {
+          "key": "gioVuotCa",
+          "header": "Giờ vượt ca",
+          "type": "formula",
+          "width": 13,
+          "format": "number",
+          "formula": "=IF([hoTen]{row}=\"\",\"\",MAX(0,[soGioLam]{row}-8))",
+          "note": "Phần giờ quá 8 tiếng của riêng ca này, là căn cứ để tính làm thêm giờ. Chưa ra tiền được ở đây vì còn phụ thuộc ca rơi vào ngày thường, ngày nghỉ tuần hay ngày lễ, nên con số này được chuyển sang mẫu tính lương làm thêm giờ."
+        }
+      ],
+      "sampleRows": [
+        {
+          "stt": 1,
+          "ngay": "2026-07-06",
+          "maNV": "NV004",
+          "hoTen": "Phạm Minh Đức",
+          "ca": "Ca đêm",
+          "trangThai": "Đi làm",
+          "gioVao": 22,
+          "gioRa": 6,
+          "nghiGiuaCa": 0.75
+        },
+        {
+          "stt": 2,
+          "ngay": "2026-07-06",
+          "maNV": "NV002",
+          "hoTen": "Trần Văn Hùng",
+          "ca": "Ca sáng",
+          "trangThai": "Đi làm",
+          "gioVao": 6,
+          "gioRa": 14,
+          "nghiGiuaCa": 0.5
+        },
+        {
+          "stt": 3,
+          "ngay": "2026-07-06",
+          "maNV": "NV005",
+          "hoTen": "Hoàng Thị Lan",
+          "ca": "Ca chiều",
+          "trangThai": "Đi làm",
+          "gioVao": 14,
+          "gioRa": 23,
+          "nghiGiuaCa": 0.5
+        },
+        {
+          "stt": 4,
+          "ngay": "2026-07-07",
+          "maNV": "NV004",
+          "hoTen": "Phạm Minh Đức",
+          "ca": "Ca đêm",
+          "trangThai": "Vắng",
+          "gioVao": 0,
+          "gioRa": 0,
+          "nghiGiuaCa": 0
+        },
+        {
+          "stt": 5,
+          "ngay": "2026-07-07",
+          "maNV": "NV003",
+          "hoTen": "Lê Thu Hà",
+          "ca": "Ca hành chính",
+          "trangThai": "Đi làm",
+          "gioVao": 8,
+          "gioRa": 17,
+          "nghiGiuaCa": 1
+        },
+        {
+          "stt": 6,
+          "ngay": "2026-07-07",
+          "maNV": "NV002",
+          "hoTen": "Trần Văn Hùng",
+          "ca": "Ca sáng",
+          "trangThai": "Nghỉ phép",
+          "gioVao": 0,
+          "gioRa": 0,
+          "nghiGiuaCa": 0
+        }
+      ]
+    }
+  ]
+}

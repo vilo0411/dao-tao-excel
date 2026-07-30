@@ -1,0 +1,39 @@
+[
+  [
+    {
+      "tyLeHoanThanh": 1.2,
+      "diemCoTrongSo": 0.6,
+      "xepLoai": "Xuất sắc"
+    },
+    {
+      "tyLeHoanThanh": 0.75,
+      "diemCoTrongSo": 0.225,
+      "xepLoai": "Không đạt"
+    },
+    {
+      "tyLeHoanThanh": 1.2,
+      "diemCoTrongSo": 0.24,
+      "xepLoai": "Xuất sắc"
+    },
+    {
+      "tyLeHoanThanh": 1.2,
+      "diemCoTrongSo": 0.72,
+      "xepLoai": "Xuất sắc"
+    },
+    {
+      "tyLeHoanThanh": 0.625,
+      "diemCoTrongSo": 0.25,
+      "xepLoai": "Không đạt"
+    },
+    {
+      "tyLeHoanThanh": 1.0,
+      "diemCoTrongSo": 0.7,
+      "xepLoai": "Đạt"
+    },
+    {
+      "tyLeHoanThanh": 0.5,
+      "diemCoTrongSo": 0.15,
+      "xepLoai": "Không đạt"
+    }
+  ]
+]

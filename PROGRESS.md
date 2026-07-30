@@ -3,7 +3,7 @@
 Bảng theo dõi bám theo khung trong [prd-excel-template-hub.md](prd-excel-template-hub.md) mục 2.
 Cập nhật file này mỗi khi làm xong một template hoặc một hạng mục hạ tầng.
 
-**Cập nhật lần cuối:** 28/07/2026
+**Cập nhật lần cuối:** 30/07/2026
 
 ---
 
@@ -11,15 +11,16 @@ Cập nhật file này mỗi khi làm xong một template hoặc một hạng m�
 
 | Hạng mục | Xong | Tổng | |
 | :---- | ---: | ---: | :---- |
-| Template `nhan-su` | 5 | 13 | `████░░░░░░` 38% |
+| Template `nhan-su` | 13 | 13 | `██████████` 100% |
 | Template `ke-toan` | 0 | 12 | `░░░░░░░░░░` 0% |
 | Template `quan-ly-cong-viec` | 0 | 12 | `░░░░░░░░░░` 0% |
-| **Tổng template** | **5** | **37** | `█░░░░░░░░░` 14% |
+| **Tổng template** | **13** | **37** | `███░░░░░░░` 35% |
 | Bộ file | 1 | 3 | `███░░░░░░░` 33% |
 | Hạ tầng | 14 | 19 | `███████░░░` 74% |
 
-**Giai đoạn hiện tại:** A — hoàn tất 12 template `nhan-su`.
+**Giai đoạn hiện tại:** A — nội dung đã đủ, còn lại là rà nghiệp vụ và lên domain.
 **Chặn giai đoạn B:** cần 12 trang qua DoD + lên domain thật + GSC nhận sitemap.
+Nút cổ chai đã đổi: không còn là viết spec mà là **cột Rà** — 13 trang đang chờ người rà soát nghiệp vụ.
 
 ---
 
@@ -45,18 +46,35 @@ CTA: `hrCourse`
 | 1 | `bang-tinh-luong-nhan-vien` | ✅ | ✅ | ⬜ | ⬜ |
 | 2 | `bang-cham-cong-nhan-vien` | ✅ | ✅ | ⬜ | ⬜ |
 | 3 | `bang-theo-doi-nghi-phep` | ✅ | ✅ | ⬜ | ⬜ |
-| 4 | `bang-tinh-luong-lam-them-gio` | ⬜ | ⬜ | ⬜ | ⬜ |
-| 5 | `bang-tinh-bao-hiem-xa-hoi` | ⬜ | ⬜ | ⬜ | ⬜ |
+| 4 | `bang-tinh-luong-lam-them-gio` | ✅ | ✅ | ⬜ | ⬜ |
+| 5 | `bang-tinh-bao-hiem-xa-hoi` | ✅ | ✅ | ⬜ | ⬜ |
 | 6 | `danh-sach-nhan-vien` | ✅ | ✅ | ⬜ | ⬜ |
-| 7 | `bang-danh-gia-kpi-nhan-vien` | ⬜ | ⬜ | ⬜ | ⬜ |
-| 8 | `bang-theo-doi-hop-dong-lao-dong` | ⬜ | ⬜ | ⬜ | ⬜ |
-| 9 | `bang-cham-cong-theo-ca` | ⬜ | ⬜ | ⬜ | ⬜ |
-| 10 | `bang-tinh-thuong-thang-13` | ⬜ | ⬜ | ⬜ | ⬜ |
-| 11 | `bang-theo-doi-tuyen-dung` | ⬜ | ⬜ | ⬜ | ⬜ |
-| 12 | `bang-theo-doi-dao-tao-nhan-vien` | ⬜ | ⬜ | ⬜ | ⬜ |
+| 7 | `bang-danh-gia-kpi-nhan-vien` | ✅ | ✅ | ⬜ | ⬜ |
+| 8 | `bang-theo-doi-hop-dong-lao-dong` | ✅ | ✅ | ⬜ | ⬜ |
+| 9 | `bang-cham-cong-theo-ca` | ✅ | ✅ | ⬜ | ⬜ |
+| 10 | `bang-tinh-thuong-thang-13` | ✅ | ✅ | ⬜ | ⬜ |
+| 11 | `bang-theo-doi-tuyen-dung` | ✅ | ✅ | ⬜ | ⬜ |
+| 12 | `bang-theo-doi-dao-tao-nhan-vien` | ✅ | ✅ | ⬜ | ⬜ |
 | 13 | `bang-tong-hop-nhan-su-thang` | ✅ | ✅ | ⬜ | ⬜ |
 
-**Ghi chú:** hai template đã có dùng số liệu thuế 2026 (giảm trừ 15,5tr / 6,2tr, biểu 5 bậc). Số 4, 5, 10 dùng chung bộ số này — viết xong phải rà lại cùng lúc để không lệch nhau.
+**Ghi chú rà nghiệp vụ — đọc trước khi rà:**
+
+Ba nhóm số dưới đây dùng chung giữa nhiều file. Rà một file mà sửa số thì phải sửa cả nhóm, nếu không hai trang cạnh nhau sẽ nói hai con số khác nhau về cùng một quy định.
+
+| Nhóm số | Xuất hiện ở | Giá trị đang dùng |
+| :---- | :---- | :---- |
+| Thuế TNCN 2026 | số 1, 10, và bảng demo trang chủ (`HeroSheet`) | giảm trừ 15,5tr bản thân + 6,2tr/người phụ thuộc, biểu 5 bậc |
+| Bảo hiểm | số 1, 5 | 10,5% NV / 21,5% DN; trần BHXH-BHYT 46,8tr; trần BHTN theo vùng 99,2 / 88,2 / 77,2 / 69tr |
+| Giờ làm và làm thêm | số 4, 9 | 150% / 200% / 300%, tăng ca đêm 200%, phụ cấp đêm 30%, nghỉ giữa giờ của ca liên tục tính vào giờ làm (Điều 109) |
+
+`scripts/check-hero-sheet.mts` đã chặn được nhóm thuế lệch giữa spec và trang chủ. Hai nhóm còn lại chưa có cổng tự động — phải rà bằng mắt.
+
+Điểm cần người có nghiệp vụ xác nhận, không phải lỗi kỹ thuật nên máy không bắt được:
+
+- Số 5: mức tham chiếu 2.340.000đ và bốn mức lương tối thiểu vùng có còn đúng ở thời điểm publish không.
+- Số 4: mức 200% cho giờ tăng ca ban đêm ngày thường (150 + 30 + 20). Đúng luật nhưng nếu giờ đó rơi vào ngày nghỉ tuần hoặc ngày lễ thì file chưa tính, đã ghi rõ trong FAQ.
+- Số 8: bốn trần thử việc 180 / 60 / 30 / 6 ngày, và các ngoại lệ của quy tắc hai lần ký có thời hạn.
+- Số 10: cách tính thuế cho tháng chi trả thưởng — file cộng dồn lương và thưởng rồi tính lũy tiến, không tách thuế riêng cho khoản thưởng.
 
 Số 13 là **file tổng** của bộ `quan-ly-nhan-su-thang`, nằm ngoài 12 slot ban đầu của PRD. Mỗi bộ file kéo theo một file tổng như vậy, nên tổng số template sẽ nhích lên theo số bộ được dựng.
 
@@ -153,6 +171,7 @@ CTA: `consult` · Hub chưa mở (cần ≥ 5 template)
 
 | Ngày | Việc |
 | :---- | :---- |
+| 30/07/2026 | **Xong 8 template `nhan-su` còn lại** — nhóm nhân sự đủ 13/13. Thêm định dạng ngày cho `SheetPreview` (cột công thức trả serial Excel, trước đó in ra số trần). Sửa `bang-cham-cong-theo-ca`: nghỉ giữa giờ của ca liên tục được tính vào giờ làm theo Điều 109, trước đó trừ cho mọi ca nên ca đêm đủ 8 tiếng chỉ ra 0,94 công |
 | 28/07/2026 | **File gộp** cho `quan-ly-nhan-su-thang`: 6 sheet trong một workbook, 17 công thức nối. Viết `danh-sach-nhan-vien` + `bang-theo-doi-nghi-phep`. Bảng lương thêm cột công nên lương mới thực sự phụ thuộc chấm công |
 | 28/07/2026 | Lớp **bộ file**: `/mau-excel/bo-file` + trang bộ có sơ đồ liên kết, bộ `quan-ly-nhan-su-thang`, file tổng `bang-tong-hop-nhan-su-thang` |
 | 28/07/2026 | PRD v2.0 — chốt khung 43 trang, mô hình bridge sang HVS. Tạo file theo dõi này |

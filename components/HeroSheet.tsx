@@ -2,6 +2,13 @@
 
 import { useId, useState } from "react";
 import Link from "next/link";
+import {
+  DEMO_FORMULA,
+  GIAM_TRU_BAN_THAN,
+  GIAM_TRU_PHU_THUOC,
+  TY_LE_BAO_HIEM,
+  tinhThue,
+} from "@/lib/thue-tncn";
 
 /**
  * Bảng tính lương chạy thật, đặt ngay dưới hero trang chủ.
@@ -12,32 +19,15 @@ import Link from "next/link";
  * một ô thì công thức hiện ở thanh fx. Đó là toàn bộ sản phẩm, gói trong mười
  * giây đầu tiên, không cần tải gì.
  *
- * Con số và công thức lấy đúng từ data/templates/nhan-su/bang-tinh-luong-nhan-vien.json
- * (thuế 2026: giảm trừ 15,5 triệu, phụ thuộc 6,2 triệu, biểu 5 bậc). Bảng dưới
- * đây là bản dựng đứng, rút gọn còn một nhân viên; file thật là bảng ngang
- * nhiều dòng. Nếu quy định thuế đổi, phải sửa cả hai chỗ cho khớp.
+ * Con số và công thức lấy đúng từ data/templates/nhan-su/bang-tinh-luong-nhan-vien.json.
+ * Bảng dưới đây là bản dựng đứng, rút gọn còn một nhân viên; file thật là bảng
+ * ngang nhiều dòng. Hằng số thuế và chuỗi công thức nằm ở lib/thue-tncn.ts, và
+ * npm run validate đối chiếu chúng với spec JSON — sửa lệch một bên là gãy ở
+ * đó, không phải chờ ai đọc lại trang chủ mới phát hiện.
  *
  * Vùng này thuộc phương ngữ bảng tính: bo góc 0, font mono, chỉ dùng
  * input (ô người dùng gõ) và computed (ô Excel tự tính).
  */
-
-const GIAM_TRU_BAN_THAN = 15_500_000;
-const GIAM_TRU_PHU_THUOC = 6_200_000;
-const TY_LE_BAO_HIEM = 0.105;
-
-/** Biểu lũy tiến 5 bậc áp dụng từ 2026, viết dạng thuế suất + số trừ nhanh. */
-const BAC_THUE = [
-  { tran: 10_000_000, suat: 0.05, tru: 0 },
-  { tran: 30_000_000, suat: 0.1, tru: 500_000 },
-  { tran: 60_000_000, suat: 0.2, tru: 3_500_000 },
-  { tran: 100_000_000, suat: 0.3, tru: 9_500_000 },
-  { tran: Infinity, suat: 0.35, tru: 14_500_000 },
-];
-
-function tinhThue(thuNhapTinhThue: number): number {
-  const bac = BAC_THUE.find((b) => thuNhapTinhThue <= b.tran)!;
-  return Math.max(0, thuNhapTinhThue * bac.suat - bac.tru);
-}
 
 const dong = new Intl.NumberFormat("vi-VN");
 
@@ -97,32 +87,36 @@ export function HeroSheet({ templateHref }: { templateHref?: string }) {
   const thucLinh = tongThuNhap - baoHiem - thueTNCN;
 
   const rows: Row[] = [
-    { ref: "B4", label: "Tổng thu nhập", value: tongThuNhap, formula: "=B1+B2" },
-    { ref: "B5", label: "Bảo hiểm (10,5%)", value: baoHiem, formula: "=B1*10.5%" },
+    {
+      ref: "B4",
+      label: "Tổng thu nhập",
+      value: tongThuNhap,
+      formula: DEMO_FORMULA.B4,
+    },
+    {
+      ref: "B5",
+      label: "Bảo hiểm (10,5%)",
+      value: baoHiem,
+      formula: DEMO_FORMULA.B5,
+    },
     {
       ref: "B6",
       label: "Giảm trừ gia cảnh",
       value: giamTru,
-      formula: "=15500000+B3*6200000",
+      formula: DEMO_FORMULA.B6,
     },
     {
       ref: "B7",
       label: "Thu nhập tính thuế",
       value: thuNhapTinhThue,
-      formula: "=MAX(0,B4-B5-B6)",
+      formula: DEMO_FORMULA.B7,
     },
-    {
-      ref: "B8",
-      label: "Thuế TNCN",
-      value: thueTNCN,
-      formula:
-        "=IF(B7<=10000000,B7*5%,IF(B7<=30000000,B7*10%-500000,IF(B7<=60000000,B7*20%-3500000,IF(B7<=100000000,B7*30%-9500000,B7*35%-14500000))))",
-    },
+    { ref: "B8", label: "Thuế TNCN", value: thueTNCN, formula: DEMO_FORMULA.B8 },
     {
       ref: "B9",
       label: "Thực lĩnh",
       value: thucLinh,
-      formula: "=B4-B5-B8",
+      formula: DEMO_FORMULA.B9,
       strong: true,
     },
   ];
@@ -350,6 +344,14 @@ export function HeroSheet({ templateHref }: { templateHref?: string }) {
           />
           Excel tự tính
         </span>
+        {/*
+          Bảng có min-width 420px nên máy hẹp phải cuộn ngang, mà một bảng bị
+          cắt ở mép không tự nói ra là nó còn phần bên phải. Hint chỉ hiện ở
+          đúng khổ máy có cuộn thật.
+        */}
+        <span className="text-ink-faint sm:hidden">
+          → cuộn ngang để xem hết bảng
+        </span>
         <span className="text-ink-faint">
           Rút gọn từ mẫu bảng lương — cùng cách tính, ít cột hơn
         </span>
@@ -411,10 +413,43 @@ function InputRow({
           inputMode="numeric"
           value={dong.format(value)}
           onChange={(e) => {
-            const digits = e.target.value.replace(/\D/g, "");
+            const el = e.currentTarget;
+            const raw = el.value;
+            const caret = el.selectionStart ?? raw.length;
+
+            const digits = raw.replace(/\D/g, "");
             // Chặn trên ở 999 triệu: quá số này bảng chạy sang bậc thuế cuối
             // và cột số vỡ khung, trong khi chẳng nói thêm được điều gì.
-            onChange(Math.min(Number(digits || 0), 999_000_000));
+            const next = Math.min(Number(digits || 0), 999_000_000);
+            const formatted = dong.format(next);
+
+            /*
+             * Giữ con trỏ ở đúng chữ số người ta vừa gõ.
+             *
+             * Ô này format lại sau mỗi phím, nên nếu để mặc kệ thì sửa một chữ
+             * số ở giữa "18.000.000" là con trỏ bị ném về cuối chuỗi — phải
+             * xóa sạch gõ lại. Cách neo: đếm xem bên trái con trỏ có bao nhiêu
+             * CHỮ SỐ (bỏ qua dấu chấm, vì số dấu chấm thay đổi theo độ dài),
+             * rồi đặt lại con trỏ sau đúng ngần ấy chữ số trong chuỗi mới.
+             *
+             * Ghi thẳng vào DOM thay vì đợi React render: gõ ký tự không phải
+             * số thì `next` không đổi, React bail out không render lại, và ký
+             * tự rác sẽ nằm lại trong ô.
+             */
+            const digitsBeforeCaret = raw
+              .slice(0, caret)
+              .replace(/\D/g, "").length;
+
+            let seen = 0;
+            let pos = 0;
+            while (pos < formatted.length && seen < digitsBeforeCaret) {
+              if (/\d/.test(formatted[pos])) seen++;
+              pos++;
+            }
+
+            el.value = formatted;
+            el.setSelectionRange(pos, pos);
+            onChange(next);
           }}
           className="w-full bg-transparent px-3 py-2 text-right font-mono tabular-nums text-input focus:outline-none"
         />

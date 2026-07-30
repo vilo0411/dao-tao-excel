@@ -4,10 +4,8 @@ import { AuthorCard } from "@/components/Author";
 import { Faq } from "@/components/Faq";
 import { FeatureGrid } from "@/components/FeatureGrid";
 import { HeroSheet } from "@/components/HeroSheet";
-import { SystemCard } from "@/components/SystemCard";
 import { cardGridClass, TemplateCard } from "@/components/TemplateCard";
 import { getAllTemplates, toCardData } from "@/lib/templates";
-import { getAllSystems, toSystemCardData } from "@/lib/systems";
 import { absoluteUrl } from "@/lib/site";
 import { AUTHOR } from "@/lib/author";
 
@@ -18,7 +16,6 @@ export const metadata: Metadata = {
 export default function HomePage() {
   const templates = getAllTemplates().slice(0, 6);
   const templateCount = getAllTemplates().length;
-  const systems = getAllSystems();
 
   // Ngày cập nhật lấy từ spec mới nhất chứ không viết tay: gõ cứng một tháng
   // vào JSX thì ba tháng nữa nó thành lời nói dối, mà không ai nhớ ra để sửa.
@@ -170,7 +167,34 @@ export default function HomePage() {
         chứng minh xong điều đó, nên nhắc lại chỉ là nói dai. Chuyển sang rào
         cản thứ hai khiến người ta bỏ đi: sợ phải trả bằng email.
       */}
-      <section className="on-dark mt-24 rounded-lg bg-coral p-10 text-paper sm:p-12">
+      <section className="on-dark relative mt-24 overflow-hidden rounded-lg bg-coral p-10 text-paper sm:p-12">
+        {/*
+          Chữ EXCEL bằng ô bảng tính, quay 90° chạy xuống dọc mép phải rồi tan
+          thành ô rời — thủ pháp lấy từ efexbg.svg của efex.vn.
+
+          Ba quyết định neo ở đây, không phải trong file SVG:
+
+          - Đặt đúng band này chứ không phải hero. Chữ trắng cần nền tối mới
+            hiện ra, và đây là chỗ duy nhất trên trang chủ được phép to tiếng
+            nên hoa văn không phá nhịp trắng của các band còn lại.
+
+          - `bg-size-[auto_100%]` chứ không phải một bề rộng cố định. Chiều cao
+            band đổi theo cách đoạn văn ngắt dòng, mà chữ chìm dài 35 ô trên 5 ô
+            ngang — đặt cứng bề rộng thì ở một bề ngang nào đó chữ dài quá band
+            và chữ L bị mép dưới cắt mất. Khớp theo chiều cao thì chữ luôn vừa,
+            và đuôi tan luôn rơi đúng vào khoảng 20% cuối.
+
+          - Tràn hẳn ra mép phải (right-0), không thụt vào theo padding. Hoa văn
+            chạm mép thì chìm; thụt vào là thành một cái hình được đặt cạnh chữ.
+
+          Chỉ bật từ lg: hẹp hơn thế thì đoạn văn max-w-prose ăn hết bề ngang
+          và chữ chìm nằm đè lên chữ thật.
+        */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-y-0 right-0 hidden w-20 bg-[url('/excel-wordmark.svg')] bg-right-top bg-no-repeat bg-size-[auto_100%] lg:block"
+        />
+
         <h2 className="font-display max-w-2xl text-3xl text-balance sm:text-4xl">
           Tải thẳng, không cần để lại email
         </h2>
@@ -186,36 +210,6 @@ export default function HomePage() {
           Xem thử một file
         </Link>
       </section>
-
-      {/*
-        Chỗ này trước đây là lưới ba nhóm việc — ba cái thùng phẳng, không nói
-        được file nào liên quan file nào. Nhóm việc vẫn tới được qua trang thư
-        viện; ở trang chủ, thứ đáng nói là các file đi theo bộ.
-      */}
-      {systems.length > 0 && (
-        <section className="mt-24">
-          <h2 className="font-display text-3xl">Đi theo bộ, không đi lẻ</h2>
-          <p className="mt-4 max-w-prose text-ink-soft">
-            Việc hành chính chạy theo chuỗi: chấm công xong mới tính được lương,
-            tính lương xong mới báo cáo được. Mỗi bộ dưới đây là một chuỗi như
-            vậy, có sơ đồ chỉ rõ file nào đưa số liệu sang file nào, và kết vào
-            đúng một file tổng.
-          </p>
-          <ul className={`mt-6 ${cardGridClass(systems.length)}`}>
-            {systems.map((system) => (
-              <SystemCard key={system.slug} system={toSystemCardData(system)} />
-            ))}
-          </ul>
-          <p className="mt-6 text-sm text-ink-soft">
-            <Link
-              href="/mau-excel"
-              className="underline decoration-rule underline-offset-4 hover:decoration-ink"
-            >
-              Hoặc xem toàn bộ {templateCount} file lẻ, lọc theo nhóm việc →
-            </Link>
-          </p>
-        </section>
-      )}
 
       <section className="mt-24">
         <h2 className="font-display text-3xl">Câu hỏi thường gặp</h2>

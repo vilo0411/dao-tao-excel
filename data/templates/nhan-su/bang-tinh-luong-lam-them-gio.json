@@ -1,0 +1,273 @@
+{
+  "slug": "bang-tinh-luong-lam-them-gio",
+  "category": "nhan-su",
+  "h1": "Mẫu Excel tính lương làm thêm giờ theo đúng bốn mức 150%, 200%, 300%",
+  "metaTitle": "Mẫu Excel Tính Lương Làm Thêm Giờ - Tải Miễn Phí",
+  "metaDesc": "Mẫu Excel tính lương làm thêm giờ tách riêng tăng ca ngày thường, ngày nghỉ tuần, ngày lễ và tăng ca ban đêm theo đúng Bộ luật Lao động. Tải ngay, có công thức.",
+  "primaryKeyword": "mẫu excel tính lương làm thêm giờ",
+  "intro": "Mẫu Excel tính lương làm thêm giờ này không gộp tăng ca thành một con số duy nhất, vì luật không cho phép gộp: một giờ tăng ca ngày thường trả 150%, ngày nghỉ hằng tuần trả 200%, ngày lễ trả 300%, và giờ tăng ca rơi vào ban đêm còn được cộng thêm hai khoản nữa. File tách năm cột giờ để bạn nhập đúng loại, rồi tự nhân với đơn giá giờ lấy từ lương tháng chia công chuẩn chia 8. Mỗi cột tiền hiển thị công thức của nó ngay trên trang, nên khi người lao động hỏi vì sao giờ đêm lại ra 200% thì bạn chỉ vào ô là trả lời được.",
+  "difficulty": "trung-cap",
+  "features": [
+    "Tách bốn loại giờ tăng ca theo đúng bốn mức luật quy định",
+    "Tính riêng giờ tăng ca ban đêm ở mức 200%, gồm cả phần cộng thêm 20%",
+    "Đơn giá giờ tự suy ra từ lương tháng và công chuẩn, không nhập tay",
+    "Có cột phụ cấp đêm 30% cho ca đêm bình thường, không phải tăng ca",
+    "Chọn bộ phận từ danh sách để cộng quỹ tăng ca theo từng phòng"
+  ],
+  "howToUse": [
+    {
+      "step": "Nhập lương tháng và công chuẩn trước",
+      "detail": "Đơn giá giờ bằng lương tháng chia công chuẩn rồi chia 8. Lương tháng ở đây là lương ghi trong hợp đồng dùng làm căn cứ trả lương, không phải tổng thu nhập đã gồm phụ cấp và thưởng. Lấy sai gốc thì cả bốn cột tiền phía sau sai theo."
+    },
+    {
+      "step": "Xếp từng giờ tăng ca vào đúng một trong bốn cột",
+      "detail": "Một giờ chỉ được đếm ở một cột. Tăng ca tối thứ Bảy mà công ty nghỉ thứ Bảy thì đó là giờ ngày nghỉ hằng tuần, không phải giờ ngày thường. Tăng ca sau 22 giờ thì chuyển sang cột giờ tăng ca ban đêm, đừng đếm hai lần ở cả cột ngày thường."
+    },
+    {
+      "step": "Phân biệt giờ tăng ca ban đêm với ca đêm bình thường",
+      "detail": "Người làm ca đêm theo lịch phân ca, đủ 8 tiếng, không phải tăng ca — họ được cộng thêm 30% và điền vào cột giờ làm ban đêm. Còn người đã làm đủ ca ngày rồi làm thêm sau 22 giờ mới là tăng ca đêm, điền vào cột giờ tăng ca ban đêm."
+    },
+    {
+      "step": "Đối chiếu tổng giờ tăng ca với mức trần của luật",
+      "detail": "Cộng bốn cột giờ lại, một tháng không quá 40 giờ và một năm không quá 200 giờ với công việc thông thường. Ngành nghề được phép nới lên 300 giờ một năm phải thuộc danh mục riêng và có thông báo với cơ quan lao động."
+    },
+    {
+      "step": "Chuyển cột tổng tiền tăng ca sang bảng lương",
+      "detail": "Dùng SUMIF theo cột Mã NV để ra tổng tiền tăng ca của từng người, rồi cộng vào phần thu nhập chịu thuế ở bảng tính lương. Tiền tăng ca có chịu thuế thu nhập cá nhân, nên không được để ngoài."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Vì sao giờ tăng ca ban đêm lại tính 200% mà không phải 150% cộng 30%?",
+      "a": "Vì luật cộng ba phần cho cùng một giờ đó. Phần thứ nhất là mức tăng ca ngày thường 150%. Phần thứ hai là phụ cấp làm việc ban đêm ít nhất 30% đơn giá giờ của công việc ngày bình thường. Phần thứ ba là khoản cộng thêm ít nhất 20% đơn giá giờ ban ngày, dành riêng cho trường hợp vừa tăng ca vừa làm đêm. Cộng lại 150 cộng 30 cộng 20 ra 200% đơn giá giờ. Nếu giờ tăng ca đêm đó lại rơi vào ngày nghỉ tuần hoặc ngày lễ thì gốc đổi từ 150% thành 200% hoặc 300%, và bạn phải tự tính thêm dòng riêng cho trường hợp đó."
+    },
+    {
+      "q": "Đơn giá giờ chia cho 8 hay chia cho số giờ thực tế trong ngày?",
+      "a": "Chia 8, vì giờ làm việc bình thường theo luật là không quá 8 giờ một ngày. Công ty nào áp dụng tuần 44 giờ chia 6 ngày thì một ngày 7,33 giờ, khi đó bạn sửa số 8 trong công thức cột Đơn giá giờ thành 7.33. Đừng lấy số giờ thực tế của riêng ngày hôm đó làm mẫu số, vì như vậy ai làm ngày dài sẽ bị hạ đơn giá tăng ca, đúng ngược với mục đích của quy định."
+    },
+    {
+      "q": "Tiền tăng ca có phải đóng bảo hiểm xã hội không?",
+      "a": "Không. Tiền lương làm thêm giờ và tiền lương làm việc ban đêm không nằm trong tiền lương làm căn cứ đóng bảo hiểm xã hội. Vì vậy cột bảo hiểm ở bảng tính lương vẫn nhân với lương cơ bản, không nhân với tổng thu nhập đã gồm tăng ca. Nhưng tiền tăng ca vẫn tính vào thu nhập chịu thuế thu nhập cá nhân, nên phải cộng vào bảng lương."
+    },
+    {
+      "q": "Người lao động hưởng lương khoán hoặc lương sản phẩm thì dùng file này thế nào?",
+      "a": "Điền vào cột Lương tháng con số tiền lương bình quân thực trả của tháng đó, rồi giữ nguyên công chuẩn. Đơn giá giờ khi ấy là đơn giá bình quân, đúng với cách luật quy định cho hình thức trả lương theo sản phẩm. Cách này chỉ đúng khi bạn tính lại từng tháng chứ không lấy một con số cố định cho cả năm."
+    }
+  ],
+  "ctaText": "Học cách tự dựng bảng lương và bảng tăng ca đúng luật trên Excel",
+  "relatedSlugs": [
+    "bang-tinh-luong-nhan-vien",
+    "bang-cham-cong-nhan-vien",
+    "bang-cham-cong-theo-ca"
+  ],
+  "updatedAt": "2026-07-30",
+  "sheets": [
+    {
+      "name": "Lương làm thêm giờ",
+      "description": "Mỗi dòng là một nhân viên trong một tháng. Năm cột giờ tách theo bốn mức luật quy định, các cột tiền tự nhân với đơn giá giờ.",
+      "blankRows": 25,
+      "columns": [
+        { "key": "stt", "header": "STT", "type": "number", "width": 6 },
+        { "key": "maNV", "header": "Mã NV", "type": "text", "width": 12 },
+        { "key": "hoTen", "header": "Họ và tên", "type": "text", "width": 24 },
+        {
+          "key": "boPhan",
+          "header": "Bộ phận",
+          "type": "text",
+          "width": 16,
+          "validation": {
+            "type": "list",
+            "options": ["Kinh doanh", "Kế toán", "Nhân sự", "Kỹ thuật", "Kho vận"]
+          }
+        },
+        {
+          "key": "luongThang",
+          "header": "Lương tháng",
+          "type": "currency",
+          "width": 16
+        },
+        {
+          "key": "congChuan",
+          "header": "Công chuẩn",
+          "type": "number",
+          "width": 11,
+          "validation": { "type": "decimal", "min": 1, "max": 31 }
+        },
+        {
+          "key": "gioNgayThuong",
+          "header": "Giờ TC ngày thường",
+          "type": "number",
+          "width": 17,
+          "validation": { "type": "decimal", "min": 0, "max": 200 }
+        },
+        {
+          "key": "gioNgayNghi",
+          "header": "Giờ TC ngày nghỉ tuần",
+          "type": "number",
+          "width": 19,
+          "validation": { "type": "decimal", "min": 0, "max": 200 }
+        },
+        {
+          "key": "gioNgayLe",
+          "header": "Giờ TC ngày lễ",
+          "type": "number",
+          "width": 15,
+          "validation": { "type": "decimal", "min": 0, "max": 200 }
+        },
+        {
+          "key": "gioTangCaDem",
+          "header": "Giờ TC ban đêm",
+          "type": "number",
+          "width": 15,
+          "validation": { "type": "decimal", "min": 0, "max": 200 }
+        },
+        {
+          "key": "gioLamDem",
+          "header": "Giờ ca đêm thường",
+          "type": "number",
+          "width": 17,
+          "validation": { "type": "decimal", "min": 0, "max": 200 }
+        },
+        {
+          "key": "donGiaGio",
+          "header": "Đơn giá giờ",
+          "type": "formula",
+          "width": 14,
+          "format": "currency",
+          "formula": "=IF([hoTen]{row}=\"\",\"\",IFERROR(ROUND([luongThang]{row}/([congChuan]{row}*8),0),0))",
+          "note": "Lương tháng chia số công chuẩn rồi chia 8 giờ một ngày. IFERROR chặn lỗi chia cho 0 khi dòng chưa điền công chuẩn. Công ty áp dụng tuần 44 giờ thì sửa số 8 thành 7.33 ở đây, mọi cột tiền phía sau tự đổi theo."
+        },
+        {
+          "key": "tienNgayThuong",
+          "header": "Tiền TC ngày thường",
+          "type": "formula",
+          "width": 18,
+          "format": "currency",
+          "formula": "=IF([hoTen]{row}=\"\",\"\",ROUND([donGiaGio]{row}*[gioNgayThuong]{row}*150%,0))",
+          "note": "Mức 150% là mức tối thiểu cho giờ làm thêm vào ngày làm việc bình thường. Công ty trả cao hơn thì sửa 150% thành mức của mình, nhưng không được để thấp hơn."
+        },
+        {
+          "key": "tienNgayNghi",
+          "header": "Tiền TC ngày nghỉ tuần",
+          "type": "formula",
+          "width": 20,
+          "format": "currency",
+          "formula": "=IF([hoTen]{row}=\"\",\"\",ROUND([donGiaGio]{row}*[gioNgayNghi]{row}*200%,0))",
+          "note": "Giờ làm thêm vào ngày nghỉ hằng tuần trả ít nhất 200%. Ngày nghỉ hằng tuần là ngày công ty đã ấn định cho người đó nghỉ, nên với người làm ca thì có thể không phải Chủ nhật."
+        },
+        {
+          "key": "tienNgayLe",
+          "header": "Tiền TC ngày lễ",
+          "type": "formula",
+          "width": 16,
+          "format": "currency",
+          "formula": "=IF([hoTen]{row}=\"\",\"\",ROUND([donGiaGio]{row}*[gioNgayLe]{row}*300%,0))",
+          "note": "Giờ làm thêm vào ngày lễ, tết và ngày nghỉ có hưởng lương trả ít nhất 300%, và 300% này chưa bao gồm tiền lương ngày lễ mà người lao động vốn đã được hưởng."
+        },
+        {
+          "key": "tienTangCaDem",
+          "header": "Tiền TC ban đêm",
+          "type": "formula",
+          "width": 16,
+          "format": "currency",
+          "formula": "=IF([hoTen]{row}=\"\",\"\",ROUND([donGiaGio]{row}*[gioTangCaDem]{row}*200%,0))",
+          "note": "Mức 200% là tổng của ba phần cho cùng một giờ: 150% của giờ tăng ca ngày thường, cộng 30% phụ cấp làm ban đêm, cộng 20% dành riêng cho trường hợp vừa tăng ca vừa làm đêm."
+        },
+        {
+          "key": "tienPhuCapDem",
+          "header": "Phụ cấp ca đêm",
+          "type": "formula",
+          "width": 16,
+          "format": "currency",
+          "formula": "=IF([hoTen]{row}=\"\",\"\",ROUND([donGiaGio]{row}*[gioLamDem]{row}*30%,0))",
+          "note": "Chỉ là phần cộng thêm 30% cho giờ làm ban đêm theo lịch phân ca, không phải tiền tăng ca. Tiền lương của 8 giờ ca đêm đó vẫn nằm trong lương tháng ở bảng lương, nên ở đây chỉ tính phần 30%."
+        },
+        {
+          "key": "tongTienTangCa",
+          "header": "Tổng cộng",
+          "type": "formula",
+          "width": 16,
+          "format": "currency",
+          "formula": "=IF([hoTen]{row}=\"\",\"\",[tienNgayThuong]{row}+[tienNgayNghi]{row}+[tienNgayLe]{row}+[tienTangCaDem]{row}+[tienPhuCapDem]{row})",
+          "note": "Đây là con số bảng tính lương lấy sang. Nó chịu thuế thu nhập cá nhân nhưng không tính vào tiền lương đóng bảo hiểm xã hội, nên đừng cộng vào cột lương cơ bản."
+        },
+        {
+          "key": "tongGioTangCa",
+          "header": "Tổng giờ TC",
+          "type": "formula",
+          "width": 13,
+          "format": "number",
+          "formula": "=IF([hoTen]{row}=\"\",\"\",[gioNgayThuong]{row}+[gioNgayNghi]{row}+[gioNgayLe]{row}+[gioTangCaDem]{row})",
+          "note": "Cột để soát mức trần: một tháng không quá 40 giờ làm thêm, một năm không quá 200 giờ với công việc thông thường. Giờ ca đêm thường không cộng vào đây vì đó không phải giờ làm thêm."
+        }
+      ],
+      "sampleRows": [
+        {
+          "stt": 1,
+          "maNV": "NV001",
+          "hoTen": "Nguyễn Thị Mai",
+          "boPhan": "Kinh doanh",
+          "luongThang": 18000000,
+          "congChuan": 26,
+          "gioNgayThuong": 12,
+          "gioNgayNghi": 8,
+          "gioNgayLe": 0,
+          "gioTangCaDem": 0,
+          "gioLamDem": 0
+        },
+        {
+          "stt": 2,
+          "maNV": "NV002",
+          "hoTen": "Trần Văn Hùng",
+          "boPhan": "Kỹ thuật",
+          "luongThang": 15000000,
+          "congChuan": 26,
+          "gioNgayThuong": 6,
+          "gioNgayNghi": 0,
+          "gioNgayLe": 8,
+          "gioTangCaDem": 4,
+          "gioLamDem": 0
+        },
+        {
+          "stt": 3,
+          "maNV": "NV003",
+          "hoTen": "Lê Thu Hà",
+          "boPhan": "Kế toán",
+          "luongThang": 14000000,
+          "congChuan": 26,
+          "gioNgayThuong": 10,
+          "gioNgayNghi": 0,
+          "gioNgayLe": 0,
+          "gioTangCaDem": 0,
+          "gioLamDem": 0
+        },
+        {
+          "stt": 4,
+          "maNV": "NV004",
+          "hoTen": "Phạm Minh Đức",
+          "boPhan": "Kho vận",
+          "luongThang": 11000000,
+          "congChuan": 26,
+          "gioNgayThuong": 0,
+          "gioNgayNghi": 16,
+          "gioNgayLe": 0,
+          "gioTangCaDem": 6,
+          "gioLamDem": 48
+        },
+        {
+          "stt": 5,
+          "maNV": "NV005",
+          "hoTen": "Hoàng Thị Lan",
+          "boPhan": "Nhân sự",
+          "luongThang": 13000000,
+          "congChuan": 26,
+          "gioNgayThuong": 4,
+          "gioNgayNghi": 0,
+          "gioNgayLe": 0,
+          "gioTangCaDem": 0,
+          "gioLamDem": 0
+        }
+      ]
+    }
+  ]
+}
