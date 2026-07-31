@@ -1,0 +1,205 @@
+{
+  "slug": "bang-ke-thu-chi",
+  "category": "ke-toan",
+  "h1": "Mẫu Excel bảng kê thu chi theo khoản mục (có công thức sẵn)",
+  "metaTitle": "Mẫu Excel Bảng Kê Thu Chi - Tải Miễn Phí 2026",
+  "metaDesc": "Mẫu Excel bảng kê thu chi phân loại theo khoản mục và hình thức thanh toán, tự tách cột thu chi, cộng dồn dòng tiền ròng và cảnh báo chi tiền mặt từ 20 triệu.",
+  "primaryKeyword": "mẫu excel bảng kê thu chi",
+  "intro": "Mẫu Excel bảng kê thu chi này dùng để liệt kê mọi khoản tiền vào và tiền ra của doanh nghiệp trong kỳ, kèm khoản mục và hình thức thanh toán của từng khoản. Bạn chỉ nhập một cột số tiền và chọn Thu hay Chi, file tự tách sang hai cột riêng rồi cộng dồn ra dòng tiền ròng lũy kế. Khác với sổ quỹ tiền mặt chỉ theo dõi tiền trong két, bảng kê này gộp cả tiền mặt lẫn chuyển khoản, nên đọc được bức tranh dòng tiền của cả doanh nghiệp.",
+  "difficulty": "co-ban",
+  "features": [
+    "Nhập một cột số tiền, file tự tách thành cột Thu và cột Chi theo lựa chọn của bạn",
+    "Cột dòng tiền ròng lũy kế cộng dồn từ dòng trên, biết ngay tiền vào có bù nổi tiền ra không",
+    "Cảnh báo khoản chi tiền mặt từ 20 triệu trở lên — ngưỡng bắt buộc thanh toán không dùng tiền mặt",
+    "Khoản mục và hình thức thanh toán chọn từ danh sách, để lọc và cộng theo nhóm không bị lệch",
+    "Có sẵn 30 dòng trống đã cài công thức"
+  ],
+  "howToUse": [
+    {
+      "step": "Nhập thông tin khoản tiền",
+      "detail": "Mỗi khoản là một dòng: ngày phát sinh, nội dung, chọn khoản mục, chọn Thu hay Chi, chọn hình thức thanh toán, rồi nhập số tiền vào cột Số tiền. Luôn nhập số dương, việc là tiền ra hay tiền vào đã do cột Loại quyết định."
+    },
+    {
+      "step": "Để yên bốn cột cuối",
+      "detail": "Cột Thu, cột Chi, cột lũy kế và cột cảnh báo đều là công thức. Gõ đè lên là mất công thức của đúng dòng đó, và cột lũy kế bên dưới sẽ tính sai theo."
+    },
+    {
+      "step": "Đọc cột dòng tiền ròng lũy kế",
+      "detail": "Số ở dòng cuối cùng có dữ liệu là chênh lệch giữa tổng tiền vào và tổng tiền ra tính từ đầu bảng. Số âm nghĩa là trong kỳ này doanh nghiệp chi nhiều hơn thu, không phải lỗi file."
+    },
+    {
+      "step": "Xử lý các dòng bị cảnh báo",
+      "detail": "Dòng hiện cảnh báo về ngưỡng 20 triệu là khoản chi tiền mặt có nguy cơ không được tính vào chi phí được trừ và không được khấu trừ thuế giá trị gia tăng. Chuyển sang thanh toán qua ngân hàng trước khi chi là cách xử lý duy nhất, sau khi đã chi rồi thì không sửa được."
+    },
+    {
+      "step": "Cộng theo khoản mục khi cần báo cáo",
+      "detail": "Bật bộ lọc ở dòng tiêu đề, chọn một khoản mục rồi nhìn thanh trạng thái dưới cùng của Excel để đọc tổng. Cách này không cần viết thêm công thức nào."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Bảng kê thu chi khác sổ quỹ tiền mặt ở chỗ nào?",
+      "a": "Sổ quỹ tiền mặt chỉ ghi những gì ra vào két tiền mặt, và tồn quỹ của nó phải khớp với số tiền đếm được trong két. Bảng kê thu chi ghi mọi khoản bất kể tiền mặt hay chuyển khoản, nên nó trả lời câu hỏi về dòng tiền của doanh nghiệp chứ không phải câu hỏi về két. Nhiều đơn vị dùng song song cả hai."
+    },
+    {
+      "q": "Vì sao cảnh báo lấy mốc 20 triệu đồng?",
+      "a": "Đây là ngưỡng quen thuộc trong quy định về thanh toán không dùng tiền mặt: hóa đơn mua hàng hóa dịch vụ từ 20 triệu đồng trở lên phải thanh toán qua ngân hàng thì mới đủ điều kiện khấu trừ thuế giá trị gia tăng đầu vào và tính vào chi phí được trừ khi quyết toán thuế thu nhập doanh nghiệp. Cột cảnh báo chỉ nhắc, không chặn — và cần đối chiếu lại quy định hiện hành tại thời điểm bạn dùng."
+    },
+    {
+      "q": "Tôi muốn đổi mốc cảnh báo thì sửa ở đâu?",
+      "a": "Sửa trực tiếp số 20000000 trong công thức của cột Cảnh báo ở một dòng, rồi kéo công thức xuống các dòng còn lại. Nếu muốn thêm một mốc thứ hai, lồng thêm một hàm IF nữa vào trong."
+    },
+    {
+      "q": "Cột lũy kế có tự đúng khi tôi sắp xếp lại các dòng không?",
+      "a": "Không, và đây là điểm phải cẩn thận. Cột lũy kế lấy số của dòng ngay phía trên, nên nó chỉ có nghĩa khi các dòng đang xếp theo đúng trình tự phát sinh. Nhập đúng thứ tự ngày ngay từ đầu, đừng sắp xếp lại sau. Cần xem theo nhóm thì dùng bộ lọc thay vì sắp xếp, vì lọc không đổi thứ tự dòng."
+    }
+  ],
+  "ctaText": "Học cách dựng bảng kê và báo cáo dòng tiền trên Excel",
+  "relatedSlugs": ["so-quy-tien-mat", "bang-theo-doi-cong-no-phai-tra"],
+  "updatedAt": "2026-07-30",
+  "sheets": [
+    {
+      "name": "Bảng kê thu chi",
+      "description": "Liệt kê mọi khoản thu chi trong kỳ, gồm cả tiền mặt và chuyển khoản.",
+      "blankRows": 30,
+      "columns": [
+        { "key": "stt", "header": "STT", "type": "number", "width": 6 },
+        { "key": "ngay", "header": "Ngày", "type": "date", "width": 12 },
+        { "key": "noiDung", "header": "Nội dung", "type": "text", "width": 32 },
+        {
+          "key": "khoanMuc",
+          "header": "Khoản mục",
+          "type": "text",
+          "width": 20,
+          "validation": {
+            "type": "list",
+            "options": [
+              "Doanh thu bán hàng",
+              "Doanh thu dịch vụ",
+              "Thu khác",
+              "Mua hàng hóa",
+              "Lương và bảo hiểm",
+              "Thuê mặt bằng",
+              "Chi phí văn phòng",
+              "Thuế và lệ phí",
+              "Chi khác"
+            ]
+          }
+        },
+        {
+          "key": "loai",
+          "header": "Loại",
+          "type": "text",
+          "width": 10,
+          "validation": { "type": "list", "options": ["Thu", "Chi"] }
+        },
+        {
+          "key": "hinhThuc",
+          "header": "Hình thức",
+          "type": "text",
+          "width": 16,
+          "validation": { "type": "list", "options": ["Tiền mặt", "Chuyển khoản"] }
+        },
+        {
+          "key": "soTien",
+          "header": "Số tiền",
+          "type": "currency",
+          "width": 16,
+          "validation": { "type": "decimal", "min": 0, "max": 10000000000 }
+        },
+        {
+          "key": "tienThu",
+          "header": "Thu",
+          "type": "formula",
+          "width": 16,
+          "format": "currency",
+          "formula": "=IF([noiDung]{row}=\"\",\"\",IF([loai]{row}=\"Thu\",[soTien]{row},0))",
+          "note": "Tách riêng phần tiền vào: dòng nào chọn Loại là Thu thì lấy số tiền, còn lại để 0. Nhờ tách sẵn thế này mà cột lũy kế bên phải chỉ cần một phép cộng trừ đơn giản."
+        },
+        {
+          "key": "tienChi",
+          "header": "Chi",
+          "type": "formula",
+          "width": 16,
+          "format": "currency",
+          "formula": "=IF([noiDung]{row}=\"\",\"\",IF([loai]{row}=\"Chi\",[soTien]{row},0))",
+          "note": "Đối xứng với cột Thu, lấy số tiền của những dòng chọn Loại là Chi. Nhờ vậy bạn chỉ phải nhập số tiền một lần ở một cột duy nhất, không phải tự nhớ nên gõ vào cột nào."
+        },
+        {
+          "key": "luyKeRong",
+          "header": "Dòng tiền ròng lũy kế",
+          "type": "formula",
+          "width": 20,
+          "format": "currency",
+          "formula": "=IF([noiDung]{row}=\"\",\"\",N([luyKeRong]{row-1})+[tienThu]{row}-[tienChi]{row})",
+          "note": "Lấy số lũy kế của dòng ngay trên cộng tiền thu rồi trừ tiền chi của dòng này. Hàm N đọc ô tiêu đề ở dòng đầu tiên thành 0 nên cả cột dùng chung một công thức. Vì công thức trỏ lên đúng một dòng, các dòng phải nằm theo trình tự phát sinh và không được chừa dòng trống ở giữa."
+        },
+        {
+          "key": "canhBao",
+          "header": "Cảnh báo",
+          "type": "formula",
+          "width": 30,
+          "format": "text",
+          "formula": "=IF([noiDung]{row}=\"\",\"\",IF(AND([loai]{row}=\"Chi\",[hinhThuc]{row}=\"Tiền mặt\",[soTien]{row}>=20000000),\"Chi tiền mặt từ 20 triệu\",IF([soTien]{row}=0,\"Chưa nhập số tiền\",\"Hợp lệ\")))",
+          "note": "Hàm AND buộc cả ba điều kiện cùng đúng thì mới cảnh báo: là khoản chi, trả bằng tiền mặt, và từ 20 triệu đồng trở lên. Đây là ngưỡng mà khoản chi phải thanh toán qua ngân hàng mới đủ điều kiện khấu trừ thuế giá trị gia tăng và tính vào chi phí được trừ."
+        }
+      ],
+      "sampleRows": [
+        {
+          "stt": 1,
+          "ngay": "2026-07-02",
+          "noiDung": "Thu tiền bán hàng hợp đồng số 12",
+          "khoanMuc": "Doanh thu bán hàng",
+          "loai": "Thu",
+          "hinhThuc": "Chuyển khoản",
+          "soTien": 145000000
+        },
+        {
+          "stt": 2,
+          "ngay": "2026-07-04",
+          "noiDung": "Chi mua nguyên vật liệu lô tháng 7",
+          "khoanMuc": "Mua hàng hóa",
+          "loai": "Chi",
+          "hinhThuc": "Chuyển khoản",
+          "soTien": 62000000
+        },
+        {
+          "stt": 3,
+          "ngay": "2026-07-08",
+          "noiDung": "Chi tiền thuê kho tháng 7",
+          "khoanMuc": "Thuê mặt bằng",
+          "loai": "Chi",
+          "hinhThuc": "Tiền mặt",
+          "soTien": 25000000
+        },
+        {
+          "stt": 4,
+          "ngay": "2026-07-12",
+          "noiDung": "Thu tiền dịch vụ bảo trì quý III",
+          "khoanMuc": "Doanh thu dịch vụ",
+          "loai": "Thu",
+          "hinhThuc": "Chuyển khoản",
+          "soTien": 38000000
+        },
+        {
+          "stt": 5,
+          "ngay": "2026-07-15",
+          "noiDung": "Chi lương kỳ 1 tháng 7",
+          "khoanMuc": "Lương và bảo hiểm",
+          "loai": "Chi",
+          "hinhThuc": "Chuyển khoản",
+          "soTien": 96000000
+        },
+        {
+          "stt": 6,
+          "ngay": "2026-07-18",
+          "noiDung": "Chi mua văn phòng phẩm",
+          "khoanMuc": "Chi phí văn phòng",
+          "loai": "Chi",
+          "hinhThuc": "Tiền mặt",
+          "soTien": 4200000
+        }
+      ]
+    }
+  ]
+}

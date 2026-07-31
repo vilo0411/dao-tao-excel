@@ -20,6 +20,7 @@ colors:
   computed: "#0e6b4a"
   computed-bg: "#e6f2ec"
   flag: "#b45309"
+  chart: "#0d7350"
 
 typography:
   display-xl:
@@ -272,6 +273,41 @@ components:
     typography: "{typography.title-lg}"
     rounded: "{rounded.none}"
     padding: 20px 0
+  sheet-column-chip:
+    backgroundColor: "{colors.input-bg}"
+    borderColor: "{colors.input}"
+    textColor: "{colors.ink-soft}"
+    typography: "{typography.caption}"
+    rounded: "{rounded.none}"
+    padding: 2px 6px
+  sheet-shape-cell:
+    backgroundColor: "{colors.input-bg}"
+    borderColor: "{colors.input}"
+    rounded: "{rounded.none}"
+    width: 4px
+    height: 12px
+  sheet-chart-bar:
+    backgroundColor: "{colors.chart}"
+    textColor: "{colors.ink-soft}"
+    typography: "{typography.cell}"
+    rounded: "{rounded.none}"
+    height: 16px
+  sheet-chart-meter-track:
+    backgroundColor: "{colors.panel}"
+    borderColor: "{colors.rule}"
+    rounded: "{rounded.none}"
+    height: 16px
+  sheet-chart-line:
+    strokeColor: "{colors.chart}"
+    strokeWidth: 2px
+    backgroundColor: "{colors.chart}"
+    rounded: "{rounded.full}"
+  og-image:
+    backgroundColor: "{colors.paper}"
+    textColor: "{colors.ink}"
+    typography: "{typography.display-xl}"
+    rounded: "{rounded.none}"
+    padding: 52px
 ---
 
 ## Overview
@@ -430,6 +466,37 @@ This is the site's own dialect, sitting inside `components/SheetPreview.tsx`. It
 
 **`sheet-error-cell`** — `{colors.flag}` text for `#DIV/0!` and `#REF!` values.
 
+### Derived Spreadsheet Visuals
+
+Three components redraw a real sheet at smaller sizes so the listing and preview surfaces are not walls of prose. All three read from the same spec that generates the `.xlsx`, so none of them can drift from the file the way a screenshot would. All three obey the spreadsheet dialect: `{rounded.none}`, mono type, semantic colors kept at their meanings.
+
+**`sheet-column-chip`** — Up to five column names from sheet 0, drawn as a wrapping run of square-cornered cells inside `{component.card-grid-cell}` (`components/SheetThumb.tsx`), followed by a plain `+N cột` counter for what is hidden. Sequence columns ("STT") are dropped, and the first formula column is pulled to the end so a green cell always appears.
+
+This started as a genuine four-column, two-row *table* thumbnail and that version failed, for a reason worth recording: at a card's ~300px the sample data has to shrink to 10px, where it is simultaneously unreadable and loud. Worse, fake data manufactures its own noise — names truncated mid-word, and a formula cell that legitimately computes to `0` reading as a broken file. The only thing in a shrunken sheet that still carries meaning is the **column names**, so that is all this keeps. The general rule: when a visual has to shrink past its own legibility, cut what it says rather than the size of the type.
+
+Chips wrap rather than truncate. Vietnamese column names run from 3 to 22 characters, and forcing them onto one row guarantees a clipped name in every card — a clipped column name is not information.
+
+**`sheet-shape`** — The one-row form for `components/TemplateList.tsx`, where a 44px row cannot hold a table. A run of `{component.sheet-shape-cell}` chips answers the question that surface is actually asked: how much of this file does Excel fill in for you. Capped at 12 chips, and past that the run is **compressed proportionally rather than truncated**, so the blue/green ratio stays honest; the exact counts live in the screen-reader label.
+
+**`sheet-chart-*`** — A chart under each sheet preview, plotting one formula column (`components/SheetChart.tsx`). It takes **one of four forms, and the data picks the form**:
+
+| Form | Fires when | Because |
+|---|---|---|
+| `meter` | the column's format is `percent` | The track runs a fixed 0–100%, so the **shortfall** is visible. A relative bar hides it: four rows at 40% still produce one full-width bar. Overflow past 100% shows as a `{colors.coral}` tick at the end rather than a bar that breaks its own scale. |
+| `line` | a date column exists **and the sample rows are already in ascending date order** | That ordering test is the whole guard. Without it, "ngày vào làm" for five employees becomes an x-axis and the line draws a trend that does not exist. |
+| `diverging` | values span both signs | "5 days left" and "5 days overdue" are opposite facts of equal size. One direction plus a minus sign in the label makes the reader parse text to understand the picture. Both arms share one scale. |
+| `bar` | everything else — still about ten of the eighteen files | Comparing magnitude across rows is genuinely what most of these sheets ask. |
+
+Column priority is percent first, then the **last** numeric formula column: work sheets run left-to-right through intermediate steps, and the final column is the number the reader wants ("Thực lĩnh", "Tồn quỹ"). The caption always names the column and its letter, so the chart cannot quietly plot something other than what it claims.
+
+**Fills are `{colors.chart}`, a one-step-brighter member of the `{colors.computed}` hue family.** This is a second sanctioned promotion of a semantic color, and it passes the same test the bundle map passes: the chart redraws a formula column, so green still says "the number Excel computed" — the mark changed, the sentence did not. It is not `{colors.computed}` itself because at text size #0e6b4a is dark enough, while as a 16px fill its OKLCH chroma (0.097) sits under the 0.10 floor and the fill reads gray.
+
+The diverging pair is `{colors.chart}` / `{colors.coral}` — green-vs-red, the classic CVD trap — so it was **run through a validator rather than eyeballed**: it clears deuteranopia separation at ΔE 8.2 against a target of 8, plus the lightness, chroma, normal-vision, and contrast checks. **Changing either hex obliges re-running that check.** One series carries no legend (the caption names it) and every mark is directly labeled, which is also what discharges the missing-tooltip: a tooltip exists to reveal a hidden value, and no value here is hidden.
+
+This replaces an earlier rule that chart bars must be `{colors.ink}`. That rule came from `components/FeatureGrid.tsx`, whose bars are an abstract drawing of "the same chart in two apps" and are genuinely not a formula column; those stay ink.
+
+**`og-image`** — The social preview (`lib/og.tsx`, rendered through `next/og`). Same frame as a page: the formula-bar kicker from the homepage, `{typography.display-xl}` headline, then a slice of the file's real sheet bleeding off the right edge. Pages with no file to show (the course page) close on `{component.signature-coral-band}` instead. Satori supports only flexbox and cannot read CSS variables, so `OG_COLORS` restates the `@theme` hexes — **it is the one sanctioned duplicate of those values, and it has to be updated with them**.
+
 ### Bundle Map — the one sanctioned promotion of the semantic colors
 
 `components/SystemMap.tsx` draws a bundle as a spreadsheet, not a flowchart: square corners, mono labels, an A/B/C column strip across the top. Three columns are three roles — input, process, master.
@@ -461,7 +528,7 @@ It is the only place outside `SheetPreview` allowed to use `{colors.input}` and 
 - Don't bold display type. The loaded Archivo weights stop at 600 precisely so this stays impossible; don't add 700 back.
 - Don't add a gradient, mesh, or illustration behind the hero.
 - Don't introduce a `box-shadow`. Depth is color contrast.
-- Don't introduce accent colors beyond the declared signature set.
+- Don't introduce accent colors beyond the declared signature set. `{colors.chart}` is the one addition, and it is not an accent: it is a validated fill step of the `{colors.computed}` hue, admitted because a 16px fill needs chroma that a text color does not. Any further chart hue has to clear `validate_palette.js` before it gets a token.
 - Don't let `{colors.flag}` drift back toward red — it has to stay clearly distinct from `{colors.coral}`.
 
 ## Responsive Behavior

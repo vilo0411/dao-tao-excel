@@ -5,7 +5,7 @@ import { Faq } from "@/components/Faq";
 import { FeatureGrid } from "@/components/FeatureGrid";
 import { HeroSheet } from "@/components/HeroSheet";
 import { cardGridClass, TemplateCard } from "@/components/TemplateCard";
-import { getAllTemplates, toCardData } from "@/lib/templates";
+import { getAllTemplates, withThumb } from "@/lib/templates";
 import { absoluteUrl } from "@/lib/site";
 import { AUTHOR } from "@/lib/author";
 
@@ -64,45 +64,7 @@ export default function HomePage() {
         Từ lg trở lên chia hai cột: cột phải trước đây là khoảng trắng chết
         (h1 max-w-2xl trong khung max-w-5xl), giờ mang khối thông số.
       */}
-      <section className="relative grid items-start gap-x-12 gap-y-10 lg:grid-cols-[minmax(0,2fr)_minmax(0,1fr)]">
-        {/*
-          Chữ EXCEL bằng ô bảng tính, tan thành ô rời ở cuối — thủ pháp lấy từ
-          efexbg.svg của efex.vn, làm nền cho đúng khối hero này.
-
-          Nằm dọc, quay 90° như bản gốc, và chạy ở LỀ NGOÀI khung nội dung
-          (`-right-32`) chứ không ở trong cột phải. Trong cột phải thì khối thông
-          số nền bg-paper đặc cao ~164px che mất một chữ rưỡi đầu tiên; ở lề
-          ngoài thì không có gì che, cả chữ hiện đủ và mỗi chữ được ~104px.
-
-          Bề rộng dải bám theo lề, không gõ cứng: `min(189px, lề − 8px)`.
-
-          189px là cỡ GỐC của file SVG, tức ô 29px trên bước lưới 40px — đúng
-          cỡ ô efex dùng. Đây là trần: to hơn nữa là ảnh bị kéo giãn, ô mất nét
-          sắc. Còn `(100vw − 64rem) / 2` chính là lề phải, vì khung nội dung khoá
-          ở max-w-5xl = 64rem. Nên trên màn 1512px dải được đủ 189px, còn ở
-          1280px nó tự co về ~120px thay vì biến mất hay đẩy ra thanh cuộn.
-
-          Hai con số còn lại:
-
-          - `xl:block`. Dưới 1280px lề phải còn dưới ~110px, hẹp hơn thế thì
-            hoa văn không còn ra hình nữa, nên tắt hẳn.
-
-          - `aspect-[189/1349]` thay vì gõ cứng chiều cao: tỉ lệ đúng bằng
-            viewBox của file SVG, nên bề rộng co giãn thì chiều cao tự theo, chữ
-            không bao giờ bị méo hay bị cắt cụt ở chữ L.
-
-          Chữ cao tới ~1349px, dài hơn hero (~395px) nên nó chạy xuống quá bảng
-          demo. Không sao: nó ở ngoài khung, mà mọi khối nội dung đều nằm trong
-          khung nên không khối nào chồng lên nó.
-
-          -z-10 để nó nằm dưới chữ. Nền trắng đặt trên body nên nền vẫn được vẽ
-          vào canvas, dưới cả lớp z âm — hoa văn không bị nền trang ăn mất.
-        */}
-        <div
-          aria-hidden
-          className="pointer-events-none absolute top-0 -right-[calc((100vw-64rem)/2+8px)] -z-10 hidden aspect-[189/1349] w-[min(189px,calc((100vw-64rem)/2-8px))] bg-[url('/excel-wordmark.svg')] bg-top bg-no-repeat bg-size-[100%_auto] xl:block"
-        />
-
+      <section className="grid items-start gap-x-12 gap-y-10 lg:grid-cols-[minmax(0,2fr)_minmax(0,1fr)]">
         <div className="max-w-2xl">
           {/*
             Kicker dựng đúng hình thanh công thức của HeroSheet ngay bên dưới:
@@ -179,7 +141,66 @@ export default function HomePage() {
         này gom lại thành 4 câu scannable, để người lướt nhanh không phải đọc
         lại đoạn văn ở hero hay ở band coral mới nắm được vì sao khác.
       */}
-      <section className="mt-24">
+      <section className="relative mt-24">
+        {/*
+          Chữ EXCEL bằng ô bảng tính, tan thành ô rời ở cuối — thủ pháp lấy từ
+          efexbg.svg của efex.vn.
+
+          Nằm dọc, quay 90° như bản gốc, và chạy ở LỀ NGOÀI khung nội dung
+          (lề trái) chứ không ở trong một cột nào. Ở lề thì không có khối nền
+          đặc nào che, cả chữ hiện đủ và mỗi chữ được ~104px.
+
+          Neo từ khối "Vì sao khác" trở xuống chứ không từ hero hay bảng demo.
+          Hai khối trên là chỗ phải thuyết phục: hero có kicker, h1, khối thông
+          số và cặp nút; bảng demo thì cần người đọc chịu kéo thử một ô. Thêm
+          hoa văn ngang tầm mắt ở đó là thêm một thứ đòi lượt đọc. Bắt đầu ở
+          đây thì hai khối đầu sạch, hoa văn đi kèm đúng phần trang mà mắt đã
+          chuyển sang lướt.
+
+          Bề rộng và vị trí đều bám theo lề, không gõ cứng. `(100vw − 64rem) / 2`
+          chính là lề trái, vì khung nội dung khoá ở max-w-5xl = 64rem.
+
+          189px là cỡ GỐC của file SVG, tức ô 29px trên bước lưới 40px — đúng cỡ
+          ô efex dùng, và là trần: to hơn nữa là ảnh bị kéo giãn, ô mất nét sắc.
+
+          Hai hằng số trừ đi trong công thức là hai khoảng thở, đừng bỏ:
+          dải cách mép màn hình 40px, và cách khung nội dung ít nhất ~35px. Bản
+          trước chỉ chừa 12px với mép màn hình nên hoa văn đọc ra là bị màn hình
+          ép vào chứ không phải được đặt ở lề. Trên màn 1512px dải vẫn được đủ
+          189px sau khi trừ cả hai khoảng thở; ở 1280px nó tự co lại thay vì
+          biến mất hay đẩy ra thanh cuộn ngang.
+
+          Hai con số còn lại:
+
+          - `xl:block`. Dưới 1280px lề trái còn dưới ~110px, hẹp hơn thế thì
+            hoa văn không còn ra hình nữa, nên tắt hẳn.
+
+          - `aspect-[189/1349]` thay vì gõ cứng chiều cao: tỉ lệ đúng bằng
+            viewBox của file SVG, nên bề rộng co giãn thì chiều cao tự theo, chữ
+            không bao giờ bị méo hay bị cắt cụt ở chữ L.
+
+          Chữ cao tới ~1349px, dài hơn khối này nên nó chạy xuống quá lưới
+          "File mới nhất". Không sao: nó ở ngoài khung, mà mọi khối nội dung đều
+          nằm trong khung nên không khối nào chồng lên nó.
+
+          `mask-b-from-70%` là chỗ chữ tan vào giấy. Không có nó thì hoa văn đậm
+          đều suốt 1349px rồi dừng đột ngột giữa trang — đọc ra là một con tem
+          dán lên, chứ không phải nền.
+
+          70% không phải số tròn chọn bừa: bốn chữ E X C E chiếm tới ~960px
+          (24 ô × bước 40), nên mốc 70% (~944px) rơi đúng đầu chữ L. Bốn chữ đầu
+          giữ nguyên lực, chữ L nhạt dần rồi giao thẳng cho đuôi tan dựng sẵn
+          trong file SVG — mask lo chuyển sắc, đuôi lo hình, hai thứ nối vào
+          nhau ở cùng một chỗ. Hạ số này xuống thì mask ăn lấn vào chữ C.
+
+          -z-10 để nó nằm dưới chữ. Nền trắng đặt trên body nên nền vẫn được vẽ
+          vào canvas, dưới cả lớp z âm — hoa văn không bị nền trang ăn mất.
+        */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute top-0 -left-[calc((100vw-64rem)/2-20px)] -z-10 hidden aspect-[189/1349] w-[min(189px,calc((100vw-64rem)/2-44px))] bg-[url('/excel-wordmark.svg')] bg-top bg-no-repeat bg-size-[100%_auto] mask-b-from-70% xl:block"
+        />
+
         <h2 className="font-display text-3xl">Vì sao khác</h2>
         <div className="mt-6">
           <FeatureGrid />
@@ -191,7 +212,7 @@ export default function HomePage() {
           <h2 className="font-display text-3xl">File mới nhất</h2>
           <ul className={`mt-6 ${cardGridClass(templates.length)}`}>
             {templates.map((template) => (
-              <TemplateCard key={template.slug} template={toCardData(template)} />
+              <TemplateCard key={template.slug} template={withThumb(template)} />
             ))}
           </ul>
         </section>

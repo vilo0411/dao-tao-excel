@@ -1,0 +1,203 @@
+{
+  "slug": "bang-theo-doi-cong-no-phai-thu",
+  "category": "ke-toan",
+  "h1": "Mẫu Excel theo dõi công nợ phải thu khách hàng (tự phân nhóm tuổi nợ)",
+  "metaTitle": "Mẫu Excel Theo Dõi Công Nợ Phải Thu 2026",
+  "metaDesc": "Mẫu Excel theo dõi công nợ phải thu khách hàng, tự tính hạn thanh toán, số còn phải thu, số ngày quá hạn và xếp nhóm tuổi nợ cho từng hóa đơn. Tải miễn phí.",
+  "primaryKeyword": "mẫu excel theo dõi công nợ phải thu",
+  "intro": "Mẫu Excel theo dõi công nợ phải thu này quản lý nợ ở mức từng hóa đơn chứ không gộp theo khách hàng, vì đòi nợ là đòi theo hóa đơn cụ thể chứ không đòi một cục tổng. Bạn nhập ngày hóa đơn, số ngày được nợ, số tiền phải thu và số đã thu, file tự tính ra hạn thanh toán, số còn phải thu, số ngày quá hạn và xếp luôn hóa đơn đó vào nhóm tuổi nợ. Sắp xếp cột số ngày quá hạn từ lớn xuống là ra ngay danh sách cần gọi điện trước.",
+  "difficulty": "trung-cap",
+  "features": [
+    "Theo dõi theo từng hóa đơn, một khách hàng có thể có nhiều dòng",
+    "Tự tính hạn thanh toán từ ngày hóa đơn cộng số ngày được nợ",
+    "Tự tính số còn phải thu và số ngày quá hạn tại ngày chốt số liệu",
+    "Tự xếp nhóm tuổi nợ: trong hạn, quá hạn 1-30, 31-60, trên 60 ngày",
+    "Bắt được cả trường hợp thu vượt số tiền trên hóa đơn"
+  ],
+  "howToUse": [
+    {
+      "step": "Nhập ngày chốt số liệu",
+      "detail": "Cột Ngày chốt số liệu là ngày bạn muốn tính tuổi nợ, thường là ngày cuối tháng hoặc ngày hôm nay. Nhập vào dòng đầu rồi kéo xuống cho cả bảng cùng một ngày, vì so sánh tuổi nợ chỉ có nghĩa khi mọi dòng cùng chốt tại một thời điểm."
+    },
+    {
+      "step": "Nhập từng hóa đơn thành một dòng",
+      "detail": "Điền mã khách hàng, tên khách hàng, số hóa đơn, ngày hóa đơn và số ngày được nợ theo hợp đồng. Cùng một khách hàng có ba hóa đơn thì ghi ba dòng, đừng cộng gộp lại vì mỗi hóa đơn có hạn thanh toán riêng."
+    },
+    {
+      "step": "Cập nhật số đã thanh toán",
+      "detail": "Mỗi lần khách trả tiền, cộng thêm vào cột Đã thanh toán của đúng dòng hóa đơn đó. Bốn cột bên phải sẽ tự tính lại, kể cả nhóm tuổi nợ."
+    },
+    {
+      "step": "Sắp xếp theo số ngày quá hạn",
+      "detail": "Bấm mũi tên ở tiêu đề cột Số ngày quá hạn rồi chọn sắp xếp từ lớn đến nhỏ. Danh sách nợ lâu nhất nổi lên đầu, đó là thứ tự bạn nên gọi điện thu hồi."
+    },
+    {
+      "step": "Đối chiếu với khách hàng định kỳ",
+      "detail": "Cuối tháng, lọc theo một mã khách hàng rồi gửi các dòng còn phải thu cho họ xác nhận. Chênh lệch phát hiện sớm dễ xử lý hơn nhiều so với để cả năm mới đối chiếu một lần."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Sao không dùng hàm TODAY để tự lấy ngày hôm nay?",
+      "a": "Vì trang này hiển thị đúng con số mà Excel tính ra lúc dựng file, dùng TODAY thì con số đó đứng lại ở ngày dựng và nói sai vào hôm sau. Một cột ngày chốt nhập tay còn có lợi thế khác: bạn chốt được công nợ tại ngày 30/6 để đối chiếu, việc mà TODAY không làm được. Muốn tự động thì trong file tải về thay ô ngày chốt bằng công thức =TODAY() rồi kéo xuống."
+    },
+    {
+      "q": "Cột số còn phải thu ra số âm nghĩa là gì?",
+      "a": "Nghĩa là số đã thanh toán lớn hơn số tiền trên hóa đơn, và cột Nhóm tuổi nợ sẽ hiện Thu vượt - kiểm tra lại. Thường do khách trả gộp nhiều hóa đơn nhưng bạn ghi hết vào một dòng, hoặc gõ thừa số 0. Tách khoản tiền khách trả về đúng từng hóa đơn là hết."
+    },
+    {
+      "q": "Hàm MAX trong công thức số ngày quá hạn để làm gì?",
+      "a": "Ngày chốt trừ hạn thanh toán sẽ ra số âm với hóa đơn còn trong hạn, ví dụ âm 12 ngày. Hàm MAX so số đó với 0 và lấy số lớn hơn, nên hóa đơn chưa tới hạn hiện 0 thay vì một số âm khó đọc. Nhờ vậy cột này luôn trả lời đúng một câu hỏi: đã quá hạn bao nhiêu ngày."
+    },
+    {
+      "q": "Ngưỡng phân nhóm 30 và 60 ngày có bắt buộc không?",
+      "a": "Không, đây là cách chia phổ biến chứ không phải quy định. Nhiều doanh nghiệp bán lẻ chia dày hơn thành 1-15, 16-30, còn doanh nghiệp bán cho nhà máy lại chia thưa hơn. Sửa hai số 30 và 60 trong công thức cột Nhóm tuổi nợ rồi kéo xuống là đổi được, muốn thêm bậc thì lồng thêm một hàm IF."
+    },
+    {
+      "q": "Có nên dùng file này để trích lập dự phòng nợ phải thu khó đòi không?",
+      "a": "File cho bạn đúng dữ liệu đầu vào mà việc trích lập cần, đó là số còn phải thu và số ngày quá hạn của từng hóa đơn. Nhưng tỷ lệ trích lập theo từng mốc thời gian quá hạn là do quy định về trích lập dự phòng ấn định, và bút toán trích lập phải do kế toán thực hiện. Hãy lấy số từ đây rồi áp tỷ lệ hiện hành, đừng coi cột nhóm tuổi nợ là kết luận kế toán."
+    }
+  ],
+  "ctaText": "Học cách dựng bảng công nợ và báo cáo tuổi nợ trên Excel",
+  "relatedSlugs": ["bang-theo-doi-cong-no-phai-tra", "so-quy-tien-mat"],
+  "updatedAt": "2026-07-30",
+  "sheets": [
+    {
+      "name": "Công nợ phải thu",
+      "description": "Theo dõi công nợ khách hàng ở mức từng hóa đơn, kèm tuổi nợ tại ngày chốt.",
+      "blankRows": 30,
+      "columns": [
+        { "key": "stt", "header": "STT", "type": "number", "width": 6 },
+        { "key": "maKH", "header": "Mã KH", "type": "text", "width": 10 },
+        { "key": "tenKH", "header": "Tên khách hàng", "type": "text", "width": 28 },
+        { "key": "soHoaDon", "header": "Số hóa đơn", "type": "text", "width": 14 },
+        { "key": "ngayHoaDon", "header": "Ngày hóa đơn", "type": "date", "width": 14 },
+        {
+          "key": "soNgayNo",
+          "header": "Số ngày được nợ",
+          "type": "number",
+          "width": 14,
+          "validation": { "type": "whole", "min": 0, "max": 180 }
+        },
+        {
+          "key": "soTienPhaiThu",
+          "header": "Số tiền phải thu",
+          "type": "currency",
+          "width": 18,
+          "validation": { "type": "decimal", "min": 0, "max": 10000000000 }
+        },
+        {
+          "key": "daThanhToan",
+          "header": "Đã thanh toán",
+          "type": "currency",
+          "width": 18,
+          "validation": { "type": "decimal", "min": 0, "max": 10000000000 }
+        },
+        { "key": "ngayChotSo", "header": "Ngày chốt số liệu", "type": "date", "width": 15 },
+        {
+          "key": "hanThanhToan",
+          "header": "Hạn thanh toán",
+          "type": "formula",
+          "width": 14,
+          "format": "date",
+          "formula": "=IF([tenKH]{row}=\"\",\"\",[ngayHoaDon]{row}+[soNgayNo]{row})",
+          "note": "Ngày hóa đơn cộng thẳng số ngày được nợ. Excel lưu ngày dưới dạng số thứ tự nên cộng một số nguyên vào ngày sẽ ra ngày mới, không cần hàm nào khác."
+        },
+        {
+          "key": "conPhaiThu",
+          "header": "Còn phải thu",
+          "type": "formula",
+          "width": 18,
+          "format": "currency",
+          "formula": "=IF([tenKH]{row}=\"\",\"\",[soTienPhaiThu]{row}-[daThanhToan]{row})",
+          "note": "Số tiền trên hóa đơn trừ số khách đã trả cho chính hóa đơn đó. Bằng 0 là đã thu đủ, còn số âm nghĩa là đã thu vượt và cần rà lại việc ghi nhận khoản tiền khách trả."
+        },
+        {
+          "key": "soNgayQuaHan",
+          "header": "Số ngày quá hạn",
+          "type": "formula",
+          "width": 14,
+          "formula": "=IF([tenKH]{row}=\"\",\"\",IF([conPhaiThu]{row}<=0,0,MAX(0,[ngayChotSo]{row}-[hanThanhToan]{row})))",
+          "note": "Hóa đơn đã thu đủ thì cho về 0 vì không còn nợ để quá hạn. Còn nợ thì lấy ngày chốt trừ hạn thanh toán, bọc MAX với 0 để hóa đơn chưa tới hạn hiện 0 thay vì một số âm."
+        },
+        {
+          "key": "nhomTuoiNo",
+          "header": "Nhóm tuổi nợ",
+          "type": "formula",
+          "width": 24,
+          "format": "text",
+          "formula": "=IF([tenKH]{row}=\"\",\"\",IF([conPhaiThu]{row}<0,\"Thu vượt - kiểm tra lại\",IF([conPhaiThu]{row}=0,\"Đã thu đủ\",IF([soNgayQuaHan]{row}=0,\"Trong hạn\",IF([soNgayQuaHan]{row}<=30,\"Quá hạn 1-30 ngày\",IF([soNgayQuaHan]{row}<=60,\"Quá hạn 31-60 ngày\",\"Quá hạn trên 60 ngày\"))))))",
+          "note": "Năm hàm IF lồng nhau, xét lần lượt từ trường hợp bất thường tới trường hợp nặng dần. Thứ tự các nhánh quan trọng: phải loại hết hóa đơn đã thu đủ trước, nếu không một hóa đơn trả xong từ lâu vẫn bị xếp vào nhóm quá hạn trên 60 ngày."
+        }
+      ],
+      "sampleRows": [
+        {
+          "stt": 1,
+          "maKH": "KH001",
+          "tenKH": "Công ty TNHH An Phát",
+          "soHoaDon": "HD00125",
+          "ngayHoaDon": "2026-06-05",
+          "soNgayNo": 30,
+          "soTienPhaiThu": 88000000,
+          "daThanhToan": 0,
+          "ngayChotSo": "2026-07-31"
+        },
+        {
+          "stt": 2,
+          "maKH": "KH002",
+          "tenKH": "Công ty CP Minh Long",
+          "soHoaDon": "HD00131",
+          "ngayHoaDon": "2026-06-18",
+          "soNgayNo": 15,
+          "soTienPhaiThu": 42000000,
+          "daThanhToan": 42000000,
+          "ngayChotSo": "2026-07-31"
+        },
+        {
+          "stt": 3,
+          "maKH": "KH003",
+          "tenKH": "Cửa hàng Hoàng Gia",
+          "soHoaDon": "HD00140",
+          "ngayHoaDon": "2026-07-10",
+          "soNgayNo": 30,
+          "soTienPhaiThu": 26500000,
+          "daThanhToan": 10000000,
+          "ngayChotSo": "2026-07-31"
+        },
+        {
+          "stt": 4,
+          "maKH": "KH004",
+          "tenKH": "Công ty TNHH Đại Việt",
+          "soHoaDon": "HD00098",
+          "ngayHoaDon": "2026-04-20",
+          "soNgayNo": 45,
+          "soTienPhaiThu": 150000000,
+          "daThanhToan": 50000000,
+          "ngayChotSo": "2026-07-31"
+        },
+        {
+          "stt": 5,
+          "maKH": "KH005",
+          "tenKH": "Công ty CP Tân Tiến",
+          "soHoaDon": "HD00087",
+          "ngayHoaDon": "2026-03-12",
+          "soNgayNo": 30,
+          "soTienPhaiThu": 64000000,
+          "daThanhToan": 0,
+          "ngayChotSo": "2026-07-31"
+        },
+        {
+          "stt": 6,
+          "maKH": "KH001",
+          "tenKH": "Công ty TNHH An Phát",
+          "soHoaDon": "HD00151",
+          "ngayHoaDon": "2026-07-22",
+          "soNgayNo": 30,
+          "soTienPhaiThu": 35000000,
+          "daThanhToan": 0,
+          "ngayChotSo": "2026-07-31"
+        }
+      ]
+    }
+  ]
+}

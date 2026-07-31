@@ -24,6 +24,12 @@ const columnSchema = z
      *   `[key]` → chữ cái cột, `{row}` → số dòng hiện tại.
      * Ví dụ: "=IFERROR([ngayCong]{row}/[congChuan]{row},0)" → "=IFERROR(E5/D5,0)"
      *
+     * `{row-1}` trỏ lên dòng ngay trên, dùng cho các cột lũy kế kiểu số dư sổ
+     * quỹ hay tồn kho. Ở dòng dữ liệu đầu tiên nó rơi vào dòng tiêu đề, tức là
+     * chữ — nên công thức lũy kế phải bọc `N(...)` để chữ đọc thành 0 thay vì
+     * lỗi. Chỉ cho lùi lên, không cho `{row+1}`: trỏ xuống dòng chưa nhập là
+     * tạo vòng lặp tham chiếu.
+     *
      * Viết thẳng "E5" sẽ hỏng ngay khi chèn thêm cột; tham chiếu theo key thì
      * không, và cho phép validate lúc build xem cột được trỏ tới có tồn tại không.
      */
@@ -106,6 +112,18 @@ const sheetSchema = z
           message: `công thức cột "${col.key}" thiếu {row} — sẽ trỏ sai dòng khi điền xuống`,
           path: ["columns"],
         });
+      }
+      // Gõ nhầm thành {row -1} hay {row+1} thì token không khớp ROW_TOKEN, nên
+      // nó sẽ đi thẳng vào file .xlsx nguyên văn dấu ngoặc nhọn. Excel báo lỗi
+      // cú pháp lúc mở file, tức là lỗi chỉ lộ ra ở tay người tải về.
+      for (const [token] of col.formula.matchAll(/\{row[^}]*\}/g)) {
+        if (!/^\{row(?:-\d+)?\}$/.test(token)) {
+          ctx.addIssue({
+            code: "custom",
+            message: `công thức cột "${col.key}" dùng ${token} — chỉ chấp nhận {row} hoặc {row-N} (trỏ lên dòng trên)`,
+            path: ["columns"],
+          });
+        }
       }
     }
 
@@ -196,6 +214,18 @@ export type TemplateCardData = {
   difficulty: TemplateSpec["difficulty"];
   category: string;
   categoryName: string;
+  /**
+   * Mỗi cột của sheet đầu là ô nhập tay hay ô công thức. Một mảng boolean nên
+   * gần như không tốn byte nào khi serialize xuống HTML cho bộ lọc phía client,
+   * mà đủ để vẽ dải hình dạng cột ở danh sách dạng dòng.
+   */
+  shape: boolean[];
+  /**
+   * Danh sách cột rút gọn cho card. KHÔNG mặc định có: trang duy nhất dùng card
+   * là trang chủ với sáu file, trong khi trang thư viện đẩy cả thư viện xuống
+   * client. Xem `toCardData` / `withThumb`.
+   */
+  thumb?: ColumnMap;
 };
 
 export type Template = TemplateSpec & {
@@ -208,6 +238,241 @@ export type Template = TemplateSpec & {
   downloadUrl: string;
 };
 
+/*
+ * Định dạng giá trị ô để hiển thị.
+ *
+ * Nằm ở đây chứ không nằm trong SheetPreview vì giờ có bốn chỗ vẽ lại cùng một
+ * con số: bảng preview, thumbnail trên card, biểu đồ, và ảnh OG. Bốn cài đặt
+ * rời nhau thì cùng một ô sẽ hiện "17.510.000" ở chỗ này và "17510000" ở chỗ
+ * kia — mà lệch kiểu đó không có test nào bắt được, chỉ có mắt người.
+ *
+ * Hàm thuần, không đụng DOM, nên cả server component lẫn client component đều
+ * dùng được.
+ */
+
+const FORMATTERS: Record<string, (value: unknown) => string> = {
+  currency: (v) => Number(v).toLocaleString("vi-VN"),
+  percent: (v) => `${(Number(v) * 100).toFixed(1)}%`,
+  number: (v) => Number(v).toLocaleString("vi-VN"),
+};
+
+const ngay = new Intl.DateTimeFormat("vi-VN", {
+  day: "2-digit",
+  month: "2-digit",
+  year: "numeric",
+  timeZone: "UTC",
+});
+
+/**
+ * Ngày đến đây bằng hai dạng khác nhau và phải ra cùng một chuỗi.
+ *
+ * Ô nhập tay giữ nguyên chuỗi ISO của spec ("2026-07-09"). Ô công thức thì đi
+ * qua qa_check nên mang số serial của Excel — cột "Ngày cần báo trước" trả về
+ * 46524, và in thẳng con số đó lên trang thì vô nghĩa với người đọc.
+ *
+ * Mốc 0 của Excel là 30/12/1899 chứ không phải 31/12: Excel coi 1900 là năm
+ * nhuận nên đếm thừa một ngày, và lùi mốc đi một ngày là cách bù lại. Dùng UTC
+ * xuyên suốt để ngày không lệch theo múi giờ của người xem.
+ */
+export function formatDate(value: unknown): string {
+  const serial = Number(value);
+  const ms = Number.isNaN(serial)
+    ? Date.parse(String(value))
+    : Date.UTC(1899, 11, 30) + serial * 86_400_000;
+  return Number.isNaN(ms) ? String(value) : ngay.format(new Date(ms));
+}
+
+export function display(value: unknown, type: string): string {
+  if (value === undefined || value === null || value === "") return "";
+  if (type === "date") return formatDate(value);
+  const formatter = FORMATTERS[type];
+  if (!formatter) return String(value);
+  /*
+   * Cột công thức không khai báo `format` sẽ rơi về "number" ở chỗ gọi, nhưng
+   * công thức hoàn toàn có thể trả về chữ — cột "Xếp loại" cho ra "Đủ công".
+   * Ép sang số lúc đó in thẳng chữ NaN lên bảng, nên chỉ định dạng khi giá trị
+   * thật sự là số.
+   */
+  return Number.isNaN(Number(value)) ? String(value) : formatter(value);
+}
+
+/**
+ * Cắt chuỗi theo số ký tự thay vì để CSS cắt.
+ *
+ * Ba chỗ dùng lại mảnh bảng tính (ảnh OG, thumbnail trên card, dải hình dạng
+ * cột) đều có ô cao cố định, nên một chuỗi dài không được phép tự ngắt dòng.
+ * Cắt trong JS thì tính được ngay lúc dựng; để CSS cắt thì lỗi chỉ lộ ra khi
+ * nhìn bằng mắt, mà ảnh OG thì không ai nhìn lại sau khi đăng.
+ */
+export function clip(text: string, max: number): string {
+  return text.length <= max ? text : `${text.slice(0, max - 1).trimEnd()}…`;
+}
+
+/**
+ * Danh sách cột của một sheet, rút gọn đủ để vẽ trong một card.
+ *
+ * Bản đầu của thumbnail trên card là một BẢNG thu nhỏ thật: dải chữ cái cột,
+ * dòng tiêu đề, hai dòng dữ liệu. Nó hỏng vì một lý do đơn giản — ở bề ngang
+ * ~300px thì bốn dòng chữ 10px là bốn dòng không ai đọc, mà vẫn chiếm chỗ và
+ * vẫn đòi lượt nhìn. Tệ hơn, dữ liệu giả trong đó tự sinh ra rác: tên bị cắt
+ * giữa từ ("Công ty TNH…"), và một ô công thức trả về 0 thì đọc ra là file
+ * hỏng chứ không phải là dòng mẫu.
+ *
+ * Thứ duy nhất trong bảng đó mang thông tin ở cỡ này là TÊN CỘT. Nên chỉ giữ
+ * tên cột, bỏ hết phần còn lại.
+ */
+export type ColumnMap = {
+  /** Tên cột, không cắt chữ. */
+  names: string[];
+  /** Cột này do Excel tính hay người nhập. */
+  isFormula: boolean[];
+  /** Số cột không hiện, để card nói thật về phần nó giấu đi. */
+  more: number;
+  /** Tổng số cột công thức của sheet, kể cả cột không hiện. */
+  computedCount: number;
+};
+
+/**
+ * Cột "STT" và các cột đánh số thứ tự khác đều khai bề rộng rất hẹp. Chúng
+ * không nói gì về file — mọi bảng đều có một cột đếm dòng — nên bỏ khỏi bản
+ * rút gọn, nhường chỗ cho cột thật sự phân biệt được file này với file khác.
+ */
+const TRIVIAL_WIDTH = 6;
+
+export function toColumnMap(
+  sheet: TemplateSpec["sheets"][number],
+  { max = 5 }: { max?: number } = {},
+): ColumnMap {
+  const columns = sheet.columns.filter((c) => c.width > TRIVIAL_WIDTH);
+  const firstFormula = columns.findIndex((c) => c.type === "formula");
+
+  // Cột công thức luôn nằm cuối bảng (nhập trước, tính sau), nên lấy tuần tự
+  // là ra một danh sách toàn ô xanh dương — mất đúng thứ card cần khoe. Kéo
+  // cột công thức đầu tiên lên đứng cuối nhóm được chọn.
+  const picked = columns
+    .filter((_, i) => i !== firstFormula)
+    .slice(0, firstFormula >= 0 ? max - 1 : max);
+  if (firstFormula >= 0) picked.push(columns[firstFormula]);
+
+  return {
+    names: picked.map((c) => c.header),
+    isFormula: picked.map((c) => c.type === "formula"),
+    more: sheet.columns.length - picked.length,
+    computedCount: sheet.columns.filter((c) => c.type === "formula").length,
+  };
+}
+
+/**
+ * Một sheet thật rút xuống còn vài cột vài dòng, đủ để vẽ lại ở cỡ nhỏ.
+ *
+ * Cùng một cấu trúc phục vụ cả ảnh OG lẫn thumbnail trên card: hai chỗ đó vẽ
+ * cùng một bảng ở hai cỡ, nên chúng phải chọn cột giống hệt nhau. Hai bộ luật
+ * chọn cột rời nhau thì ảnh xem trước và card của cùng một file sẽ khoe hai
+ * bảng khác nhau.
+ */
+export type SheetStrip = {
+  /** Tiêu đề cột, theo đúng thứ tự trong file. */
+  headers: string[];
+  /** Cột này do Excel tính hay người nhập — quyết định màu ô. */
+  isFormula: boolean[];
+  /** Bề rộng cột, px. Chỗ vẽ co giãn thì dùng làm tỉ lệ. */
+  widths: number[];
+  /** Các dòng giá trị đã định dạng sẵn thành chuỗi. */
+  rows: string[][];
+};
+
+/**
+ * Bề rộng cột trong spec tính bằng SỐ KÝ TỰ (chuẩn của Excel), phải đổi sang px.
+ * Hệ số 9 là bề ngang một ký tự mono ở cỡ 20px; chặn hai đầu để một cột "Ghi
+ * chú" khai 60 ký tự không nuốt hết khung, và cột "STT" khai 4 ký tự vẫn đủ chỗ
+ * cho tiêu đề của nó.
+ */
+function columnPx(width: number, min: number, max: number): number {
+  return Math.max(min, Math.min(max, width * 9));
+}
+
+/**
+ * Rút một sheet xuống còn mảnh vừa khung.
+ *
+ * Chỉ lấy các cột đầu cho tới khi vượt quá bề ngang cho phép — phần thừa để
+ * khung cắt, và đó là chủ ý: một bảng tính bị cắt ở mép phải đọc ra là "còn
+ * nữa", đúng như file thật. Một bảng vừa khít trông như đã hết cột.
+ *
+ * Nhưng cắt tuần tự có một cái bẫy: cột công thức của các file này gần như luôn
+ * nằm ở cuối (nhập trước, tính sau), nên lấy sáu cột đầu là ra một mảnh bảng
+ * KHÔNG CÓ Ô XANH LÁ NÀO — tức mất đúng thứ cần khoe. Nên cột công thức đầu
+ * tiên luôn được kéo lên đứng ngay sau các cột nhập được chọn.
+ */
+export function toSheetStrip(
+  sheet: TemplateSpec["sheets"][number],
+  computed: Record<string, unknown>[] | undefined,
+  {
+    maxWidth = 1220,
+    maxRows = 2,
+    maxChars = 20,
+    /**
+     * Chặn dưới / chặn trên cho bề rộng một cột.
+     *
+     * Ảnh OG rộng 1200px nên sàn 96px là hợp lý — hẹp hơn thế thì tiêu đề cột
+     * không đọc được. Thumbnail trên card chỉ rộng ~300px, mà ở đó sàn 96px làm
+     * méo tỉ lệ: cột "STT" chiếm bằng cột "Họ và tên". Nên hai chỗ dùng hai bộ
+     * chặn khác nhau, còn luật CHỌN cột thì vẫn dùng chung.
+     */
+    minColumn = 96,
+    maxColumn = 230,
+  }: {
+    maxWidth?: number;
+    maxRows?: number;
+    maxChars?: number;
+    minColumn?: number;
+    maxColumn?: number;
+  } = {},
+): SheetStrip {
+  const firstFormula = sheet.columns.findIndex((c) => c.type === "formula");
+
+  const picked: { index: number; px: number }[] = [];
+  let used = 0;
+
+  // Chừa sẵn chỗ cho cột công thức sẽ kéo lên, nếu không cột nhập sẽ ăn hết.
+  const reserved =
+    firstFormula >= 0
+      ? columnPx(sheet.columns[firstFormula].width, minColumn, maxColumn)
+      : 0;
+
+  for (const [index, col] of sheet.columns.entries()) {
+    if (index === firstFormula) continue;
+    const px = columnPx(col.width, minColumn, maxColumn);
+    if (used + px + reserved > maxWidth) break;
+    picked.push({ index, px });
+    used += px;
+  }
+
+  if (firstFormula >= 0) {
+    picked.push({ index: firstFormula, px: reserved });
+  }
+
+  const columns = picked.map((p) => sheet.columns[p.index]);
+
+  return {
+    headers: columns.map((c) => clip(c.header, maxChars + 2)),
+    isFormula: columns.map((c) => c.type === "formula"),
+    widths: picked.map((p) => p.px),
+    rows: sheet.sampleRows.slice(0, maxRows).map((row, rowIndex) =>
+      columns.map((col) => {
+        if (col.type !== "formula")
+          return clip(display(row[col.key], col.type), maxChars);
+        // Giá trị ô công thức lấy từ data/computed — tức là con số Excel THẬT
+        // sự tính ra, đã qua qa_check. Chưa chạy pipeline thì để trống còn hơn
+        // in một con số bịa ra.
+        const value = computed?.[rowIndex]?.[col.key];
+        return value === undefined
+          ? ""
+          : clip(display(value, col.format ?? "number"), maxChars);
+      }),
+    ),
+  };
+}
+
 /** Chỉ số cột (0-based) → chữ cái cột Excel: 0→A, 25→Z, 26→AA. */
 export function columnLetter(index: number): string {
   let letter = "";
@@ -219,6 +484,9 @@ export function columnLetter(index: number): string {
   }
   return letter;
 }
+
+/** `{row}` → dòng hiện tại, `{row-1}` → dòng ngay trên. */
+const ROW_TOKEN = /\{row(?:-(\d+))?\}/g;
 
 /**
  * Đổi công thức dạng `[key]{row}` sang công thức Excel thật.
@@ -233,5 +501,7 @@ export function resolveFormula(
   const letters = new Map(columns.map((c, i) => [c.key, columnLetter(i)]));
   return formula
     .replace(/\[([^\]]+)\]/g, (match, key: string) => letters.get(key) ?? match)
-    .replaceAll("{row}", String(row));
+    .replace(ROW_TOKEN, (_, back?: string) =>
+      String(row - (back ? Number(back) : 0)),
+    );
 }

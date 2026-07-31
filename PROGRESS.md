@@ -12,15 +12,15 @@ Cập nhật file này mỗi khi làm xong một template hoặc một hạng m�
 | Hạng mục | Xong | Tổng | |
 | :---- | ---: | ---: | :---- |
 | Template `nhan-su` | 13 | 13 | `██████████` 100% |
-| Template `ke-toan` | 0 | 12 | `░░░░░░░░░░` 0% |
+| Template `ke-toan` | 5 | 12 | `████░░░░░░` 42% |
 | Template `quan-ly-cong-viec` | 0 | 12 | `░░░░░░░░░░` 0% |
-| **Tổng template** | **13** | **37** | `███░░░░░░░` 35% |
+| **Tổng template** | **18** | **37** | `█████░░░░░` 49% |
 | Bộ file | 1 | 3 | `███░░░░░░░` 33% |
 | Hạ tầng | 14 | 19 | `███████░░░` 74% |
 
 **Giai đoạn hiện tại:** A — nội dung đã đủ, còn lại là rà nghiệp vụ và lên domain.
 **Chặn giai đoạn B:** cần 12 trang qua DoD + lên domain thật + GSC nhận sitemap.
-Nút cổ chai đã đổi: không còn là viết spec mà là **cột Rà** — 13 trang đang chờ người rà soát nghiệp vụ.
+Nút cổ chai đã đổi: không còn là viết spec mà là **cột Rà** — 18 trang đang chờ người rà soát nghiệp vụ, và nhóm kế toán còn cần người rà gắt hơn nhóm nhân sự.
 
 ---
 
@@ -98,15 +98,15 @@ Bộ đủ 100% node `live` thì khai thêm khối `bundle`: toàn bộ sheet n�
 
 ## Kế toán · Tài chính — `/mau-excel/ke-toan`
 
-CTA: `consult` · Hub chưa mở (cần ≥ 5 template)
+CTA: `consult` · **Hub đã đủ ngưỡng mở** (5/5 template tối thiểu)
 
 | # | Slug | Spec | File | Rà | Live |
 | :--- | :---- | :---: | :---: | :---: | :---: |
-| 1 | `so-quy-tien-mat` | ⬜ | ⬜ | ⬜ | ⬜ |
-| 2 | `bang-ke-thu-chi` | ⬜ | ⬜ | ⬜ | ⬜ |
-| 3 | `bang-theo-doi-cong-no-phai-thu` | ⬜ | ⬜ | ⬜ | ⬜ |
-| 4 | `bang-theo-doi-cong-no-phai-tra` | ⬜ | ⬜ | ⬜ | ⬜ |
-| 5 | `so-kho-nhap-xuat-ton` | ⬜ | ⬜ | ⬜ | ⬜ |
+| 1 | `so-quy-tien-mat` | ✅ | ✅ | ⬜ | ⬜ |
+| 2 | `bang-ke-thu-chi` | ✅ | ✅ | ⬜ | ⬜ |
+| 3 | `bang-theo-doi-cong-no-phai-thu` | ✅ | ✅ | ⬜ | ⬜ |
+| 4 | `bang-theo-doi-cong-no-phai-tra` | ✅ | ✅ | ⬜ | ⬜ |
+| 5 | `so-kho-nhap-xuat-ton` | ✅ | ✅ | ⬜ | ⬜ |
 | 6 | `bang-theo-doi-dong-tien` | ⬜ | ⬜ | ⬜ | ⬜ |
 | 7 | `bang-tinh-khau-hao-tai-san-co-dinh` | ⬜ | ⬜ | ⬜ | ⬜ |
 | 8 | `bang-ke-hoa-don-dau-vao-dau-ra` | ⬜ | ⬜ | ⬜ | ⬜ |
@@ -114,6 +114,17 @@ CTA: `consult` · Hub chưa mở (cần ≥ 5 template)
 | 10 | `bao-cao-ket-qua-kinh-doanh` | ⬜ | ⬜ | ⬜ | ⬜ |
 | 11 | `bang-tinh-gia-thanh-san-pham` | ⬜ | ⬜ | ⬜ | ⬜ |
 | 12 | `bang-du-toan-ngan-sach` | ⬜ | ⬜ | ⬜ | ⬜ |
+
+**Ghi chú rà nghiệp vụ — đọc trước khi rà:**
+
+Nhóm kế toán khác nhóm nhân sự ở một điểm: sai số ở đây không chỉ làm trang mất uy tín mà còn kéo người dùng vào rủi ro thuế. Bốn điểm dưới đây máy không bắt được.
+
+- Số 2: mốc **20 triệu đồng** cho cảnh báo chi tiền mặt. Đây là ngưỡng bắt buộc thanh toán không dùng tiền mặt để được khấu trừ thuế GTGT đầu vào và tính vào chi phí được trừ. Phải xác nhận mốc này còn đúng ở thời điểm publish, và xác nhận cách diễn đạt trong FAQ không bị đọc thành lời khuyên thuế.
+- Số 3: bốn bậc tuổi nợ 0 / 1-30 / 31-60 / trên 60 ngày là quy ước quản trị, **không phải** bậc trích lập dự phòng nợ khó đòi. FAQ đã nói rõ chỗ này — nếu sửa lời, đừng làm mất ranh giới đó.
+- Số 4: ngưỡng cảnh báo **7 ngày** trước hạn trả, và cách xử lý chiết khấu thanh toán sớm (file khuyên hạch toán riêng như thu nhập tài chính, không trừ thẳng vào công nợ).
+- Số 5: cột giá trị tồn kho nhân đúng một đơn giá cho cả dòng, tức chỉ đúng với **bình quân gia quyền**. Đã ghi trong FAQ là không thay được cách tính giá theo lô hay FIFO.
+
+Số 1 và 5 còn một ràng buộc chung: file khai là công cụ theo dõi và đối chiếu, không khai là sổ sách chính thức theo chế độ kế toán. Giữ nguyên ranh giới đó khi biên tập lại.
 
 ---
 
@@ -155,6 +166,7 @@ CTA: `consult` · Hub chưa mở (cần ≥ 5 template)
 - [x] `/khoa-hoc-excel` + form lead + `/khoa-hoc-excel/cam-on`
 - [x] CI deploy bản xem thử lên GitHub Pages (chặn index)
 - [x] Lớp bộ file: schema + loader (`lib/systems*.ts`), `/mau-excel/bo-file` + `/mau-excel/bo-file/[slug]`, sơ đồ `SystemMap`, dải `SystemStrip` trên trang file lẻ, JSON-LD `Collection` + `ItemList` + `isPartOf`
+- [x] **Tham chiếu dòng trên** trong công thức spec: ngoài `{row}` còn dùng được `{row-N}`. Đây là thứ mở khóa cả nhóm cột lũy kế của kế toán (tồn quỹ, dòng tiền ròng). Chỉ cho lùi lên, không cho `{row+N}` — trỏ xuống là tạo vòng lặp tham chiếu; schema chặn cả token gõ sai kiểu `{row -1}`, vốn sẽ lọt nguyên văn dấu ngoặc nhọn vào file và chỉ lộ ra ở tay người tải về
 - [x] **File gộp**: khối `bundle` trong spec bộ, `scripts/build_bundle.py`, cú pháp `[Tên sheet!key]` cho tham chiếu xuyên sheet, cổng QA kiểm khóa nối và kiểm lan truyền đầu-cuối
 
 ### Còn lại
@@ -171,6 +183,7 @@ CTA: `consult` · Hub chưa mở (cần ≥ 5 template)
 
 | Ngày | Việc |
 | :---- | :---- |
+| 30/07/2026 | **Mở nhóm `ke-toan` với 5 template đầu**: sổ quỹ tiền mặt, bảng kê thu chi, công nợ phải thu, công nợ phải trả, sổ kho nhập xuất tồn — vừa đủ ngưỡng 5 để mở hub. Mở rộng cú pháp công thức thêm `{row-N}` để cột lũy kế trỏ được lên dòng trên; trước đó cả nhóm cột số dư lũy kế là bất khả thi vì QA cấm tham chiếu tuyệt đối `$`, mà `SUM` neo từ dòng đầu thì gãy khi người dùng kéo công thức xuống |
 | 30/07/2026 | **Xong 8 template `nhan-su` còn lại** — nhóm nhân sự đủ 13/13. Thêm định dạng ngày cho `SheetPreview` (cột công thức trả serial Excel, trước đó in ra số trần). Sửa `bang-cham-cong-theo-ca`: nghỉ giữa giờ của ca liên tục được tính vào giờ làm theo Điều 109, trước đó trừ cho mọi ca nên ca đêm đủ 8 tiếng chỉ ra 0,94 công |
 | 28/07/2026 | **File gộp** cho `quan-ly-nhan-su-thang`: 6 sheet trong một workbook, 17 công thức nối. Viết `danh-sach-nhan-vien` + `bang-theo-doi-nghi-phep`. Bảng lương thêm cột công nên lương mới thực sự phụ thuộc chấm công |
 | 28/07/2026 | Lớp **bộ file**: `/mau-excel/bo-file` + trang bộ có sơ đồ liên kết, bộ `quan-ly-nhan-su-thang`, file tổng `bang-tong-hop-nhan-su-thang` |

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { SheetThumb } from "@/components/SheetThumb";
 import { DIFFICULTY_LABEL, type TemplateCardData } from "@/lib/schema";
 
 /**
@@ -33,6 +34,15 @@ export function TemplateCard({ template }: { template: TemplateCardData }) {
       >
         <h3 className="font-display font-medium text-balance">{template.h1}</h3>
         <p className="mt-3 flex-1 text-sm text-ink-soft">{template.metaDesc}</p>
+
+        {/*
+          Dải cột đứng SAU đoạn mô tả chứ không đứng đầu card. Đặt lên đầu thì
+          nó thành hình minh họa cho một cái tiêu đề chưa ai đọc, và cả lưới sáu
+          card biến thành sáu mảng ô màu na ná nhau — mắt không còn bám vào tên
+          file nữa. Đặt ở đây thì thứ tự đọc là: file này làm gì → gồm những cột
+          nào → mở ra.
+        */}
+        {template.thumb && <SheetThumb map={template.thumb} />}
 
         <div className="mt-5 flex flex-wrap items-center gap-x-3 gap-y-2">
           {/* Hàm được trích tự động từ công thức thật trong file. */}

@@ -1,0 +1,199 @@
+{
+  "slug": "bang-theo-doi-cong-no-phai-tra",
+  "category": "ke-toan",
+  "h1": "Mẫu Excel theo dõi công nợ phải trả nhà cung cấp (cảnh báo sắp đến hạn)",
+  "metaTitle": "Mẫu Excel Theo Dõi Công Nợ Phải Trả 2026",
+  "metaDesc": "Mẫu Excel theo dõi công nợ phải trả nhà cung cấp, tự tính hạn thanh toán, số còn phải trả, số ngày còn lại và cảnh báo hóa đơn sắp đến hạn. Tải miễn phí.",
+  "primaryKeyword": "mẫu excel theo dõi công nợ phải trả",
+  "intro": "Mẫu Excel theo dõi công nợ phải trả này quản lý các hóa đơn mua hàng chưa thanh toán cho nhà cung cấp, theo dõi ở mức từng hóa đơn kèm hạn thanh toán riêng của nó. Khác với bảng công nợ phải thu vốn nhìn về quá khứ để đòi nợ, bảng này nhìn về phía trước: cột số ngày còn lại đếm ngược tới hạn trả, và file tự bật cảnh báo với những hóa đơn còn dưới bảy ngày. Nhờ vậy bạn thu xếp được dòng tiền trước khi tới hạn thay vì bị nhà cung cấp gọi nhắc.",
+  "difficulty": "trung-cap",
+  "features": [
+    "Theo dõi theo từng hóa đơn mua hàng, mỗi hóa đơn có hạn thanh toán riêng",
+    "Cột số ngày còn lại đếm ngược tới hạn trả, số âm là đã quá hạn",
+    "Tự cảnh báo hóa đơn sắp đến hạn trong vòng bảy ngày",
+    "Tự tính số còn phải trả và bắt được trường hợp trả vượt hóa đơn",
+    "Sắp xếp theo số ngày còn lại là ra ngay lịch chi tiền của kỳ tới"
+  ],
+  "howToUse": [
+    {
+      "step": "Nhập ngày chốt số liệu",
+      "detail": "Cột Ngày chốt số liệu là mốc để đếm ngược, thường là ngày hôm nay. Nhập vào dòng đầu rồi kéo xuống cả bảng, vì các dòng phải cùng chốt một ngày thì so sánh mới có nghĩa."
+    },
+    {
+      "step": "Nhập từng hóa đơn mua hàng",
+      "detail": "Điền mã nhà cung cấp, tên, số hóa đơn, ngày hóa đơn và số ngày được nợ theo hợp đồng mua bán. Một nhà cung cấp giao nhiều đợt thì ghi nhiều dòng, đừng cộng gộp vì hạn thanh toán của mỗi đợt khác nhau."
+    },
+    {
+      "step": "Cập nhật mỗi lần chi trả",
+      "detail": "Trả tiền đợt nào thì cộng vào cột Đã thanh toán của đúng dòng hóa đơn đó. Bốn cột bên phải tự tính lại, hóa đơn trả xong sẽ tự chuyển sang trạng thái Đã trả đủ và thôi cảnh báo."
+    },
+    {
+      "step": "Sắp xếp theo số ngày còn lại",
+      "detail": "Bấm mũi tên ở tiêu đề cột Số ngày còn lại rồi sắp xếp từ nhỏ đến lớn. Hóa đơn quá hạn mang số âm nên nổi lên đầu, ngay sau đó là những hóa đơn sắp phải trả."
+    },
+    {
+      "step": "Lập kế hoạch chi tiền hằng tuần",
+      "detail": "Đầu tuần, lọc cột Trạng thái lấy hai nhóm quá hạn và sắp đến hạn, cộng cột Còn phải trả của các dòng đó lại. Con số ấy chính là số tiền bạn phải chuẩn bị trong tuần."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Vì sao cột số ngày còn lại lại có số âm, trong khi bảng phải thu thì không?",
+      "a": "Vì hai bảng trả lời hai câu hỏi khác nhau. Bảng phải thu hỏi đã quá hạn bao lâu, nên nó chặn về 0 với hóa đơn chưa tới hạn. Bảng phải trả hỏi còn bao nhiêu ngày nữa, nên nó giữ nguyên dấu âm cho hóa đơn đã trễ. Nhờ giữ dấu âm mà chỉ cần sắp xếp tăng dần là hóa đơn trễ nhất tự lên đầu bảng."
+    },
+    {
+      "q": "Ngưỡng cảnh báo bảy ngày đổi được không?",
+      "a": "Được, sửa số 7 trong công thức cột Trạng thái rồi kéo xuống. Chọn con số bằng đúng thời gian doanh nghiệp bạn cần để duyệt chi và chuyển tiền: nơi duyệt trong ngày thì ba ngày là đủ, nơi phải trình ký nhiều cấp thì để mười ngày sẽ an toàn hơn."
+    },
+    {
+      "q": "Trả trước hạn để hưởng chiết khấu thì theo dõi thế nào?",
+      "a": "Cứ nhập số ngày được nợ theo đúng hợp đồng, đừng rút ngắn lại, vì cột này là căn cứ pháp lý của khoản nợ. Điều kiện chiết khấu thanh toán sớm nên ghi ở một cột ghi chú thêm, còn phần chiết khấu thực nhận là một khoản thu nhập tài chính và phải hạch toán riêng chứ không trừ thẳng vào công nợ."
+    },
+    {
+      "q": "Sao không dùng hàm TODAY để tự lấy ngày hôm nay?",
+      "a": "Vì trang này hiển thị đúng con số Excel tính ra lúc dựng file, dùng TODAY thì con số đó đứng lại ở ngày dựng và sai vào hôm sau. Cột ngày chốt nhập tay còn cho bạn chốt công nợ tại một ngày trong quá khứ để đối chiếu. Trong file tải về, thay ô ngày chốt bằng công thức =TODAY() rồi kéo xuống là có bản tự cập nhật."
+    }
+  ],
+  "ctaText": "Học cách dựng bảng công nợ và kế hoạch dòng tiền trên Excel",
+  "relatedSlugs": ["bang-theo-doi-cong-no-phai-thu", "bang-ke-thu-chi"],
+  "updatedAt": "2026-07-30",
+  "sheets": [
+    {
+      "name": "Công nợ phải trả",
+      "description": "Theo dõi hóa đơn mua hàng chưa thanh toán, kèm số ngày còn lại tới hạn trả.",
+      "blankRows": 30,
+      "columns": [
+        { "key": "stt", "header": "STT", "type": "number", "width": 6 },
+        { "key": "maNCC", "header": "Mã NCC", "type": "text", "width": 10 },
+        { "key": "tenNCC", "header": "Tên nhà cung cấp", "type": "text", "width": 28 },
+        { "key": "soHoaDon", "header": "Số hóa đơn", "type": "text", "width": 14 },
+        { "key": "ngayHoaDon", "header": "Ngày hóa đơn", "type": "date", "width": 14 },
+        {
+          "key": "soNgayDuocNo",
+          "header": "Số ngày được nợ",
+          "type": "number",
+          "width": 14,
+          "validation": { "type": "whole", "min": 0, "max": 180 }
+        },
+        {
+          "key": "soTienPhaiTra",
+          "header": "Số tiền phải trả",
+          "type": "currency",
+          "width": 18,
+          "validation": { "type": "decimal", "min": 0, "max": 10000000000 }
+        },
+        {
+          "key": "daThanhToan",
+          "header": "Đã thanh toán",
+          "type": "currency",
+          "width": 18,
+          "validation": { "type": "decimal", "min": 0, "max": 10000000000 }
+        },
+        { "key": "ngayChotSo", "header": "Ngày chốt số liệu", "type": "date", "width": 15 },
+        {
+          "key": "hanThanhToan",
+          "header": "Hạn thanh toán",
+          "type": "formula",
+          "width": 14,
+          "format": "date",
+          "formula": "=IF([tenNCC]{row}=\"\",\"\",[ngayHoaDon]{row}+[soNgayDuocNo]{row})",
+          "note": "Ngày hóa đơn cộng số ngày được nợ theo hợp đồng. Excel lưu ngày dưới dạng số thứ tự nên cộng thẳng một số nguyên vào ngày là ra ngày mới."
+        },
+        {
+          "key": "conPhaiTra",
+          "header": "Còn phải trả",
+          "type": "formula",
+          "width": 18,
+          "format": "currency",
+          "formula": "=IF([tenNCC]{row}=\"\",\"\",[soTienPhaiTra]{row}-[daThanhToan]{row})",
+          "note": "Số tiền trên hóa đơn trừ số đã chi trả cho chính hóa đơn đó. Bằng 0 là xong, còn số âm nghĩa là đã chuyển thừa tiền cho nhà cung cấp và cần đòi lại hoặc bù trừ vào đơn sau."
+        },
+        {
+          "key": "soNgayConLai",
+          "header": "Số ngày còn lại",
+          "type": "formula",
+          "width": 14,
+          "formula": "=IF([tenNCC]{row}=\"\",\"\",IF([conPhaiTra]{row}<=0,0,[hanThanhToan]{row}-[ngayChotSo]{row}))",
+          "note": "Hạn thanh toán trừ ngày chốt: số dương là còn bấy nhiêu ngày nữa, số âm là đã trễ bấy nhiêu ngày. Hóa đơn trả xong cho về 0 để không lẫn vào danh sách cần chi tiền."
+        },
+        {
+          "key": "trangThai",
+          "header": "Trạng thái",
+          "type": "formula",
+          "width": 26,
+          "format": "text",
+          "formula": "=IF([tenNCC]{row}=\"\",\"\",IF([conPhaiTra]{row}<0,\"Trả vượt - kiểm tra lại\",IF([conPhaiTra]{row}=0,\"Đã trả đủ\",IF([soNgayConLai]{row}<0,\"Quá hạn\",IF([soNgayConLai]{row}<=7,\"Sắp đến hạn\",\"Trong hạn\")))))",
+          "note": "Bốn hàm IF lồng nhau xét lần lượt: trả vượt, trả đủ, quá hạn, rồi mới tới ngưỡng bảy ngày. Phải loại hết hóa đơn đã trả đủ trước, nếu không một hóa đơn thanh toán xong từ lâu vẫn bị xếp vào nhóm quá hạn."
+        }
+      ],
+      "sampleRows": [
+        {
+          "stt": 1,
+          "maNCC": "NCC01",
+          "tenNCC": "Công ty TNHH Vật tư Hòa Bình",
+          "soHoaDon": "HD07712",
+          "ngayHoaDon": "2026-06-25",
+          "soNgayDuocNo": 30,
+          "soTienPhaiTra": 120000000,
+          "daThanhToan": 0,
+          "ngayChotSo": "2026-07-31"
+        },
+        {
+          "stt": 2,
+          "maNCC": "NCC02",
+          "tenNCC": "Công ty CP Bao bì Tân Á",
+          "soHoaDon": "HD07740",
+          "ngayHoaDon": "2026-07-05",
+          "soNgayDuocNo": 30,
+          "soTienPhaiTra": 46000000,
+          "daThanhToan": 20000000,
+          "ngayChotSo": "2026-07-31"
+        },
+        {
+          "stt": 3,
+          "maNCC": "NCC03",
+          "tenNCC": "Công ty TNHH Vận tải Đông Dương",
+          "soHoaDon": "HD07755",
+          "ngayHoaDon": "2026-07-18",
+          "soNgayDuocNo": 45,
+          "soTienPhaiTra": 18500000,
+          "daThanhToan": 0,
+          "ngayChotSo": "2026-07-31"
+        },
+        {
+          "stt": 4,
+          "maNCC": "NCC01",
+          "tenNCC": "Công ty TNHH Vật tư Hòa Bình",
+          "soHoaDon": "HD07690",
+          "ngayHoaDon": "2026-05-20",
+          "soNgayDuocNo": 30,
+          "soTienPhaiTra": 75000000,
+          "daThanhToan": 75000000,
+          "ngayChotSo": "2026-07-31"
+        },
+        {
+          "stt": 5,
+          "maNCC": "NCC04",
+          "tenNCC": "Công ty CP Thiết bị Nam Long",
+          "soHoaDon": "HD07701",
+          "ngayHoaDon": "2026-04-28",
+          "soNgayDuocNo": 60,
+          "soTienPhaiTra": 210000000,
+          "daThanhToan": 100000000,
+          "ngayChotSo": "2026-07-31"
+        },
+        {
+          "stt": 6,
+          "maNCC": "NCC05",
+          "tenNCC": "Hộ kinh doanh Phú Thành",
+          "soHoaDon": "HD07760",
+          "ngayHoaDon": "2026-07-24",
+          "soNgayDuocNo": 15,
+          "soTienPhaiTra": 9800000,
+          "daThanhToan": 0,
+          "ngayChotSo": "2026-07-31"
+        }
+      ]
+    }
+  ]
+}

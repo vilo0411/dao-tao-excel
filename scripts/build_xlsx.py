@@ -61,8 +61,19 @@ def cell_input(col: dict, value):
     return value
 
 
+ROW_TOKEN = re.compile(r"\{row(?:-(\d+))?\}")
+
+
+def substitute_row(formula: str, row: int) -> str:
+    """`{row}` → dòng hiện tại, `{row-1}` → dòng ngay trên. Song song lib/schema.ts."""
+    return ROW_TOKEN.sub(
+        lambda m: str(row - int(m.group(1) or 0)),
+        formula,
+    )
+
+
 def resolve_formula(formula: str, columns: list[dict], row: int) -> str:
-    """`[key]{row}` → tham chiếu ô Excel thật. Song song với lib/templates.ts."""
+    """`[key]{row}` → tham chiếu ô Excel thật. Song song với lib/schema.ts."""
     letters = {col["key"]: get_column_letter(i + 1) for i, col in enumerate(columns)}
 
     def sub(match: re.Match[str]) -> str:
@@ -71,7 +82,7 @@ def resolve_formula(formula: str, columns: list[dict], row: int) -> str:
             raise KeyError(f"công thức trỏ tới cột không tồn tại: [{key}]")
         return letters[key]
 
-    return re.sub(r"\[([^\]]+)\]", sub, formula).replace("{row}", str(row))
+    return substitute_row(re.sub(r"\[([^\]]+)\]", sub, formula), row)
 
 
 def apply_validation(ws, col: dict, letter: str, first_row: int, last_row: int) -> None:
@@ -150,7 +161,7 @@ def build_sheet(
             cell.border = BORDER
 
             if col["key"] in links:
-                cell.value = links[col["key"]].replace("{row}", str(row_num))
+                cell.value = substitute_row(links[col["key"]], row_num)
                 cell.fill = FORMULA_FILL
                 fmt = col["type"]
             elif col["type"] == "formula":

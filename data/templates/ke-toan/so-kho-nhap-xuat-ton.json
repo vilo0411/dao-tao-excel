@@ -1,0 +1,231 @@
+{
+  "slug": "so-kho-nhap-xuat-ton",
+  "category": "ke-toan",
+  "h1": "Mẫu Excel sổ kho nhập xuất tồn (tự tính tồn cuối kỳ và giá trị tồn)",
+  "metaTitle": "Mẫu Excel Sổ Kho Nhập Xuất Tồn - Tải Miễn Phí",
+  "metaDesc": "Mẫu Excel sổ kho nhập xuất tồn theo từng mặt hàng, tự tính tồn cuối kỳ, giá trị tồn kho và cảnh báo hàng dưới định mức hoặc xuất quá tồn. Tải về dùng ngay.",
+  "primaryKeyword": "mẫu excel sổ kho nhập xuất tồn",
+  "intro": "Mẫu Excel sổ kho nhập xuất tồn này tổng hợp biến động kho của một kỳ: mỗi mặt hàng một dòng, gồm tồn đầu kỳ, tổng nhập, tổng xuất và tồn cuối kỳ do file tự tính. Ngoài số lượng, file còn quy ra giá trị tồn kho theo đơn giá bạn nhập, và tự bật cảnh báo với những mặt hàng tồn xuống dưới định mức tối thiểu hoặc bị xuất quá số đang có. Đây là bảng dùng để đối chiếu với biên bản kiểm kê thực tế cuối kỳ.",
+  "difficulty": "co-ban",
+  "features": [
+    "Tự tính tồn cuối kỳ theo công thức tồn đầu cộng nhập trừ xuất",
+    "Tự quy ra giá trị tồn kho theo đơn giá của từng mặt hàng",
+    "Cảnh báo bốn trạng thái: xuất quá tồn, hết hàng, dưới định mức, đủ hàng",
+    "Tính tỷ lệ xuất trên tổng hàng có trong kỳ, thấy ngay mặt hàng nằm im",
+    "Đơn vị tính chọn từ danh sách, tránh cùng một thứ ghi hai kiểu"
+  ],
+  "howToUse": [
+    {
+      "step": "Chuyển tồn cuối kỳ trước sang tồn đầu kỳ này",
+      "detail": "Cột Tồn đầu kỳ phải bằng đúng tồn cuối kỳ của bảng kỳ trước, không phải số kiểm kê ước lượng. Sai ở đây thì mọi con số phía sau lệch theo mà không cột nào phát hiện được."
+    },
+    {
+      "step": "Nhập tổng nhập và tổng xuất trong kỳ",
+      "detail": "Cộng các phiếu nhập của cùng một mặt hàng lại thành một số, làm tương tự với phiếu xuất. Bảng này là bảng tổng hợp theo kỳ, không phải sổ ghi từng phiếu."
+    },
+    {
+      "step": "Nhập đơn giá và định mức tối thiểu",
+      "detail": "Đơn giá là giá vốn bình quân đang áp dụng cho mặt hàng đó. Định mức tối thiểu là mức tồn mà xuống tới đó thì phải đặt hàng, tính từ lượng bán bình quân nhân số ngày nhà cung cấp cần để giao."
+    },
+    {
+      "step": "Xử lý các dòng bị cảnh báo",
+      "detail": "Dòng báo xuất quá tồn là lỗi số liệu, phải sửa trước khi làm gì tiếp vì kho không thể xuất nhiều hơn số đang có. Dòng báo dưới định mức là việc cần làm: lên đơn đặt hàng."
+    },
+    {
+      "step": "Đối chiếu với kiểm kê thực tế",
+      "detail": "Cuối kỳ đếm hàng trong kho rồi so với cột Tồn cuối kỳ. Lệch nhau thì rà lại phiếu nhập xuất chưa vào sổ trước, sau đó mới tính đến hao hụt hoặc mất mát."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Vì sao tồn cuối kỳ ra số âm?",
+      "a": "Vì tổng xuất đang lớn hơn tồn đầu kỳ cộng tổng nhập, chuyện không thể xảy ra trong kho thật. Ba nguyên nhân hay gặp: quên nhập một phiếu nhập, chuyển sai tồn đầu kỳ từ bảng kỳ trước, hoặc gõ nhầm cột nhập thành cột xuất. Cột cảnh báo sẽ hiện Xuất quá tồn để bạn không bỏ sót."
+    },
+    {
+      "q": "Giá trị tồn kho tính theo đơn giá nào mới đúng?",
+      "a": "Mẫu này nhân tồn cuối kỳ với một đơn giá duy nhất do bạn nhập, tức là đang theo phương pháp bình quân gia quyền. Nếu doanh nghiệp bạn áp dụng nhập trước xuất trước hoặc tính giá theo từng lô, con số ở đây chỉ mang tính tham khảo nhanh, còn giá trị lên báo cáo tài chính phải lấy từ cách tính giá mà đơn vị đăng ký áp dụng."
+    },
+    {
+      "q": "Tỷ lệ xuất trong kỳ dùng để làm gì?",
+      "a": "Nó cho biết trong tổng số hàng có thể xuất của kỳ, bạn đã xuất được bao nhiêu phần. Tỷ lệ gần 0% kéo dài nhiều kỳ là dấu hiệu hàng chậm luân chuyển, đang chôn vốn và có thể phải xem xét trích lập dự phòng giảm giá hàng tồn kho. Tỷ lệ sát 100% thì ngược lại, hàng bán tốt nhưng dễ đứt hàng."
+    },
+    {
+      "q": "Vì sao công thức tỷ lệ xuất phải bọc IFERROR?",
+      "a": "Vì mặt hàng vừa khai báo mà chưa có tồn đầu kỳ lẫn phát sinh nhập thì mẫu số bằng 0, và Excel trả về lỗi #DIV/0! làm cả cột nhìn như hỏng. IFERROR bắt lỗi đó rồi trả về 0% thay thế, nên bảng vẫn đọc được trong lúc dữ liệu còn dở dang."
+    }
+  ],
+  "ctaText": "Học cách dựng sổ kho và báo cáo hàng tồn trên Excel",
+  "relatedSlugs": ["so-quy-tien-mat", "bang-theo-doi-cong-no-phai-tra"],
+  "updatedAt": "2026-07-30",
+  "sheets": [
+    {
+      "name": "Nhập xuất tồn",
+      "description": "Tổng hợp biến động kho trong kỳ theo từng mặt hàng.",
+      "blankRows": 30,
+      "columns": [
+        { "key": "stt", "header": "STT", "type": "number", "width": 6 },
+        { "key": "maHang", "header": "Mã hàng", "type": "text", "width": 12 },
+        { "key": "tenHang", "header": "Tên hàng hóa", "type": "text", "width": 30 },
+        {
+          "key": "dvt",
+          "header": "ĐVT",
+          "type": "text",
+          "width": 10,
+          "validation": {
+            "type": "list",
+            "options": [
+              "Cái",
+              "Hộp",
+              "Thùng",
+              "Kg",
+              "Mét",
+              "Bộ",
+              "Lít",
+              "Cuộn",
+              "Túi",
+              "Can"
+            ]
+          }
+        },
+        {
+          "key": "tonDauKy",
+          "header": "Tồn đầu kỳ",
+          "type": "number",
+          "width": 12,
+          "validation": { "type": "decimal", "min": 0, "max": 1000000 }
+        },
+        {
+          "key": "nhapTrongKy",
+          "header": "Nhập trong kỳ",
+          "type": "number",
+          "width": 13,
+          "validation": { "type": "decimal", "min": 0, "max": 1000000 }
+        },
+        {
+          "key": "xuatTrongKy",
+          "header": "Xuất trong kỳ",
+          "type": "number",
+          "width": 13,
+          "validation": { "type": "decimal", "min": 0, "max": 1000000 }
+        },
+        {
+          "key": "donGia",
+          "header": "Đơn giá",
+          "type": "currency",
+          "width": 16,
+          "validation": { "type": "decimal", "min": 0, "max": 1000000000 }
+        },
+        {
+          "key": "dinhMucToiThieu",
+          "header": "Định mức tối thiểu",
+          "type": "number",
+          "width": 14,
+          "validation": { "type": "decimal", "min": 0, "max": 1000000 }
+        },
+        {
+          "key": "tonCuoiKy",
+          "header": "Tồn cuối kỳ",
+          "type": "formula",
+          "width": 12,
+          "formula": "=IF([tenHang]{row}=\"\",\"\",[tonDauKy]{row}+[nhapTrongKy]{row}-[xuatTrongKy]{row})",
+          "note": "Phương trình cân đối kho: tồn đầu kỳ cộng nhập trừ xuất. Đây là con số phải đem so với kết quả kiểm kê thực tế cuối kỳ, lệch nhau bao nhiêu là phải giải thích được bấy nhiêu."
+        },
+        {
+          "key": "giaTriTon",
+          "header": "Giá trị tồn kho",
+          "type": "formula",
+          "width": 18,
+          "format": "currency",
+          "formula": "=IF([tenHang]{row}=\"\",\"\",[tonCuoiKy]{row}*[donGia]{row})",
+          "note": "Số lượng tồn cuối kỳ nhân đơn giá. Cột này lấy đúng một đơn giá cho cả dòng nên tương ứng với phương pháp bình quân gia quyền, không phản ánh được cách tính giá theo từng lô nhập."
+        },
+        {
+          "key": "tyLeXuat",
+          "header": "Tỷ lệ xuất trong kỳ",
+          "type": "formula",
+          "width": 15,
+          "format": "percent",
+          "formula": "=IF([tenHang]{row}=\"\",\"\",IFERROR([xuatTrongKy]{row}/([tonDauKy]{row}+[nhapTrongKy]{row}),0))",
+          "note": "Số đã xuất chia cho tổng lượng hàng có thể xuất trong kỳ, tức tồn đầu cộng nhập. Bọc IFERROR để mặt hàng chưa có tồn lẫn nhập thì trả về 0% thay vì lỗi #DIV/0! do chia cho 0."
+        },
+        {
+          "key": "canhBaoTon",
+          "header": "Cảnh báo tồn kho",
+          "type": "formula",
+          "width": 26,
+          "format": "text",
+          "formula": "=IF([tenHang]{row}=\"\",\"\",IF([tonCuoiKy]{row}<0,\"Xuất quá tồn - kiểm tra lại\",IF([tonCuoiKy]{row}=0,\"Hết hàng\",IF([tonCuoiKy]{row}<=[dinhMucToiThieu]{row},\"Dưới định mức - cần đặt hàng\",\"Đủ hàng\"))))",
+          "note": "Ba hàm IF lồng nhau, xét từ trường hợp bất khả thi tới trường hợp bình thường. Nhánh đầu tiên bắt lỗi số liệu vì kho không xuất được nhiều hơn số đang có; hai nhánh sau mới là tình trạng kho thật cần xử lý bằng việc đặt hàng."
+        }
+      ],
+      "sampleRows": [
+        {
+          "stt": 1,
+          "maHang": "VT001",
+          "tenHang": "Thùng carton 5 lớp size 40x30x20",
+          "dvt": "Cái",
+          "tonDauKy": 1200,
+          "nhapTrongKy": 2000,
+          "xuatTrongKy": 2650,
+          "donGia": 12500,
+          "dinhMucToiThieu": 800
+        },
+        {
+          "stt": 2,
+          "maHang": "VT002",
+          "tenHang": "Băng keo trong 5cm",
+          "dvt": "Cuộn",
+          "tonDauKy": 340,
+          "nhapTrongKy": 0,
+          "xuatTrongKy": 285,
+          "donGia": 9800,
+          "dinhMucToiThieu": 100
+        },
+        {
+          "stt": 3,
+          "maHang": "HH010",
+          "tenHang": "Gạo thơm túi 5kg",
+          "dvt": "Túi",
+          "tonDauKy": 150,
+          "nhapTrongKy": 500,
+          "xuatTrongKy": 650,
+          "donGia": 155000,
+          "dinhMucToiThieu": 60
+        },
+        {
+          "stt": 4,
+          "maHang": "HH011",
+          "tenHang": "Dầu ăn thực vật can 5 lít",
+          "dvt": "Can",
+          "tonDauKy": 80,
+          "nhapTrongKy": 120,
+          "xuatTrongKy": 96,
+          "donGia": 245000,
+          "dinhMucToiThieu": 50
+        },
+        {
+          "stt": 5,
+          "maHang": "VT003",
+          "tenHang": "Màng PE quấn pallet",
+          "dvt": "Kg",
+          "tonDauKy": 45,
+          "nhapTrongKy": 0,
+          "xuatTrongKy": 12,
+          "donGia": 62000,
+          "dinhMucToiThieu": 20
+        },
+        {
+          "stt": 6,
+          "maHang": "HH012",
+          "tenHang": "Nước rửa chén chai 800ml",
+          "dvt": "Thùng",
+          "tonDauKy": 26,
+          "nhapTrongKy": 40,
+          "xuatTrongKy": 52,
+          "donGia": 310000,
+          "dinhMucToiThieu": 15
+        }
+      ]
+    }
+  ]
+}

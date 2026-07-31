@@ -1,0 +1,40 @@
+[
+  [
+    {
+      "hanThanhToan": 46208.0,
+      "conPhaiThu": 88000000.0,
+      "soNgayQuaHan": 26.0,
+      "nhomTuoiNo": "Quá hạn 1-30 ngày"
+    },
+    {
+      "hanThanhToan": 46206.0,
+      "conPhaiThu": 0.0,
+      "soNgayQuaHan": 0,
+      "nhomTuoiNo": "Đã thu đủ"
+    },
+    {
+      "hanThanhToan": 46243.0,
+      "conPhaiThu": 16500000.0,
+      "soNgayQuaHan": 0,
+      "nhomTuoiNo": "Trong hạn"
+    },
+    {
+      "hanThanhToan": 46177.0,
+      "conPhaiThu": 100000000.0,
+      "soNgayQuaHan": 57.0,
+      "nhomTuoiNo": "Quá hạn 31-60 ngày"
+    },
+    {
+      "hanThanhToan": 46123.0,
+      "conPhaiThu": 64000000.0,
+      "soNgayQuaHan": 111.0,
+      "nhomTuoiNo": "Quá hạn trên 60 ngày"
+    },
+    {
+      "hanThanhToan": 46255.0,
+      "conPhaiThu": 35000000.0,
+      "soNgayQuaHan": 0,
+      "nhomTuoiNo": "Trong hạn"
+    }
+  ]
+]

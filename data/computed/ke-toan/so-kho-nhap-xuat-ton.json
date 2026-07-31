@@ -1,0 +1,40 @@
+[
+  [
+    {
+      "tonCuoiKy": 550.0,
+      "giaTriTon": 6875000.0,
+      "tyLeXuat": 0.828125,
+      "canhBaoTon": "Dưới định mức - cần đặt hàng"
+    },
+    {
+      "tonCuoiKy": 55.0,
+      "giaTriTon": 539000.0,
+      "tyLeXuat": 0.8382352941176471,
+      "canhBaoTon": "Dưới định mức - cần đặt hàng"
+    },
+    {
+      "tonCuoiKy": 0.0,
+      "giaTriTon": 0.0,
+      "tyLeXuat": 1.0,
+      "canhBaoTon": "Hết hàng"
+    },
+    {
+      "tonCuoiKy": 104.0,
+      "giaTriTon": 25480000.0,
+      "tyLeXuat": 0.48,
+      "canhBaoTon": "Đủ hàng"
+    },
+    {
+      "tonCuoiKy": 33.0,
+      "giaTriTon": 2046000.0,
+      "tyLeXuat": 0.26666666666666666,
+      "canhBaoTon": "Đủ hàng"
+    },
+    {
+      "tonCuoiKy": 14.0,
+      "giaTriTon": 4340000.0,
+      "tyLeXuat": 0.7878787878787878,
+      "canhBaoTon": "Dưới định mức - cần đặt hàng"
+    }
+  ]
+]

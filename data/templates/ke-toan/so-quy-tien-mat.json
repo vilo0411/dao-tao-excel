@@ -1,0 +1,180 @@
+{
+  "slug": "so-quy-tien-mat",
+  "category": "ke-toan",
+  "h1": "Mẫu Excel sổ quỹ tiền mặt (tự cộng dồn tồn quỹ)",
+  "metaTitle": "Mẫu Excel Sổ Quỹ Tiền Mặt - Tải Miễn Phí 2026",
+  "metaDesc": "Mẫu Excel sổ quỹ tiền mặt ghi thu chi theo ngày, cột tồn quỹ tự cộng dồn từ dòng trên và tự cảnh báo khi quỹ âm. Tải về nhập số là dùng được ngay.",
+  "primaryKeyword": "mẫu excel sổ quỹ tiền mặt",
+  "intro": "Mẫu Excel sổ quỹ tiền mặt này ghi lại từng phiếu thu, phiếu chi theo ngày và tự cộng dồn ra số tồn quỹ sau mỗi nghiệp vụ, nên bạn không phải bấm máy tính lại từ đầu mỗi lần thêm một dòng. Cột tồn quỹ lấy số dư của dòng ngay trên cộng thu trừ chi, đúng cách một cuốn sổ quỹ giấy vận hành. File còn tự bật cảnh báo khi tồn quỹ xuống dưới 0 — dấu hiệu gần như chắc chắn là có phiếu bị ghi thiếu hoặc ghi nhầm cột.",
+  "difficulty": "co-ban",
+  "features": [
+    "Tồn quỹ tự cộng dồn từ dòng trên, thêm dòng mới là số dư chạy tiếp",
+    "Tự cảnh báo khi tồn quỹ âm hoặc khi dòng chưa nhập số tiền",
+    "Phân loại khoản mục thu chi bằng danh sách sổ xuống, sau này lọc và cộng theo khoản mục không bị lệch",
+    "Có sẵn 30 dòng trống đã cài công thức, nhập tiếp là chạy",
+    "Dòng đầu tiên dành cho số dư đầu kỳ mang sang, đúng nếp sổ quỹ"
+  ],
+  "howToUse": [
+    {
+      "step": "Ghi số dư đầu kỳ vào dòng 1",
+      "detail": "Dòng đầu tiên để nguyên diễn giải Số dư đầu kỳ mang sang, nhập số tiền tồn quỹ cuối tháng trước vào cột Thu. Đây là điểm xuất phát của cả cột tồn quỹ, sai ở đây thì mọi dòng bên dưới sai theo."
+    },
+    {
+      "step": "Nhập từng phiếu theo đúng thứ tự ngày",
+      "detail": "Mỗi phiếu thu hoặc phiếu chi là một dòng: ngày, số chứng từ, diễn giải, khoản mục, rồi số tiền vào đúng cột Thu hoặc cột Chi. Không gõ gì vào hai cột cuối, chúng tự tính."
+    },
+    {
+      "step": "Đọc cột tồn quỹ và cột cảnh báo",
+      "detail": "Tồn quỹ ở dòng cuối cùng có dữ liệu chính là số tiền mặt phải có trong két tại thời điểm đó. Cột cảnh báo hiện Hợp lệ với dòng bình thường, và đổi sang chữ đỏ nghĩa khi có gì đó cần xem lại."
+    },
+    {
+      "step": "Đối chiếu với tiền mặt thực tế",
+      "detail": "Cuối ngày hoặc cuối tháng, đếm tiền trong két rồi so với tồn quỹ ở dòng cuối. Lệch nhau thì rà ngược lên, thường là một phiếu bị bỏ sót hoặc bị gõ nhầm cột Thu thành cột Chi."
+    },
+    {
+      "step": "Thêm dòng khi hết chỗ",
+      "detail": "Nhập tiếp vào các dòng trống bên dưới vì công thức đã có sẵn. Nếu hết dòng trống, bôi đen dòng cuối rồi kéo nút vuông nhỏ ở góc dưới bên phải xuống thêm — công thức tồn quỹ trỏ theo dòng tương đối nên kéo xuống vẫn đúng."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Vì sao không được để dòng trống ở giữa sổ?",
+      "a": "Vì cột tồn quỹ lấy số dư của đúng dòng ngay phía trên. Gặp một dòng trống ở giữa, công thức đọc được ô rỗng và coi như số dư bằng 0, nên mọi dòng bên dưới sẽ tính lại từ 0 và sai toàn bộ. Ghi liên tục không chừa dòng cũng chính là quy tắc của sổ quỹ giấy. Cần tách tháng thì mở một file mới hoặc một sheet mới, đừng chừa dòng."
+    },
+    {
+      "q": "Hàm N trong công thức tồn quỹ để làm gì?",
+      "a": "Ở dòng dữ liệu đầu tiên, ô phía trên chính là ô tiêu đề chứa chữ Tồn quỹ. Lấy chữ cộng với số thì Excel báo lỗi #VALUE!. Hàm N đọc chữ thành số 0, nên dòng đầu tiên xuất phát từ 0 rồi cộng số dư đầu kỳ bạn nhập ở cột Thu. Nhờ vậy cả cột dùng đúng một công thức, không phải viết riêng cho dòng đầu."
+    },
+    {
+      "q": "Tồn quỹ ra số âm thì xử lý thế nào?",
+      "a": "Tiền mặt trong két không bao giờ âm được, nên số âm luôn là lỗi ghi chép chứ không phải tình trạng thật. Ba nguyên nhân hay gặp: quên nhập số dư đầu kỳ, gõ số tiền thu vào cột chi, hoặc ghi phiếu chi trước phiếu thu dù thực tế thu trước. Rà từ dòng cảnh báo đầu tiên trở lên là ra."
+    },
+    {
+      "q": "File này có thay được sổ quỹ theo Thông tư 200 hay 133 không?",
+      "a": "Mẫu này bám đúng các cột cốt lõi của sổ quỹ tiền mặt là ngày, số chứng từ, diễn giải, thu, chi, tồn. Nếu doanh nghiệp bạn phải nộp sổ theo đúng biểu mẫu của chế độ kế toán đang áp dụng, hãy dùng file này để theo dõi và đối chiếu hằng ngày, rồi kết xuất sổ chính thức từ phần mềm kế toán."
+    }
+  ],
+  "ctaText": "Học cách dựng sổ sách và báo cáo kế toán trên Excel",
+  "relatedSlugs": ["bang-ke-thu-chi", "bang-theo-doi-cong-no-phai-thu"],
+  "updatedAt": "2026-07-30",
+  "sheets": [
+    {
+      "name": "Sổ quỹ tiền mặt",
+      "description": "Sổ quỹ ghi theo trình tự thời gian, mỗi dòng là một phiếu thu hoặc phiếu chi.",
+      "blankRows": 30,
+      "columns": [
+        { "key": "stt", "header": "STT", "type": "number", "width": 6 },
+        { "key": "ngay", "header": "Ngày", "type": "date", "width": 12 },
+        { "key": "soChungTu", "header": "Số chứng từ", "type": "text", "width": 14 },
+        { "key": "dienGiai", "header": "Diễn giải", "type": "text", "width": 34 },
+        {
+          "key": "khoanMuc",
+          "header": "Khoản mục",
+          "type": "text",
+          "width": 20,
+          "validation": {
+            "type": "list",
+            "options": [
+              "Số dư đầu kỳ",
+              "Bán hàng",
+              "Thu công nợ",
+              "Thu khác",
+              "Mua hàng hóa",
+              "Lương và bảo hiểm",
+              "Chi phí văn phòng",
+              "Chi khác"
+            ]
+          }
+        },
+        {
+          "key": "thu",
+          "header": "Thu",
+          "type": "currency",
+          "width": 16,
+          "validation": { "type": "decimal", "min": 0, "max": 10000000000 }
+        },
+        {
+          "key": "chi",
+          "header": "Chi",
+          "type": "currency",
+          "width": 16,
+          "validation": { "type": "decimal", "min": 0, "max": 10000000000 }
+        },
+        {
+          "key": "tonQuy",
+          "header": "Tồn quỹ",
+          "type": "formula",
+          "width": 18,
+          "format": "currency",
+          "formula": "=IF([dienGiai]{row}=\"\",\"\",N([tonQuy]{row-1})+[thu]{row}-[chi]{row})",
+          "note": "Lấy tồn quỹ của dòng ngay trên cộng số thu rồi trừ số chi của chính dòng này. Hàm N đọc ô tiêu đề ở dòng đầu tiên thành 0 nên cả cột dùng chung một công thức. Vì công thức trỏ lên đúng một dòng, sổ phải ghi liên tục, không chừa dòng trống ở giữa."
+        },
+        {
+          "key": "canhBao",
+          "header": "Cảnh báo",
+          "type": "formula",
+          "width": 26,
+          "format": "text",
+          "formula": "=IF([dienGiai]{row}=\"\",\"\",IF([tonQuy]{row}<0,\"Âm quỹ - kiểm tra lại\",IF(AND([thu]{row}=0,[chi]{row}=0),\"Chưa nhập số tiền\",\"Hợp lệ\")))",
+          "note": "Bắt hai lỗi ghi sổ hay gặp nhất. Tồn quỹ âm nghĩa là có phiếu bị thiếu hoặc nhầm cột, vì tiền mặt trong két không thể âm. Dòng có diễn giải mà cả thu lẫn chi đều bằng 0 thường là dòng ghi dở dang, bỏ quên số tiền."
+        }
+      ],
+      "sampleRows": [
+        {
+          "stt": 1,
+          "ngay": "2026-07-01",
+          "soChungTu": "",
+          "dienGiai": "Số dư đầu kỳ mang sang",
+          "khoanMuc": "Số dư đầu kỳ",
+          "thu": 25000000,
+          "chi": 0
+        },
+        {
+          "stt": 2,
+          "ngay": "2026-07-03",
+          "soChungTu": "PT001",
+          "dienGiai": "Thu tiền bán hàng khách lẻ",
+          "khoanMuc": "Bán hàng",
+          "thu": 8500000,
+          "chi": 0
+        },
+        {
+          "stt": 3,
+          "ngay": "2026-07-05",
+          "soChungTu": "PC001",
+          "dienGiai": "Chi mua văn phòng phẩm quý III",
+          "khoanMuc": "Chi phí văn phòng",
+          "thu": 0,
+          "chi": 1200000
+        },
+        {
+          "stt": 4,
+          "ngay": "2026-07-10",
+          "soChungTu": "PC002",
+          "dienGiai": "Chi tạm ứng lương kỳ 1 tháng 7",
+          "khoanMuc": "Lương và bảo hiểm",
+          "thu": 0,
+          "chi": 15000000
+        },
+        {
+          "stt": 5,
+          "ngay": "2026-07-15",
+          "soChungTu": "PT002",
+          "dienGiai": "Thu tiền công nợ khách hàng An Phát",
+          "khoanMuc": "Thu công nợ",
+          "thu": 12000000,
+          "chi": 0
+        },
+        {
+          "stt": 6,
+          "ngay": "2026-07-20",
+          "soChungTu": "PC003",
+          "dienGiai": "Chi tiền điện nước tháng 6",
+          "khoanMuc": "Chi phí văn phòng",
+          "thu": 0,
+          "chi": 3400000
+        }
+      ]
+    }
+  ]
+}

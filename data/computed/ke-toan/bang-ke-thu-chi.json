@@ -1,0 +1,40 @@
+[
+  [
+    {
+      "tienThu": 145000000,
+      "tienChi": 0,
+      "luyKeRong": 145000000.0,
+      "canhBao": "Hợp lệ"
+    },
+    {
+      "tienThu": 0,
+      "tienChi": 62000000,
+      "luyKeRong": 83000000.0,
+      "canhBao": "Hợp lệ"
+    },
+    {
+      "tienThu": 0,
+      "tienChi": 25000000,
+      "luyKeRong": 58000000.0,
+      "canhBao": "Chi tiền mặt từ 20 triệu"
+    },
+    {
+      "tienThu": 38000000,
+      "tienChi": 0,
+      "luyKeRong": 96000000.0,
+      "canhBao": "Hợp lệ"
+    },
+    {
+      "tienThu": 0,
+      "tienChi": 96000000,
+      "luyKeRong": 0.0,
+      "canhBao": "Hợp lệ"
+    },
+    {
+      "tienThu": 0,
+      "tienChi": 4200000,
+      "luyKeRong": -4200000.0,
+      "canhBao": "Hợp lệ"
+    }
+  ]
+]

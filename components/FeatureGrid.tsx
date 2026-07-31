@@ -1,12 +1,15 @@
-import type { ReactNode } from "react";
+"use client";
+
+import { useState, type CSSProperties, type ReactNode } from "react";
 
 type Feature = {
   title: string;
   body: string;
   /**
-   * Mảnh bảng tính minh họa đặt dưới đáy thẻ. Nó phải diễn lại đúng câu tiêu đề
-   * bằng vật thật (thanh fx, ô kiểm, biểu đồ) chứ không phải một icon minh họa
-   * chung chung — thẻ nào không nghĩ ra được vật thật thì để trống còn hơn.
+   * Mảnh bảng tính minh họa hiện ở cột phải khi mục này đang mở. Nó phải diễn
+   * lại đúng câu tiêu đề bằng vật thật (thanh fx, ô kiểm, biểu đồ) chứ không
+   * phải một icon minh họa chung chung — mục nào không nghĩ ra được vật thật
+   * thì bỏ mục đó còn hơn.
    */
   visual: ReactNode;
 };
@@ -23,39 +26,43 @@ type Feature = {
 function FormulaBarVisual() {
   return (
     <div className="border border-rule bg-paper">
-      <div className="flex items-stretch text-xs">
-        <span className="flex w-10 shrink-0 items-center justify-center border-r border-rule py-1.5 font-mono text-ink-soft">
+      <div className="flex items-stretch text-sm">
+        <span className="flex w-12 shrink-0 items-center justify-center border-r border-rule py-2.5 font-mono text-ink-soft">
           B9
         </span>
-        <span className="flex shrink-0 items-center border-r border-rule px-2 py-1.5 font-mono text-ink-faint italic">
+        <span className="flex shrink-0 items-center border-r border-rule px-2.5 py-2.5 font-mono text-ink-faint italic">
           fx
         </span>
-        <span className="flex min-w-0 flex-1 items-center px-2 py-1.5">
+        <span className="flex min-w-0 flex-1 items-center px-2.5 py-2.5">
           {/*
             Bề rộng phải đặt cứng theo số ký tự: animation gõ chữ chạy từ
             width 0 tới giá trị tĩnh, mà width:auto thì trình duyệt không nội
             suy được. Font mono nên 9ch khớp đúng "=B4-B5-B8".
+
+            Con số đi qua biến --fx-w chứ không gõ thẳng vào width, vì vòng lặp
+            cần một mốc "đã gõ xong" để giữ trong lúc chờ — mà keyframe thì
+            không đọc được giá trị tĩnh của phần tử khi nó phải nêu cả hai đầu.
           */}
           <code
             className="fx-type inline-block overflow-hidden whitespace-nowrap align-middle text-computed"
-            style={{ width: "9ch" }}
+            style={{ "--fx-w": "9ch", width: "var(--fx-w)" } as CSSProperties}
           >
             =B4-B5-B8
           </code>
           <span
             aria-hidden
-            className="fx-caret ml-px inline-block h-3.5 w-px bg-computed"
+            className="fx-caret ml-px inline-block h-4 w-px bg-computed"
           />
         </span>
       </div>
-      <div className="flex border-t border-rule text-xs">
-        <span className="flex-1 border-r border-rule px-2 py-1.5 text-ink-soft">
+      <div className="flex border-t border-rule text-sm">
+        <span className="flex-1 border-r border-rule px-2.5 py-2.5 text-ink-soft">
           Thực lĩnh
         </span>
-        <span className="relative w-28 bg-computed-bg px-2 py-1.5 text-right font-mono tabular-nums text-computed">
+        <span className="relative w-32 bg-computed-bg px-2.5 py-2.5 text-right font-mono tabular-nums text-computed">
           <span
             aria-hidden
-            className="absolute top-0 right-0 h-0 w-0 border-t-[5px] border-l-[5px] border-t-computed border-l-transparent"
+            className="absolute top-0 right-0 h-0 w-0 border-t-6 border-l-6 border-t-computed border-l-transparent"
           />
           17.510.000
         </span>
@@ -73,7 +80,7 @@ function CheckRunVisual() {
       {checks.map((formula, i) => (
         <div
           key={formula}
-          className="fx-row flex items-center justify-between gap-2 border-b border-rule bg-computed-bg px-2 py-1.5 font-mono text-xs text-computed"
+          className="fx-row flex items-center justify-between gap-2 border-b border-rule bg-computed-bg px-3 py-2.5 font-mono text-sm text-computed"
           style={{ animationDelay: `${i * 110}ms` }}
         >
           <code className="truncate">{formula}</code>
@@ -81,7 +88,7 @@ function CheckRunVisual() {
         </div>
       ))}
       <div
-        className="fx-row flex items-center justify-between px-2 py-1.5 font-mono text-xs text-ink-soft"
+        className="fx-row flex items-center justify-between px-3 py-2.5 font-mono text-sm text-ink-soft"
         style={{ animationDelay: "330ms" }}
       >
         <span>bang-tinh-luong.xlsx</span>
@@ -94,22 +101,22 @@ function CheckRunVisual() {
 /** File chạy thẳng về máy, và cái ô email mà trang này không hỏi. */
 function DownloadVisual() {
   return (
-    <div className="border border-rule bg-paper p-2">
-      <div className="flex items-baseline justify-between font-mono text-xs">
+    <div className="border border-rule bg-paper p-3">
+      <div className="flex items-baseline justify-between font-mono text-sm">
         <span className="truncate text-ink">bang-tinh-luong.xlsx</span>
         <span className="shrink-0 pl-2 tabular-nums text-ink-faint">48 KB</span>
       </div>
-      <div aria-hidden className="mt-1.5 h-1 bg-rule">
+      <div aria-hidden className="mt-2 h-1.5 bg-rule">
         <div className="fx-fill h-full w-full bg-ink" />
       </div>
       <div
         aria-hidden
-        className="mt-2 flex items-center gap-2 border border-dashed border-rule px-2 py-1"
+        className="mt-3 flex items-center gap-2 border border-dashed border-rule px-2.5 py-1.5"
       >
-        <span className="flex-1 truncate font-mono text-xs text-ink-faint line-through">
+        <span className="flex-1 truncate font-mono text-sm text-ink-faint line-through">
           email của bạn
         </span>
-        <span className="shrink-0 font-mono text-[11px] text-ink-faint">
+        <span className="shrink-0 font-mono text-xs text-ink-faint">
           không hỏi
         </span>
       </div>
@@ -123,10 +130,10 @@ function PortabilityVisual() {
   const panes = ["Excel", "Google Sheets"];
 
   return (
-    <div className="flex gap-2">
+    <div className="flex gap-3">
       {panes.map((pane, paneIndex) => (
         <div key={pane} className="min-w-0 flex-1 border border-rule bg-paper">
-          <div className="flex h-16 items-end gap-1.5 border-b border-rule p-2">
+          <div className="flex h-28 items-end gap-2 border-b border-rule p-3">
             {bars.map((height, i) => (
               <span
                 key={height}
@@ -138,7 +145,7 @@ function PortabilityVisual() {
               />
             ))}
           </div>
-          <div className="truncate bg-panel px-2 py-1 font-mono text-[11px] text-ink-faint">
+          <div className="truncate bg-panel px-2.5 py-1.5 font-mono text-xs text-ink-faint">
             {pane}
           </div>
         </div>
@@ -172,31 +179,158 @@ const FEATURES: Feature[] = [
 
 /**
  * Gom các tuyên bố đang rải rác trong văn xuôi (hero, band coral) thành một
- * khối scannable, đặt ngay sau demo sống để củng cố luận điểm vừa chứng minh.
+ * khối scannable, đặt sau demo sống để củng cố luận điểm vừa chứng minh.
  *
- * Mỗi thẻ kèm một mảnh bảng tính diễn lại câu của nó. Hình là minh họa lặp lại
- * chữ đã có ngay bên trên nên để aria-hidden — đọc màn hình nghe hai lần cùng
- * một ý là nhiễu, không phải thêm thông tin.
+ * Hình dáng là accordion hai cột: trái là danh sách tiêu đề, mục đang mở nhả
+ * thêm đoạn mô tả; phải là mảnh bảng tính diễn lại đúng câu đó. Lưới bốn thẻ
+ * cũ bắt người đọc chọn giữa bốn hình cùng nhấp nháy một lúc; ở đây mỗi lúc
+ * chỉ có một hình chạy, nên mắt biết phải nhìn đâu.
+ *
+ * Không có timer nào trong file này: thanh tiến trình trên mục đang mở CHÍNH
+ * là đồng hồ. Nó chạy hết một vòng CSS rồi `onAnimationEnd` chuyển mục. Nhờ
+ * vậy tạm dừng là tạm dừng thật (`animation-play-state`) — thanh dừng ở đúng
+ * chỗ nó đang tới, chứ không phải thanh đứng im trong khi một setTimeout vẫn
+ * đếm ngầm rồi nhảy mục giữa lúc người ta đang đọc.
+ *
+ * Hình đọc màn hình không thấy: nó chỉ lặp lại chữ đã có ngay bên trái, nghe
+ * hai lần cùng một ý là nhiễu chứ không phải thêm thông tin.
  */
 export function FeatureGrid() {
+  const [active, setActive] = useState(0);
+  const [paused, setPaused] = useState(false);
+
+  const next = () => setActive((i) => (i + 1) % FEATURES.length);
+
   return (
-    <ul className="grid gap-4 sm:grid-cols-2">
-      {FEATURES.map((feature) => (
-        <li
-          key={feature.title}
-          className="feature-card flex flex-col rounded-md border border-rule bg-panel p-6 sm:p-8"
-        >
-          <h3 className="font-display text-lg font-medium text-balance">
-            {feature.title}
-          </h3>
-          <p className="mt-2 text-sm text-ink-soft">{feature.body}</p>
-          {/* mt-auto: hai thẻ cạnh nhau có tiêu đề dài ngắn khác nhau, để hình
-              đáy thẳng hàng thì lưới mới đọc ra là một hàng. */}
-          <div aria-hidden className="mt-auto pt-6">
-            {feature.visual}
-          </div>
-        </li>
-      ))}
-    </ul>
+    /*
+      Rê chuột hoặc tab vào bất cứ đâu trong khối đều dừng, không chỉ riêng cột
+      phải: người đang đọc mô tả ở cột trái cũng là người đang đọc, mà mục tự
+      trôi giữa câu thì khó chịu hơn là tiện.
+
+      onFocus/onBlur ở đây là bản React của focusin/focusout — chúng nổi bọt từ
+      các nút bên trong, nên bàn phím được đối xử y như chuột.
+    */
+    <div
+      data-fx-paused={paused ? "true" : undefined}
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+      onFocus={() => setPaused(true)}
+      onBlur={() => setPaused(false)}
+      className="grid gap-8 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:items-start lg:gap-10"
+    >
+      <ul className="border-y border-rule">
+        {FEATURES.map((feature, i) => {
+          const isActive = i === active;
+          const panelId = `feature-panel-${i}`;
+
+          return (
+            <li
+              key={feature.title}
+              className="relative border-b border-rule last:border-b-0"
+            >
+              {/*
+                Thanh tiến trình vừa là đồng hồ vừa là lời hứa: nó cho người
+                đọc biết mục sẽ tự trôi, và trôi sau bao lâu. Không có nó thì
+                mục tự đổi đọc ra như trang bị lỗi.
+
+                key={active} để mỗi lần đổi mục là một phần tử mới — animation
+                chạy lại từ 0 thay vì tiếp tục vòng cũ.
+              */}
+              {isActive && (
+                <span
+                  key={active}
+                  aria-hidden
+                  onAnimationEnd={() => {
+                    // prefers-reduced-motion bị rút mọi animation về 0.01ms ở
+                    // globals.css, nên nếu vẫn nghe sự kiện này thì mục sẽ
+                    // nhảy vài chục lần một giây. Ai đã tắt chuyển động thì
+                    // tự bấm chọn mục.
+                    if (
+                      window.matchMedia("(prefers-reduced-motion: reduce)")
+                        .matches
+                    ) {
+                      return;
+                    }
+                    next();
+                  }}
+                  className="fx-progress absolute inset-x-0 top-0 h-0.5 origin-left bg-coral"
+                />
+              )}
+
+              <h3>
+                <button
+                  type="button"
+                  onClick={() => setActive(i)}
+                  aria-expanded={isActive}
+                  aria-controls={panelId}
+                  className="flex w-full items-center gap-4 py-5 text-left"
+                >
+                  {/*
+                    Số thứ tự đặt trong ô viền như đầu dòng của Excel — đây là
+                    chỗ duy nhất trên trang có một danh sách được đánh số, nên
+                    mượn luôn ký hiệu người dùng Excel đã quen.
+                  */}
+                  <span
+                    aria-hidden
+                    className={`flex size-7 shrink-0 items-center justify-center border font-mono text-xs tabular-nums ${
+                      isActive
+                        ? "border-ink bg-ink text-paper"
+                        : "border-rule bg-panel text-ink-faint"
+                    }`}
+                  >
+                    {i + 1}
+                  </span>
+                  <span
+                    className={`font-display flex-1 text-lg font-medium text-balance ${
+                      isActive ? "text-ink" : "text-ink-soft"
+                    }`}
+                  >
+                    {feature.title}
+                  </span>
+                </button>
+              </h3>
+
+              {/*
+                grid-rows 0fr → 1fr là cách mở/đóng có chuyển động mà không phải
+                đo chiều cao bằng JS. Ô con buộc phải overflow-hidden, nếu không
+                chữ tràn ra ngoài lúc đang đóng.
+              */}
+              <div
+                id={panelId}
+                role="region"
+                className={`grid transition-[grid-template-rows] duration-300 ease-out ${
+                  isActive ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+                }`}
+              >
+                <div className="overflow-hidden">
+                  <p className="max-w-prose pr-4 pb-5 pl-11 text-sm text-ink-soft">
+                    {feature.body}
+                  </p>
+                </div>
+              </div>
+            </li>
+          );
+        })}
+      </ul>
+
+      {/*
+        Khung hình neo cứng chiều cao: bốn mảnh bảng tính cao thấp khác nhau,
+        không neo thì mỗi lần đổi mục là cả cột trái nhảy theo trên mobile.
+
+        key={active} để hình được dựng lại từ đầu mỗi lần đổi mục — animation
+        trong hình chạy lại từ đầu, khớp với thời điểm người đọc vừa nhìn sang.
+      */}
+      <div
+        aria-hidden
+        className="flex min-h-96 items-center justify-center rounded-md border border-rule bg-panel p-6 sm:p-10 lg:sticky lg:top-24"
+      >
+        {/* Không có trần max-w: hình là nhân vật chính của cột này, để nó ăn
+            hết bề ngang. Chỉ chặn ở max-w-lg cho màn rất rộng, quá cỡ đó thì
+            mảnh bảng tính bắt đầu đọc ra như một cái bảng thật bị phóng to. */}
+        <div key={active} className="w-full max-w-lg">
+          {FEATURES[active].visual}
+        </div>
+      </div>
+    </div>
   );
 }

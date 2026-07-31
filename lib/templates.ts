@@ -6,6 +6,7 @@ import { z } from "zod";
 import { CATEGORIES, CATEGORY_SLUGS } from "./site.ts";
 import {
   templateSchema,
+  toColumnMap,
   type ComputedValues,
   type Template,
   type TemplateCardData,
@@ -16,7 +17,11 @@ export {
   templateSchema,
   columnLetter,
   resolveFormula,
+  toColumnMap,
+  toSheetStrip,
   DIFFICULTY_LABEL,
+  type ColumnMap,
+  type SheetStrip,
   type TemplateSpec,
   type ComputedValues,
   type Template,
@@ -170,7 +175,21 @@ export function toCardData(t: Template): TemplateCardData {
     difficulty: t.difficulty,
     category: t.category,
     categoryName: t.categoryName,
+    shape: t.sheets[0].columns.map((c) => c.type === "formula"),
   };
+}
+
+/**
+ * Gắn thêm danh sách cột rút gọn cho những chỗ vẽ card.
+ *
+ * Tách khỏi `toCardData` chứ không gộp vào: trang thư viện đẩy dữ liệu của cả
+ * thư viện xuống component lọc phía client, tức mọi trường ở đây đều đi thẳng
+ * vào HTML — mà danh sách dạng dòng bên đó không vẽ card.
+ *
+ * Năm cột là trần vừa một card ba-lên-một-hàng mà không phải cắt chữ tên cột.
+ */
+export function withThumb(t: Template): TemplateCardData {
+  return { ...toCardData(t), thumb: toColumnMap(t.sheets[0], { max: 5 }) };
 }
 
 /**

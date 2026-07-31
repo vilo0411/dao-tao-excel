@@ -51,6 +51,23 @@
      cố ý tách xa coral để không ai nhầm một band nhấn với một ô hỏng. */
   --color-flag: #b45309;
 
+  /* ---- Thân biểu đồ ----
+
+     Biểu đồ trong bài (components/SheetChart.tsx) vẽ lại một cột công thức của
+     chính file, nên nó dùng đúng họ xanh lá của `computed` — vẫn là "con số
+     Excel tự tính", chỉ là vẽ thành hình thay vì in vào ô.
+
+     Nhưng KHÔNG dùng thẳng --color-computed: ở cỡ chữ thì #0e6b4a đủ đậm, còn ở
+     một mảng tô 16px thì độ bão hòa của nó rơi dưới sàn chroma 0.10 và mảng màu
+     đọc ra thành xám. Bước màu này giữ nguyên sắc, chỉ nâng bão hòa lên vừa đủ.
+
+     Cặp (chart, coral) đã chạy qua validate_palette.js của skill dataviz và đạt
+     cả sáu kiểm tra ở nền sáng — riêng tách biệt mù màu đỏ-lục ΔE 8.2 (ngưỡng
+     8). Đây là điều bắt buộc vì biểu đồ phân kỳ dùng đúng cặp xanh lá / đỏ, tức
+     cái bẫy mù màu kinh điển. Đổi một trong hai hex thì phải chạy lại validator,
+     đừng ước lượng bằng mắt. */
+  --color-chart: #0d7350;
+
   /* ---- Hình khối ---- */
   --radius-sm: 6px; /* ô nhập liệu */
   --radius-md: 10px; /* card nội dung, khung ngoài của lưới card */
@@ -126,19 +143,34 @@ kbd,
 /*
   Hiệu ứng cho FeatureGrid.
 
-  Mỗi thẻ tính năng mang một mảnh bảng tính nhỏ minh họa đúng câu nó đang nói:
-  thanh fx gõ ra công thức, cột kiểm tra tick xanh, thanh tải chạy, hai biểu đồ
-  song song. Luật ở đây: TRẠNG THÁI TĨNH LUÔN LÀ TRẠNG THÁI ĐÃ XONG — công thức
-  đủ chữ, cột đủ cao, thanh tải đầy. Animation chỉ tua lại khi rê chuột hoặc tab
-  vào thẻ, nên người không tương tác (và mọi thiết bị cảm ứng) vẫn thấy hình
-  hoàn chỉnh, không thấy một khối rỗng chờ hover.
+  Mục đang mở mang một mảnh bảng tính minh họa đúng câu nó đang nói: thanh fx
+  gõ ra công thức, cột kiểm tra tick xanh, thanh tải chạy, hai biểu đồ song
+  song. Hình chạy LIÊN TỤC chứ không chờ hover — mỗi lúc chỉ có một hình trên
+  màn hình nên nó không tranh chỗ với gì cả, mà chuyển động là thứ nói cho
+  người ta biết mục sẽ tự trôi.
 
-  Vì vậy mỗi @keyframes dưới đây chỉ khai báo `from`: `to` chính là giá trị tĩnh
-  đang có sẵn trên phần tử.
+  Vì lặp vô hạn nên mỗi keyframe phải nêu cả hai đầu và giữ ở đầu "đã xong" gần
+  hết vòng: 6% đầu là trạng thái rỗng, tới ~25% là xong, phần còn lại đứng yên.
+  Nếu chỉ khai báo `from` như bản cũ thì hình gõ lại không nghỉ, đọc ra là một
+  cái GIF chứ không phải một thao tác.
+
+  ĐỘ DÀI VÒNG PHẢI KHỚP `--fx-cycle` với thanh tiến trình fx-progress. Thanh đó
+  là đồng hồ quyết định lúc nào sang mục kế (FeatureGrid nghe animationend của
+  nó), nên hình chạy đúng hai vòng rồi đổi mục. Lệch số là hình bị cắt giữa
+  chừng ở lần đổi.
 */
+:root {
+  --fx-cycle: 3s;
+}
+
 @keyframes fx-type {
-  from {
+  0%,
+  6% {
     width: 0;
+  }
+  26%,
+  100% {
+    width: var(--fx-w);
   }
 }
 
@@ -149,60 +181,85 @@ kbd,
 }
 
 @keyframes fx-row-in {
-  from {
+  0%,
+  6% {
     opacity: 0;
     transform: translateY(3px);
+  }
+  20%,
+  100% {
+    opacity: 1;
+    transform: none;
   }
 }
 
 @keyframes fx-bar-rise {
-  from {
+  0%,
+  6% {
     transform: scaleY(0.06);
+  }
+  30%,
+  100% {
+    transform: scaleY(1);
   }
 }
 
 @keyframes fx-fill {
-  from {
+  0%,
+  6% {
     transform: scaleX(0);
+  }
+  34%,
+  100% {
+    transform: scaleX(1);
   }
 }
 
-.feature-card:hover .fx-type,
-.feature-card:focus-within .fx-type {
-  animation: fx-type 620ms steps(14, end) both;
+@keyframes fx-progress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.fx-type {
+  animation: fx-type var(--fx-cycle) steps(14, end) infinite;
 }
 
 .fx-caret {
-  opacity: 0;
-}
-
-.feature-card:hover .fx-caret,
-.feature-card:focus-within .fx-caret {
-  opacity: 1;
   animation: fx-caret 760ms steps(1, end) infinite;
 }
 
-.feature-card:hover .fx-row,
-.feature-card:focus-within .fx-row {
-  animation: fx-row-in 340ms ease-out backwards;
+.fx-row {
+  animation: fx-row-in var(--fx-cycle) ease-out infinite backwards;
 }
 
 .fx-bar {
   transform-origin: bottom;
-}
-
-.feature-card:hover .fx-bar,
-.feature-card:focus-within .fx-bar {
-  animation: fx-bar-rise 520ms cubic-bezier(0.22, 1, 0.36, 1) backwards;
+  animation: fx-bar-rise var(--fx-cycle) cubic-bezier(0.22, 1, 0.36, 1) infinite
+    backwards;
 }
 
 .fx-fill {
   transform-origin: left;
+  animation: fx-fill var(--fx-cycle) ease-out infinite backwards;
 }
 
-.feature-card:hover .fx-fill,
-.feature-card:focus-within .fx-fill {
-  animation: fx-fill 780ms ease-out backwards;
+/* Hai vòng hình là vừa đủ một lượt đọc bốn dòng mô tả. */
+.fx-progress {
+  animation: fx-progress calc(var(--fx-cycle) * 2) linear;
+}
+
+/*
+  Rê chuột vào khối là dừng tất cả, kể cả đồng hồ. Dùng animation-play-state
+  chứ không gỡ animation: người bỏ chuột ra thì mọi thứ đi tiếp từ đúng chỗ nó
+  đang đứng, không giật về đầu.
+*/
+[data-fx-paused="true"] :is(.fx-type, .fx-caret, .fx-row, .fx-bar, .fx-fill),
+[data-fx-paused="true"] .fx-progress {
+  animation-play-state: paused;
 }
 
 @media (prefers-reduced-motion: reduce) {

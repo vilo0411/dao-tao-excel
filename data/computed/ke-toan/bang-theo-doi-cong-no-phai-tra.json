@@ -1,0 +1,40 @@
+[
+  [
+    {
+      "hanThanhToan": 46228.0,
+      "conPhaiTra": 120000000.0,
+      "soNgayConLai": -6.0,
+      "trangThai": "Quá hạn"
+    },
+    {
+      "hanThanhToan": 46238.0,
+      "conPhaiTra": 26000000.0,
+      "soNgayConLai": 4.0,
+      "trangThai": "Sắp đến hạn"
+    },
+    {
+      "hanThanhToan": 46266.0,
+      "conPhaiTra": 18500000.0,
+      "soNgayConLai": 32.0,
+      "trangThai": "Trong hạn"
+    },
+    {
+      "hanThanhToan": 46192.0,
+      "conPhaiTra": 0.0,
+      "soNgayConLai": 0,
+      "trangThai": "Đã trả đủ"
+    },
+    {
+      "hanThanhToan": 46200.0,
+      "conPhaiTra": 110000000.0,
+      "soNgayConLai": -34.0,
+      "trangThai": "Quá hạn"
+    },
+    {
+      "hanThanhToan": 46242.0,
+      "conPhaiTra": 9800000.0,
+      "soNgayConLai": 8.0,
+      "trangThai": "Trong hạn"
+    }
+  ]
+]

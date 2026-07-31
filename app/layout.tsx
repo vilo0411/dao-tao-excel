@@ -46,6 +46,13 @@ export const metadata: Metadata = {
   authors: [{ name: AUTHOR.name, url: AUTHOR.site }],
   openGraph: { type: "website", locale: "vi_VN", siteName: SITE_NAME },
   /*
+   * Ảnh OG do các file app/**\/opengraph-image.tsx sinh ra, Next tự gắn thẻ
+   * og:image. Ở đây chỉ cần khai kiểu thẻ Twitter: không có twitter:image thì
+   * Twitter/X lấy lại og:image, nên không phải dựng thêm một bộ ảnh thứ hai
+   * y hệt chỉ để đổi tên thẻ.
+   */
+  twitter: { card: "summary_large_image" },
+  /*
    * Bản xem thử phải chặn index. Nếu để Google thu thập, nó thành nội dung
    * trùng lặp cạnh tranh với chính excel.nguyenvietloc.com sau này — với một
    * domain mới thì đó là thiệt hại rất khó gỡ.

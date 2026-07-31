@@ -1,7 +1,7 @@
 "use client";
 
 import { useId, useMemo, useState } from "react";
-import { cardGridClass, TemplateCard } from "@/components/TemplateCard";
+import { TemplateList } from "@/components/TemplateList";
 import { DIFFICULTY_LABEL, type TemplateCardData } from "@/lib/schema";
 
 /**
@@ -173,11 +173,9 @@ export function TemplateBrowser({
       )}
 
       {results.length > 0 ? (
-        <ul className={`mt-6 ${cardGridClass(results.length)}`}>
-          {results.map((template) => (
-            <TemplateCard key={template.slug} template={template} />
-          ))}
-        </ul>
+        <div className="mt-6">
+          <TemplateList templates={results} />
+        </div>
       ) : (
         /*
          * Trạng thái rỗng vẽ thành một ô lỗi thật, bo góc 0 và font mono.

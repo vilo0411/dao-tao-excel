@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { AuthorByline } from "@/components/Author";
 import { CourseCta } from "@/components/CourseCta";
+import { SheetChart } from "@/components/SheetChart";
 import { FormulaTable, SheetPreview } from "@/components/SheetPreview";
 import { SystemMap } from "@/components/SystemMap";
 import { SystemStrip } from "@/components/SystemStrip";
@@ -234,11 +235,17 @@ function TemplateArticle({
         </h2>
         <div className="mt-5 space-y-10">
           {template.sheets.map((sheet, index) => (
-            <SheetPreview
-              key={sheet.name}
-              sheet={sheet}
-              computed={template.computed?.[index]}
-            />
+            <div key={sheet.name}>
+              <SheetPreview sheet={sheet} computed={template.computed?.[index]} />
+              {/*
+                Biểu đồ đứng ngay dưới bảng của CHÍNH sheet đó, không gom hết
+                xuống cuối mục: nó vẽ lại một cột của bảng vừa đọc, nên tách ra
+                thì người đọc phải nhớ ngược lên.
+
+                Tự ẩn khi sheet không có cột số nào đáng vẽ — xem pickSeries.
+              */}
+              <SheetChart sheet={sheet} computed={template.computed?.[index]} />
+            </div>
           ))}
         </div>
 
