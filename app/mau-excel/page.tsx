@@ -91,13 +91,13 @@ export default function TemplateIndexPage() {
         </h2>
         <p className="mt-5 max-w-prose text-ink-soft">
           Thư viện này chỉ có những file tôi thật sự dùng, nên nó không phủ hết
-          mọi đầu việc. Nếu bạn cần tự dựng lấy, đây là khóa tôi giới thiệu.
+          mọi đầu việc. Nếu bạn cần hiểu hàm để tự sửa file, tra cứu ở đây.
         </p>
         <Link
-          href="/khoa-hoc-excel"
+          href="/ham-excel"
           className="mt-8 inline-block rounded-lg bg-ink px-6 py-4 font-medium text-paper hover:bg-ink/85"
         >
-          Khóa học tôi giới thiệu
+          Tra cứu hàm Excel
         </Link>
       </section>
     </div>

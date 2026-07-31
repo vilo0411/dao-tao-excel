@@ -1,8 +1,5 @@
 # Build ban xem thu tinh va deploy len GitHub Pages.
 #
-# Pages chi phuc vu file tinh nen khong chay duoc route handler: buoc build xoa
-# app/api trong ban dung cua CI, khong dung toi ma nguon trong repo.
-#
 # basePath va SITE_URL lay tu chinh repo (actions/configure-pages) chu khong
 # hardcode, nen doi ten repo hay chuyen sang user site deu khong gay 404 link
 # tai .xlsx.
@@ -64,9 +61,6 @@ jobs:
           # thanh rong, neu khong withBasePath() sinh ra duong dan "//..." hong.
           if [ "$BASE_PATH" = "/" ]; then BASE_PATH=""; fi
           echo "base_path=$BASE_PATH" >> "$GITHUB_OUTPUT"
-
-      - name: Xoa route handler
-        run: rm -rf app/api
 
       - name: Build tinh
         env:

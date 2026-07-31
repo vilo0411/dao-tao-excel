@@ -79,13 +79,11 @@ export function isCategorySlug(value: string): value is CategorySlug {
 }
 
 /**
- * Ngày sửa nội dung trang khóa học, khai tay.
- *
- * Mọi trang khác lấy lastmod từ `updatedAt` của dữ liệu đứng sau nó. Trang này
- * là văn biên tập thuần, không có file JSON nào để bám, nên nó là chỗ duy nhất
- * phải nhớ sửa bằng tay — sửa nội dung trang thì sửa luôn ngày ở đây.
+ * Ngày khởi chạy site, dùng làm sàn cho `latestUpdate()` khi một nhóm nội
+ * dung rỗng (nhánh phòng thủ — thực tế danh sách template không bao giờ rỗng
+ * lúc build đã qua, vì loadAll() ném lỗi trước đó nếu rỗng).
  */
-export const COURSE_PAGE_UPDATED = "2026-07-28";
+export const SITE_LAUNCHED = "2026-07-27";
 
 /**
  * Ngày sửa gần nhất trong một nhóm nội dung.

@@ -1,7 +1,8 @@
 import type { MetadataRoute } from "next";
 import { getAllTemplates } from "@/lib/templates";
 import { getAllSystems, getPopulatedCategories } from "@/lib/systems";
-import { absoluteUrl, COURSE_PAGE_UPDATED, latestUpdate } from "@/lib/site";
+import { getAllFunctions } from "@/lib/functions";
+import { absoluteUrl, latestUpdate, SITE_LAUNCHED } from "@/lib/site";
 
 // Bắt buộc khi output: "export" — Next cần biết chắc file này dựng lúc build.
 export const dynamic = "force-static";
@@ -26,20 +27,33 @@ export const dynamic = "force-static";
 export default function sitemap(): MetadataRoute.Sitemap {
   const templates = getAllTemplates();
   const systems = getAllSystems();
+  const functions = getAllFunctions();
+  const templateBySlug = new Map(templates.map((t) => [t.slug, t]));
 
   // Trang tổng hợp không có updatedAt riêng: nội dung của chúng chính là những
   // gì nằm bên dưới, nên ngày sửa của chúng là ngày sửa mới nhất bên dưới.
   const everything = [...templates, ...systems];
-  const siteUpdated = latestUpdate(everything, COURSE_PAGE_UPDATED);
+  const siteUpdated = latestUpdate(everything, SITE_LAUNCHED);
 
   return [
     { url: absoluteUrl("/"), lastModified: siteUpdated },
     // Thư viện phủ đúng `everything`, nên ngày của nó trùng ngày toàn site.
     { url: absoluteUrl("/mau-excel"), lastModified: siteUpdated },
-    {
-      url: absoluteUrl("/khoa-hoc-excel"),
-      lastModified: COURSE_PAGE_UPDATED,
-    },
+    /*
+     * Từ điển hàm không có nội dung biên tập riêng: mỗi hàm chỉ trích lại
+     * công thức thật của template đứng sau nó, nên lastmod bám đúng
+     * `updatedAt` của những template đó — không phải ngày sửa code trang.
+     */
+    { url: absoluteUrl("/ham-excel"), lastModified: siteUpdated },
+    ...functions.map((fn) => {
+      const usedTemplates = [...new Set(fn.usages.map((u) => u.templateSlug))]
+        .map((slug) => templateBySlug.get(slug))
+        .filter((t): t is NonNullable<typeof t> => Boolean(t));
+      return {
+        url: absoluteUrl(`/ham-excel/${fn.slug}`),
+        lastModified: latestUpdate(usedTemplates, siteUpdated),
+      };
+    }),
     ...systems.map((system) => ({
       url: absoluteUrl(system.href),
       lastModified: system.updatedAt,

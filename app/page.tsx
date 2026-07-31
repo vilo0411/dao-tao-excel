@@ -101,10 +101,10 @@ export default function HomePage() {
               Xem thư viện file
             </Link>
             <Link
-              href="/khoa-hoc-excel"
+              href="/ham-excel"
               className="rounded-lg border border-rule px-6 py-4 font-medium hover:border-ink"
             >
-              Khóa học tôi giới thiệu
+              Tra cứu hàm Excel
             </Link>
           </div>
         </div>

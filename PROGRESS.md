@@ -3,7 +3,7 @@
 Bảng theo dõi bám theo khung trong [prd-excel-template-hub.md](prd-excel-template-hub.md) mục 2.
 Cập nhật file này mỗi khi làm xong một template hoặc một hạng mục hạ tầng.
 
-**Cập nhật lần cuối:** 30/07/2026
+**Cập nhật lần cuối:** 31/07/2026
 
 ---
 
@@ -16,7 +16,7 @@ Cập nhật file này mỗi khi làm xong một template hoặc một hạng m�
 | Template `quan-ly-cong-viec` | 0 | 12 | `░░░░░░░░░░` 0% |
 | **Tổng template** | **18** | **37** | `█████░░░░░` 49% |
 | Bộ file | 1 | 3 | `███░░░░░░░` 33% |
-| Hạ tầng | 14 | 19 | `███████░░░` 74% |
+| Hạ tầng | 14 | 18 | `███████░░` 78% |
 
 **Giai đoạn hiện tại:** A — nội dung đã đủ, còn lại là rà nghiệp vụ và lên domain.
 **Chặn giai đoạn B:** cần 12 trang qua DoD + lên domain thật + GSC nhận sitemap.
@@ -163,7 +163,7 @@ CTA: `consult` · Hub chưa mở (cần ≥ 5 template)
 - [x] Breadcrumb + related tự bù (không có trang mồ côi)
 - [x] `sitemap.xml` sinh từ data, lọc category rỗng · `robots.txt`
 - [x] CTA sang HVS kèm UTM theo slug
-- [x] `/khoa-hoc-excel` + form lead + `/khoa-hoc-excel/cam-on`
+- [x] `/ham-excel` + `/ham-excel/[function]` — glossary hàm Excel, thay cho `/khoa-hoc-excel` (xem PRD mục 0, v2.1)
 - [x] CI deploy bản xem thử lên GitHub Pages (chặn index)
 - [x] Lớp bộ file: schema + loader (`lib/systems*.ts`), `/mau-excel/bo-file` + `/mau-excel/bo-file/[slug]`, sơ đồ `SystemMap`, dải `SystemStrip` trên trang file lẻ, JSON-LD `Collection` + `ItemList` + `isPartOf`
 - [x] **Tham chiếu dòng trên** trong công thức spec: ngoài `{row}` còn dùng được `{row-N}`. Đây là thứ mở khóa cả nhóm cột lũy kế của kế toán (tồn quỹ, dòng tiền ròng). Chỉ cho lùi lên, không cho `{row+N}` — trỏ xuống là tạo vòng lặp tham chiếu; schema chặn cả token gõ sai kiểu `{row -1}`, vốn sẽ lọt nguyên văn dấu ngoặc nhọn vào file và chỉ lộ ra ở tay người tải về
@@ -172,7 +172,6 @@ CTA: `consult` · Hub chưa mở (cần ≥ 5 template)
 ### Còn lại
 
 - [ ] **Chặn category rỗng** — `ke-toan`, `quan-ly-cong-viec` hiện vẫn build ra trang rỗng; áp quy tắc ≥ 5 template
-- [ ] **`LEAD_WEBHOOK_URL`** — chưa cấu hình, lead mới chỉ nằm trong console log
 - [ ] **`NEXT_PUBLIC_GA_ID`** — chưa có GA4, mọi chỉ số đo lường đang bằng 0
 - [ ] **Trỏ domain thật + deploy Vercel**
 - [ ] **Verify Google Search Console + submit sitemap**
@@ -183,6 +182,7 @@ CTA: `consult` · Hub chưa mở (cần ≥ 5 template)
 
 | Ngày | Việc |
 | :---- | :---- |
+| 31/07/2026 | **Bỏ `/khoa-hoc-excel`** (bridge page + form lead + `/api/lead` + `LeadForm`/`lib/lead.ts`), thay bằng **glossary hàm Excel** `/ham-excel` + `/ham-excel/[function]` (PRD mục 2.8, `lib/functions.ts`). Nguồn dữ liệu là `template.functions` đã tự trích sẵn — 8 hàm có template thật dùng (IF, IFERROR, AND, OR, N, ROUND, MAX, MIN). `npm run validate` giờ ném lỗi nếu một hàm mới xuất hiện trong công thức mà chưa có mục từ điển (`FUNCTION_INFO`) |
 | 30/07/2026 | **Mở nhóm `ke-toan` với 5 template đầu**: sổ quỹ tiền mặt, bảng kê thu chi, công nợ phải thu, công nợ phải trả, sổ kho nhập xuất tồn — vừa đủ ngưỡng 5 để mở hub. Mở rộng cú pháp công thức thêm `{row-N}` để cột lũy kế trỏ được lên dòng trên; trước đó cả nhóm cột số dư lũy kế là bất khả thi vì QA cấm tham chiếu tuyệt đối `$`, mà `SUM` neo từ dòng đầu thì gãy khi người dùng kéo công thức xuống |
 | 30/07/2026 | **Xong 8 template `nhan-su` còn lại** — nhóm nhân sự đủ 13/13. Thêm định dạng ngày cho `SheetPreview` (cột công thức trả serial Excel, trước đó in ra số trần). Sửa `bang-cham-cong-theo-ca`: nghỉ giữa giờ của ca liên tục được tính vào giờ làm theo Điều 109, trước đó trừ cho mọi ca nên ca đêm đủ 8 tiếng chỉ ra 0,94 công |
 | 28/07/2026 | **File gộp** cho `quan-ly-nhan-su-thang`: 6 sheet trong một workbook, 17 công thức nối. Viết `danh-sach-nhan-vien` + `bang-theo-doi-nghi-phep`. Bảng lương thêm cột công nên lương mới thực sự phụ thuộc chấm công |

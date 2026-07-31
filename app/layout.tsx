@@ -74,8 +74,7 @@ export default function RootLayout({
       <body className="flex min-h-full flex-col antialiased">
         {IS_PREVIEW && (
           <p className="bg-flag px-5 py-2 text-center text-sm text-paper">
-            Bản xem thử giao diện. Form nhận tư vấn chưa hoạt động, và trang này
-            không được Google lập chỉ mục.
+            Bản xem thử giao diện. Trang này không được Google lập chỉ mục.
           </p>
         )}
 
@@ -95,8 +94,8 @@ export default function RootLayout({
               <Link href="/mau-excel" className="hover:text-input">
                 Thư viện file
               </Link>
-              <Link href="/khoa-hoc-excel" className="hover:text-input">
-                Khóa học tôi giới thiệu
+              <Link href="/ham-excel" className="hover:text-input">
+                Hàm Excel
               </Link>
             </div>
           </nav>

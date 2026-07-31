@@ -8,6 +8,7 @@
  */
 import { getAllTemplates, resolveFormula } from "../lib/templates.ts";
 import { getAllSystems, ROLE_LABEL } from "../lib/systems.ts";
+import { getAllFunctions } from "../lib/functions.ts";
 
 const templates = getAllTemplates();
 
@@ -58,4 +59,11 @@ for (const s of systems) {
 
 console.log(
   `\n✓ ${systems.length} bộ file hợp lệ${systems.length === 0 ? " (chưa dựng bộ nào)" : ""}`,
+);
+
+// Ném lỗi ngay tại đây nếu một hàm mới xuất hiện trong công thức mà chưa có
+// mục từ điển — đúng chỗ để bắt sớm, trước khi build /ham-excel gãy.
+const functions = getAllFunctions();
+console.log(
+  `\n✓ ${functions.length} hàm Excel có trang glossary: ${functions.map((f) => f.name).join(", ")}`,
 );
