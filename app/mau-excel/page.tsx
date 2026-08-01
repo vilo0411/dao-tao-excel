@@ -3,7 +3,7 @@ import Link from "next/link";
 import { CategoryCard } from "@/components/CategoryCard";
 import { TemplateBrowser } from "@/components/TemplateBrowser";
 import { cardGridClass } from "@/components/TemplateCard";
-import { getAllTemplates, toCardData } from "@/lib/templates";
+import { getAllTemplates, withThumb } from "@/lib/templates";
 import { getAllSystems, getPopulatedCategories } from "@/lib/systems";
 import { absoluteUrl, CATEGORIES, CATEGORY_SLUGS } from "@/lib/site";
 
@@ -75,7 +75,10 @@ export default function TemplateIndexPage() {
 
       <div className="mt-14">
         <TemplateBrowser
-          templates={templates.map(toCardData)}
+          // withThumb chứ không phải toCardData: bộ lọc giờ có kiểu xem lưới,
+          // mà card không có dải cột thì mất đúng thứ khiến nó đáng xem hơn
+          // một dòng. Xem chú thích ở withThumb về cái giá phải trả.
+          templates={templates.map(withThumb)}
           categoryDescriptions={categoryDescriptions}
         />
       </div>

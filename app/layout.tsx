@@ -78,9 +78,19 @@ export default function RootLayout({
           </p>
         )}
 
-        <header className="border-b border-rule">
+        {/*
+          bg-paper chứ không để trong suốt. Giấy kẻ ô của trang bắt đầu ngay ở
+          y=0, nên nếu header trong suốt thì lưới chạy xuyên qua thanh điều
+          hướng và ranh giới giữa chrome với nội dung biến mất. Header là chrome
+          — nó phải là một dải đục, và đường border-b bên dưới mới là chỗ trang
+          thật sự bắt đầu.
+        */}
+        <header className="bg-paper border-b border-rule">
           <nav className="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-x-6 gap-y-2 px-5 py-4">
-            <Link href="/" className="font-display font-semibold tracking-tight">
+            <Link
+              href="/"
+              className="font-display font-semibold tracking-tight"
+            >
               {SITE_NAME}
               <span className="ml-2 font-sans text-sm font-normal text-ink-soft">
                 của {AUTHOR.name}

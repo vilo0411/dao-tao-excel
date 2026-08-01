@@ -184,7 +184,14 @@ export function toCardData(t: Template): TemplateCardData {
  *
  * Tách khỏi `toCardData` chứ không gộp vào: trang thư viện đẩy dữ liệu của cả
  * thư viện xuống component lọc phía client, tức mọi trường ở đây đều đi thẳng
- * vào HTML — mà danh sách dạng dòng bên đó không vẽ card.
+ * vào HTML.
+ *
+ * Trang thư viện GIỜ CÓ trả giá đó — TemplateBrowser thêm kiểu xem lưới nên
+ * nó gọi withThumb cho cả thư viện. Trước đây nó chỉ vẽ danh sách dạng dòng
+ * nên dùng toCardData. Cái giá là mỗi file cõng thêm năm tên cột cùng mảng
+ * boolean; ở 21 file là vài KB, chấp nhận được. Nếu thư viện lớn tới mức HTML
+ * trang đó thành vấn đề thì chỗ phải sửa là đây: cắt thumb khỏi payload và cho
+ * kiểu lưới tự lấy thêm, chứ đừng bỏ kiểu lưới.
  *
  * Năm cột là trần vừa một card ba-lên-một-hàng mà không phải cắt chữ tên cột.
  */

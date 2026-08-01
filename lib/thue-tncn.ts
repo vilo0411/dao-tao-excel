@@ -50,3 +50,21 @@ export const DEMO_FORMULA = {
   B8: "=IF(B7<=10000000,B7*5%,IF(B7<=30000000,B7*10%-500000,IF(B7<=60000000,B7*20%-3500000,IF(B7<=100000000,B7*30%-9500000,B7*35%-14500000))))",
   B9: "=B4-B5-B8",
 };
+
+/**
+ * Các ô mà một công thức đang đọc vào — Excel gọi là precedents, và vẽ khung
+ * quanh chúng khi bạn double-click vào ô công thức.
+ *
+ * Trích thẳng từ chuỗi công thức chứ KHÔNG khai thành bảng riêng. Một bảng
+ * `{ B9: ["B4","B5","B8"] }` viết tay là bản sao thứ hai của cùng một sự thật,
+ * và bản sao thì lệch: sửa B9 thành "=B4-B5-B8-B10" mà quên bảng, thế là trang
+ * chủ khoanh sai ô ngay dưới câu quảng cáo "công thức đã kiểm bằng máy". Cùng
+ * lý do lib/templates trích tên hàm từ công thức thật thay vì để người khai.
+ *
+ * Bảng demo dựng đứng nên mọi tham chiếu đều là cột B một chữ số — không cần
+ * parser Excel đầy đủ, và nếu ai đó thêm cột C thì regex này im lặng bỏ qua nó.
+ * Đổi bảng sang nhiều cột thì phải mở rộng chỗ này.
+ */
+export function tienDe(formula: string): string[] {
+  return [...new Set(formula.match(/\bB\d+\b/g) ?? [])];
+}

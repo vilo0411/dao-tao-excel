@@ -102,7 +102,11 @@ export default function HomePage() {
             </Link>
             <Link
               href="/ham-excel"
-              className="rounded-lg border border-rule px-6 py-4 font-medium hover:border-ink"
+              /* bg-paper chứ không để trong suốt: nút phụ phải là một khối đục
+                 như nút chính. Để trong suốt thì nó nhận bất cứ nền nào nằm
+                 dưới — giấy kẻ ô chạy xuyên qua giữa chữ — và đọc ra là một
+                 khung viền rỗng chứ không phải một cái nút bấm được. */
+              className="rounded-lg border border-rule bg-paper px-6 py-4 font-medium hover:border-ink"
             >
               Tra cứu hàm Excel
             </Link>
@@ -131,7 +135,13 @@ export default function HomePage() {
         </dl>
       </section>
 
-      <section className="mt-10">
+      {/*
+        Padding ở đây không phải để cho thoáng mà để giấy kẻ ô của trang có chỗ
+        hiện ra quanh bảng: bảng tính là một khối đục kín, không chừa lề thì nó
+        đè kín lưới và mất luôn cái viền không khí. Đây là chỗ lưới nền có
+        nghĩa nhất trên cả site — nó đóng khung đúng một bảng tính thật.
+      */}
+      <section className="mt-10 p-4 sm:p-8">
         <h2 className="sr-only">Thử một bảng tính lương</h2>
         <HeroSheet templateHref={demoHref} />
       </section>
@@ -212,7 +222,10 @@ export default function HomePage() {
           <h2 className="font-display text-3xl">File mới nhất</h2>
           <ul className={`mt-6 ${cardGridClass(templates.length)}`}>
             {templates.map((template) => (
-              <TemplateCard key={template.slug} template={withThumb(template)} />
+              <TemplateCard
+                key={template.slug}
+                template={withThumb(template)}
+              />
             ))}
           </ul>
         </section>

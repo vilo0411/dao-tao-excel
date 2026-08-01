@@ -1,6 +1,7 @@
 "use client";
 
-import { useId, useMemo, useState } from "react";
+import { useId, useMemo, useState, useSyncExternalStore } from "react";
+import { cardGridClass, TemplateCard } from "@/components/TemplateCard";
 import { TemplateList } from "@/components/TemplateList";
 import { DIFFICULTY_LABEL, type TemplateCardData } from "@/lib/schema";
 
@@ -20,6 +21,66 @@ import { DIFFICULTY_LABEL, type TemplateCardData } from "@/lib/schema";
  */
 
 type Facet = { value: string; label: string; count: number };
+
+/**
+ * Hai kiểu hiển thị kết quả, và cả hai component đã có sẵn từ trước — thiếu
+ * mỗi cái nút để người đọc tự chọn.
+ *
+ * Hai kiểu tồn tại vì đây là hai câu hỏi khác nhau. Người biết mình cần file gì
+ * đang TRA: họ muốn dòng dày, quét dọc theo cột tên. Người mới vào đang DUYỆT:
+ * họ chưa biết mình cần gì nên cần đoạn mô tả và dải cột của từng file. Ép cả
+ * hai vào một kiểu thì luôn có một nhóm phải chịu thiệt.
+ *
+ * Mặc định là `list`, và điều đó phải giữ nguyên vì một lý do ngoài thẩm mỹ:
+ * TemplateBrowser chạy phía client, nên HTML tĩnh mà crawler đọc chính là lần
+ * render đầu tiên. Đổi mặc định sang `grid` là đổi luôn HTML của trang thư
+ * viện — và TemplateList cố ý đẩy MỌI dòng vào HTML để link file không bị mất
+ * khỏi bản tĩnh (xem chú thích bên đó).
+ */
+type View = "list" | "grid";
+
+/*
+ * Lựa chọn kiểu hiển thị sống trong localStorage, và component đọc nó qua
+ * useSyncExternalStore chứ không qua useState + useEffect.
+ *
+ * Lý do không phải sở thích: localStorage không tồn tại lúc render trên server,
+ * nên không thể đọc nó lúc khởi tạo state — mà chữa bằng cách setState trong
+ * effect thì React 19 chặn thẳng (react-hooks/set-state-in-effect), vì đó là
+ * một vòng render thừa. useSyncExternalStore sinh ra đúng cho hình này: nó
+ * nhận một snapshot riêng cho server, nên lần render đầu ở hai bên khớp nhau
+ * mà không cần vòng nào.
+ *
+ * Được thêm một thứ: nghe luôn sự kiện `storage`, nên mở hai tab thư viện thì
+ * đổi kiểu ở tab này tab kia đổi theo.
+ */
+const VIEW_KEY = "mau-excel:view";
+
+const viewListeners = new Set<() => void>();
+
+function subscribeView(onChange: () => void) {
+  viewListeners.add(onChange);
+  window.addEventListener("storage", onChange);
+  return () => {
+    viewListeners.delete(onChange);
+    window.removeEventListener("storage", onChange);
+  };
+}
+
+/* Trả về primitive nên useSyncExternalStore so sánh được bằng giá trị — không
+   cần cache snapshot như khi trả về object. */
+function readView(): View {
+  return localStorage.getItem(VIEW_KEY) === "grid" ? "grid" : "list";
+}
+
+/* Snapshot phía server, và cũng là snapshot của lần render đầu khi hydrate.
+   Phải là "list" — xem lý do SEO ở chú thích của type View. */
+const serverView = (): View => "list";
+
+function writeView(view: View) {
+  localStorage.setItem(VIEW_KEY, view);
+  // `storage` chỉ bắn sang tab KHÁC, nên tab đang thao tác phải tự báo.
+  for (const onChange of viewListeners) onChange();
+}
 
 function facetsOf(
   items: TemplateCardData[],
@@ -45,6 +106,7 @@ export function TemplateBrowser({
   categoryDescriptions: Record<string, string>;
 }) {
   const searchId = useId();
+  const view = useSyncExternalStore(subscribeView, readView, serverView);
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState<string | null>(null);
   const [fn, setFn] = useState<string | null>(null);
@@ -150,20 +212,23 @@ export function TemplateBrowser({
         <p className="cell-ref text-sm text-ink-faint tabular-nums">
           {results.length} / {templates.length} file
         </p>
-        {filtered && (
-          <button
-            type="button"
-            onClick={() => {
-              setQuery("");
-              setCategory(null);
-              setFn(null);
-              setDifficulty(null);
-            }}
-            className="text-sm underline decoration-rule underline-offset-4 hover:decoration-ink"
-          >
-            Bỏ hết bộ lọc
-          </button>
-        )}
+        <div className="flex items-center gap-4">
+          {filtered && (
+            <button
+              type="button"
+              onClick={() => {
+                setQuery("");
+                setCategory(null);
+                setFn(null);
+                setDifficulty(null);
+              }}
+              className="text-sm underline decoration-rule underline-offset-4 hover:decoration-ink"
+            >
+              Bỏ hết bộ lọc
+            </button>
+          )}
+          <ViewToggle view={view} onSelect={writeView} />
+        </div>
       </div>
 
       {category && !query.trim() && (
@@ -174,7 +239,21 @@ export function TemplateBrowser({
 
       {results.length > 0 ? (
         <div className="mt-6">
-          <TemplateList templates={results} />
+          {view === "list" ? (
+            <TemplateList templates={results} />
+          ) : (
+            /*
+              Lưới card KHÔNG phân trang, khác danh sách. Phân trang nằm trong
+              TemplateList cùng với dải tab sheet của nó, và lôi ra dùng chung
+              thì phải tách state ra khỏi cả hai — chưa đáng ở quy mô thư viện
+              hiện tại. Mốc phải xem lại: khoảng 40 file, lúc lưới vượt 13 hàng.
+            */
+            <ul className={cardGridClass(results.length)}>
+              {results.map((template) => (
+                <TemplateCard key={template.slug} template={template} />
+              ))}
+            </ul>
+          )}
         </div>
       ) : (
         /*
@@ -196,6 +275,63 @@ export function TemplateBrowser({
         </div>
       )}
     </div>
+  );
+}
+
+/**
+ * Chuyển giữa danh sách và lưới card.
+ *
+ * Đảo nền sang ink khi chọn, giống hệt nút lọc — cả hai đứng NGOÀI lưới bảng
+ * tính nên theo quy ước của tầng biên tập. Cố ý ngược chiều với dải tab sheet
+ * dưới đáy danh sách (tab đang mở là tab SÁNG), vì dải tab là một phần của
+ * chính bảng tính còn nút này thì không.
+ *
+ * Hai nút dính liền trong một khung thay vì rời nhau: chúng loại trừ nhau, mà
+ * hai nút rời đọc ra là hai thao tác độc lập.
+ */
+function ViewToggle({
+  view,
+  onSelect,
+}: {
+  view: View;
+  onSelect: (view: View) => void;
+}) {
+  return (
+    <div
+      role="group"
+      aria-label="Kiểu hiển thị"
+      className="flex shrink-0 overflow-hidden rounded-sm border border-rule"
+    >
+      <ViewButton on={view === "list"} onClick={() => onSelect("list")}>
+        Danh sách
+      </ViewButton>
+      <ViewButton on={view === "grid"} onClick={() => onSelect("grid")}>
+        Lưới
+      </ViewButton>
+    </div>
+  );
+}
+
+function ViewButton({
+  on,
+  onClick,
+  children,
+}: {
+  on: boolean;
+  onClick: () => void;
+  children: string;
+}) {
+  return (
+    <button
+      type="button"
+      aria-pressed={on}
+      onClick={onClick}
+      className={`px-3 py-1 text-sm transition-colors ${
+        on ? "bg-ink text-paper" : "text-ink-soft hover:bg-panel"
+      }`}
+    >
+      {children}
+    </button>
   );
 }
 

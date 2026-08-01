@@ -26,14 +26,14 @@ type Feature = {
 function FormulaBarVisual() {
   return (
     <div className="border border-rule bg-paper">
-      <div className="flex items-stretch text-sm">
-        <span className="flex w-12 shrink-0 items-center justify-center border-r border-rule py-2.5 font-mono text-ink-soft">
+      <div className="flex items-stretch text-base">
+        <span className="flex w-16 shrink-0 items-center justify-center border-r border-rule py-3.5 font-mono text-ink-soft">
           B9
         </span>
-        <span className="flex shrink-0 items-center border-r border-rule px-2.5 py-2.5 font-mono text-ink-faint italic">
+        <span className="flex shrink-0 items-center border-r border-rule px-3 py-3.5 font-mono text-ink-faint italic">
           fx
         </span>
-        <span className="flex min-w-0 flex-1 items-center px-2.5 py-2.5">
+        <span className="flex min-w-0 flex-1 items-center px-3 py-3.5">
           {/*
             Bề rộng phải đặt cứng theo số ký tự: animation gõ chữ chạy từ
             width 0 tới giá trị tĩnh, mà width:auto thì trình duyệt không nội
@@ -51,18 +51,18 @@ function FormulaBarVisual() {
           </code>
           <span
             aria-hidden
-            className="fx-caret ml-px inline-block h-4 w-px bg-computed"
+            className="fx-caret ml-px inline-block h-5 w-px bg-computed"
           />
         </span>
       </div>
-      <div className="flex border-t border-rule text-sm">
-        <span className="flex-1 border-r border-rule px-2.5 py-2.5 text-ink-soft">
+      <div className="flex border-t border-rule text-base">
+        <span className="flex-1 border-r border-rule px-3 py-3.5 text-ink-soft">
           Thực lĩnh
         </span>
-        <span className="relative w-32 bg-computed-bg px-2.5 py-2.5 text-right font-mono tabular-nums text-computed">
+        <span className="relative w-40 bg-computed-bg px-3 py-3.5 text-right font-mono tabular-nums text-computed">
           <span
             aria-hidden
-            className="absolute top-0 right-0 h-0 w-0 border-t-6 border-l-6 border-t-computed border-l-transparent"
+            className="absolute top-0 right-0 h-0 w-0 border-t-8 border-l-8 border-t-computed border-l-transparent"
           />
           17.510.000
         </span>
@@ -80,16 +80,16 @@ function CheckRunVisual() {
       {checks.map((formula, i) => (
         <div
           key={formula}
-          className="fx-row flex items-center justify-between gap-2 border-b border-rule bg-computed-bg px-3 py-2.5 font-mono text-sm text-computed"
-          style={{ animationDelay: `${i * 110}ms` }}
+          className="fx-row flex items-center justify-between gap-2 border-b border-rule bg-computed-bg px-4 py-3.5 font-mono text-base text-computed"
+          style={{ animationDelay: `${i * 75}ms` }}
         >
           <code className="truncate">{formula}</code>
           <span aria-hidden>✓</span>
         </div>
       ))}
       <div
-        className="fx-row flex items-center justify-between px-3 py-2.5 font-mono text-sm text-ink-soft"
-        style={{ animationDelay: "330ms" }}
+        className="fx-row flex items-center justify-between px-4 py-3.5 font-mono text-base text-ink-soft"
+        style={{ animationDelay: "225ms" }}
       >
         <span>bang-tinh-luong.xlsx</span>
         <span className="tabular-nums">18/18 ô khớp</span>
@@ -101,22 +101,22 @@ function CheckRunVisual() {
 /** File chạy thẳng về máy, và cái ô email mà trang này không hỏi. */
 function DownloadVisual() {
   return (
-    <div className="border border-rule bg-paper p-3">
-      <div className="flex items-baseline justify-between font-mono text-sm">
+    <div className="border border-rule bg-paper p-4">
+      <div className="flex items-baseline justify-between font-mono text-base">
         <span className="truncate text-ink">bang-tinh-luong.xlsx</span>
         <span className="shrink-0 pl-2 tabular-nums text-ink-faint">48 KB</span>
       </div>
-      <div aria-hidden className="mt-2 h-1.5 bg-rule">
+      <div aria-hidden className="mt-3 h-2 bg-rule">
         <div className="fx-fill h-full w-full bg-ink" />
       </div>
       <div
         aria-hidden
-        className="mt-3 flex items-center gap-2 border border-dashed border-rule px-2.5 py-1.5"
+        className="mt-4 flex items-center gap-2 border border-dashed border-rule px-3 py-2"
       >
-        <span className="flex-1 truncate font-mono text-sm text-ink-faint line-through">
+        <span className="flex-1 truncate font-mono text-base text-ink-faint line-through">
           email của bạn
         </span>
-        <span className="shrink-0 font-mono text-xs text-ink-faint">
+        <span className="shrink-0 font-mono text-sm text-ink-faint">
           không hỏi
         </span>
       </div>
@@ -133,19 +133,19 @@ function PortabilityVisual() {
     <div className="flex gap-3">
       {panes.map((pane, paneIndex) => (
         <div key={pane} className="min-w-0 flex-1 border border-rule bg-paper">
-          <div className="flex h-28 items-end gap-2 border-b border-rule p-3">
+          <div className="flex h-40 items-end gap-2 border-b border-rule p-4">
             {bars.map((height, i) => (
               <span
                 key={height}
                 className="fx-bar flex-1 bg-ink/70"
                 style={{
                   height: `${height}%`,
-                  animationDelay: `${paneIndex * 90 + i * 70}ms`,
+                  animationDelay: `${paneIndex * 60 + i * 45}ms`,
                 }}
               />
             ))}
           </div>
-          <div className="truncate bg-panel px-2.5 py-1.5 font-mono text-xs text-ink-faint">
+          <div className="truncate bg-panel px-3 py-2 font-mono text-sm text-ink-faint">
             {pane}
           </div>
         </div>
@@ -253,7 +253,7 @@ export function FeatureGrid() {
                     }
                     next();
                   }}
-                  className="fx-progress absolute inset-x-0 top-0 h-0.5 origin-left bg-coral"
+                  className="fx-progress absolute inset-x-0 top-0 h-1 origin-left bg-coral"
                 />
               )}
 
@@ -263,7 +263,7 @@ export function FeatureGrid() {
                   onClick={() => setActive(i)}
                   aria-expanded={isActive}
                   aria-controls={panelId}
-                  className="flex w-full items-center gap-4 py-5 text-left"
+                  className="flex w-full items-center gap-4 py-6 text-left"
                 >
                   {/*
                     Số thứ tự đặt trong ô viền như đầu dòng của Excel — đây là
@@ -272,7 +272,7 @@ export function FeatureGrid() {
                   */}
                   <span
                     aria-hidden
-                    className={`flex size-7 shrink-0 items-center justify-center border font-mono text-xs tabular-nums ${
+                    className={`flex size-8 shrink-0 items-center justify-center border font-mono text-sm tabular-nums ${
                       isActive
                         ? "border-ink bg-ink text-paper"
                         : "border-rule bg-panel text-ink-faint"
@@ -281,7 +281,7 @@ export function FeatureGrid() {
                     {i + 1}
                   </span>
                   <span
-                    className={`font-display flex-1 text-lg font-medium text-balance ${
+                    className={`font-display flex-1 text-xl font-medium text-balance lg:text-2xl ${
                       isActive ? "text-ink" : "text-ink-soft"
                     }`}
                   >
@@ -303,7 +303,7 @@ export function FeatureGrid() {
                 }`}
               >
                 <div className="overflow-hidden">
-                  <p className="max-w-prose pr-4 pb-5 pl-11 text-sm text-ink-soft">
+                  <p className="max-w-prose pr-4 pb-6 pl-12 text-base text-ink-soft">
                     {feature.body}
                   </p>
                 </div>
@@ -322,12 +322,12 @@ export function FeatureGrid() {
       */}
       <div
         aria-hidden
-        className="flex min-h-96 items-center justify-center rounded-md border border-rule bg-panel p-6 sm:p-10 lg:sticky lg:top-24"
+        className="flex min-h-[28rem] items-center justify-center rounded-md border border-rule bg-panel p-8 sm:p-12 lg:sticky lg:top-24 lg:min-h-[32rem]"
       >
         {/* Không có trần max-w: hình là nhân vật chính của cột này, để nó ăn
-            hết bề ngang. Chỉ chặn ở max-w-lg cho màn rất rộng, quá cỡ đó thì
+            hết bề ngang. Chỉ chặn ở max-w-xl cho màn rất rộng, quá cỡ đó thì
             mảnh bảng tính bắt đầu đọc ra như một cái bảng thật bị phóng to. */}
-        <div key={active} className="w-full max-w-lg">
+        <div key={active} className="w-full max-w-xl">
           {FEATURES[active].visual}
         </div>
       </div>

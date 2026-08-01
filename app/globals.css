@@ -68,6 +68,24 @@
      đừng ước lượng bằng mắt. */
   --color-chart: #0d7350;
 
+  /* ---- Lưới nền ----
+
+     Đường kẻ ô của tấm giấy kẻ ô trải dưới TOÀN BỘ trang. Là một sắc trung
+     tính chứ KHÔNG phải accent mới: nó không mang nghĩa, không bao giờ chạm
+     vào chữ, và chỉ tồn tại để mặt nền giữa các khối nội dung đọc ra là nền
+     của một bảng tính.
+
+     Nhạt hơn `rule` (#dddddd) và đó là chủ đích. `rule` là hairline cho một
+     đường viền có thật, người đọc phải thấy nó; lưới nền thì không.
+
+     Nhưng cũng KHÔNG được nhạt tới mức biến mất. Bản trước để #f1f4f8 (1.08:1)
+     và lưới coi như không có trên phần lớn màn hình. Con số hiện tại lấy từ
+     coefficient.io: nền lưới của họ là #e1e1e1 phủ ở fill-opacity .6, tức
+     #ededed trên giấy trắng. Đây là mức "thấy được mà không đọc thành chữ".
+     Sắc ở đây lệch lạnh một chút để nằm cùng họ với ink (#181d26) thay vì xám
+     trung tính, còn độ sáng thì giữ đúng bằng của họ. */
+  --color-grid: #e9edf2;
+
   /* ---- Hình khối ---- */
   --radius-sm: 6px; /* ô nhập liệu */
   --radius-md: 10px; /* card nội dung, khung ngoài của lưới card */
@@ -84,6 +102,80 @@ body {
   font-family: var(--font-sans);
   /* Dấu tiếng Việt chồng nhiều tầng nên cần nới dòng hơn mặc định. */
   line-height: 1.65;
+  /* Mốc neo cho lớp lưới ở ::before bên dưới. */
+  position: relative;
+}
+
+/*
+  GIẤY KẺ Ô — nền ở đầu mỗi trang.
+
+  Ô 112×35px, tức đúng tỉ lệ 3.2:1 của Excel mặc định (cột 64px, dòng 20px)
+  phóng lên 1.75 lần. Phải là hình CHỮ NHẬT NẰM NGANG và phải dẹt hẳn: ô vuông
+  đọc ra giấy kẻ ly của học sinh, đúng tỉ lệ cột/dòng mới đọc ra bảng tính.
+  Đây là toàn bộ khác biệt giữa hai thứ và nó chỉ nằm ở tỉ lệ hai con số này.
+
+  Bản trước để 72×28 (2.57:1) — vừa dẹt chưa đủ để ra Excel, vừa dày quá nên
+  cả trang đọc ra một mảng hoa văn. Ô càng to thì lưới càng thưa, mà thưa mới
+  gánh nổi một đường kẻ đậm hơn. coefficient.io đi đúng đường đó: ô của họ tới
+  116×30 (3.9:1), thưa hơn nữa, nên đường kẻ đậm mà nền vẫn tĩnh.
+
+  `absolute` chứ không `fixed`, và đó là lý do body phải position: relative.
+  Lưới cuộn theo trang: ô đứng yên so với nội dung, đúng như dòng và cột đứng
+  yên so với dữ liệu trong một bảng tính thật. Để `fixed` thì chữ trôi qua một
+  tấm lưới đứng im, đọc ra là hoa văn dán lên màn hình.
+
+  z-index âm để lưới nằm dưới mọi nội dung. Nền trắng của body được truyền lên
+  canvas nên nó vẫn được vẽ phía dưới cả lớp z âm này — lưới không bị nền trang
+  ăn mất, và mọi khối có nền riêng (card bg-paper, band coral, panel) tự che
+  lưới đi. Đó là cách site này phân tầng: lưới là mặt bàn, nội dung là giấy tờ
+  đặt lên trên.
+
+  MASK là chỗ đổi ý so với bản trước, và là lý do lưới được phép đậm lên.
+
+  Lưới chỉ sống ở ĐẦU trang rồi tan vào giấy, không chạy suốt xuống footer.
+  coefficient.io làm đúng vậy: file v2-hero-cells-background.svg của họ phủ
+  một gradient trắng lên chính tấm lưới, tắt hẳn sau ~230px, và bên dưới là
+  giấy trắng trơn. Lưới ở đó để nói "đây là bảng tính" ngay giây đầu tiên —
+  nói xong thì phải im, vì phần còn lại của trang là chữ để đọc.
+
+  Mốc tính bằng PX chứ không phải %. Trang dài ngắn khác nhau, để % thì trang
+  /mau-excel dài gấp ba lần trang chủ sẽ có vùng lưới dài gấp ba — mỗi trang
+  một kiểu nền. Tính bằng px thì mọi trang tắt lưới ở cùng một độ cao.
+
+  760px là hết hero cộng bảng demo trên trang chủ; 1200px là chỗ tan hẳn. Dải
+  440px ở giữa đủ dài để không ai thấy một đường cắt ngang.
+
+  Kèm theo đó là lý do a11y: chữ ink-faint (#6b7280) đè đúng một đường kẻ chỉ
+  còn ~4.1:1. Trong 760px đầu không có khối chữ ink-faint nào nằm trực tiếp
+  trên lưới (khối thông số hero và các card đều có nền bg-paper riêng), còn
+  vùng chữ dày phía dưới thì lưới đã tắt. Nếu kéo dài mốc này ra thì phải rà
+  lại đúng điều đó.
+*/
+body::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image:
+    linear-gradient(to right, var(--color-grid) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--color-grid) 1px, transparent 1px);
+  background-size: 112px 35px;
+  /* Neo vào mép trên-trái của tài liệu để không có hàng ô nào bị cắt lẻ ở đầu
+     trang, và để mọi trang trong site cắt ô ở cùng một chỗ. */
+  background-position: 0 0;
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    #000 0,
+    #000 760px,
+    transparent 1200px
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    #000 0,
+    #000 760px,
+    transparent 1200px
+  );
+  pointer-events: none;
 }
 
 /*
@@ -160,7 +252,7 @@ kbd,
   chừng ở lần đổi.
 */
 :root {
-  --fx-cycle: 3s;
+  --fx-cycle: 2s;
 }
 
 @keyframes fx-type {
@@ -229,7 +321,7 @@ kbd,
 }
 
 .fx-caret {
-  animation: fx-caret 760ms steps(1, end) infinite;
+  animation: fx-caret 620ms steps(1, end) infinite;
 }
 
 .fx-row {

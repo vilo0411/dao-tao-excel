@@ -7,6 +7,7 @@ import {
   GIAM_TRU_BAN_THAN,
   GIAM_TRU_PHU_THUOC,
   TY_LE_BAO_HIEM,
+  tienDe,
   tinhThue,
 } from "@/lib/thue-tncn";
 
@@ -54,8 +55,27 @@ export function HeroSheet({ templateHref }: { templateHref?: string }) {
    * được phép xuống dòng thay vì cuộn.
    */
   const [hovered, setHovered] = useState<string | null>(null);
-  const [pinned, setPinned] = useState<string | null>(null);
-  const active = pinned ?? hovered;
+  const [pinned, setPinned] = useState<string | null>("B9");
+
+  /*
+   * Bảng mở ra đã ghim sẵn B9, nhưng đó là ghim MỀM — người đọc chưa bấm gì.
+   *
+   * Vì sao ghim sẵn: thanh fx rỗng lúc tải trang nghĩa là người lướt qua trong
+   * ba giây không thấy một công thức nào, tức là không thấy sản phẩm. Ghim sẵn
+   * dòng chốt thì ngay khung hình đầu tiên đã có "B9 │ fx │ =B4-B5-B8" cùng ba
+   * ô nguồn được khoanh. Đây là trạng thái tĩnh, không phải animation, nên nó
+   * không phạm vào lý do sáu ô không được lóe sáng lúc tải trang (ghi ở dưới).
+   *
+   * Vì sao phải phân biệt mềm / cứng: thứ tự ưu tiên giữa ghim và hover phải
+   * đảo chiều tùy ai đặt ra nó.
+   * - Ghim mềm: hover thắng, rời chuột thì rơi về B9. Không có nhánh này thì
+   *   ghim sẵn khoá luôn hover — rê chuột khắp bảng mà thanh fx đứng im ở B9.
+   * - Ghim cứng (người đọc tự bấm): ghim thắng. Giữ nguyên hành vi cũ, vì lý
+   *   do ở trên: đọc trọn chuỗi IF 5 tầng đòi con trỏ rời khỏi ô, và trên
+   *   đường đi nó quét qua mấy ô khác.
+   */
+  const [pinnedByUser, setPinnedByUser] = useState(false);
+  const active = pinnedByUser ? (pinned ?? hovered) : (hovered ?? pinned);
 
   /*
    * Đổi mỗi lần một ô nhập thay đổi, dùng làm key cho ô kết quả. React dựng
@@ -123,13 +143,42 @@ export function HeroSheet({ templateHref }: { templateHref?: string }) {
 
   const activeRow = rows.find((r) => r.ref === active);
 
+  /*
+   * Ô mà công thức đang xem đọc vào. Excel khoanh đúng những ô này khi bạn
+   * double-click vào một ô công thức, và đó là thao tác dạy được nhiều nhất
+   * trong cả Excel: nó biến một chuỗi ký tự thành một mũi tên chỉ chỗ.
+   *
+   * Thanh fx in ra "=B4-B5-B8" thì người đã biết Excel đọc được ngay, còn
+   * người mới — tức là người mà cả site này viết cho — không biết B4 nằm ở
+   * đâu trên màn hình. Khoanh ô là câu trả lời, và nó không tốn một chữ nào.
+   */
+  const traced = new Set(tienDe(activeRow?.formula ?? ""));
+
+  /*
+   * Khung ô nguồn vẽ bằng nét đứt màu ink-faint, KHÔNG phải màu semantic.
+   *
+   * input / computed đang mang nghĩa vai trò ("ô bạn gõ" / "ô Excel tính"), mà
+   * cái khung này nói một chuyện khác hẳn — một quan hệ tạm thời, đổi theo ô
+   * đang chọn. Mượn màu vai trò để nói quan hệ là làm nhòe đúng quy ước mà
+   * bảng này tồn tại để dạy. Nét đứt cũng tách nó khỏi khung liền của ô đang
+   * ghim, nên hai loại khung không đọc nhầm thành nhau.
+   *
+   * Outline chứ không phải ring: ring của Tailwind là box-shadow, hệ thiết kế
+   * cấm. Cùng lý do đã ghi ở nút ô bên dưới.
+   */
+  const tracedRing =
+    "outline-1 outline-dashed -outline-offset-1 outline-ink-faint";
+
   return (
     <figure
       className="not-prose"
       // Esc là đường thoát quen tay cho mọi thứ đang ghim. Đặt ở cấp figure để
       // bấm Esc khi đang đứng ở ô nào cũng nhả được.
       onKeyDown={(e) => {
-        if (e.key === "Escape") setPinned(null);
+        if (e.key === "Escape") {
+          setPinned(null);
+          setPinnedByUser(false);
+        }
       }}
     >
       {/* Thanh công thức, dựng đúng như Excel: hộp tên ô, nhãn fx, nội dung. */}
@@ -153,21 +202,28 @@ export function HeroSheet({ templateHref }: { templateHref?: string }) {
           người dùng bàn phím vẫn nghe được — nhưng chỉ khi họ hỏi tới. Thứ
           duy nhất đáng thông báo tự động là dòng chốt, để ở cuối figure.
         */}
+        {/*
+          Chỉ ghim CỨNG mới được xuống dòng và mới hiện lời nhắc bỏ ghim. Ghim
+          mềm lúc tải trang thì người đọc chưa bấm gì, bảo họ "bấm lại để bỏ
+          ghim" là nói về một thao tác chưa từng xảy ra.
+        */}
         <output
           className={`flex min-w-0 flex-1 items-baseline gap-3 px-3 py-2 ${
-            pinned ? "" : "overflow-x-auto"
+            pinnedByUser ? "" : "overflow-x-auto"
           }`}
         >
           {activeRow ? (
             <>
               <code
                 className={`text-computed ${
-                  pinned ? "break-all whitespace-pre-wrap" : "whitespace-pre"
+                  pinnedByUser
+                    ? "break-all whitespace-pre-wrap"
+                    : "whitespace-pre"
                 }`}
               >
                 {activeRow.formula}
               </code>
-              {pinned && (
+              {pinnedByUser && (
                 <span className="ml-auto hidden shrink-0 text-xs text-ink-faint sm:inline">
                   bấm lại hoặc Esc để bỏ ghim
                 </span>
@@ -207,20 +263,34 @@ export function HeroSheet({ templateHref }: { templateHref?: string }) {
           </thead>
 
           <tbody>
+            {/*
+              Ô nhập cũng là ô nguồn của công thức phía dưới, nên chúng cũng
+              được khoanh. Đây mới là nửa có giá trị của việc khoanh ô: nó nối
+              con số người đọc vừa gõ với con số Excel vừa trả ra.
+            */}
             <InputRow
               n={1}
+              cellRef="B1"
+              traced={traced.has("B1")}
+              ring={tracedRing}
               label="Lương cơ bản"
               value={luongCoBan}
               onChange={bumped(setLuongCoBan)}
             />
             <InputRow
               n={2}
+              cellRef="B2"
+              traced={traced.has("B2")}
+              ring={tracedRing}
               label="Phụ cấp"
               value={phuCap}
               onChange={bumped(setPhuCap)}
             />
             <StepperRow
               n={3}
+              cellRef="B3"
+              traced={traced.has("B3")}
+              ring={tracedRing}
               label="Số người phụ thuộc"
               value={phuThuoc}
               onChange={bumped(setPhuThuoc)}
@@ -229,10 +299,14 @@ export function HeroSheet({ templateHref }: { templateHref?: string }) {
             {rows.map((row, i) => {
               const rowNumber = i + 4;
               const isActive = active === row.ref;
-              const isPinned = pinned === row.ref;
+              const isPinned = pinnedByUser && pinned === row.ref;
+              const isTraced = traced.has(row.ref);
               return (
                 <tr key={row.ref}>
-                  <RowHead n={rowNumber} />
+                  <RowHead
+                    n={rowNumber}
+                    state={isActive ? "active" : isTraced ? "traced" : null}
+                  />
                   <th
                     scope="row"
                     className={`border-r border-b border-rule px-3 py-2 text-left font-normal whitespace-nowrap ${
@@ -244,7 +318,7 @@ export function HeroSheet({ templateHref }: { templateHref?: string }) {
                   <td
                     className={`relative border-b border-rule p-0 ${
                       isActive ? "bg-computed/15" : "bg-computed-bg"
-                    }`}
+                    } ${isTraced ? tracedRing : ""}`}
                   >
                     <span
                       aria-hidden
@@ -263,11 +337,16 @@ export function HeroSheet({ templateHref }: { templateHref?: string }) {
                       onMouseLeave={() => setHovered(null)}
                       onFocus={() => setHovered(row.ref)}
                       onBlur={() => setHovered(null)}
-                      onClick={() =>
-                        setPinned((current) =>
-                          current === row.ref ? null : row.ref,
-                        )
-                      }
+                      /*
+                        Bấm vào ô đang ghim mềm thì siết nó thành ghim cứng chứ
+                        không nhả — với người đọc, B9 lúc mở trang chưa phải là
+                        thứ họ chọn, nên cú bấm đầu tiên là "tôi chọn ô này",
+                        không phải "tôi bỏ chọn".
+                      */
+                      onClick={() => {
+                        setPinned(isPinned ? null : row.ref);
+                        setPinnedByUser(!isPinned);
+                      }}
                       /*
                         Khung ô đang ghim vẽ bằng outline chứ không phải ring:
                         ring của Tailwind là box-shadow, mà hệ thiết kế cấm
@@ -345,6 +424,19 @@ export function HeroSheet({ templateHref }: { templateHref?: string }) {
           Excel tự tính
         </span>
         {/*
+          Khung nét đứt phải được giải nghĩa ở đây, cùng chỗ với hai ô màu. Một
+          ký hiệu tự xuất hiện trên bảng mà không có dòng chú thích nào thì
+          người đọc chỉ biết là "có gì đó vừa sáng lên", không biết nó nói gì —
+          mà cả bảng này tồn tại để nói.
+        */}
+        <span className="flex items-center gap-2">
+          <span
+            aria-hidden
+            className="inline-block h-3 w-3 border border-dashed border-ink-faint"
+          />
+          ô công thức đang dùng
+        </span>
+        {/*
           Bảng có min-width 420px nên máy hẹp phải cuộn ngang, mà một bảng bị
           cắt ở mép không tự nói ra là nó còn phần bên phải. Hint chỉ hiện ở
           đúng khổ máy có cuộn thật.
@@ -368,11 +460,37 @@ export function HeroSheet({ templateHref }: { templateHref?: string }) {
   );
 }
 
-function RowHead({ n }: { n: number }) {
+/**
+ * Số dòng ở gutter trái, và nó phản ứng theo ô đang chọn — đúng như Excel làm
+ * đậm số dòng của ô hiện hành.
+ *
+ * Ba mức, và mỗi mức phải đọc được mà không cần phân biệt màu: dòng đang chọn
+ * đậm nhất, dòng đang được công thức đọc vào ở giữa, còn lại là chrome. Chênh
+ * lệch nằm ở nền và độ đậm chữ chứ không ở sắc màu, nên nó cũng qua được mắt
+ * người mù màu — vốn là ràng buộc đã có sẵn ở chú thích dưới bảng.
+ *
+ * Cột A/B phía trên cố ý KHÔNG làm nổi theo. Bảng demo dựng đứng nên mọi giá
+ * trị đều nằm ở cột B; tô sáng một chữ "B" lúc nào cũng sáng thì không nói
+ * thêm được gì, chỉ thêm một thứ nhấp nháy.
+ */
+function RowHead({
+  n,
+  state = null,
+}: {
+  n: number;
+  state?: "active" | "traced" | null;
+}) {
+  const tone =
+    state === "active"
+      ? "bg-surface-strong font-medium text-ink"
+      : state === "traced"
+        ? "bg-surface-strong/50 text-ink-soft"
+        : "bg-panel text-ink-faint";
+
   return (
     <td
       aria-hidden
-      className="border-r border-b border-rule bg-panel px-1 py-2 text-center font-mono text-xs text-ink-faint"
+      className={`border-r border-b border-rule px-1 py-2 text-center font-mono text-xs ${tone}`}
     >
       {n}
     </td>
@@ -387,11 +505,17 @@ function RowHead({ n }: { n: number }) {
  */
 function InputRow({
   n,
+  cellRef,
+  traced,
+  ring,
   label,
   value,
   onChange,
 }: {
   n: number;
+  cellRef: string;
+  traced: boolean;
+  ring: string;
   label: string;
   value: number;
   onChange: (value: number) => void;
@@ -400,13 +524,16 @@ function InputRow({
 
   return (
     <tr>
-      <RowHead n={n} />
+      <RowHead n={n} state={traced ? "traced" : null} />
       <td className="border-r border-b border-rule px-3 py-2 whitespace-nowrap">
         <label htmlFor={id} className="text-ink-soft">
           {label}
         </label>
       </td>
-      <td className="border-b border-rule bg-input-bg p-0">
+      <td
+        data-cell={cellRef}
+        className={`border-b border-rule bg-input-bg p-0 ${traced ? ring : ""}`}
+      >
         <input
           id={id}
           type="text"
@@ -461,22 +588,31 @@ function InputRow({
 /** Số người phụ thuộc là số nguyên nhỏ — hai nút bấm nhanh hơn gõ. */
 function StepperRow({
   n,
+  cellRef,
+  traced,
+  ring,
   label,
   value,
   onChange,
 }: {
   n: number;
+  cellRef: string;
+  traced: boolean;
+  ring: string;
   label: string;
   value: number;
   onChange: (value: number) => void;
 }) {
   return (
     <tr>
-      <RowHead n={n} />
+      <RowHead n={n} state={traced ? "traced" : null} />
       <td className="border-r border-b border-rule px-3 py-2 whitespace-nowrap">
         <span className="text-ink-soft">{label}</span>
       </td>
-      <td className="border-b border-rule bg-input-bg p-0">
+      <td
+        data-cell={cellRef}
+        className={`border-b border-rule bg-input-bg p-0 ${traced ? ring : ""}`}
+      >
         <div className="flex items-stretch justify-end">
           <StepButton
             label={`Bớt một người phụ thuộc, hiện có ${value}`}

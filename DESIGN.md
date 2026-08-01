@@ -134,6 +134,10 @@ components:
     backgroundColor: "{colors.paper}"
     textColor: "{colors.ink}"
     typography: "{typography.caption}"
+  graph-paper:
+    backgroundColor: "{colors.paper}"
+    borderColor: "{colors.grid}"
+    cellSize: 112x35px
   hero-band:
     backgroundColor: "{colors.paper}"
     textColor: "{colors.ink}"
@@ -335,7 +339,8 @@ So the system runs two dialects, and the boundary between them is a hard rule.
 - **Ink** (`{colors.ink}` — #181d26): The strongest text, and the primary CTA background. 16.9:1 on paper.
 - **Ink Soft** (`{colors.ink-soft}` — #41454d): Running body copy and footer text. 9.6:1 on paper.
 - **Ink Faint** (`{colors.ink-faint}` — #6b7280): Column letters, row numbers, timestamps, separators. 4.8:1 on paper — still AA, because some of it is real text (the formula-bar hint), not just chrome.
-- **Paper** (`{colors.paper}` — #ffffff): The default canvas. The hero is white, full stop.
+- **Paper** (`{colors.paper}` — #ffffff): The default canvas, and the fill of every content block that sits on top of the graph paper.
+- **Grid** (`{colors.grid}` — #e9edf2): The 1px rule of `{component.graph-paper}`. Roughly 1.16:1 against paper — visible, but below the reading threshold, because it is atmosphere rather than information. Lighter than `{colors.rule}`, which is a real border. Never used as a border, never sits under a dense block of type.
 - **Panel** (`{colors.panel}` — #f8fafc): Author card, form sidebar, inline code blocks, spreadsheet chrome.
 - **Rule** (`{colors.rule}` — #dddddd): The 1px hairline. Borders, table dividers, secondary-button outlines, and the mortar of the card grid.
 
@@ -404,7 +409,13 @@ When in doubt: bigger before bolder, and a signature band before a solid accent.
 
 ### Whitespace
 
-Whitespace is the hero's only atmosphere. No gradient, no mesh, no illustration behind the type. The hero carries one headline, one paragraph, and one button pair; anything more belongs in a band further down.
+Whitespace and `{component.graph-paper}` are the hero's only atmosphere. No gradient, no mesh, no illustration behind the type. The hero carries one headline, one paragraph, and one button pair; anything more belongs in a band further down.
+
+### Graph paper
+
+The top of every page is not blank white — it is a spreadsheet's own ruling, at the lightest strength that still registers, dissolving into paper before the body copy starts. Content blocks are opaque `{colors.paper}` sheets laid on top of it. That layering is the whole device: the grid is the desk, the content is the paper on the desk, and the reader never has to be told which site they are on.
+
+Two rules keep it from becoming wallpaper. It is **sparse** — wide cells, few lines. And it **ends** — the grid introduces the page and then gets out of the way, rather than running the full scroll. A grid that never stops stops being a signal.
 
 ## Elevation & Depth
 
@@ -431,6 +442,12 @@ Whitespace is the hero's only atmosphere. No gradient, no mesh, no illustration 
 **`text-link`** — `{colors.input}` with a `{colors.input}`/40% underline that solidifies on hover. Blue here is consistent with its spreadsheet meaning: the place where you act.
 
 ### Bands & Cards
+
+**`graph-paper`** — The top-of-page background layer (`body::before` in `app/globals.css`). 1px `{colors.grid}` lines on `{colors.paper}` at a **112×35px** cell — Excel's own 64×20 default at 1.75×, so the 3.2:1 column/row ratio is preserved exactly. The cell must stay a wide landscape rectangle; a square reads as school graph paper instead of a spreadsheet, and that ratio is the entire difference. Wide cells are also what buy the darker line: sparse ruling can carry weight that dense ruling turns into noise.
+
+Positioned `absolute` inside a `position: relative` body so the ruling scrolls with the content, the way rows and columns stay fixed to the data in a real sheet.
+
+It is **masked off below the fold**: solid to 760px, gone by 1200px. The grid's job is to say "this is a spreadsheet" in the first second; once said, it has to go quiet, because the rest of the page is type to read. The stops are in `px`, never `%` — a percentage makes a long index page carry three times the grid of a short one, so every page would get a different background. No second instance anywhere, and nothing may extend the mask without re-checking that no `{colors.ink-faint}` type ends up sitting directly on a rule.
 
 **`hero-band`** — Full-width white. Headline, one lead paragraph, one button pair, 96px of vertical air.
 
@@ -526,7 +543,8 @@ It is the only place outside `SheetPreview` allowed to use `{colors.input}` and 
 - **Don't reuse `{component.signature-forest-band}` outside a bundle (system) page.** Band color encodes page tier, not variety.
 - **Don't round anything inside the spreadsheet grid.** `{rounded.none}` is mandatory there.
 - Don't bold display type. The loaded Archivo weights stop at 600 precisely so this stays impossible; don't add 700 back.
-- Don't add a gradient, mesh, or illustration behind the hero.
+- Don't add a gradient, mesh, or illustration behind the hero. `{component.graph-paper}` is the one admitted background layer, and it is admitted because it is the subject matter rather than decoration.
+- **Don't set a second grid or dot pattern on any block.** One ruling for the whole document, anchored at the document's top-left. A block-scoped grid on top of the page grid lands a fraction off and reads as moiré.
 - Don't introduce a `box-shadow`. Depth is color contrast.
 - Don't introduce accent colors beyond the declared signature set. `{colors.chart}` is the one addition, and it is not an accent: it is a validated fill step of the `{colors.computed}` hue, admitted because a 16px fill needs chroma that a text color does not. Any further chart hue has to clear `validate_palette.js` before it gets a token.
 - Don't let `{colors.flag}` drift back toward red — it has to stay clearly distinct from `{colors.coral}`.
