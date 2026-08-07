@@ -6,7 +6,7 @@ import { FeatureGrid } from "@/components/FeatureGrid";
 import { HeroSheet } from "@/components/HeroSheet";
 import { cardGridClass, TemplateCard } from "@/components/TemplateCard";
 import { getAllTemplates, withThumb } from "@/lib/templates";
-import { absoluteUrl } from "@/lib/site";
+import { absoluteUrl, withBasePath } from "@/lib/site";
 import { AUTHOR } from "@/lib/author";
 
 export const metadata: Metadata = {
@@ -55,11 +55,11 @@ export default function HomePage() {
         được. Site đi bán ý "bạn sẽ hiểu file chạy bằng gì", mà ý đó chứng minh
         bằng một cú kéo số thì nhanh hơn mọi đoạn văn viết thêm.
 
-        Chiều dọc bị cắt bớt so với nhịp 96px chuẩn (pt-16 thay vì py-24, và
+        Chiều dọc bị cắt bớt so với nhịp band chuẩn (pt-16 thay vì py-24, và
         bảng cách hero mt-10 thay vì mt-16) vì lý do cụ thể: bảng demo phải lọt
         vào màn hình đầu trên laptop 13". Bảng là phần tiếp nối của hero, không
         phải một band mới, nên nhịp band-to-band không áp dụng giữa hai khối
-        này — 96px được giữ nguyên từ bảng xuống khối kế tiếp.
+        này — nhịp đầy đủ được trả lại từ bảng xuống khối kế tiếp.
 
         Từ lg trở lên chia hai cột: cột phải trước đây là khoảng trắng chết
         (h1 max-w-2xl trong khung max-w-5xl), giờ mang khối thông số.
@@ -151,7 +151,19 @@ export default function HomePage() {
         này gom lại thành 4 câu scannable, để người lướt nhanh không phải đọc
         lại đoạn văn ở hero hay ở band coral mới nắm được vì sao khác.
       */}
-      <section className="relative mt-24">
+      {/*
+        Nhịp band-to-band của trang chủ: 96px trên mobile, 128px từ sm trở lên
+        (mt-24 sm:mt-32, lặp lại ở mọi band bên dưới). Trang chủ xếp toàn khối
+        dày sát nhau — lưới 4 ô, lưới 6 card, FAQ — nên 96px trần giữa đáy một
+        lưới và một h2 text-3xl không đủ để mắt thấy chỗ cắt: h2 đọc ra như
+        dòng cuối của khối bên trên. 128px mới tách hẳn.
+
+        Riêng band này lấy mt-20 sm:mt-24 chứ không phải mt-24 sm:mt-32, vì
+        khối bảng demo ngay trên đã tự mang padding (p-4 sm:p-8). Cộng vào là
+        đúng 96/128px như mọi mối nối khác. Sửa padding của bảng thì phải sửa
+        kèm số ở đây, không thì band này lệch ra khỏi nhịp.
+      */}
+      <section className="relative mt-20 sm:mt-24">
         {/*
           Chữ EXCEL bằng ô bảng tính, tan thành ô rời ở cuối — thủ pháp lấy từ
           efexbg.svg của efex.vn.
@@ -205,10 +217,22 @@ export default function HomePage() {
 
           -z-10 để nó nằm dưới chữ. Nền trắng đặt trên body nên nền vẫn được vẽ
           vào canvas, dưới cả lớp z âm — hoa văn không bị nền trang ăn mất.
+
+          Ảnh nền đặt bằng `style` chứ không phải bằng class nền tùy ý của
+          Tailwind (đừng viết lại kiểu đó — và cũng đừng gõ nguyên cái class ấy
+          vào comment, Tailwind quét cả comment rồi sinh ra một url không giải
+          được, gãy build): url() trong CSS là chuỗi tĩnh, Next không chèn
+          basePath vào đó, nên bản GitHub
+          Pages (nằm trong /ten-repo/) đi tìm /excel-wordmark.svg ở gốc domain
+          và ăn 404 — hoa văn biến mất. withBasePath() mới ra đúng đường dẫn ở
+          cả hai đích.
         */}
         <div
           aria-hidden
-          className="pointer-events-none absolute top-0 -left-[calc((100vw-64rem)/2-20px)] -z-10 hidden aspect-[189/1349] w-[min(189px,calc((100vw-64rem)/2-44px))] bg-[url('/excel-wordmark.svg')] bg-top bg-no-repeat bg-size-[100%_auto] mask-b-from-70% xl:block"
+          className="pointer-events-none absolute top-0 -left-[calc((100vw-64rem)/2-20px)] -z-10 hidden aspect-[189/1349] w-[min(189px,calc((100vw-64rem)/2-44px))] bg-top bg-no-repeat bg-size-[100%_auto] mask-b-from-70% xl:block"
+          style={{
+            backgroundImage: `url('${withBasePath("/excel-wordmark.svg")}')`,
+          }}
         />
 
         <h2 className="font-display text-3xl">Vì sao khác</h2>
@@ -218,7 +242,7 @@ export default function HomePage() {
       </section>
 
       {templates.length > 0 && (
-        <section className="mt-24">
+        <section className="mt-24 sm:mt-32">
           <h2 className="font-display text-3xl">File mới nhất</h2>
           <ul className={`mt-6 ${cardGridClass(templates.length)}`}>
             {templates.map((template) => (
@@ -239,7 +263,7 @@ export default function HomePage() {
         chứng minh xong điều đó, nên nhắc lại chỉ là nói dai. Chuyển sang rào
         cản thứ hai khiến người ta bỏ đi: sợ phải trả bằng email.
       */}
-      <section className="on-dark mt-24 rounded-lg bg-coral p-10 text-paper sm:p-12">
+      <section className="on-dark mt-24 rounded-lg bg-coral sm:mt-32 p-10 text-paper sm:p-12">
         <h2 className="font-display max-w-2xl text-3xl text-balance sm:text-4xl">
           Tải thẳng, không cần để lại email
         </h2>
@@ -256,14 +280,14 @@ export default function HomePage() {
         </Link>
       </section>
 
-      <section className="mt-24">
+      <section className="mt-24 sm:mt-32">
         <h2 className="font-display text-3xl">Câu hỏi thường gặp</h2>
         <div className="mt-6">
           <Faq />
         </div>
       </section>
 
-      <div className="mt-24">
+      <div className="mt-24 sm:mt-32">
         <h2 className="sr-only">Về {AUTHOR.name}</h2>
         <AuthorCard />
       </div>

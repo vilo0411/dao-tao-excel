@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Archivo, Be_Vietnam_Pro, JetBrains_Mono } from "next/font/google";
 import Link from "next/link";
 import "./globals.css";
-import { IS_PREVIEW, SITE_NAME, SITE_URL } from "@/lib/site";
+import { IS_NOINDEX, SITE_NAME, SITE_URL } from "@/lib/site";
 import { AUTHOR } from "@/lib/author";
 import { Analytics } from "@/components/Analytics";
 
@@ -53,14 +53,17 @@ export const metadata: Metadata = {
    */
   twitter: { card: "summary_large_image" },
   /*
-   * Bản xem thử phải chặn index. Nếu để Google thu thập, nó thành nội dung
-   * trùng lặp cạnh tranh với chính excel.nguyenvietloc.com sau này — với một
-   * domain mới thì đó là thiệt hại rất khó gỡ.
+   * Bản GitHub Pages phải chặn index. Nếu để Google thu thập, nó thành nội
+   * dung trùng lặp cạnh tranh với chính excel.nguyenvietloc.com sau này — với
+   * một domain mới thì đó là thiệt hại rất khó gỡ.
    *
    * Dùng thẻ meta noindex chứ không chặn bằng robots.txt: bị chặn crawl thì
    * Google không đọc được thẻ noindex, nên URL vẫn có thể nằm lại trong index.
+   *
+   * Không còn banner báo cho người đọc biết đây là bản chặn index — cờ này là
+   * thứ duy nhất còn nói ra điều đó, nên tắt nó là mở index thật.
    */
-  robots: IS_PREVIEW ? { index: false, follow: false } : undefined,
+  robots: IS_NOINDEX ? { index: false, follow: false } : undefined,
 };
 
 export default function RootLayout({
@@ -72,12 +75,6 @@ export default function RootLayout({
       className={`${display.variable} ${body.variable} ${mono.variable} h-full`}
     >
       <body className="flex min-h-full flex-col antialiased">
-        {IS_PREVIEW && (
-          <p className="bg-flag px-5 py-2 text-center text-sm text-paper">
-            Bản xem thử giao diện. Trang này không được Google lập chỉ mục.
-          </p>
-        )}
-
         {/*
           bg-paper chứ không để trong suốt. Giấy kẻ ô của trang bắt đầu ngay ở
           y=0, nên nếu header trong suốt thì lưới chạy xuyên qua thanh điều

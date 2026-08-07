@@ -1,4 +1,4 @@
-# Build ban xem thu tinh va deploy len GitHub Pages.
+# Build tinh va deploy len GitHub Pages.
 #
 # basePath va SITE_URL lay tu chinh repo (actions/configure-pages) chu khong
 # hardcode, nen doi ten repo hay chuyen sang user site deu khong gay 404 link
@@ -62,9 +62,13 @@ jobs:
           if [ "$BASE_PATH" = "/" ]; then BASE_PATH=""; fi
           echo "base_path=$BASE_PATH" >> "$GITHUB_OUTPUT"
 
+      # Hai co tach roi (xem lib/site.ts): STATIC_EXPORT quyet dinh cach build,
+      # NOINDEX quyet dinh co cho Google thu thap khong. Muon dua Pages thanh
+      # ban chinh thuc thi bo NOINDEX, khong dung den STATIC_EXPORT.
       - name: Build tinh
         env:
-          NEXT_PUBLIC_PREVIEW: "1"
+          NEXT_PUBLIC_STATIC_EXPORT: "1"
+          NEXT_PUBLIC_NOINDEX: "1"
           NEXT_PUBLIC_BASE_PATH: ${{ steps.cfg.outputs.base_path }}
           NEXT_PUBLIC_SITE_URL: ${{ steps.pages.outputs.origin }}
         run: npm run build

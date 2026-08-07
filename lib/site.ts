@@ -6,7 +6,7 @@
  */
 
 /**
- * Domain thật. Bản xem thử trên GitHub Pages ghi đè bằng NEXT_PUBLIC_SITE_URL
+ * Domain thật. Bản trên GitHub Pages ghi đè bằng NEXT_PUBLIC_SITE_URL
  * để canonical và sitemap không trỏ về một domain chưa tồn tại.
  */
 export const SITE_URL =
@@ -18,8 +18,24 @@ export const SITE_URL =
  */
 export const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
-/** Bản xem thử tĩnh: ẩn form và chặn index. */
-export const IS_PREVIEW = process.env.NEXT_PUBLIC_PREVIEW === "1";
+/**
+ * Hai cờ tách rời, đừng gộp lại làm một lần nữa.
+ *
+ * Chúng từng là cùng một cờ NEXT_PUBLIC_PREVIEW, và vì thế không có cách nào
+ * bỏ banner "bản xem thử" mà không kéo theo `output: "export"` — tức là gãy
+ * luôn bản GitHub Pages. Chúng trả lời hai câu hỏi khác nhau:
+ *
+ * - STATIC_EXPORT: trang được xuất tĩnh vào thư mục con hay không. Quyết định
+ *   basePath và trailingSlash. Đây là chuyện kỹ thuật của đích deploy.
+ * - NOINDEX: bản này có được Google thu thập hay không. Đây là chuyện biên tập.
+ *
+ * GitHub Pages hiện bật cả hai. Nhưng một bản tĩnh trên domain thật thì chỉ
+ * bật cái đầu — và đó chính là trường hợp cờ gộp không diễn tả được.
+ */
+export const IS_STATIC_EXPORT =
+  process.env.NEXT_PUBLIC_STATIC_EXPORT === "1";
+
+export const IS_NOINDEX = process.env.NEXT_PUBLIC_NOINDEX === "1";
 
 export const SITE_NAME = "Mẫu Excel";
 
@@ -127,7 +143,7 @@ export function hvsUrl(
 
 /**
  * Chuẩn hóa dấu gạch chéo cuối URL cho khớp `trailingSlash` trong
- * next.config.ts — bản preview bật, bản trên domain thật thì không.
+ * next.config.ts — bản export tĩnh bật, bản chạy server thì không.
  *
  * Sai chỗ này không gãy trang nhưng hỏng SEO: sitemap khai `/mau-excel` trong
  * khi trang thật nằm ở `/mau-excel/` thì mỗi URL Google lấy về đều ăn một cú
@@ -137,7 +153,7 @@ export function hvsUrl(
  * là 404.
  */
 function withTrailingSlash(path: string): string {
-  if (!IS_PREVIEW) return path;
+  if (!IS_STATIC_EXPORT) return path;
   if (path.endsWith("/")) return path;
 
   const lastSegment = path.split("/").pop() ?? "";

@@ -292,7 +292,7 @@ Con số hiển thị trên trang là con số **Excel thật tính ra** (qua `q
 | Sitemap / robots | `app/sitemap.ts`, `app/robots.ts` native |
 | Structured data | CreativeWork + BreadcrumbList + FAQPage trên mỗi trang template; DefinedTerm + BreadcrumbList trên mỗi trang `/ham-excel/[function]` |
 | Analytics | GA4 qua `NEXT_PUBLIC_GA_ID` |
-| Deploy | Vercel (bản thật) · GitHub Pages `NEXT_PUBLIC_PREVIEW=1` (export tĩnh, chặn index) |
+| Deploy | Vercel (bản thật) · GitHub Pages `NEXT_PUBLIC_STATIC_EXPORT=1` (export tĩnh) + `NEXT_PUBLIC_NOINDEX=1` (chặn index) — hai cờ tách rời, xem `lib/site.ts` |
 
 *(Không còn route API nào trong site — `app/api/lead` đã bỏ cùng `/khoa-hoc-excel` ở v2.1, xem mục 0. `app/api` hiện rỗng.)*
 
