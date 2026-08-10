@@ -1,0 +1,213 @@
+{
+  "slug": "bang-theo-doi-muc-tieu-okr",
+  "category": "quan-ly-cong-viec",
+  "h1": "Mẫu Excel theo dõi mục tiêu OKR theo quý",
+  "metaTitle": "Mẫu Excel Theo Dõi OKR Theo Quý - Tải Miễn Phí",
+  "metaDesc": "Mẫu Excel theo dõi OKR tính tiến độ từng kết quả then chốt theo giá trị đầu kỳ và mục tiêu, nhân trọng số ra điểm, xếp loại theo thang 0,7 quen thuộc của OKR.",
+  "primaryKeyword": "mẫu excel theo dõi okr",
+  "intro": "Mẫu Excel theo dõi mục tiêu OKR này tính tiến độ của từng kết quả then chốt từ ba con số: giá trị đầu kỳ, giá trị mục tiêu và giá trị hiện tại. Cách tính này quan trọng hơn vẻ ngoài của nó — nếu chỉ lấy hiện tại chia mục tiêu, một chỉ số xuất phát từ mức 60 và cần lên 80 sẽ hiện 75% ngay ngày đầu quý dù chưa làm gì. Công thức trong file đo phần quãng đường đã đi so với quãng đường cần đi, nên nó đúng cả với mục tiêu tăng lẫn mục tiêu giảm, ví dụ hạ tỷ lệ lỗi từ 8% xuống 3%.",
+  "difficulty": "trung-cap",
+  "features": [
+    "Tiến độ tính theo quãng đường đã đi, không phải hiện tại chia mục tiêu",
+    "Đúng với cả mục tiêu tăng lẫn mục tiêu giảm mà không cần đổi công thức",
+    "Trọng số cho từng kết quả then chốt, ra điểm đã nhân trọng số",
+    "Xếp loại theo thang 0,7 quen thuộc của OKR",
+    "Một dòng một kết quả then chốt, gom theo mục tiêu bằng bộ lọc"
+  ],
+  "howToUse": [
+    {
+      "step": "Viết mục tiêu và các kết quả then chốt",
+      "detail": "Mỗi dòng là một kết quả then chốt, lặp lại tên mục tiêu ở các dòng cùng nhóm để lọc được. Mục tiêu là câu định tính truyền cảm hứng, kết quả then chốt phải đo được bằng một con số — nếu không nghĩ ra con số nào thì đó chưa phải kết quả then chốt."
+    },
+    {
+      "step": "Ghi giá trị đầu kỳ trước khi quý bắt đầu",
+      "detail": "Đây là cột hay bị bỏ trống nhất và cũng là cột làm sai lệch mọi thứ. Không có giá trị đầu kỳ thì tiến độ mặc định tính từ 0, và một chỉ số vốn đã ở mức cao sẽ được ghi công cho phần chưa ai làm."
+    },
+    {
+      "step": "Đặt trọng số cho từng kết quả then chốt",
+      "detail": "Tổng trọng số của các kết quả trong cùng một mục tiêu nên bằng 100. Chia đều là lựa chọn mặc định hợp lý; chỉ lệch trọng số khi thật sự có một kết quả quan trọng hơn hẳn, vì trọng số lệch mà không giải thích được sẽ thành chỗ để tranh cãi cuối quý."
+    },
+    {
+      "step": "Cập nhật giá trị hiện tại theo tuần hoặc theo tháng",
+      "detail": "Chỉ sửa duy nhất cột giá trị hiện tại, mọi cột còn lại tự tính. Nhịp cập nhật đều đặn quan trọng hơn tần suất dày: cập nhật hằng tháng nhưng không bỏ tháng nào thì tốt hơn cập nhật hằng tuần rồi bỏ giữa chừng."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Vì sao không lấy giá trị hiện tại chia cho mục tiêu?",
+      "a": "Vì cách đó ghi công cho phần chưa ai làm. Một chỉ số đang ở mức 60 và cần lên 80 sẽ hiện 75% ngay ngày đầu quý, trong khi thực tế tiến độ bằng 0. Công thức trong file lấy phần đã đi được chia cho phần cần đi, tức hiện tại trừ đầu kỳ chia cho mục tiêu trừ đầu kỳ, nên nó xuất phát từ 0% và về 100% khi chạm mục tiêu."
+    },
+    {
+      "q": "Mục tiêu giảm như hạ tỷ lệ lỗi có dùng được công thức này không?",
+      "a": "Được, không cần đổi gì. Khi mục tiêu nhỏ hơn giá trị đầu kỳ thì mẫu số âm, và nếu bạn đang tiến bộ thì tử số cũng âm, hai dấu âm triệt tiêu nhau cho ra một tỷ lệ dương đúng như mong đợi. Đây là lý do đáng để dùng công thức ba tham số thay vì hai."
+    },
+    {
+      "q": "Vì sao xếp loại lấy mốc 0,7 chứ không phải 1,0?",
+      "a": "Vì thông lệ của OKR là đặt mục tiêu tham vọng tới mức đạt khoảng bảy phần mười đã là tốt. Một nhóm liên tục đạt 100% thường không phải nhóm giỏi hơn mà là nhóm đang đặt mục tiêu quá an toàn. Nếu tổ chức của bạn dùng OKR theo kiểu cam kết phải đạt đủ, hãy sửa lại các mốc trong công thức xếp loại cho khớp."
+    },
+    {
+      "q": "Điểm đã nhân trọng số dùng để làm gì?",
+      "a": "Cộng các dòng cùng một mục tiêu lại là ra điểm của mục tiêu đó. Vì trọng số trong một mục tiêu tổng bằng 100 nên tổng điểm cũng nằm trong thang phần trăm và so sánh được giữa các mục tiêu. Đừng cộng cột này cho toàn bộ bảng khi bảng có nhiều mục tiêu, con số đó không có ý nghĩa gì."
+    },
+    {
+      "q": "Tiến độ có bị chặn ở 100% khi vượt mục tiêu không?",
+      "a": "Có, công thức bọc MIN nên vượt mục tiêu vẫn hiện 100%. Chủ ý là để một kết quả vượt xa không che lấp những kết quả đang kém khi bạn cộng điểm cả mục tiêu. Muốn thấy phần vượt thì đọc thẳng ba cột giá trị, chúng vẫn nguyên vẹn ở đó."
+    }
+  ],
+  "ctaText": "Học cách đo lường mục tiêu và dựng báo cáo quản trị trên Excel",
+  "relatedSlugs": ["bang-theo-doi-tien-do-cong-viec", "bang-theo-doi-du-an"],
+  "updatedAt": "2026-08-10",
+  "sheets": [
+    {
+      "name": "OKR theo quý",
+      "description": "Mỗi dòng là một kết quả then chốt, gom theo mục tiêu bằng bộ lọc.",
+      "blankRows": 25,
+      "columns": [
+        { "key": "stt", "header": "STT", "type": "number", "width": 6 },
+        { "key": "chuKy", "header": "Chu kỳ", "type": "text", "width": 13 },
+        { "key": "mucTieu", "header": "Mục tiêu (O)", "type": "text", "width": 34 },
+        { "key": "ketQuaThenChot", "header": "Kết quả then chốt (KR)", "type": "text", "width": 36 },
+        { "key": "nguoiPhuTrach", "header": "Người phụ trách", "type": "text", "width": 20 },
+        {
+          "key": "donVi",
+          "header": "Đơn vị đo",
+          "type": "text",
+          "width": 14,
+          "validation": {
+            "type": "list",
+            "options": ["Phần trăm", "Số lượng", "Triệu đồng", "Ngày", "Điểm"]
+          }
+        },
+        {
+          "key": "giaTriDauKy",
+          "header": "Giá trị đầu kỳ",
+          "type": "number",
+          "width": 13,
+          "validation": { "type": "decimal", "min": -1000000, "max": 100000000 }
+        },
+        {
+          "key": "giaTriMucTieu",
+          "header": "Giá trị mục tiêu",
+          "type": "number",
+          "width": 13,
+          "validation": { "type": "decimal", "min": -1000000, "max": 100000000 }
+        },
+        {
+          "key": "giaTriHienTai",
+          "header": "Giá trị hiện tại",
+          "type": "number",
+          "width": 13,
+          "validation": { "type": "decimal", "min": -1000000, "max": 100000000 }
+        },
+        {
+          "key": "trongSo",
+          "header": "Trọng số",
+          "type": "number",
+          "width": 10,
+          "validation": { "type": "decimal", "min": 0, "max": 100 }
+        },
+        {
+          "key": "tienDo",
+          "header": "Tiến độ KR",
+          "type": "formula",
+          "width": 12,
+          "format": "percent",
+          "formula": "=IF([ketQuaThenChot]{row}=\"\",\"\",IFERROR(MIN(1,MAX(0,([giaTriHienTai]{row}-[giaTriDauKy]{row})/([giaTriMucTieu]{row}-[giaTriDauKy]{row}))),0))",
+          "note": "Phần quãng đường đã đi chia phần quãng đường cần đi. Vì cả tử và mẫu đều lấy mốc từ giá trị đầu kỳ, công thức đúng luôn với mục tiêu giảm: hai vế cùng âm thì triệt tiêu dấu. MIN chặn ở 100% để một kết quả vượt xa không che lấp những kết quả đang kém khi cộng điểm."
+        },
+        {
+          "key": "diemCoTrongSo",
+          "header": "Điểm có trọng số",
+          "type": "formula",
+          "width": 14,
+          "format": "percent",
+          "formula": "=IF([ketQuaThenChot]{row}=\"\",\"\",[tienDo]{row}*[trongSo]{row}/100)",
+          "note": "Tiến độ nhân trọng số. Cộng các dòng cùng một mục tiêu là ra điểm của mục tiêu đó; vì trọng số trong một mục tiêu tổng bằng 100 nên tổng điểm vẫn nằm trong thang phần trăm và so sánh được giữa các mục tiêu."
+        },
+        {
+          "key": "xepLoai",
+          "header": "Xếp loại",
+          "type": "formula",
+          "width": 24,
+          "format": "text",
+          "formula": "=IF([ketQuaThenChot]{row}=\"\",\"\",IF([tienDo]{row}>=1,\"Đạt mục tiêu\",IF([tienDo]{row}>=0.7,\"Tốt\",IF([tienDo]{row}>=0.4,\"Cần thúc đẩy\",\"Đang rủi ro\"))))",
+          "note": "Mốc 0,7 là thông lệ của OKR: mục tiêu đặt đủ tham vọng thì đạt bảy phần mười đã là tốt. Nếu tổ chức dùng OKR theo kiểu cam kết phải đạt đủ thì hãy nâng các mốc này lên, nếu không cả bảng sẽ khen những dòng lẽ ra phải bị hỏi."
+        }
+      ],
+      "sampleRows": [
+        {
+          "stt": 1,
+          "chuKy": "Quý III/2026",
+          "mucTieu": "Mở rộng tệp khách hàng doanh nghiệp",
+          "ketQuaThenChot": "Ký mới 25 hợp đồng doanh nghiệp",
+          "nguoiPhuTrach": "Nguyễn Văn Minh",
+          "donVi": "Số lượng",
+          "giaTriDauKy": 0,
+          "giaTriMucTieu": 25,
+          "giaTriHienTai": 14,
+          "trongSo": 50
+        },
+        {
+          "stt": 2,
+          "chuKy": "Quý III/2026",
+          "mucTieu": "Mở rộng tệp khách hàng doanh nghiệp",
+          "ketQuaThenChot": "Nâng doanh thu kênh doanh nghiệp lên 4.500 triệu",
+          "nguoiPhuTrach": "Nguyễn Văn Minh",
+          "donVi": "Triệu đồng",
+          "giaTriDauKy": 3200,
+          "giaTriMucTieu": 4500,
+          "giaTriHienTai": 3850,
+          "trongSo": 50
+        },
+        {
+          "stt": 3,
+          "chuKy": "Quý III/2026",
+          "mucTieu": "Nâng chất lượng giao hàng",
+          "ketQuaThenChot": "Hạ tỷ lệ đơn giao lỗi từ 8% xuống 3%",
+          "nguoiPhuTrach": "Đỗ Hoàng Nam",
+          "donVi": "Phần trăm",
+          "giaTriDauKy": 8,
+          "giaTriMucTieu": 3,
+          "giaTriHienTai": 4.5,
+          "trongSo": 60
+        },
+        {
+          "stt": 4,
+          "chuKy": "Quý III/2026",
+          "mucTieu": "Nâng chất lượng giao hàng",
+          "ketQuaThenChot": "Rút thời gian xử lý đơn từ 36 giờ xuống 20 giờ",
+          "nguoiPhuTrach": "Đỗ Hoàng Nam",
+          "donVi": "Số lượng",
+          "giaTriDauKy": 36,
+          "giaTriMucTieu": 20,
+          "giaTriHienTai": 34,
+          "trongSo": 40
+        },
+        {
+          "stt": 5,
+          "chuKy": "Quý III/2026",
+          "mucTieu": "Xây đội ngũ tự vận hành được quy trình",
+          "ketQuaThenChot": "12 nhân sự hoàn thành khóa đào tạo nội bộ",
+          "nguoiPhuTrach": "Trần Thu Hà",
+          "donVi": "Số lượng",
+          "giaTriDauKy": 2,
+          "giaTriMucTieu": 12,
+          "giaTriHienTai": 12,
+          "trongSo": 45
+        },
+        {
+          "stt": 6,
+          "chuKy": "Quý III/2026",
+          "mucTieu": "Xây đội ngũ tự vận hành được quy trình",
+          "ketQuaThenChot": "Nâng điểm khảo sát hài lòng nội bộ lên 8,5",
+          "nguoiPhuTrach": "Trần Thu Hà",
+          "donVi": "Điểm",
+          "giaTriDauKy": 7,
+          "giaTriMucTieu": 8.5,
+          "giaTriHienTai": 8,
+          "trongSo": 55
+        }
+      ]
+    }
+  ]
+}

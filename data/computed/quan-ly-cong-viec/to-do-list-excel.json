@@ -1,0 +1,39 @@
+[
+  [
+    {
+      "soNgayConLai": 0.0,
+      "diemUuTien": 50.0,
+      "trangThai": "Đến hạn hôm nay"
+    },
+    {
+      "soNgayConLai": -4.0,
+      "diemUuTien": 54.0,
+      "trangThai": "Quá hạn"
+    },
+    {
+      "soNgayConLai": 27.0,
+      "diemUuTien": 20.0,
+      "trangThai": "Còn thời gian"
+    },
+    {
+      "soNgayConLai": 3.0,
+      "diemUuTien": 27.0,
+      "trangThai": "Sắp tới hạn"
+    },
+    {
+      "soNgayConLai": 2.0,
+      "diemUuTien": 38.0,
+      "trangThai": "Sắp tới hạn"
+    },
+    {
+      "soNgayConLai": -6.0,
+      "diemUuTien": 0,
+      "trangThai": "Đã xong"
+    },
+    {
+      "soNgayConLai": 69.0,
+      "diemUuTien": 10.0,
+      "trangThai": "Còn thời gian"
+    }
+  ]
+]

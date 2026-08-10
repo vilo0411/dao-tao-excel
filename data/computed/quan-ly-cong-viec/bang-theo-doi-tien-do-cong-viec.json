@@ -1,0 +1,40 @@
+[
+  [
+    {
+      "soNgayConLai": 7.0,
+      "tienDoKyVong": 0.7666666666666667,
+      "lechTienDo": 0.08333333333333326,
+      "trangThai": "Đúng tiến độ"
+    },
+    {
+      "soNgayConLai": 22.0,
+      "tienDoKyVong": 0.4634146341463415,
+      "lechTienDo": -0.1634146341463415,
+      "trangThai": "Chậm so với kế hoạch"
+    },
+    {
+      "soNgayConLai": -4.0,
+      "tienDoKyVong": 1,
+      "lechTienDo": -0.30000000000000004,
+      "trangThai": "Trễ hạn"
+    },
+    {
+      "soNgayConLai": 17.0,
+      "tienDoKyVong": 0,
+      "lechTienDo": 0.0,
+      "trangThai": "Chưa bắt đầu"
+    },
+    {
+      "soNgayConLai": -9.0,
+      "tienDoKyVong": 1,
+      "lechTienDo": 0.0,
+      "trangThai": "Hoàn thành"
+    },
+    {
+      "soNgayConLai": 4.0,
+      "tienDoKyVong": 0.8,
+      "lechTienDo": -0.35000000000000003,
+      "trangThai": "Chậm so với kế hoạch"
+    }
+  ]
+]

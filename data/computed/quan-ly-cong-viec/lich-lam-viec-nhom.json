@@ -1,0 +1,40 @@
+[
+  [
+    {
+      "tongGioPhanBo": 31.0,
+      "tyLeTai": 1.1071428571428572,
+      "gioConTrong": -3.0,
+      "canhBao": "Quá tải - cần chuyển bớt việc"
+    },
+    {
+      "tongGioPhanBo": 28.0,
+      "tyLeTai": 0.875,
+      "gioConTrong": 4.0,
+      "canhBao": "Tải hợp lý"
+    },
+    {
+      "tongGioPhanBo": 18.0,
+      "tyLeTai": 0.6,
+      "gioConTrong": 12.0,
+      "canhBao": "Tải hợp lý"
+    },
+    {
+      "tongGioPhanBo": 34.0,
+      "tyLeTai": 1.0,
+      "gioConTrong": 0.0,
+      "canhBao": "Kín lịch - không còn chỗ xoay"
+    },
+    {
+      "tongGioPhanBo": 36.0,
+      "tyLeTai": 1.2,
+      "gioConTrong": -6.0,
+      "canhBao": "Quá tải - cần chuyển bớt việc"
+    },
+    {
+      "tongGioPhanBo": 16.0,
+      "tyLeTai": 1.0,
+      "gioConTrong": 0.0,
+      "canhBao": "Kín lịch - không còn chỗ xoay"
+    }
+  ]
+]

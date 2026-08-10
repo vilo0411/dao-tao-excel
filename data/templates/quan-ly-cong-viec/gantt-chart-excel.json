@@ -1,0 +1,193 @@
+{
+  "slug": "gantt-chart-excel",
+  "category": "quan-ly-cong-viec",
+  "h1": "Mẫu Gantt chart Excel vẽ bằng công thức, không cần định dạng có điều kiện",
+  "metaTitle": "Mẫu Gantt Chart Excel - Tải Miễn Phí, Dùng Ngay",
+  "metaDesc": "Mẫu Gantt chart Excel vẽ thanh tiến độ ngay trong ô bằng hàm REPT, tự tính ngày kết thúc và trạng thái. Chèn thêm việc là thanh tự vẽ, không phải tô lại tay.",
+  "primaryKeyword": "mẫu gantt chart excel",
+  "intro": "Mẫu Gantt chart Excel này vẽ thanh tiến độ bằng công thức ngay trong một ô, thay vì tô màu hàng chục cột ngày như cách làm quen thuộc. Hàm REPT lặp ký tự đúng số lần cần thiết: một đoạn khoảng trắng đẩy thanh sang phải cho đúng ngày bắt đầu, rồi một đoạn ký tự đặc dài đúng bằng số ngày thực hiện. Cách này đổi được cả sơ đồ chỉ bằng cách sửa một con số, và quan trọng hơn là chèn thêm một đầu việc thì thanh của nó tự vẽ ra — thứ mà sơ đồ tô bằng định dạng có điều kiện không làm được nếu không thiết lập lại vùng quy tắc.",
+  "difficulty": "nang-cao",
+  "features": [
+    "Thanh tiến độ vẽ bằng hàm REPT ngay trong ô, không cần định dạng có điều kiện",
+    "Chèn thêm đầu việc là thanh tự vẽ, không phải thiết lập lại vùng quy tắc",
+    "Tự tính ngày kết thúc từ ngày bắt đầu và số ngày thực hiện",
+    "Mốc gốc của sơ đồ nằm trong một cột, đổi nó là cả sơ đồ trượt theo",
+    "Trạng thái tách riêng việc trễ hạn khỏi việc chưa tới lượt"
+  ],
+  "howToUse": [
+    {
+      "step": "Đặt mốc gốc cho sơ đồ",
+      "detail": "Cột Mốc gốc sơ đồ là ngày ứng với vạch đầu tiên của thanh, thường là ngày khởi động dự án. Điền cùng một ngày cho mọi dòng. Muốn phóng to vào một giai đoạn thì đổi mốc gốc thành ngày đầu giai đoạn đó, cả sơ đồ sẽ trượt theo."
+    },
+    {
+      "step": "Nhập ngày bắt đầu và số ngày thực hiện",
+      "detail": "Hai con số này quyết định thanh nằm ở đâu và dài bao nhiêu. Số ngày thực hiện tính theo ngày lịch, kể cả cuối tuần — muốn tính theo ngày làm việc thì phải quy đổi trước khi nhập."
+    },
+    {
+      "step": "Kéo giãn cột sơ đồ và dùng phông đều nét",
+      "detail": "Cột Sơ đồ nên để rộng và đặt phông chữ có bề ngang các ký tự bằng nhau như Consolas hay Courier New. Với phông thường, khoảng trắng hẹp hơn ký tự đặc nên các thanh sẽ lệch vạch dù công thức vẫn đúng."
+    },
+    {
+      "step": "Cập nhật phần trăm và ngày chốt sổ",
+      "detail": "Mỗi lần rà soát, sửa phần trăm hoàn thành của từng dòng và đổi ngày chốt sổ cho cả cột. Cột trạng thái sẽ tự phân loại lại, và bạn đọc sơ đồ kèm trạng thái là đủ cho một cuộc họp tiến độ."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Hàm REPT làm gì trong công thức vẽ thanh?",
+      "a": "REPT lặp lại một chuỗi đúng số lần bạn yêu cầu. Công thức ở đây ghép hai lần gọi REPT: lần đầu lặp một ký tự mờ để đẩy thanh sang phải đúng bằng số ngày từ mốc gốc tới ngày bắt đầu, lần sau lặp ký tự đặc đúng bằng số ngày thực hiện. Ghép hai đoạn đó bằng dấu và là ra một thanh nằm đúng vị trí, dài đúng độ dài."
+    },
+    {
+      "q": "Vì sao dùng REPT thay vì tô màu bằng định dạng có điều kiện?",
+      "a": "Cách tô màu cần một cột cho mỗi ngày, nên một dự án ba tháng là chín mươi cột, và mỗi lần đổi phạm vi thời gian là phải thiết lập lại toàn bộ vùng quy tắc. Cách dùng REPT gói cả sơ đồ vào một cột duy nhất: chèn dòng mới thì công thức đi theo dòng, đổi mốc gốc thì cả sơ đồ trượt. Đánh đổi là thanh không tô được nhiều màu và độ phân giải chỉ tới từng ngày."
+    },
+    {
+      "q": "Thanh bị lệch hàng dù ngày nhập đúng thì sửa thế nào?",
+      "a": "Gần như luôn là do phông chữ. Với phông tỷ lệ như Calibri hay Arial, ký tự khoảng cách và ký tự khối có bề ngang khác nhau, nên phần đẩy sang phải không khớp với phần thân thanh. Chọn cả cột sơ đồ rồi đổi sang một phông đều nét là hết lệch, không phải sửa công thức."
+    },
+    {
+      "q": "Sơ đồ có vẽ được quan hệ phụ thuộc giữa các đầu việc không?",
+      "a": "Không. Đây là sơ đồ thanh thuần túy, không có mũi tên nối và không tự dời lịch khi việc trước bị trễ. Muốn quản lý phụ thuộc và đường găng thì cần công cụ chuyên dụng. Với dự án nhỏ, cách thực tế là xếp các dòng theo đúng thứ tự thực hiện và tự tay dời ngày bắt đầu của việc sau khi việc trước trễ."
+    },
+    {
+      "q": "Số ngày thực hiện có trừ cuối tuần và ngày lễ không?",
+      "a": "Không, cột này tính theo ngày lịch để thanh vẽ ra khớp với trục thời gian thật. Nếu bạn ước lượng theo ngày công thì phải cộng thêm phần cuối tuần trước khi nhập, chẳng hạn mười ngày công liên tục thường rơi vào khoảng mười bốn ngày lịch."
+    }
+  ],
+  "ctaText": "Học cách dựng sơ đồ và báo cáo dự án trên Excel",
+  "relatedSlugs": ["bang-theo-doi-du-an", "bang-theo-doi-tien-do-cong-viec"],
+  "updatedAt": "2026-08-10",
+  "sheets": [
+    {
+      "name": "Gantt",
+      "description": "Mỗi đầu việc một dòng, thanh tiến độ vẽ bằng công thức trong cột Sơ đồ.",
+      "blankRows": 25,
+      "columns": [
+        { "key": "stt", "header": "STT", "type": "number", "width": 6 },
+        { "key": "maCV", "header": "Mã việc", "type": "text", "width": 10 },
+        { "key": "tenCongViec", "header": "Tên công việc", "type": "text", "width": 32 },
+        { "key": "nguoiPhuTrach", "header": "Người phụ trách", "type": "text", "width": 18 },
+        { "key": "mocGoc", "header": "Mốc gốc sơ đồ", "type": "date", "width": 13 },
+        { "key": "ngayBatDau", "header": "Ngày bắt đầu", "type": "date", "width": 12 },
+        {
+          "key": "soNgayThucHien",
+          "header": "Số ngày thực hiện",
+          "type": "number",
+          "width": 13,
+          "validation": { "type": "whole", "min": 1, "max": 60 }
+        },
+        {
+          "key": "phanTramHoanThanh",
+          "header": "Hoàn thành (%)",
+          "type": "number",
+          "width": 13,
+          "validation": { "type": "decimal", "min": 0, "max": 100 }
+        },
+        { "key": "ngayChotSo", "header": "Ngày chốt sổ", "type": "date", "width": 12 },
+        {
+          "key": "ngayKetThuc",
+          "header": "Ngày kết thúc",
+          "type": "formula",
+          "width": 13,
+          "format": "date",
+          "formula": "=IF([tenCongViec]{row}=\"\",\"\",[ngayBatDau]{row}+[soNgayThucHien]{row}-1)",
+          "note": "Ngày bắt đầu cộng số ngày thực hiện, trừ đi một vì chính ngày bắt đầu đã là ngày thứ nhất. Thiếu phép trừ này thì mọi đầu việc dài thêm một ngày, và sai số đó dồn lại rất nhanh khi các việc nối tiếp nhau."
+        },
+        {
+          "key": "soNgayConLai",
+          "header": "Số ngày còn lại",
+          "type": "formula",
+          "width": 13,
+          "formula": "=IF([tenCongViec]{row}=\"\",\"\",[ngayKetThuc]{row}-[ngayChotSo]{row})",
+          "note": "Ngày kết thúc trừ ngày chốt sổ. Để nguyên số âm vì đó chính là số ngày đã quá hạn — thông tin cần thấy chứ không phải lỗi cần chặn."
+        },
+        {
+          "key": "soDo",
+          "header": "Sơ đồ",
+          "type": "formula",
+          "width": 46,
+          "format": "text",
+          "formula": "=IF([tenCongViec]{row}=\"\",\"\",REPT(\"·\",MAX(0,[ngayBatDau]{row}-[mocGoc]{row}))&REPT(\"█\",[soNgayThucHien]{row}))",
+          "note": "Hai lần gọi REPT ghép lại: đoạn đầu lặp dấu chấm đúng bằng số ngày từ mốc gốc tới ngày bắt đầu để đẩy thanh sang phải, đoạn sau lặp ký tự khối đúng bằng số ngày thực hiện. MAX(0;…) chặn trường hợp một đầu việc bắt đầu trước mốc gốc, khi đó REPT nhận số âm và sẽ báo lỗi #VALUE!."
+        },
+        {
+          "key": "trangThai",
+          "header": "Trạng thái",
+          "type": "formula",
+          "width": 24,
+          "format": "text",
+          "formula": "=IF([tenCongViec]{row}=\"\",\"\",IF([phanTramHoanThanh]{row}>=100,\"Hoàn thành\",IF([soNgayConLai]{row}<0,\"Trễ hạn\",IF([ngayBatDau]{row}>[ngayChotSo]{row},\"Chưa tới lượt\",\"Đang chạy\"))))",
+          "note": "Bốn trạng thái đủ để đọc một sơ đồ Gantt. Việc chưa tới lượt được tách riêng khỏi việc đang chạy vì nó không cần ai hỏi han trong cuộc họp tuần này, còn gộp chung thì danh sách theo dõi dài gấp đôi mà không thêm thông tin."
+        }
+      ],
+      "sampleRows": [
+        {
+          "stt": 1,
+          "maCV": "G01",
+          "tenCongViec": "Khảo sát yêu cầu và chốt phạm vi",
+          "nguoiPhuTrach": "Nguyễn Văn Minh",
+          "mocGoc": "2026-07-01",
+          "ngayBatDau": "2026-07-01",
+          "soNgayThucHien": 7,
+          "phanTramHoanThanh": 100,
+          "ngayChotSo": "2026-07-24"
+        },
+        {
+          "stt": 2,
+          "maCV": "G02",
+          "tenCongViec": "Thiết kế giải pháp và duyệt bản vẽ",
+          "nguoiPhuTrach": "Phạm Thị Lan",
+          "mocGoc": "2026-07-01",
+          "ngayBatDau": "2026-07-08",
+          "soNgayThucHien": 10,
+          "phanTramHoanThanh": 100,
+          "ngayChotSo": "2026-07-24"
+        },
+        {
+          "stt": 3,
+          "maCV": "G03",
+          "tenCongViec": "Đặt mua vật tư và theo dõi giao hàng",
+          "nguoiPhuTrach": "Đỗ Hoàng Nam",
+          "mocGoc": "2026-07-01",
+          "ngayBatDau": "2026-07-15",
+          "soNgayThucHien": 8,
+          "phanTramHoanThanh": 60,
+          "ngayChotSo": "2026-07-24"
+        },
+        {
+          "stt": 4,
+          "maCV": "G04",
+          "tenCongViec": "Thi công lắp đặt tại hiện trường",
+          "nguoiPhuTrach": "Phạm Thị Lan",
+          "mocGoc": "2026-07-01",
+          "ngayBatDau": "2026-07-20",
+          "soNgayThucHien": 14,
+          "phanTramHoanThanh": 25,
+          "ngayChotSo": "2026-07-24"
+        },
+        {
+          "stt": 5,
+          "maCV": "G05",
+          "tenCongViec": "Chạy thử và hiệu chỉnh thông số",
+          "nguoiPhuTrach": "Trần Thu Hà",
+          "mocGoc": "2026-07-01",
+          "ngayBatDau": "2026-08-03",
+          "soNgayThucHien": 6,
+          "phanTramHoanThanh": 0,
+          "ngayChotSo": "2026-07-24"
+        },
+        {
+          "stt": 6,
+          "maCV": "G06",
+          "tenCongViec": "Nghiệm thu và bàn giao cho khách hàng",
+          "nguoiPhuTrach": "Nguyễn Văn Minh",
+          "mocGoc": "2026-07-01",
+          "ngayBatDau": "2026-08-10",
+          "soNgayThucHien": 4,
+          "phanTramHoanThanh": 0,
+          "ngayChotSo": "2026-07-24"
+        }
+      ]
+    }
+  ]
+}

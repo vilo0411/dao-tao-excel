@@ -1,0 +1,214 @@
+{
+  "slug": "bang-phan-cong-cong-viec",
+  "category": "quan-ly-cong-viec",
+  "h1": "Mẫu Excel phân công công việc (bắt lỗi giao việc thiếu điều kiện)",
+  "metaTitle": "Mẫu Excel Phân Công Công Việc - Tải Miễn Phí",
+  "metaDesc": "Mẫu Excel phân công công việc tự kiểm ba điều kiện của một lệnh giao việc: có người nhận, có hạn, có tiêu chí nghiệm thu. Thiếu cái nào là báo ngay cái đó.",
+  "primaryKeyword": "mẫu excel phân công công việc",
+  "intro": "Mẫu Excel phân công công việc này khác một bảng liệt kê việc ở chỗ nó tự kiểm chất lượng của chính lệnh giao việc. Một đầu việc chỉ giao được khi đủ ba thứ: có đúng một người chịu trách nhiệm, có hạn cụ thể, và có tiêu chí nghiệm thu để sau này biết thế nào là xong. Thiếu bất kỳ thứ nào thì cột kiểm tra sẽ chỉ đúng thứ đang thiếu, ngay tại dòng đó. Phần lớn việc bị trôi trong các nhóm nhỏ không phải vì người làm lười mà vì lệnh giao việc thiếu một trong ba điều kiện này ngay từ đầu.",
+  "difficulty": "co-ban",
+  "features": [
+    "Tự kiểm ba điều kiện của một lệnh giao việc và chỉ đúng thứ đang thiếu",
+    "Tách bạch người thực hiện và người duyệt kết quả",
+    "Tiêu chí nghiệm thu là một cột bắt buộc, không phải ghi chú tùy hứng",
+    "Số ngày còn lại tính theo ngày chốt sổ nên bảng in ra không đổi số",
+    "Trạng thái phân biệt việc chưa ai nhận với việc đang làm"
+  ],
+  "howToUse": [
+    {
+      "step": "Ghi đầu việc kèm người chịu trách nhiệm duy nhất",
+      "detail": "Mỗi dòng một đầu việc và đúng một tên ở cột người thực hiện. Cần nhiều người thì tách thành nhiều dòng, mỗi dòng một phần việc. Ghi hai tên vào một ô là cách chắc chắn nhất để không ai thấy mình chịu trách nhiệm."
+    },
+    {
+      "step": "Viết tiêu chí nghiệm thu trước khi giao",
+      "detail": "Tiêu chí phải là thứ nhìn vào là biết đạt hay chưa: một file đã gửi, một danh sách đã duyệt, một con số đã đạt. Viết được tiêu chí cũng là lúc bạn biết mình đang giao việc gì; không viết được thường có nghĩa là đầu việc còn chưa rõ."
+    },
+    {
+      "step": "Đặt hạn và người duyệt",
+      "detail": "Người duyệt là người xác nhận kết quả đạt tiêu chí, thường là người giao việc. Có tên ở cột này thì lúc xong mới biết trình cho ai, tránh cảnh việc làm xong nằm chờ vì không rõ ai chốt."
+    },
+    {
+      "step": "Rà cột kiểm tra trước khi phát bảng",
+      "detail": "Lọc cột Kiểm tra, giữ lại những dòng không phải Đủ điều kiện giao. Sửa hết các dòng đó rồi mới gửi bảng cho nhóm — đây là lúc rẻ nhất để sửa, mọi lúc khác đều đắt hơn."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Vì sao tiêu chí nghiệm thu lại quan trọng tới mức thành một cột bắt buộc?",
+      "a": "Vì không có nó thì việc xong hay chưa phụ thuộc vào cảm nhận của hai người, và hai người gần như luôn cảm nhận khác nhau. Người làm nghĩ đã xong, người giao nghĩ mới được một nửa, và cuộc tranh luận đó xảy ra đúng vào hạn chót khi không còn thời gian sửa. Viết tiêu chí lúc giao việc mất vài phút, tranh luận lúc tới hạn mất vài ngày."
+    },
+    {
+      "q": "Một đầu việc cần cả nhóm cùng làm thì ghi thế nào?",
+      "a": "Tách thành nhiều dòng, mỗi dòng một phần việc với một người chịu trách nhiệm và một tiêu chí nghiệm thu riêng. Nếu không tách được thành các phần độc lập thì vẫn ghi một dòng nhưng phải chọn ra một người chủ trì, và những người còn lại đưa vào một cột hỗ trợ hoặc ghi chú. Trách nhiệm chia đều cho ba người là trách nhiệm không thuộc về ai."
+    },
+    {
+      "q": "Việc lặp lại hằng tuần có nên đưa vào bảng này không?",
+      "a": "Không nên. Bảng này dành cho việc giao một lần với hạn cụ thể. Việc lặp lại theo chu kỳ hợp với một checklist định kỳ hơn, vì thứ cần theo dõi ở đó là tỷ lệ hoàn thành qua nhiều lần chứ không phải hạn của một lần."
+    },
+    {
+      "q": "Người thực hiện tự nhận việc thì có khác gì được giao không?",
+      "a": "Về cấu trúc bảng thì không khác, ba điều kiện vẫn nguyên vẹn. Nhưng thực tế cho thấy việc tự nhận thường được làm sớm hơn, nên nếu bảng của bạn có nhiều dòng trạng thái Chưa nhận thì vấn đề nằm ở cách phân việc chứ không nằm ở bảng."
+    }
+  ],
+  "ctaText": "Học cách tổ chức và giao việc bằng Excel",
+  "relatedSlugs": ["bang-theo-doi-tien-do-cong-viec", "bien-ban-hop"],
+  "updatedAt": "2026-08-10",
+  "sheets": [
+    {
+      "name": "Phân công công việc",
+      "description": "Mỗi đầu việc một dòng, kèm cột tự kiểm ba điều kiện của lệnh giao việc.",
+      "blankRows": 30,
+      "columns": [
+        { "key": "stt", "header": "STT", "type": "number", "width": 6 },
+        { "key": "congViec", "header": "Công việc", "type": "text", "width": 34 },
+        { "key": "nguoiThucHien", "header": "Người thực hiện", "type": "text", "width": 20 },
+        { "key": "nguoiDuyet", "header": "Người duyệt", "type": "text", "width": 18 },
+        {
+          "key": "boPhan",
+          "header": "Bộ phận",
+          "type": "text",
+          "width": 16,
+          "validation": {
+            "type": "list",
+            "options": [
+              "Kinh doanh",
+              "Marketing",
+              "Kế toán",
+              "Hành chính nhân sự",
+              "Sản xuất",
+              "Kỹ thuật",
+              "Kho vận"
+            ]
+          }
+        },
+        { "key": "tieuChiNghiemThu", "header": "Tiêu chí nghiệm thu", "type": "text", "width": 34 },
+        { "key": "ngayGiao", "header": "Ngày giao", "type": "date", "width": 12 },
+        { "key": "hanHoanThanh", "header": "Hạn hoàn thành", "type": "date", "width": 13 },
+        {
+          "key": "mucDoUuTien",
+          "header": "Độ ưu tiên",
+          "type": "text",
+          "width": 12,
+          "validation": { "type": "list", "options": ["Cao", "Trung bình", "Thấp"] }
+        },
+        {
+          "key": "trangThaiNhap",
+          "header": "Trạng thái",
+          "type": "text",
+          "width": 14,
+          "validation": {
+            "type": "list",
+            "options": ["Chưa nhận", "Đã nhận", "Đang làm", "Hoàn thành"]
+          }
+        },
+        { "key": "ngayChotSo", "header": "Ngày chốt sổ", "type": "date", "width": 12 },
+        {
+          "key": "soNgayConLai",
+          "header": "Số ngày còn lại",
+          "type": "formula",
+          "width": 13,
+          "formula": "=IF(OR([congViec]{row}=\"\",[hanHoanThanh]{row}=\"\"),\"\",[hanHoanThanh]{row}-[ngayChotSo]{row})",
+          "note": "Hạn hoàn thành trừ ngày chốt sổ. Bọc thêm điều kiện hạn để trống, vì trừ một ô rỗng cho một ngày sẽ ném #VALUE! và làm hỏng cả những cột phía sau — mà dòng thiếu hạn lại đúng là dòng cột kiểm tra cần bắt."
+        },
+        {
+          "key": "kiemTra",
+          "header": "Kiểm tra lệnh giao việc",
+          "type": "formula",
+          "width": 30,
+          "format": "text",
+          "formula": "=IF([congViec]{row}=\"\",\"\",IF([nguoiThucHien]{row}=\"\",\"Chưa có người thực hiện\",IF([hanHoanThanh]{row}=\"\",\"Chưa có hạn hoàn thành\",IF([tieuChiNghiemThu]{row}=\"\",\"Chưa có tiêu chí nghiệm thu\",\"Đủ điều kiện giao\"))))",
+          "note": "Ba điều kiện của một lệnh giao việc, kiểm lần lượt và chỉ báo cái thiếu đầu tiên. Cố ý báo từng lỗi một thay vì liệt kê hết: sửa xong lỗi này thì lỗi sau hiện ra, cách này giữ cho ô cảnh báo luôn ngắn và luôn có đúng một việc phải làm."
+        },
+        {
+          "key": "tinhTrang",
+          "header": "Tình trạng",
+          "type": "formula",
+          "width": 24,
+          "format": "text",
+          "formula": "=IF([congViec]{row}=\"\",\"\",IF([trangThaiNhap]{row}=\"Hoàn thành\",\"Đã xong\",IF([trangThaiNhap]{row}=\"Chưa nhận\",\"Chưa ai nhận việc\",IF([soNgayConLai]{row}<0,\"Trễ hạn\",IF([soNgayConLai]{row}<=2,\"Sắp tới hạn\",\"Đang trong hạn\")))))",
+          "note": "Việc chưa ai nhận được xếp riêng và đứng trước cả cảnh báo trễ hạn, vì nó là loại rủi ro khác hẳn: không phải làm chậm mà là chưa ai bắt đầu, và người phải xử lý là người giao việc chứ không phải người làm."
+        }
+      ],
+      "sampleRows": [
+        {
+          "stt": 1,
+          "congViec": "Soạn bộ hợp đồng mẫu cho nhóm khách hàng doanh nghiệp",
+          "nguoiThucHien": "Nguyễn Văn Minh",
+          "nguoiDuyet": "Ban giám đốc",
+          "boPhan": "Kinh doanh",
+          "tieuChiNghiemThu": "Ba mẫu hợp đồng đã qua rà soát pháp lý",
+          "ngayGiao": "2026-07-06",
+          "hanHoanThanh": "2026-07-31",
+          "mucDoUuTien": "Cao",
+          "trangThaiNhap": "Đang làm",
+          "ngayChotSo": "2026-07-24"
+        },
+        {
+          "stt": 2,
+          "congViec": "Cập nhật bảng giá bán lẻ trên hệ thống",
+          "nguoiThucHien": "Lê Quốc Bảo",
+          "nguoiDuyet": "Nguyễn Văn Minh",
+          "boPhan": "Kinh doanh",
+          "tieuChiNghiemThu": "Toàn bộ mã hàng hiển thị đúng giá mới",
+          "ngayGiao": "2026-07-18",
+          "hanHoanThanh": "2026-07-25",
+          "mucDoUuTien": "Cao",
+          "trangThaiNhap": "Đã nhận",
+          "ngayChotSo": "2026-07-24"
+        },
+        {
+          "stt": 3,
+          "congViec": "Rà soát lại quy trình xử lý hàng trả về",
+          "nguoiThucHien": "",
+          "nguoiDuyet": "Trần Thu Hà",
+          "boPhan": "Kho vận",
+          "tieuChiNghiemThu": "Quy trình mới đã ban hành và phổ biến",
+          "ngayGiao": "2026-07-15",
+          "hanHoanThanh": "2026-08-10",
+          "mucDoUuTien": "Trung bình",
+          "trangThaiNhap": "Chưa nhận",
+          "ngayChotSo": "2026-07-24"
+        },
+        {
+          "stt": 4,
+          "congViec": "Cải thiện thời gian đóng gói đơn hàng",
+          "nguoiThucHien": "Đỗ Hoàng Nam",
+          "nguoiDuyet": "Trần Thu Hà",
+          "boPhan": "Kho vận",
+          "tieuChiNghiemThu": "",
+          "ngayGiao": "2026-07-10",
+          "hanHoanThanh": "2026-08-15",
+          "mucDoUuTien": "Trung bình",
+          "trangThaiNhap": "Đang làm",
+          "ngayChotSo": "2026-07-24"
+        },
+        {
+          "stt": 5,
+          "congViec": "Lập hồ sơ đăng ký nhãn hiệu cho dòng sản phẩm mới",
+          "nguoiThucHien": "Phạm Thị Lan",
+          "nguoiDuyet": "Ban giám đốc",
+          "boPhan": "Hành chính nhân sự",
+          "tieuChiNghiemThu": "Hồ sơ đã nộp và có giấy biên nhận",
+          "ngayGiao": "2026-06-20",
+          "hanHoanThanh": "2026-07-20",
+          "mucDoUuTien": "Cao",
+          "trangThaiNhap": "Đang làm",
+          "ngayChotSo": "2026-07-24"
+        },
+        {
+          "stt": 6,
+          "congViec": "Tổng hợp phản hồi khách hàng quý II",
+          "nguoiThucHien": "Vũ Minh Châu",
+          "nguoiDuyet": "Lê Quốc Bảo",
+          "boPhan": "Marketing",
+          "tieuChiNghiemThu": "Báo cáo tổng hợp đã gửi ban giám đốc",
+          "ngayGiao": "2026-07-01",
+          "hanHoanThanh": "2026-07-18",
+          "mucDoUuTien": "Thấp",
+          "trangThaiNhap": "Hoàn thành",
+          "ngayChotSo": "2026-07-24"
+        }
+      ]
+    }
+  ]
+}

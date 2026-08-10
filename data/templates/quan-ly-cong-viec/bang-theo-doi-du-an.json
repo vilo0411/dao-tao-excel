@@ -1,0 +1,220 @@
+{
+  "slug": "bang-theo-doi-du-an",
+  "category": "quan-ly-cong-viec",
+  "h1": "Mẫu Excel quản lý dự án (đối chiếu tiến độ với mức giải ngân)",
+  "metaTitle": "Mẫu Excel Quản Lý Dự Án - Tải Miễn Phí 2026",
+  "metaDesc": "Mẫu Excel quản lý dự án theo dõi cùng lúc tiến độ và ngân sách, tự tính chỉ số hiệu quả chi phí để chỉ ra dự án tiêu nhanh hơn mức việc đã làm được.",
+  "primaryKeyword": "mẫu excel quản lý dự án",
+  "intro": "Mẫu Excel quản lý dự án này theo dõi cùng lúc hai thứ mà các bảng thông thường tách rời: tiến độ và tiền. Mỗi dự án một dòng, file tự tính phần trăm đáng lẽ phải xong tại thời điểm chốt, phần ngân sách đã giải ngân, rồi ghép hai con số đó thành chỉ số hiệu quả chi phí. Chỉ số này dưới 1 nghĩa là dự án đang tiêu tiền nhanh hơn tốc độ làm được việc — dấu hiệu vượt ngân sách xuất hiện từ giữa chặng, sớm hơn nhiều so với lúc tiền hết mà việc chưa xong.",
+  "difficulty": "nang-cao",
+  "features": [
+    "Theo dõi tiến độ và ngân sách trên cùng một dòng, không tách hai bảng",
+    "Chỉ số hiệu quả chi phí chỉ ra dự án tiêu nhanh hơn mức việc làm được",
+    "Tiến độ kỳ vọng tính theo phần thời gian đã trôi qua",
+    "Cảnh báo phân biệt vượt ngân sách với chậm tiến độ",
+    "Ước tính chi phí tại thời điểm hoàn thành theo nhịp tiêu hiện tại"
+  ],
+  "howToUse": [
+    {
+      "step": "Khai dự án với hai mốc thời gian và ngân sách duyệt",
+      "detail": "Ngân sách nhập ở đây là ngân sách đã được duyệt, giữ nguyên suốt dự án. Muốn điều chỉnh thì ghi thành một dòng mới với ghi chú lý do, đừng sửa đè lên số cũ — số cũ chính là căn cứ để biết dự án đã trượt bao nhiêu."
+    },
+    {
+      "step": "Cập nhật phần trăm hoàn thành và chi phí đã dùng",
+      "detail": "Phần trăm hoàn thành nên tính từ khối lượng công việc đã bàn giao, không phải từ cảm nhận. Chi phí đã dùng gồm cả khoản đã chi và khoản đã cam kết nhưng chưa trả — bỏ sót phần cam kết là cách phổ biến nhất khiến dự án nhìn có vẻ vẫn trong ngân sách cho tới tận cuối."
+    },
+    {
+      "step": "Đặt ngày chốt sổ cho cả bảng",
+      "detail": "Điền cùng một ngày cho mọi dòng, thường là ngày họp ban dự án. Mọi con số tiến độ kỳ vọng và ngày còn lại đều tính từ mốc này, nên bản in ra giữ nguyên ý nghĩa khi đọc lại sau."
+    },
+    {
+      "step": "Đọc chỉ số hiệu quả chi phí trước, ước tính cuối kỳ sau",
+      "detail": "Chỉ số dưới 1 là tiêu nhanh hơn làm. Khi đó đọc tiếp cột ước tính chi phí hoàn thành: nếu con số đó vượt ngân sách duyệt, dự án sẽ vượt trừ khi có gì đó thay đổi, và biết trước điều này từ giữa chặng là toàn bộ giá trị của bảng."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Chỉ số hiệu quả chi phí tính thế nào và đọc ra sao?",
+      "a": "Lấy phần trăm hoàn thành chia cho tỷ lệ đã giải ngân. Bằng 1 là làm được đúng bằng phần tiền đã tiêu. Dưới 1 là tiêu nhanh hơn làm, ví dụ 0,8 nghĩa là mỗi đồng bỏ ra chỉ đổi được tám hào giá trị công việc so với kế hoạch. Trên 1 là đang tiết kiệm, nhưng cũng nên kiểm xem có phải do một khoản chi lớn chưa được ghi nhận hay không."
+    },
+    {
+      "q": "Ước tính chi phí hoàn thành tính theo giả định nào?",
+      "a": "Theo giả định phần còn lại của dự án sẽ tiêu với đúng nhịp hiện tại, tức lấy ngân sách chia cho chỉ số hiệu quả chi phí. Đây là cách ước tính thận trọng và thường sát thực tế, vì nguyên nhân làm lệch chi phí ở nửa đầu dự án hiếm khi tự biến mất ở nửa sau. Nếu bạn vừa xử lý xong đúng nguyên nhân đó thì con số này sẽ bi quan hơn thực tế."
+    },
+    {
+      "q": "Vì sao vượt ngân sách được cảnh báo trước chậm tiến độ?",
+      "a": "Vì tiền khó lấy lại hơn thời gian. Một dự án chậm hai tuần thường vẫn cứu được bằng cách tăng nguồn lực hoặc cắt bớt phạm vi, còn tiền đã tiêu thì không thu về được, và xin bổ sung ngân sách luôn là quyết định ở cấp cao hơn. Thứ tự trong cột cảnh báo phản ánh đúng thứ tự đó."
+    },
+    {
+      "q": "Bảng này thay được phần mềm quản lý dự án không?",
+      "a": "Không, và cũng không nhắm tới việc đó. Ở đây không có quan hệ phụ thuộc giữa các đầu việc, không có đường găng, không có phân bổ nguồn lực. Nó là bảng theo dõi ở cấp danh mục dự án: mỗi dự án một dòng, đủ để ban giám đốc biết dự án nào cần can thiệp. Chi tiết bên trong từng dự án nên nằm ở một bảng tiến độ công việc riêng."
+    }
+  ],
+  "ctaText": "Học cách theo dõi dự án và dựng báo cáo quản trị trên Excel",
+  "relatedSlugs": ["bang-theo-doi-chi-phi-du-an", "bang-danh-gia-rui-ro-du-an"],
+  "updatedAt": "2026-08-10",
+  "sheets": [
+    {
+      "name": "Danh mục dự án",
+      "description": "Mỗi dự án một dòng, theo dõi song song tiến độ và ngân sách.",
+      "blankRows": 25,
+      "columns": [
+        { "key": "stt", "header": "STT", "type": "number", "width": 6 },
+        { "key": "maDuAn", "header": "Mã dự án", "type": "text", "width": 11 },
+        { "key": "tenDuAn", "header": "Tên dự án", "type": "text", "width": 32 },
+        { "key": "chuNhiem", "header": "Chủ nhiệm dự án", "type": "text", "width": 20 },
+        { "key": "ngayBatDau", "header": "Ngày bắt đầu", "type": "date", "width": 12 },
+        { "key": "hanKetThuc", "header": "Hạn kết thúc", "type": "date", "width": 12 },
+        {
+          "key": "nganSach",
+          "header": "Ngân sách duyệt",
+          "type": "currency",
+          "width": 18,
+          "validation": { "type": "decimal", "min": 0, "max": 100000000000 }
+        },
+        {
+          "key": "chiPhiDaDung",
+          "header": "Chi phí đã dùng",
+          "type": "currency",
+          "width": 18,
+          "validation": { "type": "decimal", "min": 0, "max": 100000000000 }
+        },
+        {
+          "key": "phanTramHoanThanh",
+          "header": "Hoàn thành (%)",
+          "type": "number",
+          "width": 13,
+          "validation": { "type": "decimal", "min": 0, "max": 100 }
+        },
+        { "key": "ngayChotSo", "header": "Ngày chốt sổ", "type": "date", "width": 12 },
+        {
+          "key": "tienDoKyVong",
+          "header": "Tiến độ kỳ vọng",
+          "type": "formula",
+          "width": 14,
+          "format": "percent",
+          "formula": "=IF([tenDuAn]{row}=\"\",\"\",IFERROR(MIN(1,MAX(0,([ngayChotSo]{row}-[ngayBatDau]{row})/([hanKetThuc]{row}-[ngayBatDau]{row}))),0))",
+          "note": "Phần thời gian đã trôi qua của dự án. MAX(0;…) giữ dự án chưa khởi động ở mức 0%, MIN(1;…) chặn dự án quá hạn ở 100%. Bọc IFERROR cho trường hợp ngày bắt đầu trùng hạn kết thúc, khi đó mẫu số bằng 0."
+        },
+        {
+          "key": "lechTienDo",
+          "header": "Lệch tiến độ",
+          "type": "formula",
+          "width": 12,
+          "format": "percent",
+          "formula": "=IF([tenDuAn]{row}=\"\",\"\",[phanTramHoanThanh]{row}/100-[tienDoKyVong]{row})",
+          "note": "Thực tế trừ kỳ vọng. Số âm là chậm hơn thời gian, và độ lớn cho biết chậm bao nhiêu phần khối lượng — dễ hành động hơn nhiều so với câu chậm mấy ngày, vì nó nói thẳng còn thiếu bao nhiêu việc."
+        },
+        {
+          "key": "tyLeGiaiNgan",
+          "header": "Đã giải ngân",
+          "type": "formula",
+          "width": 12,
+          "format": "percent",
+          "formula": "=IF([tenDuAn]{row}=\"\",\"\",IFERROR([chiPhiDaDung]{row}/[nganSach]{row},0))",
+          "note": "Chi phí đã dùng chia ngân sách duyệt. Một mình con số này chưa nói được gì: giải ngân 60% là tốt nếu đã làm xong 70% việc, và là xấu nếu mới xong 40%. Cột kế bên chính là chỗ ghép hai vế đó lại."
+        },
+        {
+          "key": "chiSoHieuQuaChiPhi",
+          "header": "Hiệu quả chi phí",
+          "type": "formula",
+          "width": 13,
+          "formula": "=IF([tenDuAn]{row}=\"\",\"\",IFERROR(([phanTramHoanThanh]{row}/100)/[tyLeGiaiNgan]{row},0))",
+          "note": "Phần việc đã làm chia phần tiền đã tiêu. Bằng 1 là cân, dưới 1 là tiêu nhanh hơn làm. Đây là chỉ số duy nhất trong bảng nhìn được cả hai chiều tiến độ và chi phí cùng lúc, nên đọc nó trước rồi mới đọc các cột còn lại."
+        },
+        {
+          "key": "uocTinhChiPhiHoanThanh",
+          "header": "Ước tính chi phí hoàn thành",
+          "type": "formula",
+          "width": 20,
+          "format": "currency",
+          "formula": "=IF([tenDuAn]{row}=\"\",\"\",IFERROR(ROUND([nganSach]{row}/[chiSoHieuQuaChiPhi]{row},0),[nganSach]{row}))",
+          "note": "Ngân sách chia chỉ số hiệu quả chi phí, tức giả định phần còn lại tiêu với đúng nhịp hiện tại. Vượt ngân sách duyệt ở cột này nghĩa là dự án sẽ vượt nếu không có gì thay đổi. Dòng chưa tiêu đồng nào có chỉ số bằng 0, IFERROR trả về đúng ngân sách gốc thay vì lỗi chia cho 0."
+        },
+        {
+          "key": "canhBao",
+          "header": "Cảnh báo",
+          "type": "formula",
+          "width": 30,
+          "format": "text",
+          "formula": "=IF([tenDuAn]{row}=\"\",\"\",IF([phanTramHoanThanh]{row}>=100,\"Đã hoàn thành\",IF([uocTinhChiPhiHoanThanh]{row}>[nganSach]{row}*1.05,\"Dự báo vượt ngân sách\",IF([lechTienDo]{row}<-0.1,\"Chậm tiến độ\",IF([ngayChotSo]{row}>[hanKetThuc]{row},\"Quá hạn kết thúc\",\"Trong tầm kiểm soát\")))))",
+          "note": "Rủi ro tiền được báo trước rủi ro thời gian vì tiền đã tiêu thì không lấy lại được, còn tiến độ chậm vẫn cứu được bằng nguồn lực. Biên độ 5% là khoảng bỏ qua, dưới mức đó thì chênh lệch nằm trong sai số của việc tự báo phần trăm hoàn thành."
+        }
+      ],
+      "sampleRows": [
+        {
+          "stt": 1,
+          "maDuAn": "DA01",
+          "tenDuAn": "Nâng cấp dây chuyền đóng gói tự động",
+          "chuNhiem": "Phạm Thị Lan",
+          "ngayBatDau": "2026-04-01",
+          "hanKetThuc": "2026-09-30",
+          "nganSach": 1800000000,
+          "chiPhiDaDung": 1150000000,
+          "phanTramHoanThanh": 55,
+          "ngayChotSo": "2026-07-24"
+        },
+        {
+          "stt": 2,
+          "maDuAn": "DA02",
+          "tenDuAn": "Triển khai phần mềm quản lý kho",
+          "chuNhiem": "Đỗ Hoàng Nam",
+          "ngayBatDau": "2026-05-15",
+          "hanKetThuc": "2026-08-15",
+          "nganSach": 450000000,
+          "chiPhiDaDung": 270000000,
+          "phanTramHoanThanh": 70,
+          "ngayChotSo": "2026-07-24"
+        },
+        {
+          "stt": 3,
+          "maDuAn": "DA03",
+          "tenDuAn": "Mở chi nhánh bán hàng khu vực miền Trung",
+          "chuNhiem": "Nguyễn Văn Minh",
+          "ngayBatDau": "2026-03-01",
+          "hanKetThuc": "2026-07-15",
+          "nganSach": 900000000,
+          "chiPhiDaDung": 870000000,
+          "phanTramHoanThanh": 92,
+          "ngayChotSo": "2026-07-24"
+        },
+        {
+          "stt": 4,
+          "maDuAn": "DA04",
+          "tenDuAn": "Xây dựng bộ nhận diện thương hiệu mới",
+          "chuNhiem": "Lê Quốc Bảo",
+          "ngayBatDau": "2026-06-01",
+          "hanKetThuc": "2026-10-31",
+          "nganSach": 320000000,
+          "chiPhiDaDung": 96000000,
+          "phanTramHoanThanh": 30,
+          "ngayChotSo": "2026-07-24"
+        },
+        {
+          "stt": 5,
+          "maDuAn": "DA05",
+          "tenDuAn": "Chuẩn hóa hệ thống tài liệu chất lượng",
+          "chuNhiem": "Trần Thu Hà",
+          "ngayBatDau": "2026-02-01",
+          "hanKetThuc": "2026-06-30",
+          "nganSach": 260000000,
+          "chiPhiDaDung": 248000000,
+          "phanTramHoanThanh": 100,
+          "ngayChotSo": "2026-07-24"
+        },
+        {
+          "stt": 6,
+          "maDuAn": "DA06",
+          "tenDuAn": "Số hóa quy trình duyệt chi nội bộ",
+          "chuNhiem": "Vũ Minh Châu",
+          "ngayBatDau": "2026-05-01",
+          "hanKetThuc": "2026-09-15",
+          "nganSach": 380000000,
+          "chiPhiDaDung": 190000000,
+          "phanTramHoanThanh": 35,
+          "ngayChotSo": "2026-07-24"
+        }
+      ]
+    }
+  ]
+}

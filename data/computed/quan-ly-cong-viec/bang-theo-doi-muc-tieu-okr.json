@@ -1,0 +1,34 @@
+[
+  [
+    {
+      "tienDo": 0.56,
+      "diemCoTrongSo": 0.28,
+      "xepLoai": "Cần thúc đẩy"
+    },
+    {
+      "tienDo": 0.5,
+      "diemCoTrongSo": 0.25,
+      "xepLoai": "Cần thúc đẩy"
+    },
+    {
+      "tienDo": 0.7,
+      "diemCoTrongSo": 0.42,
+      "xepLoai": "Tốt"
+    },
+    {
+      "tienDo": 0.125,
+      "diemCoTrongSo": 0.05,
+      "xepLoai": "Đang rủi ro"
+    },
+    {
+      "tienDo": 1,
+      "diemCoTrongSo": 0.45,
+      "xepLoai": "Đạt mục tiêu"
+    },
+    {
+      "tienDo": 0.6666666666666666,
+      "diemCoTrongSo": 0.36666666666666664,
+      "xepLoai": "Cần thúc đẩy"
+    }
+  ]
+]

@@ -1,0 +1,215 @@
+{
+  "slug": "checklist-cong-viec-hang-ngay",
+  "category": "quan-ly-cong-viec",
+  "h1": "Mẫu Excel checklist công việc hằng ngày theo ca",
+  "metaTitle": "Mẫu Excel Checklist Công Việc Hằng Ngày Theo Ca",
+  "metaDesc": "Mẫu Excel checklist công việc hằng ngày theo ca: đếm số lần cần làm và đã làm, tự tính phần còn thiếu và báo riêng những đầu việc bắt buộc bị bỏ sót.",
+  "primaryKeyword": "mẫu excel checklist công việc hằng ngày",
+  "intro": "Mẫu Excel checklist công việc hằng ngày này dành cho những đầu việc lặp lại theo ca: mở ca, kiểm thiết bị, vệ sinh khu vực, chốt sổ cuối ngày. Khác với danh sách việc thông thường, thứ cần theo dõi ở đây không phải xong hay chưa mà là làm được bao nhiêu lần trên số lần cần làm. File đếm phần còn thiếu và tách riêng nhóm việc bắt buộc — vì bỏ sót một đầu việc bắt buộc và bỏ sót một đầu việc nên làm là hai chuyện có hậu quả hoàn toàn khác nhau.",
+  "difficulty": "co-ban",
+  "features": [
+    "Đếm số lần cần làm và đã làm thay vì chỉ đánh dấu xong hay chưa",
+    "Báo riêng đầu việc bắt buộc bị bỏ sót, tách khỏi việc nên làm",
+    "Tỷ lệ hoàn thành cho từng đầu việc trong kỳ theo dõi",
+    "Phân theo ca và theo người thực hiện để bàn giao ca rõ ràng",
+    "Bắt cả trường hợp ghi số lần đã làm nhiều hơn số lần cần làm"
+  ],
+  "howToUse": [
+    {
+      "step": "Liệt kê đầu việc lặp lại và gắn vào ca",
+      "detail": "Mỗi đầu việc một dòng, gắn với ca cụ thể và người chịu trách nhiệm trong ca đó. Việc chỉ làm một lần rồi thôi không thuộc về bảng này — nó thuộc bảng phân công công việc."
+    },
+    {
+      "step": "Đánh dấu đầu việc bắt buộc",
+      "detail": "Bắt buộc là những việc liên quan tới an toàn, chất lượng hoặc nghĩa vụ với khách hàng, bỏ sót là có hậu quả thật. Đừng đánh dấu bắt buộc cho quá nửa số dòng: khi mọi thứ đều bắt buộc thì không còn gì bắt buộc."
+    },
+    {
+      "step": "Đặt số lần cần làm cho kỳ theo dõi",
+      "detail": "Nếu bảng theo dõi một tuần và việc phải làm mỗi ca sáng, số lần cần làm là số ca sáng trong tuần đó. Chọn một kỳ rồi giữ nguyên cách đếm cho mọi dòng, trộn kỳ tuần với kỳ tháng trong cùng một bảng là mất khả năng so sánh."
+    },
+    {
+      "step": "Cập nhật số lần đã làm mỗi cuối ca",
+      "detail": "Người trực ca tự cộng thêm khi hoàn thành. Cuối kỳ, lọc cột đánh giá lấy nhóm bỏ sót việc bắt buộc trước, đó là danh sách phải xử lý ngay; nhóm chưa đủ xem sau."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Vì sao đếm số lần thay vì chỉ tích xong hay chưa?",
+      "a": "Vì việc lặp lại thì một dấu tích không nói được gì. Một đầu việc phải làm mười lăm lần trong tuần mà làm được mười hai lần vẫn sẽ hiện đã làm nếu chỉ có ô tích, che mất ba lần bỏ sót. Đếm số lần biến checklist từ chỗ ghi nhận thành chỗ đo lường, và đó mới là thứ dùng được để cải thiện."
+    },
+    {
+      "q": "Vì sao việc bắt buộc phải báo riêng?",
+      "a": "Vì hậu quả khác nhau nên hành động phải khác nhau. Thiếu một lần lau khu vực chung là chuyện nhắc nhở; thiếu một lần kiểm tra thiết bị an toàn là chuyện phải truy nguyên nhân và ghi biên bản. Một cột đánh giá gộp chung sẽ để hai việc đó nằm cạnh nhau cùng một màu, và cái thứ hai sẽ bị xử lý như cái thứ nhất."
+    },
+    {
+      "q": "Số lần đã làm nhiều hơn số lần cần làm thì sao?",
+      "a": "File vẫn báo bằng một nhãn riêng thay vì lặng lẽ chấp nhận. Gần như luôn là lỗi ghi chép: đếm nhầm, hoặc hai người cùng ghi cho một lần làm. Trường hợp hiếm là thực sự làm dư vì phát sinh, khi đó nên sửa lại số lần cần làm cho khớp thực tế của kỳ."
+    },
+    {
+      "q": "Checklist bao nhiêu dòng là hợp lý cho một ca?",
+      "a": "Không có con số cứng, nhưng có một dấu hiệu: nếu người trực ca phải mở bảng ra dò thay vì nhớ được, checklist đang quá dài và sẽ bắt đầu bị tích khống. Cách xử lý thường dùng là gom các việc luôn đi cùng nhau thành một dòng, và bỏ hẳn những dòng cả quý không ai bỏ sót — chúng đã thành thói quen, không cần checklist nữa."
+    }
+  ],
+  "ctaText": "Học cách chuẩn hóa công việc lặp lại bằng Excel",
+  "relatedSlugs": ["to-do-list-excel", "ke-hoach-cong-viec-tuan"],
+  "updatedAt": "2026-08-10",
+  "sheets": [
+    {
+      "name": "Checklist hằng ngày",
+      "description": "Đầu việc lặp lại theo ca, đếm số lần cần làm và số lần đã làm trong kỳ.",
+      "blankRows": 30,
+      "columns": [
+        { "key": "stt", "header": "STT", "type": "number", "width": 6 },
+        { "key": "kyTheoDoi", "header": "Kỳ theo dõi", "type": "text", "width": 14 },
+        { "key": "congViec", "header": "Đầu việc", "type": "text", "width": 38 },
+        {
+          "key": "ca",
+          "header": "Ca",
+          "type": "text",
+          "width": 12,
+          "validation": {
+            "type": "list",
+            "options": ["Ca sáng", "Ca chiều", "Ca tối", "Cả ngày"]
+          }
+        },
+        { "key": "nguoiThucHien", "header": "Người thực hiện", "type": "text", "width": 20 },
+        {
+          "key": "tanSuat",
+          "header": "Tần suất",
+          "type": "text",
+          "width": 14,
+          "validation": {
+            "type": "list",
+            "options": ["Mỗi ca", "Hằng ngày", "Hằng tuần", "Đầu ca", "Cuối ca"]
+          }
+        },
+        {
+          "key": "batBuoc",
+          "header": "Bắt buộc",
+          "type": "text",
+          "width": 10,
+          "validation": { "type": "list", "options": ["Có", "Không"] }
+        },
+        {
+          "key": "soLanCanLam",
+          "header": "Số lần cần làm",
+          "type": "number",
+          "width": 13,
+          "validation": { "type": "whole", "min": 0, "max": 200 }
+        },
+        {
+          "key": "soLanDaLam",
+          "header": "Số lần đã làm",
+          "type": "number",
+          "width": 13,
+          "validation": { "type": "whole", "min": 0, "max": 200 }
+        },
+        {
+          "key": "conThieu",
+          "header": "Còn thiếu",
+          "type": "formula",
+          "width": 11,
+          "formula": "=IF([congViec]{row}=\"\",\"\",MAX(0,[soLanCanLam]{row}-[soLanDaLam]{row}))",
+          "note": "Số lần cần làm trừ số lần đã làm. Hàm MAX chặn ở 0 để trường hợp ghi dư không hiện ra số âm ở đây — số âm đó không phải là còn thiếu, và nó được xử lý riêng ở cột đánh giá."
+        },
+        {
+          "key": "tyLeHoanThanh",
+          "header": "Tỷ lệ hoàn thành",
+          "type": "formula",
+          "width": 14,
+          "format": "percent",
+          "formula": "=IF([congViec]{row}=\"\",\"\",IFERROR([soLanDaLam]{row}/[soLanCanLam]{row},0))",
+          "note": "Đã làm chia cần làm. Bọc IFERROR cho dòng mới thêm chưa đặt số lần cần làm, khi đó mẫu số bằng 0 và Excel ném #DIV/0!."
+        },
+        {
+          "key": "danhGia",
+          "header": "Đánh giá",
+          "type": "formula",
+          "width": 30,
+          "format": "text",
+          "formula": "=IF([congViec]{row}=\"\",\"\",IF([soLanDaLam]{row}>[soLanCanLam]{row},\"Ghi dư - kiểm tra lại số liệu\",IF([conThieu]{row}=0,\"Đủ\",IF([batBuoc]{row}=\"Có\",\"Bỏ sót việc bắt buộc\",\"Chưa đủ\"))))",
+          "note": "Lỗi ghi chép bị bắt trước tiên, vì mọi kết luận sau đó đều dựa trên con số đang sai. Nhánh bắt buộc tách khỏi nhánh chưa đủ để một bộ lọc duy nhất cho ra đúng danh sách phải xử lý ngay, thay vì một danh sách dài trộn cả việc nhắc nhở lẫn việc lập biên bản."
+        }
+      ],
+      "sampleRows": [
+        {
+          "stt": 1,
+          "kyTheoDoi": "Tuần 30/2026",
+          "congViec": "Kiểm tra thiết bị chữa cháy và lối thoát hiểm",
+          "ca": "Ca sáng",
+          "nguoiThucHien": "Đỗ Hoàng Nam",
+          "tanSuat": "Đầu ca",
+          "batBuoc": "Có",
+          "soLanCanLam": 6,
+          "soLanDaLam": 4
+        },
+        {
+          "stt": 2,
+          "kyTheoDoi": "Tuần 30/2026",
+          "congViec": "Vệ sinh khu vực đóng gói và thu gom rác",
+          "ca": "Ca chiều",
+          "nguoiThucHien": "Vũ Minh Châu",
+          "tanSuat": "Cuối ca",
+          "batBuoc": "Không",
+          "soLanCanLam": 6,
+          "soLanDaLam": 5
+        },
+        {
+          "stt": 3,
+          "kyTheoDoi": "Tuần 30/2026",
+          "congViec": "Đối chiếu số lượng hàng xuất với phiếu giao",
+          "ca": "Cả ngày",
+          "nguoiThucHien": "Trần Thu Hà",
+          "tanSuat": "Mỗi ca",
+          "batBuoc": "Có",
+          "soLanCanLam": 12,
+          "soLanDaLam": 12
+        },
+        {
+          "stt": 4,
+          "kyTheoDoi": "Tuần 30/2026",
+          "congViec": "Ghi nhật ký vận hành máy nén khí",
+          "ca": "Ca sáng",
+          "nguoiThucHien": "Phạm Thị Lan",
+          "tanSuat": "Đầu ca",
+          "batBuoc": "Có",
+          "soLanCanLam": 6,
+          "soLanDaLam": 6
+        },
+        {
+          "stt": 5,
+          "kyTheoDoi": "Tuần 30/2026",
+          "congViec": "Chốt quỹ tiền mặt và bàn giao cho ca sau",
+          "ca": "Ca tối",
+          "nguoiThucHien": "Lê Quốc Bảo",
+          "tanSuat": "Cuối ca",
+          "batBuoc": "Có",
+          "soLanCanLam": 6,
+          "soLanDaLam": 7
+        },
+        {
+          "stt": 6,
+          "kyTheoDoi": "Tuần 30/2026",
+          "congViec": "Kiểm tra nhiệt độ kho lạnh và ghi biểu mẫu",
+          "ca": "Cả ngày",
+          "nguoiThucHien": "Đỗ Hoàng Nam",
+          "tanSuat": "Mỗi ca",
+          "batBuoc": "Có",
+          "soLanCanLam": 12,
+          "soLanDaLam": 9
+        },
+        {
+          "stt": 7,
+          "kyTheoDoi": "Tuần 30/2026",
+          "congViec": "Sắp xếp lại kệ hàng theo sơ đồ kho",
+          "ca": "Ca chiều",
+          "nguoiThucHien": "Nguyễn Văn Minh",
+          "tanSuat": "Hằng tuần",
+          "batBuoc": "Không",
+          "soLanCanLam": 2,
+          "soLanDaLam": 1
+        }
+      ]
+    }
+  ]
+}

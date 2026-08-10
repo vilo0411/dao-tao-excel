@@ -13,14 +13,14 @@ Cập nhật file này mỗi khi làm xong một template hoặc một hạng m�
 | :---- | ---: | ---: | :---- |
 | Template `nhan-su` | 13 | 13 | `██████████` 100% |
 | Template `ke-toan` | 12 | 12 | `██████████` 100% |
-| Template `quan-ly-cong-viec` | 0 | 12 | `░░░░░░░░░░` 0% |
-| **Tổng template** | **25** | **37** | `███████░░░` 68% |
+| Template `quan-ly-cong-viec` | 12 | 12 | `██████████` 100% |
+| **Tổng template** | **37** | **37** | `██████████` 100% |
 | Bộ file | 1 | 3 | `███░░░░░░░` 33% |
 | Hạ tầng | 14 | 18 | `███████░░` 78% |
 
-**Giai đoạn hiện tại:** A — nội dung đã đủ, còn lại là rà nghiệp vụ và lên domain.
+**Giai đoạn hiện tại:** A — **đủ 37/37 template của Phase 1**, còn lại là rà nghiệp vụ và lên domain.
 **Chặn giai đoạn B:** cần 12 trang qua DoD + lên domain thật + GSC nhận sitemap.
-Nút cổ chai đã đổi: không còn là viết spec mà là **cột Rà** — 25 trang đang chờ người rà soát nghiệp vụ, và nhóm kế toán còn cần người rà gắt hơn nhóm nhân sự.
+Nút cổ chai giờ chỉ còn một: **cột Rà** — 37 trang đang chờ người rà soát, trong đó 25 trang nhân sự và kế toán cần người có nghiệp vụ, còn 12 trang quản lý công việc chỉ cần rà bằng mắt vì mọi ngưỡng trong đó là quy ước quản trị, không phải quy định pháp luật.
 
 ---
 
@@ -90,7 +90,7 @@ Bộ đủ 100% node `live` thì khai thêm khối `bundle`: toàn bộ sheet n�
 | :---- | :---- | :---: | :---- |
 | `quan-ly-nhan-su-thang` | `nhan-su` | 5/5 | — · **có file gộp** |
 | _(kế toán — chưa dựng)_ | `ke-toan` | — | đã đủ 12 template, dựng bộ được bất cứ lúc nào |
-| _(quản lý công việc — chưa dựng)_ | `quan-ly-cong-viec` | — | cần ≥ 3 template trước |
+| _(quản lý công việc — chưa dựng)_ | `quan-ly-cong-viec` | — | đã đủ 12 template, dựng bộ được bất cứ lúc nào |
 
 ⚠️ Đừng công bố một bộ mà node `master` còn `planned`: trang bộ khi đó hứa một file tổng không tồn tại, đúng thứ mà cả site đang phản đối.
 
@@ -139,22 +139,36 @@ Số 1 và 5 còn một ràng buộc chung: file khai là công cụ theo dõi v
 
 ## Quản lý công việc — `/mau-excel/quan-ly-cong-viec`
 
-CTA: `consult` · Hub chưa mở (cần ≥ 5 template)
+CTA: `consult` · **Đủ 12/12 template của Phase 1**
 
 | # | Slug | Spec | File | Rà | Live |
 | :--- | :---- | :---: | :---: | :---: | :---: |
-| 1 | `bang-theo-doi-tien-do-cong-viec` | ⬜ | ⬜ | ⬜ | ⬜ |
-| 2 | `ke-hoach-cong-viec-tuan` | ⬜ | ⬜ | ⬜ | ⬜ |
-| 3 | `gantt-chart-excel` | ⬜ | ⬜ | ⬜ | ⬜ |
-| 4 | `bang-phan-cong-cong-viec` | ⬜ | ⬜ | ⬜ | ⬜ |
-| 5 | `to-do-list-excel` | ⬜ | ⬜ | ⬜ | ⬜ |
-| 6 | `bang-theo-doi-du-an` | ⬜ | ⬜ | ⬜ | ⬜ |
-| 7 | `bang-theo-doi-chi-phi-du-an` | ⬜ | ⬜ | ⬜ | ⬜ |
-| 8 | `bang-theo-doi-muc-tieu-okr` | ⬜ | ⬜ | ⬜ | ⬜ |
-| 9 | `checklist-cong-viec-hang-ngay` | ⬜ | ⬜ | ⬜ | ⬜ |
-| 10 | `bang-danh-gia-rui-ro-du-an` | ⬜ | ⬜ | ⬜ | ⬜ |
-| 11 | `lich-lam-viec-nhom` | ⬜ | ⬜ | ⬜ | ⬜ |
-| 12 | `bien-ban-hop` | ⬜ | ⬜ | ⬜ | ⬜ |
+| 1 | `bang-theo-doi-tien-do-cong-viec` | ✅ | ✅ | ⬜ | ⬜ |
+| 2 | `ke-hoach-cong-viec-tuan` | ✅ | ✅ | ⬜ | ⬜ |
+| 3 | `gantt-chart-excel` | ✅ | ✅ | ⬜ | ⬜ |
+| 4 | `bang-phan-cong-cong-viec` | ✅ | ✅ | ⬜ | ⬜ |
+| 5 | `to-do-list-excel` | ✅ | ✅ | ⬜ | ⬜ |
+| 6 | `bang-theo-doi-du-an` | ✅ | ✅ | ⬜ | ⬜ |
+| 7 | `bang-theo-doi-chi-phi-du-an` | ✅ | ✅ | ⬜ | ⬜ |
+| 8 | `bang-theo-doi-muc-tieu-okr` | ✅ | ✅ | ⬜ | ⬜ |
+| 9 | `checklist-cong-viec-hang-ngay` | ✅ | ✅ | ⬜ | ⬜ |
+| 10 | `bang-danh-gia-rui-ro-du-an` | ✅ | ✅ | ⬜ | ⬜ |
+| 11 | `lich-lam-viec-nhom` | ✅ | ✅ | ⬜ | ⬜ |
+| 12 | `bien-ban-hop` | ✅ | ✅ | ⬜ | ⬜ |
+
+**Ghi chú rà — nhóm này khác hai nhóm trên:**
+
+Không có con số nào ở đây bắt nguồn từ luật, nên rủi ro không phải là sai quy định mà là **ngưỡng quy ước bị đọc thành chuẩn**. Mọi ngưỡng dưới đây đều đã ghi rõ trong FAQ là quy ước và nên sửa theo bối cảnh — việc rà là đảm bảo lời đó không bị biên tập mất:
+
+| Ngưỡng | Ở đâu | Ý nghĩa |
+| :---- | :---- | :---- |
+| Lệch tiến độ −10% | số 1, 6 | biên độ bỏ qua, dưới mức đó coi như sai số của việc tự báo phần trăm |
+| Thang 0,7 của OKR | số 8 | thông lệ OKR tham vọng; tổ chức dùng OKR cam kết phải nâng mốc lên |
+| Ma trận 5x5, mốc 15 / 8 / 4 | số 10 | quy ước chấm rủi ro; giới hạn đã biết là rủi ro hiếm-nhưng-chí-mạng bị chấm điểm thấp (đã ghi trong FAQ) |
+| Tải 90% và 60% | số 11 | 90% đặt dưới 100% có chủ ý, vì lịch lấp tới trần thì mọi phát sinh làm vỡ lịch |
+| Vượt dự toán 10% | số 7 | tách nhóm tự bù trong dự án khỏi nhóm phải báo lên |
+
+Số 3 (`gantt-chart-excel`) có một ràng buộc kỹ thuật cần kiểm bằng mắt trên Excel thật: thanh vẽ bằng `REPT` chỉ thẳng hàng khi cột dùng **phông đều nét** (Consolas, Courier New). Đã ghi trong hướng dẫn và FAQ, nhưng đây là thứ chỉ lộ ra khi mở file.
 
 ---
 
@@ -180,7 +194,7 @@ CTA: `consult` · Hub chưa mở (cần ≥ 5 template)
 
 ### Còn lại
 
-- [ ] **Chặn category rỗng** — `ke-toan`, `quan-ly-cong-viec` hiện vẫn build ra trang rỗng; áp quy tắc ≥ 5 template
+- [ ] **Chặn category rỗng** — cả ba category giờ đều đủ 12 template nên triệu chứng đã hết, nhưng **quy tắc ≥ 5 template vẫn chưa được cài**. Vẫn phải làm trước khi ai đó khai một category thứ tư
 - [ ] **`NEXT_PUBLIC_GA_ID`** — chưa có GA4, mọi chỉ số đo lường đang bằng 0
 - [ ] **Trỏ domain thật + deploy Vercel**
 - [ ] **Verify Google Search Console + submit sitemap**
@@ -191,6 +205,7 @@ CTA: `consult` · Hub chưa mở (cần ≥ 5 template)
 
 | Ngày | Việc |
 | :---- | :---- |
+| 10/08/2026 | **Xong 12 template `quan-ly-cong-viec` — khung 37 trang của Phase 1 đủ 100%.** Ba ý tưởng dùng lại nhiều lần trong nhóm này: **tiến độ kỳ vọng** theo phần thời gian đã trôi (số 1, 6, 8) — một việc báo 50% khi đã đi hết 80% thời gian thì đang chậm, và đó là thứ cột phần trăm một mình không nói được; **kiểm chất lượng chính lệnh giao việc** (số 4, 12) — bắt dòng thiếu người thực hiện, thiếu hạn, thiếu tiêu chí nghiệm thu, và chỉ áp ràng buộc đúng loại dòng cần áp; **điểm ghép hai yếu tố** (số 5, 10) để danh sách sắp xếp được. Hàm mới: `REPT` — `gantt-chart-excel` vẽ thanh tiến độ ngay trong một ô thay vì tô màu hàng chục cột ngày, nên chèn thêm đầu việc là thanh tự vẽ. Đánh đổi đã ghi trong FAQ: thanh chỉ thẳng hàng với phông đều nét, và không vẽ được quan hệ phụ thuộc |
 | 10/08/2026 | **Xong 5 template kế toán còn lại — nhóm `ke-toan` đủ 12/12.** Khấu hao TSCĐ (đường thẳng, `MIN` chặn trần để tài sản hết giá trị tự dừng trích thay vì âm dần), bảng kê hóa đơn GTGT (đầu vào và đầu ra chung một bảng, cột thuế được khấu trừ **tự trả về 0** với hóa đơn từ 20 triệu trả tiền mặt — cảnh báo không đủ, phải đổi luôn con số), theo dõi tạm ứng (dùng cột `ngayChotSo` thay `TODAY` như hai file công nợ, để bảng in hôm nay và bảng mở lại tháng sau cho cùng một con số quá hạn), báo cáo kết quả kinh doanh (xếp ngang theo tháng thay vì dọc theo chỉ tiêu; `MAX(0;…)` chặn thuế âm ở tháng lỗ), tính giá thành (dở dang đầu kỳ + phát sinh − dở dang cuối kỳ), dự toán ngân sách (cột đánh giá **đảo chiều theo cột Loại**: cùng tỷ lệ 110% thì dòng Thu là đạt kế hoạch còn dòng Chi là vượt ngân sách) |
 | 10/08/2026 | **`bang-theo-doi-dong-tien`** — kế toán 6/12. Bảng nhìn tiền theo kỳ chứ theo phiếu như sổ quỹ: mỗi dòng một tháng, số dư cuối kỳ cộng dồn bằng `{row-N}`, cột cảnh báo tách riêng *âm dòng tiền* (kỳ này chi trội) khỏi *âm quỹ* (hết tiền thật) vì hai thứ đó đòi hai cách xử lý khác nhau. Hàm mới đầu tiên kể từ khi có glossary: `SUM` — dùng dạng vùng cho khối cột thu và khối cột chi để chèn thêm nhóm không phải sửa công thức, và đã thêm mục từ điển trong `FUNCTION_INFO` như cổng validate yêu cầu |
 | 31/07/2026 | **Bỏ `/khoa-hoc-excel`** (bridge page + form lead + `/api/lead` + `LeadForm`/`lib/lead.ts`), thay bằng **glossary hàm Excel** `/ham-excel` + `/ham-excel/[function]` (PRD mục 2.8, `lib/functions.ts`). Nguồn dữ liệu là `template.functions` đã tự trích sẵn — 8 hàm có template thật dùng (IF, IFERROR, AND, OR, N, ROUND, MAX, MIN). `npm run validate` giờ ném lỗi nếu một hàm mới xuất hiện trong công thức mà chưa có mục từ điển (`FUNCTION_INFO`) |

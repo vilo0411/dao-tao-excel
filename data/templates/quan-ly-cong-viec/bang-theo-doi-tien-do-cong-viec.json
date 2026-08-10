@@ -1,0 +1,213 @@
+{
+  "slug": "bang-theo-doi-tien-do-cong-viec",
+  "category": "quan-ly-cong-viec",
+  "h1": "Mẫu Excel theo dõi tiến độ công việc (so với tiến độ kỳ vọng)",
+  "metaTitle": "Mẫu Excel Theo Dõi Tiến Độ Công Việc - Tải Free",
+  "metaDesc": "Mẫu Excel theo dõi tiến độ công việc tự tính tiến độ kỳ vọng theo thời gian đã trôi, so với phần trăm thực tế để chỉ ra việc nào đang chậm trước khi tới hạn.",
+  "primaryKeyword": "mẫu excel theo dõi tiến độ công việc",
+  "intro": "Mẫu Excel theo dõi tiến độ công việc này không chỉ ghi lại phần trăm hoàn thành mà còn so nó với tiến độ đáng lẽ phải đạt tại thời điểm chốt. Một việc báo 50% nghe có vẻ ổn, nhưng nếu đã đi hết 80% quãng thời gian thì nó đang chậm nặng — và đó chính là con số mà cột lệch tiến độ chỉ ra. Nhờ vậy bạn phát hiện việc trễ từ giữa chặng thay vì tới hạn mới biết, lúc không còn thời gian để xoay xở.",
+  "difficulty": "trung-cap",
+  "features": [
+    "Tự tính tiến độ kỳ vọng theo phần thời gian đã trôi qua",
+    "Cột lệch tiến độ chỉ ra việc đang chậm trước khi tới hạn",
+    "Năm trạng thái tách bạch, gồm cả việc chưa bắt đầu và việc đã trễ hạn",
+    "Số ngày còn lại tính theo ngày chốt sổ nên bảng in ra không đổi số",
+    "Độ ưu tiên và bộ phận chọn từ danh sách để lọc nhanh"
+  ],
+  "howToUse": [
+    {
+      "step": "Khai đầu việc với hai mốc thời gian",
+      "detail": "Mỗi đầu việc một dòng, bắt buộc có ngày bắt đầu và hạn hoàn thành. Thiếu một trong hai mốc thì tiến độ kỳ vọng không tính được, và cả bảng rơi về mức ghi chép thuần túy."
+    },
+    {
+      "step": "Cập nhật phần trăm hoàn thành",
+      "detail": "Nhập con số từ 0 đến 100 do người phụ trách tự báo. Nên thống nhất trước cách quy đổi, ví dụ chia đầu việc thành các mốc rõ ràng, nếu không mỗi người sẽ hiểu 70% một kiểu."
+    },
+    {
+      "step": "Nhập ngày chốt sổ",
+      "detail": "Điền cùng một ngày cho mọi dòng, thường là ngày họp giao ban. Đây là mốc để tính tiến độ kỳ vọng và số ngày còn lại; file không dùng hàm lấy ngày hôm nay để bản in ra hôm nay và bản mở lại tuần sau vẫn cho cùng con số."
+    },
+    {
+      "step": "Đọc cột lệch tiến độ, không đọc cột phần trăm",
+      "detail": "Sắp xếp cột Lệch tiến độ tăng dần, những dòng âm nhiều nhất nằm trên cùng — đó là danh sách cần hỏi trong cuộc họp. Cột phần trăm hoàn thành một mình không nói được việc nào đang có vấn đề."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Tiến độ kỳ vọng tính thế nào?",
+      "a": "Bằng phần thời gian đã trôi qua: lấy số ngày từ lúc bắt đầu tới ngày chốt sổ chia cho tổng số ngày của đầu việc. Công thức bọc MIN và MAX để kết quả luôn nằm trong khoảng 0% đến 100%, tránh trường hợp việc chưa tới ngày bắt đầu cho ra số âm hoặc việc quá hạn cho ra trên 100%."
+    },
+    {
+      "q": "Giả định chia đều theo thời gian có đúng với mọi loại việc không?",
+      "a": "Không. Đây là giả định đơn giản nhất và nó hợp với việc chạy đều tay như viết tài liệu hay nhập liệu. Với việc dồn tải về cuối như kiểm thử hay nghiệm thu, hoặc việc phải chờ bên thứ ba, tiến độ kỳ vọng sẽ báo chậm oan ở giữa chặng. Hãy đọc nó như một câu hỏi cần trả lời, không phải một phán quyết."
+    },
+    {
+      "q": "Vì sao việc trễ hạn được tách khỏi việc chậm tiến độ?",
+      "a": "Vì hai thứ đó đòi hai hành động khác nhau. Chậm tiến độ là việc còn trong hạn nhưng đang đi chậm hơn kế hoạch — vẫn kịp cứu bằng cách thêm người hoặc cắt phạm vi. Trễ hạn là đã quá ngày mà chưa xong — lúc này việc phải làm là báo cho bên liên quan và đặt lại hạn, chứ không phải hối thúc. Gộp chung một trạng thái thì hai nhóm này lẫn vào nhau trong cùng một danh sách."
+    },
+    {
+      "q": "Có nên để phần trăm hoàn thành cho người thực hiện tự nhập không?",
+      "a": "Nên, nhưng phải kèm quy ước. Cách thường dùng là chỉ cho phép các mốc rời rạc như 0, 25, 50, 75, 100 và gắn mỗi mốc với một sản phẩm bàn giao cụ thể. Để nhập tự do thì con số trôi dần lên 90% rồi đứng yên hàng tuần, hiện tượng phổ biến tới mức có tên riêng trong quản lý dự án."
+    }
+  ],
+  "ctaText": "Học cách quản lý công việc và dựng báo cáo tiến độ trên Excel",
+  "relatedSlugs": ["bang-phan-cong-cong-viec", "bang-theo-doi-du-an"],
+  "updatedAt": "2026-08-10",
+  "sheets": [
+    {
+      "name": "Tiến độ công việc",
+      "description": "Mỗi đầu việc một dòng, so tiến độ thực tế với tiến độ kỳ vọng theo thời gian.",
+      "blankRows": 30,
+      "columns": [
+        { "key": "stt", "header": "STT", "type": "number", "width": 6 },
+        { "key": "maCV", "header": "Mã việc", "type": "text", "width": 10 },
+        { "key": "tenCongViec", "header": "Tên công việc", "type": "text", "width": 34 },
+        { "key": "nguoiPhuTrach", "header": "Người phụ trách", "type": "text", "width": 20 },
+        {
+          "key": "boPhan",
+          "header": "Bộ phận",
+          "type": "text",
+          "width": 16,
+          "validation": {
+            "type": "list",
+            "options": [
+              "Kinh doanh",
+              "Marketing",
+              "Kế toán",
+              "Hành chính nhân sự",
+              "Sản xuất",
+              "Kỹ thuật",
+              "Kho vận"
+            ]
+          }
+        },
+        {
+          "key": "doUuTien",
+          "header": "Độ ưu tiên",
+          "type": "text",
+          "width": 12,
+          "validation": { "type": "list", "options": ["Cao", "Trung bình", "Thấp"] }
+        },
+        { "key": "ngayBatDau", "header": "Ngày bắt đầu", "type": "date", "width": 12 },
+        { "key": "hanHoanThanh", "header": "Hạn hoàn thành", "type": "date", "width": 13 },
+        {
+          "key": "phanTramHoanThanh",
+          "header": "Hoàn thành (%)",
+          "type": "number",
+          "width": 13,
+          "validation": { "type": "decimal", "min": 0, "max": 100 }
+        },
+        { "key": "ngayChotSo", "header": "Ngày chốt sổ", "type": "date", "width": 12 },
+        {
+          "key": "soNgayConLai",
+          "header": "Số ngày còn lại",
+          "type": "formula",
+          "width": 13,
+          "formula": "=IF([tenCongViec]{row}=\"\",\"\",[hanHoanThanh]{row}-[ngayChotSo]{row})",
+          "note": "Hạn hoàn thành trừ ngày chốt sổ. Cố ý không chặn số âm: số âm ở đây chính là số ngày đã quá hạn, một thông tin cần thấy chứ không phải lỗi cần giấu."
+        },
+        {
+          "key": "tienDoKyVong",
+          "header": "Tiến độ kỳ vọng",
+          "type": "formula",
+          "width": 14,
+          "format": "percent",
+          "formula": "=IF([tenCongViec]{row}=\"\",\"\",IFERROR(MIN(1,MAX(0,([ngayChotSo]{row}-[ngayBatDau]{row})/([hanHoanThanh]{row}-[ngayBatDau]{row}))),0))",
+          "note": "Phần thời gian đã trôi qua của đầu việc. MAX(0;…) giữ việc chưa tới ngày bắt đầu ở mức 0% thay vì ra số âm, MIN(1;…) chặn việc đã quá hạn ở 100%. Bọc IFERROR cho trường hợp ngày bắt đầu trùng hạn hoàn thành, khi đó mẫu số bằng 0."
+        },
+        {
+          "key": "lechTienDo",
+          "header": "Lệch tiến độ",
+          "type": "formula",
+          "width": 13,
+          "format": "percent",
+          "formula": "=IF([tenCongViec]{row}=\"\",\"\",[phanTramHoanThanh]{row}/100-[tienDoKyVong]{row})",
+          "note": "Thực tế trừ kỳ vọng — cột đáng đọc nhất của cả bảng. Số âm là đang đi chậm hơn thời gian, và độ lớn của nó cho biết chậm tới mức nào. Chia phần trăm hoàn thành cho 100 vì cột đó nhập bằng số nguyên."
+        },
+        {
+          "key": "trangThai",
+          "header": "Trạng thái",
+          "type": "formula",
+          "width": 26,
+          "format": "text",
+          "formula": "=IF([tenCongViec]{row}=\"\",\"\",IF([phanTramHoanThanh]{row}>=100,\"Hoàn thành\",IF([soNgayConLai]{row}<0,\"Trễ hạn\",IF([phanTramHoanThanh]{row}=0,\"Chưa bắt đầu\",IF([lechTienDo]{row}<-0.1,\"Chậm so với kế hoạch\",\"Đúng tiến độ\")))))",
+          "note": "Xét việc đã xong trước để nó không bao giờ bị gắn nhãn trễ. Trễ hạn tách khỏi chậm tiến độ vì hai nhóm này đòi hai hành động khác nhau: một bên còn cứu được bằng cách thêm người, một bên phải báo lại và đặt hạn mới. Ngưỡng 10% là biên độ bỏ qua, dưới mức đó thì coi như sai số của việc tự báo phần trăm."
+        }
+      ],
+      "sampleRows": [
+        {
+          "stt": 1,
+          "maCV": "CV001",
+          "tenCongViec": "Hoàn thiện bộ tài liệu đào tạo nhân viên mới",
+          "nguoiPhuTrach": "Trần Thu Hà",
+          "boPhan": "Hành chính nhân sự",
+          "doUuTien": "Cao",
+          "ngayBatDau": "2026-07-01",
+          "hanHoanThanh": "2026-07-31",
+          "phanTramHoanThanh": 85,
+          "ngayChotSo": "2026-07-24"
+        },
+        {
+          "stt": 2,
+          "maCV": "CV002",
+          "tenCongViec": "Triển khai chiến dịch quảng cáo quý III",
+          "nguoiPhuTrach": "Lê Quốc Bảo",
+          "boPhan": "Marketing",
+          "doUuTien": "Cao",
+          "ngayBatDau": "2026-07-05",
+          "hanHoanThanh": "2026-08-15",
+          "phanTramHoanThanh": 30,
+          "ngayChotSo": "2026-07-24"
+        },
+        {
+          "stt": 3,
+          "maCV": "CV003",
+          "tenCongViec": "Kiểm kê kho cuối quý và đối chiếu sổ sách",
+          "nguoiPhuTrach": "Đỗ Hoàng Nam",
+          "boPhan": "Kho vận",
+          "doUuTien": "Trung bình",
+          "ngayBatDau": "2026-07-10",
+          "hanHoanThanh": "2026-07-20",
+          "phanTramHoanThanh": 70,
+          "ngayChotSo": "2026-07-24"
+        },
+        {
+          "stt": 4,
+          "maCV": "CV004",
+          "tenCongViec": "Bảo trì định kỳ dây chuyền đóng gói",
+          "nguoiPhuTrach": "Phạm Thị Lan",
+          "boPhan": "Kỹ thuật",
+          "doUuTien": "Trung bình",
+          "ngayBatDau": "2026-08-01",
+          "hanHoanThanh": "2026-08-10",
+          "phanTramHoanThanh": 0,
+          "ngayChotSo": "2026-07-24"
+        },
+        {
+          "stt": 5,
+          "maCV": "CV005",
+          "tenCongViec": "Chuẩn hóa quy trình xét duyệt đơn hàng",
+          "nguoiPhuTrach": "Nguyễn Văn Minh",
+          "boPhan": "Kinh doanh",
+          "doUuTien": "Thấp",
+          "ngayBatDau": "2026-06-15",
+          "hanHoanThanh": "2026-07-15",
+          "phanTramHoanThanh": 100,
+          "ngayChotSo": "2026-07-24"
+        },
+        {
+          "stt": 6,
+          "maCV": "CV006",
+          "tenCongViec": "Lập báo cáo phân tích chi phí sản xuất",
+          "nguoiPhuTrach": "Vũ Minh Châu",
+          "boPhan": "Kế toán",
+          "doUuTien": "Cao",
+          "ngayBatDau": "2026-07-08",
+          "hanHoanThanh": "2026-07-28",
+          "phanTramHoanThanh": 45,
+          "ngayChotSo": "2026-07-24"
+        }
+      ]
+    }
+  ]
+}

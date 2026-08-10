@@ -1,0 +1,190 @@
+{
+  "slug": "to-do-list-excel",
+  "category": "quan-ly-cong-viec",
+  "h1": "Mẫu To do list Excel tự chấm điểm ưu tiên theo độ gấp",
+  "metaTitle": "Mẫu To Do List Excel - Tải Miễn Phí, Dùng Ngay",
+  "metaDesc": "Mẫu to do list Excel tự chấm điểm ưu tiên từ mức quan trọng và số ngày còn lại, sắp xếp giảm dần là ra đúng thứ tự việc cần làm trước. Tải về dùng ngay.",
+  "primaryKeyword": "mẫu to do list excel",
+  "intro": "Mẫu to do list Excel này giải quyết vấn đề của mọi danh sách việc: sau vài ngày nó dài ra và bạn không còn biết nên làm gì trước. File tự chấm cho mỗi việc một điểm ưu tiên, ghép từ hai yếu tố mà con người hay xét lẫn lộn — mức quan trọng do bạn đặt, và độ gấp tính từ số ngày còn lại tới hạn. Sắp xếp cột điểm giảm dần là ra ngay thứ tự nên làm, và việc đã xong tự tụt xuống đáy vì điểm bằng 0.",
+  "difficulty": "co-ban",
+  "features": [
+    "Điểm ưu tiên tự tính, ghép mức quan trọng với độ gấp theo ngày còn lại",
+    "Sắp xếp giảm dần theo điểm là ra thứ tự làm việc, không phải tự cân nhắc",
+    "Việc đã xong tự về điểm 0 và tụt xuống cuối danh sách",
+    "Trạng thái phân biệt quá hạn, tới hạn hôm nay và còn thời gian",
+    "Nhóm việc chọn từ danh sách để lọc theo mảng công việc"
+  ],
+  "howToUse": [
+    {
+      "step": "Ghi việc cần làm và đặt hạn cho từng việc",
+      "detail": "Việc không có hạn sẽ luôn bị việc có hạn đẩy xuống dưới, và đó thường là đúng. Nhưng nếu một việc quan trọng cứ nằm mãi ở đáy danh sách, hãy đặt cho nó một hạn thật thay vì để trống."
+    },
+    {
+      "step": "Chọn mức quan trọng",
+      "detail": "Chỉ ba mức: Cao, Trung bình, Thấp. Đừng để quá nhiều việc ở mức Cao — nếu mọi thứ đều quan trọng thì cột này không còn phân biệt được gì, và điểm ưu tiên rơi về chỗ chỉ còn phản ánh độ gấp."
+    },
+    {
+      "step": "Cập nhật ngày chốt sổ mỗi ngày",
+      "detail": "Sửa một ô rồi kéo xuống cả cột, hoặc chọn cả cột và dán một lần. Đây là mốc để tính số ngày còn lại, và cũng là lý do bảng in ra hôm qua vẫn giữ nguyên con số của hôm qua."
+    },
+    {
+      "step": "Sắp xếp theo điểm ưu tiên rồi làm từ trên xuống",
+      "detail": "Chọn cột Điểm ưu tiên, sắp xếp giảm dần. Đánh dấu Rồi ở cột Đã xong khi hoàn thành, việc đó sẽ về 0 điểm và trôi xuống cuối ở lần sắp xếp tiếp theo."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Điểm ưu tiên tính theo công thức nào?",
+      "a": "Lấy mức quan trọng quy ra 3, 2 hoặc 1 rồi nhân 10, cộng với phần điểm gấp tính từ số ngày còn lại. Phần gấp bằng 20 trừ số ngày còn lại, chặn trong khoảng 0 đến 30 điểm, nên việc quá hạn được cộng nhiều nhất và việc còn hơn hai mươi ngày không được cộng gì. Nhờ vậy một việc mức Trung bình đã quá hạn vẫn xếp trên một việc mức Cao còn cả tháng nữa."
+    },
+    {
+      "q": "Vì sao trộn mức quan trọng và độ gấp vào một con số?",
+      "a": "Vì hai thứ đó luôn phải cân nhắc cùng lúc, mà con người thì có xu hướng chỉ nhìn độ gấp. Việc gấp nhưng không quan trọng chen lên trước, còn việc quan trọng chưa gấp bị đẩy lùi mãi cho tới khi nó trở thành gấp. Gộp thành một điểm là cách buộc mức quan trọng luôn có mặt trong quyết định, dù nó không tự nhắc bạn."
+    },
+    {
+      "q": "Có nên đổi hệ số 10 và ngưỡng 20 ngày không?",
+      "a": "Nên, vì hai con số đó quyết định thứ nào thắng khi hai yếu tố mâu thuẫn. Tăng hệ số 10 lên thì mức quan trọng có tiếng nói mạnh hơn; hạ ngưỡng 20 ngày xuống thì chỉ những việc thật sự cận hạn mới được cộng điểm gấp. Hãy chỉnh theo nhịp công việc của bạn rồi giữ nguyên, đổi liên tục thì thứ tự mất tính so sánh giữa các ngày."
+    },
+    {
+      "q": "Danh sách dài bao nhiêu là quá dài?",
+      "a": "Không có con số đúng cho mọi người, nhưng có một dấu hiệu rõ: nếu những việc ở nửa dưới danh sách chưa bao giờ được làm qua nhiều tuần, chúng không phải việc cần làm mà là việc bạn nghĩ mình nên làm. Xóa hẳn chúng đi tốt hơn là để chúng ngồi đó tạo cảm giác luôn có nợ."
+    }
+  ],
+  "ctaText": "Học cách tổ chức công việc cá nhân bằng Excel",
+  "relatedSlugs": ["ke-hoach-cong-viec-tuan", "checklist-cong-viec-hang-ngay"],
+  "updatedAt": "2026-08-10",
+  "sheets": [
+    {
+      "name": "To do list",
+      "description": "Danh sách việc cần làm, tự chấm điểm ưu tiên để sắp xếp.",
+      "blankRows": 40,
+      "columns": [
+        { "key": "stt", "header": "STT", "type": "number", "width": 6 },
+        { "key": "congViec", "header": "Việc cần làm", "type": "text", "width": 40 },
+        {
+          "key": "nhom",
+          "header": "Nhóm việc",
+          "type": "text",
+          "width": 16,
+          "validation": {
+            "type": "list",
+            "options": [
+              "Công việc",
+              "Học tập",
+              "Cá nhân",
+              "Gia đình",
+              "Tài chính",
+              "Sức khỏe"
+            ]
+          }
+        },
+        {
+          "key": "mucQuanTrong",
+          "header": "Mức quan trọng",
+          "type": "text",
+          "width": 14,
+          "validation": { "type": "list", "options": ["Cao", "Trung bình", "Thấp"] }
+        },
+        { "key": "hanHoanThanh", "header": "Hạn hoàn thành", "type": "date", "width": 13 },
+        {
+          "key": "daXong",
+          "header": "Đã xong",
+          "type": "text",
+          "width": 10,
+          "validation": { "type": "list", "options": ["Rồi", "Chưa"] }
+        },
+        { "key": "ngayChotSo", "header": "Ngày chốt sổ", "type": "date", "width": 12 },
+        {
+          "key": "soNgayConLai",
+          "header": "Số ngày còn lại",
+          "type": "formula",
+          "width": 13,
+          "formula": "=IF([congViec]{row}=\"\",\"\",[hanHoanThanh]{row}-[ngayChotSo]{row})",
+          "note": "Hạn trừ ngày chốt sổ. Số 0 nghĩa là đến hạn đúng hôm nay, số âm là đã quá hạn bấy nhiêu ngày. Cả hai đều được cột điểm ưu tiên phía sau dùng để cộng điểm gấp."
+        },
+        {
+          "key": "diemUuTien",
+          "header": "Điểm ưu tiên",
+          "type": "formula",
+          "width": 12,
+          "formula": "=IF([congViec]{row}=\"\",\"\",IF([daXong]{row}=\"Rồi\",0,IF([mucQuanTrong]{row}=\"Cao\",3,IF([mucQuanTrong]{row}=\"Trung bình\",2,1))*10+MIN(30,MAX(0,20-[soNgayConLai]{row}))))",
+          "note": "Ghép hai yếu tố vào một con số: mức quan trọng quy ra 3, 2, 1 rồi nhân 10, cộng phần điểm gấp bằng 20 trừ số ngày còn lại. MIN và MAX chặn phần gấp trong khoảng 0 đến 30 điểm, nhờ đó một việc quá hạn cả năm không thể vượt lên trên mọi thứ khác. Việc đã xong về 0 để tự tụt xuống đáy khi sắp xếp."
+        },
+        {
+          "key": "trangThai",
+          "header": "Trạng thái",
+          "type": "formula",
+          "width": 22,
+          "format": "text",
+          "formula": "=IF([congViec]{row}=\"\",\"\",IF([daXong]{row}=\"Rồi\",\"Đã xong\",IF([soNgayConLai]{row}<0,\"Quá hạn\",IF([soNgayConLai]{row}=0,\"Đến hạn hôm nay\",IF([soNgayConLai]{row}<=3,\"Sắp tới hạn\",\"Còn thời gian\")))))",
+          "note": "Đọc nhanh bằng chữ thay cho con số ngày. Mốc đến hạn hôm nay được tách riêng khỏi sắp tới hạn vì đó là ngày cuối cùng còn làm kịp, khác hẳn về mặt hành động so với việc còn hai ba ngày nữa."
+        }
+      ],
+      "sampleRows": [
+        {
+          "stt": 1,
+          "congViec": "Gửi báo giá cho khách hàng Đại Việt",
+          "nhom": "Công việc",
+          "mucQuanTrong": "Cao",
+          "hanHoanThanh": "2026-07-24",
+          "daXong": "Chưa",
+          "ngayChotSo": "2026-07-24"
+        },
+        {
+          "stt": 2,
+          "congViec": "Nộp hồ sơ quyết toán thuế quý II",
+          "nhom": "Tài chính",
+          "mucQuanTrong": "Cao",
+          "hanHoanThanh": "2026-07-20",
+          "daXong": "Chưa",
+          "ngayChotSo": "2026-07-24"
+        },
+        {
+          "stt": 3,
+          "congViec": "Đọc xong tài liệu khóa học phân tích dữ liệu",
+          "nhom": "Học tập",
+          "mucQuanTrong": "Trung bình",
+          "hanHoanThanh": "2026-08-20",
+          "daXong": "Chưa",
+          "ngayChotSo": "2026-07-24"
+        },
+        {
+          "stt": 4,
+          "congViec": "Đặt lịch khám sức khỏe định kỳ",
+          "nhom": "Sức khỏe",
+          "mucQuanTrong": "Thấp",
+          "hanHoanThanh": "2026-07-27",
+          "daXong": "Chưa",
+          "ngayChotSo": "2026-07-24"
+        },
+        {
+          "stt": 5,
+          "congViec": "Chuẩn bị nội dung họp giao ban thứ hai",
+          "nhom": "Công việc",
+          "mucQuanTrong": "Trung bình",
+          "hanHoanThanh": "2026-07-26",
+          "daXong": "Chưa",
+          "ngayChotSo": "2026-07-24"
+        },
+        {
+          "stt": 6,
+          "congViec": "Thanh toán hóa đơn điện nước tháng 6",
+          "nhom": "Gia đình",
+          "mucQuanTrong": "Trung bình",
+          "hanHoanThanh": "2026-07-18",
+          "daXong": "Rồi",
+          "ngayChotSo": "2026-07-24"
+        },
+        {
+          "stt": 7,
+          "congViec": "Lên kế hoạch nghỉ phép cuối năm",
+          "nhom": "Cá nhân",
+          "mucQuanTrong": "Thấp",
+          "hanHoanThanh": "2026-10-01",
+          "daXong": "Chưa",
+          "ngayChotSo": "2026-07-24"
+        }
+      ]
+    }
+  ]
+}

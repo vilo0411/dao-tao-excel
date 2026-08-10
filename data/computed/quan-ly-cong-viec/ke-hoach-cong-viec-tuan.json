@@ -1,0 +1,39 @@
+[
+  [
+    {
+      "chenhLechGio": 1.5,
+      "tyLeUocLuong": 0.6666666666666666,
+      "danhGia": "Vượt giờ nhẹ"
+    },
+    {
+      "chenhLechGio": 0.0,
+      "tyLeUocLuong": 1.0,
+      "danhGia": "Đúng hoặc dưới ước lượng"
+    },
+    {
+      "chenhLechGio": 3.0,
+      "tyLeUocLuong": 0.5714285714285714,
+      "danhGia": "Vượt giờ nhiều"
+    },
+    {
+      "chenhLechGio": -1.0,
+      "tyLeUocLuong": 1.25,
+      "danhGia": "Đúng hoặc dưới ước lượng"
+    },
+    {
+      "chenhLechGio": -3.0,
+      "tyLeUocLuong": 0,
+      "danhGia": "Chưa xong"
+    },
+    {
+      "chenhLechGio": -6.0,
+      "tyLeUocLuong": 0,
+      "danhGia": "Chưa xong"
+    },
+    {
+      "chenhLechGio": -4.0,
+      "tyLeUocLuong": 0,
+      "danhGia": "Đã hủy"
+    }
+  ]
+]

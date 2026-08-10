@@ -1,0 +1,195 @@
+{
+  "slug": "bien-ban-hop",
+  "category": "quan-ly-cong-viec",
+  "h1": "Mẫu Excel biên bản họp kèm theo dõi việc sau họp",
+  "metaTitle": "Mẫu Excel Biên Bản Họp - Tải Miễn Phí, Dùng Ngay",
+  "metaDesc": "Mẫu Excel biên bản họp ghi từng mục theo loại thông tin, thảo luận hay việc cần làm, và bắt những việc cần làm còn thiếu người thực hiện hoặc thiếu hạn.",
+  "primaryKeyword": "mẫu excel biên bản họp",
+  "intro": "Mẫu Excel biên bản họp này ghi mỗi mục của cuộc họp thành một dòng và bắt bạn phân loại nó: thông tin, thảo luận, quyết định, hay việc cần làm. Phân loại nghe có vẻ hình thức nhưng nó đổi hẳn cách biên bản được dùng — chỉ những dòng loại việc cần làm mới bắt buộc có người thực hiện và có hạn, và file sẽ chỉ ra dòng nào còn thiếu. Phần lớn biên bản họp chết yểu không phải vì ghi thiếu mà vì cuộc họp kết thúc với vài quyết định không ai nhận và không có hạn, rồi tuần sau cả nhóm họp lại đúng nội dung đó.",
+  "difficulty": "co-ban",
+  "features": [
+    "Mỗi mục một dòng, phân loại thông tin, thảo luận, quyết định hay việc cần làm",
+    "Chỉ dòng việc cần làm mới bị bắt buộc có người thực hiện và hạn",
+    "Cột kiểm tra chỉ đúng thứ đang thiếu trong từng dòng",
+    "Số ngày còn lại tính theo ngày chốt sổ nên biên bản in ra không đổi số",
+    "Lọc theo tên cuộc họp để lấy riêng danh sách việc của một buổi"
+  ],
+  "howToUse": [
+    {
+      "step": "Ghi trong lúc họp, mỗi ý một dòng",
+      "detail": "Đừng chờ họp xong mới ngồi viết lại. Ghi ngay theo dòng và chọn loại mục là cách nhanh nhất, và nó còn buộc người ghi phải hỏi lại ngay khi một quyết định chưa rõ ai làm."
+    },
+    {
+      "step": "Chọn đúng loại cho từng mục",
+      "detail": "Thông tin là thứ chỉ cần biết. Thảo luận là thứ đã bàn nhưng chưa chốt. Quyết định là thứ đã chốt. Việc cần làm là thứ có người phải làm gì đó sau cuộc họp. Một quyết định thường kéo theo một hoặc vài dòng việc cần làm, hãy tách chúng ra."
+    },
+    {
+      "step": "Rà cột kiểm tra trước khi gửi biên bản",
+      "detail": "Lọc bỏ những dòng Đủ thông tin, phần còn lại là những chỗ cuộc họp chưa kết thúc trọn vẹn. Sửa ngay khi mọi người còn nhớ, tốt nhất là hỏi luôn trong năm phút cuối buổi."
+    },
+    {
+      "step": "Mở lại biên bản ở đầu buổi họp sau",
+      "detail": "Lọc các dòng việc cần làm chưa hoàn thành của những buổi trước và điểm qua trước khi bàn nội dung mới. Đây là việc đơn giản nhất nhưng cũng là việc bị bỏ nhiều nhất, và bỏ nó thì mọi biên bản đều thành văn bản lưu trữ."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Vì sao phải phân loại mục thay vì ghi một mạch?",
+      "a": "Vì mỗi loại có số phận khác nhau sau cuộc họp. Thông tin chỉ cần lưu, thảo luận cần đưa lại vào buổi sau, quyết định cần phổ biến cho người vắng mặt, việc cần làm cần có người và hạn. Ghi một mạch thì cả bốn loại trộn vào nhau, và khi đọc lại không ai tách được đâu là thứ mình phải làm."
+    },
+    {
+      "q": "Vì sao chỉ dòng việc cần làm mới bị bắt buộc có người và hạn?",
+      "a": "Vì bắt buộc mọi dòng sẽ khiến người ghi điền cho có, và cột kiểm tra mất tác dụng ngay tuần đầu. Một dòng thông tin không cần ai chịu trách nhiệm; ép nó có người phụ trách chỉ tạo ra dữ liệu rác. Ràng buộc chỉ có giá trị khi nó áp đúng chỗ cần áp."
+    },
+    {
+      "q": "Một quyết định lớn cần nhiều người làm thì ghi thế nào?",
+      "a": "Ghi một dòng loại Quyết định cho chính quyết định đó, rồi tách thành nhiều dòng loại Việc cần làm, mỗi dòng một người và một hạn. Cách này giữ được cả bối cảnh lẫn trách nhiệm; gộp tất cả vào một dòng với ba tên trong một ô là cách chắc chắn để không ai bắt đầu."
+    },
+    {
+      "q": "Có nên lưu mỗi cuộc họp một file riêng không?",
+      "a": "Không nên. Để chung một file rồi lọc theo tên cuộc họp thì bạn tra được một đầu việc đã bị nhắc qua bao nhiêu buổi liên tiếp — dấu hiệu rõ nhất của một việc đang bị mắc kẹt. Chia thành nhiều file thì mỗi biên bản trông gọn hơn nhưng không ai còn nhìn được xu hướng đó."
+    }
+  ],
+  "ctaText": "Học cách tổ chức thông tin và theo dõi công việc bằng Excel",
+  "relatedSlugs": ["bang-phan-cong-cong-viec", "bang-theo-doi-tien-do-cong-viec"],
+  "updatedAt": "2026-08-10",
+  "sheets": [
+    {
+      "name": "Biên bản họp",
+      "description": "Mỗi mục của cuộc họp một dòng, kèm theo dõi việc cần làm sau họp.",
+      "blankRows": 30,
+      "columns": [
+        { "key": "stt", "header": "STT", "type": "number", "width": 6 },
+        { "key": "ngayHop", "header": "Ngày họp", "type": "date", "width": 12 },
+        { "key": "tenCuocHop", "header": "Tên cuộc họp", "type": "text", "width": 26 },
+        {
+          "key": "loaiMuc",
+          "header": "Loại mục",
+          "type": "text",
+          "width": 14,
+          "validation": {
+            "type": "list",
+            "options": ["Thông tin", "Thảo luận", "Quyết định", "Việc cần làm"]
+          }
+        },
+        { "key": "noiDung", "header": "Nội dung", "type": "text", "width": 44 },
+        { "key": "nguoiThucHien", "header": "Người thực hiện", "type": "text", "width": 20 },
+        { "key": "hanHoanThanh", "header": "Hạn hoàn thành", "type": "date", "width": 13 },
+        {
+          "key": "trangThaiNhap",
+          "header": "Trạng thái",
+          "type": "text",
+          "width": 14,
+          "validation": {
+            "type": "list",
+            "options": ["Chưa làm", "Đang làm", "Hoàn thành", "Không áp dụng"]
+          }
+        },
+        { "key": "ngayChotSo", "header": "Ngày chốt sổ", "type": "date", "width": 12 },
+        {
+          "key": "soNgayConLai",
+          "header": "Số ngày còn lại",
+          "type": "formula",
+          "width": 13,
+          "formula": "=IF(OR([noiDung]{row}=\"\",[hanHoanThanh]{row}=\"\"),\"\",[hanHoanThanh]{row}-[ngayChotSo]{row})",
+          "note": "Hạn trừ ngày chốt sổ. Phải bọc thêm điều kiện hạn để trống vì các dòng loại thông tin hay thảo luận vốn không có hạn, mà trừ một ô rỗng cho một ngày sẽ ném #VALUE! và làm cả cột nhìn như hỏng."
+        },
+        {
+          "key": "kiemTra",
+          "header": "Kiểm tra",
+          "type": "formula",
+          "width": 28,
+          "format": "text",
+          "formula": "=IF([noiDung]{row}=\"\",\"\",IF([loaiMuc]{row}<>\"Việc cần làm\",\"Không cần theo dõi\",IF([nguoiThucHien]{row}=\"\",\"Thiếu người thực hiện\",IF([hanHoanThanh]{row}=\"\",\"Thiếu hạn hoàn thành\",\"Đủ thông tin\"))))",
+          "note": "Ràng buộc chỉ áp cho dòng loại Việc cần làm, các loại khác đi thẳng vào nhánh không cần theo dõi. Bắt buộc mọi dòng phải có người và hạn sẽ khiến người ghi điền cho có, và cột này mất tác dụng ngay tuần đầu tiên."
+        },
+        {
+          "key": "tinhTrang",
+          "header": "Tình trạng",
+          "type": "formula",
+          "width": 24,
+          "format": "text",
+          "formula": "=IF([noiDung]{row}=\"\",\"\",IF([loaiMuc]{row}<>\"Việc cần làm\",\"—\",IF([trangThaiNhap]{row}=\"Hoàn thành\",\"Đã xong\",IF([soNgayConLai]{row}<0,\"Quá hạn\",IF([soNgayConLai]{row}<=2,\"Sắp tới hạn\",\"Đang trong hạn\")))))",
+          "note": "Chỉ dòng việc cần làm mới có tình trạng, các dòng còn lại hiện dấu gạch để bảng không tạo cảm giác có mấy chục việc phải theo dõi trong khi thực tế chỉ vài dòng. Đây cũng là cột để lọc ở đầu buổi họp sau."
+        }
+      ],
+      "sampleRows": [
+        {
+          "stt": 1,
+          "ngayHop": "2026-07-20",
+          "tenCuocHop": "Giao ban tuần 30",
+          "loaiMuc": "Thông tin",
+          "noiDung": "Doanh thu tuần 29 đạt 412 triệu, vượt 6% so với kế hoạch tuần",
+          "nguoiThucHien": "",
+          "trangThaiNhap": "Không áp dụng",
+          "ngayChotSo": "2026-07-24"
+        },
+        {
+          "stt": 2,
+          "ngayHop": "2026-07-20",
+          "tenCuocHop": "Giao ban tuần 30",
+          "loaiMuc": "Quyết định",
+          "noiDung": "Chốt tăng chiết khấu cho đại lý cấp 2 lên 8% từ tháng 8",
+          "nguoiThucHien": "Nguyễn Văn Minh",
+          "hanHoanThanh": "2026-07-31",
+          "trangThaiNhap": "Đang làm",
+          "ngayChotSo": "2026-07-24"
+        },
+        {
+          "stt": 3,
+          "ngayHop": "2026-07-20",
+          "tenCuocHop": "Giao ban tuần 30",
+          "loaiMuc": "Việc cần làm",
+          "noiDung": "Cập nhật bảng giá và thông báo tới toàn bộ đại lý cấp 2",
+          "nguoiThucHien": "Lê Quốc Bảo",
+          "hanHoanThanh": "2026-07-28",
+          "trangThaiNhap": "Đang làm",
+          "ngayChotSo": "2026-07-24"
+        },
+        {
+          "stt": 4,
+          "ngayHop": "2026-07-20",
+          "tenCuocHop": "Giao ban tuần 30",
+          "loaiMuc": "Việc cần làm",
+          "noiDung": "Rà lại hợp đồng đại lý xem điều khoản chiết khấu có phải ký phụ lục không",
+          "nguoiThucHien": "",
+          "hanHoanThanh": "2026-07-30",
+          "trangThaiNhap": "Chưa làm",
+          "ngayChotSo": "2026-07-24"
+        },
+        {
+          "stt": 5,
+          "ngayHop": "2026-07-20",
+          "tenCuocHop": "Giao ban tuần 30",
+          "loaiMuc": "Thảo luận",
+          "noiDung": "Có nên mở thêm kênh bán trên sàn thương mại điện tử trong quý IV",
+          "nguoiThucHien": "",
+          "trangThaiNhap": "Không áp dụng",
+          "ngayChotSo": "2026-07-24"
+        },
+        {
+          "stt": 6,
+          "ngayHop": "2026-07-13",
+          "tenCuocHop": "Giao ban tuần 29",
+          "loaiMuc": "Việc cần làm",
+          "noiDung": "Gửi báo cáo tồn kho quý II cho ban giám đốc",
+          "nguoiThucHien": "Đỗ Hoàng Nam",
+          "hanHoanThanh": "2026-07-18",
+          "trangThaiNhap": "Chưa làm",
+          "ngayChotSo": "2026-07-24"
+        },
+        {
+          "stt": 7,
+          "ngayHop": "2026-07-13",
+          "tenCuocHop": "Giao ban tuần 29",
+          "loaiMuc": "Việc cần làm",
+          "noiDung": "Hoàn tất tuyển hai nhân viên kho cho ca chiều",
+          "nguoiThucHien": "Trần Thu Hà",
+          "hanHoanThanh": "2026-08-15",
+          "trangThaiNhap": "Đang làm",
+          "ngayChotSo": "2026-07-24"
+        }
+      ]
+    }
+  ]
+}

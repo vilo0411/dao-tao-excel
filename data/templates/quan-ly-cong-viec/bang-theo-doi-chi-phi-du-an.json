@@ -1,0 +1,212 @@
+{
+  "slug": "bang-theo-doi-chi-phi-du-an",
+  "category": "quan-ly-cong-viec",
+  "h1": "Mẫu Excel theo dõi chi phí dự án theo từng hạng mục",
+  "metaTitle": "Mẫu Excel Theo Dõi Chi Phí Dự Án - Tải Miễn Phí",
+  "metaDesc": "Mẫu Excel theo dõi chi phí dự án theo hạng mục: so dự toán với thực chi, tách phần còn phải thanh toán và cảnh báo hạng mục vượt dự toán. Tải về dùng ngay.",
+  "primaryKeyword": "mẫu excel theo dõi chi phí dự án",
+  "intro": "Mẫu Excel theo dõi chi phí dự án này ghi từng hạng mục chi thành một dòng, đặt dự toán cạnh thực chi và tách riêng phần đã thanh toán. Ba con số đó trả lời ba câu hỏi khác nhau mà người ta hay gộp làm một: hạng mục này được duyệt bao nhiêu, đã phát sinh bao nhiêu, và còn nợ nhà cung cấp bao nhiêu. Một dự án nhìn có vẻ trong ngân sách nhưng cột còn phải thanh toán dồn lại lớn thì thực chất tiền đã tiêu rồi, chỉ là chưa trả.",
+  "difficulty": "trung-cap",
+  "features": [
+    "Dự toán, thực chi và đã thanh toán tách thành ba cột độc lập",
+    "Cột còn phải thanh toán cho biết phần tiền đã tiêu nhưng chưa trả",
+    "Cảnh báo tách vượt dự toán nhẹ khỏi vượt trên 10%",
+    "Lọc theo mã dự án để cộng nhanh chi phí của từng dự án",
+    "Nhà cung cấp ghi ngay trên dòng để đối chiếu với công nợ phải trả"
+  ],
+  "howToUse": [
+    {
+      "step": "Chia dự án thành các hạng mục chi",
+      "detail": "Hạng mục nên đủ nhỏ để có một người chịu trách nhiệm và đủ lớn để không phải ghi hàng trăm dòng. Với dự án lắp đặt, thường là vật tư chính, nhân công, vận chuyển, thuê thiết bị, chi phí dự phòng."
+    },
+    {
+      "step": "Nhập dự toán từng hạng mục trước khi bắt đầu",
+      "detail": "Tổng dự toán các hạng mục phải khớp với ngân sách đã duyệt của dự án. Chốt xong thì giữ nguyên; hạng mục phát sinh ngoài kế hoạch thì thêm dòng mới thay vì sửa dự toán cũ, để sau này còn biết dự án trượt ở đâu."
+    },
+    {
+      "step": "Cập nhật thực chi và số đã thanh toán",
+      "detail": "Thực chi ghi theo thời điểm phát sinh nghĩa vụ, tức là khi đã nhận hàng hoặc đã nghiệm thu, không phải khi trả tiền. Số đã thanh toán mới là tiền thật sự đi ra. Hai cột này khác nhau chính là chỗ nhiều dự án nhìn nhầm."
+    },
+    {
+      "step": "Rà cột cảnh báo hằng tuần",
+      "detail": "Lọc các dòng vượt dự toán và xử lý theo mức: vượt nhẹ thì bù bằng hạng mục khác còn dư, vượt trên mười phần trăm thì phải báo và xin điều chỉnh. Đừng chờ tới cuối dự án mới cộng lại, khi đó không còn hạng mục nào để bù."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Vì sao phải tách thực chi khỏi số đã thanh toán?",
+      "a": "Vì chúng trả lời hai câu hỏi khác nhau. Thực chi cho biết dự án đã tiêu tới đâu so với dự toán — đây là con số dùng để kiểm soát ngân sách. Số đã thanh toán cho biết tiền đã ra khỏi tài khoản — đây là con số dùng cho dòng tiền. Chỉ theo dõi số đã thanh toán thì dự án luôn nhìn rẻ hơn thực tế cho tới ngày nhà cung cấp gửi hết hóa đơn."
+    },
+    {
+      "q": "Chi phí dự phòng nên để thành một hạng mục riêng không?",
+      "a": "Nên. Để dự phòng thành một dòng riêng thì mỗi lần dùng tới nó bạn phải ghi nhận một cách có ý thức, và tỷ lệ dự phòng đã dùng trở thành một chỉ báo sức khỏe của dự án. Rải dự phòng vào từng hạng mục thì nó bị tiêu hết từ những tuần đầu mà không ai nhận ra."
+    },
+    {
+      "q": "Cột còn phải thanh toán có thay được bảng công nợ phải trả không?",
+      "a": "Không hẳn. Cột này nhìn theo dự án, còn công nợ phải trả nhìn theo nhà cung cấp và theo hạn thanh toán của từng hóa đơn. Hai bảng bổ sung cho nhau: khi tổng cột này lớn, hãy mở bảng công nợ phải trả để biết khoản nào tới hạn trước."
+    },
+    {
+      "q": "Ngưỡng 10% để cảnh báo vượt dự toán lấy từ đâu?",
+      "a": "Đó là quy ước quản trị, không phải chuẩn mực. Ý nghĩa của việc chia hai mức là tách nhóm cần theo dõi khỏi nhóm cần báo cáo: vượt vài phần trăm ở một hạng mục là chuyện bình thường và thường bù được bằng hạng mục khác, còn vượt hai chữ số thì phải có người quyết định. Dự án có biên lợi nhuận mỏng nên hạ ngưỡng này xuống."
+    }
+  ],
+  "ctaText": "Học cách kiểm soát chi phí dự án bằng Excel",
+  "relatedSlugs": ["bang-theo-doi-du-an", "bang-danh-gia-rui-ro-du-an"],
+  "updatedAt": "2026-08-10",
+  "sheets": [
+    {
+      "name": "Chi phí dự án",
+      "description": "Mỗi hạng mục chi một dòng, so dự toán với thực chi và phần đã thanh toán.",
+      "blankRows": 35,
+      "columns": [
+        { "key": "stt", "header": "STT", "type": "number", "width": 6 },
+        { "key": "maDuAn", "header": "Mã dự án", "type": "text", "width": 11 },
+        { "key": "hangMuc", "header": "Hạng mục chi phí", "type": "text", "width": 32 },
+        {
+          "key": "nhomChiPhi",
+          "header": "Nhóm chi phí",
+          "type": "text",
+          "width": 18,
+          "validation": {
+            "type": "list",
+            "options": [
+              "Vật tư thiết bị",
+              "Nhân công",
+              "Thuê ngoài",
+              "Vận chuyển",
+              "Chi phí quản lý",
+              "Dự phòng"
+            ]
+          }
+        },
+        { "key": "nhaCungCap", "header": "Nhà cung cấp", "type": "text", "width": 26 },
+        { "key": "ngayPhatSinh", "header": "Ngày phát sinh", "type": "date", "width": 13 },
+        {
+          "key": "duToan",
+          "header": "Dự toán",
+          "type": "currency",
+          "width": 18,
+          "validation": { "type": "decimal", "min": 0, "max": 100000000000 }
+        },
+        {
+          "key": "thucChi",
+          "header": "Thực chi",
+          "type": "currency",
+          "width": 18,
+          "validation": { "type": "decimal", "min": 0, "max": 100000000000 }
+        },
+        {
+          "key": "daThanhToan",
+          "header": "Đã thanh toán",
+          "type": "currency",
+          "width": 18,
+          "validation": { "type": "decimal", "min": 0, "max": 100000000000 }
+        },
+        {
+          "key": "chenhLech",
+          "header": "Chênh lệch",
+          "type": "formula",
+          "width": 18,
+          "format": "currency",
+          "formula": "=IF([hangMuc]{row}=\"\",\"\",[thucChi]{row}-[duToan]{row})",
+          "note": "Thực chi trừ dự toán. Số dương là vượt, số âm là còn dư — và phần dư của hạng mục này chính là nguồn để bù cho hạng mục khác đang vượt, nên đừng bỏ qua các dòng âm."
+        },
+        {
+          "key": "tyLeThucHien",
+          "header": "Tỷ lệ thực hiện",
+          "type": "formula",
+          "width": 13,
+          "format": "percent",
+          "formula": "=IF([hangMuc]{row}=\"\",\"\",IFERROR([thucChi]{row}/[duToan]{row},0))",
+          "note": "Thực chi chia dự toán. Bọc IFERROR cho hạng mục phát sinh ngoài kế hoạch, vốn có dự toán bằng 0 và sẽ ném #DIV/0! — những dòng đó đọc thẳng cột chênh lệch là đủ."
+        },
+        {
+          "key": "conPhaiThanhToan",
+          "header": "Còn phải thanh toán",
+          "type": "formula",
+          "width": 18,
+          "format": "currency",
+          "formula": "=IF([hangMuc]{row}=\"\",\"\",[thucChi]{row}-[daThanhToan]{row})",
+          "note": "Phần đã phát sinh nghĩa vụ nhưng chưa trả tiền. Tổng cột này là số tiền dự án còn nợ nhà cung cấp — khoản mà một bảng chỉ theo dõi tiền đã chi sẽ không nhìn thấy cho tới khi hóa đơn về."
+        },
+        {
+          "key": "canhBao",
+          "header": "Cảnh báo",
+          "type": "formula",
+          "width": 28,
+          "format": "text",
+          "formula": "=IF([hangMuc]{row}=\"\",\"\",IF([thucChi]{row}>[duToan]{row}*1.1,\"Vượt dự toán trên 10%\",IF([thucChi]{row}>[duToan]{row},\"Vượt dự toán nhẹ\",IF([conPhaiThanhToan]{row}>0,\"Còn nợ nhà cung cấp\",\"Trong dự toán\"))))",
+          "note": "Hai mức vượt được tách ra vì chúng dẫn tới hai hành động khác nhau: vượt nhẹ thì tự bù trong nội bộ dự án, vượt hai chữ số thì phải báo lên. Nhánh còn nợ nhà cung cấp đứng sau vì nó là chuyện dòng tiền chứ không phải chuyện ngân sách."
+        }
+      ],
+      "sampleRows": [
+        {
+          "stt": 1,
+          "maDuAn": "DA01",
+          "hangMuc": "Máy dán nhãn tự động và phụ kiện",
+          "nhomChiPhi": "Vật tư thiết bị",
+          "nhaCungCap": "Công ty TNHH Thiết bị Minh Long",
+          "ngayPhatSinh": "2026-05-12",
+          "duToan": 850000000,
+          "thucChi": 862000000,
+          "daThanhToan": 600000000
+        },
+        {
+          "stt": 2,
+          "maDuAn": "DA01",
+          "hangMuc": "Nhân công lắp đặt và hiệu chỉnh",
+          "nhomChiPhi": "Nhân công",
+          "nhaCungCap": "Nội bộ",
+          "ngayPhatSinh": "2026-06-01",
+          "duToan": 180000000,
+          "thucChi": 154000000,
+          "daThanhToan": 154000000
+        },
+        {
+          "stt": 3,
+          "maDuAn": "DA01",
+          "hangMuc": "Thuê cẩu và vận chuyển thiết bị",
+          "nhomChiPhi": "Vận chuyển",
+          "nhaCungCap": "Vận tải Tân Cảng",
+          "ngayPhatSinh": "2026-05-20",
+          "duToan": 60000000,
+          "thucChi": 78000000,
+          "daThanhToan": 78000000
+        },
+        {
+          "stt": 4,
+          "maDuAn": "DA02",
+          "hangMuc": "Bản quyền phần mềm quản lý kho",
+          "nhomChiPhi": "Thuê ngoài",
+          "nhaCungCap": "Công ty CP Giải pháp số Việt",
+          "ngayPhatSinh": "2026-05-25",
+          "duToan": 240000000,
+          "thucChi": 240000000,
+          "daThanhToan": 120000000
+        },
+        {
+          "stt": 5,
+          "maDuAn": "DA02",
+          "hangMuc": "Đào tạo người dùng và chuyển dữ liệu",
+          "nhomChiPhi": "Thuê ngoài",
+          "nhaCungCap": "Công ty CP Giải pháp số Việt",
+          "ngayPhatSinh": "2026-06-30",
+          "duToan": 90000000,
+          "thucChi": 62000000,
+          "daThanhToan": 62000000
+        },
+        {
+          "stt": 6,
+          "maDuAn": "DA02",
+          "hangMuc": "Dự phòng phát sinh",
+          "nhomChiPhi": "Dự phòng",
+          "nhaCungCap": "Chưa xác định",
+          "ngayPhatSinh": "2026-07-01",
+          "duToan": 45000000,
+          "thucChi": 0,
+          "daThanhToan": 0
+        }
+      ]
+    }
+  ]
+}

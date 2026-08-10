@@ -1,0 +1,52 @@
+[
+  [
+    {
+      "tienDoKyVong": 0.6263736263736264,
+      "lechTienDo": -0.07637362637362632,
+      "tyLeGiaiNgan": 0.6388888888888888,
+      "chiSoHieuQuaChiPhi": 0.8608695652173914,
+      "uocTinhChiPhiHoanThanh": 2090909091.0,
+      "canhBao": "Dự báo vượt ngân sách"
+    },
+    {
+      "tienDoKyVong": 0.7608695652173914,
+      "lechTienDo": -0.0608695652173914,
+      "tyLeGiaiNgan": 0.6,
+      "chiSoHieuQuaChiPhi": 1.1666666666666667,
+      "uocTinhChiPhiHoanThanh": 385714286.0,
+      "canhBao": "Trong tầm kiểm soát"
+    },
+    {
+      "tienDoKyVong": 1,
+      "lechTienDo": -0.07999999999999996,
+      "tyLeGiaiNgan": 0.9666666666666667,
+      "chiSoHieuQuaChiPhi": 0.9517241379310345,
+      "uocTinhChiPhiHoanThanh": 945652174.0,
+      "canhBao": "Dự báo vượt ngân sách"
+    },
+    {
+      "tienDoKyVong": 0.34868421052631576,
+      "lechTienDo": -0.048684210526315774,
+      "tyLeGiaiNgan": 0.3,
+      "chiSoHieuQuaChiPhi": 1.0,
+      "uocTinhChiPhiHoanThanh": 320000000.0,
+      "canhBao": "Trong tầm kiểm soát"
+    },
+    {
+      "tienDoKyVong": 1,
+      "lechTienDo": 0.0,
+      "tyLeGiaiNgan": 0.9538461538461539,
+      "chiSoHieuQuaChiPhi": 1.0483870967741935,
+      "uocTinhChiPhiHoanThanh": 248000000.0,
+      "canhBao": "Đã hoàn thành"
+    },
+    {
+      "tienDoKyVong": 0.6131386861313869,
+      "lechTienDo": -0.2631386861313869,
+      "tyLeGiaiNgan": 0.5,
+      "chiSoHieuQuaChiPhi": 0.7,
+      "uocTinhChiPhiHoanThanh": 542857143.0,
+      "canhBao": "Dự báo vượt ngân sách"
+    }
+  ]
+]

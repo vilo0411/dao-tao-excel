@@ -16,7 +16,7 @@ import { resolveFormula } from "./schema.ts";
  * luật lọc ở đây — hai nơi lọc khác nhau sẽ có ngày lệch nhau.
  */
 
-export type FunctionGroup = "Logic" | "Toán học";
+export type FunctionGroup = "Logic" | "Toán học" | "Văn bản";
 
 type FunctionInfo = {
   syntax: string;
@@ -59,6 +59,12 @@ const FUNCTION_INFO: Record<string, FunctionInfo> = {
     definition:
       "Đổi giá trị sang số: số thì giữ nguyên, còn chữ hoặc ô trống thì trả về 0. Dùng để chặn lỗi khi công thức luỹ kế cộng dồn lỡ chạm lên dòng tiêu đề.",
     group: "Logic",
+  },
+  REPT: {
+    syntax: "=REPT(chuỗi, số_lần)",
+    definition:
+      "Lặp lại một chuỗi đúng số lần chỉ định. Dùng để vẽ thanh tiến độ hoặc biểu đồ cột ngay trong một ô: độ dài thanh chính là con số bạn đưa vào. Số lần lặp âm sẽ làm hàm báo lỗi #VALUE!.",
+    group: "Văn bản",
   },
   SUM: {
     syntax: "=SUM(số_1, số_2, ...) hoặc =SUM(vùng)",

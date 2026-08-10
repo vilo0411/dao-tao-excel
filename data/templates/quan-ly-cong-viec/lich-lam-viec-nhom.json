@@ -1,0 +1,243 @@
+{
+  "slug": "lich-lam-viec-nhom",
+  "category": "quan-ly-cong-viec",
+  "h1": "Mẫu Excel lịch làm việc nhóm theo tuần (kiểm tải từng người)",
+  "metaTitle": "Mẫu Excel Lịch Làm Việc Nhóm Theo Tuần",
+  "metaDesc": "Mẫu Excel lịch làm việc nhóm phân bổ giờ cho từng người theo ngày trong tuần, tự cộng tổng giờ, tính tỷ lệ tải và cảnh báo người quá tải hay còn trống nhiều.",
+  "primaryKeyword": "mẫu excel lịch làm việc nhóm",
+  "intro": "Mẫu Excel lịch làm việc nhóm này phân bổ giờ cho từng thành viên theo từng ngày trong tuần, rồi tự cộng lại thành tổng giờ và tỷ lệ tải so với quỹ giờ khả dụng của người đó. Đây là góc nhìn mà một lịch theo đầu việc không cho được: nhìn theo người thì thấy ngay ai đang bị nhồi quá quỹ giờ và ai còn trống, trước khi tuần bắt đầu chứ không phải sau khi việc bị trễ. Quỹ giờ khả dụng để riêng thành một cột vì người làm bán thời gian hay người đang nghỉ phép nửa tuần không có cùng một mức trần với người khác.",
+  "difficulty": "co-ban",
+  "features": [
+    "Phân bổ giờ theo từng ngày trong tuần cho từng thành viên",
+    "Tự cộng tổng giờ và tính tỷ lệ tải so với quỹ giờ riêng của mỗi người",
+    "Quỹ giờ khả dụng khai riêng từng dòng, hợp cả người bán thời gian",
+    "Cảnh báo phân biệt quá tải, kín lịch và còn trống nhiều",
+    "Cột giờ còn trống cho biết nhận thêm được bao nhiêu việc"
+  ],
+  "howToUse": [
+    {
+      "step": "Khai thành viên và quỹ giờ khả dụng",
+      "detail": "Quỹ giờ khả dụng là số giờ thực sự dùng được cho công việc có kế hoạch, không phải số giờ có mặt. Trừ đi thời gian họp cố định, việc phát sinh và thời gian chuyển ngữ cảnh, con số thực tế với người làm toàn thời gian thường quanh mức ba mươi giờ chứ không phải bốn mươi."
+    },
+    {
+      "step": "Phân bổ giờ cho từng ngày",
+      "detail": "Điền số giờ dự kiến dành cho công việc có kế hoạch của từng ngày. Nhìn theo cột dọc để phát hiện ngày nào cả nhóm cùng dồn tải — đó là ngày mà mọi thứ phát sinh sẽ đẩy nhau đổ vỡ dây chuyền."
+    },
+    {
+      "step": "Đọc tỷ lệ tải trước khi chốt lịch",
+      "detail": "Dòng nào quá tải thì chuyển bớt việc sang dòng còn trống, đây là lúc rẻ nhất để cân lại. Chuyển việc giữa tuần luôn tốn hơn vì người nhận phải bắt đầu lại từ đầu phần bối cảnh."
+    },
+    {
+      "step": "Rà lại vào giữa tuần",
+      "detail": "Việc phát sinh gần như luôn xuất hiện, và nó ăn vào phần giờ còn trống. Nếu giữa tuần mà cả nhóm đều hết phần trống, hãy chủ động lùi một đầu việc ít quan trọng thay vì để tuần kết thúc với vài việc dở dang."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Vì sao quỹ giờ khả dụng để mỗi người một số thay vì mặc định 40 giờ?",
+      "a": "Vì gần như không ai có bốn mươi giờ dùng được cho công việc có kế hoạch. Người quản lý mất nhiều giờ cho họp, người đang kiêm việc hỗ trợ mất giờ cho việc phát sinh, người làm bán thời gian thì rõ ràng khác. Dùng một con số chung cho cả nhóm thì cột tỷ lệ tải mất ý nghĩa ngay ở dòng đầu tiên."
+    },
+    {
+      "q": "Tỷ lệ tải bao nhiêu là hợp lý?",
+      "a": "Thực tế cho thấy lấp đầy 100% quỹ giờ là công thức để mọi việc phát sinh đều đẩy lịch vỡ. Nhiều nhóm dừng ở khoảng tám mươi phần trăm, phần còn lại để cho việc không ai lên lịch trước được. File đặt ngưỡng cảnh báo kín lịch ở 90% chính vì lý do đó — vượt mức này thì tuần đó không còn chỗ xoay."
+    },
+    {
+      "q": "Người còn trống nhiều thì có phải là đang rảnh không?",
+      "a": "Không hẳn, và đây là lý do nên đọc cảnh báo như một câu hỏi. Có thể người đó thật sự còn nhận được việc, nhưng cũng có thể lịch chưa được điền đủ, hoặc họ đang gánh phần việc hỗ trợ không ai đưa vào kế hoạch. Hỏi trước khi giao thêm."
+    },
+    {
+      "q": "Bảng này thay được chấm công không?",
+      "a": "Không. Đây là lịch dự kiến lập trước tuần, ghi giờ định dành cho việc gì. Chấm công ghi lại thực tế đã làm bao nhiêu để tính lương, và có ràng buộc riêng về ca kíp, làm thêm giờ, nghỉ phép. Hai bảng khác nhau cả về thời điểm ghi lẫn mục đích sử dụng."
+    }
+  ],
+  "ctaText": "Học cách phân bổ nguồn lực và lập lịch nhóm trên Excel",
+  "relatedSlugs": ["ke-hoach-cong-viec-tuan", "bang-phan-cong-cong-viec"],
+  "updatedAt": "2026-08-10",
+  "sheets": [
+    {
+      "name": "Lịch làm việc tuần",
+      "description": "Mỗi thành viên một dòng, phân bổ giờ theo từng ngày trong tuần.",
+      "blankRows": 25,
+      "columns": [
+        { "key": "stt", "header": "STT", "type": "number", "width": 6 },
+        { "key": "tuan", "header": "Tuần", "type": "text", "width": 13 },
+        { "key": "thanhVien", "header": "Thành viên", "type": "text", "width": 22 },
+        { "key": "vaiTro", "header": "Vai trò", "type": "text", "width": 20 },
+        {
+          "key": "boPhan",
+          "header": "Bộ phận",
+          "type": "text",
+          "width": 16,
+          "validation": {
+            "type": "list",
+            "options": [
+              "Kinh doanh",
+              "Marketing",
+              "Kế toán",
+              "Hành chính nhân sự",
+              "Sản xuất",
+              "Kỹ thuật",
+              "Kho vận"
+            ]
+          }
+        },
+        {
+          "key": "t2",
+          "header": "Thứ hai",
+          "type": "number",
+          "width": 9,
+          "validation": { "type": "decimal", "min": 0, "max": 12 }
+        },
+        {
+          "key": "t3",
+          "header": "Thứ ba",
+          "type": "number",
+          "width": 9,
+          "validation": { "type": "decimal", "min": 0, "max": 12 }
+        },
+        {
+          "key": "t4",
+          "header": "Thứ tư",
+          "type": "number",
+          "width": 9,
+          "validation": { "type": "decimal", "min": 0, "max": 12 }
+        },
+        {
+          "key": "t5",
+          "header": "Thứ năm",
+          "type": "number",
+          "width": 9,
+          "validation": { "type": "decimal", "min": 0, "max": 12 }
+        },
+        {
+          "key": "t6",
+          "header": "Thứ sáu",
+          "type": "number",
+          "width": 9,
+          "validation": { "type": "decimal", "min": 0, "max": 12 }
+        },
+        {
+          "key": "gioKhaDung",
+          "header": "Quỹ giờ khả dụng",
+          "type": "number",
+          "width": 14,
+          "validation": { "type": "decimal", "min": 0, "max": 60 }
+        },
+        {
+          "key": "tongGioPhanBo",
+          "header": "Tổng giờ phân bổ",
+          "type": "formula",
+          "width": 14,
+          "formula": "=IF([thanhVien]{row}=\"\",\"\",SUM([t2]{row}:[t6]{row}))",
+          "note": "Cộng cả khối năm cột ngày của dòng. Viết bằng SUM trên vùng nên nhóm nào làm cả thứ bảy chỉ cần chèn thêm một cột vào giữa khối, Excel tự nới vùng và công thức không phải sửa."
+        },
+        {
+          "key": "tyLeTai",
+          "header": "Tỷ lệ tải",
+          "type": "formula",
+          "width": 11,
+          "format": "percent",
+          "formula": "=IF([thanhVien]{row}=\"\",\"\",IFERROR([tongGioPhanBo]{row}/[gioKhaDung]{row},0))",
+          "note": "Tổng giờ phân bổ chia quỹ giờ khả dụng của chính người đó. Vì mẫu số lấy theo từng dòng nên người bán thời gian và người đang nghỉ nửa tuần vẫn so sánh được với người khác. Bọc IFERROR cho dòng chưa khai quỹ giờ."
+        },
+        {
+          "key": "gioConTrong",
+          "header": "Giờ còn trống",
+          "type": "formula",
+          "width": 12,
+          "formula": "=IF([thanhVien]{row}=\"\",\"\",[gioKhaDung]{row}-[tongGioPhanBo]{row})",
+          "note": "Số giờ còn nhận thêm được. Số âm nghĩa là đã phân quá quỹ giờ — cố ý không chặn về 0 vì độ lớn của số âm cho biết phải chuyển đi bao nhiêu giờ mới cân lại được."
+        },
+        {
+          "key": "canhBao",
+          "header": "Cảnh báo",
+          "type": "formula",
+          "width": 28,
+          "format": "text",
+          "formula": "=IF([thanhVien]{row}=\"\",\"\",IF([tyLeTai]{row}>1,\"Quá tải - cần chuyển bớt việc\",IF([tyLeTai]{row}>=0.9,\"Kín lịch - không còn chỗ xoay\",IF([tyLeTai]{row}<0.6,\"Còn trống nhiều\",\"Tải hợp lý\"))))",
+          "note": "Ngưỡng 90% cho kín lịch đặt thấp hơn 100% có chủ ý: một tuần lấp đầy tới trần thì mọi việc phát sinh đều làm vỡ lịch. Nhánh còn trống nhiều nên đọc như một câu hỏi chứ không phải kết luận — có thể người đó thật sự rảnh, cũng có thể lịch chưa được điền đủ."
+        }
+      ],
+      "sampleRows": [
+        {
+          "stt": 1,
+          "tuan": "Tuần 31/2026",
+          "thanhVien": "Nguyễn Văn Minh",
+          "vaiTro": "Trưởng nhóm kinh doanh",
+          "boPhan": "Kinh doanh",
+          "t2": 6,
+          "t3": 7,
+          "t4": 6,
+          "t5": 7,
+          "t6": 5,
+          "gioKhaDung": 28
+        },
+        {
+          "stt": 2,
+          "tuan": "Tuần 31/2026",
+          "thanhVien": "Lê Quốc Bảo",
+          "vaiTro": "Chuyên viên nội dung",
+          "boPhan": "Marketing",
+          "t2": 6,
+          "t3": 6,
+          "t4": 6,
+          "t5": 6,
+          "t6": 4,
+          "gioKhaDung": 32
+        },
+        {
+          "stt": 3,
+          "tuan": "Tuần 31/2026",
+          "thanhVien": "Trần Thu Hà",
+          "vaiTro": "Chuyên viên nhân sự",
+          "boPhan": "Hành chính nhân sự",
+          "t2": 4,
+          "t3": 4,
+          "t4": 3,
+          "t5": 4,
+          "t6": 3,
+          "gioKhaDung": 30
+        },
+        {
+          "stt": 4,
+          "tuan": "Tuần 31/2026",
+          "thanhVien": "Đỗ Hoàng Nam",
+          "vaiTro": "Quản lý kho",
+          "boPhan": "Kho vận",
+          "t2": 7,
+          "t3": 7,
+          "t4": 7,
+          "t5": 7,
+          "t6": 6,
+          "gioKhaDung": 34
+        },
+        {
+          "stt": 5,
+          "tuan": "Tuần 31/2026",
+          "thanhVien": "Phạm Thị Lan",
+          "vaiTro": "Kỹ sư dự án",
+          "boPhan": "Kỹ thuật",
+          "t2": 8,
+          "t3": 8,
+          "t4": 8,
+          "t5": 6,
+          "t6": 6,
+          "gioKhaDung": 30
+        },
+        {
+          "stt": 6,
+          "tuan": "Tuần 31/2026",
+          "thanhVien": "Vũ Minh Châu",
+          "vaiTro": "Kế toán tổng hợp (bán thời gian)",
+          "boPhan": "Kế toán",
+          "t2": 4,
+          "t3": 4,
+          "t4": 0,
+          "t5": 4,
+          "t6": 4,
+          "gioKhaDung": 16
+        }
+      ]
+    }
+  ]
+}

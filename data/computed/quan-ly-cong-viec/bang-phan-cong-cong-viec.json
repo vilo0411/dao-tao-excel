@@ -1,0 +1,34 @@
+[
+  [
+    {
+      "soNgayConLai": 7.0,
+      "kiemTra": "Đủ điều kiện giao",
+      "tinhTrang": "Đang trong hạn"
+    },
+    {
+      "soNgayConLai": 1.0,
+      "kiemTra": "Đủ điều kiện giao",
+      "tinhTrang": "Sắp tới hạn"
+    },
+    {
+      "soNgayConLai": 17.0,
+      "kiemTra": "Chưa có người thực hiện",
+      "tinhTrang": "Chưa ai nhận việc"
+    },
+    {
+      "soNgayConLai": 22.0,
+      "kiemTra": "Chưa có tiêu chí nghiệm thu",
+      "tinhTrang": "Đang trong hạn"
+    },
+    {
+      "soNgayConLai": -4.0,
+      "kiemTra": "Đủ điều kiện giao",
+      "tinhTrang": "Trễ hạn"
+    },
+    {
+      "soNgayConLai": -6.0,
+      "kiemTra": "Đủ điều kiện giao",
+      "tinhTrang": "Đã xong"
+    }
+  ]
+]

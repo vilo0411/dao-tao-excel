@@ -1,0 +1,34 @@
+[
+  [
+    {
+      "diemRuiRo": 16.0,
+      "mucDoRuiRo": "Nghiêm trọng",
+      "hanhDong": "Đưa vào họp ban dự án"
+    },
+    {
+      "diemRuiRo": 15.0,
+      "mucDoRuiRo": "Nghiêm trọng",
+      "hanhDong": "Rủi ro cao chưa có biện pháp"
+    },
+    {
+      "diemRuiRo": 10.0,
+      "mucDoRuiRo": "Cao",
+      "hanhDong": "Rủi ro cao chưa có người phụ trách"
+    },
+    {
+      "diemRuiRo": 15.0,
+      "mucDoRuiRo": "Nghiêm trọng",
+      "hanhDong": "Đưa vào họp ban dự án"
+    },
+    {
+      "diemRuiRo": 6.0,
+      "mucDoRuiRo": "Trung bình",
+      "hanhDong": "Theo dõi định kỳ"
+    },
+    {
+      "diemRuiRo": 6.0,
+      "mucDoRuiRo": "Trung bình",
+      "hanhDong": "Đã đóng"
+    }
+  ]
+]

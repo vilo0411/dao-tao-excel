@@ -1,0 +1,209 @@
+{
+  "slug": "ke-hoach-cong-viec-tuan",
+  "category": "quan-ly-cong-viec",
+  "h1": "Mẫu Excel kế hoạch công việc tuần (có đối chiếu giờ ước lượng)",
+  "metaTitle": "Mẫu Excel Kế Hoạch Công Việc Tuần - Tải Miễn Phí",
+  "metaDesc": "Mẫu Excel kế hoạch công việc tuần xếp việc theo từng ngày, so giờ ước lượng với giờ thực tế và chỉ ra bạn thường ước lượng lệch bao nhiêu phần trăm.",
+  "primaryKeyword": "mẫu excel kế hoạch công việc tuần",
+  "intro": "Mẫu Excel kế hoạch công việc tuần này xếp việc theo từng ngày trong tuần và bắt bạn ghi giờ ước lượng ngay lúc lập kế hoạch. Cuối tuần, khi điền giờ thực tế, file tự tính độ lệch và tỷ lệ ước lượng chính xác — con số cho biết bạn thường lạc quan bao nhiêu phần trăm khi lên kế hoạch. Đây là thứ một danh sách việc thuần túy không cho được: sau vài tuần, bạn biết phải nhân hệ số bao nhiêu vào ước lượng của mình để tuần sau đặt kế hoạch làm được thật.",
+  "difficulty": "co-ban",
+  "features": [
+    "Xếp việc theo từng ngày trong tuần, nhìn ra ngày nào bị dồn tải",
+    "Đối chiếu giờ ước lượng với giờ thực tế trên từng đầu việc",
+    "Tỷ lệ ước lượng chính xác cho biết bạn thường lạc quan bao nhiêu",
+    "Trạng thái riêng cho việc bị hủy, không lẫn vào việc chưa làm",
+    "Có sẵn 25 dòng trống đã cài công thức cho một tuần bận"
+  ],
+  "howToUse": [
+    {
+      "step": "Lập kế hoạch vào đầu tuần",
+      "detail": "Liệt kê việc của cả tuần, gán mỗi việc vào một ngày cụ thể và ghi kết quả mong đợi. Việc không gắn được vào ngày nào là việc chưa đủ rõ để làm trong tuần này, nên để lại danh sách chờ."
+    },
+    {
+      "step": "Ghi giờ ước lượng ngay lúc lập kế hoạch",
+      "detail": "Ước lượng phải viết trước khi bắt tay làm, nếu không nó chỉ là ghi lại giờ thực tế và mất hết giá trị đối chiếu. Cộng nhanh giờ ước lượng của từng ngày để xem ngày đó có quá tải không, bốn tới sáu giờ việc tập trung là mức thực tế với hầu hết mọi người."
+    },
+    {
+      "step": "Cập nhật trạng thái và giờ thực tế mỗi cuối ngày",
+      "detail": "Chọn trạng thái từ danh sách và điền số giờ đã bỏ ra. Việc không làm nữa thì chọn Hủy chứ đừng xóa dòng — dòng bị hủy vẫn là dữ liệu cho biết kế hoạch tuần này sai ở đâu."
+    },
+    {
+      "step": "Nhìn lại vào cuối tuần",
+      "detail": "Đọc cột tỷ lệ ước lượng chính xác của những dòng đã xong. Liên tục dưới 100% nghĩa là bạn thường xuyên ước lượng thiếu, và cách sửa không phải cố làm nhanh hơn mà là nhân ước lượng của tuần sau lên cho khớp thực tế."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Tỷ lệ ước lượng chính xác đọc thế nào?",
+      "a": "Nó lấy giờ ước lượng chia giờ thực tế. Bằng 100% là ước lượng đúng, dưới 100% là việc tốn nhiều thời gian hơn dự kiến, trên 100% là xong sớm hơn. Con số của một dòng lẻ không nói lên gì nhiều; điều đáng nhìn là xu hướng qua nhiều tuần, vì gần như ai cũng có một hệ số lạc quan cố định của riêng mình."
+    },
+    {
+      "q": "Vì sao việc bị hủy phải giữ lại trên bảng?",
+      "a": "Vì tỷ lệ việc bị hủy là một tín hiệu về chất lượng lập kế hoạch. Tuần nào cũng hủy một phần ba số việc nghĩa là đầu tuần bạn đang nhận việc theo mong muốn chứ không theo năng lực thật. Xóa dòng đi thì bảng cuối tuần trông đẹp nhưng thông tin đó biến mất."
+    },
+    {
+      "q": "Nên lập kế hoạch tuần cho bao nhiêu giờ là vừa?",
+      "a": "Đừng lấp đầy bốn mươi giờ. Một tuần làm việc thật luôn có họp, việc phát sinh, và thời gian chuyển ngữ cảnh giữa các đầu việc. Thông lệ thường gặp là chỉ đặt kế hoạch cho khoảng sáu mươi tới bảy mươi phần trăm quỹ thời gian, phần còn lại để trống cho những thứ không ai lên lịch trước được."
+    },
+    {
+      "q": "Có nên chuyển việc chưa xong sang tuần sau không?",
+      "a": "Có, nhưng hãy chép sang bảng của tuần mới thay vì kéo dài dòng cũ. Giữ mỗi tuần một bảng riêng thì bạn thấy được một việc đã bị đẩy qua bao nhiêu tuần liên tiếp — việc bị đẩy tới lần thứ ba thường là việc cần chia nhỏ hoặc cần bỏ hẳn, chứ không phải cần thêm một tuần nữa."
+    }
+  ],
+  "ctaText": "Học cách tổ chức công việc và lập kế hoạch trên Excel",
+  "relatedSlugs": ["to-do-list-excel", "checklist-cong-viec-hang-ngay"],
+  "updatedAt": "2026-08-10",
+  "sheets": [
+    {
+      "name": "Kế hoạch tuần",
+      "description": "Việc của cả tuần xếp theo ngày, kèm đối chiếu giờ ước lượng và giờ thực tế.",
+      "blankRows": 25,
+      "columns": [
+        { "key": "stt", "header": "STT", "type": "number", "width": 6 },
+        {
+          "key": "thu",
+          "header": "Ngày trong tuần",
+          "type": "text",
+          "width": 14,
+          "validation": {
+            "type": "list",
+            "options": [
+              "Thứ hai",
+              "Thứ ba",
+              "Thứ tư",
+              "Thứ năm",
+              "Thứ sáu",
+              "Thứ bảy",
+              "Chủ nhật"
+            ]
+          }
+        },
+        { "key": "congViec", "header": "Công việc", "type": "text", "width": 36 },
+        { "key": "ketQuaMongDoi", "header": "Kết quả mong đợi", "type": "text", "width": 30 },
+        { "key": "nguoiThucHien", "header": "Người thực hiện", "type": "text", "width": 20 },
+        {
+          "key": "gioUocLuong",
+          "header": "Giờ ước lượng",
+          "type": "number",
+          "width": 13,
+          "validation": { "type": "decimal", "min": 0, "max": 40 }
+        },
+        {
+          "key": "gioThucTe",
+          "header": "Giờ thực tế",
+          "type": "number",
+          "width": 12,
+          "validation": { "type": "decimal", "min": 0, "max": 40 }
+        },
+        {
+          "key": "trangThaiNhap",
+          "header": "Trạng thái",
+          "type": "text",
+          "width": 14,
+          "validation": {
+            "type": "list",
+            "options": ["Chưa làm", "Đang làm", "Hoàn thành", "Hủy"]
+          }
+        },
+        {
+          "key": "chenhLechGio",
+          "header": "Chênh lệch giờ",
+          "type": "formula",
+          "width": 13,
+          "formula": "=IF([congViec]{row}=\"\",\"\",[gioThucTe]{row}-[gioUocLuong]{row})",
+          "note": "Giờ thực tế trừ giờ ước lượng. Số dương là làm lâu hơn dự kiến — trường hợp phổ biến hơn nhiều so với chiều ngược lại, và cộng cả cột lại là số giờ tuần này bạn đã ước lượng thiếu."
+        },
+        {
+          "key": "tyLeUocLuong",
+          "header": "Ước lượng chính xác",
+          "type": "formula",
+          "width": 15,
+          "format": "percent",
+          "formula": "=IF([congViec]{row}=\"\",\"\",IFERROR([gioUocLuong]{row}/[gioThucTe]{row},0))",
+          "note": "Ước lượng chia thực tế. Dưới 100% là ước lượng thiếu. Bọc IFERROR vì việc chưa làm có giờ thực tế bằng 0, và chia cho 0 sẽ ném #DIV/0! làm hỏng cả cột."
+        },
+        {
+          "key": "danhGia",
+          "header": "Đánh giá",
+          "type": "formula",
+          "width": 26,
+          "format": "text",
+          "formula": "=IF([congViec]{row}=\"\",\"\",IF([trangThaiNhap]{row}=\"Hủy\",\"Đã hủy\",IF([trangThaiNhap]{row}<>\"Hoàn thành\",\"Chưa xong\",IF([chenhLechGio]{row}>[gioUocLuong]{row}*0.5,\"Vượt giờ nhiều\",IF([chenhLechGio]{row}>0,\"Vượt giờ nhẹ\",\"Đúng hoặc dưới ước lượng\")))))",
+          "note": "Chỉ chấm điểm ước lượng cho việc đã hoàn thành, vì việc đang làm dở luôn có giờ thực tế nhỏ hơn và sẽ bị khen nhầm. Ngưỡng vượt giờ nhiều đặt theo tỷ lệ chứ không theo số giờ tuyệt đối, để một việc ước lượng nửa giờ mà làm hai giờ cũng bị bắt như việc ước lượng tám giờ làm hai mươi."
+        }
+      ],
+      "sampleRows": [
+        {
+          "stt": 1,
+          "thu": "Thứ hai",
+          "congViec": "Rà soát và chốt báo giá cho ba khách hàng mới",
+          "ketQuaMongDoi": "Ba báo giá đã gửi đi",
+          "nguoiThucHien": "Nguyễn Văn Minh",
+          "gioUocLuong": 3,
+          "gioThucTe": 4.5,
+          "trangThaiNhap": "Hoàn thành"
+        },
+        {
+          "stt": 2,
+          "thu": "Thứ hai",
+          "congViec": "Họp giao ban đầu tuần với các trưởng bộ phận",
+          "ketQuaMongDoi": "Biên bản họp và danh sách việc đã phân",
+          "nguoiThucHien": "Nguyễn Văn Minh",
+          "gioUocLuong": 1.5,
+          "gioThucTe": 1.5,
+          "trangThaiNhap": "Hoàn thành"
+        },
+        {
+          "stt": 3,
+          "thu": "Thứ ba",
+          "congViec": "Viết nội dung cho chiến dịch quảng cáo tháng 8",
+          "ketQuaMongDoi": "Bản nháp nội dung cho năm mẫu quảng cáo",
+          "nguoiThucHien": "Lê Quốc Bảo",
+          "gioUocLuong": 4,
+          "gioThucTe": 7,
+          "trangThaiNhap": "Hoàn thành"
+        },
+        {
+          "stt": 4,
+          "thu": "Thứ tư",
+          "congViec": "Đối chiếu công nợ phải thu với sổ chi tiết",
+          "ketQuaMongDoi": "Danh sách chênh lệch cần làm rõ",
+          "nguoiThucHien": "Vũ Minh Châu",
+          "gioUocLuong": 5,
+          "gioThucTe": 4,
+          "trangThaiNhap": "Hoàn thành"
+        },
+        {
+          "stt": 5,
+          "thu": "Thứ năm",
+          "congViec": "Đào tạo nhân viên mới về quy trình nhập kho",
+          "ketQuaMongDoi": "Hai nhân viên tự thao tác được",
+          "nguoiThucHien": "Đỗ Hoàng Nam",
+          "gioUocLuong": 3,
+          "gioThucTe": 0,
+          "trangThaiNhap": "Đang làm"
+        },
+        {
+          "stt": 6,
+          "thu": "Thứ sáu",
+          "congViec": "Chuẩn bị hồ sơ dự thầu gói cung cấp vật tư",
+          "ketQuaMongDoi": "Hồ sơ đủ điều kiện nộp",
+          "nguoiThucHien": "Phạm Thị Lan",
+          "gioUocLuong": 6,
+          "gioThucTe": 0,
+          "trangThaiNhap": "Chưa làm"
+        },
+        {
+          "stt": 7,
+          "thu": "Thứ sáu",
+          "congViec": "Khảo sát nhà cung cấp bao bì mới",
+          "ketQuaMongDoi": "Bảng so sánh ba nhà cung cấp",
+          "nguoiThucHien": "Trần Thu Hà",
+          "gioUocLuong": 4,
+          "gioThucTe": 0,
+          "trangThaiNhap": "Hủy"
+        }
+      ]
+    }
+  ]
+}

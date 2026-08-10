@@ -1,0 +1,39 @@
+[
+  [
+    {
+      "conThieu": 2.0,
+      "tyLeHoanThanh": 0.6666666666666666,
+      "danhGia": "Bỏ sót việc bắt buộc"
+    },
+    {
+      "conThieu": 1.0,
+      "tyLeHoanThanh": 0.8333333333333334,
+      "danhGia": "Chưa đủ"
+    },
+    {
+      "conThieu": 0,
+      "tyLeHoanThanh": 1.0,
+      "danhGia": "Đủ"
+    },
+    {
+      "conThieu": 0,
+      "tyLeHoanThanh": 1.0,
+      "danhGia": "Đủ"
+    },
+    {
+      "conThieu": 0,
+      "tyLeHoanThanh": 1.1666666666666667,
+      "danhGia": "Ghi dư - kiểm tra lại số liệu"
+    },
+    {
+      "conThieu": 3.0,
+      "tyLeHoanThanh": 0.75,
+      "danhGia": "Bỏ sót việc bắt buộc"
+    },
+    {
+      "conThieu": 1.0,
+      "tyLeHoanThanh": 0.5,
+      "danhGia": "Chưa đủ"
+    }
+  ]
+]

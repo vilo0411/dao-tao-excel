@@ -1,0 +1,40 @@
+[
+  [
+    {
+      "chenhLech": 12000000.0,
+      "tyLeThucHien": 1.0141176470588236,
+      "conPhaiThanhToan": 262000000.0,
+      "canhBao": "Vượt dự toán nhẹ"
+    },
+    {
+      "chenhLech": -26000000.0,
+      "tyLeThucHien": 0.8555555555555555,
+      "conPhaiThanhToan": 0.0,
+      "canhBao": "Trong dự toán"
+    },
+    {
+      "chenhLech": 18000000.0,
+      "tyLeThucHien": 1.3,
+      "conPhaiThanhToan": 0.0,
+      "canhBao": "Vượt dự toán trên 10%"
+    },
+    {
+      "chenhLech": 0.0,
+      "tyLeThucHien": 1.0,
+      "conPhaiThanhToan": 120000000.0,
+      "canhBao": "Còn nợ nhà cung cấp"
+    },
+    {
+      "chenhLech": -28000000.0,
+      "tyLeThucHien": 0.6888888888888889,
+      "conPhaiThanhToan": 0.0,
+      "canhBao": "Trong dự toán"
+    },
+    {
+      "chenhLech": -45000000.0,
+      "tyLeThucHien": 0.0,
+      "conPhaiThanhToan": 0.0,
+      "canhBao": "Trong dự toán"
+    }
+  ]
+]

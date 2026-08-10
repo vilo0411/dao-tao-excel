@@ -1,0 +1,40 @@
+[
+  [
+    {
+      "ngayKetThuc": 46210.0,
+      "soNgayConLai": -17.0,
+      "soDo": "███████",
+      "trangThai": "Hoàn thành"
+    },
+    {
+      "ngayKetThuc": 46220.0,
+      "soNgayConLai": -7.0,
+      "soDo": "·······██████████",
+      "trangThai": "Hoàn thành"
+    },
+    {
+      "ngayKetThuc": 46225.0,
+      "soNgayConLai": -2.0,
+      "soDo": "··············████████",
+      "trangThai": "Trễ hạn"
+    },
+    {
+      "ngayKetThuc": 46236.0,
+      "soNgayConLai": 9.0,
+      "soDo": "···················██████████████",
+      "trangThai": "Đang chạy"
+    },
+    {
+      "ngayKetThuc": 46242.0,
+      "soNgayConLai": 15.0,
+      "soDo": "·································██████",
+      "trangThai": "Chưa tới lượt"
+    },
+    {
+      "ngayKetThuc": 46247.0,
+      "soNgayConLai": 20.0,
+      "soDo": "········································████",
+      "trangThai": "Chưa tới lượt"
+    }
+  ]
+]

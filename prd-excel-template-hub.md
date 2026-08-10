@@ -98,8 +98,8 @@ Google search "hàm vlookup trong excel" (intent học hàm, không phải tải
 │   ├── /mau-excel/ke-toan                 ✅ Category hub — Kế toán (CTA → consult)
 │   │   └── 12 template                    ✅ (bảng 2.3)
 │   │
-│   └── /mau-excel/quan-ly-cong-viec       ⬜ Category hub — Quản lý công việc (CTA → consult)
-│       └── 12 template                    ⬜ (bảng 2.4)
+│   └── /mau-excel/quan-ly-cong-viec       ✅ Category hub — Quản lý công việc (CTA → consult)
+│       └── 12 template                    ✅ (bảng 2.4)
 │
 │   Bộ file không có nhánh riêng: mỗi bộ sống ngay dưới category của nó,
 │   cùng route với template lẻ — /mau-excel/nhan-su/quan-ly-nhan-su-thang
@@ -116,7 +116,7 @@ Google search "hàm vlookup trong excel" (intent học hàm, không phải tải
 *(`/khoa-hoc-excel` — bridge page + form lead — đã bỏ trong v2.1, xem mục 0.)*
 
 **Quy tắc mở category:** một category chỉ được xuất hiện trong nav, sitemap và trang hub khi đã có **≥ 5 template**. Trước đó `generateStaticParams` không sinh trang cho nó. Lý do: trang hub rỗng là thin content, làm loãng đánh giá chất lượng của một site mới.
-*(`ke-toan` đã đủ 12 template nên qua ngưỡng. Còn `quan-ly-cong-viec` vẫn build ra trang rỗng — cần sửa, xem mục 6.)*
+*(Cả ba category giờ đều đủ 12 template nên qua ngưỡng. Nhưng luật ≥ 5 vẫn chưa được cài vào code — xem mục 6.)*
 
 ### 2.2 `/mau-excel/nhan-su` — Nhân sự · HR
 
@@ -162,18 +162,18 @@ CTA mặc định: `consult` · Mục tiêu Phase 1: 12 template
 
 | # | Slug | H1 / keyword chính | TT |
 | :--- | :---- | :---- | :--- |
-| 1 | `bang-theo-doi-tien-do-cong-viec` | mẫu excel theo dõi tiến độ công việc | ⬜ |
-| 2 | `ke-hoach-cong-viec-tuan` | mẫu excel kế hoạch công việc tuần | ⬜ |
-| 3 | `gantt-chart-excel` | mẫu gantt chart excel | ⬜ |
-| 4 | `bang-phan-cong-cong-viec` | mẫu excel phân công công việc | ⬜ |
-| 5 | `to-do-list-excel` | mẫu excel to do list | ⬜ |
-| 6 | `bang-theo-doi-du-an` | mẫu excel quản lý dự án | ⬜ |
-| 7 | `bang-theo-doi-chi-phi-du-an` | mẫu excel theo dõi chi phí dự án | ⬜ |
-| 8 | `bang-theo-doi-muc-tieu-okr` | mẫu excel theo dõi OKR | ⬜ |
-| 9 | `checklist-cong-viec-hang-ngay` | mẫu excel checklist công việc | ⬜ |
-| 10 | `bang-danh-gia-rui-ro-du-an` | mẫu excel đánh giá rủi ro dự án | ⬜ |
-| 11 | `lich-lam-viec-nhom` | mẫu excel lịch làm việc nhóm | ⬜ |
-| 12 | `bien-ban-hop` | mẫu excel biên bản họp | ⬜ |
+| 1 | `bang-theo-doi-tien-do-cong-viec` | mẫu excel theo dõi tiến độ công việc | ✅ |
+| 2 | `ke-hoach-cong-viec-tuan` | mẫu excel kế hoạch công việc tuần | ✅ |
+| 3 | `gantt-chart-excel` | mẫu gantt chart excel | ✅ |
+| 4 | `bang-phan-cong-cong-viec` | mẫu excel phân công công việc | ✅ |
+| 5 | `to-do-list-excel` | mẫu excel to do list | ✅ |
+| 6 | `bang-theo-doi-du-an` | mẫu excel quản lý dự án | ✅ |
+| 7 | `bang-theo-doi-chi-phi-du-an` | mẫu excel theo dõi chi phí dự án | ✅ |
+| 8 | `bang-theo-doi-muc-tieu-okr` | mẫu excel theo dõi OKR | ✅ |
+| 9 | `checklist-cong-viec-hang-ngay` | mẫu excel checklist công việc | ✅ |
+| 10 | `bang-danh-gia-rui-ro-du-an` | mẫu excel đánh giá rủi ro dự án | ✅ |
+| 11 | `lich-lam-viec-nhom` | mẫu excel lịch làm việc nhóm | ✅ |
+| 12 | `bien-ban-hop` | mẫu excel biên bản họp | ✅ |
 
 **Tổng khung Phase 1: 36 trang template + 3 category hub + 4 trang hệ thống = 43 trang.**
 Đây là con số thay thế mốc "125–170 trang" của v1.0 — làm 36 trang chất lượng cao trước, đo tốc độ index rồi mới quyết định scale.

@@ -1,0 +1,213 @@
+{
+  "slug": "bang-danh-gia-rui-ro-du-an",
+  "category": "quan-ly-cong-viec",
+  "h1": "Mẫu Excel đánh giá rủi ro dự án theo ma trận 5x5",
+  "metaTitle": "Mẫu Excel Đánh Giá Rủi Ro Dự Án Ma Trận 5x5",
+  "metaDesc": "Mẫu Excel đánh giá rủi ro dự án chấm điểm theo ma trận xác suất và mức ảnh hưởng, tự xếp bốn mức rủi ro và chỉ ra rủi ro cao chưa có biện pháp giảm thiểu.",
+  "primaryKeyword": "mẫu excel đánh giá rủi ro dự án",
+  "intro": "Mẫu Excel đánh giá rủi ro dự án này dùng ma trận năm nhân năm quen thuộc: bạn chấm xác suất xảy ra và mức ảnh hưởng theo thang một tới năm, file nhân hai số đó ra điểm rủi ro rồi xếp thành bốn mức từ Thấp tới Nghiêm trọng. Giá trị thật của bảng nằm ở cột hành động: nó không chỉ xếp hạng mà còn bắt những rủi ro điểm cao chưa có biện pháp giảm thiểu hoặc chưa có người phụ trách. Một danh sách rủi ro được chấm điểm đầy đủ nhưng không ai chịu trách nhiệm xử lý thì cũng chỉ là một danh sách.",
+  "difficulty": "trung-cap",
+  "features": [
+    "Chấm điểm theo ma trận 5x5, tự xếp bốn mức rủi ro",
+    "Bắt rủi ro điểm cao mà chưa có biện pháp giảm thiểu hoặc chưa có người phụ trách",
+    "Nhóm rủi ro chọn từ danh sách để nhìn ra mảng nào đang tập trung nhiều rủi ro",
+    "Trạng thái xử lý riêng, không lẫn với mức độ rủi ro",
+    "Sắp xếp theo điểm là ra ngay thứ tự ưu tiên xử lý"
+  ],
+  "howToUse": [
+    {
+      "step": "Liệt kê rủi ro bằng câu có nguyên nhân và hậu quả",
+      "detail": "Viết theo dạng nếu điều gì xảy ra thì dẫn tới hậu quả gì, ví dụ nhà cung cấp giao chậm dẫn tới lùi ngày chạy thử hai tuần. Một dòng chỉ ghi rủi ro chung chung như chậm tiến độ thì không chấm điểm được và cũng không nghĩ ra biện pháp được."
+    },
+    {
+      "step": "Chấm xác suất và mức ảnh hưởng theo thang 1 tới 5",
+      "detail": "Xác suất 1 là gần như không xảy ra, 5 là gần như chắc chắn. Ảnh hưởng 1 là xử lý được trong nội bộ nhóm, 5 là dự án phải dừng hoặc vượt ngân sách lớn. Nên thống nhất cách hiểu từng bậc trước khi cả nhóm cùng chấm, nếu không hai người sẽ cho hai điểm rất khác nhau cho cùng một rủi ro."
+    },
+    {
+      "step": "Viết biện pháp giảm thiểu và gán người phụ trách",
+      "detail": "Biện pháp phải là hành động cụ thể có thể bắt đầu ngay, không phải lời hứa theo dõi sát. Người phụ trách là người có quyền quyết định để thực hiện biện pháp đó, không nhất thiết là chủ nhiệm dự án."
+    },
+    {
+      "step": "Rà lại theo định kỳ và cập nhật điểm",
+      "detail": "Rủi ro không đứng yên: biện pháp có hiệu lực thì xác suất giảm, mốc thời gian tới gần thì xác suất tăng. Rà lại hằng tháng hoặc mỗi khi dự án qua một cột mốc, và ghi cả những rủi ro đã đóng thay vì xóa dòng."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Vì sao nhân xác suất với mức ảnh hưởng thay vì cộng?",
+      "a": "Vì nhân tạo ra khoảng cách lớn giữa nhóm đầu và nhóm cuối, đúng như cách rủi ro hoạt động. Một rủi ro 5 và 5 cho ra 25 điểm, gấp hơn sáu lần rủi ro 2 và 2 chỉ 4 điểm; nếu cộng thì hai con số là 10 và 4, nhìn như cùng một hạng. Đánh đổi là các rủi ro ở giữa bảng dồn cục lại quanh mức điểm trung bình, nên đừng phân biệt quá kỹ giữa 8 điểm và 10 điểm."
+    },
+    {
+      "q": "Rủi ro ảnh hưởng rất lớn nhưng xác suất rất thấp thì xử lý thế nào?",
+      "a": "Ma trận sẽ cho nó điểm thấp, và đó là giới hạn đã biết của phương pháp này. Với những rủi ro hiếm nhưng có thể chấm dứt cả dự án, thông lệ là bỏ qua điểm số và xử lý riêng bằng kế hoạch dự phòng. Hãy đánh dấu chúng ở cột nhóm rủi ro để không bị bộ lọc theo điểm bỏ sót."
+    },
+    {
+      "q": "Cột hành động khác gì cột mức độ rủi ro?",
+      "a": "Mức độ nói rủi ro nặng tới đâu, hành động nói bạn còn thiếu gì. Một rủi ro Nghiêm trọng đã có biện pháp và có người phụ trách thì đang được quản lý tốt và không cần nhắc trong cuộc họp; ngược lại một rủi ro Cao mà bỏ trống hai cột đó mới là thứ phải bàn. Trộn hai khái niệm này vào một cột là cách để danh sách cảnh báo luôn dài mà không ai hành động."
+    },
+    {
+      "q": "Có nên xóa rủi ro đã đóng khỏi bảng không?",
+      "a": "Không nên. Danh sách rủi ro đã đóng của dự án trước là nguồn tốt nhất để lập danh sách rủi ro cho dự án sau, và nó cũng ghi lại biện pháp nào thật sự có tác dụng. Chuyển trạng thái sang Đã đóng rồi lọc ẩn đi là đủ."
+    }
+  ],
+  "ctaText": "Học cách quản trị rủi ro và dựng báo cáo dự án trên Excel",
+  "relatedSlugs": ["bang-theo-doi-du-an", "bang-theo-doi-chi-phi-du-an"],
+  "updatedAt": "2026-08-10",
+  "sheets": [
+    {
+      "name": "Đánh giá rủi ro",
+      "description": "Mỗi rủi ro một dòng, chấm theo ma trận xác suất nhân mức ảnh hưởng.",
+      "blankRows": 30,
+      "columns": [
+        { "key": "stt", "header": "STT", "type": "number", "width": 6 },
+        { "key": "maRuiRo", "header": "Mã rủi ro", "type": "text", "width": 11 },
+        { "key": "maDuAn", "header": "Mã dự án", "type": "text", "width": 11 },
+        { "key": "moTaRuiRo", "header": "Mô tả rủi ro", "type": "text", "width": 40 },
+        {
+          "key": "nhomRuiRo",
+          "header": "Nhóm rủi ro",
+          "type": "text",
+          "width": 18,
+          "validation": {
+            "type": "list",
+            "options": [
+              "Tiến độ",
+              "Chi phí",
+              "Chất lượng",
+              "Nhà cung cấp",
+              "Nhân sự",
+              "Pháp lý",
+              "Kỹ thuật"
+            ]
+          }
+        },
+        {
+          "key": "xacSuat",
+          "header": "Xác suất (1-5)",
+          "type": "number",
+          "width": 12,
+          "validation": { "type": "whole", "min": 1, "max": 5 }
+        },
+        {
+          "key": "mucAnhHuong",
+          "header": "Mức ảnh hưởng (1-5)",
+          "type": "number",
+          "width": 14,
+          "validation": { "type": "whole", "min": 1, "max": 5 }
+        },
+        { "key": "bienPhap", "header": "Biện pháp giảm thiểu", "type": "text", "width": 38 },
+        { "key": "nguoiPhuTrach", "header": "Người phụ trách", "type": "text", "width": 20 },
+        {
+          "key": "trangThaiXuLy",
+          "header": "Trạng thái xử lý",
+          "type": "text",
+          "width": 15,
+          "validation": {
+            "type": "list",
+            "options": ["Mới ghi nhận", "Đang xử lý", "Đã kiểm soát", "Đã đóng"]
+          }
+        },
+        {
+          "key": "diemRuiRo",
+          "header": "Điểm rủi ro",
+          "type": "formula",
+          "width": 11,
+          "formula": "=IF([moTaRuiRo]{row}=\"\",\"\",[xacSuat]{row}*[mucAnhHuong]{row})",
+          "note": "Xác suất nhân mức ảnh hưởng, cho ra thang 1 tới 25. Nhân thay vì cộng để khoảng cách giữa nhóm đầu và nhóm cuối đủ lớn: 25 điểm gấp hơn sáu lần 4 điểm, còn nếu cộng thì hai con số 10 và 4 nhìn như cùng một hạng."
+        },
+        {
+          "key": "mucDoRuiRo",
+          "header": "Mức độ",
+          "type": "formula",
+          "width": 14,
+          "format": "text",
+          "formula": "=IF([moTaRuiRo]{row}=\"\",\"\",IF([diemRuiRo]{row}>=15,\"Nghiêm trọng\",IF([diemRuiRo]{row}>=8,\"Cao\",IF([diemRuiRo]{row}>=4,\"Trung bình\",\"Thấp\"))))",
+          "note": "Bốn bậc theo ngưỡng điểm quen thuộc của ma trận 5x5. Đây là quy ước quản trị chứ không phải chuẩn mực, nên nếu tổ chức bạn đã có thang riêng thì sửa các mốc 15, 8, 4 cho khớp trước khi dùng."
+        },
+        {
+          "key": "hanhDong",
+          "header": "Hành động cần làm",
+          "type": "formula",
+          "width": 34,
+          "format": "text",
+          "formula": "=IF([moTaRuiRo]{row}=\"\",\"\",IF([trangThaiXuLy]{row}=\"Đã đóng\",\"Đã đóng\",IF(AND([diemRuiRo]{row}>=8,[bienPhap]{row}=\"\"),\"Rủi ro cao chưa có biện pháp\",IF(AND([diemRuiRo]{row}>=8,[nguoiPhuTrach]{row}=\"\"),\"Rủi ro cao chưa có người phụ trách\",IF([diemRuiRo]{row}>=15,\"Đưa vào họp ban dự án\",\"Theo dõi định kỳ\")))))",
+          "note": "Cột này trả lời câu hỏi khác với cột mức độ: không phải rủi ro nặng tới đâu mà là bạn còn thiếu gì. Hai nhánh đầu bắt rủi ro điểm cao bỏ trống biện pháp hoặc người phụ trách — trạng thái phổ biến nhất của một bảng rủi ro chỉ được lập cho có."
+        }
+      ],
+      "sampleRows": [
+        {
+          "stt": 1,
+          "maRuiRo": "RR01",
+          "maDuAn": "DA01",
+          "moTaRuiRo": "Nhà cung cấp thiết bị giao chậm làm lùi ngày chạy thử",
+          "nhomRuiRo": "Nhà cung cấp",
+          "xacSuat": 4,
+          "mucAnhHuong": 4,
+          "bienPhap": "Ký phụ lục phạt chậm giao và đặt hàng dự phòng một phần",
+          "nguoiPhuTrach": "Đỗ Hoàng Nam",
+          "trangThaiXuLy": "Đang xử lý"
+        },
+        {
+          "stt": 2,
+          "maRuiRo": "RR02",
+          "maDuAn": "DA01",
+          "moTaRuiRo": "Giá vật tư nhập khẩu tăng làm vượt dự toán hạng mục thiết bị",
+          "nhomRuiRo": "Chi phí",
+          "xacSuat": 3,
+          "mucAnhHuong": 5,
+          "bienPhap": "",
+          "nguoiPhuTrach": "Vũ Minh Châu",
+          "trangThaiXuLy": "Mới ghi nhận"
+        },
+        {
+          "stt": 3,
+          "maRuiRo": "RR03",
+          "maDuAn": "DA02",
+          "moTaRuiRo": "Nhân sự chủ chốt nghỉ việc giữa giai đoạn chuyển dữ liệu",
+          "nhomRuiRo": "Nhân sự",
+          "xacSuat": 2,
+          "mucAnhHuong": 5,
+          "bienPhap": "Lập tài liệu bàn giao và đào tạo người dự phòng",
+          "nguoiPhuTrach": "",
+          "trangThaiXuLy": "Mới ghi nhận"
+        },
+        {
+          "stt": 4,
+          "maRuiRo": "RR04",
+          "maDuAn": "DA02",
+          "moTaRuiRo": "Dữ liệu kho cũ sai lệch làm hệ thống mới chạy ra số không khớp",
+          "nhomRuiRo": "Kỹ thuật",
+          "xacSuat": 5,
+          "mucAnhHuong": 3,
+          "bienPhap": "Làm sạch dữ liệu và đối chiếu thử trên bản sao trước khi chuyển",
+          "nguoiPhuTrach": "Trần Thu Hà",
+          "trangThaiXuLy": "Đang xử lý"
+        },
+        {
+          "stt": 5,
+          "maRuiRo": "RR05",
+          "maDuAn": "DA01",
+          "moTaRuiRo": "Mưa kéo dài làm chậm phần thi công ngoài trời",
+          "nhomRuiRo": "Tiến độ",
+          "xacSuat": 3,
+          "mucAnhHuong": 2,
+          "bienPhap": "Dời phần ngoài trời lên trước mùa mưa",
+          "nguoiPhuTrach": "Phạm Thị Lan",
+          "trangThaiXuLy": "Đã kiểm soát"
+        },
+        {
+          "stt": 6,
+          "maRuiRo": "RR06",
+          "maDuAn": "DA02",
+          "moTaRuiRo": "Hợp đồng bản quyền phần mềm thiếu điều khoản hỗ trợ sau bàn giao",
+          "nhomRuiRo": "Pháp lý",
+          "xacSuat": 2,
+          "mucAnhHuong": 3,
+          "bienPhap": "Bổ sung phụ lục cam kết hỗ trợ 12 tháng",
+          "nguoiPhuTrach": "Nguyễn Văn Minh",
+          "trangThaiXuLy": "Đã đóng"
+        }
+      ]
+    }
+  ]
+}

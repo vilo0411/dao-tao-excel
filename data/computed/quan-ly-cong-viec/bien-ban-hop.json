@@ -1,0 +1,37 @@
+[
+  [
+    {
+      "kiemTra": "Không cần theo dõi",
+      "tinhTrang": "—"
+    },
+    {
+      "soNgayConLai": 7.0,
+      "kiemTra": "Không cần theo dõi",
+      "tinhTrang": "—"
+    },
+    {
+      "soNgayConLai": 4.0,
+      "kiemTra": "Đủ thông tin",
+      "tinhTrang": "Đang trong hạn"
+    },
+    {
+      "soNgayConLai": 6.0,
+      "kiemTra": "Thiếu người thực hiện",
+      "tinhTrang": "Đang trong hạn"
+    },
+    {
+      "kiemTra": "Không cần theo dõi",
+      "tinhTrang": "—"
+    },
+    {
+      "soNgayConLai": -6.0,
+      "kiemTra": "Đủ thông tin",
+      "tinhTrang": "Quá hạn"
+    },
+    {
+      "soNgayConLai": 22.0,
+      "kiemTra": "Đủ thông tin",
+      "tinhTrang": "Đang trong hạn"
+    }
+  ]
+]
