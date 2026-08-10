@@ -254,25 +254,56 @@ export function getSystemsByCategory(category: string): System[] {
 }
 
 /**
- * Nhóm việc đã có nội dung thật — ít nhất một template hoặc một bộ file.
+ * Số template tối thiểu để một nhóm việc được mở trang hub (PRD mục 2.1).
  *
- * Nhóm rỗng thì không dựng trang: trang chỉ có h1 và một câu mô tả là trang
- * mỏng, và với domain mới thì vài trang như vậy đủ để kéo đánh giá chất lượng
- * toàn site xuống. Loại khỏi sitemap thôi là chưa đủ — sitemap là gợi ý khám
- * phá chứ không phải chỉ thị index, trang vẫn bị crawl nếu Google tìm ra
- * đường khác. Không dựng thì nó 404, đúng với thực tế "chưa có gì ở đây", và
- * tự sống lại ngay khi thêm file đầu tiên vào nhóm.
+ * Trang hub của một nhóm có hai file là trang mỏng: cùng một khung h1, câu mô
+ * tả, dải thông số, mà bên dưới gần như không có gì. Với domain mới thì vài
+ * trang như vậy đủ để kéo đánh giá chất lượng toàn site xuống.
+ */
+export const MIN_TEMPLATES_PER_CATEGORY = 5;
+
+/**
+ * Nhóm việc đã đủ ngưỡng mở trang hub.
+ *
+ * Loại khỏi sitemap thôi là chưa đủ — sitemap là gợi ý khám phá chứ không phải
+ * chỉ thị index, trang vẫn bị crawl nếu Google tìm ra đường khác. Không dựng
+ * thì nó 404, đúng với thực tế "chưa có gì ở đây", và tự sống lại ngay khi
+ * nhóm đủ file.
+ *
+ * Nhóm đang dở dang (có file nhưng chưa đủ ngưỡng) thì FAIL BUILD chứ không
+ * lặng lẽ bị lọc ra. Lọc im lặng nghe có vẻ an toàn hơn nhưng nó tạo ra thứ tệ
+ * hơn cả trang mỏng: các trang template vẫn được dựng, vẫn nằm trong sitemap,
+ * mà breadcrumb của chúng trỏ về một hub 404 — trang mồ côi thật sự, đúng thứ
+ * mà cả site đang cố tránh. Hai lối ra đều nằm trong tay người viết: viết cho
+ * đủ ngưỡng, hoặc chuyển file sang nhóm khác.
  *
  * Đặt ở đây vì đây là module duy nhất đã nhìn thấy cả template lẫn bộ file.
  */
 export function getPopulatedCategories(): CategorySlug[] {
   const templates = getAllTemplates();
   const systems = getAllSystems();
-  return CATEGORY_SLUGS.filter(
-    (category) =>
-      templates.some((t) => t.category === category) ||
-      systems.some((s) => s.category === category),
-  );
+
+  return CATEGORY_SLUGS.filter((category) => {
+    const count = templates.filter((t) => t.category === category).length;
+    if (count === 0) {
+      // Bộ file luôn gồm các template cùng nhóm, nên nhóm không template mà có
+      // bộ là chuyện không thể — kiểm lại cho chắc thay vì tin vào lập luận đó.
+      if (systems.some((s) => s.category === category)) {
+        throw new Error(
+          `Nhóm "${category}" có bộ file nhưng không có template nào — bộ file phải gồm các template cùng nhóm.`,
+        );
+      }
+      return false;
+    }
+    if (count < MIN_TEMPLATES_PER_CATEGORY) {
+      throw new Error(
+        `Nhóm "${category}" mới có ${count} template, cần ít nhất ${MIN_TEMPLATES_PER_CATEGORY} mới mở được trang hub (PRD mục 2.1).\n` +
+          `  Viết thêm ${MIN_TEMPLATES_PER_CATEGORY - count} template nữa, hoặc chuyển ${count} file đang có sang nhóm khác.\n` +
+          `  Đừng lọc nhóm này ra: trang template vẫn dựng, còn breadcrumb của chúng sẽ trỏ về một hub 404.`,
+      );
+    }
+    return true;
+  });
 }
 
 /** Bộ chứa template này, kèm node tương ứng. Undefined nếu file đứng lẻ. */

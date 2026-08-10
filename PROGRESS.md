@@ -16,7 +16,7 @@ Cập nhật file này mỗi khi làm xong một template hoặc một hạng m�
 | Template `quan-ly-cong-viec` | 12 | 12 | `██████████` 100% |
 | **Tổng template** | **37** | **37** | `██████████` 100% |
 | Bộ file | 1 | 3 | `███░░░░░░░` 33% |
-| Hạ tầng | 14 | 18 | `███████░░` 78% |
+| Hạ tầng | 15 | 18 | `████████░░` 83% |
 
 **Giai đoạn hiện tại:** A — **đủ 37/37 template của Phase 1**, còn lại là rà nghiệp vụ và lên domain.
 **Chặn giai đoạn B:** cần 12 trang qua DoD + lên domain thật + GSC nhận sitemap.
@@ -190,14 +190,16 @@ Số 3 (`gantt-chart-excel`) có một ràng buộc kỹ thuật cần kiểm b�
 - [x] CI deploy bản xem thử lên GitHub Pages (chặn index)
 - [x] Lớp bộ file: schema + loader (`lib/systems*.ts`), `/mau-excel/bo-file` + `/mau-excel/bo-file/[slug]`, sơ đồ `SystemMap`, dải `SystemStrip` trên trang file lẻ, JSON-LD `Collection` + `ItemList` + `isPartOf`
 - [x] **Tham chiếu dòng trên** trong công thức spec: ngoài `{row}` còn dùng được `{row-N}`. Đây là thứ mở khóa cả nhóm cột lũy kế của kế toán (tồn quỹ, dòng tiền ròng). Chỉ cho lùi lên, không cho `{row+N}` — trỏ xuống là tạo vòng lặp tham chiếu; schema chặn cả token gõ sai kiểu `{row -1}`, vốn sẽ lọt nguyên văn dấu ngoặc nhọn vào file và chỉ lộ ra ở tay người tải về
+- [x] **Ngưỡng ≥ 5 template cho một nhóm việc** (`MIN_TEMPLATES_PER_CATEGORY` trong `lib/systems.ts`). Nhóm dưới ngưỡng **fail build** chứ không bị lọc im lặng: lọc im lặng vẫn dựng các trang template, vẫn đưa chúng vào sitemap, mà breadcrumb của chúng trỏ về một hub 404 — trang mồ côi thật sự, tệ hơn cả trang mỏng mà quy tắc này định chặn
 - [x] **File gộp**: khối `bundle` trong spec bộ, `scripts/build_bundle.py`, cú pháp `[Tên sheet!key]` cho tham chiếu xuyên sheet, cổng QA kiểm khóa nối và kiểm lan truyền đầu-cuối
 
 ### Còn lại
 
-- [ ] **Chặn category rỗng** — cả ba category giờ đều đủ 12 template nên triệu chứng đã hết, nhưng **quy tắc ≥ 5 template vẫn chưa được cài**. Vẫn phải làm trước khi ai đó khai một category thứ tư
-- [ ] **`NEXT_PUBLIC_GA_ID`** — chưa có GA4, mọi chỉ số đo lường đang bằng 0
+- [ ] **`NEXT_PUBLIC_GA_ID`** — code đã xong từ trước (`components/Analytics.tsx` + sự kiện `outbound_cta_click` trong `CourseCta`), chỉ còn **việc ngoài repo**: tạo property GA4 rồi đặt biến môi trường. Chưa có nó thì mọi chỉ số đo lường bằng 0
 - [ ] **Trỏ domain thật + deploy Vercel**
 - [ ] **Verify Google Search Console + submit sitemap**
+
+Ba việc còn lại đều **nằm ngoài repo** — không có dòng code nào chặn chúng.
 
 ---
 
@@ -205,6 +207,7 @@ Số 3 (`gantt-chart-excel`) có một ràng buộc kỹ thuật cần kiểm b�
 
 | Ngày | Việc |
 | :---- | :---- |
+| 10/08/2026 | **Cài quy tắc ≥ 5 template cho một nhóm việc** (`MIN_TEMPLATES_PER_CATEGORY`, `lib/systems.ts`). Quy tắc có từ PRD v1.0 nhưng chưa bao giờ được cài; trước đó cổng chỉ hỏi nhóm có rỗng hay không. Chọn **fail build** thay vì lọc im lặng: lọc im lặng vẫn dựng trang template và vẫn đưa chúng vào sitemap, trong khi breadcrumb trỏ về một hub 404 — trang mồ côi, tệ hơn cả trang mỏng mà quy tắc định chặn. Đã thử bằng cách hạ `quan-ly-cong-viec` xuống 4 file: cổng chặn đúng và nói rõ hai lối ra |
 | 10/08/2026 | **Xong 12 template `quan-ly-cong-viec` — khung 37 trang của Phase 1 đủ 100%.** Ba ý tưởng dùng lại nhiều lần trong nhóm này: **tiến độ kỳ vọng** theo phần thời gian đã trôi (số 1, 6, 8) — một việc báo 50% khi đã đi hết 80% thời gian thì đang chậm, và đó là thứ cột phần trăm một mình không nói được; **kiểm chất lượng chính lệnh giao việc** (số 4, 12) — bắt dòng thiếu người thực hiện, thiếu hạn, thiếu tiêu chí nghiệm thu, và chỉ áp ràng buộc đúng loại dòng cần áp; **điểm ghép hai yếu tố** (số 5, 10) để danh sách sắp xếp được. Hàm mới: `REPT` — `gantt-chart-excel` vẽ thanh tiến độ ngay trong một ô thay vì tô màu hàng chục cột ngày, nên chèn thêm đầu việc là thanh tự vẽ. Đánh đổi đã ghi trong FAQ: thanh chỉ thẳng hàng với phông đều nét, và không vẽ được quan hệ phụ thuộc |
 | 10/08/2026 | **Xong 5 template kế toán còn lại — nhóm `ke-toan` đủ 12/12.** Khấu hao TSCĐ (đường thẳng, `MIN` chặn trần để tài sản hết giá trị tự dừng trích thay vì âm dần), bảng kê hóa đơn GTGT (đầu vào và đầu ra chung một bảng, cột thuế được khấu trừ **tự trả về 0** với hóa đơn từ 20 triệu trả tiền mặt — cảnh báo không đủ, phải đổi luôn con số), theo dõi tạm ứng (dùng cột `ngayChotSo` thay `TODAY` như hai file công nợ, để bảng in hôm nay và bảng mở lại tháng sau cho cùng một con số quá hạn), báo cáo kết quả kinh doanh (xếp ngang theo tháng thay vì dọc theo chỉ tiêu; `MAX(0;…)` chặn thuế âm ở tháng lỗ), tính giá thành (dở dang đầu kỳ + phát sinh − dở dang cuối kỳ), dự toán ngân sách (cột đánh giá **đảo chiều theo cột Loại**: cùng tỷ lệ 110% thì dòng Thu là đạt kế hoạch còn dòng Chi là vượt ngân sách) |
 | 10/08/2026 | **`bang-theo-doi-dong-tien`** — kế toán 6/12. Bảng nhìn tiền theo kỳ chứ theo phiếu như sổ quỹ: mỗi dòng một tháng, số dư cuối kỳ cộng dồn bằng `{row-N}`, cột cảnh báo tách riêng *âm dòng tiền* (kỳ này chi trội) khỏi *âm quỹ* (hết tiền thật) vì hai thứ đó đòi hai cách xử lý khác nhau. Hàm mới đầu tiên kể từ khi có glossary: `SUM` — dùng dạng vùng cho khối cột thu và khối cột chi để chèn thêm nhóm không phải sửa công thức, và đã thêm mục từ điển trong `FUNCTION_INFO` như cổng validate yêu cầu |

@@ -116,7 +116,7 @@ Google search "hàm vlookup trong excel" (intent học hàm, không phải tải
 *(`/khoa-hoc-excel` — bridge page + form lead — đã bỏ trong v2.1, xem mục 0.)*
 
 **Quy tắc mở category:** một category chỉ được xuất hiện trong nav, sitemap và trang hub khi đã có **≥ 5 template**. Trước đó `generateStaticParams` không sinh trang cho nó. Lý do: trang hub rỗng là thin content, làm loãng đánh giá chất lượng của một site mới.
-*(Cả ba category giờ đều đủ 12 template nên qua ngưỡng. Nhưng luật ≥ 5 vẫn chưa được cài vào code — xem mục 6.)*
+*(Luật này đã được cài: `MIN_TEMPLATES_PER_CATEGORY` trong `lib/systems.ts`. Nhóm dưới ngưỡng mà vẫn có file thì **fail build** chứ không bị lọc im lặng — lọc im lặng vẫn dựng các trang template và để breadcrumb của chúng trỏ về một hub 404.)*
 
 ### 2.2 `/mau-excel/nhan-su` — Nhân sự · HR
 
@@ -332,11 +332,12 @@ Toàn bộ hạ tầng: 3 loại trang template, SSG, meta động, canonical kh
 
 | # | Việc | Ghi chú |
 | :--- | :---- | :---- |
-| 1 | **Viết 34 template còn lại** theo khung mục 2 | Nút cổ chai duy nhất đáng kể. Pipeline đã sẵn sàng |
-| 2 | Chặn category rỗng | `ke-toan` và `quan-ly-cong-viec` hiện vẫn build ra trang rỗng; áp quy tắc ≥ 5 template |
-| 3 | Cấu hình `NEXT_PUBLIC_GA_ID` + verify GSC | Không có số liệu thì mọi chỉ số mục 5 đều vô nghĩa |
-| 4 | Trỏ domain thật, deploy Vercel | Hiện mới có bản xem thử chặn index |
-| 5 | Đo Lighthouse mobile, submit sitemap | Sau khi lên domain thật |
+| ~~1~~ | ~~Viết 34 template còn lại~~ | ✅ Xong 10/08/2026 — đủ 37/37 trang của khung mục 2 |
+| ~~2~~ | ~~Chặn category rỗng~~ | ✅ Xong 10/08/2026 — `MIN_TEMPLATES_PER_CATEGORY` trong `lib/systems.ts`, nhóm dưới ngưỡng fail build |
+| 1 | **Rà soát nghiệp vụ 37 trang** | Nút cổ chai duy nhất còn lại. Xem PROGRESS.md, cột Rà — 25 trang nhân sự/kế toán cần người có nghiệp vụ |
+| 2 | Cấu hình `NEXT_PUBLIC_GA_ID` + verify GSC | Code đã sẵn, chỉ còn tạo property và đặt biến. Không có số liệu thì mọi chỉ số mục 5 đều vô nghĩa |
+| 3 | Trỏ domain thật, deploy Vercel | Hiện mới có bản xem thử chặn index |
+| 4 | Đo Lighthouse mobile, submit sitemap | Sau khi lên domain thật |
 
 ### Định nghĩa hoàn thành cho mỗi trang template
 
