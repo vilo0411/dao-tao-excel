@@ -1,0 +1,222 @@
+{
+  "slug": "bang-du-toan-ngan-sach",
+  "category": "ke-toan",
+  "h1": "Mẫu Excel dự toán ngân sách và theo dõi thực hiện",
+  "metaTitle": "Mẫu Excel Dự Toán Ngân Sách Doanh Nghiệp 2026",
+  "metaDesc": "Mẫu Excel dự toán ngân sách theo khoản mục và bộ phận: so dự toán với thực tế, tự tính chênh lệch, tỷ lệ thực hiện và đánh giá riêng cho khoản thu và khoản chi.",
+  "primaryKeyword": "mẫu excel dự toán ngân sách",
+  "intro": "Mẫu Excel dự toán ngân sách này đặt số kế hoạch cạnh số thực tế của từng khoản mục, rồi tự tính chênh lệch và tỷ lệ thực hiện. Điểm khác biệt so với các bảng ngân sách thông thường nằm ở cột loại: một khoản thu vượt kế hoạch là tin tốt, còn một khoản chi vượt kế hoạch là tin xấu, nên cùng một con số vượt 15% phải đọc theo hai hướng ngược nhau. Cột đánh giá của file xét cột loại trước rồi mới kết luận, nhờ vậy bạn lọc ra được đúng những dòng cần xử lý mà không phải tự nhớ dòng nào là thu, dòng nào là chi.",
+  "difficulty": "trung-cap",
+  "features": [
+    "Dự toán và thực tế nằm cạnh nhau theo từng khoản mục và bộ phận",
+    "Đánh giá đảo chiều theo loại khoản mục: vượt kế hoạch thu là tốt, vượt ngân sách chi là xấu",
+    "Cảnh báo sớm khi khoản chi đã dùng từ 90% ngân sách trở lên",
+    "Chênh lệch và tỷ lệ thực hiện cập nhật ngay khi cập nhật số thực tế",
+    "Lọc theo bộ phận để họp với đúng người chịu trách nhiệm"
+  ],
+  "howToUse": [
+    {
+      "step": "Chốt danh sách khoản mục trước khi kỳ bắt đầu",
+      "detail": "Mỗi khoản mục một dòng, gắn với đúng một bộ phận chịu trách nhiệm. Khoản mục không có ai chịu trách nhiệm là khoản mục không ai theo dõi. Đặt tên khoản mục giống hệt cách gọi trong sổ kế toán để sau này lấy số thực tế không phải dịch qua lại."
+    },
+    {
+      "step": "Chọn loại cho từng dòng",
+      "detail": "Thu hay Chi. Cột này quyết định cách file đọc con số chênh lệch, nên chọn sai là đánh giá lộn ngược: một khoản doanh thu hụt kế hoạch sẽ được khen là trong ngân sách."
+    },
+    {
+      "step": "Nhập số dự toán của cả kỳ",
+      "detail": "Dự toán nên chốt một lần trước khi kỳ bắt đầu và giữ nguyên. Sửa dự toán giữa kỳ cho khớp thực tế là cách nhanh nhất biến bảng ngân sách thành bảng ghi chép vô nghĩa — cần điều chỉnh thì thêm dòng mới và ghi rõ lý do."
+    },
+    {
+      "step": "Cập nhật cột thực tế theo định kỳ",
+      "detail": "Lấy số phát sinh lũy kế từ đầu kỳ tới thời điểm rà soát, không phải số của riêng tháng gần nhất, vì cột này đang so với dự toán của cả kỳ. Cập nhật hằng tháng là đủ với hầu hết doanh nghiệp nhỏ."
+    },
+    {
+      "step": "Lọc theo cột đánh giá để họp",
+      "detail": "Bật bộ lọc, chọn nhóm Vượt ngân sách và Hụt kế hoạch thu — đó là danh sách việc cần bàn. Nhóm Sát trần ngân sách là danh sách cần theo dõi tuần sau, còn lại thì không cần đưa vào cuộc họp."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Vì sao khoản thu và khoản chi phải đánh giá theo hai chiều ngược nhau?",
+      "a": "Vì chênh lệch dương mang ý nghĩa trái ngược ở hai loại. Doanh thu thực tế cao hơn kế hoạch là đạt mục tiêu; chi phí thực tế cao hơn kế hoạch là vượt ngân sách. Một bảng chỉ nhìn con số chênh lệch mà không nhìn loại khoản mục sẽ tô cùng một màu cho hai tình huống trái ngược, và người đọc phải tự dịch lại từng dòng — đúng chỗ mà sai sót lọt qua."
+    },
+    {
+      "q": "Ngưỡng 90% để cảnh báo sát trần lấy từ đâu?",
+      "a": "Đó là quy ước quản trị, không phải chuẩn mực kế toán. Ý nghĩa của nó là báo trước khi ngân sách sắp hết chứ không đợi tới lúc đã vượt, vì lúc vượt rồi thì tiền đã tiêu mất. Nếu kỳ ngân sách của bạn dài và chi phí dồn về cuối kỳ, hãy hạ ngưỡng này xuống để có thêm thời gian phản ứng."
+    },
+    {
+      "q": "Tỷ lệ thực hiện 80% giữa kỳ là tốt hay xấu?",
+      "a": "Không kết luận được nếu chỉ nhìn con số. Bảng này so số lũy kế với dự toán cả kỳ, nên phải đối chiếu với phần thời gian đã trôi qua: dùng 80% ngân sách khi mới đi được nửa kỳ là dấu hiệu sẽ vượt, còn dùng 80% khi kỳ sắp hết là bình thường. File cố tình không tự tính phần này vì tiến độ chi của mỗi khoản mục mỗi khác, chi thuê nhà rải đều còn chi marketing thì dồn cục."
+    },
+    {
+      "q": "Có nên dùng bảng này thay cho dự toán dòng tiền không?",
+      "a": "Không, hai bảng trả lời hai câu hỏi khác nhau. Bảng ngân sách hỏi mỗi khoản mục được tiêu bao nhiêu và đã tiêu tới đâu. Dự toán dòng tiền hỏi tại từng thời điểm trong quỹ còn bao nhiêu tiền. Một doanh nghiệp có thể nằm trong ngân sách ở mọi khoản mục mà vẫn thiếu tiền vào tuần thứ ba của tháng, vì tiền vào và tiền ra lệch nhau về thời điểm."
+    }
+  ],
+  "ctaText": "Học cách lập ngân sách và theo dõi thực hiện trên Excel",
+  "relatedSlugs": ["bao-cao-ket-qua-kinh-doanh", "bang-theo-doi-dong-tien"],
+  "updatedAt": "2026-08-10",
+  "sheets": [
+    {
+      "name": "Dự toán ngân sách",
+      "description": "Mỗi khoản mục một dòng, đặt số dự toán cạnh số thực tế lũy kế của kỳ.",
+      "blankRows": 30,
+      "columns": [
+        { "key": "stt", "header": "STT", "type": "number", "width": 6 },
+        { "key": "kyNganSach", "header": "Kỳ ngân sách", "type": "text", "width": 15 },
+        {
+          "key": "loai",
+          "header": "Loại",
+          "type": "text",
+          "width": 10,
+          "validation": { "type": "list", "options": ["Thu", "Chi"] }
+        },
+        { "key": "khoanMuc", "header": "Khoản mục", "type": "text", "width": 34 },
+        {
+          "key": "boPhan",
+          "header": "Bộ phận phụ trách",
+          "type": "text",
+          "width": 20,
+          "validation": {
+            "type": "list",
+            "options": [
+              "Kinh doanh",
+              "Marketing",
+              "Kế toán",
+              "Hành chính nhân sự",
+              "Sản xuất",
+              "Kho vận",
+              "Kỹ thuật",
+              "Ban giám đốc"
+            ]
+          }
+        },
+        {
+          "key": "duToan",
+          "header": "Dự toán",
+          "type": "currency",
+          "width": 18,
+          "validation": { "type": "decimal", "min": 0, "max": 100000000000 }
+        },
+        {
+          "key": "thucTe",
+          "header": "Thực tế lũy kế",
+          "type": "currency",
+          "width": 18,
+          "validation": { "type": "decimal", "min": 0, "max": 100000000000 }
+        },
+        {
+          "key": "chenhLech",
+          "header": "Chênh lệch",
+          "type": "formula",
+          "width": 18,
+          "format": "currency",
+          "formula": "=IF([khoanMuc]{row}=\"\",\"\",[thucTe]{row}-[duToan]{row})",
+          "note": "Thực tế trừ dự toán. Cố ý để nguyên dấu thay vì lấy trị tuyệt đối: dấu dương ở dòng Thu là vượt kế hoạch, còn dấu dương ở dòng Chi là vượt ngân sách — cột đánh giá phía sau chính là chỗ dịch dấu đó thành lời."
+        },
+        {
+          "key": "conLai",
+          "header": "Còn lại",
+          "type": "formula",
+          "width": 18,
+          "format": "currency",
+          "formula": "=IF([khoanMuc]{row}=\"\",\"\",[duToan]{row}-[thucTe]{row})",
+          "note": "Với dòng Chi, đây là phần ngân sách còn được tiêu. Với dòng Thu, đây là phần doanh thu còn phải làm để đạt kế hoạch. Số âm ở dòng Chi là đã tiêu lẹm, ở dòng Thu là đã vượt mục tiêu."
+        },
+        {
+          "key": "tyLeThucHien",
+          "header": "Tỷ lệ thực hiện",
+          "type": "formula",
+          "width": 13,
+          "format": "percent",
+          "formula": "=IF([khoanMuc]{row}=\"\",\"\",IFERROR([thucTe]{row}/[duToan]{row},0))",
+          "note": "Thực tế chia dự toán. Bọc IFERROR cho khoản mục mới thêm chưa có dự toán, vì chia cho 0 sẽ ném #DIV/0! và làm cả cột đánh giá phía sau thành lỗi. Con số này phải đọc kèm phần thời gian đã trôi qua của kỳ mới có ý nghĩa."
+        },
+        {
+          "key": "danhGia",
+          "header": "Đánh giá",
+          "type": "formula",
+          "width": 26,
+          "format": "text",
+          "formula": "=IF([khoanMuc]{row}=\"\",\"\",IF([loai]{row}=\"Thu\",IF([thucTe]{row}>=[duToan]{row},\"Đạt kế hoạch thu\",IF([tyLeThucHien]{row}>=0.9,\"Sát kế hoạch thu\",\"Hụt kế hoạch thu\")),IF([thucTe]{row}>[duToan]{row},\"Vượt ngân sách\",IF([tyLeThucHien]{row}>=0.9,\"Sát trần ngân sách\",\"Trong ngân sách\"))))",
+          "note": "Nhánh đầu tiên xét cột Loại, sau đó hai nhánh con dùng cùng một ngưỡng 90% nhưng kết luận ngược chiều nhau. Nhờ vậy một bộ lọc duy nhất trên cột này ra được đúng danh sách việc cần xử lý, không lẫn dòng thu vượt kế hoạch vào nhóm cảnh báo."
+        }
+      ],
+      "sampleRows": [
+        {
+          "stt": 1,
+          "kyNganSach": "Quý III/2026",
+          "loai": "Thu",
+          "khoanMuc": "Doanh thu bán hàng khu vực miền Nam",
+          "boPhan": "Kinh doanh",
+          "duToan": 1800000000,
+          "thucTe": 1652000000
+        },
+        {
+          "stt": 2,
+          "kyNganSach": "Quý III/2026",
+          "loai": "Thu",
+          "khoanMuc": "Doanh thu dịch vụ bảo trì",
+          "boPhan": "Kỹ thuật",
+          "duToan": 240000000,
+          "thucTe": 268000000
+        },
+        {
+          "stt": 3,
+          "kyNganSach": "Quý III/2026",
+          "loai": "Thu",
+          "khoanMuc": "Doanh thu kênh thương mại điện tử",
+          "boPhan": "Marketing",
+          "duToan": 320000000,
+          "thucTe": 214000000
+        },
+        {
+          "stt": 4,
+          "kyNganSach": "Quý III/2026",
+          "loai": "Chi",
+          "khoanMuc": "Lương và các khoản trích theo lương",
+          "boPhan": "Hành chính nhân sự",
+          "duToan": 620000000,
+          "thucTe": 598000000
+        },
+        {
+          "stt": 5,
+          "kyNganSach": "Quý III/2026",
+          "loai": "Chi",
+          "khoanMuc": "Chi phí quảng cáo trực tuyến",
+          "boPhan": "Marketing",
+          "duToan": 150000000,
+          "thucTe": 187000000
+        },
+        {
+          "stt": 6,
+          "kyNganSach": "Quý III/2026",
+          "loai": "Chi",
+          "khoanMuc": "Thuê văn phòng, điện nước",
+          "boPhan": "Hành chính nhân sự",
+          "duToan": 180000000,
+          "thucTe": 180000000
+        },
+        {
+          "stt": 7,
+          "kyNganSach": "Quý III/2026",
+          "loai": "Chi",
+          "khoanMuc": "Chi phí vận chuyển giao hàng",
+          "boPhan": "Kho vận",
+          "duToan": 210000000,
+          "thucTe": 164000000
+        },
+        {
+          "stt": 8,
+          "kyNganSach": "Quý III/2026",
+          "loai": "Chi",
+          "khoanMuc": "Mua sắm thiết bị văn phòng",
+          "boPhan": "Hành chính nhân sự",
+          "duToan": 90000000,
+          "thucTe": 0
+        }
+      ]
+    }
+  ]
+}

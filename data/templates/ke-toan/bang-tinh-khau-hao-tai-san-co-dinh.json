@@ -1,0 +1,246 @@
+{
+  "slug": "bang-tinh-khau-hao-tai-san-co-dinh",
+  "category": "ke-toan",
+  "h1": "Mẫu Excel tính khấu hao tài sản cố định theo đường thẳng",
+  "metaTitle": "Mẫu Excel Tính Khấu Hao Tài Sản Cố Định 2026",
+  "metaDesc": "Mẫu Excel tính khấu hao TSCĐ theo phương pháp đường thẳng: tự ra mức khấu hao năm và tháng, giá trị còn lại, và chặn không cho khấu hao vượt nguyên giá.",
+  "primaryKeyword": "mẫu excel tính khấu hao tài sản cố định",
+  "intro": "Mẫu Excel tính khấu hao tài sản cố định này theo dõi cả danh mục tài sản trên một bảng: mỗi tài sản một dòng, bạn nhập nguyên giá, số năm khấu hao và khấu hao lũy kế đầu kỳ, file tự ra mức khấu hao năm, mức phân bổ tháng, giá trị còn lại và tỷ lệ đã khấu hao. File dùng phương pháp đường thẳng — cách phổ biến nhất và cũng là cách duy nhất tính được bằng một công thức chia đều. Điểm đáng chú ý là cột khấu hao trong kỳ có chặn trần: nó không bao giờ trích quá phần giá trị còn lại, nên tài sản đã khấu hao hết sẽ tự dừng thay vì âm dần.",
+  "difficulty": "trung-cap",
+  "features": [
+    "Tự tính mức khấu hao năm và mức phân bổ hằng tháng theo đường thẳng",
+    "Chặn trần khấu hao: tài sản hết giá trị còn lại thì tự dừng trích, không âm",
+    "Giá trị còn lại và tỷ lệ đã khấu hao cập nhật ngay khi sửa số",
+    "Cảnh báo tài sản dưới 30 triệu — mức không đủ tiêu chuẩn ghi nhận TSCĐ",
+    "Báo trước tài sản sắp khấu hao hết để kịp lên kế hoạch thay thế",
+    "Nhóm tài sản chọn từ danh sách, khớp với khung thời gian khấu hao"
+  ],
+  "howToUse": [
+    {
+      "step": "Khai danh mục tài sản đang có",
+      "detail": "Mỗi tài sản một dòng: mã, tên, nhóm và ngày đưa vào sử dụng. Ngày đưa vào sử dụng là ngày tài sản bắt đầu dùng được, không phải ngày mua hay ngày trên hóa đơn — đây mới là mốc bắt đầu trích khấu hao."
+    },
+    {
+      "step": "Nhập nguyên giá và số năm khấu hao",
+      "detail": "Nguyên giá gồm giá mua chưa thuế cộng chi phí vận chuyển, lắp đặt, chạy thử để tài sản dùng được. Số năm khấu hao phải nằm trong khung tối thiểu và tối đa mà chế độ quản lý TSCĐ quy định cho nhóm tài sản đó, doanh nghiệp tự chọn một con số trong khung rồi giữ nguyên suốt đời tài sản."
+    },
+    {
+      "step": "Nhập khấu hao lũy kế đầu kỳ",
+      "detail": "Là số đã trích từ lúc đưa vào sử dụng tới đầu kỳ này. Tài sản mới mua trong kỳ thì để 0. Lấy số này từ bảng của kỳ trước, đừng ước lượng lại — mọi cột phía sau đều dựa vào nó."
+    },
+    {
+      "step": "Đọc cột khấu hao trong kỳ để hạch toán",
+      "detail": "Cột này là số tiền được đưa vào chi phí của tháng, tổng cả cột chính là bút toán trích khấu hao tháng đó. Tài sản đã hết giá trị còn lại sẽ hiện 0 vì công thức có chặn trần, đúng như quy định không trích vượt nguyên giá."
+    },
+    {
+      "step": "Chuyển số sang kỳ sau",
+      "detail": "Cuối tháng, chép cột Lũy kế cuối kỳ đè lên cột Lũy kế đầu kỳ bằng dán giá trị, rồi bảng sẵn sàng cho tháng tiếp theo. Chỉ dán giá trị, đừng dán công thức, nếu không cột đầu kỳ sẽ tự trỏ vòng lại chính nó."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Vì sao cột khấu hao trong kỳ bọc hàm MIN?",
+      "a": "Vì không có chặn trần thì một tài sản đã trích đủ nguyên giá vẫn tiếp tục trích thêm mỗi tháng, và giá trị còn lại tụt xuống âm — chuyện không tồn tại trong sổ sách. Hàm MIN lấy số nhỏ hơn giữa mức phân bổ tháng và phần giá trị còn lại chưa trích, nên tháng cuối cùng chỉ trích đúng phần thiếu rồi những tháng sau trả về 0. Không cần theo dõi thủ công xem tài sản nào đã hết."
+    },
+    {
+      "q": "Tài sản dưới 30 triệu đồng thì xử lý thế nào?",
+      "a": "Tiêu chuẩn ghi nhận tài sản cố định gồm ba điều kiện cùng lúc: chắc chắn thu được lợi ích kinh tế trong tương lai, thời gian sử dụng trên một năm, và nguyên giá đạt mức tối thiểu theo quy định hiện hành (đang là 30 triệu đồng). Thiếu một điều kiện thì đó là công cụ dụng cụ, phải phân bổ dần vào chi phí trả trước thay vì trích khấu hao. File chỉ nhắc bạn ở cột cảnh báo, không tự loại dòng đó ra."
+    },
+    {
+      "q": "Có tính được khấu hao theo số dư giảm dần hoặc theo sản lượng không?",
+      "a": "Không, file này chỉ làm đường thẳng. Hai phương pháp kia cho ra mức trích khác nhau ở từng năm nên không rút gọn được thành một công thức chia đều dùng chung cho cả cột, và chúng cũng đòi điều kiện áp dụng riêng chứ không dùng tùy ý. Nếu đơn vị bạn đang áp dụng phương pháp khác thì dùng file này để nắm danh mục và giá trị còn lại, còn số trích lấy từ bảng tính riêng."
+    },
+    {
+      "q": "Mức khấu hao tháng có làm tròn không?",
+      "a": "Có, cột mức khấu hao tháng làm tròn tới đồng bằng hàm ROUND. Vì làm tròn nên tổng mười hai tháng có thể lệch vài đồng so với mức khấu hao năm. Phần lệch đó tự tan ở tháng cuối cùng của đời tài sản: chặn trần bằng MIN khiến tháng cuối chỉ trích đúng phần giá trị còn lại, nhiều hay ít vài đồng đều khớp về đúng nguyên giá."
+    },
+    {
+      "q": "Tài sản mua giữa tháng thì trích từ ngày nào?",
+      "a": "Khấu hao được tính từ ngày tài sản đưa vào sử dụng, nên tháng đầu tiên thường không trích đủ một mức tháng. File không tự chia theo ngày vì việc đó phụ thuộc cách đơn vị bạn chọn quy ước; hãy nhập tay mức của riêng tháng đầu vào cột Lũy kế đầu kỳ của tháng kế tiếp, từ tháng thứ hai trở đi bảng chạy đủ."
+    }
+  ],
+  "ctaText": "Học cách quản lý tài sản và dựng bảng khấu hao trên Excel",
+  "relatedSlugs": ["bang-theo-doi-dong-tien", "bang-theo-doi-cong-no-phai-tra"],
+  "updatedAt": "2026-08-10",
+  "sheets": [
+    {
+      "name": "Bảng khấu hao TSCĐ",
+      "description": "Danh mục tài sản cố định và mức trích khấu hao đường thẳng của kỳ.",
+      "blankRows": 25,
+      "columns": [
+        { "key": "stt", "header": "STT", "type": "number", "width": 6 },
+        { "key": "maTaiSan", "header": "Mã tài sản", "type": "text", "width": 12 },
+        { "key": "tenTaiSan", "header": "Tên tài sản", "type": "text", "width": 32 },
+        {
+          "key": "nhomTaiSan",
+          "header": "Nhóm tài sản",
+          "type": "text",
+          "width": 22,
+          "validation": {
+            "type": "list",
+            "options": [
+              "Nhà cửa vật kiến trúc",
+              "Máy móc thiết bị",
+              "Phương tiện vận tải",
+              "Thiết bị văn phòng",
+              "Thiết bị quản lý",
+              "Tài sản vô hình"
+            ]
+          }
+        },
+        {
+          "key": "ngaySuDung",
+          "header": "Ngày đưa vào sử dụng",
+          "type": "date",
+          "width": 15
+        },
+        {
+          "key": "nguyenGia",
+          "header": "Nguyên giá",
+          "type": "currency",
+          "width": 18,
+          "validation": { "type": "decimal", "min": 0, "max": 100000000000 }
+        },
+        {
+          "key": "soNamKhauHao",
+          "header": "Số năm khấu hao",
+          "type": "number",
+          "width": 12,
+          "validation": { "type": "decimal", "min": 1, "max": 50 }
+        },
+        {
+          "key": "luyKeDauKy",
+          "header": "Khấu hao lũy kế đầu kỳ",
+          "type": "currency",
+          "width": 20,
+          "validation": { "type": "decimal", "min": 0, "max": 100000000000 }
+        },
+        {
+          "key": "mucKhauHaoNam",
+          "header": "Mức khấu hao năm",
+          "type": "formula",
+          "width": 18,
+          "format": "currency",
+          "formula": "=IF([tenTaiSan]{row}=\"\",\"\",IFERROR(ROUND([nguyenGia]{row}/[soNamKhauHao]{row},0),0))",
+          "note": "Nguyên giá chia đều cho số năm sử dụng — chính là định nghĩa của phương pháp đường thẳng. Bọc IFERROR để dòng chưa nhập số năm không hiện lỗi #DIV/0! do chia cho 0."
+        },
+        {
+          "key": "mucKhauHaoThang",
+          "header": "Mức khấu hao tháng",
+          "type": "formula",
+          "width": 18,
+          "format": "currency",
+          "formula": "=IF([tenTaiSan]{row}=\"\",\"\",ROUND([mucKhauHaoNam]{row}/12,0))",
+          "note": "Mức năm chia cho 12, làm tròn tới đồng. Vì làm tròn nên tổng mười hai tháng có thể lệch vài đồng so với mức năm; phần lệch đó tan ở tháng cuối đời tài sản nhờ chặn trần ở cột bên cạnh."
+        },
+        {
+          "key": "khauHaoTrongKy",
+          "header": "Khấu hao trong kỳ",
+          "type": "formula",
+          "width": 18,
+          "format": "currency",
+          "formula": "=IF([tenTaiSan]{row}=\"\",\"\",MIN([mucKhauHaoThang]{row},MAX(0,[nguyenGia]{row}-[luyKeDauKy]{row})))",
+          "note": "Số thật sự đưa vào chi phí tháng này, và là cột dùng để hạch toán. Hàm MIN chặn trần theo phần giá trị chưa trích nên tài sản đã khấu hao hết trả về 0 thay vì trích tiếp; MAX(0,…) giữ cho trần không xuống âm khi lũy kế đầu kỳ bị nhập quá nguyên giá."
+        },
+        {
+          "key": "luyKeCuoiKy",
+          "header": "Lũy kế cuối kỳ",
+          "type": "formula",
+          "width": 18,
+          "format": "currency",
+          "formula": "=IF([tenTaiSan]{row}=\"\",\"\",[luyKeDauKy]{row}+[khauHaoTrongKy]{row})",
+          "note": "Tổng đã trích từ lúc đưa vào sử dụng tới cuối kỳ này. Cuối tháng, chép cột này đè lên cột Lũy kế đầu kỳ bằng dán giá trị là bảng sẵn sàng cho tháng sau."
+        },
+        {
+          "key": "giaTriConLai",
+          "header": "Giá trị còn lại",
+          "type": "formula",
+          "width": 18,
+          "format": "currency",
+          "formula": "=IF([tenTaiSan]{row}=\"\",\"\",[nguyenGia]{row}-[luyKeCuoiKy]{row})",
+          "note": "Nguyên giá trừ lũy kế đã trích. Đây là con số phải khớp với giá trị còn lại của tài sản cố định trên bảng cân đối kế toán, nên tổng cột này là chỗ đối chiếu đầu tiên khi số liệu lệch."
+        },
+        {
+          "key": "tyLeDaKhauHao",
+          "header": "Đã khấu hao",
+          "type": "formula",
+          "width": 12,
+          "format": "percent",
+          "formula": "=IF([tenTaiSan]{row}=\"\",\"\",IFERROR([luyKeCuoiKy]{row}/[nguyenGia]{row},0))",
+          "note": "Phần trăm nguyên giá đã chuyển thành chi phí. Đọc nhanh hơn con số tuyệt đối khi so các tài sản có nguyên giá chênh nhau hàng chục lần, và là căn cứ để xếp thứ tự ưu tiên thay thế."
+        },
+        {
+          "key": "canhBao",
+          "header": "Cảnh báo",
+          "type": "formula",
+          "width": 34,
+          "format": "text",
+          "formula": "=IF([tenTaiSan]{row}=\"\",\"\",IF([nguyenGia]{row}<30000000,\"Dưới 30 triệu - không đủ tiêu chuẩn TSCĐ\",IF([giaTriConLai]{row}<=0,\"Đã khấu hao hết\",IF([tyLeDaKhauHao]{row}>=0.9,\"Sắp khấu hao hết - lên kế hoạch thay thế\",\"Đang khấu hao\"))))",
+          "note": "Xét tiêu chuẩn ghi nhận trước, tình trạng khấu hao sau. Dòng dưới 30 triệu bị nhắc trước tiên vì nếu đúng vậy thì cả dòng đó không nên nằm trong bảng khấu hao — nó là công cụ dụng cụ, phân bổ dần vào chi phí trả trước chứ không trích khấu hao."
+        }
+      ],
+      "sampleRows": [
+        {
+          "stt": 1,
+          "maTaiSan": "TS001",
+          "tenTaiSan": "Xe tải Hyundai 2,5 tấn",
+          "nhomTaiSan": "Phương tiện vận tải",
+          "ngaySuDung": "2023-03-15",
+          "nguyenGia": 780000000,
+          "soNamKhauHao": 8,
+          "luyKeDauKy": 195000000
+        },
+        {
+          "stt": 2,
+          "maTaiSan": "TS002",
+          "tenTaiSan": "Nhà xưởng sản xuất khu B",
+          "nhomTaiSan": "Nhà cửa vật kiến trúc",
+          "ngaySuDung": "2021-06-01",
+          "nguyenGia": 2400000000,
+          "soNamKhauHao": 20,
+          "luyKeDauKy": 600000000
+        },
+        {
+          "stt": 3,
+          "maTaiSan": "TS003",
+          "tenTaiSan": "Máy photocopy Ricoh MP2555",
+          "nhomTaiSan": "Thiết bị văn phòng",
+          "ngaySuDung": "2021-02-10",
+          "nguyenGia": 62000000,
+          "soNamKhauHao": 5,
+          "luyKeDauKy": 58900000
+        },
+        {
+          "stt": 4,
+          "maTaiSan": "TS004",
+          "tenTaiSan": "Hệ thống máy lạnh văn phòng tầng 3",
+          "nhomTaiSan": "Máy móc thiết bị",
+          "ngaySuDung": "2018-09-01",
+          "nguyenGia": 145000000,
+          "soNamKhauHao": 7,
+          "luyKeDauKy": 145000000
+        },
+        {
+          "stt": 5,
+          "maTaiSan": "TS005",
+          "tenTaiSan": "Phần mềm kế toán bản quyền",
+          "nhomTaiSan": "Tài sản vô hình",
+          "ngaySuDung": "2024-01-05",
+          "nguyenGia": 96000000,
+          "soNamKhauHao": 3,
+          "luyKeDauKy": 64000000
+        },
+        {
+          "stt": 6,
+          "maTaiSan": "CC001",
+          "tenTaiSan": "Laptop Dell Latitude phòng kinh doanh",
+          "nhomTaiSan": "Thiết bị quản lý",
+          "ngaySuDung": "2025-11-20",
+          "nguyenGia": 28500000,
+          "soNamKhauHao": 3,
+          "luyKeDauKy": 4750000
+        }
+      ]
+    }
+  ]
+}

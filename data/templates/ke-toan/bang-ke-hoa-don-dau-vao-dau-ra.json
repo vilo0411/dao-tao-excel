@@ -1,0 +1,237 @@
+{
+  "slug": "bang-ke-hoa-don-dau-vao-dau-ra",
+  "category": "ke-toan",
+  "h1": "Mẫu Excel bảng kê hóa đơn GTGT đầu vào đầu ra",
+  "metaTitle": "Mẫu Excel Bảng Kê Hóa Đơn GTGT Đầu Vào Đầu Ra",
+  "metaDesc": "Mẫu Excel bảng kê hóa đơn GTGT đầu vào đầu ra trên cùng một bảng, tự tính tiền thuế, tách thuế đầu ra và thuế đầu vào được khấu trừ, cảnh báo hóa đơn rủi ro.",
+  "primaryKeyword": "mẫu excel bảng kê hóa đơn gtgt",
+  "intro": "Mẫu Excel bảng kê hóa đơn GTGT này gom cả hóa đơn đầu vào lẫn đầu ra vào một bảng duy nhất, phân biệt nhau bằng cột loại hóa đơn. File tự tính tiền thuế và tổng thanh toán từ doanh số chưa thuế, rồi tách riêng hai cột quan trọng nhất cho việc kê khai: thuế đầu ra phải nộp và thuế đầu vào được khấu trừ. Lấy tổng hai cột đó trừ nhau là ra số thuế GTGT phải nộp của kỳ. Cột cảnh báo bắt sẵn ba lỗi khiến hóa đơn bị loại khi quyết toán, trong đó có lỗi tốn tiền nhất là hóa đơn từ 20 triệu đồng trở lên mà thanh toán bằng tiền mặt.",
+  "difficulty": "trung-cap",
+  "features": [
+    "Hóa đơn đầu vào và đầu ra chung một bảng, tách bằng cột loại",
+    "Tự tính tiền thuế và tổng thanh toán từ doanh số chưa thuế",
+    "Tách sẵn cột thuế đầu ra và thuế đầu vào được khấu trừ để kê khai",
+    "Tự loại khỏi phần được khấu trừ những hóa đơn từ 20 triệu trả tiền mặt",
+    "Cảnh báo hóa đơn thiếu mã số thuế đối tác — lỗi bị loại khi quyết toán",
+    "Có sẵn 40 dòng trống đã cài công thức cho một kỳ kê khai"
+  ],
+  "howToUse": [
+    {
+      "step": "Chọn loại hóa đơn cho từng dòng",
+      "detail": "Đầu vào là hóa đơn bạn nhận khi mua hàng, mua dịch vụ. Đầu ra là hóa đơn bạn xuất cho khách. Cột này quyết định dòng đó chảy vào cột thuế đầu ra hay cột thuế được khấu trừ, nên chọn sai là lệch cả số thuế phải nộp."
+    },
+    {
+      "step": "Nhập thông tin hóa đơn và mã số thuế đối tác",
+      "detail": "Ký hiệu, số hóa đơn, ngày, tên đối tác và mã số thuế lấy đúng như trên hóa đơn điện tử. Mã số thuế không được bỏ trống: hóa đơn đầu vào thiếu mã số thuế bên bán là hóa đơn không hợp lệ, và cột cảnh báo sẽ nhắc ngay."
+    },
+    {
+      "step": "Nhập doanh số chưa thuế và thuế suất",
+      "detail": "Doanh số chưa thuế là số tiền hàng trước khi cộng thuế GTGT, thuế suất nhập bằng con số phần trăm, ví dụ gõ 10 cho mức 10%. Hàng thuộc diện không chịu thuế thì nhập 0 và ghi rõ ở cột nội dung để sau này lọc ra."
+    },
+    {
+      "step": "Chọn hình thức thanh toán",
+      "detail": "Cột này không phải để cho đẹp. Với hóa đơn đầu vào có tổng thanh toán từ 20 triệu đồng trở lên, chọn Tiền mặt sẽ khiến file tự đưa phần thuế của dòng đó về 0 ở cột được khấu trừ, đúng như khi cơ quan thuế loại nó ra."
+    },
+    {
+      "step": "Cộng hai cột thuế để lên tờ khai",
+      "detail": "Bôi đen cột Thuế đầu ra và đọc số tổng ở thanh trạng thái, làm tương tự với cột Thuế đầu vào được khấu trừ. Lấy thuế đầu ra trừ thuế đầu vào được khấu trừ là ra số thuế GTGT phải nộp của kỳ; ra số âm nghĩa là kỳ này còn được khấu trừ chuyển sang kỳ sau."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Vì sao hóa đơn từ 20 triệu trả tiền mặt lại không được khấu trừ?",
+      "a": "Vì quy định về thuế GTGT yêu cầu hàng hóa dịch vụ mua vào từ một mức nhất định phải có chứng từ thanh toán không dùng tiền mặt mới đủ điều kiện khấu trừ thuế đầu vào, và mức đang áp dụng là 20 triệu đồng tính trên tổng thanh toán đã có thuế. Cùng điều kiện đó cũng chi phối việc khoản chi có được tính vào chi phí được trừ khi tính thuế thu nhập doanh nghiệp hay không. Đây là mô tả quy định để bạn tự đối chiếu, không phải tư vấn thuế cho trường hợp cụ thể của bạn."
+    },
+    {
+      "q": "Mua nhiều lần trong ngày của cùng một nhà cung cấp thì tính thế nào?",
+      "a": "Quy định nhìn vào tổng giá trị mua trong ngày của cùng một người bán chứ không nhìn từng hóa đơn rời, nên chia nhỏ thành nhiều hóa đơn dưới ngưỡng rồi trả tiền mặt vẫn bị loại. File này xét theo từng dòng nên không tự bắt được trường hợp đó — hãy lọc bảng theo mã số thuế và ngày để tự kiểm khi nghi ngờ."
+    },
+    {
+      "q": "Vì sao thuế suất nhập bằng số 10 chứ không phải 10%?",
+      "a": "Vì nhập số nguyên gõ nhanh hơn và tránh được lỗi hay gặp khi ô chưa định dạng phần trăm: gõ 10 vào ô đã định dạng phần trăm ra 1000%, còn gõ 10% vào ô số thường lại thành 0,1. Công thức tiền thuế đã chia lại cho 100 nên bạn cứ gõ đúng con số in trên hóa đơn."
+    },
+    {
+      "q": "Bảng này có thay được tờ khai thuế GTGT không?",
+      "a": "Không. Đây là bảng kê để bạn tổng hợp và tự kiểm tra trước khi kê khai, không phải biểu mẫu nộp cho cơ quan thuế. Tờ khai phải lập trên phần mềm hỗ trợ kê khai hoặc cổng thuế điện tử với đúng biểu mẫu hiện hành. Dùng bảng này để phát hiện hóa đơn thiếu, hóa đơn sai điều kiện khấu trừ trước khi số liệu lên tờ khai."
+    },
+    {
+      "q": "Hóa đơn bị điều chỉnh hoặc thay thế thì ghi thế nào?",
+      "a": "Ghi thêm một dòng mới cho hóa đơn điều chỉnh với đúng số hóa đơn của nó, và nếu là điều chỉnh giảm thì nhập doanh số chưa thuế bằng số âm để phần thuế cũng âm theo và cấn trừ đúng khi cộng tổng. Đừng sửa đè lên dòng hóa đơn gốc: dấu vết hai hóa đơn phải còn đủ trên bảng kê để khớp với dữ liệu hóa đơn điện tử."
+    }
+  ],
+  "ctaText": "Học cách tổng hợp hóa đơn và lên số thuế trên Excel",
+  "relatedSlugs": ["bang-ke-thu-chi", "bang-theo-doi-cong-no-phai-tra"],
+  "updatedAt": "2026-08-10",
+  "sheets": [
+    {
+      "name": "Bảng kê hóa đơn",
+      "description": "Hóa đơn GTGT đầu vào và đầu ra của một kỳ kê khai, mỗi hóa đơn một dòng.",
+      "blankRows": 40,
+      "columns": [
+        { "key": "stt", "header": "STT", "type": "number", "width": 6 },
+        {
+          "key": "loaiHoaDon",
+          "header": "Loại hóa đơn",
+          "type": "text",
+          "width": 13,
+          "validation": { "type": "list", "options": ["Đầu vào", "Đầu ra"] }
+        },
+        { "key": "ngayHoaDon", "header": "Ngày hóa đơn", "type": "date", "width": 12 },
+        { "key": "kyHieu", "header": "Ký hiệu", "type": "text", "width": 11 },
+        { "key": "soHoaDon", "header": "Số hóa đơn", "type": "text", "width": 12 },
+        { "key": "tenDoiTac", "header": "Tên đối tác", "type": "text", "width": 30 },
+        { "key": "mst", "header": "Mã số thuế", "type": "text", "width": 15 },
+        { "key": "noiDung", "header": "Nội dung", "type": "text", "width": 28 },
+        {
+          "key": "doanhSo",
+          "header": "Doanh số chưa thuế",
+          "type": "currency",
+          "width": 18,
+          "validation": { "type": "decimal", "min": -10000000000, "max": 10000000000 }
+        },
+        {
+          "key": "thueSuat",
+          "header": "Thuế suất (%)",
+          "type": "number",
+          "width": 12,
+          "validation": { "type": "decimal", "min": 0, "max": 20 }
+        },
+        {
+          "key": "hinhThucThanhToan",
+          "header": "Hình thức thanh toán",
+          "type": "text",
+          "width": 18,
+          "validation": {
+            "type": "list",
+            "options": ["Chuyển khoản", "Tiền mặt", "Bù trừ công nợ", "Chưa thanh toán"]
+          }
+        },
+        {
+          "key": "tienThue",
+          "header": "Tiền thuế GTGT",
+          "type": "formula",
+          "width": 16,
+          "format": "currency",
+          "formula": "=IF([soHoaDon]{row}=\"\",\"\",ROUND([doanhSo]{row}*[thueSuat]{row}/100,0))",
+          "note": "Doanh số chưa thuế nhân thuế suất. Chia cho 100 vì thuế suất nhập bằng số nguyên như in trên hóa đơn, và làm tròn tới đồng bằng ROUND để khớp với con số ghi trên hóa đơn điện tử."
+        },
+        {
+          "key": "tongThanhToan",
+          "header": "Tổng thanh toán",
+          "type": "formula",
+          "width": 18,
+          "format": "currency",
+          "formula": "=IF([soHoaDon]{row}=\"\",\"\",[doanhSo]{row}+[tienThue]{row})",
+          "note": "Số tiền thật sự trả hoặc thu, đã gồm thuế. Đây mới là con số đem so với ngưỡng 20 triệu của điều kiện thanh toán không dùng tiền mặt, chứ không phải doanh số chưa thuế."
+        },
+        {
+          "key": "thueDauRa",
+          "header": "Thuế đầu ra",
+          "type": "formula",
+          "width": 16,
+          "format": "currency",
+          "formula": "=IF([soHoaDon]{row}=\"\",\"\",IF([loaiHoaDon]{row}=\"Đầu ra\",[tienThue]{row},0))",
+          "note": "Chỉ nhận tiền thuế của hóa đơn bạn xuất ra. Tổng cột này là thuế GTGT đầu ra của kỳ, một trong hai số cần có để lên tờ khai."
+        },
+        {
+          "key": "thueDuocKhauTru",
+          "header": "Thuế đầu vào được khấu trừ",
+          "type": "formula",
+          "width": 22,
+          "format": "currency",
+          "formula": "=IF([soHoaDon]{row}=\"\",\"\",IF([loaiHoaDon]{row}<>\"Đầu vào\",0,IF(AND([tongThanhToan]{row}>=20000000,[hinhThucThanhToan]{row}=\"Tiền mặt\"),0,[tienThue]{row})))",
+          "note": "Nhận tiền thuế của hóa đơn đầu vào, trừ trường hợp tổng thanh toán từ 20 triệu đồng mà trả bằng tiền mặt thì trả về 0 — đúng như khi khoản thuế đó bị loại. Lấy tổng cột Thuế đầu ra trừ tổng cột này ra số thuế phải nộp của kỳ."
+        },
+        {
+          "key": "canhBao",
+          "header": "Cảnh báo",
+          "type": "formula",
+          "width": 34,
+          "format": "text",
+          "formula": "=IF([soHoaDon]{row}=\"\",\"\",IF([mst]{row}=\"\",\"Thiếu mã số thuế đối tác\",IF(AND([loaiHoaDon]{row}=\"Đầu vào\",[tongThanhToan]{row}>=20000000,[hinhThucThanhToan]{row}=\"Tiền mặt\"),\"Từ 20 triệu trả tiền mặt - không được khấu trừ\",IF([doanhSo]{row}=0,\"Chưa nhập doanh số\",\"Hợp lệ\"))))",
+          "note": "Ba lỗi khiến hóa đơn bị loại hoặc bị hỏi khi quyết toán, xếp theo mức tốn kém giảm dần. Thiếu mã số thuế đứng đầu vì nó làm hóa đơn không hợp lệ ngay từ hình thức, không cứu được bằng cách đổi cách thanh toán như lỗi thứ hai."
+        }
+      ],
+      "sampleRows": [
+        {
+          "stt": 1,
+          "loaiHoaDon": "Đầu ra",
+          "ngayHoaDon": "2026-07-03",
+          "kyHieu": "1C26TAA",
+          "soHoaDon": "00001245",
+          "tenDoiTac": "Công ty TNHH Thương mại An Phát",
+          "mst": "0301234567",
+          "noiDung": "Bán hàng hóa theo hợp đồng 12/2026",
+          "doanhSo": 185000000,
+          "thueSuat": 10,
+          "hinhThucThanhToan": "Chuyển khoản"
+        },
+        {
+          "stt": 2,
+          "loaiHoaDon": "Đầu vào",
+          "ngayHoaDon": "2026-07-05",
+          "kyHieu": "1C26TBB",
+          "soHoaDon": "00007781",
+          "tenDoiTac": "Công ty CP Sản xuất Minh Long",
+          "mst": "0302987654",
+          "noiDung": "Mua nguyên vật liệu nhập kho",
+          "doanhSo": 96000000,
+          "thueSuat": 10,
+          "hinhThucThanhToan": "Chuyển khoản"
+        },
+        {
+          "stt": 3,
+          "loaiHoaDon": "Đầu vào",
+          "ngayHoaDon": "2026-07-09",
+          "kyHieu": "1C26TCC",
+          "soHoaDon": "00000342",
+          "tenDoiTac": "Cửa hàng vật tư Hòa Bình",
+          "mst": "8102345678",
+          "noiDung": "Mua vật tư sửa chữa xưởng",
+          "doanhSo": 24000000,
+          "thueSuat": 10,
+          "hinhThucThanhToan": "Tiền mặt"
+        },
+        {
+          "stt": 4,
+          "loaiHoaDon": "Đầu vào",
+          "ngayHoaDon": "2026-07-12",
+          "kyHieu": "1C26TDD",
+          "soHoaDon": "00019004",
+          "tenDoiTac": "Công ty Dịch vụ vận tải Tân Cảng",
+          "mst": "",
+          "noiDung": "Cước vận chuyển tháng 6",
+          "doanhSo": 18500000,
+          "thueSuat": 8,
+          "hinhThucThanhToan": "Chuyển khoản"
+        },
+        {
+          "stt": 5,
+          "loaiHoaDon": "Đầu ra",
+          "ngayHoaDon": "2026-07-18",
+          "kyHieu": "1C26TAA",
+          "soHoaDon": "00001246",
+          "tenDoiTac": "Công ty TNHH Phân phối Đại Việt",
+          "mst": "0304556677",
+          "noiDung": "Bán hàng hóa lô tháng 7",
+          "doanhSo": 240000000,
+          "thueSuat": 10,
+          "hinhThucThanhToan": "Chưa thanh toán"
+        },
+        {
+          "stt": 6,
+          "loaiHoaDon": "Đầu vào",
+          "ngayHoaDon": "2026-07-25",
+          "kyHieu": "1C26TEE",
+          "soHoaDon": "00002210",
+          "tenDoiTac": "Công ty Điện lực khu vực",
+          "mst": "0100100079",
+          "noiDung": "Tiền điện tháng 6 nhà xưởng",
+          "doanhSo": 32500000,
+          "thueSuat": 8,
+          "hinhThucThanhToan": "Chuyển khoản"
+        }
+      ]
+    }
+  ]
+}

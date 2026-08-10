@@ -1,0 +1,40 @@
+[
+  [
+    {
+      "conPhaiQuyetToan": 0.0,
+      "tyLeQuyetToan": 1.0,
+      "soNgayQuaHan": 0,
+      "trangThai": "Đã quyết toán xong"
+    },
+    {
+      "conPhaiQuyetToan": 0.0,
+      "tyLeQuyetToan": 1.0,
+      "soNgayQuaHan": 0,
+      "trangThai": "Đã quyết toán xong"
+    },
+    {
+      "conPhaiQuyetToan": 20000000.0,
+      "tyLeQuyetToan": 0.0,
+      "soNgayQuaHan": 21.0,
+      "trangThai": "Quá hạn trên 15 ngày"
+    },
+    {
+      "conPhaiQuyetToan": 12000000.0,
+      "tyLeQuyetToan": 0.0,
+      "soNgayQuaHan": 0,
+      "trangThai": "Trong hạn"
+    },
+    {
+      "conPhaiQuyetToan": -4500000.0,
+      "tyLeQuyetToan": 1.15,
+      "soNgayQuaHan": 0,
+      "trangThai": "Chi vượt - phải hoàn cho nhân viên"
+    },
+    {
+      "conPhaiQuyetToan": 2500000.0,
+      "tyLeQuyetToan": 0.5833333333333334,
+      "soNgayQuaHan": 3.0,
+      "trangThai": "Quá hạn 1-15 ngày"
+    }
+  ]
+]

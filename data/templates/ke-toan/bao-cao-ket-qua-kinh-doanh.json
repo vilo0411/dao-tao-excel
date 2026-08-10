@@ -1,0 +1,313 @@
+{
+  "slug": "bao-cao-ket-qua-kinh-doanh",
+  "category": "ke-toan",
+  "h1": "Mẫu Excel báo cáo kết quả kinh doanh theo tháng",
+  "metaTitle": "Mẫu Excel Báo Cáo Kết Quả Kinh Doanh Theo Tháng",
+  "metaDesc": "Mẫu Excel báo cáo kết quả kinh doanh: mỗi tháng một dòng, tự tính doanh thu thuần, lãi gộp, lợi nhuận trước và sau thuế, biên lãi gộp và biên lợi nhuận ròng.",
+  "primaryKeyword": "mẫu excel báo cáo kết quả kinh doanh",
+  "intro": "Mẫu Excel báo cáo kết quả kinh doanh này xếp mỗi tháng thành một dòng thay vì mỗi chỉ tiêu một dòng như biểu mẫu nộp cơ quan thuế. Đổi chiều như vậy để so tháng này với tháng khác chỉ cần liếc dọc một cột, và để kéo công thức xuống là có ngay tháng tiếp theo. Bạn nhập doanh thu, giá vốn và các nhóm chi phí, file tự ra doanh thu thuần, lợi nhuận gộp, lợi nhuận trước thuế, thuế thu nhập doanh nghiệp và lợi nhuận sau thuế, kèm hai tỷ lệ đáng đọc nhất là biên lãi gộp và biên lợi nhuận ròng.",
+  "difficulty": "trung-cap",
+  "features": [
+    "Mỗi tháng một dòng, so sánh giữa các tháng chỉ cần nhìn dọc một cột",
+    "Tự tính đủ chuỗi: doanh thu thuần, lãi gộp, lợi nhuận trước thuế, sau thuế",
+    "Thuế thu nhập doanh nghiệp không tính trên tháng lỗ, nhờ chặn bằng hàm MAX",
+    "Hai biên lợi nhuận tách bạch: lãi gộp cho giá vốn, lãi ròng cho chi phí vận hành",
+    "Cảnh báo phân biệt tháng lỗ, tháng lãi gộp mỏng và tháng bị chi phí ăn hết",
+    "Có sẵn 18 dòng trống đã cài công thức, đủ cho hơn hai năm"
+  ],
+  "howToUse": [
+    {
+      "step": "Lấy số từ sổ sách của tháng",
+      "detail": "Doanh thu bán hàng là doanh thu ghi nhận trong tháng, không phải tiền đã thu. Giảm trừ doanh thu gồm chiết khấu thương mại, giảm giá hàng bán và hàng bán bị trả lại. Giá vốn hàng bán là giá vốn của đúng phần hàng đã bán ra trong tháng, không phải tiền mua hàng nhập kho."
+    },
+    {
+      "step": "Tách chi phí bán hàng khỏi chi phí quản lý",
+      "detail": "Chi phí bán hàng là chi phí để bán được hàng: lương kinh doanh, vận chuyển giao hàng, quảng cáo, hoa hồng. Chi phí quản lý là chi phí duy trì bộ máy: lương văn phòng, thuê nhà, khấu hao thiết bị quản lý. Tách sai hai nhóm này thì tổng lợi nhuận vẫn đúng nhưng bạn mất khả năng biết tiền chảy đi đâu."
+    },
+    {
+      "step": "Nhập hoạt động tài chính và các khoản khác",
+      "detail": "Doanh thu tài chính thường là lãi tiền gửi, chi phí tài chính thường là lãi vay. Thu nhập khác và chi phí khác là những khoản không lặp lại như thanh lý tài sản hay tiền phạt hợp đồng — để riêng nên chúng không làm méo bức tranh hoạt động chính."
+    },
+    {
+      "step": "Đặt thuế suất thuế thu nhập doanh nghiệp",
+      "detail": "Nhập bằng con số phần trăm, ví dụ gõ 20 cho mức 20%. Doanh nghiệp thuộc diện được ưu đãi thì gõ đúng mức đang áp dụng cho mình. Tháng lỗ sẽ tự ra thuế bằng 0, bạn không phải xóa công thức."
+    },
+    {
+      "step": "Đọc hai cột biên lợi nhuận",
+      "detail": "Biên lãi gộp tụt là chuyện của giá bán và giá vốn: hàng đang bị bán rẻ đi hoặc đầu vào đang đắt lên. Biên lãi gộp giữ nguyên mà biên lợi nhuận ròng tụt là chuyện của chi phí bán hàng và quản lý. Hai nguyên nhân đó đòi hai cách xử lý hoàn toàn khác nhau, nên file tách riêng hai cột."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Vì sao báo cáo này xếp ngang theo tháng, khác biểu mẫu chính thức?",
+      "a": "Biểu mẫu báo cáo tài chính nộp cho cơ quan thuế xếp mỗi chỉ tiêu một dòng, hai cột số cho kỳ này và kỳ trước, và đó là bố cục để nộp chứ không phải để phân tích. Bảng này xếp ngược lại vì mục đích khác: theo dõi xu hướng qua nhiều tháng. Muốn nộp báo cáo thì lấy số từ đây điền sang biểu mẫu chính thức, đừng nộp file này."
+    },
+    {
+      "q": "Vì sao thuế thu nhập doanh nghiệp bọc hàm MAX?",
+      "a": "Vì tháng lỗ thì lợi nhuận trước thuế âm, nhân với thuế suất sẽ ra số thuế âm — đọc thành được hoàn thuế, chuyện không xảy ra. MAX(0; lợi nhuận) đưa mọi số âm về 0 trước khi nhân thuế suất, nên tháng lỗ ra thuế bằng 0 và lợi nhuận sau thuế đúng bằng số lỗ."
+    },
+    {
+      "q": "Cộng thuế của mười hai tháng có ra số thuế phải nộp cả năm không?",
+      "a": "Thường là không. Thuế thu nhập doanh nghiệp tính trên kết quả của cả năm chứ không phải cộng dồn từng tháng, nên một năm có tháng lỗ tháng lãi sẽ cho hai kết quả khác nhau giữa hai cách tính. Ngoài ra thu nhập tính thuế còn phải loại các khoản chi không được trừ và có thể bù trừ lỗ của những năm trước theo quy định. Con số ở cột này là ước tính để bạn nhìn lợi nhuận sau thuế theo tháng, không phải số quyết toán."
+    },
+    {
+      "q": "Lợi nhuận dương mà vẫn thiếu tiền trả lương thì vì sao?",
+      "a": "Vì báo cáo này ghi nhận theo thời điểm phát sinh chứ không theo thời điểm thu chi tiền. Hàng đã giao và đã xuất hóa đơn thì tính vào doanh thu ngay cả khi khách chưa trả tiền, còn tiền mua hàng nhập kho chưa bán thì chưa vào giá vốn. Muốn biết có đủ tiền hay không thì xem bảng theo dõi dòng tiền, hai bảng đó trả lời hai câu hỏi khác nhau."
+    },
+    {
+      "q": "Doanh nghiệp dịch vụ không có giá vốn thì bỏ cột đó được không?",
+      "a": "Không nên bỏ cột, hãy để 0 hoặc dùng nó cho chi phí trực tiếp tạo ra dịch vụ như lương nhân sự làm dự án và chi phí thuê ngoài. Bỏ cột đi thì mọi công thức phía sau trỏ hụt và cả bảng gãy; để 0 thì biên lãi gộp bằng 100% và bạn đọc thẳng biên lợi nhuận ròng là đủ."
+    }
+  ],
+  "ctaText": "Học cách dựng báo cáo kết quả kinh doanh và phân tích số trên Excel",
+  "relatedSlugs": ["bang-theo-doi-dong-tien", "bang-du-toan-ngan-sach"],
+  "updatedAt": "2026-08-10",
+  "sheets": [
+    {
+      "name": "Kết quả kinh doanh",
+      "description": "Mỗi dòng là một tháng, từ doanh thu tới lợi nhuận sau thuế.",
+      "blankRows": 18,
+      "columns": [
+        { "key": "stt", "header": "STT", "type": "number", "width": 6 },
+        { "key": "ky", "header": "Kỳ", "type": "text", "width": 16 },
+        {
+          "key": "doanhThuBanHang",
+          "header": "Doanh thu bán hàng",
+          "type": "currency",
+          "width": 18,
+          "validation": { "type": "decimal", "min": 0, "max": 100000000000 }
+        },
+        {
+          "key": "giamTruDoanhThu",
+          "header": "Giảm trừ doanh thu",
+          "type": "currency",
+          "width": 17,
+          "validation": { "type": "decimal", "min": 0, "max": 100000000000 }
+        },
+        {
+          "key": "giaVonHangBan",
+          "header": "Giá vốn hàng bán",
+          "type": "currency",
+          "width": 18,
+          "validation": { "type": "decimal", "min": 0, "max": 100000000000 }
+        },
+        {
+          "key": "doanhThuTaiChinh",
+          "header": "Doanh thu tài chính",
+          "type": "currency",
+          "width": 17,
+          "validation": { "type": "decimal", "min": 0, "max": 100000000000 }
+        },
+        {
+          "key": "chiPhiTaiChinh",
+          "header": "Chi phí tài chính",
+          "type": "currency",
+          "width": 17,
+          "validation": { "type": "decimal", "min": 0, "max": 100000000000 }
+        },
+        {
+          "key": "chiPhiBanHang",
+          "header": "Chi phí bán hàng",
+          "type": "currency",
+          "width": 17,
+          "validation": { "type": "decimal", "min": 0, "max": 100000000000 }
+        },
+        {
+          "key": "chiPhiQuanLy",
+          "header": "Chi phí quản lý",
+          "type": "currency",
+          "width": 17,
+          "validation": { "type": "decimal", "min": 0, "max": 100000000000 }
+        },
+        {
+          "key": "thuNhapKhac",
+          "header": "Thu nhập khác",
+          "type": "currency",
+          "width": 15,
+          "validation": { "type": "decimal", "min": 0, "max": 100000000000 }
+        },
+        {
+          "key": "chiPhiKhac",
+          "header": "Chi phí khác",
+          "type": "currency",
+          "width": 15,
+          "validation": { "type": "decimal", "min": 0, "max": 100000000000 }
+        },
+        {
+          "key": "thueSuatTNDN",
+          "header": "Thuế suất TNDN (%)",
+          "type": "number",
+          "width": 13,
+          "validation": { "type": "decimal", "min": 0, "max": 50 }
+        },
+        {
+          "key": "doanhThuThuan",
+          "header": "Doanh thu thuần",
+          "type": "formula",
+          "width": 18,
+          "format": "currency",
+          "formula": "=IF([ky]{row}=\"\",\"\",[doanhThuBanHang]{row}-[giamTruDoanhThu]{row})",
+          "note": "Doanh thu bán hàng trừ các khoản giảm trừ. Đây mới là mẫu số của mọi tỷ lệ phía sau — lấy doanh thu gộp làm mẫu số sẽ thổi phồng biên lợi nhuận đúng bằng phần chiết khấu và hàng bị trả lại."
+        },
+        {
+          "key": "loiNhuanGop",
+          "header": "Lợi nhuận gộp",
+          "type": "formula",
+          "width": 18,
+          "format": "currency",
+          "formula": "=IF([ky]{row}=\"\",\"\",[doanhThuThuan]{row}-[giaVonHangBan]{row})",
+          "note": "Phần còn lại sau khi trừ giá vốn của hàng đã bán, tức là tiền để nuôi toàn bộ chi phí vận hành. Lợi nhuận gộp âm nghĩa là càng bán càng lỗ, và không có cách cắt giảm chi phí nào cứu được."
+        },
+        {
+          "key": "bienLaiGop",
+          "header": "Biên lãi gộp",
+          "type": "formula",
+          "width": 12,
+          "format": "percent",
+          "formula": "=IF([ky]{row}=\"\",\"\",IFERROR([loiNhuanGop]{row}/[doanhThuThuan]{row},0))",
+          "note": "Trong 100 đồng doanh thu thuần còn lại bao nhiêu sau giá vốn. Chỉ số nhạy nhất với việc giảm giá bán và với giá đầu vào tăng, nên tụt ở đây là tín hiệu sớm hơn nhiều so với lúc lợi nhuận cuối cùng chuyển sang âm."
+        },
+        {
+          "key": "loiNhuanThuanHDKD",
+          "header": "Lợi nhuận thuần HĐKD",
+          "type": "formula",
+          "width": 20,
+          "format": "currency",
+          "formula": "=IF([ky]{row}=\"\",\"\",[loiNhuanGop]{row}+[doanhThuTaiChinh]{row}-[chiPhiTaiChinh]{row}-[chiPhiBanHang]{row}-[chiPhiQuanLy]{row})",
+          "note": "Kết quả của hoạt động kinh doanh chính, đã tính cả hoạt động tài chính nhưng chưa tính các khoản bất thường. Đây là con số nên dùng khi so tháng này với tháng khác, vì nó không bị một lần thanh lý tài sản làm nhảy vọt."
+        },
+        {
+          "key": "loiNhuanTruocThue",
+          "header": "Lợi nhuận trước thuế",
+          "type": "formula",
+          "width": 19,
+          "format": "currency",
+          "formula": "=IF([ky]{row}=\"\",\"\",[loiNhuanThuanHDKD]{row}+[thuNhapKhac]{row}-[chiPhiKhac]{row})",
+          "note": "Cộng thêm phần lãi lỗ của các khoản không thuộc hoạt động chính như thanh lý tài sản hay tiền phạt hợp đồng. Đây là căn cứ để ước tính thuế ở cột kế bên."
+        },
+        {
+          "key": "thueTNDN",
+          "header": "Thuế TNDN",
+          "type": "formula",
+          "width": 16,
+          "format": "currency",
+          "formula": "=IF([ky]{row}=\"\",\"\",ROUND(MAX(0,[loiNhuanTruocThue]{row})*[thueSuatTNDN]{row}/100,0))",
+          "note": "Hàm MAX đưa tháng lỗ về 0 trước khi nhân thuế suất, nếu không số thuế sẽ ra âm và đọc thành được hoàn thuế. Đây là số ước tính theo tháng; thuế thật tính trên kết quả cả năm và còn phải loại các khoản chi không được trừ."
+        },
+        {
+          "key": "loiNhuanSauThue",
+          "header": "Lợi nhuận sau thuế",
+          "type": "formula",
+          "width": 19,
+          "format": "currency",
+          "formula": "=IF([ky]{row}=\"\",\"\",[loiNhuanTruocThue]{row}-[thueTNDN]{row})",
+          "note": "Phần lợi nhuận thật sự thuộc về chủ doanh nghiệp. Tháng lỗ giữ nguyên số lỗ vì thuế bằng 0, nên cột này đọc được liền mạch qua cả tháng lãi lẫn tháng lỗ."
+        },
+        {
+          "key": "bienLoiNhuanRong",
+          "header": "Biên lợi nhuận ròng",
+          "type": "formula",
+          "width": 13,
+          "format": "percent",
+          "formula": "=IF([ky]{row}=\"\",\"\",IFERROR([loiNhuanSauThue]{row}/[doanhThuThuan]{row},0))",
+          "note": "Trong 100 đồng doanh thu thuần, cuối cùng còn lại bao nhiêu. Đọc kèm biên lãi gộp mới ra nguyên nhân: hai chỉ số cùng tụt là vấn đề giá vốn, chỉ mình chỉ số này tụt là vấn đề chi phí bán hàng và quản lý."
+        },
+        {
+          "key": "canhBao",
+          "header": "Cảnh báo",
+          "type": "formula",
+          "width": 34,
+          "format": "text",
+          "formula": "=IF([ky]{row}=\"\",\"\",IF([loiNhuanTruocThue]{row}<0,\"Lỗ trong kỳ\",IF([bienLaiGop]{row}<0.2,\"Lãi gộp mỏng - xem lại giá vốn\",IF([bienLoiNhuanRong]{row}<0.05,\"Chi phí vận hành ăn gần hết lãi gộp\",\"Bình thường\"))))",
+          "note": "Ba tình huống, mỗi tình huống trỏ về một chỗ khác nhau để đi tìm nguyên nhân. Ngưỡng 20% và 5% là mức tham chiếu chung, doanh nghiệp thương mại vòng quay nhanh có thể sống tốt dưới mức đó — hãy sửa hai con số này cho hợp ngành của bạn."
+        }
+      ],
+      "sampleRows": [
+        {
+          "stt": 1,
+          "ky": "Tháng 01/2026",
+          "doanhThuBanHang": 420000000,
+          "giamTruDoanhThu": 5000000,
+          "giaVonHangBan": 268000000,
+          "doanhThuTaiChinh": 1200000,
+          "chiPhiTaiChinh": 6500000,
+          "chiPhiBanHang": 42000000,
+          "chiPhiQuanLy": 58000000,
+          "thuNhapKhac": 0,
+          "chiPhiKhac": 0,
+          "thueSuatTNDN": 20
+        },
+        {
+          "stt": 2,
+          "ky": "Tháng 02/2026",
+          "doanhThuBanHang": 260000000,
+          "giamTruDoanhThu": 3000000,
+          "giaVonHangBan": 172000000,
+          "doanhThuTaiChinh": 900000,
+          "chiPhiTaiChinh": 6500000,
+          "chiPhiBanHang": 38000000,
+          "chiPhiQuanLy": 72000000,
+          "thuNhapKhac": 0,
+          "chiPhiKhac": 4000000,
+          "thueSuatTNDN": 20
+        },
+        {
+          "stt": 3,
+          "ky": "Tháng 03/2026",
+          "doanhThuBanHang": 455000000,
+          "giamTruDoanhThu": 6000000,
+          "giaVonHangBan": 290000000,
+          "doanhThuTaiChinh": 1000000,
+          "chiPhiTaiChinh": 6200000,
+          "chiPhiBanHang": 44000000,
+          "chiPhiQuanLy": 59000000,
+          "thuNhapKhac": 12000000,
+          "chiPhiKhac": 0,
+          "thueSuatTNDN": 20
+        },
+        {
+          "stt": 4,
+          "ky": "Tháng 04/2026",
+          "doanhThuBanHang": 390000000,
+          "giamTruDoanhThu": 4000000,
+          "giaVonHangBan": 258000000,
+          "doanhThuTaiChinh": 800000,
+          "chiPhiTaiChinh": 6000000,
+          "chiPhiBanHang": 40000000,
+          "chiPhiQuanLy": 60000000,
+          "thuNhapKhac": 0,
+          "chiPhiKhac": 2500000,
+          "thueSuatTNDN": 20
+        },
+        {
+          "stt": 5,
+          "ky": "Tháng 05/2026",
+          "doanhThuBanHang": 510000000,
+          "giamTruDoanhThu": 7000000,
+          "giaVonHangBan": 320000000,
+          "doanhThuTaiChinh": 1500000,
+          "chiPhiTaiChinh": 5800000,
+          "chiPhiBanHang": 47000000,
+          "chiPhiQuanLy": 61000000,
+          "thuNhapKhac": 0,
+          "chiPhiKhac": 0,
+          "thueSuatTNDN": 20
+        },
+        {
+          "stt": 6,
+          "ky": "Tháng 06/2026",
+          "doanhThuBanHang": 480000000,
+          "giamTruDoanhThu": 5000000,
+          "giaVonHangBan": 305000000,
+          "doanhThuTaiChinh": 1100000,
+          "chiPhiTaiChinh": 5500000,
+          "chiPhiBanHang": 45000000,
+          "chiPhiQuanLy": 62000000,
+          "thuNhapKhac": 0,
+          "chiPhiKhac": 1800000,
+          "thueSuatTNDN": 20
+        }
+      ]
+    }
+  ]
+}

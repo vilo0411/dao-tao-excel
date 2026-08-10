@@ -1,0 +1,70 @@
+[
+  [
+    {
+      "doanhThuThuan": 415000000.0,
+      "loiNhuanGop": 147000000.0,
+      "bienLaiGop": 0.3542168674698795,
+      "loiNhuanThuanHDKD": 41700000.0,
+      "loiNhuanTruocThue": 41700000.0,
+      "thueTNDN": 8340000.0,
+      "loiNhuanSauThue": 33360000.0,
+      "bienLoiNhuanRong": 0.0803855421686747,
+      "canhBao": "Bình thường"
+    },
+    {
+      "doanhThuThuan": 257000000.0,
+      "loiNhuanGop": 85000000.0,
+      "bienLaiGop": 0.33073929961089493,
+      "loiNhuanThuanHDKD": -30600000.0,
+      "loiNhuanTruocThue": -34600000.0,
+      "thueTNDN": 0.0,
+      "loiNhuanSauThue": -34600000.0,
+      "bienLoiNhuanRong": -0.13463035019455252,
+      "canhBao": "Lỗ trong kỳ"
+    },
+    {
+      "doanhThuThuan": 449000000.0,
+      "loiNhuanGop": 159000000.0,
+      "bienLaiGop": 0.35412026726057905,
+      "loiNhuanThuanHDKD": 50800000.0,
+      "loiNhuanTruocThue": 62800000.0,
+      "thueTNDN": 12560000.0,
+      "loiNhuanSauThue": 50240000.0,
+      "bienLoiNhuanRong": 0.11189309576837417,
+      "canhBao": "Bình thường"
+    },
+    {
+      "doanhThuThuan": 386000000.0,
+      "loiNhuanGop": 128000000.0,
+      "bienLaiGop": 0.3316062176165803,
+      "loiNhuanThuanHDKD": 22800000.0,
+      "loiNhuanTruocThue": 20300000.0,
+      "thueTNDN": 4060000.0,
+      "loiNhuanSauThue": 16240000.0,
+      "bienLoiNhuanRong": 0.04207253886010363,
+      "canhBao": "Chi phí vận hành ăn gần hết lãi gộp"
+    },
+    {
+      "doanhThuThuan": 503000000.0,
+      "loiNhuanGop": 183000000.0,
+      "bienLaiGop": 0.36381709741550694,
+      "loiNhuanThuanHDKD": 70700000.0,
+      "loiNhuanTruocThue": 70700000.0,
+      "thueTNDN": 14140000.0,
+      "loiNhuanSauThue": 56560000.0,
+      "bienLoiNhuanRong": 0.11244532803180915,
+      "canhBao": "Bình thường"
+    },
+    {
+      "doanhThuThuan": 475000000.0,
+      "loiNhuanGop": 170000000.0,
+      "bienLaiGop": 0.35789473684210527,
+      "loiNhuanThuanHDKD": 58600000.0,
+      "loiNhuanTruocThue": 56800000.0,
+      "thueTNDN": 11360000.0,
+      "loiNhuanSauThue": 45440000.0,
+      "bienLoiNhuanRong": 0.09566315789473684,
+      "canhBao": "Bình thường"
+    }
+  ]
+]

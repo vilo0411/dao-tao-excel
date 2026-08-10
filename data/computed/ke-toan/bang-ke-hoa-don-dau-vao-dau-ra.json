@@ -1,0 +1,46 @@
+[
+  [
+    {
+      "tienThue": 18500000.0,
+      "tongThanhToan": 203500000.0,
+      "thueDauRa": 18500000.0,
+      "thueDuocKhauTru": 0,
+      "canhBao": "Hợp lệ"
+    },
+    {
+      "tienThue": 9600000.0,
+      "tongThanhToan": 105600000.0,
+      "thueDauRa": 0,
+      "thueDuocKhauTru": 9600000.0,
+      "canhBao": "Hợp lệ"
+    },
+    {
+      "tienThue": 2400000.0,
+      "tongThanhToan": 26400000.0,
+      "thueDauRa": 0,
+      "thueDuocKhauTru": 0,
+      "canhBao": "Từ 20 triệu trả tiền mặt - không được khấu trừ"
+    },
+    {
+      "tienThue": 1480000.0,
+      "tongThanhToan": 19980000.0,
+      "thueDauRa": 0,
+      "thueDuocKhauTru": 1480000.0,
+      "canhBao": "Thiếu mã số thuế đối tác"
+    },
+    {
+      "tienThue": 24000000.0,
+      "tongThanhToan": 264000000.0,
+      "thueDauRa": 24000000.0,
+      "thueDuocKhauTru": 0,
+      "canhBao": "Hợp lệ"
+    },
+    {
+      "tienThue": 2600000.0,
+      "tongThanhToan": 35100000.0,
+      "thueDauRa": 0,
+      "thueDuocKhauTru": 2600000.0,
+      "canhBao": "Hợp lệ"
+    }
+  ]
+]

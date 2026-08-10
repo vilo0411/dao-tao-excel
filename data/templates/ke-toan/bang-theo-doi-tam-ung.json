@@ -1,0 +1,239 @@
+{
+  "slug": "bang-theo-doi-tam-ung",
+  "category": "ke-toan",
+  "h1": "Mẫu Excel theo dõi tạm ứng và hoàn ứng nhân viên",
+  "metaTitle": "Mẫu Excel Theo Dõi Tạm Ứng Nhân Viên - Tải Free",
+  "metaDesc": "Mẫu Excel theo dõi tạm ứng nhân viên: tự tính số còn phải quyết toán, đếm ngày quá hạn hoàn ứng và xếp trạng thái từng khoản. Tải về nhập số là dùng ngay.",
+  "primaryKeyword": "mẫu excel theo dõi tạm ứng",
+  "intro": "Mẫu Excel theo dõi tạm ứng này trả lời đúng câu hỏi mà kế toán bị hỏi vào cuối mỗi tháng: ai đang giữ tiền của công ty, bao nhiêu, và quá hạn bao lâu. Mỗi khoản tạm ứng một dòng, bạn nhập số tiền ứng, hạn hoàn ứng, rồi khi có chứng từ thì nhập số đã quyết toán và số hoàn lại — file tự ra số còn phải quyết toán, số ngày quá hạn và trạng thái của khoản đó. Số còn phải quyết toán ra âm cũng có nghĩa: người tạm ứng đã chi vượt và công ty đang nợ lại họ.",
+  "difficulty": "co-ban",
+  "features": [
+    "Tự tính số còn phải quyết toán từ tiền ứng, tiền đã quyết toán và tiền hoàn lại",
+    "Đếm số ngày quá hạn theo ngày chốt sổ, không phụ thuộc ngày mở file",
+    "Năm trạng thái tách bạch, gồm cả trường hợp chi vượt phải hoàn lại cho nhân viên",
+    "Tỷ lệ đã quyết toán cho biết khoản nào mới xong một phần",
+    "Bộ phận chọn từ danh sách để lọc và cộng theo bộ phận không bị lệch"
+  ],
+  "howToUse": [
+    {
+      "step": "Ghi khoản tạm ứng ngay khi chi tiền",
+      "detail": "Nhập số phiếu chi, ngày tạm ứng, người nhận, bộ phận, lý do và số tiền. Ba cột quyết toán để trống — đó là dấu hiệu khoản này còn đang treo."
+    },
+    {
+      "step": "Đặt hạn hoàn ứng cho từng khoản",
+      "detail": "Hạn hoàn ứng nên bám theo quy chế tài chính của công ty, thường là vài ngày sau khi công việc kết thúc. Không có hạn thì cột quá hạn vô nghĩa, và khoản tạm ứng dễ nằm im hết quý này sang quý khác."
+    },
+    {
+      "step": "Nhập ngày chốt sổ",
+      "detail": "Cột này là mốc thời gian để tính quá hạn, thường là ngày cuối tháng hoặc ngày bạn đang rà soát. Điền cùng một ngày cho mọi dòng. File cố tình không dùng hàm lấy ngày hôm nay để bảng in ra hôm nay và bảng in lại tháng sau vẫn cho cùng một con số."
+    },
+    {
+      "step": "Nhập số liệu quyết toán khi nhận chứng từ",
+      "detail": "Số đã quyết toán là tổng chứng từ hợp lệ người tạm ứng nộp về, số hoàn lại là tiền mặt họ trả lại. Cộng hai số đó bằng đúng số tiền ứng thì khoản này đóng, cột trạng thái sẽ chuyển sang Đã quyết toán xong."
+    },
+    {
+      "step": "Lọc theo trạng thái để đòi",
+      "detail": "Bật bộ lọc ở cột Trạng thái, chọn hai nhóm quá hạn rồi gửi danh sách cho từng bộ phận. Cột số ngày quá hạn cho phép sắp xếp giảm dần, khoản treo lâu nhất nằm trên cùng."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Số còn phải quyết toán ra âm nghĩa là gì?",
+      "a": "Nghĩa là người tạm ứng đã chi nhiều hơn số tiền được ứng, phần chênh lệch công ty phải hoàn lại cho họ. Đây là tình huống bình thường khi chi phí thực tế vượt dự trù, không phải lỗi số liệu — file xếp riêng thành một trạng thái để bạn không lẫn nó với các khoản đang treo. Chỉ cần kiểm rằng phần vượt có chứng từ hợp lệ và có người duyệt."
+    },
+    {
+      "q": "Vì sao dùng cột ngày chốt sổ thay vì hàm TODAY?",
+      "a": "Vì hàm TODAY tự đổi theo ngày mở file. Bảng bạn in ra để họp hôm nay và bảng mở lại tháng sau sẽ hiện hai con số quá hạn khác nhau cho cùng một khoản, nên không đối chiếu được với biên bản đã ký. Cột ngày chốt sổ giữ mốc thời gian cố định trong file; muốn cập nhật thì sửa một lần rồi kéo xuống cả cột."
+    },
+    {
+      "q": "Khoản tạm ứng quá hạn quá lâu thì xử lý thế nào?",
+      "a": "Về sổ sách, tạm ứng là khoản phải thu nội bộ chứ không phải chi phí, nên để treo lâu là số dư trên bảng cân đối không phản ánh đúng thực tế. Thông lệ thường gặp là nhắc bằng văn bản, sau đó trừ vào lương kỳ gần nhất theo đúng quy chế tài chính đã ban hành và trong giới hạn pháp luật lao động cho phép khấu trừ. Việc này cần có quy chế viết sẵn, đừng làm theo thỏa thuận miệng."
+    },
+    {
+      "q": "Một người ứng nhiều lần thì ghi chung một dòng được không?",
+      "a": "Không nên. Mỗi lần ứng là một phiếu chi với hạn hoàn ứng riêng, gộp chung thì mất mốc quá hạn của khoản cũ và mọi con số trên dòng đó trở nên không đối chiếu được với chứng từ. Muốn xem tổng một người đang giữ bao nhiêu thì lọc theo tên rồi đọc số tổng ở thanh trạng thái."
+    }
+  ],
+  "ctaText": "Học cách quản lý công nợ nội bộ và tạm ứng trên Excel",
+  "relatedSlugs": ["so-quy-tien-mat", "bang-theo-doi-cong-no-phai-thu"],
+  "updatedAt": "2026-08-10",
+  "sheets": [
+    {
+      "name": "Theo dõi tạm ứng",
+      "description": "Mỗi khoản tạm ứng một dòng, từ lúc chi tiền tới lúc quyết toán xong.",
+      "blankRows": 30,
+      "columns": [
+        { "key": "stt", "header": "STT", "type": "number", "width": 6 },
+        { "key": "soPhieu", "header": "Số phiếu chi", "type": "text", "width": 13 },
+        { "key": "ngayTamUng", "header": "Ngày tạm ứng", "type": "date", "width": 12 },
+        { "key": "nguoiTamUng", "header": "Người tạm ứng", "type": "text", "width": 22 },
+        {
+          "key": "boPhan",
+          "header": "Bộ phận",
+          "type": "text",
+          "width": 18,
+          "validation": {
+            "type": "list",
+            "options": [
+              "Kinh doanh",
+              "Kế toán",
+              "Hành chính nhân sự",
+              "Sản xuất",
+              "Kho vận",
+              "Kỹ thuật",
+              "Ban giám đốc"
+            ]
+          }
+        },
+        { "key": "lyDo", "header": "Lý do tạm ứng", "type": "text", "width": 30 },
+        {
+          "key": "soTienTamUng",
+          "header": "Số tiền tạm ứng",
+          "type": "currency",
+          "width": 18,
+          "validation": { "type": "decimal", "min": 0, "max": 1000000000 }
+        },
+        { "key": "hanHoanUng", "header": "Hạn hoàn ứng", "type": "date", "width": 12 },
+        {
+          "key": "ngayQuyetToan",
+          "header": "Ngày quyết toán",
+          "type": "date",
+          "width": 13
+        },
+        {
+          "key": "daQuyetToan",
+          "header": "Đã quyết toán",
+          "type": "currency",
+          "width": 18,
+          "validation": { "type": "decimal", "min": 0, "max": 1000000000 }
+        },
+        {
+          "key": "hoanLai",
+          "header": "Tiền hoàn lại",
+          "type": "currency",
+          "width": 16,
+          "validation": { "type": "decimal", "min": 0, "max": 1000000000 }
+        },
+        { "key": "ngayChotSo", "header": "Ngày chốt sổ", "type": "date", "width": 12 },
+        {
+          "key": "conPhaiQuyetToan",
+          "header": "Còn phải quyết toán",
+          "type": "formula",
+          "width": 18,
+          "format": "currency",
+          "formula": "=IF([nguoiTamUng]{row}=\"\",\"\",[soTienTamUng]{row}-[daQuyetToan]{row}-[hoanLai]{row})",
+          "note": "Tiền ứng trừ phần đã có chứng từ và phần đã trả lại bằng tiền mặt. Số dương là phần người tạm ứng còn đang giữ; số âm nghĩa là họ đã chi vượt và công ty phải hoàn lại cho họ."
+        },
+        {
+          "key": "tyLeQuyetToan",
+          "header": "Đã quyết toán",
+          "type": "formula",
+          "width": 12,
+          "format": "percent",
+          "formula": "=IF([nguoiTamUng]{row}=\"\",\"\",IFERROR(([daQuyetToan]{row}+[hoanLai]{row})/[soTienTamUng]{row},0))",
+          "note": "Phần trăm khoản ứng đã được xử lý xong, tính cả chứng từ lẫn tiền trả lại. Cột này tách khoản mới quyết toán một phần khỏi khoản còn nguyên chưa động tới, hai thứ mà con số tiền tuyệt đối không phân biệt được."
+        },
+        {
+          "key": "soNgayQuaHan",
+          "header": "Số ngày quá hạn",
+          "type": "formula",
+          "width": 13,
+          "formula": "=IF([nguoiTamUng]{row}=\"\",\"\",IF([conPhaiQuyetToan]{row}<=0,0,MAX(0,[ngayChotSo]{row}-[hanHoanUng]{row})))",
+          "note": "Chỉ đếm với khoản còn treo: khoản đã quyết toán xong trả về 0 dù ngày quyết toán có trễ hạn. Hàm MAX chặn số âm để khoản chưa tới hạn hiện 0 thay vì một con số ngày âm khó đọc."
+        },
+        {
+          "key": "trangThai",
+          "header": "Trạng thái",
+          "type": "formula",
+          "width": 32,
+          "format": "text",
+          "formula": "=IF([nguoiTamUng]{row}=\"\",\"\",IF([conPhaiQuyetToan]{row}<0,\"Chi vượt - phải hoàn cho nhân viên\",IF([conPhaiQuyetToan]{row}=0,\"Đã quyết toán xong\",IF([soNgayQuaHan]{row}=0,\"Trong hạn\",IF([soNgayQuaHan]{row}<=15,\"Quá hạn 1-15 ngày\",\"Quá hạn trên 15 ngày\")))))",
+          "note": "Năm trạng thái, xét từ trường hợp đảo chiều dòng tiền tới trường hợp treo lâu nhất. Chi vượt được tách riêng vì nó không phải khoản đi đòi mà là khoản phải trả — gộp chung vào nhóm quá hạn thì danh sách đòi nợ sẽ có tên người mà công ty đang nợ."
+        }
+      ],
+      "sampleRows": [
+        {
+          "stt": 1,
+          "soPhieu": "PC-TU-071",
+          "ngayTamUng": "2026-07-02",
+          "nguoiTamUng": "Nguyễn Văn Minh",
+          "boPhan": "Kinh doanh",
+          "lyDo": "Công tác Đà Nẵng gặp khách hàng",
+          "soTienTamUng": 15000000,
+          "hanHoanUng": "2026-07-20",
+          "ngayQuyetToan": "2026-07-18",
+          "daQuyetToan": 12400000,
+          "hoanLai": 2600000,
+          "ngayChotSo": "2026-07-31"
+        },
+        {
+          "stt": 2,
+          "soPhieu": "PC-TU-072",
+          "ngayTamUng": "2026-07-04",
+          "nguoiTamUng": "Trần Thu Hà",
+          "boPhan": "Hành chính nhân sự",
+          "lyDo": "Mua vật tư văn phòng quý III",
+          "soTienTamUng": 8000000,
+          "hanHoanUng": "2026-07-15",
+          "ngayQuyetToan": "2026-07-22",
+          "daQuyetToan": 8000000,
+          "hoanLai": 0,
+          "ngayChotSo": "2026-07-31"
+        },
+        {
+          "stt": 3,
+          "soPhieu": "PC-TU-073",
+          "ngayTamUng": "2026-06-28",
+          "nguoiTamUng": "Lê Quốc Bảo",
+          "boPhan": "Kinh doanh",
+          "lyDo": "Chi phí tiếp khách hội chợ ngành",
+          "soTienTamUng": 20000000,
+          "hanHoanUng": "2026-07-10",
+          "daQuyetToan": 0,
+          "hoanLai": 0,
+          "ngayChotSo": "2026-07-31"
+        },
+        {
+          "stt": 4,
+          "soPhieu": "PC-TU-074",
+          "ngayTamUng": "2026-07-21",
+          "nguoiTamUng": "Phạm Thị Lan",
+          "boPhan": "Kỹ thuật",
+          "lyDo": "Công tác Hà Nội nghiệm thu công trình",
+          "soTienTamUng": 12000000,
+          "hanHoanUng": "2026-08-05",
+          "daQuyetToan": 0,
+          "hoanLai": 0,
+          "ngayChotSo": "2026-07-31"
+        },
+        {
+          "stt": 5,
+          "soPhieu": "PC-TU-075",
+          "ngayTamUng": "2026-07-08",
+          "nguoiTamUng": "Đỗ Hoàng Nam",
+          "boPhan": "Sản xuất",
+          "lyDo": "Mua thiết bị thay thế khẩn cấp cho xưởng",
+          "soTienTamUng": 30000000,
+          "hanHoanUng": "2026-07-25",
+          "ngayQuyetToan": "2026-07-24",
+          "daQuyetToan": 34500000,
+          "hoanLai": 0,
+          "ngayChotSo": "2026-07-31"
+        },
+        {
+          "stt": 6,
+          "soPhieu": "PC-TU-076",
+          "ngayTamUng": "2026-07-12",
+          "nguoiTamUng": "Vũ Minh Châu",
+          "boPhan": "Kế toán",
+          "lyDo": "Học phí khóa đào tạo nghiệp vụ",
+          "soTienTamUng": 6000000,
+          "hanHoanUng": "2026-07-28",
+          "daQuyetToan": 3500000,
+          "hoanLai": 0,
+          "ngayChotSo": "2026-07-31"
+        }
+      ]
+    }
+  ]
+}

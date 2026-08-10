@@ -12,15 +12,15 @@ Cập nhật file này mỗi khi làm xong một template hoặc một hạng m�
 | Hạng mục | Xong | Tổng | |
 | :---- | ---: | ---: | :---- |
 | Template `nhan-su` | 13 | 13 | `██████████` 100% |
-| Template `ke-toan` | 6 | 12 | `█████░░░░░` 50% |
+| Template `ke-toan` | 12 | 12 | `██████████` 100% |
 | Template `quan-ly-cong-viec` | 0 | 12 | `░░░░░░░░░░` 0% |
-| **Tổng template** | **19** | **37** | `█████░░░░░` 51% |
+| **Tổng template** | **25** | **37** | `███████░░░` 68% |
 | Bộ file | 1 | 3 | `███░░░░░░░` 33% |
 | Hạ tầng | 14 | 18 | `███████░░` 78% |
 
 **Giai đoạn hiện tại:** A — nội dung đã đủ, còn lại là rà nghiệp vụ và lên domain.
 **Chặn giai đoạn B:** cần 12 trang qua DoD + lên domain thật + GSC nhận sitemap.
-Nút cổ chai đã đổi: không còn là viết spec mà là **cột Rà** — 19 trang đang chờ người rà soát nghiệp vụ, và nhóm kế toán còn cần người rà gắt hơn nhóm nhân sự.
+Nút cổ chai đã đổi: không còn là viết spec mà là **cột Rà** — 25 trang đang chờ người rà soát nghiệp vụ, và nhóm kế toán còn cần người rà gắt hơn nhóm nhân sự.
 
 ---
 
@@ -89,7 +89,7 @@ Bộ đủ 100% node `live` thì khai thêm khối `bundle`: toàn bộ sheet n�
 | Slug bộ | Category | File live / tổng | Node còn thiếu |
 | :---- | :---- | :---: | :---- |
 | `quan-ly-nhan-su-thang` | `nhan-su` | 5/5 | — · **có file gộp** |
-| _(kế toán — chưa dựng)_ | `ke-toan` | — | cần ≥ 3 template kế toán trước |
+| _(kế toán — chưa dựng)_ | `ke-toan` | — | đã đủ 12 template, dựng bộ được bất cứ lúc nào |
 | _(quản lý công việc — chưa dựng)_ | `quan-ly-cong-viec` | — | cần ≥ 3 template trước |
 
 ⚠️ Đừng công bố một bộ mà node `master` còn `planned`: trang bộ khi đó hứa một file tổng không tồn tại, đúng thứ mà cả site đang phản đối.
@@ -98,7 +98,7 @@ Bộ đủ 100% node `live` thì khai thêm khối `bundle`: toàn bộ sheet n�
 
 ## Kế toán · Tài chính — `/mau-excel/ke-toan`
 
-CTA: `consult` · **Hub đã đủ ngưỡng mở** (5/5 template tối thiểu)
+CTA: `consult` · **Đủ 12/12 template của Phase 1**
 
 | # | Slug | Spec | File | Rà | Live |
 | :--- | :---- | :---: | :---: | :---: | :---: |
@@ -108,12 +108,12 @@ CTA: `consult` · **Hub đã đủ ngưỡng mở** (5/5 template tối thiểu)
 | 4 | `bang-theo-doi-cong-no-phai-tra` | ✅ | ✅ | ⬜ | ⬜ |
 | 5 | `so-kho-nhap-xuat-ton` | ✅ | ✅ | ⬜ | ⬜ |
 | 6 | `bang-theo-doi-dong-tien` | ✅ | ✅ | ⬜ | ⬜ |
-| 7 | `bang-tinh-khau-hao-tai-san-co-dinh` | ⬜ | ⬜ | ⬜ | ⬜ |
-| 8 | `bang-ke-hoa-don-dau-vao-dau-ra` | ⬜ | ⬜ | ⬜ | ⬜ |
-| 9 | `bang-theo-doi-tam-ung` | ⬜ | ⬜ | ⬜ | ⬜ |
-| 10 | `bao-cao-ket-qua-kinh-doanh` | ⬜ | ⬜ | ⬜ | ⬜ |
-| 11 | `bang-tinh-gia-thanh-san-pham` | ⬜ | ⬜ | ⬜ | ⬜ |
-| 12 | `bang-du-toan-ngan-sach` | ⬜ | ⬜ | ⬜ | ⬜ |
+| 7 | `bang-tinh-khau-hao-tai-san-co-dinh` | ✅ | ✅ | ⬜ | ⬜ |
+| 8 | `bang-ke-hoa-don-dau-vao-dau-ra` | ✅ | ✅ | ⬜ | ⬜ |
+| 9 | `bang-theo-doi-tam-ung` | ✅ | ✅ | ⬜ | ⬜ |
+| 10 | `bao-cao-ket-qua-kinh-doanh` | ✅ | ✅ | ⬜ | ⬜ |
+| 11 | `bang-tinh-gia-thanh-san-pham` | ✅ | ✅ | ⬜ | ⬜ |
+| 12 | `bang-du-toan-ngan-sach` | ✅ | ✅ | ⬜ | ⬜ |
 
 **Ghi chú rà nghiệp vụ — đọc trước khi rà:**
 
@@ -125,6 +125,13 @@ Nhóm kế toán khác nhóm nhân sự ở một điểm: sai số ở đây kh
 - Số 5: cột giá trị tồn kho nhân đúng một đơn giá cho cả dòng, tức chỉ đúng với **bình quân gia quyền**. Đã ghi trong FAQ là không thay được cách tính giá theo lô hay FIFO.
 
 - Số 6: ranh giới **dòng tiền không phải lợi nhuận** — file chỉ ghi tiền thật vào ra, không ghi doanh thu đã xuất hóa đơn mà chưa thu. FAQ đã nói rõ; nếu biên tập lại đừng làm mất ranh giới đó, vì đọc số dư cuối kỳ thành lãi là nhầm lẫn tốn kém nhất về dòng tiền. Cũng cần xác nhận bốn nhóm chi (mua hàng / lương và bảo hiểm / vận hành / khác) là cách gom hợp với doanh nghiệp nhỏ Việt Nam, chứ không phải ba nhóm kinh doanh - đầu tư - tài chính theo chuẩn báo cáo lưu chuyển tiền tệ.
+
+- Số 7: mốc **30 triệu đồng** của tiêu chuẩn ghi nhận TSCĐ, và khung thời gian khấu hao tối thiểu / tối đa của sáu nhóm tài sản trong danh sách sổ xuống. File không tự chặn số năm nằm ngoài khung — schema chỉ giới hạn 1–50 năm — nên đây là chỗ người rà phải soi. Cũng cần xác nhận cách file xử lý tháng đầu tiên (không chia theo ngày, hướng dẫn nhập tay vào lũy kế đầu kỳ) là chấp nhận được.
+- Số 8: mốc **20 triệu** dùng lại từ số 2, nhưng ở đây nó không chỉ là cảnh báo mà **đổi luôn con số** ở cột thuế được khấu trừ. Ba điểm cần xác nhận: mốc còn đúng ở thời điểm publish, quy tắc tính theo tổng mua trong ngày của cùng một người bán (file xét theo dòng nên không bắt được, đã ghi trong FAQ), và mức thuế suất 8% xuất hiện trong dòng mẫu có còn hiệu lực không.
+- Số 9: ngưỡng **15 ngày** cho hai bậc quá hạn là quy ước quản trị, không phải quy định. Đoạn FAQ nói về việc trừ vào lương cần rà kỹ nhất trong cả nhóm — phải giữ đúng ranh giới "theo quy chế tài chính đã ban hành và trong giới hạn pháp luật lao động cho phép", đừng để đọc thành lời khuyên trừ lương tự do.
+- Số 10: cột thuế TNDN là **ước tính theo tháng**, không cộng dồn ra số quyết toán năm (không xử lý chuyển lỗ, không loại chi phí không được trừ). FAQ đã nói rõ; giữ nguyên ranh giới đó. Hai ngưỡng 20% và 5% ở cột cảnh báo là mức tham chiếu chung, đã ghi rõ là phải sửa theo ngành.
+- Số 11: ranh buộc lớn nhất là **chi phí bán hàng và quản lý không được đưa vào giá thành** — đưa nhầm là thổi giá trị hàng tồn kho. Cần xác nhận thêm rằng lời khuyên "kiểm lại tiêu thức phân bổ sản xuất chung trước khi dừng mặt hàng" không bị đọc thành khuyến khích bán dưới giá vốn.
+- Số 12: ngưỡng **90%** cho cảnh báo sát trần là quy ước quản trị. Điểm cần soi là logic đảo chiều theo cột Loại — rà bằng cách thử một dòng Thu và một dòng Chi có cùng tỷ lệ thực hiện, hai dòng đó phải cho hai kết luận ngược nhau.
 
 Số 1 và 5 còn một ràng buộc chung: file khai là công cụ theo dõi và đối chiếu, không khai là sổ sách chính thức theo chế độ kế toán. Giữ nguyên ranh giới đó khi biên tập lại.
 
@@ -184,6 +191,7 @@ CTA: `consult` · Hub chưa mở (cần ≥ 5 template)
 
 | Ngày | Việc |
 | :---- | :---- |
+| 10/08/2026 | **Xong 5 template kế toán còn lại — nhóm `ke-toan` đủ 12/12.** Khấu hao TSCĐ (đường thẳng, `MIN` chặn trần để tài sản hết giá trị tự dừng trích thay vì âm dần), bảng kê hóa đơn GTGT (đầu vào và đầu ra chung một bảng, cột thuế được khấu trừ **tự trả về 0** với hóa đơn từ 20 triệu trả tiền mặt — cảnh báo không đủ, phải đổi luôn con số), theo dõi tạm ứng (dùng cột `ngayChotSo` thay `TODAY` như hai file công nợ, để bảng in hôm nay và bảng mở lại tháng sau cho cùng một con số quá hạn), báo cáo kết quả kinh doanh (xếp ngang theo tháng thay vì dọc theo chỉ tiêu; `MAX(0;…)` chặn thuế âm ở tháng lỗ), tính giá thành (dở dang đầu kỳ + phát sinh − dở dang cuối kỳ), dự toán ngân sách (cột đánh giá **đảo chiều theo cột Loại**: cùng tỷ lệ 110% thì dòng Thu là đạt kế hoạch còn dòng Chi là vượt ngân sách) |
 | 10/08/2026 | **`bang-theo-doi-dong-tien`** — kế toán 6/12. Bảng nhìn tiền theo kỳ chứ theo phiếu như sổ quỹ: mỗi dòng một tháng, số dư cuối kỳ cộng dồn bằng `{row-N}`, cột cảnh báo tách riêng *âm dòng tiền* (kỳ này chi trội) khỏi *âm quỹ* (hết tiền thật) vì hai thứ đó đòi hai cách xử lý khác nhau. Hàm mới đầu tiên kể từ khi có glossary: `SUM` — dùng dạng vùng cho khối cột thu và khối cột chi để chèn thêm nhóm không phải sửa công thức, và đã thêm mục từ điển trong `FUNCTION_INFO` như cổng validate yêu cầu |
 | 31/07/2026 | **Bỏ `/khoa-hoc-excel`** (bridge page + form lead + `/api/lead` + `LeadForm`/`lib/lead.ts`), thay bằng **glossary hàm Excel** `/ham-excel` + `/ham-excel/[function]` (PRD mục 2.8, `lib/functions.ts`). Nguồn dữ liệu là `template.functions` đã tự trích sẵn — 8 hàm có template thật dùng (IF, IFERROR, AND, OR, N, ROUND, MAX, MIN). `npm run validate` giờ ném lỗi nếu một hàm mới xuất hiện trong công thức mà chưa có mục từ điển (`FUNCTION_INFO`) |
 | 30/07/2026 | **Mở nhóm `ke-toan` với 5 template đầu**: sổ quỹ tiền mặt, bảng kê thu chi, công nợ phải thu, công nợ phải trả, sổ kho nhập xuất tồn — vừa đủ ngưỡng 5 để mở hub. Mở rộng cú pháp công thức thêm `{row-N}` để cột lũy kế trỏ được lên dòng trên; trước đó cả nhóm cột số dư lũy kế là bất khả thi vì QA cấm tham chiếu tuyệt đối `$`, mà `SUM` neo từ dòng đầu thì gãy khi người dùng kéo công thức xuống |

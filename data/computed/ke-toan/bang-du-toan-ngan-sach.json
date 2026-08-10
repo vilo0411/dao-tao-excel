@@ -1,0 +1,52 @@
+[
+  [
+    {
+      "chenhLech": -148000000.0,
+      "conLai": 148000000.0,
+      "tyLeThucHien": 0.9177777777777778,
+      "danhGia": "Sát kế hoạch thu"
+    },
+    {
+      "chenhLech": 28000000.0,
+      "conLai": -28000000.0,
+      "tyLeThucHien": 1.1166666666666667,
+      "danhGia": "Đạt kế hoạch thu"
+    },
+    {
+      "chenhLech": -106000000.0,
+      "conLai": 106000000.0,
+      "tyLeThucHien": 0.66875,
+      "danhGia": "Hụt kế hoạch thu"
+    },
+    {
+      "chenhLech": -22000000.0,
+      "conLai": 22000000.0,
+      "tyLeThucHien": 0.964516129032258,
+      "danhGia": "Sát trần ngân sách"
+    },
+    {
+      "chenhLech": 37000000.0,
+      "conLai": -37000000.0,
+      "tyLeThucHien": 1.2466666666666666,
+      "danhGia": "Vượt ngân sách"
+    },
+    {
+      "chenhLech": 0.0,
+      "conLai": 0.0,
+      "tyLeThucHien": 1.0,
+      "danhGia": "Sát trần ngân sách"
+    },
+    {
+      "chenhLech": -46000000.0,
+      "conLai": 46000000.0,
+      "tyLeThucHien": 0.780952380952381,
+      "danhGia": "Trong ngân sách"
+    },
+    {
+      "chenhLech": -90000000.0,
+      "conLai": 90000000.0,
+      "tyLeThucHien": 0.0,
+      "danhGia": "Trong ngân sách"
+    }
+  ]
+]

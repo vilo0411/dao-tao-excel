@@ -1,0 +1,278 @@
+{
+  "slug": "bang-tinh-gia-thanh-san-pham",
+  "category": "ke-toan",
+  "h1": "Mẫu Excel tính giá thành sản phẩm theo phương pháp giản đơn",
+  "metaTitle": "Mẫu Excel Tính Giá Thành Sản Phẩm - Tải Miễn Phí",
+  "metaDesc": "Mẫu Excel tính giá thành sản phẩm: cộng ba khoản mục chi phí, cấn trừ dở dang đầu và cuối kỳ, tự ra giá thành đơn vị và cảnh báo sản phẩm bán dưới giá thành.",
+  "primaryKeyword": "mẫu excel tính giá thành sản phẩm",
+  "intro": "Mẫu Excel tính giá thành sản phẩm này làm theo phương pháp giản đơn: gom ba khoản mục chi phí sản xuất của một sản phẩm trong kỳ, cộng chi phí dở dang đầu kỳ và trừ dở dang cuối kỳ, rồi chia cho số lượng hoàn thành để ra giá thành một đơn vị. Đặt cạnh giá bán, file tính luôn lãi gộp trên từng đơn vị và tỷ lệ lãi gộp, nên bạn thấy ngay sản phẩm nào đang bán dưới giá thành — thứ mà báo cáo lãi lỗ tổng không chỉ ra được vì mặt hàng lãi đang che cho mặt hàng lỗ.",
+  "difficulty": "nang-cao",
+  "features": [
+    "Đúng công thức giá thành: dở dang đầu kỳ cộng chi phí phát sinh trừ dở dang cuối kỳ",
+    "Tách ba khoản mục nguyên vật liệu, nhân công và sản xuất chung",
+    "Tỷ trọng nguyên vật liệu cho biết chi phí nào đáng đàm phán lại nhất",
+    "Giá thành đơn vị đặt cạnh giá bán, ra ngay lãi gộp từng sản phẩm",
+    "Cảnh báo sản phẩm bán dưới giá thành và sản phẩm biên lãi mỏng"
+  ],
+  "howToUse": [
+    {
+      "step": "Khai từng sản phẩm và sản lượng hoàn thành",
+      "detail": "Mỗi sản phẩm hoặc mỗi lệnh sản xuất một dòng. Số lượng hoàn thành là số thành phẩm đã nhập kho trong kỳ, không tính phần còn dở trên chuyền — phần dở đó đi vào cột chi phí dở dang cuối kỳ."
+    },
+    {
+      "step": "Tập hợp chi phí nguyên vật liệu trực tiếp",
+      "detail": "Là giá trị vật tư thực xuất dùng cho sản phẩm đó, lấy từ phiếu xuất kho trong kỳ. Nếu một loại vật tư dùng chung cho nhiều sản phẩm thì phải phân bổ trước, thường theo định mức tiêu hao hoặc theo sản lượng."
+    },
+    {
+      "step": "Tập hợp nhân công trực tiếp và sản xuất chung",
+      "detail": "Nhân công trực tiếp là lương và các khoản trích theo lương của người trực tiếp làm ra sản phẩm. Sản xuất chung là chi phí của cả xưởng: khấu hao máy móc, điện sản xuất, lương quản đốc, vật tư phụ. Phần này gần như luôn phải phân bổ, tiêu thức phổ biến là theo giờ công hoặc theo chi phí nhân công trực tiếp."
+    },
+    {
+      "step": "Nhập chi phí dở dang đầu và cuối kỳ",
+      "detail": "Dở dang đầu kỳ lấy đúng bằng dở dang cuối kỳ của bảng kỳ trước. Dở dang cuối kỳ là giá trị phần đang làm chưa xong tại thời điểm chốt, đánh giá theo cách đơn vị bạn đã chọn và giữ nguyên cách đó qua các kỳ."
+    },
+    {
+      "step": "Đọc cột lãi gộp trên từng đơn vị",
+      "detail": "Sản phẩm lãi âm phải xử lý ngay: tăng giá, cắt chi phí, hoặc dừng sản xuất. Nhưng trước khi quyết định, hãy kiểm lại cách phân bổ chi phí sản xuất chung — một tiêu thức phân bổ đặt sai có thể khiến sản phẩm đang lãi nhìn thành lỗ."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Vì sao phải cộng dở dang đầu kỳ và trừ dở dang cuối kỳ?",
+      "a": "Vì chi phí phát sinh trong kỳ không phải đều biến thành thành phẩm của kỳ đó. Phần đang làm dở từ kỳ trước hoàn thành trong kỳ này nên chi phí của nó phải được cộng vào; ngược lại phần kỳ này làm dở chưa xong thì chi phí của nó phải để lại cho kỳ sau. Bỏ hai cột này thì giá thành đơn vị nhảy lung tung theo tiến độ chuyền chứ không phản ánh giá thành thật."
+    },
+    {
+      "q": "Phương pháp giản đơn dùng được cho trường hợp nào?",
+      "a": "Dùng được khi một quy trình sản xuất cho ra một loại sản phẩm và bạn tập hợp được chi phí riêng cho từng loại, điển hình là sản xuất giản đơn hoặc theo đơn hàng. Nếu một quy trình cho ra nhiều sản phẩm đồng thời như chế biến thủy sản hay lọc dầu, cần phương pháp hệ số hoặc tỷ lệ để tách giá thành, và file này không làm thay được việc đó."
+    },
+    {
+      "q": "Chi phí bán hàng và quản lý có đưa vào giá thành không?",
+      "a": "Không. Giá thành sản xuất chỉ gồm ba khoản mục là nguyên vật liệu trực tiếp, nhân công trực tiếp và sản xuất chung. Chi phí bán hàng và chi phí quản lý doanh nghiệp là chi phí thời kỳ, tính thẳng vào kết quả kinh doanh trong kỳ chứ không nằm trong giá trị hàng tồn kho. Đưa nhầm vào đây là thổi giá trị tồn kho lên và làm sai cả báo cáo tài chính."
+    },
+    {
+      "q": "Tỷ trọng nguyên vật liệu dùng để làm gì?",
+      "a": "Nó cho biết trong tổng chi phí sản xuất phát sinh, vật tư chiếm bao nhiêu phần. Sản phẩm có tỷ trọng vật tư cao thì đàm phán giá đầu vào và siết định mức hao hụt sẽ hiệu quả hơn nhiều so với cắt giờ công. Ngược lại, sản phẩm nặng nhân công thì chỗ đáng cải thiện nằm ở năng suất và bố trí chuyền."
+    },
+    {
+      "q": "Sản phẩm bị báo bán dưới giá thành thì có nên dừng ngay không?",
+      "a": "Không phải lúc nào cũng nên. Nếu giá bán vẫn cao hơn phần chi phí biến đổi thì tiếp tục sản xuất vẫn góp phần gánh chi phí cố định của xưởng, dừng lại có khi lỗ nặng hơn. Hãy kiểm lại tiêu thức phân bổ sản xuất chung trước, sau đó mới tính tới việc tăng giá hay ngừng mặt hàng."
+    }
+  ],
+  "ctaText": "Học cách tập hợp chi phí và tính giá thành trên Excel",
+  "relatedSlugs": ["so-kho-nhap-xuat-ton", "bao-cao-ket-qua-kinh-doanh"],
+  "updatedAt": "2026-08-10",
+  "sheets": [
+    {
+      "name": "Tính giá thành",
+      "description": "Mỗi sản phẩm một dòng, từ chi phí tập hợp trong kỳ tới giá thành đơn vị.",
+      "blankRows": 25,
+      "columns": [
+        { "key": "stt", "header": "STT", "type": "number", "width": 6 },
+        { "key": "maSP", "header": "Mã sản phẩm", "type": "text", "width": 13 },
+        { "key": "tenSanPham", "header": "Tên sản phẩm", "type": "text", "width": 32 },
+        {
+          "key": "dvt",
+          "header": "ĐVT",
+          "type": "text",
+          "width": 10,
+          "validation": {
+            "type": "list",
+            "options": ["Cái", "Hộp", "Chai", "Bộ", "Kg", "Mét", "Thùng", "Chiếc"]
+          }
+        },
+        {
+          "key": "soLuong",
+          "header": "Số lượng hoàn thành",
+          "type": "number",
+          "width": 15,
+          "validation": { "type": "decimal", "min": 0, "max": 10000000 }
+        },
+        {
+          "key": "dodangDauKy",
+          "header": "Dở dang đầu kỳ",
+          "type": "currency",
+          "width": 17,
+          "validation": { "type": "decimal", "min": 0, "max": 100000000000 }
+        },
+        {
+          "key": "cpNguyenVatLieu",
+          "header": "Nguyên vật liệu trực tiếp",
+          "type": "currency",
+          "width": 20,
+          "validation": { "type": "decimal", "min": 0, "max": 100000000000 }
+        },
+        {
+          "key": "cpNhanCong",
+          "header": "Nhân công trực tiếp",
+          "type": "currency",
+          "width": 18,
+          "validation": { "type": "decimal", "min": 0, "max": 100000000000 }
+        },
+        {
+          "key": "cpSanXuatChung",
+          "header": "Chi phí sản xuất chung",
+          "type": "currency",
+          "width": 19,
+          "validation": { "type": "decimal", "min": 0, "max": 100000000000 }
+        },
+        {
+          "key": "dodangCuoiKy",
+          "header": "Dở dang cuối kỳ",
+          "type": "currency",
+          "width": 17,
+          "validation": { "type": "decimal", "min": 0, "max": 100000000000 }
+        },
+        {
+          "key": "giaBan",
+          "header": "Giá bán một đơn vị",
+          "type": "currency",
+          "width": 17,
+          "validation": { "type": "decimal", "min": 0, "max": 1000000000 }
+        },
+        {
+          "key": "tongChiPhiPhatSinh",
+          "header": "Chi phí phát sinh trong kỳ",
+          "type": "formula",
+          "width": 20,
+          "format": "currency",
+          "formula": "=IF([tenSanPham]{row}=\"\",\"\",SUM([cpNguyenVatLieu]{row}:[cpSanXuatChung]{row}))",
+          "note": "Cộng cả khối ba khoản mục chi phí sản xuất của dòng. Viết bằng SUM trên vùng nên nếu doanh nghiệp bạn tách thêm một khoản mục chi phí, chỉ cần chèn cột vào giữa khối là công thức tự nới ra."
+        },
+        {
+          "key": "tongGiaThanh",
+          "header": "Tổng giá thành",
+          "type": "formula",
+          "width": 18,
+          "format": "currency",
+          "formula": "=IF([tenSanPham]{row}=\"\",\"\",[dodangDauKy]{row}+[tongChiPhiPhatSinh]{row}-[dodangCuoiKy]{row})",
+          "note": "Công thức gốc của giá thành: dở dang đầu kỳ cộng chi phí phát sinh trừ dở dang cuối kỳ. Hai cột dở dang chính là thứ giữ cho chi phí nằm đúng kỳ mà nó tạo ra thành phẩm."
+        },
+        {
+          "key": "giaThanhDonVi",
+          "header": "Giá thành đơn vị",
+          "type": "formula",
+          "width": 17,
+          "format": "currency",
+          "formula": "=IF([tenSanPham]{row}=\"\",\"\",IFERROR(ROUND([tongGiaThanh]{row}/[soLuong]{row},0),0))",
+          "note": "Tổng giá thành chia số lượng hoàn thành, làm tròn tới đồng. Bọc IFERROR cho dòng chưa nhập sản lượng, vì chia cho 0 sẽ ném #DIV/0! và kéo cả cột cảnh báo phía sau thành lỗi theo."
+        },
+        {
+          "key": "tyTrongNVL",
+          "header": "Tỷ trọng NVL",
+          "type": "formula",
+          "width": 12,
+          "format": "percent",
+          "formula": "=IF([tenSanPham]{row}=\"\",\"\",IFERROR([cpNguyenVatLieu]{row}/[tongChiPhiPhatSinh]{row},0))",
+          "note": "Vật tư chiếm bao nhiêu phần trong chi phí sản xuất phát sinh. Số này chỉ ra chỗ đáng bỏ công cải thiện nhất: tỷ trọng cao thì đàm phán giá mua và siết hao hụt, tỷ trọng thấp thì việc cần làm nằm ở năng suất nhân công."
+        },
+        {
+          "key": "laiGopDonVi",
+          "header": "Lãi gộp một đơn vị",
+          "type": "formula",
+          "width": 17,
+          "format": "currency",
+          "formula": "=IF([tenSanPham]{row}=\"\",\"\",[giaBan]{row}-[giaThanhDonVi]{row})",
+          "note": "Bán một đơn vị thì lãi bao nhiêu trước khi tính chi phí bán hàng và quản lý. Số âm nghĩa là càng bán càng lỗ ở mức giá hiện tại, và không cách nào bù bằng sản lượng."
+        },
+        {
+          "key": "tyLeLaiGop",
+          "header": "Tỷ lệ lãi gộp",
+          "type": "formula",
+          "width": 12,
+          "format": "percent",
+          "formula": "=IF([tenSanPham]{row}=\"\",\"\",IFERROR([laiGopDonVi]{row}/[giaBan]{row},0))",
+          "note": "Lãi gộp chia giá bán — dùng để so các sản phẩm có mức giá chênh nhau hàng chục lần, chuyện mà con số lãi tuyệt đối không làm được. Phần lãi này còn phải gánh chi phí bán hàng và quản lý trước khi thành lợi nhuận thật."
+        },
+        {
+          "key": "canhBao",
+          "header": "Cảnh báo",
+          "type": "formula",
+          "width": 32,
+          "format": "text",
+          "formula": "=IF([tenSanPham]{row}=\"\",\"\",IF([giaBan]{row}<=0,\"Chưa nhập giá bán\",IF([laiGopDonVi]{row}<0,\"Bán dưới giá thành\",IF([tyLeLaiGop]{row}<0.1,\"Lãi gộp mỏng dưới 10%\",\"Bình thường\"))))",
+          "note": "Kiểm dữ liệu trước, kết quả sau: dòng chưa có giá bán thì mọi kết luận về lãi lỗ đều vô nghĩa nên phải chặn từ đầu. Ngưỡng 10% là mức tham chiếu chung, hãy sửa cho hợp ngành trước khi dùng nó để ra quyết định dừng mặt hàng."
+        }
+      ],
+      "sampleRows": [
+        {
+          "stt": 1,
+          "maSP": "SP001",
+          "tenSanPham": "Bánh quy bơ hộp thiếc 200g",
+          "dvt": "Hộp",
+          "soLuong": 12000,
+          "dodangDauKy": 8000000,
+          "cpNguyenVatLieu": 168000000,
+          "cpNhanCong": 42000000,
+          "cpSanXuatChung": 36000000,
+          "dodangCuoiKy": 12000000,
+          "giaBan": 25000
+        },
+        {
+          "stt": 2,
+          "maSP": "SP002",
+          "tenSanPham": "Nước ép trái cây chai 500ml",
+          "dvt": "Chai",
+          "soLuong": 30000,
+          "dodangDauKy": 5000000,
+          "cpNguyenVatLieu": 240000000,
+          "cpNhanCong": 60000000,
+          "cpSanXuatChung": 45000000,
+          "dodangCuoiKy": 10000000,
+          "giaBan": 12000
+        },
+        {
+          "stt": 3,
+          "maSP": "SP003",
+          "tenSanPham": "Áo thun cotton in logo",
+          "dvt": "Cái",
+          "soLuong": 5000,
+          "dodangDauKy": 20000000,
+          "cpNguyenVatLieu": 260000000,
+          "cpNhanCong": 85000000,
+          "cpSanXuatChung": 40000000,
+          "dodangCuoiKy": 15000000,
+          "giaBan": 95000
+        },
+        {
+          "stt": 4,
+          "maSP": "SP004",
+          "tenSanPham": "Ghế gỗ văn phòng có tựa",
+          "dvt": "Chiếc",
+          "soLuong": 400,
+          "dodangDauKy": 30000000,
+          "cpNguyenVatLieu": 180000000,
+          "cpNhanCong": 60000000,
+          "cpSanXuatChung": 34000000,
+          "dodangCuoiKy": 24000000,
+          "giaBan": 600000
+        },
+        {
+          "stt": 5,
+          "maSP": "SP005",
+          "tenSanPham": "Thùng carton in offset 3 lớp",
+          "dvt": "Cái",
+          "soLuong": 50000,
+          "dodangDauKy": 0,
+          "cpNguyenVatLieu": 300000000,
+          "cpNhanCong": 55000000,
+          "cpSanXuatChung": 48000000,
+          "dodangCuoiKy": 18000000,
+          "giaBan": 9500
+        },
+        {
+          "stt": 6,
+          "maSP": "SP006",
+          "tenSanPham": "Bộ dụng cụ nhà bếp inox 5 món",
+          "dvt": "Bộ",
+          "soLuong": 2000,
+          "dodangDauKy": 12000000,
+          "cpNguyenVatLieu": 210000000,
+          "cpNhanCong": 48000000,
+          "cpSanXuatChung": 38000000,
+          "dodangCuoiKy": 20000000,
+          "giaBan": 0
+        }
+      ]
+    }
+  ]
+}

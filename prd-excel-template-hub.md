@@ -92,12 +92,11 @@ Google search "hàm vlookup trong excel" (intent học hàm, không phải tải
 ├── /mau-excel                             ✅ Hub tất cả template (filter theo category)
 │   │
 │   ├── /mau-excel/nhan-su                 ✅ Category hub — Nhân sự (CTA → hrCourse)
-│   │   ├── bang-tinh-luong-nhan-vien      ✅
-│   │   ├── bang-cham-cong-nhan-vien       ✅
-│   │   └── … 10 template nữa              ⬜ (bảng 2.2)
+│   │   ├── 12 template                    ✅ (bảng 2.2)
+│   │   └── bang-tong-hop-nhan-su-thang    ✅ file tổng của bộ, ngoài 12 slot
 │   │
-│   ├── /mau-excel/ke-toan                 ⬜ Category hub — Kế toán (CTA → consult)
-│   │   └── 12 template                    ⬜ (bảng 2.3)
+│   ├── /mau-excel/ke-toan                 ✅ Category hub — Kế toán (CTA → consult)
+│   │   └── 12 template                    ✅ (bảng 2.3)
 │   │
 │   └── /mau-excel/quan-ly-cong-viec       ⬜ Category hub — Quản lý công việc (CTA → consult)
 │       └── 12 template                    ⬜ (bảng 2.4)
@@ -117,7 +116,7 @@ Google search "hàm vlookup trong excel" (intent học hàm, không phải tải
 *(`/khoa-hoc-excel` — bridge page + form lead — đã bỏ trong v2.1, xem mục 0.)*
 
 **Quy tắc mở category:** một category chỉ được xuất hiện trong nav, sitemap và trang hub khi đã có **≥ 5 template**. Trước đó `generateStaticParams` không sinh trang cho nó. Lý do: trang hub rỗng là thin content, làm loãng đánh giá chất lượng của một site mới.
-*(Hiện `ke-toan` và `quan-ly-cong-viec` vẫn build ra trang rỗng — cần sửa, xem mục 6.)*
+*(`ke-toan` đã đủ 12 template nên qua ngưỡng. Còn `quan-ly-cong-viec` vẫn build ra trang rỗng — cần sửa, xem mục 6.)*
 
 ### 2.2 `/mau-excel/nhan-su` — Nhân sự · HR
 
@@ -127,16 +126,16 @@ CTA mặc định: `hrCourse` · Mục tiêu Phase 1: 12 template
 | :--- | :---- | :---- | :--- |
 | 1 | `bang-tinh-luong-nhan-vien` | mẫu excel tính lương nhân viên | ✅ |
 | 2 | `bang-cham-cong-nhan-vien` | mẫu excel chấm công nhân viên | ✅ |
-| 3 | `bang-theo-doi-nghi-phep` | mẫu excel theo dõi ngày phép | ⬜ |
-| 4 | `bang-tinh-luong-lam-them-gio` | mẫu excel tính lương làm thêm giờ | ⬜ |
-| 5 | `bang-tinh-bao-hiem-xa-hoi` | mẫu excel tính bảo hiểm xã hội | ⬜ |
-| 6 | `danh-sach-nhan-vien` | mẫu excel quản lý hồ sơ nhân sự | ⬜ |
-| 7 | `bang-danh-gia-kpi-nhan-vien` | mẫu excel đánh giá KPI nhân viên | ⬜ |
-| 8 | `bang-theo-doi-hop-dong-lao-dong` | mẫu excel theo dõi hợp đồng lao động | ⬜ |
-| 9 | `bang-cham-cong-theo-ca` | mẫu excel chấm công theo ca | ⬜ |
-| 10 | `bang-tinh-thuong-thang-13` | mẫu excel tính thưởng tháng 13 | ⬜ |
-| 11 | `bang-theo-doi-tuyen-dung` | mẫu excel theo dõi tuyển dụng | ⬜ |
-| 12 | `bang-theo-doi-dao-tao-nhan-vien` | mẫu excel theo dõi đào tạo nội bộ | ⬜ |
+| 3 | `bang-theo-doi-nghi-phep` | mẫu excel theo dõi ngày phép | ✅ |
+| 4 | `bang-tinh-luong-lam-them-gio` | mẫu excel tính lương làm thêm giờ | ✅ |
+| 5 | `bang-tinh-bao-hiem-xa-hoi` | mẫu excel tính bảo hiểm xã hội | ✅ |
+| 6 | `danh-sach-nhan-vien` | mẫu excel quản lý hồ sơ nhân sự | ✅ |
+| 7 | `bang-danh-gia-kpi-nhan-vien` | mẫu excel đánh giá KPI nhân viên | ✅ |
+| 8 | `bang-theo-doi-hop-dong-lao-dong` | mẫu excel theo dõi hợp đồng lao động | ✅ |
+| 9 | `bang-cham-cong-theo-ca` | mẫu excel chấm công theo ca | ✅ |
+| 10 | `bang-tinh-thuong-thang-13` | mẫu excel tính thưởng tháng 13 | ✅ |
+| 11 | `bang-theo-doi-tuyen-dung` | mẫu excel theo dõi tuyển dụng | ✅ |
+| 12 | `bang-theo-doi-dao-tao-nhan-vien` | mẫu excel theo dõi đào tạo nội bộ | ✅ |
 
 ### 2.3 `/mau-excel/ke-toan` — Kế toán · Tài chính
 
@@ -144,18 +143,18 @@ CTA mặc định: `consult` · Mục tiêu Phase 1: 12 template
 
 | # | Slug | H1 / keyword chính | TT |
 | :--- | :---- | :---- | :--- |
-| 1 | `so-quy-tien-mat` | mẫu excel sổ quỹ tiền mặt | ⬜ |
-| 2 | `bang-ke-thu-chi` | mẫu excel bảng kê thu chi hằng ngày | ⬜ |
-| 3 | `bang-theo-doi-cong-no-phai-thu` | mẫu excel theo dõi công nợ phải thu | ⬜ |
-| 4 | `bang-theo-doi-cong-no-phai-tra` | mẫu excel theo dõi công nợ phải trả | ⬜ |
-| 5 | `so-kho-nhap-xuat-ton` | mẫu excel nhập xuất tồn kho | ⬜ |
+| 1 | `so-quy-tien-mat` | mẫu excel sổ quỹ tiền mặt | ✅ |
+| 2 | `bang-ke-thu-chi` | mẫu excel bảng kê thu chi hằng ngày | ✅ |
+| 3 | `bang-theo-doi-cong-no-phai-thu` | mẫu excel theo dõi công nợ phải thu | ✅ |
+| 4 | `bang-theo-doi-cong-no-phai-tra` | mẫu excel theo dõi công nợ phải trả | ✅ |
+| 5 | `so-kho-nhap-xuat-ton` | mẫu excel nhập xuất tồn kho | ✅ |
 | 6 | `bang-theo-doi-dong-tien` | mẫu excel quản lý dòng tiền | ✅ |
-| 7 | `bang-tinh-khau-hao-tai-san-co-dinh` | mẫu excel tính khấu hao TSCĐ | ⬜ |
-| 8 | `bang-ke-hoa-don-dau-vao-dau-ra` | mẫu excel bảng kê hóa đơn GTGT | ⬜ |
-| 9 | `bang-theo-doi-tam-ung` | mẫu excel theo dõi tạm ứng | ⬜ |
-| 10 | `bao-cao-ket-qua-kinh-doanh` | mẫu excel báo cáo kết quả kinh doanh | ⬜ |
-| 11 | `bang-tinh-gia-thanh-san-pham` | mẫu excel tính giá thành sản phẩm | ⬜ |
-| 12 | `bang-du-toan-ngan-sach` | mẫu excel dự toán ngân sách | ⬜ |
+| 7 | `bang-tinh-khau-hao-tai-san-co-dinh` | mẫu excel tính khấu hao TSCĐ | ✅ |
+| 8 | `bang-ke-hoa-don-dau-vao-dau-ra` | mẫu excel bảng kê hóa đơn GTGT | ✅ |
+| 9 | `bang-theo-doi-tam-ung` | mẫu excel theo dõi tạm ứng | ✅ |
+| 10 | `bao-cao-ket-qua-kinh-doanh` | mẫu excel báo cáo kết quả kinh doanh | ✅ |
+| 11 | `bang-tinh-gia-thanh-san-pham` | mẫu excel tính giá thành sản phẩm | ✅ |
+| 12 | `bang-du-toan-ngan-sach` | mẫu excel dự toán ngân sách | ✅ |
 
 ### 2.4 `/mau-excel/quan-ly-cong-viec` — Quản lý công việc
 

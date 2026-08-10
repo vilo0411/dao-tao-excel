@@ -1,0 +1,58 @@
+[
+  [
+    {
+      "mucKhauHaoNam": 97500000.0,
+      "mucKhauHaoThang": 8125000.0,
+      "khauHaoTrongKy": 8125000.0,
+      "luyKeCuoiKy": 203125000.0,
+      "giaTriConLai": 576875000.0,
+      "tyLeDaKhauHao": 0.2604166666666667,
+      "canhBao": "Đang khấu hao"
+    },
+    {
+      "mucKhauHaoNam": 120000000.0,
+      "mucKhauHaoThang": 10000000.0,
+      "khauHaoTrongKy": 10000000.0,
+      "luyKeCuoiKy": 610000000.0,
+      "giaTriConLai": 1790000000.0,
+      "tyLeDaKhauHao": 0.25416666666666665,
+      "canhBao": "Đang khấu hao"
+    },
+    {
+      "mucKhauHaoNam": 12400000.0,
+      "mucKhauHaoThang": 1033333.0,
+      "khauHaoTrongKy": 1033333.0,
+      "luyKeCuoiKy": 59933333.0,
+      "giaTriConLai": 2066667.0,
+      "tyLeDaKhauHao": 0.9666666612903225,
+      "canhBao": "Sắp khấu hao hết - lên kế hoạch thay thế"
+    },
+    {
+      "mucKhauHaoNam": 20714286.0,
+      "mucKhauHaoThang": 1726191.0,
+      "khauHaoTrongKy": 0,
+      "luyKeCuoiKy": 145000000.0,
+      "giaTriConLai": 0.0,
+      "tyLeDaKhauHao": 1.0,
+      "canhBao": "Đã khấu hao hết"
+    },
+    {
+      "mucKhauHaoNam": 32000000.0,
+      "mucKhauHaoThang": 2666667.0,
+      "khauHaoTrongKy": 2666667.0,
+      "luyKeCuoiKy": 66666667.0,
+      "giaTriConLai": 29333333.0,
+      "tyLeDaKhauHao": 0.6944444479166667,
+      "canhBao": "Đang khấu hao"
+    },
+    {
+      "mucKhauHaoNam": 9500000.0,
+      "mucKhauHaoThang": 791667.0,
+      "khauHaoTrongKy": 791667.0,
+      "luyKeCuoiKy": 5541667.0,
+      "giaTriConLai": 22958333.0,
+      "tyLeDaKhauHao": 0.19444445614035089,
+      "canhBao": "Dưới 30 triệu - không đủ tiêu chuẩn TSCĐ"
+    }
+  ]
+]

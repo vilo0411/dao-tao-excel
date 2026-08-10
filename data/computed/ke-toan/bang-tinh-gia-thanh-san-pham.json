@@ -1,0 +1,58 @@
+[
+  [
+    {
+      "tongChiPhiPhatSinh": 246000000.0,
+      "tongGiaThanh": 242000000.0,
+      "giaThanhDonVi": 20167.0,
+      "tyTrongNVL": 0.6829268292682927,
+      "laiGopDonVi": 4833.0,
+      "tyLeLaiGop": 0.19332,
+      "canhBao": "Bình thường"
+    },
+    {
+      "tongChiPhiPhatSinh": 345000000.0,
+      "tongGiaThanh": 340000000.0,
+      "giaThanhDonVi": 11333.0,
+      "tyTrongNVL": 0.6956521739130435,
+      "laiGopDonVi": 667.0,
+      "tyLeLaiGop": 0.05558333333333333,
+      "canhBao": "Lãi gộp mỏng dưới 10%"
+    },
+    {
+      "tongChiPhiPhatSinh": 385000000.0,
+      "tongGiaThanh": 390000000.0,
+      "giaThanhDonVi": 78000.0,
+      "tyTrongNVL": 0.6753246753246753,
+      "laiGopDonVi": 17000.0,
+      "tyLeLaiGop": 0.17894736842105263,
+      "canhBao": "Bình thường"
+    },
+    {
+      "tongChiPhiPhatSinh": 274000000.0,
+      "tongGiaThanh": 280000000.0,
+      "giaThanhDonVi": 700000.0,
+      "tyTrongNVL": 0.656934306569343,
+      "laiGopDonVi": -100000.0,
+      "tyLeLaiGop": -0.16666666666666666,
+      "canhBao": "Bán dưới giá thành"
+    },
+    {
+      "tongChiPhiPhatSinh": 403000000.0,
+      "tongGiaThanh": 385000000.0,
+      "giaThanhDonVi": 7700.0,
+      "tyTrongNVL": 0.7444168734491315,
+      "laiGopDonVi": 1800.0,
+      "tyLeLaiGop": 0.18947368421052632,
+      "canhBao": "Bình thường"
+    },
+    {
+      "tongChiPhiPhatSinh": 296000000.0,
+      "tongGiaThanh": 288000000.0,
+      "giaThanhDonVi": 144000.0,
+      "tyTrongNVL": 0.7094594594594594,
+      "laiGopDonVi": -144000.0,
+      "tyLeLaiGop": 0,
+      "canhBao": "Chưa nhập giá bán"
+    }
+  ]
+]
