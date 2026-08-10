@@ -60,6 +60,12 @@ const FUNCTION_INFO: Record<string, FunctionInfo> = {
       "Đổi giá trị sang số: số thì giữ nguyên, còn chữ hoặc ô trống thì trả về 0. Dùng để chặn lỗi khi công thức luỹ kế cộng dồn lỡ chạm lên dòng tiêu đề.",
     group: "Logic",
   },
+  SUM: {
+    syntax: "=SUM(số_1, số_2, ...) hoặc =SUM(vùng)",
+    definition:
+      "Cộng tất cả số trong danh sách hoặc trong một vùng ô. Viết dưới dạng vùng thì khi chèn thêm cột hoặc dòng vào giữa vùng, Excel tự nới vùng ra nên công thức không phải sửa lại.",
+    group: "Toán học",
+  },
   ROUND: {
     syntax: "=ROUND(số, số_chữ_số_thập_phân)",
     definition: "Làm tròn một số đến số chữ số thập phân chỉ định.",

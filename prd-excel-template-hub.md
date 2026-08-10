@@ -149,7 +149,7 @@ CTA mặc định: `consult` · Mục tiêu Phase 1: 12 template
 | 3 | `bang-theo-doi-cong-no-phai-thu` | mẫu excel theo dõi công nợ phải thu | ⬜ |
 | 4 | `bang-theo-doi-cong-no-phai-tra` | mẫu excel theo dõi công nợ phải trả | ⬜ |
 | 5 | `so-kho-nhap-xuat-ton` | mẫu excel nhập xuất tồn kho | ⬜ |
-| 6 | `bang-theo-doi-dong-tien` | mẫu excel quản lý dòng tiền | ⬜ |
+| 6 | `bang-theo-doi-dong-tien` | mẫu excel quản lý dòng tiền | ✅ |
 | 7 | `bang-tinh-khau-hao-tai-san-co-dinh` | mẫu excel tính khấu hao TSCĐ | ⬜ |
 | 8 | `bang-ke-hoa-don-dau-vao-dau-ra` | mẫu excel bảng kê hóa đơn GTGT | ⬜ |
 | 9 | `bang-theo-doi-tam-ung` | mẫu excel theo dõi tạm ứng | ⬜ |

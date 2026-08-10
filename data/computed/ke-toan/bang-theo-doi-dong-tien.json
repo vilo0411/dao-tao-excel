@@ -1,0 +1,52 @@
+[
+  [
+    {
+      "tongThu": 385000000.0,
+      "tongChi": 355000000.0,
+      "dongTienRong": 30000000.0,
+      "soDuCuoiKy": 150000000.0,
+      "tyLeChiTrenThu": 0.922077922077922,
+      "canhBao": "Bình thường"
+    },
+    {
+      "tongThu": 240000000.0,
+      "tongChi": 332000000.0,
+      "dongTienRong": -92000000.0,
+      "soDuCuoiKy": 58000000.0,
+      "tyLeChiTrenThu": 1.3833333333333333,
+      "canhBao": "Âm dòng tiền - chi nhiều hơn thu"
+    },
+    {
+      "tongThu": 410000000.0,
+      "tongChi": 404000000.0,
+      "dongTienRong": 6000000.0,
+      "soDuCuoiKy": 64000000.0,
+      "tyLeChiTrenThu": 0.9853658536585366,
+      "canhBao": "Bình thường"
+    },
+    {
+      "tongThu": 352000000.0,
+      "tongChi": 470000000.0,
+      "dongTienRong": -118000000.0,
+      "soDuCuoiKy": -54000000.0,
+      "tyLeChiTrenThu": 1.3352272727272727,
+      "canhBao": "Âm quỹ - cần thu xếp vốn"
+    },
+    {
+      "tongThu": 580000000.0,
+      "tongChi": 454000000.0,
+      "dongTienRong": 126000000.0,
+      "soDuCuoiKy": 72000000.0,
+      "tyLeChiTrenThu": 0.7827586206896552,
+      "canhBao": "Bình thường"
+    },
+    {
+      "tongThu": 480000000.0,
+      "tongChi": 450000000.0,
+      "dongTienRong": 30000000.0,
+      "soDuCuoiKy": 102000000.0,
+      "tyLeChiTrenThu": 0.9375,
+      "canhBao": "Bình thường"
+    }
+  ]
+]

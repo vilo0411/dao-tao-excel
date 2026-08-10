@@ -1,0 +1,251 @@
+{
+  "slug": "bang-theo-doi-dong-tien",
+  "category": "ke-toan",
+  "h1": "Mẫu Excel theo dõi dòng tiền theo tháng (tự cộng dồn số dư)",
+  "metaTitle": "Mẫu Excel Quản Lý Dòng Tiền Theo Tháng 2026",
+  "metaDesc": "Mẫu Excel quản lý dòng tiền theo tháng: gom thu chi thành từng nhóm, tự tính dòng tiền ròng và số dư cuối kỳ cộng dồn, cảnh báo tháng sắp cạn tiền.",
+  "primaryKeyword": "mẫu excel quản lý dòng tiền",
+  "intro": "Mẫu Excel quản lý dòng tiền này nhìn tiền theo kỳ chứ không theo từng phiếu: mỗi dòng là một tháng, bạn nhập tổng thu và tổng chi đã gom sẵn thành nhóm, file tự ra dòng tiền ròng của tháng và số dư cuối kỳ mang sang tháng sau. Đây là bảng trả lời được một câu mà sổ quỹ không trả lời được: tháng nào sắp cạn tiền. Số dư cuối kỳ cộng dồn qua các dòng nên chỉ cần điền dự kiến của vài tháng tới là thấy ngay tháng nào âm, sớm hơn nhiều so với lúc tiền thật sự hết trong két.",
+  "difficulty": "co-ban",
+  "features": [
+    "Số dư cuối kỳ tự cộng dồn từ tháng trước, thêm một dòng là số dư chạy tiếp",
+    "Thu chi gom thành nhóm nên nhìn ra ngay nhóm nào đang ăn hết tiền",
+    "Cảnh báo tách riêng hai chuyện khác nhau: tháng âm dòng tiền và tháng âm quỹ",
+    "Cột tỷ lệ chi trên thu cho biết mỗi 100 đồng thu về phải chi ra bao nhiêu",
+    "Điền được cả số dự kiến của các tháng tới để thấy trước tháng cạn tiền",
+    "Có sẵn 18 dòng trống đã cài công thức, đủ cho hơn hai năm"
+  ],
+  "howToUse": [
+    {
+      "step": "Nhập số dư đầu kỳ vào dòng đầu tiên",
+      "detail": "Cột Số dư đầu kỳ chỉ điền đúng một lần ở dòng đầu, là số tiền bạn đang có ở quỹ và tài khoản ngân hàng lúc bắt đầu theo dõi. Các dòng sau để trống vì số dư đã tự mang sang; điền nhầm ở dòng giữa thì cột cảnh báo sẽ báo lại."
+    },
+    {
+      "step": "Gom thu chi của tháng thành nhóm rồi nhập vào",
+      "detail": "Mỗi tháng một dòng. Cộng tất cả khoản thu bán hàng trong tháng thành một số, các khoản thu còn lại (vay, lãi ngân hàng, thanh lý tài sản) vào cột Thu khác, rồi làm tương tự với bốn nhóm chi. Nếu đang dùng mẫu sổ quỹ tiền mặt hoặc bảng kê thu chi, bạn lọc theo khoản mục rồi lấy số tổng của từng nhóm."
+    },
+    {
+      "step": "Đọc cột dòng tiền ròng trước, cột số dư sau",
+      "detail": "Dòng tiền ròng âm nghĩa là riêng tháng đó chi nhiều hơn thu — chưa chắc nguy hiểm nếu số dư còn dày. Số dư cuối kỳ âm mới là lúc thật sự hết tiền. Một tháng có thể âm dòng tiền mà vẫn dương số dư, và đó là lý do file tách hai cảnh báo này ra."
+    },
+    {
+      "step": "Điền thử các tháng sắp tới",
+      "detail": "Nhập ước tính thu chi cho ba đến sáu tháng tới vào những dòng trống. Cột số dư cuối kỳ sẽ chạy tiếp và chỉ ra tháng nào rơi xuống âm, tức là tháng bạn cần thu xếp vốn hoặc giãn một khoản chi. Đây là công dụng đáng giá nhất của bảng này."
+    },
+    {
+      "step": "Đối chiếu cuối mỗi tháng",
+      "detail": "Cuối tháng, so số dư cuối kỳ trên bảng với tổng tiền mặt thực tế cộng số dư tài khoản ngân hàng. Lệch nhau nghĩa là có nhóm thu chi bị bỏ sót khi gom số, rà lại từ sổ quỹ và sao kê ngân hàng của tháng đó."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Bảng này khác gì mẫu sổ quỹ tiền mặt?",
+      "a": "Khác ở đơn vị của một dòng. Sổ quỹ tiền mặt ghi từng phiếu thu, phiếu chi và chỉ theo dõi tiền mặt trong két, dùng để đối chiếu hằng ngày. Bảng dòng tiền ghi mỗi tháng một dòng, gộp cả tiền mặt lẫn tiền gửi ngân hàng, dùng để nhìn xu hướng và dự trù. Hai file bổ sung cho nhau: sổ quỹ cho ra số tổng của từng nhóm, bảng dòng tiền nhận số tổng đó."
+    },
+    {
+      "q": "Vì sao tách riêng cảnh báo âm dòng tiền và âm quỹ?",
+      "a": "Vì hai chuyện này đòi hai cách xử lý khác nhau. Âm dòng tiền là tháng đó chi nhiều hơn thu, chuyện bình thường ở tháng có Tết hoặc tháng nhập hàng lớn, miễn là số dư còn đủ dày. Âm quỹ là số dư đã xuống dưới 0, tức là đến ngày trả tiền mà không có tiền để trả. Gộp chung một cảnh báo thì tháng nào hơi chi trội cũng kêu, và người dùng sẽ quen tay bỏ qua đúng lúc cảnh báo trở nên thật."
+    },
+    {
+      "q": "Thêm một nhóm chi mới thì công thức có phải sửa không?",
+      "a": "Không, miễn là bạn chèn cột mới nằm giữa các cột chi đang có. Cột Tổng chi dùng hàm SUM trên một vùng chạy từ cột chi đầu tiên tới cột chi cuối cùng, nên Excel tự nới vùng đó ra khi bạn chèn cột vào giữa. Ngược lại, nếu chèn cột mới ra ngoài rìa phải của khối chi, vùng SUM sẽ không tự với tới nó — lúc đó phải sửa lại công thức bằng tay."
+    },
+    {
+      "q": "Số dư cuối kỳ có phải là lợi nhuận không?",
+      "a": "Không, và nhầm hai thứ này là nhầm lẫn tốn kém nhất về dòng tiền. Bảng này chỉ ghi tiền thật sự vào ra trong tháng. Một đơn hàng đã giao nhưng khách chưa trả tiền thì có lãi mà chưa có dòng tiền vào; ngược lại một khoản vay ngân hàng làm số dư đẹp lên nhưng không phải là lãi. Muốn biết lãi lỗ thì cần bảng báo cáo kết quả kinh doanh, còn muốn biết có đủ tiền trả lương tháng sau không thì dùng bảng này."
+    },
+    {
+      "q": "Có dùng được cho hộ kinh doanh hoặc quản lý tiền cá nhân không?",
+      "a": "Được, vì cấu trúc chỉ gồm thu vào, chi ra, ròng và số dư cộng dồn — không ràng buộc gì vào chế độ kế toán doanh nghiệp. Bạn đổi tên các cột nhóm cho hợp việc của mình, ví dụ đổi Chi mua hàng thành Chi ăn uống, Chi lương thành Chi thuê nhà. Công thức trỏ theo cột nên đổi tiêu đề không làm hỏng gì."
+    }
+  ],
+  "ctaText": "Học cách dựng báo cáo dòng tiền và kế hoạch tài chính trên Excel",
+  "relatedSlugs": [
+    "so-quy-tien-mat",
+    "bang-ke-thu-chi",
+    "bang-theo-doi-cong-no-phai-thu"
+  ],
+  "updatedAt": "2026-08-10",
+  "sheets": [
+    {
+      "name": "Dòng tiền theo tháng",
+      "description": "Mỗi dòng là một kỳ, thu chi đã gom thành nhóm; số dư cuối kỳ chạy tiếp qua các dòng.",
+      "blankRows": 18,
+      "columns": [
+        { "key": "stt", "header": "STT", "type": "number", "width": 6 },
+        { "key": "ky", "header": "Kỳ", "type": "text", "width": 16 },
+        {
+          "key": "soDuDauKy",
+          "header": "Số dư đầu kỳ",
+          "type": "currency",
+          "width": 18,
+          "validation": { "type": "decimal", "min": 0, "max": 100000000000 }
+        },
+        {
+          "key": "thuBanHang",
+          "header": "Thu bán hàng",
+          "type": "currency",
+          "width": 18,
+          "validation": { "type": "decimal", "min": 0, "max": 100000000000 }
+        },
+        {
+          "key": "thuKhac",
+          "header": "Thu khác",
+          "type": "currency",
+          "width": 16,
+          "validation": { "type": "decimal", "min": 0, "max": 100000000000 }
+        },
+        {
+          "key": "chiMuaHang",
+          "header": "Chi mua hàng",
+          "type": "currency",
+          "width": 18,
+          "validation": { "type": "decimal", "min": 0, "max": 100000000000 }
+        },
+        {
+          "key": "chiLuong",
+          "header": "Chi lương và bảo hiểm",
+          "type": "currency",
+          "width": 20,
+          "validation": { "type": "decimal", "min": 0, "max": 100000000000 }
+        },
+        {
+          "key": "chiVanHanh",
+          "header": "Chi vận hành",
+          "type": "currency",
+          "width": 18,
+          "validation": { "type": "decimal", "min": 0, "max": 100000000000 }
+        },
+        {
+          "key": "chiKhac",
+          "header": "Chi khác",
+          "type": "currency",
+          "width": 16,
+          "validation": { "type": "decimal", "min": 0, "max": 100000000000 }
+        },
+        {
+          "key": "tongThu",
+          "header": "Tổng thu",
+          "type": "formula",
+          "width": 18,
+          "format": "currency",
+          "formula": "=IF([ky]{row}=\"\",\"\",SUM([thuBanHang]{row}:[thuKhac]{row}))",
+          "note": "Cộng cả khối cột thu của dòng, từ Thu bán hàng tới Thu khác. Viết bằng SUM trên một vùng thay vì cộng từng ô để khi bạn chèn thêm một cột thu vào giữa khối, Excel tự nới vùng ra và công thức không phải sửa."
+        },
+        {
+          "key": "tongChi",
+          "header": "Tổng chi",
+          "type": "formula",
+          "width": 18,
+          "format": "currency",
+          "formula": "=IF([ky]{row}=\"\",\"\",SUM([chiMuaHang]{row}:[chiKhac]{row}))",
+          "note": "Cộng cả khối cột chi của dòng, từ Chi mua hàng tới Chi khác. Cột Số dư đầu kỳ nằm ngoài khối này nên không bị cộng nhầm vào chi — đó là lý do nó được đặt trước các cột thu chứ không xen giữa."
+        },
+        {
+          "key": "dongTienRong",
+          "header": "Dòng tiền ròng",
+          "type": "formula",
+          "width": 18,
+          "format": "currency",
+          "formula": "=IF([ky]{row}=\"\",\"\",[tongThu]{row}-[tongChi]{row})",
+          "note": "Tiền thực nhận trừ tiền thực chi trong kỳ. Số âm nghĩa là riêng kỳ đó chi nhiều hơn thu, chưa chắc đã nguy hiểm nếu số dư mang sang còn dày — hãy đọc kèm cột Số dư cuối kỳ."
+        },
+        {
+          "key": "soDuCuoiKy",
+          "header": "Số dư cuối kỳ",
+          "type": "formula",
+          "width": 20,
+          "format": "currency",
+          "formula": "=IF([ky]{row}=\"\",\"\",N([soDuCuoiKy]{row-1})+N([soDuDauKy]{row})+[dongTienRong]{row})",
+          "note": "Lấy số dư cuối của dòng ngay trên, cộng số dư đầu kỳ nếu dòng này có nhập, rồi cộng dòng tiền ròng của chính dòng này. Hàm N đọc ô tiêu đề ở dòng đầu tiên thành 0 nên cả cột dùng chung một công thức. Vì công thức trỏ lên đúng một dòng, bảng phải ghi liên tục, không chừa dòng trống ở giữa."
+        },
+        {
+          "key": "tyLeChiTrenThu",
+          "header": "Chi / Thu",
+          "type": "formula",
+          "width": 12,
+          "format": "percent",
+          "formula": "=IF([ky]{row}=\"\",\"\",IFERROR([tongChi]{row}/[tongThu]{row},\"\"))",
+          "note": "Mỗi 100 đồng thu về thì phải chi ra bao nhiêu. Trên 100% là kỳ đó tiêu lẹm vào số dư cũ. Hàm IFERROR để trống ô thay vì hiện lỗi #DIV/0! ở những kỳ chưa có đồng thu nào, thường là kỳ mới bắt đầu điền dự kiến."
+        },
+        {
+          "key": "canhBao",
+          "header": "Cảnh báo",
+          "type": "formula",
+          "width": 30,
+          "format": "text",
+          "formula": "=IF([ky]{row}=\"\",\"\",IF(AND([stt]{row}>1,[soDuDauKy]{row}<>0),\"Số dư đầu kỳ chỉ nhập ở dòng đầu\",IF([soDuCuoiKy]{row}<0,\"Âm quỹ - cần thu xếp vốn\",IF(AND([tongThu]{row}=0,[tongChi]{row}=0),\"Chưa nhập số liệu\",IF([dongTienRong]{row}<0,\"Âm dòng tiền - chi nhiều hơn thu\",\"Bình thường\")))))",
+          "note": "Bốn tình huống, xếp theo mức nghiêm trọng giảm dần. Nhập số dư đầu kỳ ở dòng thứ hai trở đi bị bắt trước tiên vì nó cộng thêm tiền vào cả cột và làm mọi dòng bên dưới sai. Âm quỹ nặng hơn âm dòng tiền: âm dòng tiền chỉ là kỳ này chi trội, còn âm quỹ là đến hạn trả mà không còn tiền."
+        }
+      ],
+      "sampleRows": [
+        {
+          "stt": 1,
+          "ky": "Tháng 01/2026",
+          "soDuDauKy": 120000000,
+          "thuBanHang": 380000000,
+          "thuKhac": 5000000,
+          "chiMuaHang": 210000000,
+          "chiLuong": 95000000,
+          "chiVanHanh": 42000000,
+          "chiKhac": 8000000
+        },
+        {
+          "stt": 2,
+          "ky": "Tháng 02/2026",
+          "soDuDauKy": 0,
+          "thuBanHang": 240000000,
+          "thuKhac": 0,
+          "chiMuaHang": 150000000,
+          "chiLuong": 130000000,
+          "chiVanHanh": 40000000,
+          "chiKhac": 12000000
+        },
+        {
+          "stt": 3,
+          "ky": "Tháng 03/2026",
+          "soDuDauKy": 0,
+          "thuBanHang": 410000000,
+          "thuKhac": 0,
+          "chiMuaHang": 260000000,
+          "chiLuong": 95000000,
+          "chiVanHanh": 43000000,
+          "chiKhac": 6000000
+        },
+        {
+          "stt": 4,
+          "ky": "Tháng 04/2026",
+          "soDuDauKy": 0,
+          "thuBanHang": 350000000,
+          "thuKhac": 2000000,
+          "chiMuaHang": 300000000,
+          "chiLuong": 95000000,
+          "chiVanHanh": 45000000,
+          "chiKhac": 30000000
+        },
+        {
+          "stt": 5,
+          "ky": "Tháng 05/2026",
+          "soDuDauKy": 0,
+          "thuBanHang": 520000000,
+          "thuKhac": 60000000,
+          "chiMuaHang": 300000000,
+          "chiLuong": 98000000,
+          "chiVanHanh": 46000000,
+          "chiKhac": 10000000
+        },
+        {
+          "stt": 6,
+          "ky": "Tháng 06/2026",
+          "soDuDauKy": 0,
+          "thuBanHang": 480000000,
+          "thuKhac": 0,
+          "chiMuaHang": 290000000,
+          "chiLuong": 98000000,
+          "chiVanHanh": 47000000,
+          "chiKhac": 15000000
+        }
+      ]
+    }
+  ]
+}
