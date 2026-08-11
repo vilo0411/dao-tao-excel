@@ -1,0 +1,621 @@
+[
+  {
+    "file": "ke-toan\\bang-ke-thu-chi.json",
+    "slug": "bang-ke-thu-chi",
+    "h1": "Mẫu Excel bảng kê thu chi theo khoản mục (có công thức sẵn)",
+    "intro": "Mẫu Excel bảng kê thu chi này dùng để liệt kê mọi khoản tiền vào và tiền ra của doanh nghiệp trong kỳ, kèm khoản mục và hình thức thanh toán của từng khoản. Bạn chỉ nhập một cột số tiền và chọn Thu hay Chi, file tự tách sang hai cột riêng rồi cộng dồn ra dòng tiền ròng lũy kế. Khác với sổ quỹ tiền mặt chỉ theo dõi tiền trong két, bảng kê này gộp cả tiền mặt lẫn chuyển khoản, nên đọc được bức tranh dòng tiền của cả doanh nghiệp.",
+    "features": [
+      "Nhập một cột số tiền, file tự tách thành cột Thu và cột Chi theo lựa chọn của bạn",
+      "Cột dòng tiền ròng lũy kế cộng dồn từ dòng trên, biết ngay tiền vào có bù nổi tiền ra không",
+      "Cảnh báo khoản chi tiền mặt từ 20 triệu trở lên — ngưỡng bắt buộc thanh toán không dùng tiền mặt",
+      "Khoản mục và hình thức thanh toán chọn từ danh sách, để lọc và cộng theo nhóm không bị lệch",
+      "Có sẵn 30 dòng trống đã cài công thức"
+    ],
+    "faq": [
+      {
+        "q": "Bảng kê thu chi khác sổ quỹ tiền mặt ở chỗ nào?",
+        "a": "Sổ quỹ tiền mặt chỉ ghi những gì ra vào két tiền mặt, và tồn quỹ của nó phải khớp với số tiền đếm được trong két. Bảng kê thu chi ghi mọi khoản bất kể tiền mặt hay chuyển khoản, nên nó trả lời câu hỏi về dòng tiền của doanh nghiệp chứ không phải câu hỏi về két. Nhiều đơn vị dùng song song cả hai."
+      },
+      {
+        "q": "Vì sao cảnh báo lấy mốc 20 triệu đồng?",
+        "a": "Đây là ngưỡng quen thuộc trong quy định về thanh toán không dùng tiền mặt: hóa đơn mua hàng hóa dịch vụ từ 20 triệu đồng trở lên phải thanh toán qua ngân hàng thì mới đủ điều kiện khấu trừ thuế giá trị gia tăng đầu vào và tính vào chi phí được trừ khi quyết toán thuế thu nhập doanh nghiệp. Cột cảnh báo chỉ nhắc, không chặn — và cần đối chiếu lại quy định hiện hành tại thời điểm bạn dùng."
+      },
+      {
+        "q": "Tôi muốn đổi mốc cảnh báo thì sửa ở đâu?",
+        "a": "Sửa trực tiếp số 20000000 trong công thức của cột Cảnh báo ở một dòng, rồi kéo công thức xuống các dòng còn lại. Nếu muốn thêm một mốc thứ hai, lồng thêm một hàm IF nữa vào trong."
+      },
+      {
+        "q": "Cột lũy kế có tự đúng khi tôi sắp xếp lại các dòng không?",
+        "a": "Không, và đây là điểm phải cẩn thận. Cột lũy kế lấy số của dòng ngay phía trên, nên nó chỉ có nghĩa khi các dòng đang xếp theo đúng trình tự phát sinh. Nhập đúng thứ tự ngày ngay từ đầu, đừng sắp xếp lại sau. Cần xem theo nhóm thì dùng bộ lọc thay vì sắp xếp, vì lọc không đổi thứ tự dòng."
+      }
+    ]
+  },
+  {
+    "file": "ke-toan\\bang-theo-doi-cong-no-phai-thu.json",
+    "slug": "bang-theo-doi-cong-no-phai-thu",
+    "h1": "Mẫu Excel theo dõi công nợ phải thu khách hàng (tự phân nhóm tuổi nợ)",
+    "intro": "Mẫu Excel theo dõi công nợ phải thu này quản lý nợ ở mức từng hóa đơn chứ không gộp theo khách hàng, vì đòi nợ là đòi theo hóa đơn cụ thể chứ không đòi một cục tổng. Bạn nhập ngày hóa đơn, số ngày được nợ, số tiền phải thu và số đã thu, file tự tính ra hạn thanh toán, số còn phải thu, số ngày quá hạn và xếp luôn hóa đơn đó vào nhóm tuổi nợ. Sắp xếp cột số ngày quá hạn từ lớn xuống là ra ngay danh sách cần gọi điện trước.",
+    "features": [
+      "Theo dõi theo từng hóa đơn, một khách hàng có thể có nhiều dòng",
+      "Tự tính hạn thanh toán từ ngày hóa đơn cộng số ngày được nợ",
+      "Tự tính số còn phải thu và số ngày quá hạn tại ngày chốt số liệu",
+      "Tự xếp nhóm tuổi nợ: trong hạn, quá hạn 1-30, 31-60, trên 60 ngày",
+      "Bắt được cả trường hợp thu vượt số tiền trên hóa đơn"
+    ],
+    "faq": [
+      {
+        "q": "Sao không dùng hàm TODAY để tự lấy ngày hôm nay?",
+        "a": "Vì trang này hiển thị đúng con số mà Excel tính ra lúc dựng file, dùng TODAY thì con số đó đứng lại ở ngày dựng và nói sai vào hôm sau. Một cột ngày chốt nhập tay còn có lợi thế khác: bạn chốt được công nợ tại ngày 30/6 để đối chiếu, việc mà TODAY không làm được. Muốn tự động thì trong file tải về thay ô ngày chốt bằng công thức =TODAY() rồi kéo xuống."
+      },
+      {
+        "q": "Cột số còn phải thu ra số âm nghĩa là gì?",
+        "a": "Nghĩa là số đã thanh toán lớn hơn số tiền trên hóa đơn, và cột Nhóm tuổi nợ sẽ hiện Thu vượt - kiểm tra lại. Thường do khách trả gộp nhiều hóa đơn nhưng bạn ghi hết vào một dòng, hoặc gõ thừa số 0. Tách khoản tiền khách trả về đúng từng hóa đơn là hết."
+      },
+      {
+        "q": "Hàm MAX trong công thức số ngày quá hạn để làm gì?",
+        "a": "Ngày chốt trừ hạn thanh toán sẽ ra số âm với hóa đơn còn trong hạn, ví dụ âm 12 ngày. Hàm MAX so số đó với 0 và lấy số lớn hơn, nên hóa đơn chưa tới hạn hiện 0 thay vì một số âm khó đọc. Nhờ vậy cột này luôn trả lời đúng một câu hỏi: đã quá hạn bao nhiêu ngày."
+      },
+      {
+        "q": "Ngưỡng phân nhóm 30 và 60 ngày có bắt buộc không?",
+        "a": "Không, đây là cách chia phổ biến chứ không phải quy định. Nhiều doanh nghiệp bán lẻ chia dày hơn thành 1-15, 16-30, còn doanh nghiệp bán cho nhà máy lại chia thưa hơn. Sửa hai số 30 và 60 trong công thức cột Nhóm tuổi nợ rồi kéo xuống là đổi được, muốn thêm bậc thì lồng thêm một hàm IF."
+      },
+      {
+        "q": "Có nên dùng file này để trích lập dự phòng nợ phải thu khó đòi không?",
+        "a": "File cho bạn đúng dữ liệu đầu vào mà việc trích lập cần, đó là số còn phải thu và số ngày quá hạn của từng hóa đơn. Nhưng tỷ lệ trích lập theo từng mốc thời gian quá hạn là do quy định về trích lập dự phòng ấn định, và bút toán trích lập phải do kế toán thực hiện. Hãy lấy số từ đây rồi áp tỷ lệ hiện hành, đừng coi cột nhóm tuổi nợ là kết luận kế toán."
+      }
+    ]
+  },
+  {
+    "file": "ke-toan\\bang-theo-doi-cong-no-phai-tra.json",
+    "slug": "bang-theo-doi-cong-no-phai-tra",
+    "h1": "Mẫu Excel theo dõi công nợ phải trả nhà cung cấp (cảnh báo sắp đến hạn)",
+    "intro": "Mẫu Excel theo dõi công nợ phải trả này quản lý các hóa đơn mua hàng chưa thanh toán cho nhà cung cấp, theo dõi ở mức từng hóa đơn kèm hạn thanh toán riêng của nó. Khác với bảng công nợ phải thu vốn nhìn về quá khứ để đòi nợ, bảng này nhìn về phía trước: cột số ngày còn lại đếm ngược tới hạn trả, và file tự bật cảnh báo với những hóa đơn còn dưới bảy ngày. Nhờ vậy bạn thu xếp được dòng tiền trước khi tới hạn thay vì bị nhà cung cấp gọi nhắc.",
+    "features": [
+      "Theo dõi theo từng hóa đơn mua hàng, mỗi hóa đơn có hạn thanh toán riêng",
+      "Cột số ngày còn lại đếm ngược tới hạn trả, số âm là đã quá hạn",
+      "Tự cảnh báo hóa đơn sắp đến hạn trong vòng bảy ngày",
+      "Tự tính số còn phải trả và bắt được trường hợp trả vượt hóa đơn",
+      "Sắp xếp theo số ngày còn lại là ra ngay lịch chi tiền của kỳ tới"
+    ],
+    "faq": [
+      {
+        "q": "Vì sao cột số ngày còn lại lại có số âm, trong khi bảng phải thu thì không?",
+        "a": "Vì hai bảng trả lời hai câu hỏi khác nhau. Bảng phải thu hỏi đã quá hạn bao lâu, nên nó chặn về 0 với hóa đơn chưa tới hạn. Bảng phải trả hỏi còn bao nhiêu ngày nữa, nên nó giữ nguyên dấu âm cho hóa đơn đã trễ. Nhờ giữ dấu âm mà chỉ cần sắp xếp tăng dần là hóa đơn trễ nhất tự lên đầu bảng."
+      },
+      {
+        "q": "Ngưỡng cảnh báo bảy ngày đổi được không?",
+        "a": "Được, sửa số 7 trong công thức cột Trạng thái rồi kéo xuống. Chọn con số bằng đúng thời gian doanh nghiệp bạn cần để duyệt chi và chuyển tiền: nơi duyệt trong ngày thì ba ngày là đủ, nơi phải trình ký nhiều cấp thì để mười ngày sẽ an toàn hơn."
+      },
+      {
+        "q": "Trả trước hạn để hưởng chiết khấu thì theo dõi thế nào?",
+        "a": "Cứ nhập số ngày được nợ theo đúng hợp đồng, đừng rút ngắn lại, vì cột này là căn cứ pháp lý của khoản nợ. Điều kiện chiết khấu thanh toán sớm nên ghi ở một cột ghi chú thêm, còn phần chiết khấu thực nhận là một khoản thu nhập tài chính và phải hạch toán riêng chứ không trừ thẳng vào công nợ."
+      },
+      {
+        "q": "Sao không dùng hàm TODAY để tự lấy ngày hôm nay?",
+        "a": "Vì trang này hiển thị đúng con số Excel tính ra lúc dựng file, dùng TODAY thì con số đó đứng lại ở ngày dựng và sai vào hôm sau. Cột ngày chốt nhập tay còn cho bạn chốt công nợ tại một ngày trong quá khứ để đối chiếu. Trong file tải về, thay ô ngày chốt bằng công thức =TODAY() rồi kéo xuống là có bản tự cập nhật."
+      }
+    ]
+  },
+  {
+    "file": "ke-toan\\so-kho-nhap-xuat-ton.json",
+    "slug": "so-kho-nhap-xuat-ton",
+    "h1": "Mẫu Excel sổ kho nhập xuất tồn (tự tính tồn cuối kỳ và giá trị tồn)",
+    "intro": "Mẫu Excel sổ kho nhập xuất tồn này tổng hợp biến động kho của một kỳ: mỗi mặt hàng một dòng, gồm tồn đầu kỳ, tổng nhập, tổng xuất và tồn cuối kỳ do file tự tính. Ngoài số lượng, file còn quy ra giá trị tồn kho theo đơn giá bạn nhập, và tự bật cảnh báo với những mặt hàng tồn xuống dưới định mức tối thiểu hoặc bị xuất quá số đang có. Đây là bảng dùng để đối chiếu với biên bản kiểm kê thực tế cuối kỳ.",
+    "features": [
+      "Tự tính tồn cuối kỳ theo công thức tồn đầu cộng nhập trừ xuất",
+      "Tự quy ra giá trị tồn kho theo đơn giá của từng mặt hàng",
+      "Cảnh báo bốn trạng thái: xuất quá tồn, hết hàng, dưới định mức, đủ hàng",
+      "Tính tỷ lệ xuất trên tổng hàng có trong kỳ, thấy ngay mặt hàng nằm im",
+      "Đơn vị tính chọn từ danh sách, tránh cùng một thứ ghi hai kiểu"
+    ],
+    "faq": [
+      {
+        "q": "Vì sao tồn cuối kỳ ra số âm?",
+        "a": "Vì tổng xuất đang lớn hơn tồn đầu kỳ cộng tổng nhập, chuyện không thể xảy ra trong kho thật. Ba nguyên nhân hay gặp: quên nhập một phiếu nhập, chuyển sai tồn đầu kỳ từ bảng kỳ trước, hoặc gõ nhầm cột nhập thành cột xuất. Cột cảnh báo sẽ hiện Xuất quá tồn để bạn không bỏ sót."
+      },
+      {
+        "q": "Giá trị tồn kho tính theo đơn giá nào mới đúng?",
+        "a": "Mẫu này nhân tồn cuối kỳ với một đơn giá duy nhất do bạn nhập, tức là đang theo phương pháp bình quân gia quyền. Nếu doanh nghiệp bạn áp dụng nhập trước xuất trước hoặc tính giá theo từng lô, con số ở đây chỉ mang tính tham khảo nhanh, còn giá trị lên báo cáo tài chính phải lấy từ cách tính giá mà đơn vị đăng ký áp dụng."
+      },
+      {
+        "q": "Tỷ lệ xuất trong kỳ dùng để làm gì?",
+        "a": "Nó cho biết trong tổng số hàng có thể xuất của kỳ, bạn đã xuất được bao nhiêu phần. Tỷ lệ gần 0% kéo dài nhiều kỳ là dấu hiệu hàng chậm luân chuyển, đang chôn vốn và có thể phải xem xét trích lập dự phòng giảm giá hàng tồn kho. Tỷ lệ sát 100% thì ngược lại, hàng bán tốt nhưng dễ đứt hàng."
+      },
+      {
+        "q": "Vì sao công thức tỷ lệ xuất phải bọc IFERROR?",
+        "a": "Vì mặt hàng vừa khai báo mà chưa có tồn đầu kỳ lẫn phát sinh nhập thì mẫu số bằng 0, và Excel trả về lỗi #DIV/0! làm cả cột nhìn như hỏng. IFERROR bắt lỗi đó rồi trả về 0% thay thế, nên bảng vẫn đọc được trong lúc dữ liệu còn dở dang."
+      }
+    ]
+  },
+  {
+    "file": "ke-toan\\so-quy-tien-mat.json",
+    "slug": "so-quy-tien-mat",
+    "h1": "Mẫu Excel sổ quỹ tiền mặt (tự cộng dồn tồn quỹ)",
+    "intro": "Mẫu Excel sổ quỹ tiền mặt này ghi lại từng phiếu thu, phiếu chi theo ngày và tự cộng dồn ra số tồn quỹ sau mỗi nghiệp vụ, nên bạn không phải bấm máy tính lại từ đầu mỗi lần thêm một dòng. Cột tồn quỹ lấy số dư của dòng ngay trên cộng thu trừ chi, đúng cách một cuốn sổ quỹ giấy vận hành. File còn tự bật cảnh báo khi tồn quỹ xuống dưới 0 — dấu hiệu gần như chắc chắn là có phiếu bị ghi thiếu hoặc ghi nhầm cột.",
+    "features": [
+      "Tồn quỹ tự cộng dồn từ dòng trên, thêm dòng mới là số dư chạy tiếp",
+      "Tự cảnh báo khi tồn quỹ âm hoặc khi dòng chưa nhập số tiền",
+      "Phân loại khoản mục thu chi bằng danh sách sổ xuống, sau này lọc và cộng theo khoản mục không bị lệch",
+      "Có sẵn 30 dòng trống đã cài công thức, nhập tiếp là chạy",
+      "Dòng đầu tiên dành cho số dư đầu kỳ mang sang, đúng nếp sổ quỹ"
+    ],
+    "faq": [
+      {
+        "q": "Vì sao không được để dòng trống ở giữa sổ?",
+        "a": "Vì cột tồn quỹ lấy số dư của đúng dòng ngay phía trên. Gặp một dòng trống ở giữa, công thức đọc được ô rỗng và coi như số dư bằng 0, nên mọi dòng bên dưới sẽ tính lại từ 0 và sai toàn bộ. Ghi liên tục không chừa dòng cũng chính là quy tắc của sổ quỹ giấy. Cần tách tháng thì mở một file mới hoặc một sheet mới, đừng chừa dòng."
+      },
+      {
+        "q": "Hàm N trong công thức tồn quỹ để làm gì?",
+        "a": "Ở dòng dữ liệu đầu tiên, ô phía trên chính là ô tiêu đề chứa chữ Tồn quỹ. Lấy chữ cộng với số thì Excel báo lỗi #VALUE!. Hàm N đọc chữ thành số 0, nên dòng đầu tiên xuất phát từ 0 rồi cộng số dư đầu kỳ bạn nhập ở cột Thu. Nhờ vậy cả cột dùng đúng một công thức, không phải viết riêng cho dòng đầu."
+      },
+      {
+        "q": "Tồn quỹ ra số âm thì xử lý thế nào?",
+        "a": "Tiền mặt trong két không bao giờ âm được, nên số âm luôn là lỗi ghi chép chứ không phải tình trạng thật. Ba nguyên nhân hay gặp: quên nhập số dư đầu kỳ, gõ số tiền thu vào cột chi, hoặc ghi phiếu chi trước phiếu thu dù thực tế thu trước. Rà từ dòng cảnh báo đầu tiên trở lên là ra."
+      },
+      {
+        "q": "File này có thay được sổ quỹ theo Thông tư 200 hay 133 không?",
+        "a": "Mẫu này bám đúng các cột cốt lõi của sổ quỹ tiền mặt là ngày, số chứng từ, diễn giải, thu, chi, tồn. Nếu doanh nghiệp bạn phải nộp sổ theo đúng biểu mẫu của chế độ kế toán đang áp dụng, hãy dùng file này để theo dõi và đối chiếu hằng ngày, rồi kết xuất sổ chính thức từ phần mềm kế toán."
+      }
+    ]
+  },
+  {
+    "file": "nhan-su\\bang-cham-cong-nhan-vien.json",
+    "slug": "bang-cham-cong-nhan-vien",
+    "h1": "Mẫu Excel bảng chấm công nhân viên theo tháng (có sẵn công thức)",
+    "intro": "Mẫu Excel bảng chấm công nhân viên này giúp bộ phận nhân sự theo dõi ngày công thực tế, nghỉ phép, nghỉ không lương và giờ tăng ca của cả phòng ban trong một bảng duy nhất. Toàn bộ phần tổng công, tỷ lệ chuyên cần và xếp loại đều đã cài công thức sẵn, nên bạn chỉ cần nhập số ngày công là các cột còn lại tự chạy. File nhận thêm dòng mới mà không vỡ công thức.",
+    "features": [
+      "Tự tính tổng công hưởng lương từ ngày công thực tế và ngày nghỉ phép",
+      "Tự tính tỷ lệ chuyên cần theo công chuẩn của tháng",
+      "Tự xếp loại chuyên cần thành Đủ công / Khá / Cần xem lại",
+      "Có sẵn 20 dòng trống đã cài công thức để nhập thêm nhân viên",
+      "Chọn bộ phận từ danh sách có sẵn, tránh gõ sai tên phòng ban"
+    ],
+    "faq": [
+      {
+        "q": "Vì sao cột tỷ lệ chuyên cần hiện 0% dù đã nhập ngày công?",
+        "a": "Do cột Công chuẩn của dòng đó đang để trống hoặc bằng 0. Công thức dùng IFERROR để tránh lỗi chia cho 0 nên trả về 0% thay vì báo lỗi. Nhập công chuẩn của tháng vào là cột này chạy lại ngay."
+      },
+      {
+        "q": "Nghỉ phép có được tính vào tổng công hưởng lương không?",
+        "a": "Có. Trong mẫu này, tổng công hưởng lương bằng ngày công thực tế cộng ngày nghỉ phép, vì nghỉ phép năm là ngày nghỉ có hưởng lương. Ngày nghỉ không lương được tách riêng và không cộng vào."
+      },
+      {
+        "q": "Tôi muốn đổi ngưỡng xếp loại thì sửa ở đâu?",
+        "a": "Sửa trực tiếp hai mốc 100% và 90% trong công thức của cột Xếp loại, rồi kéo công thức xuống các dòng còn lại. Đây chính là kiểu tùy chỉnh mà bạn sẽ tự làm được sau khi nắm hàm IF lồng nhau."
+      }
+    ]
+  },
+  {
+    "file": "nhan-su\\bang-cham-cong-theo-ca.json",
+    "slug": "bang-cham-cong-theo-ca",
+    "h1": "Mẫu Excel chấm công theo ca, tính đúng cả ca đêm vắt sang ngày sau",
+    "intro": "Mẫu Excel chấm công theo ca này ghi mỗi lượt vào ca thành một dòng, không xếp 31 cột ngày như bảng chấm công hành chính. Lý do là nhà máy hay cửa hàng đổi ca liên tục, một người trong tháng có thể chạy cả ba ca, nên thứ cần truy là từng lượt chứ không phải một ký hiệu trên ô ngày. Điểm khó nhất của chấm công theo ca là ca đêm vắt qua nửa đêm: vào 22 giờ ra 6 giờ, lấy giờ ra trừ giờ vào thì ra âm 16 tiếng. File xử lý bằng một hàm IF cộng thêm 24 khi giờ ra nhỏ hơn giờ vào, và cột giờ trong đêm tách riêng để chuyển sang bảng tính lương làm thêm giờ.",
+    "features": [
+      "Ghi theo từng lượt vào ca, một người chạy nhiều ca vẫn truy được",
+      "Ca đêm vắt qua nửa đêm vẫn tính đúng số giờ, không ra số âm",
+      "Nghỉ giữa giờ của ca liên tục được tính vào giờ làm theo Điều 109",
+      "Tách giờ nằm trong khung ban đêm để chuyển sang bảng tăng ca",
+      "Quy đổi giờ thành công và tách phần giờ vượt quá 8 tiếng một ca"
+    ],
+    "faq": [
+      {
+        "q": "Công thức xử lý ca đêm vắt qua nửa đêm hoạt động thế nào?",
+        "a": "Hàm IF so giờ ra với giờ vào. Nếu giờ ra lớn hơn hoặc bằng giờ vào thì đó là ca trong cùng một ngày, lấy giờ ra trừ giờ vào là xong. Nếu giờ ra nhỏ hơn giờ vào thì ca đã vắt sang ngày sau, khi đó cộng 24 vào giờ ra trước khi trừ: vào 22 ra 6 thành 6 cộng 24 trừ 22 bằng 8 tiếng. Cách này chỉ sai khi một ca dài hơn 24 tiếng, mà điều đó thì luật không cho phép nên bạn không cần lo."
+      },
+      {
+        "q": "Vì sao cột Giờ trong đêm chỉ nhìn cột Ca mà không tính từ giờ vào giờ ra?",
+        "a": "Vì tính chính xác phần giao giữa khoảng làm việc và khung 22 giờ đến 6 giờ đòi một công thức dài với nhiều trường hợp, và công thức đó rất khó soát bằng mắt. Trong thực tế ca đêm đã được thiết kế nằm trọn trong khung ban đêm nên lấy luôn số giờ làm của ca đó là đúng. Nếu công ty bạn có ca lệch, ví dụ vào 18 giờ ra 2 giờ chỉ có 4 tiếng nằm trong khung đêm, thì thêm một loại ca mới vào danh sách và sửa công thức cột này cho loại ca đó."
+      },
+      {
+        "q": "Giờ vượt ca có phải là giờ làm thêm để trả 150% không?",
+        "a": "Là căn cứ để xác định, nhưng chưa đủ. Cột Giờ vượt ca chỉ đếm phần quá 8 tiếng trong một ca. Muốn ra tiền thì còn phải biết ca đó rơi vào ngày thường, ngày nghỉ hằng tuần hay ngày lễ, vì ba trường hợp đó trả 150%, 200% và 300%. Vì vậy con số này được chuyển sang mẫu tính lương làm thêm giờ, nơi bạn xếp nó vào đúng cột, chứ không nhân tiền ngay tại đây."
+      },
+      {
+        "q": "Vì sao ca đêm nghỉ 30 phút vẫn được tính đủ 8 giờ, còn ca hành chính thì bị trừ?",
+        "a": "Vì Điều 109 Bộ luật Lao động quy định người làm việc theo ca liên tục từ 6 giờ trở lên thì thời gian nghỉ giữa giờ được tính vào giờ làm việc. Ba ca sản xuất thuộc diện này: người vào ca 22 giờ ra 6 giờ có nghỉ ăn 30 phút vẫn được tính đủ 8 giờ và một công. Riêng ca hành chính không phải ca liên tục, người đi làm 8 giờ đến 17 giờ nghỉ trưa một tiếng thì có mặt 9 tiếng nhưng giờ làm việc là 8 tiếng, nên giờ nghỉ bị trừ. Luật còn đòi mức nghỉ giữa giờ tối thiểu khác nhau: ít nhất 30 phút với ca ngày và ít nhất 45 phút với ca đêm."
+      },
+      {
+        "q": "Người làm hai ca liền trong một ngày thì ghi thế nào?",
+        "a": "Ghi hai dòng, mỗi ca một dòng, cùng ngày và cùng mã nhân viên. Ghi gộp một dòng thì công thức tính giờ sẽ hiểu sai là một ca dài, và cột Giờ vượt ca chỉ trừ 8 tiếng một lần thay vì soi từng ca. Đây cũng là lý do file chọn mô hình mỗi dòng một lượt vào ca."
+      },
+      {
+        "q": "Bảng này thay được bảng chấm công hành chính không?",
+        "a": "Thay được nếu công ty bạn chỉ làm theo ca, nhưng hai bảng trả lời hai câu hỏi khác nhau. Bảng chấm công hành chính xếp ngày thành cột nên nhìn một cái là thấy cả tháng của một người, tiện để dán lên bảng tin và để người lao động tự soát. Bảng theo ca mạnh ở chỗ truy được từng lượt và tính được giờ. Nhiều nơi dùng cả hai: bảng theo ca để tính, bảng hành chính để công bố."
+      }
+    ]
+  },
+  {
+    "file": "nhan-su\\bang-danh-gia-kpi-nhan-vien.json",
+    "slug": "bang-danh-gia-kpi-nhan-vien",
+    "h1": "Mẫu Excel đánh giá KPI nhân viên, chấm được cả chỉ tiêu càng thấp càng tốt",
+    "intro": "Mẫu Excel đánh giá KPI nhân viên này ghi mỗi chỉ tiêu thành một dòng thay vì nhồi mọi chỉ tiêu của một người vào một dòng, vì số chỉ tiêu mỗi vị trí một khác và nhồi ngang thì thêm một chỉ tiêu là phải sửa cả bảng. Điểm mà phần lớn file KPI trên mạng làm sai là chiều của chỉ tiêu: doanh thu càng cao càng tốt nên lấy thực hiện chia mục tiêu, còn tỷ lệ lỗi hay số ngày trễ thì càng thấp càng tốt, phải lấy mục tiêu chia thực hiện. File có cột chọn chiều nên một bảng chấm được cả hai loại, và điểm có trọng số bị chặn ở mức tối đa để một chỉ tiêu vượt xa không kéo cả bảng lên.",
+    "features": [
+      "Mỗi chỉ tiêu một dòng, thêm bớt chỉ tiêu không phải sửa cấu trúc bảng",
+      "Chọn chiều chỉ tiêu: càng cao càng tốt hoặc càng thấp càng tốt",
+      "Điểm có trọng số bị chặn ở 120% để một chỉ tiêu không kéo cả bảng",
+      "Tự xếp loại từng chỉ tiêu theo bốn mức để thấy ngay chỗ cần cải thiện",
+      "Cột trọng số cộng lại phải bằng 100%, sai là thấy ngay khi soát"
+    ],
+    "faq": [
+      {
+        "q": "Vì sao phải chặn tỷ lệ hoàn thành ở 120%?",
+        "a": "Vì không chặn thì một chỉ tiêu dễ đạt sẽ gánh cho cả bảng. Người bán vượt mục tiêu doanh thu ba lần được 300% ở chỉ tiêu trọng số 40%, tức riêng chỉ tiêu đó đã cho 120% điểm, nên dù bốn chỉ tiêu còn lại bằng 0 họ vẫn đạt loại tốt. Chặn ở 120% giữ lại phần thưởng cho việc vượt mục tiêu nhưng buộc người ta vẫn phải làm những chỉ tiêu khác. Muốn thưởng riêng cho phần vượt xa thì làm bằng hoa hồng, đừng làm bằng điểm KPI."
+      },
+      {
+        "q": "Chỉ tiêu càng thấp càng tốt tính tỷ lệ hoàn thành thế nào?",
+        "a": "Đảo mẫu số và tử số: lấy mục tiêu chia thực hiện. Mục tiêu tỷ lệ lỗi là 2% mà thực hiện 1% thì 2 chia 1 bằng 200%, tức làm tốt gấp đôi yêu cầu, đúng ý nghĩa. Nếu để nguyên thực hiện chia mục tiêu thì ra 50% và người làm tốt nhất lại bị chấm kém nhất. Trường hợp thực hiện bằng 0, ví dụ không có lỗi nào, thì phép chia lỗi và hàm IFERROR đưa về mức chặn 120% vì đó là kết quả tốt nhất có thể."
+      },
+      {
+        "q": "Nên đặt bao nhiêu chỉ tiêu cho một người?",
+        "a": "Ba đến năm chỉ tiêu. Ít hơn ba thì một chỉ tiêu chiếm trọng số quá lớn và người ta chỉ tập trung vào đúng cái đó. Nhiều hơn bảy thì mỗi chỉ tiêu còn dưới 15% trọng số, không đủ để ai thay đổi hành vi, và bảng đánh giá biến thành thủ tục giấy tờ. Đây là lý do file không giới hạn số dòng mỗi người nhưng bạn nên tự giới hạn."
+      },
+      {
+        "q": "Bảng này có thay được đánh giá của quản lý không?",
+        "a": "Không, và không nên. Bảng chỉ tính phần đo được bằng số. Những thứ như thái độ hợp tác, khả năng kèm người mới hay chất lượng tư duy thì không có mục tiêu số nào đo đúng, mà cố gán số vào sẽ tạo ra chỉ tiêu hình thức. Cách dùng đúng là đưa phần định tính thành một dòng chỉ tiêu riêng với trọng số nhỏ, mục tiêu là 5 và thực hiện là điểm quản lý cho từ 1 đến 5, rồi ghi rõ trong biên bản đánh giá rằng dòng đó là nhận định của người quản lý."
+      },
+      {
+        "q": "Kỳ đánh giá nên theo tháng, quý hay năm?",
+        "a": "Theo quý cho phần lớn vị trí. Theo tháng thì nhiều chỉ tiêu chưa kịp có kết quả, nhất là chỉ tiêu về chất lượng hay về khách hàng, nên số liệu nhiễu và ai cũng mất thời gian nhập. Theo năm thì quá muộn để điều chỉnh. Cột Kỳ trong file nhận cả ba dạng, chỉ cần ghi nhất quán, ví dụ Q3-2026, để lọc và cộng theo kỳ không bị lẫn."
+      }
+    ]
+  },
+  {
+    "file": "nhan-su\\bang-theo-doi-dao-tao-nhan-vien.json",
+    "slug": "bang-theo-doi-dao-tao-nhan-vien",
+    "h1": "Mẫu Excel theo dõi đào tạo nội bộ, tính được cả chi phí bỏ dở",
+    "intro": "Mẫu Excel theo dõi đào tạo nội bộ này ghi mỗi lượt một người học một khóa thành một dòng, nên trả lời được cả hai câu hỏi mà lãnh đạo hay hỏi: người này năm nay được đào tạo bao nhiêu giờ, và khóa này tốn bao nhiêu tiền cho mỗi giờ học thật sự hoàn thành. Cột mà các file khác thường không có là chi phí bỏ dở: tiền đã chi cho người đăng ký rồi không học hết. Đó là con số duy nhất khiến bộ phận đào tạo phải siết lại khâu chọn người, vì nó biến một chuyện tưởng như vô hại thành một dòng tiền mất trắng nhìn thấy được.",
+    "features": [
+      "Ghi theo từng lượt học, một người nhiều khóa vẫn cộng được theo mã",
+      "Tính chi phí trên mỗi giờ đào tạo để so hiệu quả giữa các khóa",
+      "Tách riêng chi phí mất trắng do người học bỏ dở giữa khóa",
+      "Chỉ tính giờ đào tạo của khóa đã hoàn thành vào chỉ tiêu năm",
+      "Tự xếp đạt hay chưa đạt theo điểm kiểm tra cuối khóa"
+    ],
+    "faq": [
+      {
+        "q": "Vì sao phải tách riêng cột chi phí bỏ dở?",
+        "a": "Vì nếu gộp vào tổng chi phí đào tạo thì khoản này biến mất trong một con số lớn và không ai chịu trách nhiệm. Tách ra thành một cột, cuối năm cộng lại, bạn có một câu rất cụ thể để mang vào cuộc họp: năm nay công ty mất bao nhiêu tiền cho những người đăng ký rồi không học hết. Con số đó thường đủ để bộ phận đào tạo siết khâu chọn người và khâu xin cam kết của quản lý trực tiếp trước khi cho đăng ký. Đây cũng là lý do chi phí bỏ dở không được trừ khỏi tổng chi phí: tiền đã chi rồi, chỉ là chi mà không thu lại được gì."
+      },
+      {
+        "q": "Chi phí một giờ tính trên giờ đăng ký hay giờ hoàn thành?",
+        "a": "Trên giờ hoàn thành, và đó là điểm khác biệt quan trọng. Nếu chia cho số giờ đăng ký thì một khóa có nửa số người bỏ dở vẫn hiện ra là rẻ như khóa mà mọi người học hết. Chia cho giờ hoàn thành thì khóa nào bị bỏ dở nhiều sẽ tự đắt lên, đúng với thực tế. Dòng của người bỏ dở có chi phí một giờ bằng 0 vì họ không góp giờ hoàn thành nào, nên đừng đọc riêng dòng đó mà hãy cộng theo tên khóa."
+      },
+      {
+        "q": "Có nên ghi cả khóa học người lao động tự đi học không?",
+        "a": "Nên, nhưng để chi phí bằng 0 nếu công ty không chi tiền. Số giờ vẫn được tính vào hồ sơ phát triển của người đó, và khi rà lại cuối năm bạn thấy ai đang tự đầu tư cho mình. Nhiều công ty phát hiện ra rằng nhóm tự học chủ động chính là nhóm nên được ưu tiên cho khóa đắt tiền, vì tỷ lệ bỏ dở của họ thấp hơn hẳn."
+      },
+      {
+        "q": "Công ty chi tiền đào tạo rồi người lao động nghỉ việc thì có đòi lại được không?",
+        "a": "Chỉ khi hai bên đã ký hợp đồng đào tạo nghề riêng, trong đó ghi rõ chi phí đào tạo và thời gian người lao động cam kết làm việc sau khi học. Khi đó nếu họ tự ý nghỉ trước hạn cam kết thì phải hoàn trả chi phí đào tạo theo hợp đồng đã ký. Không có văn bản này thì công ty không có căn cứ đòi lại, dù chi phí có lớn đến đâu. Vì vậy với các khóa đắt tiền, nên thêm một cột ghi số hợp đồng đào tạo ngay bên cạnh cột chi phí."
+      }
+    ]
+  },
+  {
+    "file": "nhan-su\\bang-theo-doi-hop-dong-lao-dong.json",
+    "slug": "bang-theo-doi-hop-dong-lao-dong",
+    "h1": "Mẫu Excel theo dõi hợp đồng lao động, tự cảnh báo bốn lỗi thường gặp",
+    "intro": "Mẫu Excel theo dõi hợp đồng lao động này không chỉ là một danh sách ngày hết hạn. Nó soát bốn lỗi mà doanh nghiệp thường mắc và chỉ phát hiện khi đã bị thanh tra hoặc đã ra tòa: thử việc dài hơn mức luật cho phép của nhóm chức danh đó, hợp đồng xác định thời hạn quá 36 tháng, ký lần thứ ba mà vẫn để loại có thời hạn, và quên mốc báo trước 30 ngày khi không muốn gia hạn. Mỗi lỗi là một nhánh trong cột Cảnh báo, và cột đó tự đọc từ ngày tháng bạn đã nhập nên không cần ai ngồi rà bằng mắt.",
+    "features": [
+      "Trần thử việc tự đổi theo nhóm chức danh: 180, 60, 30 hoặc 6 ngày",
+      "Cảnh báo khi hợp đồng xác định thời hạn vượt 36 tháng",
+      "Nhắc chuyển sang loại không xác định thời hạn từ lần ký thứ ba",
+      "Tự tính mốc phải thông báo trước 30 ngày khi hợp đồng sắp hết hạn",
+      "Cột thời hạn quy ra tháng để đối chiếu nhanh với hợp đồng giấy"
+    ],
+    "faq": [
+      {
+        "q": "Vì sao ký hai lần hợp đồng xác định thời hạn thì lần thứ ba phải ký không xác định thời hạn?",
+        "a": "Vì Bộ luật Lao động 2019 chỉ cho phép ký hợp đồng xác định thời hạn tối đa hai lần liên tiếp với cùng một người cho cùng một công việc. Hết hạn hợp đồng lần thứ hai mà người lao động vẫn tiếp tục làm việc thì phải ký hợp đồng không xác định thời hạn. Có một số ngoại lệ hẹp, chẳng hạn hợp đồng với người lao động cao tuổi, người nước ngoài làm việc theo giấy phép lao động, hoặc người được thuê làm giám đốc trong doanh nghiệp có vốn nhà nước. Cột Cảnh báo không phân biệt các ngoại lệ đó, nên gặp trường hợp thuộc ngoại lệ thì bạn ghi chú lại và bỏ qua cảnh báo."
+      },
+      {
+        "q": "Ngày kết thúc hợp đồng qua rồi mà người lao động vẫn đi làm thì sao?",
+        "a": "Đây là tình huống nguy hiểm nhất và cũng phổ biến nhất. Nếu hết hạn mà hai bên không ký hợp đồng mới, người lao động vẫn làm việc thì trong 30 ngày đầu quan hệ lao động vẫn tiếp tục theo hợp đồng cũ, còn quá 30 ngày mà chưa ký mới thì hợp đồng xác định thời hạn đó trở thành hợp đồng không xác định thời hạn. Nghĩa là công ty mất quyền chấm dứt theo mốc hết hạn mà không hề hay biết. Cột Ngày cần báo trước tồn tại chính để tình huống này không xảy ra."
+      },
+      {
+        "q": "Thời gian thử việc có được ký thành hợp đồng thử việc riêng không?",
+        "a": "Được, hoặc ghi nội dung thử việc ngay trong hợp đồng lao động, luật cho cả hai cách. Điểm khác nhau nằm ở bảo hiểm: ghi trong hợp đồng lao động từ một tháng trở lên thì phải đóng bảo hiểm xã hội cho thời gian thử việc, còn ký hợp đồng thử việc riêng thì không đóng. Lương thử việc ít nhất phải bằng 85% mức lương của công việc đó, và không được thử việc quá một lần cho một công việc."
+      },
+      {
+        "q": "Vì sao cột thời hạn quy ra tháng lại chia cho 30,44 mà không chia 30?",
+        "a": "Vì 30,44 là số ngày bình quân của một tháng trong năm, bằng 365 chia 12. Chia 30 thì hợp đồng đúng 36 tháng tính ra 36,5 tháng và cột Cảnh báo báo vượt trần một cách oan. Con số này chỉ dùng để đối chiếu nhanh với hợp đồng giấy nên sai số vài ngày không quan trọng, còn thời hạn pháp lý thì luôn lấy theo hai mốc ngày ghi trong hợp đồng."
+      },
+      {
+        "q": "File có tự cảnh báo hợp đồng sắp hết hạn dựa vào ngày hôm nay không?",
+        "a": "Không, và đây là lựa chọn có chủ ý. Dùng hàm TODAY thì con số trên trang web này sẽ đứng lại ở ngày file được dựng và nói sai ngày mai. Trong file tải về bạn thêm được dễ dàng: chèn một cột mới với công thức lấy Ngày cần báo trước trừ TODAY để ra số ngày còn lại, rồi tô màu ô nào nhỏ hơn 0. Cách sắp xếp theo cột Ngày cần báo trước thì không cần hàm nào và không bao giờ lỗi thời."
+      }
+    ]
+  },
+  {
+    "file": "nhan-su\\bang-theo-doi-nghi-phep.json",
+    "slug": "bang-theo-doi-nghi-phep",
+    "h1": "Mẫu Excel theo dõi nghỉ phép, tự tách ngày có lương và không lương",
+    "intro": "Mẫu Excel theo dõi nghỉ phép này ghi theo từng đơn nghỉ chứ không ghi gộp theo tháng, nên bạn luôn truy được ai nghỉ ngày nào và ai đã duyệt. Ba cột cuối tự phân loại số ngày trong đơn thành ngày có hưởng lương, ngày không lương và ngày trừ vào quỹ phép năm — đây chính là ba con số mà bảng chấm công và bảng lương cần lấy sang. Đơn còn ở trạng thái chờ duyệt hay bị từ chối thì mọi cột tính đều trả về 0, nên số liệu chưa chốt không bao giờ lọt vào lương.",
+    "features": [
+      "Ghi theo từng đơn nghỉ, truy được ngày nghỉ và người duyệt",
+      "Tự tách ngày nghỉ có hưởng lương với ngày nghỉ không lương",
+      "Đơn chờ duyệt hoặc bị từ chối tự trả về 0, không lọt vào lương",
+      "Tách riêng ngày trừ vào quỹ phép năm để đối chiếu cuối năm",
+      "Chọn loại nghỉ và trạng thái duyệt từ danh sách có sẵn"
+    ],
+    "faq": [
+      {
+        "q": "Vì sao nghỉ ốm không được tính là ngày có hưởng lương?",
+        "a": "Vì chế độ ốm đau do quỹ bảo hiểm xã hội chi trả chứ không phải doanh nghiệp, mức hưởng thường là 75% tiền lương đóng bảo hiểm và được cơ quan bảo hiểm thanh toán riêng. Nếu bạn tính luôn vào lương tháng thì người lao động được trả hai lần cho cùng một ngày. Công ty nào có chính sách trả bù thêm thì ghi phần bù đó thành một khoản phụ cấp, đừng nhét vào đây."
+      },
+      {
+        "q": "Nghỉ nửa ngày thì ghi thế nào?",
+        "a": "Điền 0,5 vào cột Số ngày, cột này nhận số lẻ. Từ ngày và đến ngày ghi cùng một ngày. Nếu công ty bạn tính phép theo giờ thì nên quy đổi ra ngày ngay tại đây thay vì thêm cột giờ, để số liệu chuyển sang bảng chấm công vẫn cùng đơn vị."
+      },
+      {
+        "q": "File này có tự trừ quỹ phép năm còn lại không?",
+        "a": "Không, cột Trừ phép năm chỉ ghi nhận số ngày đã dùng trong từng đơn. Quỹ phép năm còn lại phụ thuộc thâm niên, số ngày phép được cộng thêm và phần chuyển từ năm trước sang, mỗi công ty một quy định. Cuối năm bạn dùng SUMIF cột này theo mã nhân viên để ra tổng đã nghỉ, rồi lấy quỹ phép của người đó trừ đi."
+      },
+      {
+        "q": "Đơn nghỉ vắt qua hai tháng thì ghi vào tháng nào?",
+        "a": "Tách thành hai dòng, mỗi dòng một tháng, vì lương tính theo tháng. Ví dụ nghỉ từ 28/6 đến 3/7 thì một dòng 28/6 đến 30/6 và một dòng 1/7 đến 3/7. Ghi gộp một dòng thì tháng nào cũng nhận nhầm toàn bộ số ngày."
+      }
+    ]
+  },
+  {
+    "file": "nhan-su\\bang-theo-doi-tuyen-dung.json",
+    "slug": "bang-theo-doi-tuyen-dung",
+    "h1": "Mẫu Excel theo dõi tuyển dụng, đo được nguồn nào ra người thật",
+    "intro": "Mẫu Excel theo dõi tuyển dụng này ghi mỗi ứng viên một dòng và chỉ có đúng một cột nói ứng viên đang ở đâu, nên không bao giờ xảy ra chuyện một hồ sơ vừa đánh dấu đã phỏng vấn vừa đánh dấu chưa liên hệ. Ba cột tính cuối biến bảng danh sách thành bảng đo được: số ngày từ lúc nhận hồ sơ đến lúc phỏng vấn cho biết bạn có đang để ứng viên nguội mất hay không, cột hồ sơ còn mở lọc ra việc phải làm hôm nay, và cột tuyển được cộng theo nguồn để trả lời câu hỏi đáng giá nhất: nguồn nào ra người thật, chứ không phải nguồn nào ra nhiều hồ sơ.",
+    "features": [
+      "Đúng một cột trạng thái theo vòng, không có hồ sơ ở hai trạng thái",
+      "Tính số ngày từ nhận hồ sơ đến phỏng vấn để thấy chỗ bị nghẽn",
+      "Cột hồ sơ còn mở lọc ra ngay danh sách việc phải làm",
+      "Cột tuyển được cộng theo nguồn để so hiệu quả từng kênh",
+      "So mức lương đề xuất với mức duyệt để soát lại khung lương"
+    ],
+    "faq": [
+      {
+        "q": "Vì sao cột Còn mở lại là số 1 và 0 chứ không phải chữ Còn mở và Đã đóng?",
+        "a": "Vì số cộng được còn chữ thì không. Để dạng 1 và 0 thì cộng cả cột ra ngay số hồ sơ đang phải xử lý, và cộng theo người phụ trách ra khối lượng việc của từng người. Nếu bạn muốn nhìn dễ hơn thì dùng định dạng có điều kiện tô màu ô bằng 1, giữ nguyên giá trị số bên dưới. Đây là nguyên tắc chung khi dựng bảng tính: cột để máy cộng thì để số, cột để người đọc thì để chữ, đừng bắt một cột làm cả hai việc."
+      },
+      {
+        "q": "Số ngày xử lý bao nhiêu là chấp nhận được?",
+        "a": "Dưới 7 ngày từ lúc nhận hồ sơ đến lúc phỏng vấn là mức nên nhắm với vị trí phổ thông, dưới 14 ngày với vị trí cần chuyên môn sâu. Quá mốc đó thì ứng viên tốt thường đã nhận lời chỗ khác, và bạn sẽ thấy điều này thể hiện ở cột Vòng hiện tại đứng mãi ở Sàng lọc CV rồi chuyển thẳng sang Từ chối. Con số này đo tốc độ của công ty bạn, không đo chất lượng ứng viên, nên đừng để nó nằm trong báo cáo mà không có người chịu trách nhiệm."
+      },
+      {
+        "q": "Vì sao cần cột chênh lệch giữa lương đề xuất và lương duyệt?",
+        "a": "Vì nó phát hiện hai vấn đề khác nhau. Nếu chênh lệch âm liên tục, tức duyệt thấp hơn ứng viên đề xuất, thì khung lương của công ty đang thấp hơn thị trường và bạn sẽ mất người ở vòng cuối, thường sau khi đã tốn ba vòng phỏng vấn. Nếu chênh lệch dương thường xuyên thì người tuyển dụng đang phải trả cao hơn khung để lấp chỗ, dấu hiệu vị trí đó khó tuyển hoặc mô tả công việc chưa đúng. Ô bỏ trống nghĩa là chưa tới bước duyệt lương, cột này trả về rỗng chứ không trả về 0."
+      },
+      {
+        "q": "Có nên ghi cả ứng viên tự nộp hồ sơ nhưng không phù hợp không?",
+        "a": "Nên, và ghi ngay với vòng hiện tại là Từ chối. Số hồ sơ không phù hợp của một kênh chính là thước đo chất lượng của kênh đó: một kênh gửi về 200 hồ sơ mà 190 hồ sơ sai hoàn toàn yêu cầu thì nó đang tiêu thời gian của bạn chứ không giúp bạn. Không ghi thì kênh đó trông vô hại trong mọi báo cáo."
+      },
+      {
+        "q": "File này có thay được phần mềm quản lý tuyển dụng không?",
+        "a": "Thay được ở quy mô dưới khoảng năm vị trí mở cùng lúc. Trên mức đó, thứ Excel không làm được là tự động gửi thư cho ứng viên, lưu file CV kèm theo dòng dữ liệu và ghi lại lịch sử ai đổi trạng thái lúc nào. Nhưng ngay cả khi chuyển sang phần mềm, cách nghĩ trong file này vẫn đúng: một cột trạng thái duy nhất, không xóa hồ sơ đã đóng, và đo theo nguồn thay vì đếm tổng hồ sơ."
+      }
+    ]
+  },
+  {
+    "file": "nhan-su\\bang-tinh-bao-hiem-xa-hoi.json",
+    "slug": "bang-tinh-bao-hiem-xa-hoi",
+    "h1": "Mẫu Excel tính bảo hiểm xã hội, tách rõ phần nhân viên và phần công ty",
+    "intro": "Mẫu Excel tính bảo hiểm xã hội này tách hai bên đóng thành hai nhóm cột riêng, vì đó là hai con số đi hai đường khác nhau: 10,5% trừ vào lương người lao động và hiện trên phiếu lương, còn 21,5% là chi phí công ty và chỉ hiện trên sổ kế toán. Điểm mà phần lớn file trên mạng bỏ qua là hai mức trần: bảo hiểm xã hội và bảo hiểm y tế chặn ở 20 lần mức tham chiếu, còn bảo hiểm thất nghiệp chặn ở 20 lần lương tối thiểu vùng, nên với người lương cao thì hai trần này cho ra hai mức nền hoàn toàn khác nhau. File tự tính cả hai và có cột chọn vùng.",
+    "features": [
+      "Tách riêng 10,5% nhân viên đóng và 21,5% công ty đóng",
+      "Chia nhỏ từng loại: BHXH, BHYT và BHTN đóng riêng từng cột",
+      "Tự chặn trần 20 lần mức tham chiếu cho BHXH và BHYT",
+      "Trần bảo hiểm thất nghiệp đổi theo vùng lương tối thiểu đã chọn",
+      "Cột tổng chi phí bảo hiểm để đưa thẳng vào dự toán quỹ lương"
+    ],
+    "faq": [
+      {
+        "q": "10,5% và 21,5% gồm những khoản nào?",
+        "a": "Phần người lao động đóng 10,5% gồm bảo hiểm xã hội 8%, bảo hiểm y tế 1,5% và bảo hiểm thất nghiệp 1%. Phần người sử dụng lao động đóng 21,5% gồm bảo hiểm xã hội 17,5%, bảo hiểm y tế 3% và bảo hiểm thất nghiệp 1%. Trong 17,5% của công ty có 14% vào quỹ hưu trí và tử tuất, 3% vào quỹ ốm đau và thai sản, 0,5% vào quỹ bảo hiểm tai nạn lao động và bệnh nghề nghiệp. Tổng hai bên là 32% tiền lương làm căn cứ đóng."
+      },
+      {
+        "q": "Vì sao bảo hiểm thất nghiệp lại có trần riêng, không dùng chung trần với BHXH?",
+        "a": "Vì hai loại này neo vào hai mốc khác nhau. Bảo hiểm xã hội và bảo hiểm y tế chặn ở 20 lần mức tham chiếu do Nhà nước công bố, hiện là 2.340.000 đồng nên trần bằng 46.800.000 đồng, và mốc này giống nhau trên toàn quốc. Bảo hiểm thất nghiệp chặn ở 20 lần lương tối thiểu vùng, mà lương tối thiểu vùng khác nhau theo địa bàn, nên trần vùng I lên tới 99.200.000 đồng trong khi vùng IV chỉ 69.000.000 đồng. Với người lương 60 triệu ở vùng I, BHXH tính trên 46,8 triệu còn BHTN tính trên đúng 60 triệu."
+      },
+      {
+        "q": "Người thử việc và người làm hợp đồng dưới một tháng có phải đóng không?",
+        "a": "Người làm việc theo hợp đồng lao động từ một tháng trở lên thuộc diện đóng bảo hiểm xã hội bắt buộc, kể cả hợp đồng thử việc nếu nội dung thử việc được ghi trong hợp đồng lao động. Nếu thử việc ký bằng một hợp đồng thử việc riêng thì thời gian đó không đóng, nhưng khoản tiền tương ứng phải trả thêm vào lương cho người lao động tự đóng. Hợp đồng dưới một tháng không thuộc diện đóng bảo hiểm xã hội và bảo hiểm thất nghiệp."
+      },
+      {
+        "q": "Mức tham chiếu là gì, có phải mức lương cơ sở cũ không?",
+        "a": "Từ khi Luật Bảo hiểm xã hội 2024 có hiệu lực, các mốc trước đây neo vào mức lương cơ sở được chuyển sang neo vào mức tham chiếu. Ở thời điểm chuyển tiếp, mức tham chiếu được ấn định bằng mức lương cơ sở đang áp dụng là 2.340.000 đồng, nên trần đóng chưa đổi. Về sau mức tham chiếu sẽ được điều chỉnh riêng, khi đó bạn chỉ cần sửa con số 46800000 trong cột Nền BHXH và BHYT."
+      },
+      {
+        "q": "File có tính được bảo hiểm cho người nước ngoài không?",
+        "a": "Được với phần bảo hiểm xã hội và bảo hiểm y tế, nhưng bạn phải sửa cột bảo hiểm thất nghiệp về 0 cho những dòng đó. Người lao động nước ngoài làm việc tại Việt Nam không thuộc đối tượng tham gia bảo hiểm thất nghiệp, nên giữ nguyên 1% ở cả hai bên là đóng sai."
+      }
+    ]
+  },
+  {
+    "file": "nhan-su\\bang-tinh-luong-lam-them-gio.json",
+    "slug": "bang-tinh-luong-lam-them-gio",
+    "h1": "Mẫu Excel tính lương làm thêm giờ theo đúng bốn mức 150%, 200%, 300%",
+    "intro": "Mẫu Excel tính lương làm thêm giờ này không gộp tăng ca thành một con số duy nhất, vì luật không cho phép gộp: một giờ tăng ca ngày thường trả 150%, ngày nghỉ hằng tuần trả 200%, ngày lễ trả 300%, và giờ tăng ca rơi vào ban đêm còn được cộng thêm hai khoản nữa. File tách năm cột giờ để bạn nhập đúng loại, rồi tự nhân với đơn giá giờ lấy từ lương tháng chia công chuẩn chia 8. Mỗi cột tiền hiển thị công thức của nó ngay trên trang, nên khi người lao động hỏi vì sao giờ đêm lại ra 200% thì bạn chỉ vào ô là trả lời được.",
+    "features": [
+      "Tách bốn loại giờ tăng ca theo đúng bốn mức luật quy định",
+      "Tính riêng giờ tăng ca ban đêm ở mức 200%, gồm cả phần cộng thêm 20%",
+      "Đơn giá giờ tự suy ra từ lương tháng và công chuẩn, không nhập tay",
+      "Có cột phụ cấp đêm 30% cho ca đêm bình thường, không phải tăng ca",
+      "Chọn bộ phận từ danh sách để cộng quỹ tăng ca theo từng phòng"
+    ],
+    "faq": [
+      {
+        "q": "Vì sao giờ tăng ca ban đêm lại tính 200% mà không phải 150% cộng 30%?",
+        "a": "Vì luật cộng ba phần cho cùng một giờ đó. Phần thứ nhất là mức tăng ca ngày thường 150%. Phần thứ hai là phụ cấp làm việc ban đêm ít nhất 30% đơn giá giờ của công việc ngày bình thường. Phần thứ ba là khoản cộng thêm ít nhất 20% đơn giá giờ ban ngày, dành riêng cho trường hợp vừa tăng ca vừa làm đêm. Cộng lại 150 cộng 30 cộng 20 ra 200% đơn giá giờ. Nếu giờ tăng ca đêm đó lại rơi vào ngày nghỉ tuần hoặc ngày lễ thì gốc đổi từ 150% thành 200% hoặc 300%, và bạn phải tự tính thêm dòng riêng cho trường hợp đó."
+      },
+      {
+        "q": "Đơn giá giờ chia cho 8 hay chia cho số giờ thực tế trong ngày?",
+        "a": "Chia 8, vì giờ làm việc bình thường theo luật là không quá 8 giờ một ngày. Công ty nào áp dụng tuần 44 giờ chia 6 ngày thì một ngày 7,33 giờ, khi đó bạn sửa số 8 trong công thức cột Đơn giá giờ thành 7.33. Đừng lấy số giờ thực tế của riêng ngày hôm đó làm mẫu số, vì như vậy ai làm ngày dài sẽ bị hạ đơn giá tăng ca, đúng ngược với mục đích của quy định."
+      },
+      {
+        "q": "Tiền tăng ca có phải đóng bảo hiểm xã hội không?",
+        "a": "Không. Tiền lương làm thêm giờ và tiền lương làm việc ban đêm không nằm trong tiền lương làm căn cứ đóng bảo hiểm xã hội. Vì vậy cột bảo hiểm ở bảng tính lương vẫn nhân với lương cơ bản, không nhân với tổng thu nhập đã gồm tăng ca. Nhưng tiền tăng ca vẫn tính vào thu nhập chịu thuế thu nhập cá nhân, nên phải cộng vào bảng lương."
+      },
+      {
+        "q": "Người lao động hưởng lương khoán hoặc lương sản phẩm thì dùng file này thế nào?",
+        "a": "Điền vào cột Lương tháng con số tiền lương bình quân thực trả của tháng đó, rồi giữ nguyên công chuẩn. Đơn giá giờ khi ấy là đơn giá bình quân, đúng với cách luật quy định cho hình thức trả lương theo sản phẩm. Cách này chỉ đúng khi bạn tính lại từng tháng chứ không lấy một con số cố định cho cả năm."
+      }
+    ]
+  },
+  {
+    "file": "nhan-su\\bang-tinh-luong-nhan-vien.json",
+    "slug": "bang-tinh-luong-nhan-vien",
+    "h1": "Mẫu Excel tính lương nhân viên 2026 (đã cập nhật thuế TNCN mới)",
+    "intro": "Mẫu Excel tính lương nhân viên này tự động tính lương theo số công thực hưởng, các khoản bảo hiểm bắt buộc, giảm trừ gia cảnh, thuế thu nhập cá nhân và lương thực lĩnh cho từng người. Toàn bộ số liệu thuế đã cập nhật theo quy định áp dụng từ kỳ tính thuế 2026: giảm trừ bản thân 15,5 triệu đồng, mỗi người phụ thuộc 6,2 triệu đồng, và biểu thuế lũy tiến rút còn 5 bậc. Bạn chỉ cần nhập lương cơ bản, phụ cấp, số công và số người phụ thuộc.",
+    "features": [
+      "Tự chia lương cơ bản theo công chuẩn rồi nhân số công thực hưởng",
+      "Tự tính bảo hiểm bắt buộc phần nhân viên đóng theo tỷ lệ 10,5%",
+      "Tự tính giảm trừ gia cảnh theo số người phụ thuộc của từng nhân viên",
+      "Tự tính thuế TNCN theo biểu lũy tiến 5 bậc áp dụng từ năm 2026",
+      "Tự tính lương thực lĩnh sau khi trừ bảo hiểm và thuế",
+      "Có sẵn 20 dòng trống đã cài công thức để nhập thêm nhân viên"
+    ],
+    "faq": [
+      {
+        "q": "Vì sao bảo hiểm vẫn tính trên lương cơ bản chứ không theo số công?",
+        "a": "Vì căn cứ đóng bảo hiểm là mức lương ghi trong hợp đồng lao động, không phải số tiền thực nhận trong tháng. Người nghỉ không lương vài ngày thì lương theo công giảm nhưng mức đóng bảo hiểm vẫn giữ nguyên. Chỉ khi nghỉ không lương từ 14 ngày trở lên trong tháng thì tháng đó mới không đóng bảo hiểm xã hội — trường hợp này bạn phải sửa tay cột Bảo hiểm về 0."
+      },
+      {
+        "q": "Vì sao giảm trừ gia cảnh trong file là 15,5 triệu chứ không phải 11 triệu?",
+        "a": "Từ kỳ tính thuế năm 2026, mức giảm trừ cho bản thân người nộp thuế tăng từ 11 triệu lên 15,5 triệu đồng một tháng, và mỗi người phụ thuộc tăng từ 4,4 triệu lên 6,2 triệu đồng, theo Nghị quyết 110/2025/UBTVQH15. Rất nhiều file mẫu đang lưu hành trên mạng vẫn dùng số cũ nên tính ra tiền thuế cao hơn thực tế."
+      },
+      {
+        "q": "Biểu thuế 5 bậc khác gì biểu cũ?",
+        "a": "Biểu thuế lũy tiến rút từ 7 bậc xuống 5 bậc: đến 10 triệu chịu 5%, trên 10 đến 30 triệu chịu 10%, trên 30 đến 60 triệu chịu 20%, trên 60 đến 100 triệu chịu 30%, trên 100 triệu chịu 35%. Hai bậc giữa được giảm thuế suất so với trước."
+      },
+      {
+        "q": "Tỷ lệ bảo hiểm 10,5% gồm những khoản nào?",
+        "a": "Gồm bảo hiểm xã hội 8%, bảo hiểm y tế 1,5% và bảo hiểm thất nghiệp 1%, đây là phần người lao động đóng. Phần doanh nghiệp đóng thêm không nằm trong bảng lương thực lĩnh nên mẫu này không tính."
+      },
+      {
+        "q": "Lương cao thì mức đóng bảo hiểm có bị giới hạn không?",
+        "a": "Có. Tiền lương làm căn cứ đóng bảo hiểm xã hội và y tế bị khống chế trần, phần vượt trần không phải đóng thêm. Mẫu này tính thẳng theo tỷ lệ để giữ công thức dễ hiểu, nên với các mức lương rất cao bạn cần chỉnh lại cột bảo hiểm cho đúng trần hiện hành."
+      }
+    ]
+  },
+  {
+    "file": "nhan-su\\bang-tinh-thuong-thang-13.json",
+    "slug": "bang-tinh-thuong-thang-13",
+    "h1": "Mẫu Excel tính thưởng tháng 13 theo số tháng làm việc thực tế",
+    "intro": "Mẫu Excel tính thưởng tháng 13 này không chia đều cho mọi người một tháng lương, vì cách chia đều gây tranh chấp ngay với hai nhóm: người vào giữa năm và người nghỉ việc trước Tết. File tính theo tỷ lệ thời gian làm việc thực tế trong năm rồi nhân với hệ số đánh giá, nên ai làm 7 tháng nhận đúng phần của 7 tháng. Phần thứ hai của file là thuế: thưởng tháng 13 là thu nhập chịu thuế của tháng chi trả, cộng dồn với lương tháng đó rồi mới tính lũy tiến, nên nhiều người bị nhảy bậc thuế đúng vào tháng nhận thưởng mà không hiểu vì sao.",
+    "features": [
+      "Chia thưởng theo số tháng làm việc thực tế, không chia đều cả năm",
+      "Hệ số đánh giá nhân vào sau, tách bạch phần thời gian và phần hiệu suất",
+      "Tính thuế TNCN của tháng chi trả trên tổng lương cộng thưởng",
+      "Dùng đúng bộ số thuế 2026: giảm trừ 15,5 triệu và biểu 5 bậc",
+      "Cột tỷ lệ thời gian hiện dạng phần trăm để người lao động tự soát"
+    ],
+    "faq": [
+      {
+        "q": "Vì sao file không tách riêng số thuế của phần thưởng?",
+        "a": "Vì thuế thu nhập cá nhân tính lũy tiến trên tổng thu nhập của tháng, nên phần thuế của riêng khoản thưởng không tồn tại như một con số duy nhất. Bạn có thể tính tổng thuế khi có thưởng trừ đi tổng thuế khi không có thưởng để ra phần thuế tăng thêm do thưởng, nhưng con số đó phụ thuộc lương tháng đó cao hay thấp, và hai người thưởng bằng nhau có thể chịu thuế tăng thêm khác nhau. Cách trung thực là hiển thị tổng thuế của tháng chi trả và giải thích cho người lao động rằng thưởng đã đẩy họ lên bậc cao hơn."
+      },
+      {
+        "q": "Người đã nghỉ việc trong năm có được thưởng tháng 13 không?",
+        "a": "Phụ thuộc hoàn toàn vào quy chế thưởng của công ty, vì đây không phải khoản luật buộc trả. Nhiều quy chế đặt điều kiện còn làm việc tại thời điểm chi trả, và điều kiện đó hợp pháp nếu đã công bố trước. Nếu quy chế không nói gì mà công ty vẫn từ chối trả cho người đã nghỉ thì rủi ro tranh chấp là thật, nhất là khi người đó đã làm gần hết năm. Muốn chi cho họ thì cứ điền số tháng thực tế vào file, công thức không phân biệt người đang làm hay đã nghỉ."
+      },
+      {
+        "q": "Thưởng tháng 13 có phải đóng bảo hiểm xã hội không?",
+        "a": "Không. Tiền thưởng theo quy chế thưởng không nằm trong tiền lương làm căn cứ đóng bảo hiểm xã hội, nên khoản này không làm tăng số tiền đóng bảo hiểm của tháng chi trả. Nhưng nó chịu thuế thu nhập cá nhân, đó là lý do file có cột thuế mà không có cột bảo hiểm."
+      },
+      {
+        "q": "Thưởng tháng 13 khác thưởng Tết thế nào?",
+        "a": "Thưởng tháng 13 gắn với thời gian làm việc trong năm, bản chất là một tháng lương thứ mười ba nên chia theo tỷ lệ tháng. Thưởng Tết gắn với kết quả kinh doanh và thường chia theo mức cố định hoặc theo hệ số chức danh, không nhất thiết theo số tháng. Nhiều công ty gộp hai khoản thành một lần chi nhưng vẫn nên tách hai cột trong quy chế, vì khi kinh doanh kém thì thưởng Tết có thể cắt còn thưởng tháng 13 đã cam kết theo hợp đồng thì khó cắt hơn."
+      },
+      {
+        "q": "Hệ số đánh giá lấy ở đâu cho khách quan?",
+        "a": "Lấy từ kết quả bảng đánh giá KPI của cùng năm đó. Bảng KPI cho ra điểm có trọng số theo từng chỉ tiêu, bạn quy điểm đó thành bốn mức rồi ánh xạ sang hệ số. Cách này khiến hệ số thưởng có đường truy về từng chỉ tiêu cụ thể, nên khi người lao động thắc mắc vì sao mình chỉ được hệ số 1,0 thì bạn có số liệu để trả lời."
+      }
+    ]
+  },
+  {
+    "file": "nhan-su\\bang-tong-hop-nhan-su-thang.json",
+    "slug": "bang-tong-hop-nhan-su-thang",
+    "h1": "Mẫu Excel tổng hợp nhân sự theo tháng cho cả công ty",
+    "intro": "Mẫu Excel tổng hợp nhân sự này là file cuối cùng trong quy trình hằng tháng: nó không dùng để nhập số liệu thô mà để đọc kết quả. Bạn gõ vào bốn con số đã chốt của từng bộ phận, còn tỷ lệ đi làm, lương bình quân, chi phí mỗi ngày công và cảnh báo đều tự tính. Đây là trang một dòng một bộ phận mà trưởng phòng hay giám đốc cần, thay vì phải mở lần lượt bảng chấm công và bảng lương của cả công ty.",
+    "features": [
+      "Tự tính tỷ lệ đi làm của từng bộ phận từ tổng công và công chuẩn",
+      "Tự tính lương bình quân đầu người và chi phí lương cho mỗi ngày công",
+      "Tự gắn cảnh báo Đạt / Theo dõi / Cần xem lại theo tỷ lệ đi làm",
+      "Sheet biến động nhân sự tự tính quân số cuối kỳ và tỷ lệ nghỉ việc",
+      "Chọn bộ phận từ danh sách có sẵn, khớp đúng với bảng chấm công"
+    ],
+    "faq": [
+      {
+        "q": "Vì sao file tổng vẫn phải nhập tay, không tự lấy số từ file kia?",
+        "a": "Vì liên kết giữa các file Excel rời rất dễ gãy: chỉ cần đổi tên file hoặc chuyển thư mục là toàn bộ công thức trả về #REF!, mà lỗi đó thì người không rành Excel không sửa được. Bốn ô nhập tay mỗi bộ phận, một lần mỗi tháng, đổi lại là một file không bao giờ vỡ."
+      },
+      {
+        "q": "Cột Cuối kỳ lệch với cột Số nhân viên ở sheet đầu thì sao?",
+        "a": "Đó là dấu hiệu số liệu có chỗ sai, và file cố tình để bạn thấy điều đó. Thường là do ai đó vào hoặc nghỉ giữa tháng mà chưa ghi vào hồ sơ nhân viên. Kiểm lại danh sách rồi sửa ở file hồ sơ trước, đừng sửa thẳng vào file tổng."
+      },
+      {
+        "q": "Tôi muốn đổi ngưỡng cảnh báo thì sửa ở đâu?",
+        "a": "Sửa hai số 0.95 và 0.9 trong công thức cột Cảnh báo, rồi kéo xuống các dòng còn lại. Ngưỡng mặc định phù hợp với công ty làm giờ hành chính; nơi có nhiều ca kíp hoặc lao động thời vụ thường phải hạ xuống."
+      },
+      {
+        "q": "Chi phí mỗi ngày công dùng để làm gì?",
+        "a": "Nó cho biết một ngày công của bộ phận đó tốn bao nhiêu tiền lương, nên so được giữa các bộ phận và so được giữa các tháng. Con số này nhảy vọt mà quỹ lương không tăng thì nghĩa là số ngày công giảm — thường là dấu hiệu nghỉ việc hoặc nghỉ không lương tăng."
+      }
+    ]
+  },
+  {
+    "file": "nhan-su\\danh-sach-nhan-vien.json",
+    "slug": "danh-sach-nhan-vien",
+    "h1": "Mẫu Excel danh sách nhân viên (hồ sơ gốc của cả bộ file nhân sự)",
+    "intro": "Mẫu Excel danh sách nhân viên này là hồ sơ gốc của cả quy trình nhân sự: mỗi người một dòng, một mã nhân viên duy nhất, kèm bộ phận, ngày vào, ngày nghỉ và mức lương theo hợp đồng. Mọi file khác trong bộ đều tra ngược về đây theo mã nhân viên, nên chỉ cần sửa bộ phận hay lương ở file này là bảng chấm công và bảng lương cập nhật theo, không phải sửa lại ở ba chỗ. Cột trạng thái tự phân biệt người đang làm với người đã nghỉ dựa vào ô ngày nghỉ có trống hay không.",
+    "features": [
+      "Mỗi nhân viên một mã duy nhất, dùng làm khóa nối sang mọi file khác",
+      "Tự gắn trạng thái Đang làm hay Đã nghỉ theo ô ngày nghỉ việc",
+      "Tự tính thu nhập cố định hằng tháng, người đã nghỉ trả về 0",
+      "Chọn bộ phận từ danh sách có sẵn nên không bao giờ gõ lệch tên",
+      "Giữ nguyên dòng của người đã nghỉ để còn tra cứu lịch sử"
+    ],
+    "faq": [
+      {
+        "q": "Vì sao phải có mã nhân viên, dùng họ tên không được à?",
+        "a": "Vì họ tên trùng nhau rất thường xuyên và hay bị gõ lệch dấu, lệch khoảng trắng. Hai người cùng tên Nguyễn Văn Nam thì mọi công thức tra cứu đều trả về người đầu tiên, và bạn sẽ trả lương của người này cho người kia mà không có gì báo lỗi. Mã nhân viên là thứ duy nhất chắc chắn không trùng."
+      },
+      {
+        "q": "Người nghỉ việc giữa tháng thì tính lương thế nào?",
+        "a": "Vẫn để nguyên dòng và điền ngày nghỉ. Tháng đó họ vẫn có số công trong bảng chấm công, nên bảng lương vẫn tính đúng phần lương theo công của những ngày đã làm. Sang tháng sau họ không còn công nào nên tự động không phát sinh lương."
+      },
+      {
+        "q": "Cột Thu nhập cố định khác gì cột Thực lĩnh bên bảng lương?",
+        "a": "Cột này chỉ là lương cơ bản cộng phụ cấp theo hợp đồng, tức là con số lý thuyết khi đi làm đủ công và chưa trừ gì. Thực lĩnh bên bảng lương mới là số tiền thật, đã tính theo số công và đã trừ bảo hiểm với thuế. Dùng cột này để ước lượng nhanh quỹ lương kế hoạch của tháng."
+      },
+      {
+        "q": "Tôi muốn thêm cột số điện thoại, số CCCD thì có sao không?",
+        "a": "Thêm được, chèn cột mới vào bên phải các cột có sẵn. Đừng chèn xen vào giữa và đừng đổi thứ tự cột hiện có, vì công thức tra cứu ở các file khác đếm theo vị trí cột. Lưu ý dữ liệu cá nhân như CCCD thì file này cần được đặt quyền truy cập hạn chế."
+      }
+    ]
+  },
+  {
+    "file": "systems/quan-ly-nhan-su-thang.json",
+    "slug": "quan-ly-nhan-su-thang",
+    "h1": "Bộ file Excel quản lý nhân sự theo tháng (5 file nối sẵn trong một workbook)",
+    "intro": "Bộ file Excel quản lý nhân sự này tải về là một file duy nhất, năm sheet nối sẵn vào nhau bằng công thức thật. Bạn gõ một ngày công vào sheet Chấm công thì lương của người đó và quỹ lương của cả bộ phận trên sheet Tổng hợp đổi ngay, không phải copy sang đâu cả. Sơ đồ bên dưới chỉ rõ sheet nào đưa dữ liệu gì sang sheet nào. Ai chỉ cần đúng một bảng thì vẫn tải riêng từng file được, mỗi file chạy độc lập đầy đủ.",
+    "faq": [
+      {
+        "q": "Các sheet có tự động cập nhật cho nhau không?",
+        "a": "Có. Nhập một ngày công vào sheet Chấm công thì sheet Bảng lương tính lại lương theo công của người đó, và sheet Tổng hợp cập nhật quỹ lương của bộ phận, ngay trong lúc bạn gõ. Duyệt một đơn nghỉ không lương ở sheet Nghỉ phép cũng chạy hết chuỗi đó. Lý do làm được là cả bộ nằm trong một file: liên kết giữa các sheet trong cùng workbook không bao giờ gãy vì đổi tên file hay chuyển thư mục, khác hẳn liên kết giữa các file rời."
+      },
+      {
+        "q": "Vì sao gộp vào một file thay vì để năm file nối với nhau?",
+        "a": "Vì liên kết giữa các file .xlsx rời rất dễ vỡ: đổi tên file, chuyển thư mục hay gửi qua Zalo cho người khác là công thức trả về #REF! hàng loạt, và Excel còn bắt bấm Enable Links mỗi lần mở. Người không rành Excel gặp lỗi đó thì không sửa được. Trong cùng một workbook thì không có rủi ro nào trong số đó, đổi lại bạn phải chấp nhận cả phòng dùng chung một file."
+      },
+      {
+        "q": "Tôi có bắt buộc phải dùng cả bộ không?",
+        "a": "Không. Mỗi file vẫn tải riêng được và chạy độc lập đầy đủ — tải riêng bảng chấm công về dùng vẫn đúng. Khác biệt là ở bản rời bạn tự nhập họ tên, bộ phận và số công; ở file gộp những cột đó là công thức tra sang sheet khác. Bảng liệt kê công thức nối ngay dưới đây cho biết chính xác cột nào đổi."
+      },
+      {
+        "q": "Nên nhập sheet nào trước?",
+        "a": "Theo thứ tự tab từ trái sang phải, đúng như sơ đồ. Danh sách NV nhập một lần rồi chỉ sửa khi có người vào hoặc nghỉ. Nghỉ phép và Chấm công nhập trong suốt tháng. Bảng lương và Tổng hợp bạn không nhập gì cả trừ mã nhân viên và tên bộ phận, mở ra là đọc."
+      },
+      {
+        "q": "File tổng có thay được phần mềm nhân sự không?",
+        "a": "Với công ty dưới khoảng 50 người thì thay được, và nhiều nơi vẫn đang chạy như vậy. Vượt qua mức đó, việc nhập tay ba file đầu vào mỗi ngày bắt đầu chiếm quá nhiều thời gian và sai sót tăng nhanh — lúc đó nên tính tới phần mềm."
+      }
+    ]
+  }
+]

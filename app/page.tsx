@@ -65,13 +65,8 @@ export default function HomePage() {
         (h1 max-w-2xl trong khung max-w-5xl), giờ mang khối thông số.
       */}
       <section className="grid items-start gap-x-12 gap-y-10 lg:grid-cols-[minmax(0,2fr)_minmax(0,1fr)]">
-        <div className="max-w-2xl bg-paper">
+        <div className="max-w-2xl">
           {/*
-            bg-paper ở đây không phải để tạo card — nó che lưới nền
-            (body::before) chạy phía sau. h1 và đoạn mô tả không có nền riêng
-            như dl thông số hay hai nút bên dưới, nên trước đây lưới kẻ ô chạy
-            xuyên thẳng qua chữ, đọc như đường gạch ngang đè lên nội dung.
-
             Kicker dựng đúng hình thanh công thức của HeroSheet ngay bên dưới:
             hộp tên ô, nhãn fx, rồi nội dung. Người đọc gặp lại ký hiệu đó sau
             vài trăm pixel, nên hero và bảng đọc ra là một khối thay vì hai
@@ -214,15 +209,17 @@ export default function HomePage() {
           bốn chữ đầu giữ nguyên lực, chữ L nhạt dần rồi giao thẳng cho đuôi tan
           dựng sẵn trong SVG.
 
-          100px, không phải 189px: khối "Vì sao khác" bên dưới (h2 + FeatureGrid)
+          150px, không phải 189px: khối "Vì sao khác" bên dưới (h2 + FeatureGrid)
           chỉ cao khoảng ~575px, còn hoa văn ở cỡ gốc 189px cao tới 1349px — dư
-          ra gần 800px, chạy xuyên qua cả khoảng cách mt-24/32 xuống tới giữa
-          "File mới nhất", đọc ra như hai band dính vào nhau thay vì có khoảng
-          nghỉ. Vì mask luôn tắt hẳn đúng ở mép dưới của element (xem đoạn
-          trên), hạ bề rộng xuống 100px kéo mép dưới đó về ~714px — đủ để chữ
-          EXCE vẫn hiện trọn (kết ở ~508px) mà toàn bộ hoa văn tắt hẳn ngay
-          trước khi chạm "File mới nhất", không cần đụng vào mask hay SVG.
-          Không hạ thấp hơn nữa: dưới ~90px các ô 29px bắt đầu khó đọc ra chữ.
+          ra gần 800px, chạy xuyên qua khoảng cách xuống "File mới nhất" và đọc
+          ra như hai band dính vào nhau thay vì có khoảng nghỉ.
+
+          Từng thử hạ hẳn xuống 100px để mép dưới (nơi mask tắt hẳn, xem đoạn
+          dưới) lọt gọn trước "File mới nhất" mà không phải đụng gì khác — nhưng
+          ô 29px gốc scale còn ~15px thì chữ vỡ nét, không đọc ra EXCEL nữa.
+          150px là điểm cân bằng: ô còn ~23px, đọc được, và khoảng cách xuống
+          "File mới nhất" được nới thêm ở section đó (mt-28 sm:mt-40 thay vì
+          mt-24 sm:mt-32) để bù lại — xem comment ở section đó.
 
           -z-10 để nó nằm dưới chữ. Nền trắng đặt trên body nên nền vẫn được vẽ
           vào canvas, dưới cả lớp z âm — hoa văn không bị nền trang ăn mất.
@@ -238,7 +235,7 @@ export default function HomePage() {
         */}
         <div
           aria-hidden
-          className="pointer-events-none absolute top-0 -left-[calc((100vw-64rem)/2-20px)] -z-10 hidden aspect-[189/1349] w-[min(100px,calc((100vw-64rem)/2-44px))] bg-top bg-no-repeat bg-size-[100%_auto] mask-b-from-70% xl:block"
+          className="pointer-events-none absolute top-0 -left-[calc((100vw-64rem)/2-20px)] -z-10 hidden aspect-[189/1349] w-[min(150px,calc((100vw-64rem)/2-44px))] bg-top bg-no-repeat bg-size-[100%_auto] mask-b-from-70% xl:block"
           style={{
             backgroundImage: `url('${withBasePath("/excel-wordmark.svg")}')`,
           }}
@@ -251,7 +248,14 @@ export default function HomePage() {
       </section>
 
       {templates.length > 0 && (
-        <section className="mt-24 sm:mt-32">
+        <section className="mt-28 sm:mt-40">
+          {/*
+            mt-28 sm:mt-40 thay vì mt-24 sm:mt-32 chuẩn của band-to-band khác
+            trên trang này — bù thêm ~32px cho hoa văn EXCEL dọc ở section
+            "Vì sao khác" phía trên (150px bề rộng, cao ~1071px, xem comment ở
+            đó): mép dưới của nó chỉ tắt hẳn muộn hơn khoảng cách chuẩn một
+            chút, nới thêm quãng này thì không còn chạm vào tiêu đề ở đây.
+          */}
           <h2 className="font-display text-3xl">File mới nhất</h2>
           <ul className={`mt-6 ${cardGridClass(templates.length)}`}>
             {templates.map((template) => (

@@ -78,13 +78,18 @@
      Nhạt hơn `rule` (#dddddd) và đó là chủ đích. `rule` là hairline cho một
      đường viền có thật, người đọc phải thấy nó; lưới nền thì không.
 
-     Nhưng cũng KHÔNG được nhạt tới mức biến mất. Bản trước để #f1f4f8 (1.08:1)
-     và lưới coi như không có trên phần lớn màn hình. Con số hiện tại lấy từ
-     coefficient.io: nền lưới của họ là #e1e1e1 phủ ở fill-opacity .6, tức
-     #ededed trên giấy trắng. Đây là mức "thấy được mà không đọc thành chữ".
-     Sắc ở đây lệch lạnh một chút để nằm cùng họ với ink (#181d26) thay vì xám
-     trung tính, còn độ sáng thì giữ đúng bằng của họ. */
-  --color-grid: #e9edf2;
+     Nhưng cũng KHÔNG được nhạt tới mức biến mất. Bản đầu để #f1f4f8 (1.08:1)
+     và lưới coi như không có trên phần lớn màn hình. #e9edf2 lấy từ
+     coefficient.io (nền lưới của họ #e1e1e1 phủ fill-opacity .6, tức #ededed
+     trên giấy trắng) — mức "thấy được mà không đọc thành chữ". Sắc ở đây lệch
+     lạnh một chút để nằm cùng họ với ink (#181d26) thay vì xám trung tính.
+
+     #e9edf2 lại đủ đậm để đường kẻ chạy ngang qua một khối chữ liền (h1, đoạn
+     mô tả hero) đọc như đang gạch lên chữ — xem ::before bên dưới, phần vẽ
+     lưới có riêng một nhánh giải thích việc này. Nhạt thêm một nấc xuống
+     #eef1f5 (~1.04:1 với giấy) vẫn còn thấy được ở khoảng trắng quanh chữ
+     nhưng không còn đủ tương phản để cạnh tranh với glyph nữa. */
+  --color-grid: #eef1f5;
 
   /* ---- Hình khối ---- */
   --radius-sm: 6px; /* ô nhập liệu */
