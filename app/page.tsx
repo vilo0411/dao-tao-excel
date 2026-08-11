@@ -65,8 +65,13 @@ export default function HomePage() {
         (h1 max-w-2xl trong khung max-w-5xl), giờ mang khối thông số.
       */}
       <section className="grid items-start gap-x-12 gap-y-10 lg:grid-cols-[minmax(0,2fr)_minmax(0,1fr)]">
-        <div className="max-w-2xl">
+        <div className="max-w-2xl bg-paper">
           {/*
+            bg-paper ở đây không phải để tạo card — nó che lưới nền
+            (body::before) chạy phía sau. h1 và đoạn mô tả không có nền riêng
+            như dl thông số hay hai nút bên dưới, nên trước đây lưới kẻ ô chạy
+            xuyên thẳng qua chữ, đọc như đường gạch ngang đè lên nội dung.
+
             Kicker dựng đúng hình thanh công thức của HeroSheet ngay bên dưới:
             hộp tên ô, nhãn fx, rồi nội dung. Người đọc gặp lại ký hiệu đó sau
             vài trăm pixel, nên hero và bảng đọc ra là một khối thay vì hai
@@ -183,14 +188,14 @@ export default function HomePage() {
           chính là lề trái, vì khung nội dung khoá ở max-w-5xl = 64rem.
 
           189px là cỡ GỐC của file SVG, tức ô 29px trên bước lưới 40px — đúng cỡ
-          ô efex dùng, và là trần: to hơn nữa là ảnh bị kéo giãn, ô mất nét sắc.
+          ô efex dùng. Nhưng render ở đây bị chặn ở 100px, thấp hơn cỡ gốc khá
+          nhiều — lý do nằm ở đoạn "100px, không phải 189px" phía dưới, ngay
+          trước đoạn nói về mask.
 
           Hai hằng số trừ đi trong công thức là hai khoảng thở, đừng bỏ:
           dải cách mép màn hình 40px, và cách khung nội dung ít nhất ~35px. Bản
           trước chỉ chừa 12px với mép màn hình nên hoa văn đọc ra là bị màn hình
-          ép vào chứ không phải được đặt ở lề. Trên màn 1512px dải vẫn được đủ
-          189px sau khi trừ cả hai khoảng thở; ở 1280px nó tự co lại thay vì
-          biến mất hay đẩy ra thanh cuộn ngang.
+          ép vào chứ không phải được đặt ở lề.
 
           Hai con số còn lại:
 
@@ -201,19 +206,23 @@ export default function HomePage() {
             viewBox của file SVG, nên bề rộng co giãn thì chiều cao tự theo, chữ
             không bao giờ bị méo hay bị cắt cụt ở chữ L.
 
-          Chữ cao tới ~1349px, dài hơn khối này nên nó chạy xuống quá lưới
-          "File mới nhất". Không sao: nó ở ngoài khung, mà mọi khối nội dung đều
-          nằm trong khung nên không khối nào chồng lên nó.
+          `mask-b-from-70%` là chỗ chữ tan vào giấy. Nó tính theo PHẦN TRĂM
+          chiều cao thật của chính element — nên hoa văn luôn đậm đều 70% đầu
+          rồi mờ dần và chạm hẳn 0 đúng ở mép dưới của nó, dù element được
+          render to hay nhỏ. 70% không phải số tròn chọn bừa: bốn chữ E X C E
+          chiếm ~960/1349 ≈ 71% chiều cao gốc, nên mốc này rơi đúng đầu chữ L —
+          bốn chữ đầu giữ nguyên lực, chữ L nhạt dần rồi giao thẳng cho đuôi tan
+          dựng sẵn trong SVG.
 
-          `mask-b-from-70%` là chỗ chữ tan vào giấy. Không có nó thì hoa văn đậm
-          đều suốt 1349px rồi dừng đột ngột giữa trang — đọc ra là một con tem
-          dán lên, chứ không phải nền.
-
-          70% không phải số tròn chọn bừa: bốn chữ E X C E chiếm tới ~960px
-          (24 ô × bước 40), nên mốc 70% (~944px) rơi đúng đầu chữ L. Bốn chữ đầu
-          giữ nguyên lực, chữ L nhạt dần rồi giao thẳng cho đuôi tan dựng sẵn
-          trong file SVG — mask lo chuyển sắc, đuôi lo hình, hai thứ nối vào
-          nhau ở cùng một chỗ. Hạ số này xuống thì mask ăn lấn vào chữ C.
+          100px, không phải 189px: khối "Vì sao khác" bên dưới (h2 + FeatureGrid)
+          chỉ cao khoảng ~575px, còn hoa văn ở cỡ gốc 189px cao tới 1349px — dư
+          ra gần 800px, chạy xuyên qua cả khoảng cách mt-24/32 xuống tới giữa
+          "File mới nhất", đọc ra như hai band dính vào nhau thay vì có khoảng
+          nghỉ. Vì mask luôn tắt hẳn đúng ở mép dưới của element (xem đoạn
+          trên), hạ bề rộng xuống 100px kéo mép dưới đó về ~714px — đủ để chữ
+          EXCE vẫn hiện trọn (kết ở ~508px) mà toàn bộ hoa văn tắt hẳn ngay
+          trước khi chạm "File mới nhất", không cần đụng vào mask hay SVG.
+          Không hạ thấp hơn nữa: dưới ~90px các ô 29px bắt đầu khó đọc ra chữ.
 
           -z-10 để nó nằm dưới chữ. Nền trắng đặt trên body nên nền vẫn được vẽ
           vào canvas, dưới cả lớp z âm — hoa văn không bị nền trang ăn mất.
@@ -229,7 +238,7 @@ export default function HomePage() {
         */}
         <div
           aria-hidden
-          className="pointer-events-none absolute top-0 -left-[calc((100vw-64rem)/2-20px)] -z-10 hidden aspect-[189/1349] w-[min(189px,calc((100vw-64rem)/2-44px))] bg-top bg-no-repeat bg-size-[100%_auto] mask-b-from-70% xl:block"
+          className="pointer-events-none absolute top-0 -left-[calc((100vw-64rem)/2-20px)] -z-10 hidden aspect-[189/1349] w-[min(100px,calc((100vw-64rem)/2-44px))] bg-top bg-no-repeat bg-size-[100%_auto] mask-b-from-70% xl:block"
           style={{
             backgroundImage: `url('${withBasePath("/excel-wordmark.svg")}')`,
           }}

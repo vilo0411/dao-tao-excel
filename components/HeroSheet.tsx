@@ -190,10 +190,12 @@ export function HeroSheet({ templateHref }: { templateHref?: string }) {
           fx
         </span>
         {/*
-          Ô đang ghim thì công thức được xuống dòng, ô chỉ đang hover thì cuộn
-          ngang. Lý do ở khối state phía trên: chuỗi IF 5 tầng của thuế TNCN dài
-          hơn thanh fx, mà cuộn ngang đòi rời chuột khỏi ô — nên chỉ bản ghim
-          mới đọc trọn được, và nó được phép cao thêm vài dòng.
+          Thanh fx có chiều cao CỐ ĐỊNH (h-16) bất kể đang hover hay ghim —
+          công thức luôn xuống dòng bên trong, cuộn dọc nếu dài hơn khung.
+          Trước đây bản ghim được phép cao thêm vài dòng theo nội dung, nên
+          chuỗi IF 5 tầng của thuế TNCN (B8) làm thanh fx phình ra và đẩy cả
+          bảng bên dưới dịch xuống mỗi lần hover/ghim đổi ô. Cố định chiều cao
+          và cuộn dọc bên trong thì bảng không còn nhảy vị trí nữa.
         */}
         {/*
           Không đặt aria-live ở vùng này. Nó đổi theo cả hover, nên rê chuột
@@ -207,20 +209,10 @@ export function HeroSheet({ templateHref }: { templateHref?: string }) {
           mềm lúc tải trang thì người đọc chưa bấm gì, bảo họ "bấm lại để bỏ
           ghim" là nói về một thao tác chưa từng xảy ra.
         */}
-        <output
-          className={`flex min-w-0 flex-1 items-baseline gap-3 px-3 py-2 ${
-            pinnedByUser ? "" : "overflow-x-auto"
-          }`}
-        >
+        <output className="flex h-16 min-w-0 flex-1 items-start gap-3 overflow-y-auto px-3 py-2">
           {activeRow ? (
             <>
-              <code
-                className={`text-computed ${
-                  pinnedByUser
-                    ? "break-all whitespace-pre-wrap"
-                    : "whitespace-pre"
-                }`}
-              >
+              <code className="break-all whitespace-pre-wrap text-computed">
                 {activeRow.formula}
               </code>
               {pinnedByUser && (
