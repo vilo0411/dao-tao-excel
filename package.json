@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "eslint",
     "validate": "node --experimental-strip-types scripts/validate-templates.mts && node --experimental-strip-types scripts/check-hero-sheet.mts",
+    "videos": "node --experimental-strip-types scripts/fetch-video-thumbs.mts",
     "xlsx": "./.venv/bin/python scripts/build_xlsx.py",
     "bundle": "./.venv/bin/python scripts/build_bundle.py",
     "qa": "./.venv/bin/python scripts/qa_check.py",
