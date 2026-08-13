@@ -8,6 +8,7 @@ import { FormulaTable, SheetPreview } from "@/components/SheetPreview";
 import { SystemMap } from "@/components/SystemMap";
 import { SystemStrip } from "@/components/SystemStrip";
 import { cardGridClass } from "@/components/TemplateCard";
+import { VideoTipSection } from "@/components/VideoTipSection";
 import {
   getAllTemplates,
   getRelatedTemplates,
@@ -27,6 +28,7 @@ import {
   withBasePath,
   type CategorySlug,
 } from "@/lib/site";
+import { getVideosForTemplate } from "@/lib/videos";
 
 type Params = { category: string; slug: string };
 
@@ -291,6 +293,11 @@ function TemplateArticle({
             </li>
           ))}
         </ol>
+
+        <VideoTipSection
+          videos={getVideosForTemplate(template.slug)}
+          heading="Mẹo 30 giây cho file này"
+        />
 
         <div className="mt-24">
           <CourseCta

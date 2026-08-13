@@ -54,28 +54,81 @@ function videoId(url: string): string {
 }
 
 /**
- * Đoán hàm từ caption. Chỉ là GỢI Ý để đỡ phải gõ — caption TikTok phần lớn là
- * copy câu view ("99% dân văn phòng chưa biết"), và một hàm được nhắc thoáng
- * qua thì không có nghĩa video nói về nó. Người tag vẫn phải xem video.
+ * Đoán hàm từ caption. Đường phụ — kênh này hầu như không nhắc tên hàm trong
+ * caption, và những hàm nó có nhắc (XLOOKUP, VLOOKUP) thì site chưa có trang.
  */
 async function guessFunctions(caption: string): Promise<string[]> {
   const { getAllFunctions } = await import("../lib/functions.ts");
   const upper = caption.toUpperCase();
   return getAllFunctions()
     .map((f) => f.name)
-    .filter((name) => new RegExp(`\\b${name}\\b`).test(upper));
+    .filter((name) =>
+      /*
+       * `\b` của JS tính theo ASCII, nên chữ có dấu bị coi là ranh giới từ:
+       * "NHÂN" khớp `\bN\b` ở chữ N cuối, và mọi caption tiếng Việt có "nhân
+       * sự" đều bị gán hàm N. Phải tự viết ranh giới theo lớp ký tự Unicode.
+       */
+      new RegExp(`(?<![\\p{L}\\p{N}])${name}(?![\\p{L}\\p{N}])`, "u").test(upper),
+    );
+}
+
+/** Từ xuất hiện trong gần như mọi tên template, không phân biệt được gì. */
+const STOP_WORDS = new Set([
+  "mẫu", "excel", "bảng", "file", "theo", "và", "cho", "của", "trong", "tự",
+  "động", "danh", "sách", "quản", "lý",
+]);
+
+function tokens(text: string): Set<string> {
+  return new Set(
+    text
+      .toLowerCase()
+      .split(/[^\p{L}\p{N}]+/u)
+      .filter((w) => w.length > 1 && !STOP_WORDS.has(w)),
+  );
+}
+
+/**
+ * Đoán template từ caption bằng cách đếm từ khóa trùng nhau.
+ *
+ * Đây là đường gắn chính vì kênh dạy theo việc, đúng cách site tổ chức: caption
+ * "tạo bảng chấm công động" ăn thẳng vào template chấm công.
+ *
+ * Vẫn chỉ là GỢI Ý để đỡ phải gõ. Trùng từ khóa không phải là trùng nội dung —
+ * một video về biểu đồ vẫn có thể trùng chữ "nhân sự" với ba template. Người
+ * tag phải xem video rồi mới chốt.
+ */
+async function guessTemplates(caption: string): Promise<string[]> {
+  const { getAllTemplates } = await import("../lib/templates.ts");
+  const capTokens = tokens(caption);
+
+  return getAllTemplates()
+    .map((t) => {
+      const target = tokens(`${t.h1} ${t.primaryKeyword}`);
+      let score = 0;
+      for (const w of target) if (capTokens.has(w)) score += 1;
+      return { slug: t.slug, score };
+    })
+    .filter((t) => t.score >= 2) // một từ trùng là ngẫu nhiên, không phải tín hiệu
+    .sort((a, b) => b.score - a.score)
+    .slice(0, 2)
+    .map((t) => t.slug);
 }
 
 async function scaffold(urls: string[]) {
   for (const url of urls) {
     const id = videoId(url);
     const data = await oembed(url);
-    const guessed = await guessFunctions(data.title);
+    const guessedFns = await guessFunctions(data.title);
+    const guessedTemplates = await guessTemplates(data.title);
 
     console.log(`\n─── ${url}`);
     console.log(`caption gốc: ${data.title}`);
-    if (guessed.length === 0) {
-      console.log("(caption không nhắc hàm nào — phải tự tag sau khi xem)");
+    console.log(`  → template gợi ý: ${guessedTemplates.join(", ") || "(không)"}`);
+    console.log(`  → hàm gợi ý:      ${guessedFns.join(", ") || "(không)"}`);
+    if (guessedTemplates.length === 0 && guessedFns.length === 0) {
+      console.log(
+        "  ⚠ không đoán được chỗ gắn — xem video rồi tự điền, hoặc bỏ video này",
+      );
     }
 
     const skeleton = {
@@ -84,8 +137,8 @@ async function scaffold(urls: string[]) {
       title: data.title.slice(0, 120),
       summary: "TODO: 2-3 câu viết tay, đây là phần Google đọc được",
       publishedAt: new Date().toISOString().slice(0, 10),
-      functions: guessed.slice(0, 2),
-      templates: [],
+      templates: guessedTemplates,
+      functions: guessedFns.slice(0, 2),
     };
 
     const path = join(DATA_DIR, `${id}.json`);

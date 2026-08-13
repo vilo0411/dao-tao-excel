@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import type { ReactNode } from "react";
 import { AuthorByline } from "@/components/Author";
 import { cardGridClass } from "@/components/TemplateCard";
-import { VideoTipSection } from "@/components/VideoTip";
+import { VideoTipSection } from "@/components/VideoTipSection";
 import {
   getAllFunctions,
   getFunction,
@@ -357,7 +357,10 @@ function FunctionArticle({ slug }: { slug: string }) {
           </section>
         ))}
 
-        <VideoTipSection videos={videos} functionName={fn.name} />
+        <VideoTipSection
+          videos={videos}
+          heading={`Xem hàm ${fn.name} chạy trong 30 giây`}
+        />
 
         {related.length > 0 && (
           <>

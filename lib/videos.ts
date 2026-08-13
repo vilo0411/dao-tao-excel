@@ -7,17 +7,30 @@ import { getAllTemplates } from "./templates.ts";
 import { getAllFunctions } from "./functions.ts";
 
 /**
- * Mẹo video từ kênh TikTok của HVS Tài Chính Số, gắn vào trang hàm.
+ * Mẹo video từ kênh TikTok của HVS Tài Chính Số, gắn vào trang template.
  *
  * Video KHÔNG mở trang riêng. Nó là nội dung bổ sung cho những trang đã có lý
- * do tồn tại — trang hàm hiện chỉ có cú pháp + định nghĩa trung lập, tức là
- * phần dễ trùng với mọi site khác nhất, nên đây là chỗ một đoạn viết tay tạo
- * ra khác biệt lớn nhất trên mỗi đơn vị công sức.
+ * do tồn tại.
+ *
+ * Chỗ gắn chính là TEMPLATE, không phải hàm — đây là kết luận rút từ caption
+ * thật của kênh chứ không phải phỏng đoán. Kênh dạy theo việc ("tạo bảng chấm
+ * công động", "tính tuổi từ ngày sinh", "tính % tổng"), y hệt cách site này
+ * tổ chức theo nhóm việc. Còn glossary /ham-excel chỉ có 10 hàm nền tảng rút
+ * ra từ công thức trong template (AND, IF, IFERROR, MAX, MIN, N, OR, REPT,
+ * ROUND, SUM), trong khi kênh nói về XLOOKUP, pivot, biểu đồ — hai tập hợp gần
+ * như không giao nhau. Trong 7 caption đọc được lúc dựng file này, không caption
+ * nào nhắc tới một hàm đang có trang.
+ *
+ * `functions` vì vậy là đường phụ: chỉ dùng khi một video thật sự nói về đúng
+ * một hàm mà site đã có trang.
+ *
+ * Video về hàm site chưa có trang (XLOOKUP...) thì hiện KHÔNG có chỗ gắn, và
+ * đừng phá luật "hàm chỉ mở trang khi có template dùng thật" để nhét vào. Muốn
+ * XLOOKUP có trang thì dựng một template dùng XLOOKUP, trang hàm sẽ tự mọc.
  *
  * Ngày nào một video có đủ chữ để đứng thành bài thì mới tính chuyện mở
  * /meo-excel. Đảo thứ tự lại — mở hub trước rồi lấp dần — là tự tạo ra đúng
- * loại trang mỏng mà MIN_TEMPLATES_PER_CATEGORY được viết ra để chặn, lần này
- * còn kéo theo cả cụm /ham-excel đang khỏe.
+ * loại trang mỏng mà MIN_TEMPLATES_PER_CATEGORY được viết ra để chặn.
  */
 
 const VIDEO_ID = /^\d{6,}$/;
@@ -25,14 +38,14 @@ const VIDEO_ID = /^\d{6,}$/;
 /**
  * Trần cứng, cố ý đặt trong schema chứ không phải trong component.
  *
- * Một video gắn năm hàm là một video không nói riêng về hàm nào — nó chỉ đang
+ * Một video gắn năm chỗ là một video không nói riêng về chỗ nào — nó chỉ đang
  * được rải đi để lấy link. Ép chọn tối đa hai cái chính thì người tag phải
  * quyết định, và trang nhận về video thật sự nói đúng chuyện của nó.
  */
-const MAX_FUNCTIONS_PER_VIDEO = 2;
+const MAX_TARGETS_PER_VIDEO = 2;
 
-/** Video thứ ba trên một trang hàm là nhồi, không phải phong phú. */
-export const MAX_VIDEOS_PER_FUNCTION = 2;
+/** Video thứ ba trên một trang là nhồi, không phải phong phú. */
+export const MAX_VIDEOS_PER_PAGE = 2;
 
 const videoSchema = z.object({
   /** Phần số cuối URL TikTok. Vừa là khóa, vừa là tên file thumbnail. */
@@ -47,17 +60,33 @@ const videoSchema = z.object({
    */
   summary: z.string().min(80),
   publishedAt: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
-  /** Tên hàm VIẾT HOA, phải là hàm đã có trang (tức có template dùng thật). */
+  /** Slug template mà video này nói đúng vào việc của nó. Đường gắn chính. */
+  templates: z
+    .array(z.string())
+    .max(
+      MAX_TARGETS_PER_VIDEO,
+      `mỗi video gắn tối đa ${MAX_TARGETS_PER_VIDEO} template — chọn file chính`,
+    )
+    .default([]),
+  /**
+   * Đường phụ: chỉ khi video thật sự nói về đúng một hàm site đã có trang.
+   * Tên hàm VIẾT HOA. Phần lớn video sẽ để trống trường này.
+   */
   functions: z
     .array(z.string().regex(/^[A-Z][A-Z0-9.]*$/))
-    .min(1)
     .max(
-      MAX_FUNCTIONS_PER_VIDEO,
-      `mỗi video gắn tối đa ${MAX_FUNCTIONS_PER_VIDEO} hàm — chọn hàm chính`,
-    ),
-  /** Slug template liên quan, không bắt buộc. Dùng ở bước sau, chưa hiển thị. */
-  templates: z.array(z.string()).default([]),
-});
+      MAX_TARGETS_PER_VIDEO,
+      `mỗi video gắn tối đa ${MAX_TARGETS_PER_VIDEO} hàm — chọn hàm chính`,
+    )
+    .default([]),
+})
+  .refine((v) => v.templates.length > 0 || v.functions.length > 0, {
+    // Video không gắn vào đâu thì không hiển thị ở đâu cả — nó chỉ nằm im
+    // trong data/ và làm người sau tưởng là đã lên trang.
+    message:
+      "video phải gắn vào ít nhất một template hoặc một hàm, nếu không nó không xuất hiện ở đâu",
+    path: ["templates"],
+  });
 
 export type VideoSpec = z.infer<typeof videoSchema>;
 
@@ -136,9 +165,16 @@ export function getAllVideos(): Video[] {
   return cache;
 }
 
-/** Video của một hàm, đã cắt theo trần hiển thị. */
+/** Video của một template, đã cắt theo trần hiển thị. Đường gắn chính. */
+export function getVideosForTemplate(slug: string): Video[] {
+  return getAllVideos()
+    .filter((v) => v.templates.includes(slug))
+    .slice(0, MAX_VIDEOS_PER_PAGE);
+}
+
+/** Video của một hàm. Đường phụ, phần lớn trang hàm sẽ không có video nào. */
 export function getVideosForFunction(name: string): Video[] {
   return getAllVideos()
     .filter((v) => v.functions.includes(name))
-    .slice(0, MAX_VIDEOS_PER_FUNCTION);
+    .slice(0, MAX_VIDEOS_PER_PAGE);
 }

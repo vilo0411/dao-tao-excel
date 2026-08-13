@@ -9,7 +9,7 @@ import type { Video } from "@/lib/videos";
  * mới nạp iframe TikTok.
  *
  * Vì sao không nhúng thẳng: site này tĩnh và nhẹ, LCP là điểm mạnh của nó.
- * Nhúng iframe bên thứ ba trên mọi trang hàm là đánh đổi vài trăm KB và một
+ * Nhúng iframe bên thứ ba trên mọi trang là đánh đổi vài trăm KB và một
  * loạt kết nối tới domain khác để lấy về một thứ mà đa số người đọc không bấm.
  *
  * Dùng thẳng iframe embed/v2 thay vì blockquote + embed.js của TikTok: script
@@ -22,10 +22,11 @@ export function VideoTip({ video }: { video: Video }) {
 
   function play() {
     setPlaying(true);
-    // Cú bấm này là điểm đo: nó nói trang hàm có thật sự đẩy người xem sang
-    // nội dung của HVS hay không, trước khi ta rải video đi khắp site.
+    // Cú bấm này là điểm đo: nó nói trang template có thật sự đẩy người xem
+    // sang nội dung của HVS hay không, trước khi ta rải video đi khắp site.
     window.gtag?.("event", "video_tip_play", {
       video_id: video.id,
+      templates: video.templates.join(","),
       functions: video.functions.join(","),
     });
   }
@@ -84,38 +85,5 @@ export function VideoTip({ video }: { video: Video }) {
         </a>
       </figcaption>
     </figure>
-  );
-}
-
-/**
- * Khối video trên trang hàm. Không có video thì không render gì — trang hàm
- * vẫn đầy đủ khi thiếu nó.
- */
-export function VideoTipSection({
-  videos,
-  functionName,
-}: {
-  videos: Video[];
-  functionName: string;
-}) {
-  if (videos.length === 0) return null;
-
-  return (
-    <section>
-      <h2 className="font-display mt-24 text-3xl">
-        Xem hàm {functionName} chạy trong 30 giây
-      </h2>
-      <p className="mt-5 max-w-prose text-ink-soft">
-        Mẹo ngắn từ kênh TikTok của HVS Tài Chính Số — chỗ tôi hay xem khi cần
-        một cách làm nhanh hơn cách mình đang dùng.
-      </p>
-      <div
-        className={`mt-8 grid gap-6 ${videos.length > 1 ? "sm:grid-cols-2" : "max-w-md"}`}
-      >
-        {videos.map((video) => (
-          <VideoTip key={video.id} video={video} />
-        ))}
-      </div>
-    </section>
   );
 }
