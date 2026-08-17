@@ -1,0 +1,215 @@
+{
+  "slug": "excel-khong-tinh-tong-duoc",
+  "pillar": "loi-excel",
+  "postType": "sua-loi",
+  "order": 8,
+  "h1": "Excel không tính tổng được: bốn nguyên nhân và cách nhận ra từng cái",
+  "metaTitle": "Excel không tính tổng được: nguyên nhân và cách sửa",
+  "metaDesc": "Excel không tính tổng được thường vì số đang lưu dạng văn bản, chế độ tính đặt thủ công, hoặc vùng chọn thiếu dòng. Cách phân biệt trong ba mươi giây.",
+  "intro": "Excel không tính tổng được là một trong những tình huống ức chế nhất, vì không có mã lỗi nào hiện ra để bạn tra cứu. Ô kết quả chỉ trả về số 0, hoặc trả về một con số nhỏ hơn hẳn con số đúng, và mọi thứ nhìn bề ngoài đều bình thường. Bốn nguyên nhân dưới đây phân biệt được hết trong khoảng ba mươi giây nếu biết thứ tự kiểm tra.",
+  "primaryKeyword": "Excel không tính tổng được",
+  "difficulty": "co-ban",
+
+  "body": [
+    {
+      "type": "paragraph",
+      "text": "Điều làm tình huống này khó hơn các mã lỗi là Excel không coi đây là lỗi. Với nó, mọi thứ đang chạy đúng: bạn bảo cộng một vùng, nó cộng những gì cộng được trong vùng đó, và trả về kết quả. Việc kết quả không giống con số trong đầu bạn là chuyện của bạn. Cho nên cách tiếp cận ở đây không phải đi tìm lỗi, mà là đi tìm khoảng cách giữa vùng bạn nghĩ mình đã chọn và vùng Excel thật sự đang cộng."
+    },
+    {
+      "type": "errorCase",
+      "error": "Hàm tổng trả về 0 hoặc thiếu",
+      "cause": "Nguyên nhân phổ biến nhất tuyệt đối là số đang được lưu dạng văn bản. Hàm tính tổng bỏ qua mọi ô văn bản trong một dải mà không báo gì cả — nó coi đó là hành vi đúng, vì cộng chữ vào tiền thì không có nghĩa. Ba nguyên nhân còn lại là chế độ tính đặt thủ công, chế độ hiện công thức đang bật, và vùng chọn thiếu dòng.",
+      "fix": "Kiểm theo thứ tự: đếm xem trong vùng có bao nhiêu ô là số thật; nếu ít hơn số dòng thì đó là lỗi kiểu dữ liệu. Nếu đủ hết mà tổng vẫn không đổi khi sửa số liệu thì kiểm chế độ tính. Nếu công thức hiện ra dưới dạng chữ thì đó là chế độ hiện công thức."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Vì sao cộng bằng dấu cộng lại ra đúng còn hàm tổng thì không"
+    },
+    {
+      "type": "paragraph",
+      "text": "Đây là chi tiết then chốt và cũng là mẹo chẩn đoán nhanh nhất. Excel xử lý văn bản khác nhau ở hai ngữ cảnh. Khi bạn dùng toán tử cộng trực tiếp trên hai ô, nó cố ép chuỗi thành số và cộng được nếu chuỗi đó trông giống số. Nhưng khi bạn đưa cả một dải vào hàm thống kê, nó bỏ qua sạch mọi ô văn bản. Cùng một dữ liệu, hai cách viết, hai kết quả khác nhau — và chênh lệch giữa hai kết quả chính là phần đang bị lưu sai kiểu."
+    },
+    {
+      "type": "sandbox",
+      "title": "Cùng dữ liệu, hai cách cộng, hai kết quả",
+      "grid": [
+        ["Ngày", "Số tiền"],
+        ["01/08", "500000"],
+        ["02/08", "300000"],
+        ["03/08", 200000]
+      ],
+      "prompt": "B2 và B3 đang lưu dạng văn bản, chỉ B4 là số thật. Gõ =SUM(B2:B4) sẽ ra 200000 vì hai ô kia bị bỏ qua. Giờ viết công thức cộng bằng toán tử để lấy đúng tổng một triệu.",
+      "answer": "=B2+B3+B4",
+      "expected": "1000000",
+      "hint": "Chênh lệch giữa hai kết quả chính bằng phần đang bị lưu sai kiểu — đây là cách chẩn đoán nhanh nhất."
+    },
+    {
+      "type": "callout",
+      "tone": "meo",
+      "title": "Phép thử ba mươi giây",
+      "text": "Chọn vùng cần cộng rồi nhìn xuống thanh trạng thái dưới cùng cửa sổ Excel. Ở đó có sẵn Count và Sum. Nếu Count đếm ra đúng số dòng nhưng Sum nhỏ hơn kỳ vọng, thì chính xác là có ô đang lưu dạng văn bản. Không cần gõ công thức nào cả."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Ba nguyên nhân còn lại"
+    },
+    {
+      "type": "table",
+      "caption": "Dấu hiệu phân biệt ba nguyên nhân không liên quan tới kiểu dữ liệu",
+      "headers": ["Dấu hiệu", "Nguyên nhân", "Cách sửa"],
+      "rows": [
+        ["Sửa số liệu mà tổng đứng im", "Chế độ tính đặt Manual", "Formulas, Calculation Options, chọn Automatic"],
+        ["Ô hiện ra chính chuỗi công thức", "Đang bật Show Formulas", "Bấm Ctrl và dấu huyền để tắt"],
+        ["Tổng thiếu đúng mấy dòng cuối", "Vùng chọn không bao hết dòng mới thêm", "Sửa lại vùng, hoặc chuyển bảng thành Table"],
+        ["Ô hiện ra chuỗi công thức, riêng ô đó thôi", "Ô đang định dạng Text từ trước khi gõ", "Đổi định dạng sang General rồi nhập lại"]
+      ],
+      "copyable": false
+    },
+    {
+      "type": "paragraph",
+      "text": "Trường hợp vùng chọn thiếu dòng đáng nói riêng, vì nó là loại sai nguy hiểm nhất trong bốn loại. Ba loại kia đều tự lộ ra: tổng bằng 0 hoặc công thức hiện thành chữ thì ai cũng thấy. Còn tổng thiếu vài dòng cuối thì vẫn ra một con số trông hoàn toàn hợp lý, và nó đi thẳng vào báo cáo. Cách chặn triệt để là chuyển vùng dữ liệu thành Table bằng Ctrl và T, vì tham chiếu tới một Table sẽ tự nới ra khi bạn thêm dòng."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Cách file mẫu chặn cả bốn"
+    },
+    {
+      "type": "paragraph",
+      "text": "Sổ quỹ tiền mặt là chỗ mà một dòng bị bỏ sót sẽ sai dây chuyền tới tận cuối sổ, vì mỗi dòng lấy tồn quỹ của dòng trên cộng thu trừ chi. Mẫu trên site này xử lý chuyện đó bằng một hàm mà ít người để ý tới, và cách dùng nó ở đây đáng để mượn lại."
+    },
+    {
+      "type": "formula",
+      "formula": "=IF([dienGiai]{row}=\"\",\"\",N([tonQuy]{row-1})+[thu]{row}-[chi]{row})",
+      "note": "Cột Tồn quỹ. Hàm N bọc quanh ô tồn quỹ của dòng ngay trên, và đó là mấu chốt: ở dòng dữ liệu đầu tiên, ô phía trên chính là dòng tiêu đề, tức là chữ. Cộng thẳng chữ vào số sẽ ra #VALUE! và làm hỏng cả cột. N đổi chữ thành 0 nên phép cộng chạy bình thường ngay từ dòng đầu.",
+      "caption": "Cột Tồn quỹ trong mẫu sổ quỹ tiền mặt"
+    },
+    {
+      "type": "paragraph",
+      "text": "Chú ý là công thức này cộng dồn theo từng dòng chứ không cộng cả vùng. Cách viết đó tránh hẳn được cái bẫy vùng chọn thiếu dòng: mỗi dòng chỉ nhìn vào đúng dòng ngay trên nó, nên thêm bao nhiêu dòng cũng không có vùng nào cần nới ra. Đổi lại, nó đòi hỏi cột phải liên tục, và đó là lý do cột Cảnh báo bên cạnh tồn tại để bắt những dòng nhập thiếu."
+    },
+    {
+      "type": "sheet",
+      "templateSlug": "so-quy-tien-mat",
+      "sheetIndex": 0,
+      "note": "Bấm vào ô tồn quỹ ở dòng đầu tiên để thấy hàm N đang bọc quanh ô tiêu đề phía trên. Đây là ô duy nhất trong cả cột thật sự cần tới nó, nhưng công thức phải viết chung một khuôn để kéo được xuống toàn cột.",
+      "copyable": true
+    },
+    {
+      "type": "functionRef",
+      "slug": "n",
+      "why": "Hàm ít được biết tới nhưng giải đúng bài toán ở đây: đổi chữ thành 0 để phép cộng luỹ kế không gãy khi chạm lên dòng tiêu đề."
+    },
+    {
+      "type": "functionRef",
+      "slug": "sum",
+      "why": "Hàm bị hiểu nhầm nhiều nhất trong bài này, vì việc nó bỏ qua ô văn bản trong dải là hành vi cố ý chứ không phải khiếm khuyết."
+    },
+    {
+      "type": "functionRef",
+      "slug": "if",
+      "why": "Chặn công thức luỹ kế chạy trên dòng chưa nhập, thứ sẽ làm cột tồn quỹ kéo dài vô nghĩa xuống hàng trăm dòng trống."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Chuyển văn bản thành số cho cả cột"
+    },
+    {
+      "type": "steps",
+      "items": [
+        {
+          "step": "Xác nhận đúng là lỗi kiểu dữ liệu",
+          "detail": "Chọn vùng và so Count với Sum trên thanh trạng thái. Nếu vẫn chưa chắc thì thêm cột phụ với ISNUMBER và lọc lấy những dòng FALSE."
+        },
+        {
+          "step": "Dùng Text to Columns cho cả cột",
+          "detail": "Chọn cột, vào Data, Text to Columns, rồi bấm Finish ngay ở bước đầu tiên. Excel sẽ nhập lại toàn bộ cột và ép về đúng kiểu. Đây là cách nhanh nhất và không cần cột phụ."
+        },
+        {
+          "step": "Xử lý dấu phân cách nếu vẫn không được",
+          "detail": "Nếu số được nhập kèm dấu chấm hoặc dấu phẩy không khớp cài đặt vùng của máy, Text to Columns sẽ không nhận. Lúc đó dùng Find and Replace bỏ hết dấu phân cách trước, rồi mới ép kiểu."
+        },
+        {
+          "step": "Chặn tái diễn ở nguồn",
+          "detail": "Nếu dữ liệu đến từ một phần mềm xuất ra hằng tháng, việc này sẽ lặp lại mãi. Đặt định dạng cột trước khi dán, hoặc dùng Paste Special để dán giá trị vào một cột đã định dạng sẵn là số."
+        }
+      ]
+    },
+    {
+      "type": "templateRef",
+      "slug": "so-quy-tien-mat",
+      "why": "File mẫu dùng cách cộng dồn theo dòng thay vì cộng cả vùng, nên không bao giờ gặp cái bẫy vùng chọn thiếu dòng mới thêm."
+    }
+  ],
+
+  "faq": [
+    {
+      "q": "Vì sao =B2+B3 ra đúng mà =SUM(B2:B3) lại ra 0?",
+      "a": "Vì Excel xử lý văn bản khác nhau ở hai ngữ cảnh. Toán tử cộng cố ép chuỗi thành số nếu chuỗi đó trông giống số, còn hàm thống kê thì bỏ qua sạch mọi ô văn bản trong một dải. Chênh lệch giữa hai kết quả chính là phần đang lưu sai kiểu."
+    },
+    {
+      "q": "Sửa số liệu mà tổng không đổi thì sao?",
+      "a": "Chế độ tính đang đặt Manual. Vào thẻ Formulas, mở Calculation Options và chọn Automatic. Bấm F9 sẽ tính lại một lần nhưng không sửa được gốc vấn đề."
+    },
+    {
+      "q": "Ô hiện ra chính chuỗi công thức thay vì kết quả?",
+      "a": "Có hai khả năng. Nếu cả sheet đều vậy thì đang bật Show Formulas, bấm Ctrl và dấu huyền để tắt. Nếu chỉ một ô thì ô đó đã được định dạng Text từ trước khi bạn gõ; đổi sang General rồi nhập lại nội dung."
+    },
+    {
+      "q": "Làm sao để tổng tự nới ra khi thêm dòng mới?",
+      "a": "Chuyển vùng dữ liệu thành Table bằng Ctrl và T. Công thức tham chiếu tới Table sẽ tự bao luôn dòng mới, nên không còn cảnh tổng thiếu mấy dòng cuối mà vẫn ra con số trông hợp lý."
+    }
+  ],
+
+  "quiz": [
+    {
+      "q": "Hàm tính tổng gặp một ô văn bản trong dải thì làm gì?",
+      "options": [
+        "Báo lỗi #VALUE!",
+        "Bỏ qua ô đó, không báo gì cả",
+        "Ép thành số rồi cộng vào"
+      ],
+      "answer": 1,
+      "explain": "Trong một dải, hàm thống kê bỏ qua mọi ô văn bản và coi đó là hành vi đúng. Chính vì nó không báo gì nên lỗi này khó phát hiện hơn hẳn một mã lỗi."
+    },
+    {
+      "q": "Cách nhanh nhất để biết một cột có ô lưu dạng văn bản hay không?",
+      "options": [
+        "Chọn cột và so Count với Sum trên thanh trạng thái",
+        "Đổi màu nền cả cột",
+        "Lưu file rồi mở lại"
+      ],
+      "answer": 0,
+      "explain": "Count đếm đúng số dòng nhưng Sum nhỏ hơn kỳ vọng là đủ kết luận. Không cần gõ công thức nào."
+    },
+    {
+      "q": "Trong bốn nguyên nhân, loại nào nguy hiểm nhất?",
+      "options": [
+        "Tổng ra 0",
+        "Công thức hiện thành chữ",
+        "Vùng chọn thiếu mấy dòng cuối"
+      ],
+      "answer": 2,
+      "explain": "Ba loại kia tự lộ ra và ai cũng thấy. Còn tổng thiếu vài dòng vẫn cho một con số trông hợp lý, nên nó đi thẳng vào báo cáo mà không ai chặn lại."
+    },
+    {
+      "q": "Vì sao cột tồn quỹ trong mẫu sổ quỹ phải bọc hàm N?",
+      "options": [
+        "Để làm tròn số",
+        "Vì ở dòng đầu tiên, ô phía trên là dòng tiêu đề tức là chữ — N đổi chữ thành 0 nên phép cộng không gãy",
+        "Để đổi số âm thành số dương"
+      ],
+      "answer": 1,
+      "explain": "Công thức luỹ kế lấy giá trị dòng ngay trên. Ở dòng dữ liệu đầu tiên, dòng trên chính là tiêu đề. Cộng thẳng chữ vào số sẽ ra #VALUE! và hỏng cả cột."
+    }
+  ],
+
+  "templateRefs": ["so-quy-tien-mat"],
+  "functionRefs": ["n", "sum", "if"],
+  "relatedSlugs": ["loi-value-trong-excel", "loi-div-0-trong-excel"],
+  "ctaText": "Học cách dựng sổ quỹ cộng dồn không bao giờ lệch",
+  "updatedAt": "2026-08-14"
+}

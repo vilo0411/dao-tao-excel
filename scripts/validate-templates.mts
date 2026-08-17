@@ -72,7 +72,7 @@ console.log(
 );
 
 /*
- * Video: bắt tag trỏ tới hàm/template không tồn tại, và bắt thiếu summary.
+ * Video: bắt tag trỏ tới hàm/template không tồn tại, và bắt thiếu poster.
  * KHÔNG bắt được tag trỏ sai chỗ (hàm có thật nhưng video không nói về nó) —
  * chỗ đó chỉ người xem video mới thấy.
  */

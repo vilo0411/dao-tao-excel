@@ -1,0 +1,194 @@
+{
+  "slug": "loi-name-trong-excel",
+  "pillar": "loi-excel",
+  "postType": "sua-loi",
+  "order": 5,
+  "h1": "Lỗi #NAME? trong Excel: Excel không hiểu thứ bạn vừa gõ",
+  "metaTitle": "Lỗi #NAME? trong Excel: nguyên nhân và cách sửa",
+  "metaDesc": "Lỗi #NAME? nghĩa là Excel đọc được công thức nhưng không nhận ra một cái tên trong đó. Năm nguyên nhân, kể cả cái ít ai ngờ là dấu phân cách.",
+  "intro": "Lỗi #NAME? trong Excel là mã lỗi duy nhất nằm hoàn toàn ở phía bạn chứ không phải phía dữ liệu. Excel đang nói rằng nó đọc công thức của bạn và gặp một cái tên mà nó không biết là gì: có thể là tên hàm, có thể là tên vùng, cũng có thể là một chuỗi chữ mà bạn quên đặt trong dấu nháy kép nên Excel tưởng đó là tên.",
+  "primaryKeyword": "lỗi #NAME? trong Excel",
+  "difficulty": "co-ban",
+
+  "body": [
+    {
+      "type": "paragraph",
+      "text": "Điểm hay của #NAME? là nó dễ sửa nhất trong cả bộ, vì nguyên nhân luôn nằm ngay trong chuỗi ký tự bạn đang nhìn. Không cần đi dò dữ liệu ở ô khác, không cần kiểm tra kiểu, không cần lần theo chuỗi phụ thuộc. Chỉ cần đọc lại công thức và tìm xem từ nào trong đó là một cái tên mà Excel không biết."
+    },
+    {
+      "type": "errorCase",
+      "error": "#NAME?",
+      "cause": "Excel gặp một chuỗi ký tự ở vị trí đáng lẽ phải là tên hàm hoặc tên vùng đã định nghĩa, nhưng không tìm thấy nó trong danh sách hàm lẫn trong Name Manager. Nguyên nhân hay gặp nhất là gõ sai tên hàm, tiếp đến là quên dấu nháy kép quanh một chuỗi chữ.",
+      "fix": "Đọc lại công thức từ trái sang phải và tìm từ nào không phải tên hàm hợp lệ. Cách nhanh hơn là xóa công thức đi rồi gõ lại từ đầu và chọn hàm từ danh sách gợi ý của Excel — nếu tên hàm có thật, nó sẽ hiện ra khi bạn gõ vài chữ cái đầu."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Năm nguyên nhân, theo thứ tự hay gặp"
+    },
+    {
+      "type": "table",
+      "caption": "Nhận diện nguyên nhân qua hình dạng công thức",
+      "headers": ["Nguyên nhân", "Ví dụ", "Sửa thành"],
+      "rows": [
+        ["Gõ sai tên hàm", "=SUMM(B2:B10)", "=SUM(B2:B10)"],
+        ["Quên nháy kép quanh chuỗi chữ", "=IF(A2=Thu, B2, 0)", "=IF(A2=\"Thu\", B2, 0)"],
+        ["Tên vùng chưa được định nghĩa", "=SUM(DoanhThu)", "Đặt tên vùng, hoặc dùng địa chỉ ô"],
+        ["Dùng dấu phân cách sai", "=SUM(B2;B3) trên máy dùng dấu phẩy", "=SUM(B2,B3)"],
+        ["Hàm của phiên bản mới hơn", "=XLOOKUP(...) trên Excel 2016", "Dùng cách khác, hoặc nâng cấp"]
+      ],
+      "copyable": false
+    },
+    {
+      "type": "callout",
+      "tone": "luu-y",
+      "title": "Dấu phân cách đối số phụ thuộc vào cài đặt máy, không phải vào Excel",
+      "text": "Đây là nguyên nhân mà người ta ít ngờ tới nhất, và nó hay xảy ra khi bạn chép công thức từ một bài hướng dẫn trên mạng. Máy cài vùng Việt Nam thường dùng dấu chấm phẩy để ngăn đối số, còn phần lớn bài viết tiếng Anh dùng dấu phẩy. Công thức chép về nhìn đúng hoàn toàn mà vẫn báo lỗi, chỉ vì một ký tự."
+    },
+    {
+      "type": "paragraph",
+      "text": "Cách kiểm tra máy bạn đang dùng dấu nào: gõ một công thức đơn giản bất kỳ có từ hai đối số trở lên và để Excel tự gợi ý. Khi bạn gõ mở ngoặc, Excel hiện ra cú pháp của hàm ngay bên dưới, và trong cú pháp đó nó dùng đúng ký tự mà máy bạn đang chấp nhận. Nhìn vào đó rồi sửa lại công thức chép về cho khớp."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Trường hợp quên dấu nháy kép"
+    },
+    {
+      "type": "paragraph",
+      "text": "Đây là nguyên nhân đứng thứ hai và cũng là nguyên nhân dễ hiểu sai nhất, vì công thức trông vẫn rất hợp lý với mắt người. Khi bạn viết một điều kiện so sánh với chữ mà quên đặt chữ đó trong nháy kép, Excel không đọc nó là chữ — nó đọc nó là tên của một vùng dữ liệu nào đó. Không tìm thấy vùng nào tên như vậy, nó trả về #NAME?."
+    },
+    {
+      "type": "formula",
+      "formula": "=IF([noiDung]{row}=\"\",\"\",IF([loai]{row}=\"Thu\",[soTien]{row},0))",
+      "note": "Cột Tiền thu của mẫu bảng kê thu chi. Chú ý cả hai chuỗi chữ trong công thức đều nằm trong dấu nháy kép: chuỗi rỗng ở nhánh đầu, và chữ Thu ở điều kiện phân loại. Bỏ nháy kép quanh chữ Thu là đủ để cả cột trả về #NAME?.",
+      "caption": "Cột Tiền thu trong mẫu bảng kê thu chi"
+    },
+    {
+      "type": "sheet",
+      "templateSlug": "bang-ke-thu-chi",
+      "sheetIndex": 0,
+      "note": "Mẫu bảng kê thu chi dùng chuỗi chữ ở bốn cột công thức khác nhau để phân loại và cảnh báo. Bấm vào ô xanh lá ở cột Cảnh báo để thấy một công thức có tới bốn chuỗi trong nháy kép cùng lúc.",
+      "copyable": true
+    },
+    {
+      "type": "sandbox",
+      "title": "Gõ sai tên hàm và sửa lại",
+      "grid": [
+        ["Ngày", "Số tiền"],
+        ["01/08", 500000],
+        ["02/08", 300000]
+      ],
+      "prompt": "Gõ thử =SUMM(B2:B3) để thấy #NAME? — thừa một chữ M là đủ. Sau đó viết lại đúng tên hàm để cộng hai khoản tiền.",
+      "answer": "=SUM(B2:B3)",
+      "expected": "800000",
+      "hint": "Thử luôn =IF(A2=01/08, 1, 0) để thấy quên nháy kép cũng ra cùng mã lỗi."
+    },
+    {
+      "type": "functionRef",
+      "slug": "sum",
+      "why": "Hàm bị gõ nhầm tên nhiều nhất, đơn giản vì nó là hàm được gõ nhiều nhất. Trang hàm có cú pháp chuẩn để đối chiếu khi bạn nghi mình gõ sai."
+    },
+    {
+      "type": "functionRef",
+      "slug": "if",
+      "why": "Nơi lỗi quên nháy kép hay xảy ra nhất, vì IF là chỗ người ta so sánh với chữ nhiều hơn cả."
+    },
+    {
+      "type": "functionRef",
+      "slug": "and",
+      "why": "Xuất hiện trong công thức cảnh báo của mẫu bảng kê, cùng với hai chuỗi chữ phải đặt trong nháy kép."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Tên vùng đã xóa mà công thức vẫn còn"
+    },
+    {
+      "type": "paragraph",
+      "text": "Nguyên nhân thứ ba tinh vi hơn hai cái trên vì công thức của bạn từng chạy đúng. Bạn đặt tên cho một vùng dữ liệu, viết vài công thức dùng cái tên đó, rồi một hôm xóa tên khỏi Name Manager hoặc đổi tên nó đi. Những công thức cũ vẫn giữ nguyên chuỗi ký tự cũ, và giờ chuỗi đó không còn trỏ tới đâu cả. Mở Name Manager trong thẻ Formulas để xem danh sách tên hiện có và đối chiếu với tên trong công thức đang lỗi."
+    },
+    {
+      "type": "paragraph",
+      "text": "Một biến thể hay gặp của trường hợp này là khi bạn chép một sheet sang file khác. Công thức đi theo, nhưng tên vùng thì nằm ở cấp workbook và không đi cùng. Sheet vừa dán sang trông y hệt bản gốc mà mọi công thức dùng tên vùng đều báo #NAME?. Cách xử lý là định nghĩa lại các tên đó ở file mới, hoặc chép cả workbook thay vì chép từng sheet."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Khi hàm không tồn tại trên phiên bản của bạn"
+    },
+    {
+      "type": "paragraph",
+      "text": "Excel thêm hàm mới qua từng phiên bản, và một hàm chưa có thì trông y hệt một hàm gõ sai tên: cả hai đều ra #NAME?. Nếu bạn chắc chắn mình gõ đúng mà vẫn lỗi, khả năng cao là hàm đó mới hơn bản Excel đang chạy. Cách kiểm nhanh là gõ vài chữ cái đầu của tên hàm và xem nó có hiện ra trong danh sách gợi ý không — không hiện nghĩa là bản Excel này không có nó."
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        "Một file do người dùng bản mới tạo ra vẫn mở được ở bản cũ, nhưng những ô dùng hàm mới sẽ hiện #NAME? kèm tiền tố _xlfn ở đầu tên hàm.",
+        "Tiền tố _xlfn chính là dấu hiệu chắc chắn: đây là hàm của phiên bản mới hơn, không phải bạn gõ sai.",
+        "Đừng xóa tiền tố đó đi, vì làm vậy không thêm hàm vào bản Excel của bạn mà chỉ làm mất manh mối.",
+        "Cách xử lý là viết lại bằng tổ hợp hàm cũ tương đương, hoặc mở file trên máy có bản mới hơn."
+      ]
+    },
+    {
+      "type": "templateRef",
+      "slug": "bang-ke-thu-chi",
+      "why": "File mẫu dùng chuỗi chữ trong nháy kép ở bốn cột công thức, là chỗ tốt để xem cú pháp đúng trông như thế nào trong một công thức thật."
+    }
+  ],
+
+  "faq": [
+    {
+      "q": "Vì sao công thức chép từ mạng về lại báo #NAME? dù nhìn đúng hoàn toàn?",
+      "a": "Phần lớn là do dấu phân cách đối số. Bài viết tiếng Anh dùng dấu phẩy, còn máy cài vùng Việt Nam thường dùng dấu chấm phẩy. Gõ thử một hàm bất kỳ và xem gợi ý cú pháp Excel hiện ra để biết máy bạn đang dùng ký tự nào."
+    },
+    {
+      "q": "Tiền tố _xlfn trước tên hàm nghĩa là gì?",
+      "a": "Nghĩa là file được tạo bằng phiên bản Excel mới hơn và dùng một hàm mà bản của bạn chưa có. Đây là dấu hiệu chắc chắn để phân biệt với lỗi gõ sai tên."
+    },
+    {
+      "q": "#NAME? có ảnh hưởng tới các ô khác không?",
+      "a": "Có. Mọi công thức tính từ ô đó cũng sẽ trả về #NAME?, kể cả hàm tính tổng ở cuối cột. Nên sửa từ ô gốc chứ đừng sửa từng ô lỗi phía sau."
+    }
+  ],
+
+  "quiz": [
+    {
+      "q": "=IF(A2=Thu, B2, 0) báo #NAME?. Vì sao?",
+      "options": [
+        "Vì A2 đang trống",
+        "Vì chữ Thu không được đặt trong dấu nháy kép nên Excel hiểu nó là tên một vùng",
+        "Vì hàm IF chỉ nhận số"
+      ],
+      "answer": 1,
+      "explain": "Không có nháy kép thì Excel đọc Thu như tên của một vùng dữ liệu đã định nghĩa. Không tìm thấy vùng nào tên như vậy, nó trả về #NAME?."
+    },
+    {
+      "q": "Bạn chép một công thức từ bài hướng dẫn tiếng Anh về và nó báo #NAME? dù nhìn đúng. Nghi ngờ đầu tiên nên là gì?",
+      "options": [
+        "Dấu phân cách đối số khác với cài đặt vùng của máy",
+        "File bị hỏng",
+        "Excel cần khởi động lại"
+      ],
+      "answer": 0,
+      "explain": "Máy cài vùng Việt Nam thường dùng dấu chấm phẩy để ngăn đối số, còn bài tiếng Anh dùng dấu phẩy. Một ký tự đủ để cả công thức không đọc được."
+    },
+    {
+      "q": "Thấy tiền tố _xlfn đứng trước tên hàm trong ô lỗi nghĩa là gì?",
+      "options": [
+        "Công thức bị nhiễm virus",
+        "Hàm đó thuộc phiên bản Excel mới hơn bản đang chạy",
+        "Ô đó đang được định dạng sai"
+      ],
+      "answer": 1,
+      "explain": "Đây là cách Excel đánh dấu một hàm mà bản hiện tại không biết. Xóa tiền tố đi cũng không thêm được hàm, chỉ làm mất manh mối."
+    }
+  ],
+
+  "templateRefs": ["bang-ke-thu-chi"],
+  "functionRefs": ["sum", "if", "and"],
+  "relatedSlugs": ["loi-value-trong-excel"],
+  "ctaText": "Học cách viết công thức đúng cú pháp ngay từ lần đầu",
+  "updatedAt": "2026-08-14"
+}

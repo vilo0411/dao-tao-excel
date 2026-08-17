@@ -1,0 +1,196 @@
+{
+  "slug": "loi-value-trong-excel",
+  "pillar": "loi-excel",
+  "postType": "sua-loi",
+  "order": 1,
+  "h1": "Lỗi #VALUE! trong Excel: năm nguyên nhân và cách tìm ra đúng cái của bạn",
+  "metaTitle": "Lỗi #VALUE! trong Excel: nguyên nhân và cách sửa",
+  "metaDesc": "Lỗi #VALUE! trong Excel nghĩa là công thức nhận sai kiểu dữ liệu. Năm nguyên nhân thường gặp, cách khoanh vùng nhanh và cách chặn ngay từ file mẫu.",
+  "intro": "Lỗi #VALUE! trong Excel là mã lỗi khó chịu nhất trong cả bộ, vì nó không nói cho bạn biết chuyện gì đã xảy ra. Nó chỉ nói rằng công thức nhận được một kiểu dữ liệu mà nó không xử lý được — mà điều đó thì có ít nhất năm cách để xảy ra. Bài này đi theo hướng khoanh vùng: nhận ra bạn đang ở nguyên nhân nào trước, rồi mới sửa.",
+  "primaryKeyword": "lỗi #VALUE! trong Excel",
+  "difficulty": "co-ban",
+
+  "body": [
+    {
+      "type": "paragraph",
+      "text": "Trước khi đi vào từng nguyên nhân, có một điều nên nắm để tiết kiệm thời gian: #VALUE! gần như luôn là vấn đề của dữ liệu, không phải của công thức. Công thức của bạn có thể đúng hoàn toàn về mặt logic, và vẫn trả về #VALUE! vì một ô nào đó trong vùng nó tham chiếu đang chứa thứ mà nó không cộng, trừ, nhân, chia được. Cho nên câu hỏi đầu tiên không phải là công thức sai ở đâu, mà là ô nào đang chứa cái gì lạ."
+    },
+    {
+      "type": "errorCase",
+      "error": "#VALUE!",
+      "cause": "Công thức đang thực hiện một phép toán trên dữ liệu không phải số, hoặc nhận một đối số sai kiểu so với kiểu mà hàm cần. Ví dụ điển hình là nhân một ô chứa chữ với một ô chứa số, hoặc trừ hai ô ngày tháng mà một trong hai thực ra đang là văn bản.",
+      "fix": "Khoanh vùng bằng công cụ Evaluate Formula để biết chính xác bước nào trong công thức sinh ra lỗi, rồi kiểm tra kiểu dữ liệu của đúng những ô ở bước đó. Sửa dữ liệu là cách đúng; bọc IFERROR chỉ nên dùng khi bạn đã biết chắc lỗi là bình thường."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Năm nguyên nhân, xếp theo tần suất gặp"
+    },
+    {
+      "type": "table",
+      "caption": "Nhận diện nhanh nguyên nhân theo dấu hiệu đi kèm",
+      "headers": ["Nguyên nhân", "Dấu hiệu nhận ra"],
+      "rows": [
+        ["Ô chứa khoảng trắng thừa hoặc ký tự vô hình", "Ô trông rỗng nhưng ISBLANK trả về FALSE"],
+        ["Số nhập kèm dấu phân cách hoặc đơn vị", "Ô căn lề trái dù đang chứa cái trông như số"],
+        ["Ngày tháng thực ra là văn bản", "Ô căn lề trái, và cộng thêm 1 không ra ngày hôm sau"],
+        ["Đối số sai kiểu so với hàm cần", "Chỉ một hàm lỗi, các công thức khác trên cùng dòng vẫn chạy"],
+        ["Vùng tham chiếu không cùng kích thước", "Lỗi xuất hiện ở công thức mảng hoặc hàm nhận hai vùng"]
+      ],
+      "copyable": false
+    },
+    {
+      "type": "paragraph",
+      "text": "Ba nguyên nhân đầu bảng đều quy về cùng một chuyện: một ô đang chứa văn bản trong khi bạn tưởng nó chứa số. Đây là loại lỗi khó thấy bằng mắt vì Excel không tô màu gì cả. Mẹo nhanh nhất là nhìn căn lề: mặc định Excel căn phải số và ngày tháng, căn trái văn bản. Một cột số mà có vài ô căn lề trái thì chính là những ô đó."
+    },
+    {
+      "type": "callout",
+      "tone": "meo",
+      "title": "Cách khoanh vùng nhanh nhất trong một công thức dài",
+      "text": "Bôi đen một đoạn nhỏ của công thức ngay trên thanh công thức rồi bấm F9. Excel sẽ thay đoạn đó bằng giá trị thật của nó. Làm dần từng đoạn cho tới khi thấy đoạn nào trả về lỗi. Nhớ bấm Esc thay vì Enter để không ghi đè công thức bằng giá trị."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Sửa dữ liệu, đừng sửa công thức"
+    },
+    {
+      "type": "steps",
+      "items": [
+        {
+          "step": "Xác định đúng ô có vấn đề",
+          "detail": "Dùng Evaluate Formula trong thẻ Formulas, hoặc bôi đen từng đoạn rồi bấm F9. Đừng đoán — một công thức tham chiếu năm ô thì xác suất đoán đúng là một phần năm."
+        },
+        {
+          "step": "Kiểm tra ô đó có thật sự là số không",
+          "detail": "Gõ tạm công thức kiểm tra ISNUMBER vào một ô trống bên cạnh. Nếu nó trả về FALSE trong khi ô đang hiện một con số, bạn đã tìm ra thủ phạm."
+        },
+        {
+          "step": "Chuyển kiểu dữ liệu, không chỉ đổi định dạng",
+          "detail": "Đổi Format Cells sang Number không biến văn bản thành số — nó chỉ đổi cách hiển thị. Cách chắc chắn là chọn cột rồi dùng Data, Text to Columns, bấm Finish ngay ở bước đầu; Excel sẽ nhập lại cả cột và ép về đúng kiểu."
+        },
+        {
+          "step": "Chỉ bọc IFERROR sau khi đã hiểu lỗi",
+          "detail": "Bọc trước khi hiểu thì bạn không sửa lỗi, bạn chỉ tắt đèn báo. Con số sai vẫn đi tiếp vào báo cáo, chỉ khác là giờ không ai nhìn thấy nó nữa."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Cách file mẫu chặn lỗi này từ đầu"
+    },
+    {
+      "type": "paragraph",
+      "text": "Bảng lương là chỗ #VALUE! gây thiệt hại lớn nhất, vì một ô lỗi sẽ kéo theo cả chuỗi cột phía sau: thu nhập, bảo hiểm, thuế, thực lĩnh đều hỏng theo. Mẫu tính lương trên site này chặn chuyện đó bằng một khuôn công thức lặp lại ở mọi cột tính toán, và khuôn đó đáng để mượn lại cho bất kỳ file nào bạn tự dựng."
+    },
+    {
+      "type": "formula",
+      "formula": "=IF([hoTen]{row}=\"\",\"\",IFERROR(ROUND([luongCoBan]{row}/[congChuan]{row}*[congThucTe]{row},0),0))",
+      "note": "Cột Lương theo công. Lớp IF ngoài cùng chặn nguyên nhân phổ biến nhất của #VALUE! trong một file thật: công thức đã kéo xuống các dòng chưa có dữ liệu. Chưa có tên nhân viên thì trả về chuỗi rỗng, không tính gì cả, nên không có cơ hội để dữ liệu rác sinh lỗi.",
+      "caption": "Khuôn công thức lặp lại ở mọi cột tính toán của mẫu bảng lương"
+    },
+    {
+      "type": "sheet",
+      "templateSlug": "bang-tinh-luong-nhan-vien",
+      "sheetIndex": 0,
+      "note": "Mọi ô xanh lá trong bảng dưới đây đều dùng khuôn IF bọc ngoài như trên. Bấm vào một ô để xem công thức thật, và chú ý là không cột nào tính trực tiếp mà không kiểm tra dòng có dữ liệu hay chưa.",
+      "copyable": true
+    },
+    {
+      "type": "sandbox",
+      "title": "Khi một ô lương bị lưu dạng văn bản",
+      "grid": [
+        ["Nhân viên", "Lương cơ bản", "Ngày công"],
+        ["Nguyễn Thị Mai", "12.000.000", 22]
+      ],
+      "prompt": "Ô B2 chứa chuỗi 12.000.000 với dấu chấm phân cách, nên Excel coi nó là văn bản. Gõ thử =B2*C2 để thấy #VALUE!, rồi viết công thức trả về 0 để bảng không vỡ trong lúc chờ sửa dữ liệu.",
+      "answer": "=IFERROR(B2*C2, 0)",
+      "expected": "0",
+      "hint": "Đây là cách chữa triệu chứng. Cách chữa gốc là nhập lại ô B2 thành số, và bài viết nói rõ vì sao nên làm cả hai."
+    },
+    {
+      "type": "functionRef",
+      "slug": "iferror",
+      "why": "Dùng để bảng không vỡ trong lúc bạn chưa kịp sửa dữ liệu. Đây là băng gạc, không phải thuốc — bài viết nói rõ ranh giới đó."
+    },
+    {
+      "type": "functionRef",
+      "slug": "if",
+      "why": "Lớp bảo vệ thật sự trong mẫu bảng lương: chặn công thức chạy trên dòng chưa có dữ liệu, tức là chặn nguyên nhân thay vì che kết quả."
+    },
+    {
+      "type": "functionRef",
+      "slug": "round",
+      "why": "Đi kèm trong công thức lương theo công, vì tiền lương không nên mang phần thập phân lẻ tới hàng đồng."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Vì sao đổi định dạng ô không sửa được lỗi"
+    },
+    {
+      "type": "paragraph",
+      "text": "Đây là điểm gây hiểu nhầm nhiều nhất. Format Cells chỉ nói cho Excel biết phải hiển thị giá trị ra sao, nó không đổi bản thân giá trị. Một ô đang chứa chuỗi ký tự mà bạn đặt định dạng Number thì nó vẫn là chuỗi ký tự, chỉ khác là giờ bạn còn khó nhận ra hơn vì căn lề có thể đã thay đổi. Muốn đổi kiểu thật thì phải nhập lại giá trị, hoặc dùng Text to Columns để Excel đọc lại cả cột từ đầu."
+    },
+    {
+      "type": "templateRef",
+      "slug": "bang-tinh-luong-nhan-vien",
+      "why": "File mẫu dùng khuôn công thức đã bàn ở trên cho toàn bộ tám cột tính toán, tải về xem được ngay và không có ô nào bị khóa."
+    }
+  ],
+
+  "faq": [
+    {
+      "q": "Vì sao ô trông rỗng mà công thức vẫn báo #VALUE!?",
+      "a": "Vì nó không rỗng thật. Ô đó nhiều khả năng chứa một khoảng trắng, hoặc một ký tự vô hình đi theo khi bạn dán dữ liệu từ web hay từ phần mềm kế toán. Gõ thử ISBLANK vào ô bên cạnh, nếu ra FALSE thì trong đó có thứ gì đó."
+    },
+    {
+      "q": "Có cách nào tìm hết các ô văn bản trong một cột số không?",
+      "a": "Có. Thêm một cột phụ với công thức ISNUMBER trỏ vào cột cần kiểm, rồi lọc lấy những dòng FALSE. Cách này tìm được cả những ô mà mắt thường không phân biệt nổi."
+    },
+    {
+      "q": "#VALUE! và #NAME? khác nhau chỗ nào?",
+      "a": "#VALUE! là công thức đọc được nhưng dữ liệu sai kiểu. #NAME? là Excel không hiểu chính công thức đó — thường vì gõ sai tên hàm hoặc thiếu dấu nháy quanh một chuỗi. Một cái là lỗi dữ liệu, một cái là lỗi cú pháp."
+    }
+  ],
+
+  "quiz": [
+    {
+      "q": "Dấu hiệu nào cho biết một ô trong cột số thực ra đang chứa văn bản?",
+      "options": [
+        "Ô đó căn lề trái trong khi các ô khác căn phải",
+        "Ô đó hiện màu đỏ",
+        "Ô đó có viền đậm hơn"
+      ],
+      "answer": 0,
+      "explain": "Excel mặc định căn phải số và ngày tháng, căn trái văn bản. Một cột số có vài ô căn lề trái thì chính là những ô đang bị lưu sai kiểu."
+    },
+    {
+      "q": "Đổi Format Cells của một ô văn bản sang Number thì điều gì xảy ra?",
+      "options": [
+        "Ô đó thành số và công thức chạy được",
+        "Không có gì đổi về bản chất, ô vẫn là văn bản",
+        "Excel báo lỗi ngay lập tức"
+      ],
+      "answer": 1,
+      "explain": "Format Cells chỉ đổi cách hiển thị, không đổi kiểu của giá trị. Muốn đổi thật thì nhập lại ô, hoặc dùng Data rồi Text to Columns để Excel đọc lại cả cột."
+    },
+    {
+      "q": "Bôi đen một đoạn công thức trên thanh công thức rồi bấm F9 để làm gì?",
+      "options": [
+        "Chạy lại toàn bộ bảng tính",
+        "Xem giá trị thật của riêng đoạn đó, để khoanh vùng chỗ sinh lỗi",
+        "Chuyển công thức thành giá trị vĩnh viễn"
+      ],
+      "answer": 1,
+      "explain": "F9 thay đoạn đang bôi đen bằng giá trị của nó, giúp tìm ra bước nào trong công thức dài đang lỗi. Nhớ bấm Esc chứ đừng bấm Enter, kẻo công thức bị ghi đè bằng giá trị."
+    }
+  ],
+
+  "templateRefs": ["bang-tinh-luong-nhan-vien"],
+  "functionRefs": ["iferror", "if", "round"],
+  "relatedSlugs": [],
+  "ctaText": "Học cách dựng bảng lương không vỡ khi dữ liệu bẩn",
+  "updatedAt": "2026-08-14"
+}

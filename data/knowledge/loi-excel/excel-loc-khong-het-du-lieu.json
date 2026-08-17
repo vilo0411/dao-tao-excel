@@ -1,0 +1,214 @@
+{
+  "slug": "excel-loc-khong-het-du-lieu",
+  "pillar": "loi-excel",
+  "postType": "sua-loi",
+  "order": 15,
+  "h1": "Excel lọc không hết dữ liệu: bộ lọc dừng ở dòng trống đầu tiên",
+  "metaTitle": "Excel lọc không hết dữ liệu: nguyên nhân và cách sửa",
+  "metaDesc": "Excel lọc thiếu dòng thường vì vùng lọc dừng ở dòng trống đầu tiên. Bốn nguyên nhân, cách kiểm bằng số dòng hiện ở thanh trạng thái, và cách chặn.",
+  "intro": "Excel lọc không hết dữ liệu là lỗi kết thúc cụm này, và nó tóm lại đúng chủ đề của cả cụm: sự cố nguy hiểm nhất trong Excel là sự cố không báo lỗi. Bộ lọc chạy bình thường, trả về một danh sách trông hợp lý, và bạn không có cách nào biết nó vừa bỏ qua sáu mươi dòng cuối bảng.",
+  "primaryKeyword": "Excel lọc không hết dữ liệu",
+  "difficulty": "co-ban",
+
+  "body": [
+    {
+      "type": "paragraph",
+      "text": "Nguyên nhân phổ biến nhất nằm ở cách Excel quyết định vùng lọc. Khi bạn đứng trong bảng và bật bộ lọc, nó không hỏi bạn vùng nào — nó tự lan ra từ ô đang đứng cho tới khi gặp một dòng hoàn toàn trống hoặc một cột hoàn toàn trống, rồi dừng ở đó. Một dòng trống chen giữa bảng, kiểu dòng phân cách giữa hai tháng, là đủ để nửa dưới của bảng nằm ngoài bộ lọc mãi mãi."
+    },
+    {
+      "type": "errorCase",
+      "error": "Bộ lọc bỏ sót dòng",
+      "cause": "Vùng lọc dừng ở dòng trống hoặc cột trống đầu tiên mà Excel gặp. Ba nguyên nhân còn lại: dữ liệu thêm vào sau khi bật lọc nằm ngoài vùng đã xác định; ô có khoảng trắng thừa nên không khớp giá trị bạn chọn; và số lưu dạng văn bản nên điều kiện lọc theo số không so được.",
+      "fix": "Nhìn số dòng Excel báo ở thanh trạng thái sau khi lọc và đối chiếu với con số bạn kỳ vọng. Cách chặn triệt để là chuyển vùng dữ liệu thành Table bằng Ctrl cộng T — vùng của Table tự nới khi thêm dòng, và Table không chấp nhận dòng trống chen giữa."
+    },
+    {
+      "type": "callout",
+      "tone": "meo",
+      "title": "Thanh trạng thái nói cho bạn biết bộ lọc bắt được bao nhiêu dòng",
+      "text": "Sau khi lọc, góc trái dưới cùng hiện dòng chữ dạng bao nhiêu of bao nhiêu records found. Con số thứ hai là tổng số dòng trong VÙNG LỌC, không phải tổng số dòng trong bảng của bạn. Nếu nó nhỏ hơn số dòng thật thì bạn vừa tìm ra vấn đề mà không cần làm gì thêm."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Bốn nguyên nhân"
+    },
+    {
+      "type": "table",
+      "caption": "Nhận diện theo dạng thiếu",
+      "headers": ["Kiểu thiếu", "Nguyên nhân", "Cách sửa"],
+      "rows": [
+        ["Thiếu nguyên khối cuối bảng", "Vùng lọc dừng ở dòng trống chen giữa", "Xóa dòng trống, hoặc chuyển thành Table"],
+        ["Thiếu đúng các dòng mới thêm", "Vùng lọc cố định từ lúc bật", "Tắt rồi bật lại lọc, hoặc dùng Table"],
+        ["Thiếu vài dòng rải rác", "Khoảng trắng thừa trong ô", "Làm sạch bằng TRIM rồi lọc lại"],
+        ["Lọc theo số mà thiếu dòng", "Số đang lưu dạng văn bản", "Chuyển cả cột về số"]
+      ],
+      "copyable": false
+    },
+    {
+      "type": "paragraph",
+      "text": "Dạng thứ ba đáng chú ý vì nó là dấu hiệu duy nhất nhìn thấy được ngay trong hộp thoại lọc. Mở danh sách giá trị của một cột, nếu bạn thấy cùng một tên xuất hiện hai lần liền nhau thì đó là hai chuỗi khác nhau với Excel — một cái có khoảng trắng ở cuối, một cái không. Chọn giá trị này thì mất những dòng mang giá trị kia."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Table là cách chặn triệt để"
+    },
+    {
+      "type": "paragraph",
+      "text": "Chuyển vùng dữ liệu thành Table bằng Ctrl cộng T giải quyết cùng lúc hai nguyên nhân đầu bảng, và nó là một trong những thao tác có tỷ lệ lợi ích trên công sức cao nhất trong Excel. Table có ranh giới rõ ràng do bạn khai chứ không do Excel đoán, nó tự nới khi bạn gõ vào dòng ngay dưới, và mọi công thức tham chiếu tới nó cũng tự nới theo."
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        "Vùng lọc luôn khớp với dữ liệu thật, kể cả sau khi bạn thêm hai trăm dòng, vì Table biết ranh giới của chính nó.",
+        "Hàm tính tổng tham chiếu tới Table sẽ bao luôn dòng mới, nên hết cảnh tổng thiếu mấy dòng cuối mà vẫn ra con số trông hợp lý.",
+        "Dòng tiêu đề dính lại khi cuộn, không cần đóng băng dòng thủ công nữa.",
+        "Đổi lại, Table không chấp nhận ô gộp và không thích dòng trống chen giữa — đó là ràng buộc, và cũng chính là thứ ép bảng của bạn sạch sẽ."
+      ]
+    },
+    {
+      "type": "callout",
+      "tone": "canh-bao",
+      "title": "Dòng trống phân cách trông đẹp và làm hỏng mọi thứ",
+      "text": "Chèn một dòng trống giữa hai tháng để bảng dễ nhìn là thói quen rất phổ biến, và nó phá vỡ bộ lọc, phá vỡ sắp xếp, phá vỡ vùng của hàm tính tổng, phá vỡ cả bảng tổng hợp dựng từ vùng đó. Muốn phân cách trực quan thì dùng viền đậm hoặc đổi màu nền — chúng không nói với Excel rằng dữ liệu đã hết."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Cách file mẫu bảo đảm không dòng nào bị bỏ sót"
+    },
+    {
+      "type": "paragraph",
+      "text": "Mẫu phân công công việc giải bài toán này ở một tầng khác hẳn: thay vì trông chờ người dùng lọc đúng, nó dựng sẵn một cột tự phân loại mọi dòng vào một trạng thái có tên. Nhờ vậy việc tìm những dòng cần chú ý không còn phụ thuộc vào bộ lọc có bắt hết dòng hay không — mọi dòng đều đã mang sẵn nhãn."
+    },
+    {
+      "type": "formula",
+      "formula": "=IF(OR([congViec]{row}=\"\",[hanHoanThanh]{row}=\"\"),\"\",[hanHoanThanh]{row}-[ngayChotSo]{row})",
+      "note": "Cột Số ngày còn lại. Hàm OR gom hai điều kiện dừng vào một chỗ: chưa có tên việc, hoặc chưa có hạn hoàn thành. Chỉ cần một trong hai đúng là cột để trống thay vì tính. Thiếu vế thứ hai thì phép trừ chạm vào ô rỗng và cho ra một con số hơn bốn mươi sáu nghìn, đủ để dòng đó rơi vào nhánh sắp tới hạn một cách vô lý.",
+      "caption": "Cột Số ngày còn lại trong mẫu phân công công việc"
+    },
+    {
+      "type": "formula",
+      "formula": "=IF([congViec]{row}=\"\",\"\",IF([nguoiThucHien]{row}=\"\",\"Chưa có người thực hiện\",IF([hanHoanThanh]{row}=\"\",\"Chưa có hạn hoàn thành\",IF([tieuChiNghiemThu]{row}=\"\",\"Chưa có tiêu chí nghiệm thu\",\"Đủ điều kiện giao\"))))",
+      "note": "Cột Kiểm tra. Mỗi dòng thiếu thông tin đều được gọi tên cụ thể thiếu cái gì, thay vì gom hết vào một chữ chưa đủ. Đây là cách biến việc rà soát từ thao tác lọc thủ công thành một cột đọc được từ trên xuống — và cột đó không bao giờ bỏ sót dòng nào, vì nó chạy trên mọi dòng.",
+      "caption": "Tự phân loại thay cho lọc thủ công"
+    },
+    {
+      "type": "sheet",
+      "templateSlug": "bang-phan-cong-cong-viec",
+      "sheetIndex": 0,
+      "note": "Hai cột cuối cùng đều tự phân loại. Cột Kiểm tra bắt dòng thiếu thông tin, cột Tình trạng bắt dòng trễ hạn. Không cần lọc gì để tìm ra chúng, và vì thế không có cách nào lọc sót.",
+      "copyable": true
+    },
+    {
+      "type": "functionRef",
+      "slug": "or",
+      "why": "Gom hai điều kiện dừng vào một lớp kiểm, thay vì lồng hai hàm IF vào nhau cho cùng một mục đích."
+    },
+    {
+      "type": "functionRef",
+      "slug": "if",
+      "why": "Bốn lớp lồng nhau ở cột Kiểm tra, mỗi lớp gọi tên một thứ còn thiếu — đây là cách thay thế bộ lọc thủ công bằng một cột đọc được."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Kiểm nhanh trước khi tin vào kết quả lọc"
+    },
+    {
+      "type": "steps",
+      "items": [
+        {
+          "step": "Đọc số dòng ở thanh trạng thái",
+          "detail": "Con số thứ hai trong dòng chữ records found là tổng số dòng của vùng lọc. So nó với số dòng thật của bảng. Lệch nhau là đủ để dừng lại và kiểm."
+        },
+        {
+          "step": "Bấm Ctrl cộng mũi tên xuống từ ô đầu cột",
+          "detail": "Nó nhảy tới ô cuối cùng của khối dữ liệu liên tục. Dừng giữa chừng nghĩa là có dòng trống chen giữa — và đó chính là chỗ vùng lọc kết thúc."
+        },
+        {
+          "step": "Mở danh sách giá trị trong hộp thoại lọc",
+          "detail": "Nhìn xem có giá trị nào xuất hiện hai lần liền nhau không. Nếu có, đó là hai chuỗi khác nhau vì khoảng trắng thừa, và chọn cái này sẽ bỏ sót dòng mang cái kia."
+        },
+        {
+          "step": "Chuyển thành Table và quên hẳn vấn đề này",
+          "detail": "Ctrl cộng T. Sau bước này, vùng lọc luôn khớp dữ liệu thật kể cả khi bạn thêm hàng trăm dòng, và bạn không phải nhớ kiểm gì nữa."
+        }
+      ]
+    },
+    {
+      "type": "templateRef",
+      "slug": "bang-phan-cong-cong-viec",
+      "why": "File mẫu thay bộ lọc thủ công bằng hai cột tự phân loại, nên việc tìm dòng cần chú ý không phụ thuộc vào vùng lọc có đúng hay không."
+    }
+  ],
+
+  "faq": [
+    {
+      "q": "Vì sao bộ lọc dừng giữa bảng?",
+      "a": "Vì Excel tự lan vùng lọc từ ô bạn đang đứng cho tới khi gặp một dòng hoàn toàn trống hoặc một cột hoàn toàn trống. Một dòng trống chen giữa bảng là đủ để nửa dưới nằm ngoài vùng lọc."
+    },
+    {
+      "q": "Thêm dòng mới vào cuối bảng thì bộ lọc có tự bao không?",
+      "a": "Không, nếu bảng là vùng thường — vùng lọc được xác định lúc bật và giữ nguyên. Có, nếu bạn đã chuyển bảng thành Table bằng Ctrl cộng T."
+    },
+    {
+      "q": "Cùng một tên xuất hiện hai lần trong danh sách lọc là bị gì?",
+      "a": "Đó là hai chuỗi khác nhau với Excel, thường vì một cái có khoảng trắng ở cuối. Chọn giá trị này sẽ bỏ sót những dòng mang giá trị kia. Làm sạch bằng TRIM rồi lọc lại."
+    },
+    {
+      "q": "Có nên chèn dòng trống để phân cách các nhóm trong bảng không?",
+      "a": "Không. Nó phá vỡ bộ lọc, sắp xếp, vùng của hàm tính tổng và cả bảng tổng hợp dựng từ vùng đó. Dùng viền đậm hoặc màu nền — chúng không nói với Excel rằng dữ liệu đã hết."
+    }
+  ],
+
+  "quiz": [
+    {
+      "q": "Excel xác định vùng lọc như thế nào khi bạn bật bộ lọc?",
+      "options": [
+        "Nó hỏi bạn chọn vùng",
+        "Nó lan ra từ ô đang đứng cho tới khi gặp dòng hoặc cột hoàn toàn trống",
+        "Nó luôn lấy toàn bộ sheet"
+      ],
+      "answer": 1,
+      "explain": "Vì vậy một dòng trống chen giữa bảng là đủ để nửa dưới nằm ngoài vùng lọc, và không có gì cảnh báo bạn."
+    },
+    {
+      "q": "Cách kiểm nhanh nhất xem bộ lọc có bắt hết dòng không?",
+      "options": [
+        "Đếm tay",
+        "Đọc số dòng trong dòng chữ records found ở thanh trạng thái và so với số dòng thật",
+        "Lưu file rồi mở lại"
+      ],
+      "answer": 1,
+      "explain": "Con số thứ hai là tổng số dòng của VÙNG LỌC, không phải của bảng bạn. Lệch nhau là đủ để dừng lại và kiểm."
+    },
+    {
+      "q": "Chuyển vùng thành Table giải quyết được gì?",
+      "options": [
+        "Chỉ làm bảng nhìn đẹp hơn",
+        "Vùng lọc và vùng của công thức tự nới khi thêm dòng, vì Table biết ranh giới của chính nó",
+        "Làm file nhẹ đi"
+      ],
+      "answer": 1,
+      "explain": "Table có ranh giới do bạn khai chứ không do Excel đoán. Nó cũng không chấp nhận dòng trống chen giữa, và ràng buộc đó chính là thứ giữ bảng sạch."
+    },
+    {
+      "q": "Vì sao mẫu phân công công việc dùng cột tự phân loại thay cho bộ lọc?",
+      "options": [
+        "Vì bộ lọc chạy chậm",
+        "Vì cột tự phân loại chạy trên mọi dòng, nên không có cách nào bỏ sót dòng nào",
+        "Vì Excel giới hạn số lần lọc"
+      ],
+      "answer": 1,
+      "explain": "Lọc phụ thuộc vào vùng lọc có đúng hay không. Một cột công thức chạy trên từng dòng thì không phụ thuộc vào điều đó."
+    }
+  ],
+
+  "templateRefs": ["bang-phan-cong-cong-viec"],
+  "functionRefs": ["or", "if"],
+  "relatedSlugs": ["so-luu-dang-van-ban-trong-excel", "excel-khong-tinh-tong-duoc"],
+  "ctaText": "Học cách dựng bảng theo dõi tự bắt lỗi thay vì phải lọc tay",
+  "updatedAt": "2026-08-14"
+}

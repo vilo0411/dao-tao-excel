@@ -1,0 +1,69 @@
+{
+  "slug": "loi-div-0-trong-excel",
+  "order": 1,
+  "h1": "Bài tập chặn lỗi #DIV/0! trong bảng đánh giá KPI",
+  "metaTitle": "Bài tập lỗi #DIV/0! trong Excel, có lời giải",
+  "metaDesc": "Bốn yêu cầu thực hành trên một bảng KPI có sẵn dữ liệu, tập trung vào việc chặn lỗi chia cho 0. Có khung thử ngay trên trang và lời giải từng bước.",
+  "primaryKeyword": "bài tập lỗi #DIV/0! trong Excel có lời giải",
+  "postSlug": "loi-div-0-trong-excel",
+
+  "brief": "Bạn nhận một bảng đánh giá KPI quý gồm bốn chỉ tiêu của hai nhân viên. Hai chỉ tiêu thuộc loại càng cao càng tốt, hai chỉ tiêu còn lại càng thấp càng tốt. Nhiệm vụ là tính tỷ lệ hoàn thành cho từng dòng mà không để bất kỳ ô nào hiện #DIV/0!, kể cả dòng có mục tiêu hoặc thực hiện bằng 0.",
+
+  "dataset": {
+    "caption": "Chép bảng này vào Excel để làm bài",
+    "headers": ["Chỉ tiêu", "Chiều", "Mục tiêu", "Thực hiện"],
+    "rows": [
+      ["Doanh thu ký mới", "Càng cao càng tốt", "900", "1080"],
+      ["Số khách hàng mới", "Càng cao càng tốt", "12", "9"],
+      ["Số ngày trễ hạn báo cáo", "Càng thấp càng tốt", "2", "0"],
+      ["Chỉ tiêu chưa giao", "Càng cao càng tốt", "0", "150"]
+    ]
+  },
+
+  "tasks": [
+    {
+      "ask": "Thêm cột Tỷ lệ hoàn thành. Với chiều càng cao càng tốt thì lấy Thực hiện chia Mục tiêu; với chiều càng thấp càng tốt thì chia ngược lại.",
+      "hint": "Dùng IF để rẽ nhánh theo cột Chiều trước khi chia."
+    },
+    {
+      "ask": "Xử lý dòng 3: thực hiện bằng 0 với chỉ tiêu càng thấp càng tốt nghĩa là hoàn hảo, nên tỷ lệ phải ra 1,2 chứ không phải mã lỗi.",
+      "hint": "Giá trị thay thế của IFERROR ở nhánh này là 1.2."
+    },
+    {
+      "ask": "Xử lý dòng 4: mục tiêu bằng 0 nghĩa là chỉ tiêu chưa được giao, nên tỷ lệ phải ra 0 chứ không phải một con số vô hạn.",
+      "hint": "Cùng một mã lỗi nhưng giá trị thay thế phải khác dòng 3 — đây là điểm chính của bài."
+    },
+    {
+      "ask": "Đặt trần 1,2 cho cột vừa tính, để một người vượt chỉ tiêu gấp mười lần không làm vỡ bảng xếp loại."
+    }
+  ],
+
+  "sandbox": {
+    "title": "Làm yêu cầu 2 ngay tại đây",
+    "grid": [
+      ["Chỉ tiêu", "Mục tiêu", "Thực hiện"],
+      ["Số ngày trễ hạn báo cáo", 2, 0]
+    ],
+    "prompt": "Đây là dòng 3 của đề bài, chiều càng thấp càng tốt nên tỷ lệ bằng Mục tiêu chia Thực hiện. Gõ =B2/C2 để thấy lỗi, rồi viết công thức trả về 1.2.",
+    "answer": "=IFERROR(B2/C2, 1.2)",
+    "expected": "1.2",
+    "hint": "Chỉ cần một hàm bọc ngoài phép chia là đủ."
+  },
+
+  "solution": [
+    {
+      "formula": "=IF(B2=\"Càng thấp càng tốt\", IFERROR(C2/D2, 1.2), IFERROR(D2/C2, 0))",
+      "why": "Rẽ nhánh theo chiều chỉ tiêu trước, rồi mới chia. Hai nhánh có hai giá trị thay thế khác nhau vì mẫu số bằng 0 mang hai ý nghĩa nghiệp vụ ngược nhau: thực hiện bằng 0 ở chiều càng thấp càng tốt là hoàn hảo, còn mục tiêu bằng 0 ở chiều càng cao càng tốt là chưa giao chỉ tiêu."
+    },
+    {
+      "formula": "=MIN(1.2, IF(B2=\"Càng thấp càng tốt\", IFERROR(C2/D2, 1.2), IFERROR(D2/C2, 0)))",
+      "why": "Bọc MIN ra ngoài cùng để đặt trần. Đặt trần ở ngoài chứ không sửa từng nhánh vì nó là một quy tắc chung của cả cột, và viết một lần thì sau này đổi trần chỉ phải sửa một chỗ."
+    },
+    {
+      "formula": "=IF(A2=\"\", \"\", MIN(1.2, IF(B2=\"Càng thấp càng tốt\", IFERROR(C2/D2, 1.2), IFERROR(D2/C2, 0))))",
+      "why": "Lớp cuối cùng: chặn công thức chạy trên dòng chưa có chỉ tiêu. Đây là thứ cho phép bạn kéo công thức xuống trước hàng trăm dòng mà bảng không đầy số 0 vô nghĩa. Đến đây công thức đã trùng khớp với cột Tỷ lệ hoàn thành trong file mẫu."
+    }
+  ],
+
+  "updatedAt": "2026-08-14"
+}

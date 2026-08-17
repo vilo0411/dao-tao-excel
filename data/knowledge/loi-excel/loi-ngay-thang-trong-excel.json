@@ -1,0 +1,219 @@
+{
+  "slug": "loi-ngay-thang-trong-excel",
+  "pillar": "loi-excel",
+  "postType": "sua-loi",
+  "order": 10,
+  "h1": "Lỗi ngày tháng trong Excel: khi ngày không phải là ngày",
+  "metaTitle": "Lỗi ngày tháng trong Excel: nguyên nhân và cách sửa",
+  "metaDesc": "Lỗi ngày tháng trong Excel gần như luôn là do ngày đang lưu dạng văn bản, hoặc do lệch định dạng ngày tháng năm. Cách kiểm trong năm giây và cách sửa.",
+  "intro": "Lỗi ngày tháng trong Excel có một đặc điểm khiến nó nguy hiểm hơn hẳn các mã lỗi: phần lớn thời gian nó không báo lỗi gì cả. Bảng vẫn chạy, số vẫn ra, chỉ có điều con số đó sai. Một hợp đồng hết hạn tháng ba bị tính thành tháng ba năm sau, và không ô nào chuyển sang màu đỏ để báo cho bạn biết.",
+  "primaryKeyword": "lỗi ngày tháng trong Excel",
+  "difficulty": "trung-cap",
+
+  "body": [
+    {
+      "type": "paragraph",
+      "text": "Gốc của mọi chuyện nằm ở cách Excel lưu ngày tháng: nó không lưu chữ mà lưu một con số, đếm số ngày kể từ mốc đầu năm 1900. Ngày 14 tháng 8 năm 2026 với Excel là con số 46248. Chính vì vậy mà bạn cộng trừ ngày tháng được như cộng trừ số thường, và cũng chính vì vậy mà một ô ngày tháng bị lưu dạng chữ sẽ hỏng theo cách rất khó nhận ra — nó vẫn hiển thị đúng, chỉ là không tính toán được."
+    },
+    {
+      "type": "errorCase",
+      "error": "Ngày hiển thị đúng nhưng tính ra sai",
+      "cause": "Ô đang lưu chuỗi ký tự chứ không lưu số ngày. Hay gặp nhất khi dữ liệu được xuất từ phần mềm kế toán hoặc nhập từ file CSV. Nguyên nhân thứ hai là lệch quy ước: chuỗi 03/04/2026 sẽ được đọc là mùng 3 tháng 4 hay mùng 4 tháng 3 tùy cài đặt vùng của máy, và cả hai cách đọc đều cho ra một ngày hợp lệ nên không có gì báo lỗi.",
+      "fix": "Kiểm bằng căn lề: Excel căn phải ngày tháng thật, căn trái văn bản. Sửa bằng Data rồi Text to Columns, và ở bước ba chọn Date cùng đúng thứ tự DMY hoặc MDY khớp với dữ liệu nguồn — đây là chỗ duy nhất bạn nói được cho Excel biết nên đọc theo quy ước nào."
+    },
+    {
+      "type": "callout",
+      "tone": "canh-bao",
+      "title": "Lệch quy ước là loại sai duy nhất không để lại dấu vết",
+      "text": "Với những ngày có phần ngày lớn hơn 12, Excel đọc nhầm sẽ sinh ra chuỗi không hợp lệ và bạn nhận ra ngay. Nhưng với ngày từ mùng 1 đến 12, cả hai cách đọc đều ra một ngày có thật. Nghĩa là trong một cột ba trăm dòng, khoảng bốn mươi phần trăm số dòng sẽ sai lặng lẽ và sáu mươi phần trăm còn lại vẫn đúng — đủ để bạn tin là cả cột ổn."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Kiểm trong năm giây"
+    },
+    {
+      "type": "list",
+      "ordered": true,
+      "items": [
+        "Nhìn căn lề. Excel căn phải ngày tháng và số, căn trái văn bản. Một cột ngày mà có ô căn trái thì chính là những ô đang lưu sai kiểu.",
+        "Chọn cột và nhìn thanh trạng thái dưới cùng. Ngày tháng thật sẽ cho ra Sum và Average vì bản chất chúng là số; cột toàn chữ thì hai chỉ số đó không hiện.",
+        "Đổi tạm định dạng ô sang General. Ngày tháng thật sẽ biến thành một con số năm chữ số; văn bản thì vẫn nguyên chuỗi như cũ.",
+        "Cộng thử số 1 vào ô đó. Ra ngày hôm sau là ngày thật, ra lỗi hoặc ra chuỗi lạ là văn bản."
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Phép thử thứ ba là dứt khoát nhất và cũng nhanh nhất khi bạn nghi ngờ cả một cột. Bôi đen cột, đổi định dạng sang General, rồi nhìn. Những ô hóa thành số là ngày tháng thật; những ô giữ nguyên chuỗi là văn bản. Nhớ bấm hoàn tác sau khi xem xong, vì bạn chỉ đang chẩn đoán chứ chưa chữa."
+    },
+    {
+      "type": "sandbox",
+      "title": "Hai ô ngày lưu dạng văn bản, trừ nhau ra gì",
+      "grid": [
+        ["Ngày bắt đầu", "Ngày kết thúc"],
+        ["01/03/2026", "01/09/2026"]
+      ],
+      "prompt": "Cả hai ô đang là chuỗi ký tự chứ không phải ngày tháng. Gõ =B2-A2 để thấy Excel không trừ được. Viết công thức trả về câu Ngày đang là văn bản thay vì để mã lỗi hiện ra.",
+      "answer": "=IFERROR(B2-A2, \"Ngày đang là văn bản\")",
+      "expected": "Ngày đang là văn bản",
+      "hint": "Đây là cách bắt lỗi, không phải cách sửa. Cách sửa là chuyển cả cột về kiểu ngày bằng Text to Columns."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Chuyển cả cột về đúng kiểu ngày"
+    },
+    {
+      "type": "steps",
+      "items": [
+        {
+          "step": "Xác định quy ước của dữ liệu nguồn",
+          "detail": "Tìm trong cột một dòng có phần ngày lớn hơn 12, ví dụ 25/03/2026. Vị trí của số 25 nói cho bạn biết cột này viết theo thứ tự ngày trước hay tháng trước. Không tìm được dòng nào như vậy thì phải hỏi người xuất dữ liệu, đừng đoán."
+        },
+        {
+          "step": "Chọn cột rồi mở Text to Columns",
+          "detail": "Trong thẻ Data. Ở hai bước đầu cứ bấm Next, phần quan trọng nằm ở bước ba."
+        },
+        {
+          "step": "Ở bước ba chọn Date và đúng thứ tự",
+          "detail": "Chọn Date rồi chọn DMY nếu dữ liệu viết ngày trước, MDY nếu viết tháng trước. Đây là chỗ duy nhất trong toàn bộ Excel mà bạn nói được cho nó biết nên đọc chuỗi theo quy ước nào, thay vì để nó đoán theo cài đặt máy."
+        },
+        {
+          "step": "Kiểm lại bằng một phép trừ",
+          "detail": "Trừ hai ô ngày bất kỳ trong cột. Ra một số nguyên hợp lý là xong. Ra lỗi hoặc ra con số vô lý thì quay lại bước một, nhiều khả năng bạn chọn nhầm thứ tự."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Cách file mẫu dùng ngày tháng như số"
+    },
+    {
+      "type": "paragraph",
+      "text": "Mẫu theo dõi hợp đồng lao động là ví dụ tốt vì gần như mọi cột tính toán của nó đều dựa trên phép số học với ngày tháng. Điều đó chỉ chạy được khi cột ngày thật sự là ngày, và nếu ai đó dán vào một cột ngày dạng văn bản thì cả bảng sai lặng lẽ chứ không báo gì."
+    },
+    {
+      "type": "formula",
+      "formula": "=IF([hoTen]{row}=\"\",\"\",IF([ngayKetThuc]{row}=\"\",\"\",ROUND(([ngayKetThuc]{row}-[ngayBatDau]{row})/30.44,1)))",
+      "note": "Cột Thời hạn tháng. Phép trừ hai ô ngày cho ra số ngày, chia cho 30,44 là số ngày trung bình của một tháng để ra số tháng. Con số 30,44 chứ không phải 30 là có chủ ý: dùng 30 thì một hợp đồng 36 tháng sẽ tính ra 36,5 và rơi vào nhánh cảnh báo vượt trần, dù nó hoàn toàn hợp lệ.",
+      "caption": "Cột Thời hạn tháng trong mẫu theo dõi hợp đồng lao động"
+    },
+    {
+      "type": "formula",
+      "formula": "=IF([hoTen]{row}=\"\",\"\",IF(AND([loaiHopDong]{row}=\"Thử việc\",[ngayKetThuc]{row}-[ngayBatDau]{row}>[tranThuViec]{row}),\"Thử việc vượt trần cho phép\",\"Hợp lệ\"))",
+      "note": "Nhánh kiểm thử việc trong cột Cảnh báo, đã rút gọn. Phép trừ hai ngày được so thẳng với số ngày trần theo nhóm chức danh. Nếu cột ngày là văn bản thì phép trừ không chạy, và cả cột cảnh báo im lặng — tức là một bảng theo dõi hợp đồng mất hoàn toàn khả năng cảnh báo mà không ai biết.",
+      "caption": "Vì sao kiểu dữ liệu của cột ngày quyết định cả lớp cảnh báo"
+    },
+    {
+      "type": "sheet",
+      "templateSlug": "bang-theo-doi-hop-dong-lao-dong",
+      "sheetIndex": 0,
+      "note": "Bốn cột xanh lá trong bảng đều tính từ phép số học với ngày tháng. Bấm vào cột Cảnh báo để thấy toàn bộ chuỗi kiểm dựa trên hiệu giữa hai ngày.",
+      "copyable": true
+    },
+    {
+      "type": "functionRef",
+      "slug": "if",
+      "why": "Cả hai lớp kiểm trong công thức trên. Lớp đầu chặn dòng trống, lớp sau chặn hợp đồng chưa có ngày kết thúc — thiếu nó thì phép trừ chạm vào ô rỗng và ra một con số vô nghĩa."
+    },
+    {
+      "type": "functionRef",
+      "slug": "and",
+      "why": "Ghép hai điều kiện phải cùng đúng: đúng loại hợp đồng, và đúng là đã vượt trần. Thiếu nó thì cảnh báo sẽ bắn cả vào những hợp đồng không phải thử việc."
+    },
+    {
+      "type": "functionRef",
+      "slug": "round",
+      "why": "Làm tròn số tháng về một chữ số thập phân. Không làm tròn thì cột hiện ra những con số như 35,98630136986301."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Hai cái bẫy còn lại"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        "Ô rỗng trong phép trừ ngày tháng cho ra một con số rất lớn, vì Excel coi ô rỗng bằng 0 tức là ngày đầu năm 1900. Luôn kiểm ô rỗng trước khi trừ.",
+        "Ngày tháng kèm giờ phút mang phần thập phân, nên hai ô cùng ngày mà khác giờ sẽ không bằng nhau khi so sánh. Dùng hàm cắt phần giờ nếu chỉ quan tâm tới ngày.",
+        "Định dạng hiển thị có thể che mất năm. Một ô hiện 03/04 có thể là năm nay hoặc năm ngoái; đổi định dạng sang dạng đầy đủ trước khi kết luận cột sai.",
+        "Copy một ô ngày sang file khác có mốc tính khác sẽ lệch bốn năm. Chuyện này hiếm nhưng có thật với file cũ tạo trên máy Mac đời trước."
+      ]
+    },
+    {
+      "type": "templateRef",
+      "slug": "bang-theo-doi-hop-dong-lao-dong",
+      "why": "File mẫu có bốn cột tính từ phép số học với ngày tháng, kể cả một lớp cảnh báo pháp lý phụ thuộc hoàn toàn vào việc cột ngày đúng kiểu."
+    }
+  ],
+
+  "faq": [
+    {
+      "q": "Vì sao ngày hiển thị đúng mà trừ hai ô lại ra lỗi?",
+      "a": "Vì ô đang lưu chuỗi ký tự chứ không lưu số ngày. Hiển thị là chuyện của định dạng, còn tính toán cần bản chất là số. Đổi tạm định dạng sang General để kiểm: ngày thật sẽ hóa thành một con số năm chữ số."
+    },
+    {
+      "q": "Làm sao biết dữ liệu viết theo ngày trước hay tháng trước?",
+      "a": "Tìm trong cột một dòng có phần ngày lớn hơn 12. Vị trí của con số đó nói cho bạn biết quy ước. Nếu cả cột không có dòng nào như vậy thì phải hỏi người xuất dữ liệu, đừng đoán — đoán sai thì khoảng bốn mươi phần trăm số dòng sẽ sai lặng lẽ."
+    },
+    {
+      "q": "Vì sao phép trừ ngày ra một con số rất lớn?",
+      "a": "Nhiều khả năng một trong hai ô đang rỗng. Excel coi ô rỗng bằng 0, tức là ngày đầu năm 1900, nên hiệu ra khoảng bốn mươi sáu nghìn ngày. Luôn kiểm ô rỗng trước khi trừ."
+    },
+    {
+      "q": "Hai ô cùng ngày mà so sánh lại không bằng nhau?",
+      "a": "Một trong hai ô đang mang cả phần giờ phút, vốn được lưu ở phần thập phân. Cắt phần giờ đi nếu bạn chỉ quan tâm tới ngày."
+    }
+  ],
+
+  "quiz": [
+    {
+      "q": "Excel lưu ngày tháng dưới dạng gì?",
+      "options": [
+        "Một chuỗi ký tự theo định dạng đang chọn",
+        "Một con số đếm số ngày kể từ mốc đầu năm 1900",
+        "Ba số riêng biệt cho ngày, tháng và năm"
+      ],
+      "answer": 1,
+      "explain": "Ngày 14/08/2026 với Excel là con số 46248. Đó là lý do cộng trừ ngày tháng chạy được như cộng trừ số thường, và cũng là lý do ngày lưu dạng chữ sẽ hỏng lặng lẽ."
+    },
+    {
+      "q": "Vì sao lệch quy ước ngày trước hay tháng trước lại nguy hiểm hơn các lỗi khác?",
+      "options": [
+        "Vì nó làm Excel chạy chậm",
+        "Vì với ngày từ mùng 1 đến 12, cả hai cách đọc đều ra một ngày có thật nên không có gì báo lỗi",
+        "Vì nó xóa mất dữ liệu gốc"
+      ],
+      "answer": 1,
+      "explain": "Khoảng bốn mươi phần trăm số dòng sẽ sai lặng lẽ trong khi phần còn lại vẫn đúng — đủ để bạn tin là cả cột ổn."
+    },
+    {
+      "q": "Phép trừ hai ô ngày ra một con số hơn bốn mươi nghìn. Nghi ngờ đầu tiên?",
+      "options": [
+        "Một trong hai ô đang rỗng",
+        "Định dạng ô sai",
+        "File quá lớn"
+      ],
+      "answer": 0,
+      "explain": "Ô rỗng được Excel coi bằng 0, tức ngày đầu năm 1900, nên hiệu ra khoảng bốn mươi sáu nghìn ngày tính tới hôm nay."
+    },
+    {
+      "q": "Ở bước ba của Text to Columns, chọn Date rồi chọn DMY hay MDY để làm gì?",
+      "options": [
+        "Để đặt cách hiển thị ngày sau khi chuyển",
+        "Để nói cho Excel biết nên đọc chuỗi nguồn theo quy ước nào",
+        "Để chọn ngôn ngữ của file"
+      ],
+      "answer": 1,
+      "explain": "Đây là chỗ duy nhất trong Excel bạn nói được cho nó biết cách đọc chuỗi, thay vì để nó đoán theo cài đặt vùng của máy."
+    }
+  ],
+
+  "templateRefs": ["bang-theo-doi-hop-dong-lao-dong"],
+  "functionRefs": ["if", "and", "round"],
+  "relatedSlugs": ["loi-value-trong-excel", "excel-khong-tinh-tong-duoc"],
+  "ctaText": "Học cách xử lý ngày tháng trong bảng tính nhân sự",
+  "updatedAt": "2026-08-14"
+}

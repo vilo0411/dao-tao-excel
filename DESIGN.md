@@ -514,6 +514,18 @@ This replaces an earlier rule that chart bars must be `{colors.ink}`. That rule 
 
 **`og-image`** — The social preview (`lib/og.tsx`, rendered through `next/og`). Same frame as a page: the formula-bar kicker from the homepage, `{typography.display-xl}` headline, then a slice of the file's real sheet bleeding off the right edge. Pages with no file to show (the course page) close on `{component.signature-coral-band}` instead. Satori supports only flexbox and cannot read CSS variables, so `OG_COLORS` restates the `@theme` hexes — **it is the one sanctioned duplicate of those values, and it has to be updated with them**.
 
+### Khu kiến thức — the tier that gets no band, on purpose
+
+`/kien-thuc-excel` is the site's third area, and the question it forces is: does a new page tier get a new signature band? **No.** Band color encodes tier, and the tiers are already spoken for — coral for the homepage, dark navy for the course CTA, forest for a bundle. A fourth hue would not add a tier; it would dilute the one thing the existing three communicate.
+
+So the knowledge area borrows: article pages carry no band except `{component.signature-dark-band}` on their `CourseCta`, exactly like a template article. Index pages — the hub, a pillar, and the three reference pages — close on `{component.cta-band-light}`, exactly like the library index. Same tier, same treatment.
+
+What marks the area as different is not a color but **a spreadsheet-dialect component finally getting used for its literal meaning**. `components/PostBody.tsx` renders an `errorCase` block as `{component.sheet-error-cell}`: `{rounded.none}`, mono, `{colors.flag}` type on `{colors.paper}` — the shape of an Excel cell that is broken. That token has existed in this document since the beginning and no page had reached for it; a pillar entirely about error codes is what it was drawn for. This is not a color promoted to new duty. It is a color doing the job it was defined to do, which is why it does not run afoul of the "don't decorate with semantic colors" rule below.
+
+`{colors.flag}` is reserved to the `canho-bao` callout tone and to error cells. The other two callout tones (`meo`, `luu-y`) differ by **label text only**, never by hue — a tip is not an error, and spending the error color on it would make the next real warning read as decoration.
+
+**`components/FormulaSandbox.tsx`** is the second full instance of the spreadsheet sub-system, after `SheetPreview`. Same rules, no exceptions: `{rounded.none}` throughout, mono type, `{colors.input-bg}` on the data grid because those are cells holding input, `{colors.computed}` on the result because that is what the sheet computed. It adds a formula bar with the same `fx` divider as `{component.sheet-formula-bar}`. The one thing it must always render, in every state, is the line naming which ten functions it can evaluate — a widget that looks like Excel and answers unlike Excel is worse than no widget, and that line is the whole defense.
+
 ### Bundle Map — the one sanctioned promotion of the semantic colors
 
 `components/SystemMap.tsx` draws a bundle as a spreadsheet, not a flowchart: square corners, mono labels, an A/B/C column strip across the top. Three columns are three roles — input, process, master.

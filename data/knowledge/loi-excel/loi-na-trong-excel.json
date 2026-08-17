@@ -1,0 +1,177 @@
+{
+  "slug": "loi-na-trong-excel",
+  "pillar": "loi-excel",
+  "postType": "sua-loi",
+  "order": 2,
+  "h1": "Lỗi #N/A trong Excel: khi nào nên sửa và khi nào nên để nguyên",
+  "metaTitle": "Lỗi #N/A trong Excel: nguyên nhân và cách xử lý",
+  "metaDesc": "Lỗi #N/A trong Excel nghĩa là không tìm thấy giá trị cần tra. Bốn nguyên nhân thường gặp, cách kiểm tra dữ liệu tra cứu và khi nào không nên che lỗi đi.",
+  "intro": "Lỗi #N/A trong Excel khác hẳn những mã lỗi còn lại ở một điểm: rất nhiều khi nó không phải lỗi. Nó là câu trả lời hợp lệ của Excel cho câu hỏi bạn vừa đặt ra, và câu trả lời đó là không tìm thấy. Biết phân biệt lúc nào #N/A là hỏng và lúc nào nó là thông tin sẽ quyết định bạn nên sửa công thức hay nên đi kiểm tra dữ liệu nguồn.",
+  "primaryKeyword": "lỗi #N/A trong Excel",
+  "difficulty": "co-ban",
+
+  "body": [
+    {
+      "type": "paragraph",
+      "text": "Chữ viết tắt N/A đọc đầy đủ là not available, tức là không có sẵn. Excel trả về nó khi một hàm tra cứu đi tìm một giá trị và không thấy giá trị đó ở đâu trong vùng được chỉ định. Nếu bạn đang đối chiếu danh sách khách hàng thanh toán với danh mục khách hàng, một dòng #N/A nghĩa là có khoản tiền về từ một khách không nằm trong danh mục — và đó chính xác là thứ bạn cần biết, không phải thứ cần giấu đi."
+    },
+    {
+      "type": "errorCase",
+      "error": "#N/A",
+      "cause": "Hàm tra cứu không tìm thấy giá trị cần tìm trong vùng dữ liệu. Bốn lý do hay gặp theo thứ tự tần suất: giá trị thật sự không có trong danh mục; hai bên khác kiểu dữ liệu, một bên số một bên văn bản; có khoảng trắng thừa ở đầu hoặc cuối chuỗi; vùng tra cứu bị thiếu dòng do quên cố định tham chiếu khi kéo công thức.",
+      "fix": "Trước hết xác định xem giá trị có thật sự tồn tại hay không. Nếu có mà vẫn không tìm thấy thì vấn đề nằm ở kiểu dữ liệu hoặc khoảng trắng. Chỉ khi #N/A là trạng thái bình thường và dự kiến được thì mới bọc IFERROR để thay bằng một câu có nghĩa."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Bốn nguyên nhân và cách phân biệt"
+    },
+    {
+      "type": "list",
+      "ordered": true,
+      "items": [
+        "Giá trị không tồn tại thật. Đây là trường hợp mà #N/A đang làm đúng việc của nó và bạn cần bổ sung dữ liệu, không phải sửa công thức.",
+        "Lệch kiểu dữ liệu. Mã khách hàng bên này là số 1001, bên kia là chuỗi 1001 — với Excel đó là hai giá trị khác nhau hoàn toàn.",
+        "Khoảng trắng thừa. Rất hay gặp khi dữ liệu được xuất từ phần mềm kế toán hoặc dán từ web, và mắt thường không nhìn ra được.",
+        "Vùng tra cứu bị trượt khi kéo công thức xuống, vì tham chiếu vùng chưa được cố định bằng dấu đô la."
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Cách phân biệt nhanh giữa nhóm một và ba nhóm còn lại: dùng hàm đếm để kiểm tra xem giá trị đó xuất hiện bao nhiêu lần trong vùng tra cứu. Nếu kết quả là 0 thì giá trị không có thật, còn nếu kết quả lớn hơn 0 mà hàm tra cứu vẫn báo #N/A thì chắc chắn là chuyện kiểu dữ liệu hoặc khoảng trắng."
+    },
+    {
+      "type": "callout",
+      "tone": "canh-bao",
+      "title": "Đừng bọc IFERROR cho một danh sách đối chiếu",
+      "text": "Nếu bạn đang dùng tra cứu để đối chiếu hai danh sách, mỗi ô #N/A là một dòng lệch cần người xử lý. Bọc IFERROR và trả về chuỗi rỗng sẽ làm bảng nhìn sạch sẽ trong khi những dòng lệch đó biến mất khỏi tầm mắt. Đây là cách mà một sai sót đối chiếu đi thẳng vào báo cáo cuối kỳ."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Khi #N/A là trạng thái bình thường"
+    },
+    {
+      "type": "paragraph",
+      "text": "Có những bảng mà không tìm thấy là chuyện đương nhiên. Bảng theo dõi công nợ chẳng hạn: một hóa đơn mới phát hành thì chưa có bút toán thanh toán nào để tra ra, và ô đó sẽ là #N/A cho tới khi khách trả tiền. Ở đây việc thay #N/A bằng số 0 hoặc bằng câu Chưa thanh toán là hợp lý, vì trạng thái đó nằm trong dự kiến chứ không phải dấu hiệu hỏng."
+    },
+    {
+      "type": "formula",
+      "formula": "=IFERROR(VLOOKUP([maKH]{row},DanhMucKH,2,FALSE),\"Chưa có trong danh mục\")",
+      "note": "Điểm đáng chú ý không nằm ở IFERROR mà ở giá trị thay thế. Trả về một câu có nghĩa thay vì chuỗi rỗng giữ lại được thông tin: người đọc bảng vẫn biết dòng này chưa khớp danh mục, chỉ khác là bảng không còn đầy mã lỗi. Chuỗi rỗng thì xóa luôn thông tin đó.",
+      "caption": "Cách thay #N/A mà không làm mất thông tin"
+    },
+    {
+      "type": "paragraph",
+      "text": "Mẫu theo dõi công nợ phải thu trên site này đi theo đúng nguyên tắc ấy nhưng ở một tầng khác. Nó không dùng hàm tra cứu, nên không sinh #N/A; thay vào đó nó phân loại mọi trạng thái thành chữ, kể cả trạng thái bất thường. Cột nhóm tuổi nợ có hẳn một nhánh riêng cho trường hợp số tiền còn phải thu bị âm, tức là đã thu vượt — một tình huống mà nếu chỉ dùng công thức tra cứu rồi bọc IFERROR thì sẽ biến mất không dấu vết."
+    },
+    {
+      "type": "formula",
+      "formula": "=IF([tenKH]{row}=\"\",\"\",IF([conPhaiThu]{row}<0,\"Thu vượt - kiểm tra lại\",IF([conPhaiThu]{row}=0,\"Đã thu đủ\",IF([soNgayQuaHan]{row}=0,\"Trong hạn\",\"Quá hạn\"))))",
+      "note": "Cột Nhóm tuổi nợ, rút gọn bớt các bậc quá hạn cho dễ đọc. Mọi trạng thái đều có tên, kể cả trạng thái sai. Đây là cách viết ngược hẳn với thói quen bọc IFERROR: thay vì gom mọi thứ bất thường vào một giá trị thay thế, nó gọi tên từng thứ ra.",
+      "caption": "Cột Nhóm tuổi nợ trong mẫu theo dõi công nợ phải thu"
+    },
+    {
+      "type": "sheet",
+      "templateSlug": "bang-theo-doi-cong-no-phai-thu",
+      "sheetIndex": 0,
+      "note": "Bảng dữ liệu thật của mẫu công nợ. Cột Nhóm tuổi nợ ở cuối cùng là kết quả của công thức phân loại vừa nói, và không dòng nào trong đó hiện mã lỗi vì mọi nhánh đều đã được đặt tên.",
+      "copyable": true
+    },
+    {
+      "type": "functionRef",
+      "slug": "iferror",
+      "why": "Công cụ chuẩn để thay #N/A, nhưng cũng là công cụ dễ dùng sai nhất trong bài này vì nó xóa luôn cả những khác biệt bạn cần thấy."
+    },
+    {
+      "type": "functionRef",
+      "slug": "if",
+      "why": "Cách thay thế tốt hơn khi bạn muốn gọi tên từng trạng thái thay vì gom tất cả những gì bất thường vào một giá trị chung."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Kiểm tra khoảng trắng và lệch kiểu dữ liệu"
+    },
+    {
+      "type": "steps",
+      "items": [
+        {
+          "step": "Đếm xem giá trị có tồn tại không",
+          "detail": "Dùng hàm đếm theo điều kiện trên vùng tra cứu với chính giá trị đang tìm. Ra 0 nghĩa là dữ liệu thiếu thật; ra khác 0 nghĩa là lỗi nằm ở kiểu hoặc ở khoảng trắng."
+        },
+        {
+          "step": "So độ dài chuỗi hai bên",
+          "detail": "Dùng hàm LEN trên cả ô bên tra và ô bên đích. Hai con số khác nhau trong khi chữ nhìn giống hệt thì chênh lệch đó chính là khoảng trắng vô hình."
+        },
+        {
+          "step": "Làm sạch bằng TRIM rồi mới tra",
+          "detail": "Cắt khoảng trắng thừa ở cả hai vế trước khi so khớp. Nếu dữ liệu đến từ phần mềm khác thì nên làm sạch một lần ở cột phụ, đừng lồng TRIM vào mọi công thức tra cứu."
+        },
+        {
+          "step": "Đồng bộ kiểu dữ liệu",
+          "detail": "Mã số bên nào cũng phải cùng là số hoặc cùng là văn bản. Cách chắc chắn nhất là quy cả hai bên về văn bản, vì mã số thường có số 0 đứng đầu mà kiểu số sẽ nuốt mất."
+        }
+      ]
+    },
+    {
+      "type": "templateRef",
+      "slug": "bang-theo-doi-cong-no-phai-thu",
+      "why": "File mẫu phân loại tuổi nợ bằng cách gọi tên từng trạng thái thay vì bọc lỗi, kể cả trạng thái thu vượt mà nhiều bảng bỏ sót."
+    }
+  ],
+
+  "faq": [
+    {
+      "q": "Nên thay #N/A bằng 0 hay bằng chuỗi rỗng?",
+      "a": "Cả hai đều rủi ro nếu bạn đang đối chiếu dữ liệu. Số 0 sẽ được cộng vào tổng và làm sai kết quả, còn chuỗi rỗng thì xóa mất dấu vết dòng lệch. Nếu buộc phải thay, hãy thay bằng một câu chữ nói rõ trạng thái, ví dụ Chưa có trong danh mục."
+    },
+    {
+      "q": "Vì sao hai mã nhìn giống hệt nhau mà tra vẫn không ra?",
+      "a": "Gần như chắc chắn là một bên đang là số còn bên kia là văn bản, hoặc có khoảng trắng vô hình. Kiểm bằng cách so độ dài chuỗi hai bên bằng hàm LEN — hai con số khác nhau là đủ để kết luận."
+    },
+    {
+      "q": "#N/A có làm sai hàm tính tổng phía dưới không?",
+      "a": "Có. Một ô #N/A trong vùng sẽ làm hàm tổng cũng trả về #N/A, vì lỗi lan truyền qua mọi phép tính. Đây là lý do nhiều người vội bọc IFERROR, trong khi cách đúng thường là xử lý xong dòng lệch rồi mới tính tổng."
+    }
+  ],
+
+  "quiz": [
+    {
+      "q": "#N/A nghĩa là gì?",
+      "options": [
+        "Công thức sai cú pháp",
+        "Không tìm thấy giá trị cần tra trong vùng dữ liệu",
+        "Ô đang chia cho 0"
+      ],
+      "answer": 1,
+      "explain": "N/A viết tắt của not available. Đây là câu trả lời hợp lệ của một hàm tra cứu chứ không phải lỗi cú pháp, và rất nhiều khi nó đang nói cho bạn một điều bạn cần biết."
+    },
+    {
+      "q": "Bạn đang đối chiếu danh sách thanh toán với danh mục khách hàng và thấy vài dòng #N/A. Nên làm gì trước?",
+      "options": [
+        "Bọc IFERROR để bảng sạch",
+        "Kiểm tra vì sao những khách đó không có trong danh mục",
+        "Xóa những dòng đó đi"
+      ],
+      "answer": 1,
+      "explain": "Trong một bảng đối chiếu, mỗi #N/A là một dòng lệch cần người xử lý. Bọc IFERROR ở đây không sửa gì cả, nó chỉ làm những dòng lệch biến mất khỏi tầm mắt."
+    },
+    {
+      "q": "Cách nào phân biệt được giữa dữ liệu thiếu thật và lỗi lệch kiểu dữ liệu?",
+      "options": [
+        "Đếm số lần giá trị đó xuất hiện trong vùng tra cứu",
+        "Đổi màu nền của ô",
+        "Kéo lại công thức một lần nữa"
+      ],
+      "answer": 0,
+      "explain": "Nếu đếm ra 0 thì giá trị không có thật và bạn cần bổ sung dữ liệu. Nếu đếm ra khác 0 mà hàm tra cứu vẫn báo #N/A thì lỗi nằm ở kiểu dữ liệu hoặc khoảng trắng thừa."
+    }
+  ],
+
+  "templateRefs": ["bang-theo-doi-cong-no-phai-thu"],
+  "functionRefs": ["iferror", "if"],
+  "relatedSlugs": ["loi-value-trong-excel"],
+  "ctaText": "Học cách dựng bảng đối chiếu công nợ không bỏ sót dòng lệch",
+  "updatedAt": "2026-08-14"
+}

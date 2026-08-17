@@ -1,0 +1,221 @@
+{
+  "slug": "loi-div-0-trong-excel",
+  "pillar": "loi-excel",
+  "postType": "sua-loi",
+  "order": 4,
+  "h1": "Lỗi #DIV/0! trong Excel: vì sao xuất hiện và cách sửa",
+  "metaTitle": "Lỗi #DIV/0! trong Excel: nguyên nhân và cách sửa",
+  "metaDesc": "Lỗi #DIV/0! trong Excel xuất hiện khi mẫu số bằng 0 hoặc là ô trống. Ba cách sửa, cách chặn từ lúc dựng file, kèm công thức thật để đối chiếu.",
+  "intro": "Lỗi #DIV/0! trong Excel gần như luôn xuất hiện đúng vào lúc bạn vừa dán thêm một dòng dữ liệu mới: cả cột đang chạy ngon lành bỗng nở ra một loạt ô báo lỗi. Nó không phải lỗi của công thức, và cũng không phải Excel hỏng. Nó là Excel đang từ chối làm một phép tính không có nghĩa, và nói ra điều đó bằng đúng sáu ký tự.",
+  "primaryKeyword": "lỗi #DIV/0! trong Excel",
+  "difficulty": "co-ban",
+
+  "body": [
+    {
+      "type": "paragraph",
+      "text": "Điều đáng nói là #DIV/0! là mã lỗi trung thực nhất trong cả bộ lỗi của Excel. Những mã khác thường mơ hồ — #VALUE! có thể do năm nguyên nhân khác nhau, #NAME? có thể chỉ vì bạn gõ thiếu một chữ cái. Còn #DIV/0! chỉ có đúng một nguyên nhân, và nguyên nhân đó luôn nằm ở dữ liệu chứ không nằm ở công thức. Biết được điều này thì việc sửa nhanh hơn hẳn, vì bạn không cần đi dò lại công thức làm gì."
+    },
+    {
+      "type": "errorCase",
+      "error": "#DIV/0!",
+      "cause": "Công thức đang chia cho số 0, hoặc chia cho một ô trống — Excel coi ô trống là 0 khi làm phép chia. Trường hợp hay gặp nhất trong thực tế không phải người dùng gõ nhầm số 0, mà là công thức đã được kéo sẵn xuống vài trăm dòng trống để chờ nhập liệu, nên mẫu số của những dòng đó đang rỗng.",
+      "fix": "Bọc phép chia trong IFERROR để trả về một giá trị thay thế có nghĩa, hoặc dùng IF kiểm tra mẫu số trước khi chia. Cách thứ hai chính xác hơn khi bạn chỉ muốn bắt riêng trường hợp mẫu số bằng 0 mà vẫn để những lỗi khác lộ ra."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Vì sao Excel trả về #DIV/0!"
+    },
+    {
+      "type": "paragraph",
+      "text": "Phép chia cho 0 không có kết quả trong toán học, nên không phần mềm nào bịa ra được một con số để trả về. Google Sheets, LibreOffice và cả máy tính bỏ túi đều báo lỗi ở đúng chỗ này. Cái khác biệt của Excel là nó coi ô trống bằng 0 trong ngữ cảnh số học, nên một mẫu số chưa nhập cũng đủ để sinh lỗi — và đây mới là nguồn gốc của phần lớn ô #DIV/0! bạn nhìn thấy trong một file thật."
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        "Mẫu số là ô trống. Công thức đã kéo xuống trước, dữ liệu nhập sau — đây là nguyên nhân của khoảng chín trên mười ca.",
+        "Mẫu số là số 0 thật. Ví dụ tính tỷ lệ hoàn thành mà chỉ tiêu giao bằng 0, hoặc tính đơn giá mà số lượng bằng 0.",
+        "Mẫu số là kết quả của một công thức khác đang trả về 0, chẳng hạn một hàm SUM cộng trên một vùng chưa có dữ liệu.",
+        "Dùng AVERAGE trên một vùng không có ô số nào — hàm này chia cho số lượng ô hợp lệ, và số lượng đó đang bằng 0."
+      ]
+    },
+    {
+      "type": "table",
+      "caption": "Cùng một phép chia, ba trạng thái dữ liệu khác nhau",
+      "headers": ["Tử số", "Mẫu số", "Kết quả"],
+      "rows": [
+        ["1080", "900", "1,2 — bình thường"],
+        ["1080", "0", "#DIV/0! — mẫu số bằng 0"],
+        ["1080", "(ô trống)", "#DIV/0! — ô trống được hiểu là 0"]
+      ],
+      "copyable": true
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Ba cách sửa, xếp theo thứ tự nên thử"
+    },
+    {
+      "type": "steps",
+      "items": [
+        {
+          "step": "Kiểm tra mẫu số trước khi kết luận",
+          "detail": "Bấm vào một ô đang lỗi rồi nhìn thanh công thức để biết nó đang chia cho ô nào. Nếu ô đó trống thì việc cần làm là nhập dữ liệu, không phải sửa công thức. Rất nhiều người sửa công thức để giấu lỗi trong khi thứ họ thực sự thiếu chỉ là một con số chưa điền."
+        },
+        {
+          "step": "Bọc IFERROR nếu ô trống là trạng thái hợp lệ",
+          "detail": "Với những dòng chờ nhập liệu, lỗi hiện ra là đúng về mặt kỹ thuật nhưng vô ích về mặt sử dụng — bảng nhìn như bị hỏng. Bọc IFERROR và trả về chuỗi rỗng hoặc số 0 để bảng sạch cho tới khi có dữ liệu thật."
+        },
+        {
+          "step": "Dùng IF khi bạn chỉ muốn bắt đúng trường hợp mẫu số bằng 0",
+          "detail": "IFERROR bắt mọi loại lỗi, kể cả #VALUE! và #N/A đến từ nguyên nhân hoàn toàn khác. Nếu công thức của bạn còn có thể sai theo những cách khác, dùng IF kiểm tra mẫu số sẽ giữ lại được những lỗi kia để bạn còn nhìn thấy chúng."
+        }
+      ]
+    },
+    {
+      "type": "formula",
+      "formula": "=IFERROR(B2/C2, \"\")",
+      "note": "Cách ngắn nhất. Nếu phép chia sinh ra bất kỳ lỗi nào thì ô hiển thị rỗng. Dùng chuỗi rỗng chứ không dùng số 0 khi cột đó còn được cộng tổng ở dưới — một cột đầy số 0 giả sẽ kéo trung bình xuống, còn ô rỗng thì bị các hàm thống kê bỏ qua.",
+      "caption": "Cách nhanh nhất, dùng khi ô trống là trạng thái bình thường"
+    },
+    {
+      "type": "callout",
+      "tone": "canh-bao",
+      "title": "IFERROR giấu cả những lỗi bạn cần biết",
+      "text": "Bọc IFERROR quanh một công thức dài là cách chắc chắn nhất để không bao giờ phát hiện ra nó đang tham chiếu sai cột. Lỗi #REF! do xóa nhầm một cột cũng sẽ bị nuốt mất và hiện ra như một ô trống vô hại. Hãy bọc IFERROR quanh đúng phép chia, không phải quanh cả công thức."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Chặn lỗi ngay từ lúc dựng file"
+    },
+    {
+      "type": "paragraph",
+      "text": "Sửa từng ô là việc phải làm khi file đã lỡ hỏng. Nhưng nếu bạn là người dựng file, cách rẻ hơn nhiều là viết công thức sao cho nó không bao giờ sinh lỗi ngay từ đầu. Mẫu đánh giá KPI trên site này làm đúng như vậy, và nó là ví dụ tốt vì có cả hai chiều chỉ tiêu: chỉ tiêu càng cao càng tốt thì chia thực hiện cho mục tiêu, chỉ tiêu càng thấp càng tốt thì chia ngược lại — nghĩa là mẫu số có thể là bất kỳ cột nào trong hai cột, và cả hai đều có thể bằng 0."
+    },
+    {
+      "type": "formula",
+      "formula": "=IF([hoTen]{row}=\"\",\"\",MIN(1.2,IF([chieu]{row}=\"Càng thấp càng tốt\",IFERROR([mucTieu]{row}/[thucHien]{row},1.2),IFERROR([thucHien]{row}/[mucTieu]{row},0))))",
+      "note": "Công thức thật đang chạy trong cột Tỷ lệ hoàn thành của mẫu KPI. Nó xử lý ba chuyện cùng lúc: IF ngoài cùng để dòng chưa có tên nhân viên thì để trống thay vì tính bừa; IFERROR bọc riêng từng phép chia; và MIN đặt trần 1,2 để một người vượt chỉ tiêu gấp mười lần không làm hỏng cả bảng xếp loại.",
+      "caption": "Cột Tỷ lệ hoàn thành trong mẫu đánh giá KPI nhân viên"
+    },
+    {
+      "type": "paragraph",
+      "text": "Điểm đáng chú ý là hai nhánh IFERROR trả về hai giá trị thay thế khác nhau, và đó là chủ ý chứ không phải bất cẩn. Với chỉ tiêu càng thấp càng tốt, thực hiện bằng 0 nghĩa là hoàn hảo — không có ngày nào trễ hạn — nên giá trị thay thế là 1,2, tức mức trần. Với chỉ tiêu càng cao càng tốt, mục tiêu bằng 0 nghĩa là chỉ tiêu chưa được giao, nên giá trị thay thế là 0. Cùng một mã lỗi, hai ý nghĩa nghiệp vụ ngược nhau. Đây là lý do không có một câu trả lời chung cho câu hỏi nên thay #DIV/0! bằng cái gì."
+    },
+    {
+      "type": "sheet",
+      "templateSlug": "bang-danh-gia-kpi-nhan-vien",
+      "sheetIndex": 0,
+      "note": "Bảng dưới đây là dữ liệu thật của file mẫu, và các ô màu xanh lá là số do Excel tính ra chứ không phải số gõ tay. Chú ý dòng Số ngày trễ hạn báo cáo: mục tiêu 2, thực hiện 0, tức là phép chia 2/0 — nếu không có IFERROR thì ô đó đã là #DIV/0!, nhưng nó đang hiện 1,2.",
+      "copyable": true
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Thử ngay trên trình duyệt"
+    },
+    {
+      "type": "sandbox",
+      "title": "Chặn #DIV/0! cho chỉ tiêu càng thấp càng tốt",
+      "grid": [
+        ["Chỉ tiêu", "Mục tiêu", "Thực hiện"],
+        ["Số ngày trễ hạn báo cáo", 2, 0],
+        ["Tỷ lệ khách rời đi", 8, 5]
+      ],
+      "prompt": "Dòng 2 là chỉ tiêu càng thấp càng tốt, nên tỷ lệ hoàn thành bằng Mục tiêu chia Thực hiện, tức B2/C2. Nhưng C2 đang bằng 0. Hãy viết công thức trả về 1.2 thay vì #DIV/0!.",
+      "answer": "=IFERROR(B2/C2, 1.2)",
+      "expected": "1.2",
+      "hint": "Gõ thử =B2/C2 trước để thấy lỗi, rồi bọc IFERROR ra ngoài."
+    },
+    {
+      "type": "functionRef",
+      "slug": "iferror",
+      "why": "Hàm làm gần hết việc trong bài này. Nó bắt mọi lỗi của công thức bên trong, nên vừa là cách sửa nhanh nhất vừa là cách dễ lạm dụng nhất."
+    },
+    {
+      "type": "functionRef",
+      "slug": "if",
+      "why": "Dùng khi bạn chỉ muốn bắt riêng trường hợp mẫu số bằng 0 và vẫn để những lỗi khác hiện ra để còn phát hiện được."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Khi nào không nên giấu lỗi đi"
+    },
+    {
+      "type": "paragraph",
+      "text": "Có một trường hợp mà để nguyên #DIV/0! là lựa chọn đúng: khi mẫu số bằng 0 là chuyện bất thường và bạn cần biết. Một bảng tính giá thành mà sản lượng bằng 0 thì không phải là dòng chờ nhập liệu, đó là dữ liệu sai và cần người kiểm tra. Bọc IFERROR ở đó sẽ biến một cảnh báo rõ ràng thành một ô trống lặng lẽ, và con số sai sẽ đi thẳng vào báo cáo. Quy tắc đơn giản: giấu lỗi khi ô trống là trạng thái bình thường, để lộ lỗi khi nó là dấu hiệu có gì đó hỏng."
+    },
+    {
+      "type": "templateRef",
+      "slug": "bang-danh-gia-kpi-nhan-vien",
+      "why": "File mẫu chứa công thức đã bàn ở trên, tải về được và mọi ô công thức đều mở để xem cách nó chặn lỗi ngay từ lúc dựng."
+    }
+  ],
+
+  "faq": [
+    {
+      "q": "Thay #DIV/0! bằng số 0 hay bằng ô trống thì tốt hơn?",
+      "a": "Ô trống, nếu cột đó còn được tính trung bình hay đếm ở dưới — số 0 giả sẽ kéo trung bình xuống trong khi ô trống bị các hàm thống kê bỏ qua. Chọn số 0 khi cột chỉ được cộng tổng, vì lúc đó cộng thêm 0 không làm sai gì và bảng nhìn đều hơn."
+    },
+    {
+      "q": "Vì sao cả cột đang chạy đúng bỗng nhiên lỗi hàng loạt?",
+      "a": "Gần như chắc chắn là công thức đã được kéo xuống các dòng chưa nhập dữ liệu, và mẫu số của những dòng đó đang trống. Lỗi xuất hiện hàng loạt vì tất cả chúng cùng một nguyên nhân, không phải vì file hỏng."
+    },
+    {
+      "q": "Có cách nào chỉ ẩn lỗi khi in mà vẫn thấy trên màn hình không?",
+      "a": "Có. Vào Page Layout, mở hộp thoại Page Setup, thẻ Sheet, mục Cell errors as chọn blank. Cách này không đụng gì tới công thức nên bạn vẫn nhìn thấy lỗi khi làm việc, chỉ bản in là sạch."
+    },
+    {
+      "q": "IFERROR có làm file chậm đi không?",
+      "a": "Với vài nghìn dòng thì không đáng kể. Nhưng IFERROR phải tính công thức bên trong một lần rồi mới biết có lỗi hay không, nên nếu bạn bọc nó quanh một công thức tra cứu nặng trên hàng chục nghìn dòng thì chi phí sẽ thấy được."
+    }
+  ],
+
+  "quiz": [
+    {
+      "q": "Excel hiểu một ô trống là gì khi ô đó nằm ở vị trí mẫu số?",
+      "options": ["Là số 0", "Là chuỗi rỗng", "Bỏ qua phép tính"],
+      "answer": 0,
+      "explain": "Trong ngữ cảnh số học, Excel coi ô trống bằng 0. Đó là lý do một mẫu số chưa nhập cũng sinh ra #DIV/0! y như khi bạn gõ số 0 vào."
+    },
+    {
+      "q": "Công thức nào chỉ bắt riêng trường hợp mẫu số bằng 0, để những lỗi khác vẫn lộ ra?",
+      "options": [
+        "=IFERROR(A1/B1, 0)",
+        "=IF(B1=0, 0, A1/B1)",
+        "=IFERROR(A1/B1, \"\")"
+      ],
+      "answer": 1,
+      "explain": "IF kiểm tra đúng điều kiện mẫu số bằng 0 nên chỉ can thiệp vào trường hợp đó. Hai công thức IFERROR kia bắt mọi loại lỗi, kể cả #REF! do xóa nhầm cột."
+    },
+    {
+      "q": "Khi nào để nguyên #DIV/0! là lựa chọn đúng?",
+      "options": [
+        "Khi bảng còn nhiều dòng trống chờ nhập",
+        "Khi mẫu số bằng 0 là dấu hiệu dữ liệu sai và cần người kiểm tra",
+        "Không bao giờ, lỗi luôn phải được giấu đi"
+      ],
+      "answer": 1,
+      "explain": "Giấu lỗi khi ô trống là trạng thái bình thường; để lộ lỗi khi nó là cảnh báo. Một bảng giá thành có sản lượng bằng 0 là dữ liệu sai, và biến nó thành ô trống sẽ đẩy con số sai vào thẳng báo cáo."
+    },
+    {
+      "q": "Vì sao trong mẫu KPI, hai nhánh IFERROR lại trả về hai giá trị thay thế khác nhau?",
+      "options": [
+        "Vì người viết công thức quên đồng bộ",
+        "Vì mẫu số bằng 0 mang hai ý nghĩa nghiệp vụ ngược nhau ở hai chiều chỉ tiêu",
+        "Vì IFERROR bắt buộc phải nhận giá trị khác nhau mỗi lần dùng"
+      ],
+      "answer": 1,
+      "explain": "Với chỉ tiêu càng thấp càng tốt, thực hiện bằng 0 là hoàn hảo nên thay bằng mức trần 1,2. Với chỉ tiêu càng cao càng tốt, mục tiêu bằng 0 nghĩa là chưa giao chỉ tiêu nên thay bằng 0."
+    }
+  ],
+
+  "templateRefs": ["bang-danh-gia-kpi-nhan-vien"],
+  "functionRefs": ["iferror", "if", "min"],
+  "relatedSlugs": [],
+  "ctaText": "Học cách tự dựng bảng KPI không bao giờ vỡ công thức",
+  "updatedAt": "2026-08-14"
+}

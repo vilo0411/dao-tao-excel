@@ -1,0 +1,11 @@
+{
+  "id": "7652620771763817748",
+  "url": "https://www.tiktok.com/@excel.taichinhso/video/7652620771763817748",
+  "title": "Dọn lỗi #DIV/0! và #VALUE! trong bảng bằng IFERROR",
+  "summary": "Một bảng đầy #DIV/0! và #VALUE! thì không gửi cho ai được, dù công thức chẳng có gì sai — chỉ là dữ liệu chưa nhập đủ. Video cho thấy cách bọc IFERROR để những ô đó hiện ra trống hoặc một giá trị bạn tự chọn. Đây cũng là lý do gần như mọi mẫu trên trang này đều dùng IFERROR.",
+  "publishedAt": "2026-06-18",
+  "templates": [],
+  "functions": [
+    "IFERROR"
+  ]
+}

@@ -1,0 +1,191 @@
+{
+  "slug": "loi-tham-chieu-vong-trong-excel",
+  "pillar": "loi-excel",
+  "postType": "sua-loi",
+  "order": 12,
+  "h1": "Lỗi tham chiếu vòng trong Excel: công thức đang tự hỏi chính nó",
+  "metaTitle": "Lỗi tham chiếu vòng trong Excel: cách tìm và sửa",
+  "metaDesc": "Tham chiếu vòng xảy ra khi một công thức tính từ chính ô chứa nó. Cách dùng thanh trạng thái để tìm ô gây vòng, và cách viết cột luỹ kế không bị vòng.",
+  "intro": "Lỗi tham chiếu vòng trong Excel là loại duy nhất mà Excel dừng lại và nói chuyện với bạn bằng một hộp thoại thay vì viết một mã lỗi vào ô. Lý do là nó không thể tính: công thức đang yêu cầu một giá trị mà việc tính giá trị đó lại cần chính kết quả chưa có. Không có điểm bắt đầu, nên không có kết quả.",
+  "primaryKeyword": "lỗi tham chiếu vòng trong Excel",
+  "difficulty": "trung-cap",
+
+  "body": [
+    {
+      "type": "paragraph",
+      "text": "Dạng đơn giản nhất là gõ vào ô B5 công thức cộng dải từ B1 đến B5. Excel muốn tính B5 thì phải cộng năm ô, mà ô thứ năm chính là ô nó đang tính. Dạng này dễ thấy. Dạng khó thấy là vòng gián tiếp qua nhiều bước: B tính từ C, C tính từ D, và D lại tính từ B. Không ô nào trong ba ô đó trông có vấn đề khi nhìn riêng lẻ."
+    },
+    {
+      "type": "errorCase",
+      "error": "Circular Reference",
+      "cause": "Một công thức phụ thuộc trực tiếp hoặc gián tiếp vào chính ô chứa nó. Ba nguồn thường gặp: dải tính tổng lỡ bao luôn ô đang đặt công thức; công thức luỹ kế trỏ xuống dòng dưới thay vì dòng trên; và chuỗi phụ thuộc dài vòng lại qua ba bốn ô mà không ai vẽ ra được trong đầu.",
+      "fix": "Excel hiện hộp thoại cảnh báo và ghi địa chỉ ô gây vòng ở góc trái thanh trạng thái. Đi thẳng tới ô đó. Nếu vòng đi qua nhiều ô thì dùng Trace Precedents để lần ngược chuỗi phụ thuộc cho tới khi gặp lại điểm xuất phát."
+    },
+    {
+      "type": "callout",
+      "tone": "canh-bao",
+      "title": "Ô tham chiếu vòng hiện số 0, và số 0 đó trông rất bình thường",
+      "text": "Sau khi bạn đóng hộp thoại cảnh báo, Excel để lại số 0 trong ô đó và tiếp tục làm việc. Nếu bạn đóng hộp thoại theo phản xạ mà không đọc, một ô đang sai sẽ nằm im trong bảng dưới hình dạng một con số hợp lệ. Đây là lý do phải đọc thanh trạng thái ngay lúc đó, chứ không phải ngày hôm sau."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Tìm ô gây vòng"
+    },
+    {
+      "type": "steps",
+      "items": [
+        {
+          "step": "Đọc góc trái thanh trạng thái",
+          "detail": "Excel ghi ở đó dòng chữ Circular References kèm địa chỉ một ô thuộc vòng. Đây là manh mối rẻ nhất và thường là đủ. Lưu ý nó chỉ hiện một ô, không hiện cả vòng."
+        },
+        {
+          "step": "Mở danh sách đầy đủ trong Formulas",
+          "detail": "Thẻ Formulas, nút Error Checking, mục Circular References. Nó liệt kê mọi ô Excel biết là thuộc một vòng nào đó trong sheet hiện tại. Sang sheet khác thì phải xem lại từng sheet."
+        },
+        {
+          "step": "Dùng Trace Precedents để nhìn thấy vòng",
+          "detail": "Đứng ở ô nghi ngờ rồi bấm Trace Precedents liên tiếp. Excel vẽ mũi tên tới các ô mà nó phụ thuộc. Bấm tiếp cho tới khi một mũi tên quay lại ô bạn xuất phát — đó là vòng, và giờ bạn thấy nó bằng mắt thay vì suy luận."
+        },
+        {
+          "step": "Sửa bằng cách thu hẹp dải, không phải bằng cách tắt cảnh báo",
+          "detail": "Trong đại đa số trường hợp, sửa nghĩa là đổi dải tính tổng cho nó không còn bao ô đang đặt công thức. Excel có tùy chọn bật tính lặp để chấp nhận vòng, nhưng đó là công cụ cho bài toán hội tụ có chủ đích, không phải cách sửa lỗi."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Cột luỹ kế: nơi vòng hay xuất hiện nhất"
+    },
+    {
+      "type": "paragraph",
+      "text": "Sổ quỹ, sổ kho, dòng tiền — mọi bảng có cột số dư chạy đều cần một công thức lấy giá trị dòng trên cộng phát sinh dòng này. Đây là nơi tham chiếu vòng hay xuất hiện nhất, và nguyên nhân gần như luôn là một dấu cộng lẽ ra phải là dấu trừ: công thức trỏ xuống dòng dưới thay vì dòng trên. Trỏ xuống dòng chưa nhập thì dòng đó lại trỏ xuống nữa, và cả cột thành một vòng."
+    },
+    {
+      "type": "formula",
+      "formula": "=IF([dienGiai]{row}=\"\",\"\",N([tonQuy]{row-1})+[thu]{row}-[chi]{row})",
+      "note": "Cột Tồn quỹ trong mẫu sổ quỹ tiền mặt. Ký hiệu row trừ 1 là mấu chốt: nó trỏ lên dòng ngay TRÊN, tức là một dòng đã có kết quả. Trỏ xuống dòng dưới sẽ tạo vòng ngay lập tức, và cả cột không tính được.",
+      "caption": "Cột luỹ kế viết đúng chiều"
+    },
+    {
+      "type": "paragraph",
+      "text": "Điểm thứ hai của công thức trên là hàm N bọc quanh ô dòng trên, và nó giải một bài toán riêng chứ không phải chuyện vòng. Ở dòng dữ liệu đầu tiên, dòng ngay trên chính là dòng tiêu đề, tức là chữ. Cộng chữ vào số sẽ ra lỗi giá trị và làm hỏng cả cột từ dòng đầu. Hàm N đổi chữ thành 0, nên phép cộng chạy được ngay từ dòng một mà không cần viết một công thức riêng cho dòng đó."
+    },
+    {
+      "type": "sheet",
+      "templateSlug": "so-quy-tien-mat",
+      "sheetIndex": 0,
+      "note": "Bấm vào ô Tồn quỹ ở dòng đầu tiên để thấy hàm N đang bọc quanh ô tiêu đề phía trên. Cả cột dùng chung một công thức kéo xuống, và đó là điều kiện để nó không đứt quãng khi bạn thêm dòng.",
+      "copyable": true
+    },
+    {
+      "type": "functionRef",
+      "slug": "n",
+      "why": "Đổi ô tiêu đề thành 0 để công thức luỹ kế dùng chung được một khuôn cho mọi dòng, kể cả dòng đầu tiên."
+    },
+    {
+      "type": "functionRef",
+      "slug": "if",
+      "why": "Chặn công thức luỹ kế chạy trên dòng chưa nhập. Thiếu nó thì cột tồn quỹ kéo dài xuống hàng trăm dòng trống với cùng một con số lặp lại."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Khi tham chiếu vòng là cố ý"
+    },
+    {
+      "type": "paragraph",
+      "text": "Có một nhóm bài toán mà vòng là bản chất chứ không phải sai sót, và Excel có sẵn công cụ cho chúng. Ví dụ kinh điển trong tài chính là tính lãi vay khi khoản lãi đó lại được cộng vào dư nợ để tính lãi kỳ sau. Bật tính lặp trong File rồi Options rồi Formulas, đặt số vòng lặp tối đa và sai số cho phép, và Excel sẽ tính đi tính lại cho tới khi kết quả ổn định."
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        "Chỉ bật tính lặp khi bạn biết chắc bài toán của mình hội tụ. Bài toán không hội tụ sẽ cho ra một con số phụ thuộc vào số vòng lặp bạn đặt, tức là một con số vô nghĩa.",
+        "Bật tính lặp là bật cho cả file, không bật riêng cho một ô. Nghĩa là mọi tham chiếu vòng do sai sót từ đó trở đi cũng sẽ được tính im lặng thay vì báo lỗi.",
+        "Người mở file trên máy khác không thừa hưởng cài đặt này, vì nó thuộc về ứng dụng chứ không thuộc về file. Họ sẽ thấy cảnh báo và những con số khác bạn.",
+        "Vì hai điểm trên, gần như luôn tốt hơn nếu bạn viết lại bài toán thành nhiều bước tuần tự trên nhiều cột, thay vì để một ô tự hỏi chính nó."
+      ]
+    },
+    {
+      "type": "callout",
+      "tone": "luu-y",
+      "title": "Vòng có thể đi xuyên qua nhiều sheet",
+      "text": "Thanh trạng thái chỉ báo vòng trong sheet đang mở. Một vòng đi từ sheet Tổng hợp sang sheet Chi tiết rồi quay lại sẽ khiến bạn tìm mãi không thấy nếu chỉ soi một sheet. Khi đã kiểm hết sheet hiện tại mà cảnh báo vẫn còn, hãy bấm lần lượt qua từng sheet và đọc lại thanh trạng thái ở mỗi sheet."
+    },
+    {
+      "type": "templateRef",
+      "slug": "so-quy-tien-mat",
+      "why": "File mẫu có cột luỹ kế viết đúng chiều và bọc hàm N cho dòng đầu, dùng làm bản đối chiếu khi bạn tự dựng một cột số dư chạy."
+    }
+  ],
+
+  "faq": [
+    {
+      "q": "Ô tham chiếu vòng hiện ra giá trị gì?",
+      "a": "Số 0. Excel hiện hộp thoại cảnh báo rồi để lại số 0 trong ô và tiếp tục. Nếu bạn đóng hộp thoại mà không đọc thì một ô sai sẽ nằm im trong bảng dưới hình dạng một con số hợp lệ."
+    },
+    {
+      "q": "Vì sao công thức luỹ kế phải trỏ lên dòng trên chứ không xuống dòng dưới?",
+      "a": "Vì dòng trên đã có kết quả còn dòng dưới thì chưa. Trỏ xuống nghĩa là dòng này chờ dòng dưới, dòng dưới chờ dòng dưới nữa, và cả cột thành một vòng không có điểm bắt đầu."
+    },
+    {
+      "q": "Bật tính lặp có phải cách sửa không?",
+      "a": "Không, trừ khi bài toán của bạn vốn có vòng và hội tụ, ví dụ lãi nhập gốc. Bật nó là bật cho cả ứng dụng, nên mọi vòng do sai sót từ đó trở đi cũng được tính im lặng thay vì báo lỗi."
+    },
+    {
+      "q": "Đã kiểm hết sheet mà cảnh báo vẫn còn?",
+      "a": "Vòng có thể đi xuyên nhiều sheet, trong khi thanh trạng thái chỉ báo vòng của sheet đang mở. Bấm lần lượt qua từng sheet và đọc lại thanh trạng thái ở mỗi sheet."
+    }
+  ],
+
+  "quiz": [
+    {
+      "q": "Vì sao Excel không tính được một tham chiếu vòng?",
+      "options": [
+        "Vì công thức quá dài",
+        "Vì việc tính giá trị đó lại cần chính kết quả chưa có — không có điểm bắt đầu",
+        "Vì Excel giới hạn số ô tham chiếu"
+      ],
+      "answer": 1,
+      "explain": "Ô B5 cộng dải B1 đến B5 thì Excel phải biết B5 mới tính được B5. Không có thứ tự tính nào hợp lệ, nên nó dừng lại và hỏi bạn."
+    },
+    {
+      "q": "Sau khi đóng hộp thoại cảnh báo, ô đó hiện gì?",
+      "options": [
+        "#REF!",
+        "Số 0, trông như một con số hợp lệ",
+        "Ô để trống"
+      ],
+      "answer": 1,
+      "explain": "Đây là chỗ nguy hiểm: số 0 không có gì báo hiệu nó sai. Phải đọc thanh trạng thái ngay lúc cảnh báo hiện ra."
+    },
+    {
+      "q": "Trong công thức luỹ kế của sổ quỹ, hàm N giải bài toán gì?",
+      "options": [
+        "Chặn tham chiếu vòng",
+        "Đổi ô tiêu đề ở dòng trên thành 0, để một khuôn công thức dùng được cho cả dòng đầu tiên",
+        "Làm tròn số dư"
+      ],
+      "answer": 1,
+      "explain": "Ở dòng dữ liệu đầu, dòng ngay trên là tiêu đề tức là chữ. Không có N thì phải viết riêng một công thức cho dòng một, và cột không kéo xuống được bằng một khuôn duy nhất."
+    },
+    {
+      "q": "Vì sao bật tính lặp thường không phải cách sửa tốt?",
+      "options": [
+        "Vì nó làm file nặng",
+        "Vì nó bật cho cả ứng dụng, nên mọi vòng do sai sót về sau cũng được tính im lặng — và người mở file trên máy khác không có cài đặt đó",
+        "Vì Excel bản mới đã bỏ tính năng này"
+      ],
+      "answer": 1,
+      "explain": "Cài đặt thuộc về ứng dụng chứ không thuộc về file. Người nhận sẽ thấy cảnh báo và những con số khác bạn."
+    }
+  ],
+
+  "templateRefs": ["so-quy-tien-mat"],
+  "functionRefs": ["n", "if"],
+  "relatedSlugs": ["excel-khong-tinh-tong-duoc", "loi-ref-trong-excel"],
+  "ctaText": "Học cách dựng cột số dư chạy không bao giờ vỡ",
+  "updatedAt": "2026-08-14"
+}

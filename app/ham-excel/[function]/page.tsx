@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { ReactNode } from "react";
 import { AuthorByline } from "@/components/Author";
+import { RelatedPosts } from "@/components/RelatedPosts";
 import { cardGridClass } from "@/components/TemplateCard";
 import { VideoTipSection } from "@/components/VideoTipSection";
 import {
@@ -10,6 +11,7 @@ import {
   getFunction,
   type FunctionUsage,
 } from "@/lib/functions";
+import { getPostsForFunction } from "@/lib/knowledge";
 import { absoluteUrl } from "@/lib/site";
 import { getVideosForFunction } from "@/lib/videos";
 
@@ -387,6 +389,18 @@ function FunctionArticle({ slug }: { slug: string }) {
             </ul>
           </>
         )}
+
+        {/*
+          Chiều link ngược từ khu kiến thức. Bài chỉ hiện ở đây khi nó khai hàm
+          này trong functionRefs — mà luật ở lib/knowledge.ts buộc phải khai
+          mọi hàm-có-trang mà công thức trong bài dùng tới. Nên danh sách này
+          không thể lệch khỏi nội dung thật của bài.
+        */}
+        <RelatedPosts
+          posts={getPostsForFunction(fn.slug)}
+          heading={`Khi hàm ${fn.name} không chạy như mong đợi`}
+          intro="Những bài dưới đây dùng hàm này để chặn một lỗi cụ thể, và giải thích vì sao chọn nó thay vì cách khác."
+        />
 
         <section className="mt-24 rounded-lg bg-surface-strong p-10 sm:p-12">
           <h2 className="font-display max-w-2xl text-3xl text-balance">

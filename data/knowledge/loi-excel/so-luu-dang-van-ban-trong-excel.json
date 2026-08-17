@@ -1,0 +1,212 @@
+{
+  "slug": "so-luu-dang-van-ban-trong-excel",
+  "pillar": "loi-excel",
+  "postType": "sua-loi",
+  "order": 11,
+  "h1": "Số lưu dạng văn bản trong Excel: lỗi im lặng tốn kém nhất",
+  "metaTitle": "Số lưu dạng văn bản trong Excel: cách phát hiện và sửa",
+  "metaDesc": "Số lưu dạng văn bản làm hàm tổng ra 0, lọc sai và sắp xếp sai mà không báo lỗi nào. Cách tìm hết ô hỏng trong một cột và cách chuyển đúng cách.",
+  "intro": "Số lưu dạng văn bản trong Excel là gốc rễ của nhiều lỗi khác mà bạn có thể đã gặp mà không biết tên nó. Nó không sinh ra mã lỗi nào cả — bảng vẫn chạy, chỉ là hàm tổng ra thiếu, bộ lọc bỏ sót dòng, và sắp xếp cho ra thứ tự kỳ lạ trong đó số 100 đứng trước số 9.",
+  "primaryKeyword": "số lưu dạng văn bản trong Excel",
+  "difficulty": "co-ban",
+
+  "body": [
+    {
+      "type": "paragraph",
+      "text": "Điều làm lỗi này tốn kém không phải mức độ nghiêm trọng mà là mức độ im lặng. Một mã lỗi hiện ra thì có người sửa. Một cột tổng ra thiếu ba mươi phần trăm thì đi thẳng vào báo cáo, và nếu con số đó nằm trong khoảng hợp lý thì không ai đặt câu hỏi. Với dữ liệu xuất từ phần mềm kế toán hay phần mềm bán hàng, đây gần như là mặc định chứ không phải ngoại lệ."
+    },
+    {
+      "type": "errorCase",
+      "error": "Cột số hành xử như cột chữ",
+      "cause": "Giá trị trong ô là chuỗi ký tự chứ không phải số, dù nhìn giống hệt số. Bốn nguồn thường gặp: dữ liệu xuất ra từ phần mềm khác, số nhập kèm dấu phân cách không khớp cài đặt máy, ô đã định dạng Text trước khi gõ, và số có dấu nháy đơn đứng đầu hoặc khoảng trắng vô hình đi kèm.",
+      "fix": "Chọn cột rồi dùng Data với Text to Columns và bấm Finish ngay ở bước đầu — Excel nhập lại cả cột và ép về đúng kiểu. Nếu số kèm dấu phân cách lạ thì phải dùng Find and Replace bỏ dấu đó trước, vì Text to Columns không nhận ra một chuỗi mà nó không parse được."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Bốn hậu quả, và không cái nào báo lỗi"
+    },
+    {
+      "type": "table",
+      "caption": "Cùng một nguyên nhân, bốn triệu chứng khác nhau",
+      "headers": ["Việc bạn làm", "Kết quả sai", "Vì sao"],
+      "rows": [
+        ["Tính tổng cả cột", "Ra thiếu, hoặc ra 0", "Hàm thống kê bỏ qua ô văn bản trong một dải"],
+        ["Lọc theo điều kiện lớn hơn", "Bỏ sót dòng", "Excel không so được chữ với số"],
+        ["Sắp xếp từ nhỏ đến lớn", "100 đứng trước 9", "Sắp chữ theo bảng chữ cái, ký tự 1 đứng trước 9"],
+        ["Tra cứu theo mã số", "Không tìm thấy", "Mã dạng số và mã dạng chữ là hai giá trị khác nhau"]
+      ],
+      "copyable": false
+    },
+    {
+      "type": "paragraph",
+      "text": "Hậu quả thứ ba đáng chú ý vì nó là thứ duy nhất nhìn ra được bằng mắt mà không cần kiểm gì. Nếu bạn sắp xếp một cột số từ nhỏ tới lớn và thấy 100 đứng trên 9, thì cột đó đang là chữ — Excel đang so từng ký tự theo bảng chữ cái, và ký tự 1 đứng trước ký tự 9. Đây là phép thử miễn phí đáng làm với mọi cột số nhận từ nguồn ngoài."
+    },
+    {
+      "type": "callout",
+      "tone": "meo",
+      "title": "Chọn cột rồi nhìn thanh trạng thái",
+      "text": "Excel hiện sẵn Count và Sum ở dưới cùng cửa sổ khi bạn chọn một vùng. Count đếm ra đúng số dòng nhưng Sum nhỏ hơn kỳ vọng, hoặc Sum không hiện ra chút nào, là đủ để kết luận. Không cần gõ công thức nào, và nó nhanh hơn mọi cách kiểm khác."
+    },
+    {
+      "type": "sandbox",
+      "title": "Ép chuỗi về số bằng phép nhân với 1",
+      "grid": [
+        ["Mã hàng", "Tồn kho"],
+        ["SP01", "150"],
+        ["SP02", "80"]
+      ],
+      "prompt": "Cả B2 và B3 đang là chuỗi ký tự. Gõ =SUM(B2:B3) sẽ ra 0 vì hàm tổng bỏ qua ô văn bản trong dải. Viết công thức nhân từng ô với 1 rồi cộng lại, để thấy phép toán thì ép kiểu được.",
+      "answer": "=B2*1+B3*1",
+      "expected": "230",
+      "hint": "Nhân với 1 là cách ép kiểu ngay trong công thức. Nó chữa triệu chứng ở một ô, còn chữa gốc là sửa cả cột."
+    },
+    {
+      "type": "paragraph",
+      "text": "Phép nhân với 1 ở trên minh họa đúng ranh giới mà bài này xoay quanh: toán tử thì ép kiểu, hàm thống kê thì không. Đây không phải điểm khác biệt tùy tiện của Excel mà là một lựa chọn có lý. Khi bạn viết một phép nhân, bạn đang nói rõ mình muốn tính; còn khi bạn đưa một dải vào hàm tổng, trong dải đó rất có thể có ô tiêu đề hay ô ghi chú, và cộng chúng vào thì vô nghĩa."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Tìm hết ô hỏng trong một cột dài"
+    },
+    {
+      "type": "steps",
+      "items": [
+        {
+          "step": "Thêm một cột phụ kiểm kiểu dữ liệu",
+          "detail": "Dùng ISNUMBER trỏ vào từng ô của cột cần kiểm. Nó trả về TRUE cho số thật và FALSE cho chuỗi, kể cả những chuỗi mà mắt thường không phân biệt nổi với số."
+        },
+        {
+          "step": "Lọc lấy những dòng FALSE",
+          "detail": "Bật bộ lọc rồi chọn FALSE ở cột phụ. Giờ bạn có đúng danh sách những dòng cần xử lý, và biết được con số thật là bao nhiêu dòng — thông tin đó quyết định nên sửa tay hay nên chuyển cả cột."
+        },
+        {
+          "step": "So độ dài chuỗi nếu vẫn không hiểu vì sao",
+          "detail": "Dùng LEN trên một ô hỏng và một ô tốt cùng nội dung. Hai con số khác nhau nghĩa là có ký tự vô hình đi kèm, thường là khoảng trắng hoặc ký tự xuống dòng mềm từ dữ liệu web."
+        },
+        {
+          "step": "Chuyển cả cột, đừng sửa từng ô",
+          "detail": "Text to Columns rồi Finish ngay ở bước đầu là cách nhanh nhất và không cần cột phụ nào. Xóa cột phụ ISNUMBER sau khi xong — giữ lại là để một cột TRUE FALSE vô nghĩa trong file bàn giao."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Cách file mẫu tránh cái bẫy này"
+    },
+    {
+      "type": "paragraph",
+      "text": "Sổ kho nhập xuất tồn là chỗ lỗi này gây thiệt hại thật, vì tồn cuối kỳ được tính bằng cộng trừ ba cột nhập tay. Một ô nhập trong kỳ lưu dạng chữ sẽ làm dòng đó tính sai, và cột cảnh báo cũng không bắt được vì bản thân nó cũng dựa trên con số sai đó."
+    },
+    {
+      "type": "formula",
+      "formula": "=IF([tenHang]{row}=\"\",\"\",[tonDauKy]{row}+[nhapTrongKy]{row}-[xuatTrongKy]{row})",
+      "note": "Cột Tồn cuối kỳ. Đáng chú ý là nó dùng toán tử cộng trừ chứ không dùng hàm tổng — và trong ngữ cảnh này đó lại là điều may: toán tử ép kiểu được, nên một ô nhập lưu dạng chữ vẫn được cộng đúng miễn là chuỗi đó trông giống số. Viết bằng hàm tổng trên một dải thì ô đó bị bỏ qua lặng lẽ.",
+      "caption": "Cột Tồn cuối kỳ trong mẫu sổ kho nhập xuất tồn"
+    },
+    {
+      "type": "formula",
+      "formula": "=IF([tenHang]{row}=\"\",\"\",IFERROR([xuatTrongKy]{row}/([tonDauKy]{row}+[nhapTrongKy]{row}),0))",
+      "note": "Cột Tỷ lệ xuất. Ở đây IFERROR gánh hai việc cùng lúc: chặn mẫu số bằng 0 khi hàng chưa có tồn lẫn nhập, và chặn luôn trường hợp một trong hai ô là chữ không ép kiểu được. Cùng một lớp bảo vệ, hai loại lỗi.",
+      "caption": "Một lớp IFERROR chặn được hai loại lỗi khác nhau"
+    },
+    {
+      "type": "sheet",
+      "templateSlug": "so-kho-nhap-xuat-ton",
+      "sheetIndex": 0,
+      "note": "Ba cột xanh dương đầu tiên là chỗ dữ liệu từ phần mềm kho hay được dán vào, và cũng là chỗ số lưu dạng văn bản hay lọt qua. Cột Cảnh báo ở cuối bắt được tồn âm nhưng không bắt được kiểu dữ liệu sai — đó là việc của người dán.",
+      "copyable": true
+    },
+    {
+      "type": "functionRef",
+      "slug": "iferror",
+      "why": "Chặn cùng lúc hai chuyện ở cột tỷ lệ xuất: mẫu số bằng 0, và ô chữ không ép kiểu được. Một lớp bảo vệ cho hai loại lỗi."
+    },
+    {
+      "type": "functionRef",
+      "slug": "if",
+      "why": "Chặn công thức chạy trên dòng chưa có tên hàng, thứ sẽ làm cột tồn cuối kỳ kéo dài số 0 xuống vô nghĩa."
+    },
+    {
+      "type": "callout",
+      "tone": "luu-y",
+      "title": "Đừng ép kiểu ở nơi số 0 đứng đầu là dữ liệu thật",
+      "text": "Mã hàng, mã số thuế, số điện thoại và số tài khoản là chuỗi ký tự chứ không phải số, và chúng nên ở dạng văn bản. Ép cột mã hàng về kiểu số sẽ nuốt mất số 0 đứng đầu và biến SP0012 thành 12. Chỉ ép kiểu ở những cột thật sự được cộng trừ."
+    },
+    {
+      "type": "templateRef",
+      "slug": "so-kho-nhap-xuat-ton",
+      "why": "File mẫu tách rõ cột mã hàng dạng chữ khỏi ba cột số nhập tay, đúng ranh giới mà bài này nói tới."
+    }
+  ],
+
+  "faq": [
+    {
+      "q": "Vì sao cộng bằng dấu cộng thì ra đúng mà hàm tổng lại ra 0?",
+      "a": "Toán tử cộng cố ép chuỗi thành số nếu chuỗi đó trông giống số. Hàm thống kê thì bỏ qua sạch mọi ô văn bản trong một dải, vì trong dải rất có thể có ô tiêu đề hay ghi chú mà cộng vào là vô nghĩa."
+    },
+    {
+      "q": "Sắp xếp cột số mà 100 đứng trước 9 là bị gì?",
+      "a": "Cột đó đang là chữ. Excel sắp chữ theo bảng chữ cái, và ký tự 1 đứng trước ký tự 9. Đây là phép thử nhanh nhất, nhìn ra ngay mà không cần kiểm gì thêm."
+    },
+    {
+      "q": "Có nên ép cả cột mã hàng về kiểu số không?",
+      "a": "Không. Mã hàng, mã số thuế, số điện thoại và số tài khoản đều là chuỗi ký tự, và ép về số sẽ nuốt mất số 0 đứng đầu. Chỉ ép kiểu ở những cột thật sự được cộng trừ."
+    },
+    {
+      "q": "Text to Columns không nhận thì làm sao?",
+      "a": "Nhiều khả năng số đang kèm dấu phân cách không khớp cài đặt vùng của máy, nên Excel không parse được chuỗi. Dùng Find and Replace bỏ dấu phân cách trước, rồi mới chạy Text to Columns."
+    }
+  ],
+
+  "quiz": [
+    {
+      "q": "Vì sao lỗi này được gọi là lỗi im lặng?",
+      "options": [
+        "Vì nó chỉ xảy ra trên file lớn",
+        "Vì nó không sinh ra mã lỗi nào — bảng vẫn chạy, chỉ là kết quả sai",
+        "Vì Excel ẩn nó đi trong cài đặt"
+      ],
+      "answer": 1,
+      "explain": "Một mã lỗi hiện ra thì có người sửa. Một cột tổng ra thiếu mà con số vẫn nằm trong khoảng hợp lý thì đi thẳng vào báo cáo."
+    },
+    {
+      "q": "Phép thử nhanh nhất để phát hiện cột số đang là chữ?",
+      "options": [
+        "Chọn cột và nhìn Count với Sum trên thanh trạng thái",
+        "Đổi màu nền cả cột",
+        "Lưu file rồi mở lại"
+      ],
+      "answer": 0,
+      "explain": "Count đếm đúng số dòng nhưng Sum nhỏ hơn kỳ vọng hoặc không hiện ra là đủ kết luận. Không cần gõ công thức nào."
+    },
+    {
+      "q": "Cột nào KHÔNG nên ép về kiểu số?",
+      "options": [
+        "Cột doanh thu",
+        "Cột mã hàng có số 0 đứng đầu",
+        "Cột số lượng"
+      ],
+      "answer": 1,
+      "explain": "Ép cột mã về số sẽ nuốt mất số 0 đứng đầu và biến SP0012 thành 12. Mã số là chuỗi ký tự chứ không phải số, dù nó gồm toàn chữ số."
+    },
+    {
+      "q": "Trong công thức tồn cuối kỳ, vì sao dùng toán tử cộng trừ lại an toàn hơn hàm tổng?",
+      "options": [
+        "Vì nó chạy nhanh hơn",
+        "Vì toán tử ép kiểu được, nên ô chữ trông giống số vẫn được cộng đúng",
+        "Vì hàm tổng chỉ dùng được cho tối đa 3 ô"
+      ],
+      "answer": 1,
+      "explain": "Toán tử cố ép chuỗi thành số; hàm tổng trên một dải thì bỏ qua ô văn bản lặng lẽ. Trong ngữ cảnh cột nhập tay từ phần mềm ngoài, khác biệt đó là quan trọng."
+    }
+  ],
+
+  "templateRefs": ["so-kho-nhap-xuat-ton"],
+  "functionRefs": ["iferror", "if"],
+  "relatedSlugs": ["excel-khong-tinh-tong-duoc", "loi-value-trong-excel"],
+  "ctaText": "Học cách làm sạch dữ liệu trước khi đưa vào sổ kho",
+  "updatedAt": "2026-08-14"
+}

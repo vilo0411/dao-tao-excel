@@ -28,9 +28,14 @@ import { getAllFunctions } from "./functions.ts";
  * đừng phá luật "hàm chỉ mở trang khi có template dùng thật" để nhét vào. Muốn
  * XLOOKUP có trang thì dựng một template dùng XLOOKUP, trang hàm sẽ tự mọc.
  *
- * Ngày nào một video có đủ chữ để đứng thành bài thì mới tính chuyện mở
- * /meo-excel. Đảo thứ tự lại — mở hub trước rồi lấp dần — là tự tạo ra đúng
- * loại trang mỏng mà MIN_TEMPLATES_PER_CATEGORY được viết ra để chặn.
+ * Khu chữ đã có rồi, và nó KHÔNG phải /meo-excel: từ 08/2026 site có
+ * /kien-thuc-excel (PRD mục 2.9). Video muốn đứng cùng một bài thì dùng khối
+ * `video` trong thân bài ở đó, đừng mở một hub thứ hai — hai cửa vào cho cùng
+ * loại nội dung thì chia đôi cả internal link lẫn tín hiệu SEO.
+ *
+ * Thứ tự vẫn giữ nguyên và vẫn đúng: nội dung trước, hub sau. Cụm ở khu kiến
+ * thức chỉ mở khi đủ 8 bài (MIN_POSTS_PER_PILLAR, lib/knowledge.ts) — cùng
+ * nguyên tắc với MIN_TEMPLATES_PER_CATEGORY, và cùng lý do.
  */
 
 const VIDEO_ID = /^\d{6,}$/;
@@ -51,14 +56,22 @@ const videoSchema = z.object({
   /** Phần số cuối URL TikTok. Vừa là khóa, vừa là tên file thumbnail. */
   id: z.string().regex(VIDEO_ID, "id phải là dãy số cuối URL TikTok"),
   url: z.string().url().startsWith("https://www.tiktok.com/"),
-  /** Tiêu đề tự viết, hiện dưới poster. Caption gốc thường là copy câu view. */
+  /**
+   * Tiêu đề tự viết. KHÔNG hiện trên trang — khối video giờ chỉ nhúng link.
+   * Nó đi vào nhãn `sr-only` của nút play và thuộc tính `title` của iframe,
+   * nên vẫn bắt buộc: người dùng screen reader cần biết nút này mở cái gì.
+   */
   title: z.string().min(10).max(120),
   /**
-   * 2-3 câu viết tay. Đây mới là phần Google đọc được — embed TikTok không cho
-   * trang một chữ nào. Thiếu nó thì video chỉ là iframe trần, nên build fail
-   * thay vì lặng lẽ cho lên trang.
+   * Tùy chọn, và không hiện trên trang.
+   *
+   * Trước đây bắt buộc, với lý do đây là phần duy nhất Google đọc được vì embed
+   * TikTok không cho trang một chữ nào. Lý do đó mất hiệu lực khi chủ site
+   * quyết định bỏ phần chữ dưới video — bắt viết 80 ký tự cho một trường không
+   * ai đọc thì chỉ là thuế đặt lên người thêm video sau. Giữ lại làm ghi chú
+   * nội bộ trong data/, dùng được nếu sau này khối video có chỗ cho chữ.
    */
-  summary: z.string().min(80),
+  summary: z.string().min(80).optional(),
   publishedAt: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
   /** Slug template mà video này nói đúng vào việc của nó. Đường gắn chính. */
   templates: z

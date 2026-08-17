@@ -1,0 +1,11 @@
+{
+  "id": "7651531124459523349",
+  "url": "https://www.tiktok.com/@excel.taichinhso/video/7651531124459523349",
+  "title": "Nâng cấp to do list bằng tính năng Excel có sẵn, không cần VBA",
+  "summary": "Một danh sách việc dạng cột thì ai cũng làm được, nhưng nó không nhắc bạn việc nào đang gấp. Video thêm vài tính năng có sẵn của Excel để bảng tự làm phần nhắc đó. Không dùng macro nên file vẫn mở được ở mọi máy và vẫn gửi qua lại bình thường.",
+  "publishedAt": "2026-06-15",
+  "templates": [
+    "to-do-list-excel"
+  ],
+  "functions": []
+}

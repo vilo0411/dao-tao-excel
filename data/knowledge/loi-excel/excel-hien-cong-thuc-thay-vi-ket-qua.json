@@ -1,0 +1,197 @@
+{
+  "slug": "excel-hien-cong-thuc-thay-vi-ket-qua",
+  "pillar": "loi-excel",
+  "postType": "sua-loi",
+  "order": 9,
+  "h1": "Excel hiện công thức thay vì kết quả: ba nguyên nhân, ba cách sửa khác nhau",
+  "metaTitle": "Excel hiện công thức thay vì kết quả: cách sửa",
+  "metaDesc": "Excel hiện công thức thay vì kết quả có ba nguyên nhân tách bạch. Cách phân biệt bằng phạm vi ô bị ảnh hưởng, và cách sửa cho từng loại.",
+  "intro": "Excel hiện công thức thay vì kết quả là tình huống làm người ta hoảng nhất trong nhóm lỗi hiển thị, vì trông như cả file vừa hỏng. Thực ra đây là ba sự cố hoàn toàn khác nhau đội chung một hình dạng, và cách phân biệt cực nhanh: nhìn xem bao nhiêu ô bị ảnh hưởng. Cả sheet, hay chỉ một cột, hay đúng một ô.",
+  "primaryKeyword": "Excel hiện công thức thay vì kết quả",
+  "difficulty": "co-ban",
+
+  "body": [
+    {
+      "type": "paragraph",
+      "text": "Phạm vi ảnh hưởng là dấu vân tay của từng nguyên nhân, và nó chính xác đến mức bạn gần như không cần thử gì thêm. Cả sheet cùng hiện công thức thì đó là một chế độ hiển thị đang bật. Chỉ một cột thì cột đó đang được định dạng là văn bản. Đúng một ô lẻ thì ô đó thiếu dấu bằng, hoặc có một khoảng trắng đứng trước dấu bằng."
+    },
+    {
+      "type": "errorCase",
+      "error": "Ô hiện ra chuỗi công thức",
+      "cause": "Excel đang được yêu cầu hiển thị công thức thay vì giá trị, hoặc nó không coi nội dung trong ô là công thức. Trường hợp thứ nhất là chế độ Show Formulas đang bật cho cả sheet. Trường hợp thứ hai là ô đã mang định dạng Text trước khi bạn gõ vào, nên Excel lưu nguyên chuỗi ký tự chứ không phân tích nó.",
+      "fix": "Xác định phạm vi trước. Cả sheet thì bấm Ctrl cộng dấu huyền để tắt Show Formulas. Một cột thì đổi định dạng cột về General rồi nhập lại nội dung — chỉ đổi định dạng thôi chưa đủ. Một ô thì kiểm dấu bằng và khoảng trắng đứng trước nó."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Ba nguyên nhân theo phạm vi ảnh hưởng"
+    },
+    {
+      "type": "table",
+      "caption": "Nhìn phạm vi là biết nguyên nhân",
+      "headers": ["Phạm vi", "Nguyên nhân", "Cách sửa"],
+      "rows": [
+        ["Cả sheet, kể cả ô mới gõ", "Show Formulas đang bật", "Ctrl và dấu huyền"],
+        ["Một cột hoặc một vùng", "Vùng đó định dạng Text", "Đổi về General rồi nhập lại"],
+        ["Đúng một ô", "Thiếu dấu bằng, hoặc có khoảng trắng trước dấu bằng", "Sửa nội dung ô"],
+        ["Ô hiện dấu nháy đơn ở đầu", "Có dấu nháy đơn ép Excel coi là chữ", "Xóa dấu nháy đơn"]
+      ],
+      "copyable": false
+    },
+    {
+      "type": "paragraph",
+      "text": "Trường hợp Show Formulas là dễ chịu nhất vì nó không hỏng gì cả. Đây là một chế độ xem có chủ đích, dùng khi bạn muốn rà soát toàn bộ công thức trong sheet cùng lúc thay vì bấm từng ô. Người ta bật nhầm nó thường xuyên vì phím tắt Ctrl cộng dấu huyền nằm ngay cạnh phím Tab. Bấm lại lần nữa là về bình thường, và không ô nào bị thay đổi."
+    },
+    {
+      "type": "callout",
+      "tone": "meo",
+      "title": "Dấu hiệu chắc chắn nhất của Show Formulas",
+      "text": "Khi chế độ này bật, các cột đột nhiên rộng gấp đôi để chứa được chuỗi công thức. Nếu bạn thấy cả sheet vừa hiện công thức vừa giãn cột ra thì không cần kiểm gì thêm — bấm Ctrl và dấu huyền là xong, và độ rộng cột cũng tự trở lại."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Vì sao đổi định dạng ô không đủ"
+    },
+    {
+      "type": "paragraph",
+      "text": "Đây là điểm gây mất thời gian nhiều nhất ở nguyên nhân thứ hai. Khi một ô mang định dạng Text và bạn gõ công thức vào, Excel không phân tích nó — nó lưu nguyên chuỗi ký tự y như bạn gõ một câu tiếng Việt. Sau đó bạn đổi định dạng ô sang General, và không có gì xảy ra: định dạng chỉ nói cho Excel biết phải hiển thị giá trị ra sao, nó không quay lại phân tích những gì đã lưu."
+    },
+    {
+      "type": "steps",
+      "items": [
+        {
+          "step": "Đổi định dạng vùng về General trước",
+          "detail": "Chọn cột, mở Format Cells, chọn General. Bước này bắt buộc nhưng chưa đủ; nó chỉ chuẩn bị cho bước sau."
+        },
+        {
+          "step": "Ép Excel đọc lại nội dung",
+          "detail": "Cách nhanh nhất cho cả cột là Data rồi Text to Columns rồi bấm Finish ngay. Excel nhập lại toàn bộ cột và lần này nó phân tích những chuỗi bắt đầu bằng dấu bằng thành công thức. Với vài ô lẻ thì bấm F2 rồi Enter từng ô cũng ra kết quả tương tự."
+        },
+        {
+          "step": "Chặn tái diễn ở nguồn",
+          "detail": "Nếu vùng đó được định dạng Text vì một lý do có thật — chẳng hạn để giữ số 0 đứng đầu mã hàng — thì đừng đặt công thức vào chính vùng đó. Tách cột mã hàng dạng văn bản ra khỏi cột tính toán."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Trường hợp một ô lẻ"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        "Thiếu dấu bằng ở đầu. Nghe hiển nhiên nhưng đây là nguyên nhân số một khi chỉ đúng một ô bị, nhất là lúc bạn sửa lại một ô có sẵn.",
+        "Có khoảng trắng đứng trước dấu bằng. Excel chỉ coi là công thức khi dấu bằng là ký tự đầu tiên tuyệt đối, không có ngoại lệ.",
+        "Có dấu nháy đơn ở đầu. Dấu này không hiện trong ô, chỉ hiện trên thanh công thức, và nó ép Excel coi mọi thứ phía sau là chữ.",
+        "Nội dung được dán từ một nơi khác kèm ký tự vô hình đứng trước dấu bằng, hay gặp khi chép công thức từ trang web."
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Dấu nháy đơn đáng nói riêng vì nó vô hình trong ô. Bạn nhìn vào ô thấy đúng chuỗi công thức, nhìn lên thanh công thức mới thấy dấu nháy đơn đứng trước. Nó tồn tại có lý do chính đáng — đó là cách nói với Excel rằng nội dung này là chữ dù trông giống số hay công thức — nhưng nó cũng theo chân dữ liệu dán từ nơi khác về mà không ai chủ ý."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Khi bật Show Formulas lại là việc nên làm"
+    },
+    {
+      "type": "paragraph",
+      "text": "Có một tình huống mà bạn nên chủ động bật chế độ này: khi nhận một file từ người khác và cần hiểu nó nhanh. Thay vì bấm từng ô để đọc thanh công thức, bật Show Formulas cho cả sheet lộ ra toàn bộ cấu trúc tính toán cùng lúc. Nhìn một lượt là thấy ngay cột nào nhập tay, cột nào tính ra, và cột nào đang tham chiếu sang chỗ lạ."
+    },
+    {
+      "type": "formula",
+      "formula": "=IF([hoTen]{row}=\"\",\"\",IFERROR(ROUND([luongThang]{row}/([congChuan]{row}*8),0),0))",
+      "note": "Cột Đơn giá giờ trong mẫu lương làm thêm giờ. Đây là loại công thức mà bật Show Formulas rất đáng: nó là nền cho năm cột tiền phía sau, và nhìn nó cùng lúc với các cột đó cho thấy ngay toàn bộ chuỗi phụ thuộc mà bấm từng ô không cho thấy được.",
+      "caption": "Cột nền của cả bảng lương làm thêm giờ"
+    },
+    {
+      "type": "sheet",
+      "templateSlug": "bang-tinh-luong-lam-them-gio",
+      "sheetIndex": 0,
+      "note": "Bảng có tám cột công thức, và tất cả đều bắt nguồn từ cột Đơn giá giờ. Bấm lần lượt vài ô xanh lá để thấy chuỗi phụ thuộc — đây chính là thứ mà chế độ Show Formulas cho bạn thấy trong một cái nhìn.",
+      "copyable": true
+    },
+    {
+      "type": "functionRef",
+      "slug": "if",
+      "why": "Lớp ngoài cùng chặn công thức chạy trên dòng chưa nhập, khiến bảng không đầy số 0 vô nghĩa ở phần dưới."
+    },
+    {
+      "type": "functionRef",
+      "slug": "iferror",
+      "why": "Chặn trường hợp công chuẩn bằng 0 hoặc bỏ trống, vốn sẽ làm cả năm cột tiền phía sau hỏng theo."
+    },
+    {
+      "type": "functionRef",
+      "slug": "round",
+      "why": "Làm tròn đơn giá giờ về số nguyên đồng trước khi nó được nhân lên ở năm cột tiếp theo, tránh sai số dồn."
+    },
+    {
+      "type": "templateRef",
+      "slug": "bang-tinh-luong-lam-them-gio",
+      "why": "File mẫu có tám cột công thức phụ thuộc dây chuyền, dùng làm bài tập tốt để thử chế độ Show Formulas trên một cấu trúc thật."
+    }
+  ],
+
+  "faq": [
+    {
+      "q": "Phím tắt tắt Show Formulas là gì?",
+      "a": "Ctrl cộng dấu huyền, tức phím nằm ngay bên trái số 1 trên hàng phím số. Bấm lần nữa là bật lại. Chế độ này chỉ ảnh hưởng cách hiển thị, không đụng gì tới nội dung ô."
+    },
+    {
+      "q": "Vì sao chỉ một cột hiện công thức còn các cột khác bình thường?",
+      "a": "Cột đó đang mang định dạng Text từ trước khi bạn gõ công thức vào. Excel lưu nguyên chuỗi ký tự thay vì phân tích nó. Đổi định dạng về General rồi phải nhập lại nội dung thì mới có tác dụng."
+    },
+    {
+      "q": "Đổi định dạng về General rồi mà vẫn hiện công thức?",
+      "a": "Vì định dạng chỉ nói cách hiển thị, không làm Excel phân tích lại thứ đã lưu. Dùng Data rồi Text to Columns rồi Finish để ép cả cột được đọc lại, hoặc bấm F2 rồi Enter với từng ô lẻ."
+    },
+    {
+      "q": "Dấu nháy đơn ở đầu công thức có ý nghĩa gì?",
+      "a": "Nó ép Excel coi toàn bộ nội dung phía sau là chữ. Dấu này không hiện trong ô mà chỉ hiện trên thanh công thức, nên rất dễ bỏ sót. Xóa nó đi là công thức chạy lại."
+    }
+  ],
+
+  "quiz": [
+    {
+      "q": "Cả sheet đột nhiên hiện công thức và các cột giãn rộng ra. Nguyên nhân là gì?",
+      "options": [
+        "Chế độ Show Formulas đang bật",
+        "Cả sheet bị định dạng Text",
+        "File bị hỏng"
+      ],
+      "answer": 0,
+      "explain": "Cột giãn rộng là dấu hiệu chắc chắn của Show Formulas — Excel nới cột để chứa chuỗi công thức. Bấm Ctrl và dấu huyền là về bình thường, không ô nào bị thay đổi."
+    },
+    {
+      "q": "Một cột hiện công thức. Đổi định dạng về General là đủ chưa?",
+      "options": [
+        "Đủ, kết quả hiện ra ngay",
+        "Chưa, còn phải ép Excel đọc lại nội dung",
+        "Không cần đổi định dạng gì cả"
+      ],
+      "answer": 1,
+      "explain": "Định dạng chỉ nói cách hiển thị, không làm Excel phân tích lại thứ đã lưu dưới dạng chuỗi. Phải nhập lại, hoặc dùng Text to Columns để đọc lại cả cột."
+    },
+    {
+      "q": "Đúng một ô hiện công thức, các ô cùng cột đều bình thường. Kiểm gì trước?",
+      "options": [
+        "Định dạng của cả cột",
+        "Dấu bằng ở đầu, và khoảng trắng hoặc dấu nháy đơn đứng trước nó",
+        "Chế độ Show Formulas"
+      ],
+      "answer": 1,
+      "explain": "Phạm vi một ô loại trừ hai nguyên nhân kia — chúng ảnh hưởng cả sheet hoặc cả cột. Còn lại là chuyện nội dung của chính ô đó."
+    }
+  ],
+
+  "templateRefs": ["bang-tinh-luong-lam-them-gio"],
+  "functionRefs": ["if", "iferror", "round"],
+  "relatedSlugs": ["excel-khong-tinh-tong-duoc", "loi-value-trong-excel"],
+  "ctaText": "Học cách đọc một file Excel người khác dựng",
+  "updatedAt": "2026-08-14"
+}

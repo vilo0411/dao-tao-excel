@@ -1,0 +1,183 @@
+{
+  "slug": "loi-font-chu-tieng-viet-trong-excel",
+  "pillar": "loi-excel",
+  "postType": "sua-loi",
+  "order": 7,
+  "h1": "Lỗi font chữ tiếng Việt trong Excel: nhận đúng bệnh trước khi chữa",
+  "metaTitle": "Lỗi font chữ tiếng Việt trong Excel: cách sửa triệt để",
+  "metaDesc": "Chữ tiếng Việt trong Excel hiện thành ký tự lạ có ba nguyên nhân hoàn toàn khác nhau. Cách phân biệt qua hình dạng chữ hỏng và cách sửa từng loại.",
+  "intro": "Lỗi font chữ tiếng Việt trong Excel là một cái tên gộp chung cho ba sự cố khác hẳn nhau, và đó là lý do phần lớn hướng dẫn trên mạng không giúp được: chúng đưa ra một cách sửa cho một bệnh, còn bạn đang mắc bệnh khác. Tin tốt là ba loại này phân biệt được bằng mắt, chỉ cần biết nhìn vào đâu.",
+  "primaryKeyword": "lỗi font chữ tiếng Việt trong Excel",
+  "difficulty": "co-ban",
+
+  "body": [
+    {
+      "type": "paragraph",
+      "text": "Nguyên tắc phân biệt nằm ở hình dạng của phần chữ bị hỏng. Nếu chỉ dấu thanh và dấu mũ biến thành ký tự lạ còn chữ cái vẫn đọc được, đó là chuyện bảng mã. Nếu cả từ biến thành một dãy ký tự vô nghĩa không nhận ra chữ nào, đó là chuyện mã hóa file. Còn nếu chữ vẫn đúng nhưng dấu bị cắt cụt hoặc chồng lên nhau, đó là chuyện phông chữ thiếu ký tự."
+    },
+    {
+      "type": "errorCase",
+      "error": "Chữ đọc được nhưng dấu thành ký tự lạ",
+      "cause": "Sai bảng mã. File được gõ bằng bộ mã cũ như TCVN3 hoặc VNI, thường đi kèm những phông tên bắt đầu bằng .Vn hoặc VNI-. Những bộ mã này đặt dấu tiếng Việt vào các vị trí mà Unicode dùng cho ký tự khác, nên khi hiển thị bằng phông Unicode thì phần chữ cái vẫn đúng còn phần dấu thì thành ký tự khác hẳn.",
+      "fix": "Đây không phải lỗi hiển thị mà là dữ liệu đang nằm ở bộ mã khác, nên đổi phông không giải quyết được gì. Phải chuyển mã thật sự bằng công cụ chuyển bảng mã của Unikey: chép vùng dữ liệu, bấm tổ hợp chuyển mã, chọn nguồn TCVN3 hoặc VNI và đích Unicode, rồi dán lại."
+    },
+    {
+      "type": "callout",
+      "tone": "canh-bao",
+      "title": "Đổi phông chữ không sửa được lỗi bảng mã",
+      "text": "Đây là chỗ mất thời gian nhiều nhất. Người ta thấy chữ hỏng thì bôi đen rồi thử lần lượt Arial, Times New Roman, Calibri, và không phông nào đúng cả. Lý do là bản thân dữ liệu trong ô đang mã hóa dấu theo một quy ước khác; phông chỉ vẽ ra ký tự tương ứng với mã, và mã thì đang sai. Phải chuyển mã, không phải chuyển phông."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Ba loại lỗi và cách nhận ra"
+    },
+    {
+      "type": "table",
+      "caption": "Nhìn hình dạng chữ hỏng để biết đang mắc loại nào",
+      "headers": ["Chữ hỏng trông thế nào", "Nguyên nhân", "Cách sửa"],
+      "rows": [
+        ["Chữ cái đọc được, chỉ dấu thành ký tự lạ", "Sai bảng mã (TCVN3, VNI)", "Chuyển mã bằng Unikey"],
+        ["Cả từ thành dãy ký tự vô nghĩa", "File CSV mở sai mã hóa", "Nhập lại bằng Data với UTF-8"],
+        ["Chữ đúng nhưng dấu bị cắt hoặc chồng", "Phông thiếu ký tự tiếng Việt", "Đổi sang phông có hỗ trợ tiếng Việt"],
+        ["Chỉ vài ô hỏng, các ô khác bình thường", "Vùng đó còn dùng phông cũ", "Chọn vùng đó, xử lý riêng"]
+      ],
+      "copyable": false
+    },
+    {
+      "type": "errorCase",
+      "error": "Cả từ thành dãy ký tự vô nghĩa",
+      "cause": "File CSV được lưu ở mã hóa UTF-8 nhưng Excel mở nó bằng bảng mã mặc định của hệ điều hành. Mỗi ký tự tiếng Việt trong UTF-8 chiếm nhiều byte, và khi đọc sai bảng mã thì mỗi byte đó bị dịch thành một ký tự riêng — nên một chữ có dấu nở ra thành hai ba ký tự lạ liền nhau.",
+      "fix": "Đừng mở file CSV bằng cách bấm đúp. Mở Excel trống trước, vào thẻ Data, chọn From Text/CSV, chọn file, rồi trong hộp thoại chọn File Origin là UTF-8 và xem phần xem trước bên dưới cho tới khi chữ hiện đúng mới bấm Load."
+    },
+    {
+      "type": "paragraph",
+      "text": "Loại thứ hai này gặp thường xuyên nhất khi bạn xuất dữ liệu từ phần mềm kế toán, phần mềm nhân sự hay từ một trang web quản trị. Điểm cần nhớ là file không hề hỏng — nó hoàn toàn bình thường, chỉ là bạn đang bảo Excel đọc nó bằng sai bảng mã. Bấm đúp vào file CSV là hành động không cho Excel cơ hội hỏi bạn bảng mã nào, nên nó đoán, và với dữ liệu tiếng Việt thì nó đoán sai."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Chọn phông cho một file sẽ được nhiều người mở"
+    },
+    {
+      "type": "paragraph",
+      "text": "Loại thứ ba nhẹ nhất nhưng hay bị bỏ qua nhất, vì trên máy người tạo file thì mọi thứ trông hoàn hảo. Vấn đề chỉ lộ ra trên máy người khác, khi phông bạn dùng không có sẵn ở đó và hệ điều hành phải thay bằng một phông khác. Nếu phông thay thế không có đủ ký tự tiếng Việt, dấu sẽ bị cắt cụt hoặc chồng lên chữ."
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        "Ưu tiên các phông đi kèm sẵn hệ điều hành như Calibri, Arial hay Times New Roman — chúng có mặt trên gần như mọi máy và đều đủ ký tự tiếng Việt.",
+        "Tránh các phông có tên bắt đầu bằng .Vn hoặc VNI, vì chúng gắn với bộ mã cũ chứ không phải Unicode, và người nhận thường không cài chúng.",
+        "Nếu buộc phải dùng một phông đặc thù, hãy kiểm tra bằng cách mở file trên một máy khác trước khi gửi đi.",
+        "Dấu chồng lên chữ trong ô có chiều cao dòng nhỏ đôi khi không phải lỗi phông mà chỉ là dòng quá thấp — thử nới chiều cao dòng trước khi kết luận."
+      ]
+    },
+    {
+      "type": "sheet",
+      "templateSlug": "danh-sach-nhan-vien",
+      "sheetIndex": 0,
+      "note": "Bảng danh sách nhân viên là chỗ lỗi font gây phiền nhất, vì họ tên là dữ liệu không thể sửa bằng tay khi có vài trăm dòng. Toàn bộ chữ trong file mẫu này là Unicode dựng sẵn, nên mở ở Excel hay Google Sheets đều hiện đúng.",
+      "copyable": true
+    },
+    {
+      "type": "paragraph",
+      "text": "Một điểm đáng lưu ý khi dữ liệu là họ tên: lỗi font làm hỏng cả những thứ không nhìn thấy. Hai dòng cùng một người nhưng một dòng nhập ở bảng mã cũ và một dòng ở Unicode sẽ được Excel coi là hai giá trị khác nhau khi lọc, khi đếm, khi tra cứu. Nghĩa là sửa font không chỉ để nhìn cho đẹp — nó là điều kiện để mọi phép đối chiếu trên cột đó cho ra kết quả đúng."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Quy trình chuyển mã an toàn"
+    },
+    {
+      "type": "steps",
+      "items": [
+        {
+          "step": "Xác định loại lỗi trước khi làm gì",
+          "detail": "Phóng to một ô đang hỏng và nhìn kỹ. Chữ cái còn đọc được hay đã thành ký tự lạ hoàn toàn? Câu trả lời quyết định bạn cần chuyển mã hay cần nhập lại file."
+        },
+        {
+          "step": "Sao lưu trước khi chuyển mã",
+          "detail": "Thao tác chuyển mã ghi đè lên dữ liệu gốc. Chép cả sheet sang một bản mới rồi thử trên bản đó; chuyển nhầm chiều mã một lần là dữ liệu hỏng thêm một tầng và khó gỡ hơn hẳn."
+        },
+        {
+          "step": "Chuyển mã theo từng cột, không chuyển cả sheet",
+          "detail": "Chỉ cột chứa chữ mới cần chuyển. Cột số và cột ngày tháng đưa qua công cụ chuyển mã có thể bị đổi kiểu thành văn bản, và bạn sẽ đổi một lỗi font lấy một lỗi #VALUE!."
+        },
+        {
+          "step": "Kiểm tra lại bằng phép đếm",
+          "detail": "Sau khi chuyển, dùng hàm đếm theo điều kiện trên một giá trị bạn biết chắc có trong cột. Nếu đếm ra đúng số dòng mong đợi thì dữ liệu đã thật sự về Unicode, không chỉ là nhìn có vẻ đúng."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "tone": "luu-y",
+      "title": "Bài này không có công thức nào, và đó là chuyện bình thường",
+      "text": "Lỗi font không phải lỗi công thức, nên không hàm Excel nào sửa được nó. Đây là ví dụ rõ nhất cho thấy khu kiến thức tồn tại để chứa đúng những thứ không thuộc về thư viện file lẫn từ điển hàm."
+    },
+    {
+      "type": "templateRef",
+      "slug": "danh-sach-nhan-vien",
+      "why": "File mẫu dùng Unicode dựng sẵn cho toàn bộ cột chữ, mở đúng ở cả Excel lẫn Google Sheets, dùng làm bản đối chiếu khi bạn nghi file của mình sai bảng mã."
+    }
+  ],
+
+  "faq": [
+    {
+      "q": "Vì sao đổi phông chữ mà chữ vẫn hỏng?",
+      "a": "Vì bạn đang mắc lỗi bảng mã chứ không phải lỗi phông. Dữ liệu trong ô đang mã hóa dấu theo quy ước cũ; phông chỉ vẽ ra ký tự ứng với mã, mà mã thì đang sai. Phải chuyển mã bằng Unikey, đổi phông không có tác dụng."
+    },
+    {
+      "q": "Mở file CSV tiếng Việt thế nào cho đúng?",
+      "a": "Đừng bấm đúp vào file. Mở Excel trống, vào Data, chọn From Text/CSV, rồi đặt File Origin là UTF-8 và nhìn phần xem trước cho tới khi chữ hiện đúng mới bấm Load."
+    },
+    {
+      "q": "Chuyển mã bằng Unikey có làm hỏng dữ liệu số không?",
+      "a": "Có thể, nếu bạn chuyển cả sheet. Cột số và cột ngày tháng qua công cụ chuyển mã có thể bị đổi thành văn bản. Chỉ chọn và chuyển đúng những cột chứa chữ."
+    },
+    {
+      "q": "Lỗi font có ảnh hưởng tới việc lọc và tra cứu không?",
+      "a": "Có, và đây mới là hậu quả nghiêm trọng. Cùng một cái tên viết ở hai bảng mã khác nhau là hai giá trị khác nhau với Excel, nên mọi phép lọc, đếm hay đối chiếu trên cột đó đều cho kết quả sai."
+    }
+  ],
+
+  "quiz": [
+    {
+      "q": "Chữ cái vẫn đọc được nhưng dấu thanh thành ký tự lạ. Đây là lỗi gì?",
+      "options": [
+        "Phông thiếu ký tự tiếng Việt",
+        "Sai bảng mã, dữ liệu đang ở TCVN3 hoặc VNI",
+        "File bị hỏng"
+      ],
+      "answer": 1,
+      "explain": "Bộ mã cũ đặt dấu tiếng Việt vào vị trí mà Unicode dùng cho ký tự khác, nên phần chữ cái vẫn đúng còn phần dấu thì thành ký tự khác hẳn. Phải chuyển mã, không phải đổi phông."
+    },
+    {
+      "q": "Cách nào mở file CSV tiếng Việt cho đúng?",
+      "options": [
+        "Bấm đúp vào file rồi đổi phông sau",
+        "Mở Excel trống, dùng Data rồi From Text/CSV và đặt File Origin là UTF-8",
+        "Đổi đuôi file thành .xlsx"
+      ],
+      "answer": 1,
+      "explain": "Bấm đúp không cho Excel cơ hội hỏi bảng mã, nên nó đoán và với tiếng Việt thì đoán sai. Nhập qua Data cho phép bạn chọn UTF-8 và xem trước kết quả."
+    },
+    {
+      "q": "Vì sao lỗi font nghiêm trọng hơn chuyện nhìn xấu?",
+      "options": [
+        "Vì nó làm file nặng thêm",
+        "Vì cùng một cái tên ở hai bảng mã là hai giá trị khác nhau, làm sai mọi phép lọc và đối chiếu",
+        "Vì Excel sẽ từ chối lưu file"
+      ],
+      "answer": 1,
+      "explain": "Excel so sánh theo mã ký tự. Hai dòng cùng một người nhưng khác bảng mã sẽ không khớp nhau khi lọc, đếm hay tra cứu — sai lệch này không nhìn thấy được bằng mắt."
+    }
+  ],
+
+  "templateRefs": ["danh-sach-nhan-vien"],
+  "functionRefs": [],
+  "relatedSlugs": ["loi-value-trong-excel"],
+  "ctaText": "Học cách chuẩn hóa dữ liệu trước khi đưa vào bảng tính",
+  "updatedAt": "2026-08-14"
+}

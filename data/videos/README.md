@@ -31,10 +31,12 @@ tảng rút từ công thức template — hai tập hợp gần như không gia
    Chạy không tham số (`npm run videos`) thì chỉ tải lại poster còn thiếu.
 
 3. **Sửa file vừa tạo:**
-   - `title` — viết lại cho người đọc, bỏ hashtag.
-   - `summary` — 2-3 câu, **bắt buộc**. Đây là phần duy nhất Google đọc được;
-     embed TikTok không cho trang một chữ nào.
+   - `title` — viết lại cho người đọc, bỏ hashtag. Không hiện trên trang nhưng
+     vẫn bắt buộc: nó là nhãn `sr-only` của nút play và `title` của iframe.
+   - `summary` — tùy chọn, không hiện trên trang. Ghi chú nội bộ thôi.
    - `templates` — xác nhận bằng cách xem video.
+
+   Trang chỉ nhúng video, không in tiêu đề hay mô tả bên dưới.
 
 4. `npm run validate` trước khi commit.
 
@@ -44,7 +46,7 @@ tảng rút từ công thức template — hai tập hợp gần như không gia
 - Tối đa **2 video** mỗi trang (`MAX_VIDEOS_PER_PAGE` trong `lib/videos.ts`).
 - Không gắn vào đâu cả → build fail. Video như vậy không hiện ở đâu, để lại chỉ
   làm người sau tưởng nó đã lên trang.
-- Thiếu `summary` hoặc thiếu poster → build fail.
+- Thiếu poster → build fail.
 
 `validate` bắt được slug không tồn tại. Nó **không** bắt được tag đúng-mà-lệch:
 video nói về pivot table nhưng caption trùng hai từ với template chấm công vẫn

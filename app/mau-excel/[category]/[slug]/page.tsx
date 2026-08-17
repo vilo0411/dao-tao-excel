@@ -3,6 +3,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { AuthorByline } from "@/components/Author";
 import { CourseCta } from "@/components/CourseCta";
+import { FaqList } from "@/components/FaqList";
+import { RelatedPosts } from "@/components/RelatedPosts";
 import { SheetChart } from "@/components/SheetChart";
 import { FormulaTable, SheetPreview } from "@/components/SheetPreview";
 import { SystemMap } from "@/components/SystemMap";
@@ -14,6 +16,7 @@ import {
   getRelatedTemplates,
   getTemplate,
 } from "@/lib/templates";
+import { getPostsForTemplate } from "@/lib/knowledge";
 import {
   getAllSystems,
   getFlowSteps,
@@ -308,14 +311,7 @@ function TemplateArticle({
         </div>
 
         <h2 className="font-display mt-24 text-3xl">Câu hỏi thường gặp</h2>
-        <dl className="mt-5 divide-y divide-rule border-y border-rule">
-          {template.faq.map((item) => (
-            <div key={item.q} className="py-5">
-              <dt className="font-medium">{item.q}</dt>
-              <dd className="mt-2 max-w-prose text-ink-soft">{item.a}</dd>
-            </div>
-          ))}
-        </dl>
+        <FaqList items={template.faq} className="mt-5" />
 
         {related.length > 0 && (
           <>
@@ -334,6 +330,19 @@ function TemplateArticle({
             </ul>
           </>
         )}
+
+        {/*
+          Chiều link ngược của khu kiến thức. Quan hệ chỉ khai một chiều trong
+          spec bài (templateRefs), chiều này do lib/knowledge.ts dựng chỉ mục
+          lúc build — nên thêm một bài là tự có link ở đây, không phải sửa 37
+          file spec. Trả null khi rỗng, nên 29 trang chưa có bài trỏ về không
+          đổi gì cả.
+        */}
+        <RelatedPosts
+          posts={getPostsForTemplate(template.slug)}
+          heading="Lỗi hay gặp khi dùng file này"
+          intro="Bài viết đi sâu vào những chỗ hay hỏng, và giải thích chính công thức đang chạy trong file trên."
+        />
 
         <p className="mt-24 text-sm text-ink-faint">
           Cập nhật{" "}
@@ -676,14 +685,7 @@ function SystemArticle({ slug }: { slug: string }) {
         </div>
 
         <h2 className="font-display mt-24 text-3xl">Câu hỏi thường gặp</h2>
-        <dl className="mt-5 max-w-3xl divide-y divide-rule border-y border-rule">
-          {system.faq.map((item) => (
-            <div key={item.q} className="py-5">
-              <dt className="font-medium">{item.q}</dt>
-              <dd className="mt-2 max-w-prose text-ink-soft">{item.a}</dd>
-            </div>
-          ))}
-        </dl>
+        <FaqList items={system.faq} className="mt-5 max-w-3xl" />
 
         <p className="mt-24 text-sm text-ink-faint">
           Cập nhật{" "}

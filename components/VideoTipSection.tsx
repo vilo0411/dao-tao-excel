@@ -32,10 +32,22 @@ export function VideoTipSection({
         một cách làm nhanh hơn cách mình đang dùng.
       </p>
       <div
-        className={`mt-8 grid gap-6 ${videos.length > 1 ? "sm:grid-cols-2" : "max-w-md"}`}
+        // items-start: khi một video được bấm, khung player cao 739px. Không có
+        // nó thì thẻ còn lại bị grid kéo giãn theo và hở một mảng trống dài.
+        className={`mt-8 grid items-start gap-6 ${videos.length > 1 ? "sm:grid-cols-2" : "max-w-md"}`}
       >
-        {videos.map((video) => (
-          <VideoTip key={video.id} video={video} />
+        {videos.map((v) => (
+          // Bóc từng trường thay vì truyền cả `v`: xem VideoTipProps.
+          <VideoTip
+            key={v.id}
+            video={{
+              id: v.id,
+              title: v.title,
+              poster: v.poster,
+              templates: v.templates,
+              functions: v.functions,
+            }}
+          />
         ))}
       </div>
     </section>

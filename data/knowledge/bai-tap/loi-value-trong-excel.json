@@ -1,0 +1,72 @@
+{
+  "slug": "loi-value-trong-excel",
+  "order": 3,
+  "h1": "Bài tập khoanh vùng lỗi #VALUE! trong bảng lương",
+  "metaTitle": "Bài tập lỗi #VALUE! trong Excel, có lời giải",
+  "metaDesc": "Một bảng lương bốn dòng có ba ô hỏng theo ba kiểu khác nhau. Bốn yêu cầu để khoanh vùng từng ô, phân biệt nguyên nhân, và dựng công thức không vỡ.",
+  "primaryKeyword": "bài tập lỗi #VALUE! trong Excel có lời giải",
+  "postSlug": "loi-value-trong-excel",
+
+  "brief": "Bảng lương dưới đây có bốn nhân viên và ba ô đang lưu sai kiểu, mỗi ô sai theo một cách khác nhau: một ô có dấu phân cách, một ô có khoảng trắng thừa, một ô là chữ thật. Nhiệm vụ là tìm ra cả ba, phân biệt được chúng khác nhau ở đâu, rồi viết công thức tính lương theo công sao cho không dòng nào vỡ.",
+
+  "dataset": {
+    "caption": "Chép bảng này vào Excel — ba ô trong đó đang lưu sai kiểu",
+    "headers": ["Họ tên", "Lương cơ bản", "Công chuẩn", "Công thực tế"],
+    "rows": [
+      ["Nguyễn Thị Mai", "12000000", "22", "22"],
+      ["Trần Văn Bình", "10.500.000", "22", "20"],
+      ["Lê Thu Hà", " 9500000", "22", "21"],
+      ["Phạm Quốc Anh", "chưa ký HĐ", "22", "18"]
+    ]
+  },
+
+  "tasks": [
+    {
+      "ask": "Thêm cột phụ dùng ISNUMBER cho cột Lương cơ bản, và chỉ ra ba dòng nào không phải số.",
+      "hint": "Ô nhìn giống số nhất lại là ô dễ bỏ sót nhất."
+    },
+    {
+      "ask": "Dùng LEN để đo độ dài chuỗi của dòng 3 và so với một chuỗi cùng nội dung không có khoảng trắng. Nói xem chênh lệch cho biết gì."
+    },
+    {
+      "ask": "Ba ô hỏng theo ba nguyên nhân khác nhau. Với từng ô, nói cách sửa đúng là gì — và chỉ ra ô nào KHÔNG sửa được bằng thao tác kỹ thuật.",
+      "hint": "Dòng 4 không phải lỗi định dạng, nó là dữ liệu chưa có."
+    },
+    {
+      "ask": "Viết công thức tính lương theo công sao cho dòng 4 không hiện mã lỗi, mà cũng không hiện một con số giả."
+    }
+  ],
+
+  "sandbox": {
+    "title": "Làm yêu cầu 4 ngay tại đây",
+    "grid": [
+      ["Họ tên", "Lương cơ bản", "Công chuẩn", "Công thực tế"],
+      ["Phạm Quốc Anh", "chưa ký HĐ", 22, 18]
+    ],
+    "prompt": "Ô B2 là chữ thật, không phải số lưu sai kiểu. Gõ =B2/C2*D2 để thấy #VALUE!. Viết công thức trả về chuỗi rỗng thay vì mã lỗi, để bảng sạch mà không bịa ra con số nào.",
+    "answer": "=IFERROR(B2/C2*D2, \"\")",
+    "expected": "",
+    "hint": "Trả về chuỗi rỗng chứ đừng trả về 0 — số 0 sẽ bị cộng vào tổng lương và làm sai báo cáo."
+  },
+
+  "solution": [
+    {
+      "formula": "=ISNUMBER(B2)",
+      "why": "Kéo xuống cả cột rồi lọc lấy FALSE. Ba dòng lộ ra: dòng 2 vì dấu chấm phân cách không khớp cài đặt vùng, dòng 3 vì có khoảng trắng ở đầu, dòng 4 vì nội dung là chữ thật. Nhìn bằng mắt thì dòng 3 gần như không phân biệt được với dòng 1."
+    },
+    {
+      "formula": "=LEN(B4)",
+      "why": "Ra 8 trong khi chuỗi 9500000 chỉ có 7 ký tự. Chênh một ký tự chính là khoảng trắng đứng đầu. Đây là cách duy nhất phát hiện được ký tự vô hình, vì căn lề và định dạng đều không nói gì."
+    },
+    {
+      "formula": "=IF(A2=\"\", \"\", IFERROR(ROUND(B2/C2*D2, 0), \"\"))",
+      "why": "Trả về chuỗi rỗng chứ không phải 0 cho dòng 4. Số 0 sẽ được cộng vào tổng quỹ lương và làm sai báo cáo, trong khi ô rỗng thì bị các hàm thống kê bỏ qua. ROUND nằm bên trong IFERROR để mọi kết quả trả ra đều đã là số nguyên đồng."
+    },
+    {
+      "formula": "=IF(A2=\"\", \"\", IF(NOT(ISNUMBER(B2)), \"Kiểm tra lương cơ bản\", ROUND(B2/C2*D2, 0)))",
+      "why": "Bản tốt hơn cho dòng 4. Ô rỗng nói rằng dòng này không có gì để tính; một câu chữ nói rằng dòng này CẦN người xử lý. Với dữ liệu chưa có hợp đồng thì vế thứ hai đúng hơn, và đây là ranh giới giữa giấu lỗi với gọi tên nó."
+    }
+  ],
+
+  "updatedAt": "2026-08-14"
+}

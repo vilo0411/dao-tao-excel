@@ -95,6 +95,46 @@ export function isCategorySlug(value: string): value is CategorySlug {
 }
 
 /**
+ * Cụm chủ đề của khu /kien-thuc-excel.
+ *
+ * Đặt cạnh CATEGORIES vì cùng vai trò và cùng lý do phải nằm ở file này:
+ * đây là module thuần duy nhất mà cả nửa client (lib/knowledge-schema.ts) lẫn
+ * nửa node:fs (lib/knowledge.ts) đều import được, và Zod cần PILLAR_SLUGS để
+ * dựng z.enum.
+ *
+ * Ba khu nội dung của site trả lời ba câu hỏi không giao nhau:
+ *   /mau-excel        "cho tôi cái file"
+ *   /ham-excel        "hàm này cú pháp gì"
+ *   /kien-thuc-excel  "cái này hỏng, sửa sao" · "học theo thứ tự nào"
+ * Một bài chỉ được tồn tại nếu nội dung của nó không thuộc hai khu kia. Luật
+ * này được ép bằng tường lửa từ khóa trong lib/knowledge.ts, không phải bằng
+ * tự giác của người viết.
+ *
+ * CHỈ khai cụm đã có bài. Khai trước ba cụm rồi lấp dần chính là lỗi mà
+ * lib/videos.ts:30-33 đã viết ra để cảnh báo — mở hub trước là tự tạo ra đúng
+ * loại trang mỏng mà MIN_POSTS_PER_PILLAR sinh ra để chặn.
+ */
+export const PILLARS = {
+  "loi-excel": {
+    name: "Lỗi Excel",
+    description:
+      "Excel báo lỗi, hiện sai, hoặc không chịu tính — nguyên nhân và cách sửa, kèm file thật để đối chiếu.",
+    /** Câu hỏi mọi bài trong cụm phải trả lời. Dùng cho meta và kicker của ảnh OG. */
+    question: "Vì sao Excel báo lỗi này và sửa thế nào",
+    defaultCta: "consult" as CtaTarget,
+  },
+  // Giai đoạn 2: "nghiep-vu-theo-vai-tro". Giai đoạn 3: "excel-co-ban".
+} as const;
+
+export type PillarSlug = keyof typeof PILLARS;
+
+export const PILLAR_SLUGS = Object.keys(PILLARS) as PillarSlug[];
+
+export function isPillarSlug(value: string): value is PillarSlug {
+  return value in PILLARS;
+}
+
+/**
  * Ngày khởi chạy site, dùng làm sàn cho `latestUpdate()` khi một nhóm nội
  * dung rỗng (nhánh phòng thủ — thực tế danh sách template không bao giờ rỗng
  * lúc build đã qua, vì loadAll() ném lỗi trước đó nếu rỗng).

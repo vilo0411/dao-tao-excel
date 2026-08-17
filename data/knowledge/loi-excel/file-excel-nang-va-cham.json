@@ -1,0 +1,214 @@
+{
+  "slug": "file-excel-nang-va-cham",
+  "pillar": "loi-excel",
+  "postType": "sua-loi",
+  "order": 14,
+  "h1": "File Excel nặng và chậm: tìm đúng thứ đang ăn tài nguyên",
+  "metaTitle": "File Excel nặng và chậm: nguyên nhân và cách xử lý",
+  "metaDesc": "File Excel nặng bất thường hiếm khi do số dòng. Cách đo phần nào chiếm dung lượng, năm nguyên nhân thật, và thứ tự xử lý theo hiệu quả.",
+  "intro": "File Excel nặng và chậm gần như không bao giờ nặng vì lý do bạn nghĩ. Người ta hay đổ cho số dòng, nhưng một bảng năm nghìn dòng toàn số thì chỉ vài trăm KB. Một file mười MB với hai trăm dòng dữ liệu là chuyện thường gặp, và trong đa số trường hợp phần lớn dung lượng đó nằm ở những thứ bạn không nhìn thấy.",
+  "primaryKeyword": "file Excel nặng và chậm",
+  "difficulty": "trung-cap",
+
+  "body": [
+    {
+      "type": "paragraph",
+      "text": "Trước khi sửa gì, hãy đo. File .xlsx thực chất là một thư mục nén: đổi đuôi thành .zip rồi giải nén ra, bạn sẽ thấy từng sheet là một file XML riêng, ảnh nằm trong thư mục media, và định dạng nằm trong styles.xml. Nhìn kích thước từng phần là biết ngay thủ phạm, thay vì thử từng cách sửa theo lời đồn trên mạng."
+    },
+    {
+      "type": "errorCase",
+      "error": "File nặng bất thường so với lượng dữ liệu",
+      "cause": "Năm nguồn theo thứ tự hay gặp: vùng dùng phình ra tới hàng trăm nghìn dòng vì từng có thao tác chọn cả cột rồi định dạng; định dạng có điều kiện chồng lớp qua nhiều lần sao chép; ảnh dán vào ở độ phân giải gốc; ô trống mang định dạng nên vẫn được lưu; và công thức tính lại toàn bộ mỗi lần gõ.",
+      "fix": "Bấm Ctrl cộng End để xem ô cuối cùng Excel coi là đã dùng. Nếu nó nhảy tới một ô cách xa dữ liệu thật thì đó là nguyên nhân chính. Xóa hẳn các dòng và cột thừa, lưu file, đóng và mở lại — vùng dùng chỉ được tính lại khi mở file."
+    },
+    {
+      "type": "callout",
+      "tone": "meo",
+      "title": "Ctrl cộng End là phép chẩn đoán rẻ nhất",
+      "text": "Nó đưa con trỏ tới ô cuối cùng của vùng Excel coi là đã dùng. Bảng của bạn dừng ở dòng 200 mà Ctrl cộng End nhảy tới dòng 65000 nghĩa là Excel đang lưu và tính toán trên sáu mươi tư nghìn tám trăm dòng rỗng. Đây là nguyên nhân số một của file nặng bất thường, và nó vô hình cho tới khi bạn bấm tổ hợp này."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Năm nguyên nhân và cách xử lý"
+    },
+    {
+      "type": "table",
+      "caption": "Xếp theo hiệu quả trên công sức bỏ ra",
+      "headers": ["Nguyên nhân", "Cách nhận ra", "Cách xử lý"],
+      "rows": [
+        ["Vùng dùng phình ra", "Ctrl+End nhảy xa dữ liệu", "Xóa hẳn dòng cột thừa, lưu, đóng, mở lại"],
+        ["Định dạng có điều kiện chồng lớp", "Manage Rules liệt kê hàng chục luật giống nhau", "Xóa hết rồi đặt lại vài luật"],
+        ["Ảnh ở độ phân giải gốc", "Thư mục media trong file zip rất lớn", "Compress Pictures, chọn 150 ppi"],
+        ["Ô trống mang định dạng", "File nặng dù ít dữ liệu và Ctrl+End bình thường", "Clear Formats cho vùng ngoài bảng"],
+        ["Công thức nặng tính lại liên tục", "Gõ một ô là cả file khựng vài giây", "Chuyển Calculation sang Manual khi nhập liệu"]
+      ],
+      "copyable": false
+    },
+    {
+      "type": "paragraph",
+      "text": "Nguyên nhân đầu bảng đáng nói kỹ vì cách sửa của nó có một bước mà người ta hay bỏ. Xóa dòng thừa thôi chưa đủ: Excel chỉ tính lại vùng dùng vào lúc mở file. Nghĩa là bạn phải xóa, lưu, đóng hẳn, rồi mở lại thì Ctrl cộng End mới về đúng chỗ. Bỏ bước đóng mở thì bạn sẽ kết luận cách sửa không hiệu quả, trong khi thực ra nó chưa được áp dụng."
+    },
+    {
+      "type": "steps",
+      "items": [
+        {
+          "step": "Chọn từ dòng ngay dưới dữ liệu tới hết bảng tính",
+          "detail": "Đứng ở dòng trống đầu tiên rồi bấm Ctrl cộng Shift cộng mũi tên xuống. Làm tương tự với cột: đứng ở cột trống đầu tiên rồi Ctrl cộng Shift cộng mũi tên phải."
+        },
+        {
+          "step": "Xóa hẳn dòng và cột, không chỉ xóa nội dung",
+          "detail": "Bấm chuột phải rồi Delete, chứ không phải bấm phím Delete. Phím Delete xóa nội dung mà vẫn giữ ô cùng mọi định dạng đang bám vào nó, tức là không giải quyết được gì."
+        },
+        {
+          "step": "Lưu, đóng, mở lại",
+          "detail": "Bước bắt buộc. Vùng dùng chỉ được tính lại lúc mở file, nên bỏ bước này thì Ctrl cộng End vẫn nhảy tới chỗ cũ và bạn tưởng cách sửa không hiệu quả."
+        },
+        {
+          "step": "Kiểm lại bằng Ctrl cộng End",
+          "detail": "Con trỏ phải dừng ở ô cuối cùng của dữ liệu thật. Nếu vẫn nhảy xa thì còn một sheet khác cũng bị, và bạn phải làm lại cho từng sheet."
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Khi công thức mới là thứ làm chậm"
+    },
+    {
+      "type": "paragraph",
+      "text": "Nặng và chậm là hai vấn đề khác nhau, và chúng cần cách xử lý khác nhau. File nặng là chuyện dung lượng lưu trữ. File chậm là chuyện mỗi lần bạn gõ một ô thì Excel phải tính lại bao nhiêu công thức. Một file chỉ 500 KB vẫn có thể khựng vài giây sau mỗi lần gõ, nếu trong đó có vài nghìn công thức phụ thuộc chéo nhau."
+    },
+    {
+      "type": "formula",
+      "formula": "=IF([tenDuAn]{row}=\"\",\"\",IFERROR(MIN(1,MAX(0,([ngayChotSo]{row}-[ngayBatDau]{row})/([hanKetThuc]{row}-[ngayBatDau]{row}))),0))",
+      "note": "Cột Tiến độ kỳ vọng trong mẫu quản lý dự án. Nhìn thì rối nhưng đây là công thức rẻ: nó chỉ đọc ba ô trên cùng dòng, không quét vùng nào cả. Chi phí tính toán của một công thức phụ thuộc vào số ô nó phải đọc, chứ không phụ thuộc vào số hàm lồng trong nó — một hàm tra cứu ngắn quét mười nghìn dòng đắt hơn công thức này nhiều lần.",
+      "caption": "Công thức trông rối nhưng rẻ, vì nó chỉ đọc ba ô"
+    },
+    {
+      "type": "paragraph",
+      "text": "Đây là điểm hay bị hiểu ngược. Người ta thấy một công thức dài thì nghĩ nó nặng, và cố rút gọn nó. Nhưng thứ tốn thời gian là số ô phải đọc, không phải số ký tự trong công thức. Bốn hàm lồng nhau đọc ba ô thì gần như miễn phí; một hàm duy nhất quét cả cột một trăm nghìn dòng, nhân với năm trăm dòng công thức, là năm mươi triệu phép so sánh sau mỗi lần bạn gõ."
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        "Tránh tham chiếu cả cột kiểu A:A trong hàm tra cứu và hàm đếm theo điều kiện. Giới hạn đúng vùng dữ liệu thật, hoặc chuyển bảng thành Table để vùng tự nới.",
+        "Các hàm đọc thời gian hệ thống hoặc sinh số ngẫu nhiên tính lại sau mỗi thao tác, kể cả thao tác không liên quan. Vài ô như vậy trong một file lớn là đủ để thấy chậm.",
+        "Định dạng có điều kiện cũng là công thức, và nó chạy trên toàn bộ vùng bạn áp. Áp cho cả cột thay vì đúng vùng dữ liệu là một trong những nguồn chậm bị bỏ qua nhiều nhất.",
+        "Khi nhập liệu nhiều, chuyển Calculation Options sang Manual rồi bấm F9 khi cần xem kết quả. Nhớ chuyển lại Automatic trước khi bàn giao file."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Một bảng sáu tầng công thức vẫn mở tức thì"
+    },
+    {
+      "type": "sheet",
+      "templateSlug": "bang-theo-doi-du-an",
+      "sheetIndex": 0,
+      "note": "Sáu cột xanh lá trong bảng này đều chỉ đọc các ô trên cùng dòng, không cột nào quét một vùng. Đó là lý do file mở tức thì dù có tới sáu tầng tính toán chồng lên nhau.",
+      "copyable": true
+    },
+    {
+      "type": "functionRef",
+      "slug": "iferror",
+      "why": "Chặn phép chia cho 0 khi hạn kết thúc trùng ngày bắt đầu. Rẻ về tính toán vì nó chỉ bọc quanh một biểu thức đã tính, không quét thêm gì."
+    },
+    {
+      "type": "functionRef",
+      "slug": "min",
+      "why": "Kẹp trần tiến độ kỳ vọng tại 100 phần trăm, để một dự án đã quá hạn không cho ra con số vượt 1."
+    },
+    {
+      "type": "functionRef",
+      "slug": "max",
+      "why": "Kẹp sàn tại 0 cho dự án chưa tới ngày bắt đầu, tránh tiến độ kỳ vọng âm lan sang cột lệch tiến độ."
+    },
+    {
+      "type": "functionRef",
+      "slug": "if",
+      "why": "Chặn cả sáu tầng công thức chạy trên dòng trống — đây cũng là một biện pháp về hiệu năng, không chỉ về thẩm mỹ."
+    },
+    {
+      "type": "callout",
+      "tone": "luu-y",
+      "title": "Lưu lại dưới định dạng .xlsx nếu file đang là .xls",
+      "text": "Định dạng cũ .xls lưu dữ liệu ở dạng nhị phân không nén và giới hạn ở 65536 dòng. Chuyển sang .xlsx thường giảm dung lượng đáng kể mà không mất gì, vì .xlsx là XML được nén. Đây là cách sửa mất mười giây và ít người nghĩ tới."
+    },
+    {
+      "type": "templateRef",
+      "slug": "bang-theo-doi-du-an",
+      "why": "File mẫu có sáu tầng công thức chồng nhau mà vẫn mở tức thì, vì không cột nào quét vùng — dùng làm bản đối chiếu về cách viết công thức rẻ."
+    }
+  ],
+
+  "faq": [
+    {
+      "q": "Xóa dòng thừa rồi mà Ctrl cộng End vẫn nhảy xa?",
+      "a": "Vì bạn chưa đóng và mở lại file. Vùng dùng chỉ được Excel tính lại vào lúc mở file, nên phải xóa, lưu, đóng hẳn rồi mở lại thì mới thấy kết quả."
+    },
+    {
+      "q": "Công thức dài có làm file chậm không?",
+      "a": "Ít hơn bạn nghĩ. Thứ tốn thời gian là số ô công thức phải đọc, không phải số ký tự. Bốn hàm lồng nhau đọc ba ô gần như miễn phí; một hàm quét cả cột trăm nghìn dòng thì không."
+    },
+    {
+      "q": "Làm sao biết phần nào của file chiếm dung lượng?",
+      "a": "Đổi đuôi file thành .zip rồi giải nén. Bạn sẽ thấy từng sheet là một file XML, ảnh nằm trong thư mục media, định dạng trong styles.xml. Nhìn kích thước từng phần là biết thủ phạm."
+    },
+    {
+      "q": "Chuyển Calculation sang Manual có rủi ro gì?",
+      "a": "Có: bạn sẽ nhìn thấy kết quả cũ trong khi dữ liệu đã đổi. Dùng nó khi nhập liệu hàng loạt thì hợp lý, nhưng phải nhớ chuyển lại Automatic trước khi bàn giao file cho người khác."
+    }
+  ],
+
+  "quiz": [
+    {
+      "q": "Nguyên nhân số một của file Excel nặng bất thường là gì?",
+      "options": [
+        "Số dòng dữ liệu quá nhiều",
+        "Vùng dùng phình ra tới hàng chục nghìn dòng rỗng",
+        "Công thức quá dài"
+      ],
+      "answer": 1,
+      "explain": "Bấm Ctrl cộng End: nếu con trỏ nhảy xa khỏi dữ liệu thật thì Excel đang lưu và tính toán trên hàng chục nghìn dòng rỗng. Nguyên nhân này vô hình cho tới khi bạn bấm tổ hợp đó."
+    },
+    {
+      "q": "Sau khi xóa dòng thừa, bước nào bắt buộc?",
+      "options": [
+        "Chạy lại toàn bộ công thức",
+        "Lưu, đóng hẳn file, rồi mở lại",
+        "Đổi định dạng ô về General"
+      ],
+      "answer": 1,
+      "explain": "Vùng dùng chỉ được tính lại vào lúc mở file. Bỏ bước này thì Ctrl cộng End vẫn nhảy tới chỗ cũ, và bạn tưởng cách sửa không hiệu quả."
+    },
+    {
+      "q": "Cái gì quyết định chi phí tính toán của một công thức?",
+      "options": [
+        "Số ký tự trong công thức",
+        "Số ô mà nó phải đọc",
+        "Số hàm lồng trong nó"
+      ],
+      "answer": 1,
+      "explain": "Bốn hàm lồng nhau đọc ba ô gần như miễn phí. Một hàm duy nhất quét cả cột trăm nghìn dòng, nhân với năm trăm dòng công thức, là năm mươi triệu phép so sánh sau mỗi lần gõ."
+    },
+    {
+      "q": "Vì sao xóa nội dung bằng phím Delete không thu nhỏ được file?",
+      "options": [
+        "Vì nó chỉ xóa giá trị, ô cùng mọi định dạng bám vào nó vẫn còn",
+        "Vì Excel lưu lại lịch sử xóa",
+        "Vì phím Delete không hoạt động trên vùng lớn"
+      ],
+      "answer": 0,
+      "explain": "Phải bấm chuột phải rồi Delete để xóa hẳn dòng và cột. Ô trống mang định dạng vẫn được lưu vào file."
+    }
+  ],
+
+  "templateRefs": ["bang-theo-doi-du-an"],
+  "functionRefs": ["iferror", "min", "max", "if"],
+  "relatedSlugs": ["excel-khong-tinh-tong-duoc"],
+  "ctaText": "Học cách dựng bảng tính chạy nhanh ngay từ đầu",
+  "updatedAt": "2026-08-14"
+}

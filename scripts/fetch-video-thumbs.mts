@@ -135,7 +135,9 @@ async function scaffold(urls: string[]) {
       id,
       url,
       title: data.title.slice(0, 120),
-      summary: "TODO: 2-3 câu viết tay, đây là phần Google đọc được",
+      // Không sinh sẵn `summary`: trường này tùy chọn, không hiện trên trang,
+      // và schema đòi tối thiểu 80 ký tự KHI CÓ — một chuỗi TODO ngắn sẽ làm
+      // validate fail ngay trên file vừa tạo. Ai cần ghi chú thì tự thêm.
       publishedAt: new Date().toISOString().slice(0, 10),
       templates: guessedTemplates,
       functions: guessedFns.slice(0, 2),
@@ -147,7 +149,7 @@ async function scaffold(urls: string[]) {
     } else {
       mkdirSync(DATA_DIR, { recursive: true });
       writeFileSync(path, `${JSON.stringify(skeleton, null, 2)}\n`);
-      console.log(`✓ data/videos/${id}.json — sửa title/summary/functions`);
+      console.log(`✓ data/videos/${id}.json — sửa title/templates/functions`);
     }
 
     await downloadPoster(id, data.thumbnail_url);

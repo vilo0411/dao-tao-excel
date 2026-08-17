@@ -1,0 +1,76 @@
+{
+  "slug": "excel-khong-tinh-tong-duoc",
+  "order": 2,
+  "h1": "Bài tập tìm ra vì sao Excel cộng thiếu tiền",
+  "metaTitle": "Bài tập Excel không tính tổng được, có lời giải",
+  "metaDesc": "Một sổ quỹ năm dòng mà tổng ra thiếu. Bốn yêu cầu để tìm ra dòng nào lưu sai kiểu, đo chênh lệch, và dựng cột tồn quỹ không gãy ở dòng đầu.",
+  "primaryKeyword": "bài tập Excel không tính tổng được có lời giải",
+  "postSlug": "excel-khong-tinh-tong-duoc",
+
+  "brief": "Bạn nhận một sổ quỹ năm dòng vừa xuất từ phần mềm kế toán. Cộng cột Thu bằng hàm tổng ra 800.000, nhưng cộng bằng máy tính tay ra 1.700.000. Không ô nào báo lỗi. Nhiệm vụ là tìm ra chênh lệch nằm ở đâu, đo nó bằng công thức, rồi dựng cột tồn quỹ chạy đúng từ dòng đầu tiên.",
+
+  "dataset": {
+    "caption": "Chép bảng này vào Excel. Chú ý cột Thu và Chi khi dán vào — đó là phần bài tập",
+    "headers": ["Ngày", "Diễn giải", "Thu", "Chi"],
+    "rows": [
+      ["01/08/2026", "Thu tiền hàng khách A", "500000", "0"],
+      ["02/08/2026", "Chi mua văn phòng phẩm", "0", "300000"],
+      ["03/08/2026", "Thu tiền hàng khách B", "400000", "0"],
+      ["04/08/2026", "Thu hoàn ứng công tác", "800000", "0"],
+      ["05/08/2026", "Chi tạm ứng lương", "0", "1200000"]
+    ]
+  },
+
+  "tasks": [
+    {
+      "ask": "Chọn cột Thu và đọc Count với Sum trên thanh trạng thái. Ghi lại hai con số đó và nói xem chúng cho biết điều gì.",
+      "hint": "Count đếm đúng số dòng nhưng Sum nhỏ hơn kỳ vọng là dấu hiệu duy nhất bạn cần."
+    },
+    {
+      "ask": "Thêm một cột phụ dùng ISNUMBER để chỉ ra chính xác dòng nào đang lưu dạng văn bản, rồi lọc lấy chúng."
+    },
+    {
+      "ask": "Viết hai công thức tính tổng cột Thu theo hai cách — một bằng hàm tổng, một bằng toán tử cộng — và giải thích vì sao chúng ra khác nhau.",
+      "hint": "Chênh lệch giữa hai kết quả chính bằng phần đang lưu sai kiểu."
+    },
+    {
+      "ask": "Dựng cột Tồn quỹ luỹ kế chạy đúng ngay từ dòng dữ liệu đầu tiên, không được để dòng đầu báo lỗi.",
+      "hint": "Dòng ngay trên dòng đầu tiên là dòng tiêu đề, tức là chữ."
+    }
+  ],
+
+  "sandbox": {
+    "title": "Làm yêu cầu 3 ngay tại đây",
+    "grid": [
+      ["Ngày", "Thu"],
+      ["01/08", "500000"],
+      ["02/08", "400000"],
+      ["03/08", 800000]
+    ],
+    "prompt": "B2 và B3 đang là chuỗi, chỉ B4 là số thật. Gõ =SUM(B2:B4) sẽ ra 800000 vì hai ô kia bị bỏ qua. Viết công thức cộng bằng toán tử để lấy đúng tổng.",
+    "answer": "=B2+B3+B4",
+    "expected": "1700000",
+    "hint": "Hiệu giữa 1700000 và 800000 chính là phần đang lưu sai kiểu."
+  },
+
+  "solution": [
+    {
+      "formula": "=SUM(C2:C6)",
+      "why": "Ra 800.000. Trong một dải, hàm thống kê bỏ qua mọi ô văn bản và coi đó là hành vi đúng — vì trong dải rất có thể có ô tiêu đề hay ghi chú mà cộng vào thì vô nghĩa. Nó không báo gì cả, và đó là lý do lỗi này khó phát hiện."
+    },
+    {
+      "formula": "=C2+C3+C4+C5+C6",
+      "why": "Ra 1.700.000. Toán tử cộng cố ép chuỗi thành số nếu chuỗi đó trông giống số. Hiệu giữa hai kết quả là 900.000, đúng bằng tổng ba ô đang lưu dạng văn bản — nên phép so sánh này vừa chẩn đoán vừa đo được quy mô vấn đề."
+    },
+    {
+      "formula": "=IF(B2=\"\", \"\", N(E1) + C2 - D2)",
+      "why": "Cột tồn quỹ, với E là chính cột này. Hàm N bọc quanh ô dòng trên là mấu chốt: ở dòng dữ liệu đầu tiên, ô phía trên chính là dòng tiêu đề tức là chữ, và cộng chữ vào số sẽ ra #VALUE! làm hỏng cả cột. N đổi chữ thành 0 nên một khuôn công thức duy nhất kéo được xuống toàn cột."
+    },
+    {
+      "formula": "=IF(B2=\"\", \"\", N(E1) + C2*1 - D2*1)",
+      "why": "Bản phòng thủ hơn, nhân với 1 để ép kiểu ngay trong công thức. Nhưng đây chỉ nên là giải pháp tạm: cách đúng là chọn hai cột đó rồi dùng Data với Text to Columns và bấm Finish, để dữ liệu về đúng kiểu ở nguồn thay vì vá ở mọi công thức phía sau."
+    }
+  ],
+
+  "updatedAt": "2026-08-14"
+}

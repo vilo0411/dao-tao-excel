@@ -1,0 +1,211 @@
+{
+  "slug": "loi-in-excel-bi-mat-cot",
+  "pillar": "loi-excel",
+  "postType": "sua-loi",
+  "order": 13,
+  "h1": "Lỗi in Excel bị mất cột: bảng tràn sang trang sau mà không ai báo",
+  "metaTitle": "Lỗi in Excel bị mất cột: cách sửa triệt để",
+  "metaDesc": "In Excel bị mất cột hoặc tràn trang là do vùng in chưa được đặt và tỷ lệ chưa ép vừa. Bốn thiết lập cần đặt, và thứ tự đặt chúng.",
+  "intro": "Lỗi in Excel bị mất cột là một trong số ít sự cố mà bạn chỉ phát hiện sau khi giấy đã ra khỏi máy in. Trên màn hình bảng liền một mạch; trên giấy nó bị cắt làm đôi, ba cột cuối chạy sang một trang riêng không có tiêu đề, và người nhận bản in không hiểu ba cột số đó thuộc về dòng nào.",
+  "primaryKeyword": "lỗi in Excel bị mất cột",
+  "difficulty": "co-ban",
+
+  "body": [
+    {
+      "type": "paragraph",
+      "text": "Gốc của vấn đề là Excel không có khái niệm trang giấy như Word. Nó là một mặt phẳng vô hạn, và việc chia thành trang chỉ xảy ra vào đúng lúc bạn bấm in. Cho tới lúc đó, không có gì trên màn hình nói cho bạn biết cột nào sẽ rơi sang trang sau. Cách chữa vì vậy không phải sửa sau khi in hỏng, mà là kéo ranh giới trang lên màn hình trước khi in."
+    },
+    {
+      "type": "errorCase",
+      "error": "Bảng in ra bị cắt cột",
+      "cause": "Bảng rộng hơn khổ giấy và Excel mặc định cắt phần thừa sang trang tiếp theo thay vì thu nhỏ. Ba yếu tố cộng lại: vùng in chưa được đặt nên Excel tự đoán, tỷ lệ để ở mức tự động, và hướng giấy vẫn là khổ dọc trong khi bảng thì rộng ngang.",
+      "fix": "Bốn thiết lập theo đúng thứ tự: chuyển sang chế độ xem Page Break Preview để nhìn thấy ranh giới trang; đặt vùng in; đổi hướng giấy sang ngang nếu bảng rộng; và ép tỷ lệ vừa một trang theo chiều rộng. Riêng bước cuối giải quyết được đa số trường hợp."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Bốn thiết lập, theo đúng thứ tự"
+    },
+    {
+      "type": "steps",
+      "items": [
+        {
+          "step": "Bật Page Break Preview trước tiên",
+          "detail": "Thẻ View rồi Page Break Preview. Excel vẽ đường kẻ xanh đứt nét đúng chỗ trang sẽ bị cắt, và đánh số Page 1, Page 2 mờ lên nền. Từ giây phút này bạn nhìn thấy vấn đề thay vì đoán nó, và bạn kéo được đường kẻ đó bằng chuột."
+        },
+        {
+          "step": "Đặt vùng in",
+          "detail": "Bôi đen đúng vùng cần in rồi Page Layout, Print Area, Set Print Area. Không đặt thì Excel tự đoán vùng dùng, và nó thường đoán rộng hơn thực tế vì những ô bạn từng gõ rồi xóa vẫn được tính là đã dùng."
+        },
+        {
+          "step": "Đổi hướng giấy nếu bảng rộng ngang",
+          "detail": "Page Layout rồi Orientation rồi Landscape. Một bảng mười ba cột gần như luôn cần khổ ngang, và đổi hướng thường rẻ hơn thu nhỏ chữ vì nó không làm ai phải nheo mắt."
+        },
+        {
+          "step": "Ép vừa một trang theo chiều rộng",
+          "detail": "Page Layout, nhóm Scale to Fit, đặt Width thành 1 page và để Height là Automatic. Đây là thiết lập quan trọng nhất cả bài: nó cấm Excel cắt cột sang trang bên, và cho phép bảng dài bao nhiêu trang cũng được theo chiều dọc."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "tone": "canh-bao",
+      "title": "Đừng đặt cả Width và Height thành 1 page",
+      "text": "Đây là lỗi phổ biến ngay sau khi người ta tìm ra nhóm Scale to Fit. Ép cả hai chiều vào một trang nghĩa là bảo Excel nhét ba trăm dòng vào một tờ A4, và nó sẽ làm đúng như vậy: thu nhỏ chữ xuống cỡ không đọc nổi. Chỉ ép chiều rộng, còn chiều cao để tự động."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Lặp tiêu đề trên mọi trang"
+    },
+    {
+      "type": "paragraph",
+      "text": "Đây là thiết lập bị bỏ quên nhiều nhất, và nó quyết định bản in dài có dùng được hay không. Mặc định, dòng tiêu đề chỉ xuất hiện ở trang một. Từ trang hai trở đi người đọc nhìn thấy một khối số không có tên cột, và phải lật ngược về trang một mỗi lần muốn biết cột thứ tư là gì. Vào Page Layout rồi Print Titles rồi Rows to repeat at top và chọn dòng tiêu đề."
+    },
+    {
+      "type": "table",
+      "caption": "Bốn thiết lập hay bị bỏ sót và hậu quả của từng cái",
+      "headers": ["Thiết lập", "Nếu bỏ qua"],
+      "rows": [
+        ["Vùng in", "Excel in cả những ô trống từng được gõ rồi xóa"],
+        ["Ép vừa một trang chiều rộng", "Cột cuối chạy sang trang riêng, không tiêu đề"],
+        ["Lặp dòng tiêu đề", "Từ trang hai trở đi là khối số không tên cột"],
+        ["Cell errors as blank", "Mã lỗi in nguyên lên bản gửi khách hàng"]
+      ],
+      "copyable": false
+    },
+    {
+      "type": "paragraph",
+      "text": "Dòng cuối trong bảng trên là thiết lập nối bài này với cả cụm. Trong hộp thoại Page Setup, thẻ Sheet, mục Cell errors as cho phép chọn in mã lỗi thành ô trống. Nó không sửa lỗi và cũng không nên được dùng để giấu lỗi khỏi chính bạn — nhưng khi bản in đi ra ngoài công ty thì một ô trống vẫn hơn là một dòng chữ báo lỗi giữa bảng số liệu."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Trường hợp riêng của bảng Gantt"
+    },
+    {
+      "type": "paragraph",
+      "text": "Bảng tiến độ dạng Gantt là ca khó nhất của bài này, vì nó rộng theo bản chất chứ không phải vì thừa cột. Một dự án ba tháng cần đủ chỗ cho khoảng chín mươi ngày trên trục ngang, và không tỷ lệ thu nhỏ nào cứu được điều đó trên khổ A4. Mẫu Gantt trên site này giải bài toán đó theo hướng khác hẳn: nó không vẽ mỗi ngày một cột."
+    },
+    {
+      "type": "formula",
+      "formula": "=IF([tenCongViec]{row}=\"\",\"\",REPT(\"·\",MAX(0,[ngayBatDau]{row}-[mocGoc]{row}))&REPT(\"█\",[soNgayThucHien]{row}))",
+      "note": "Cột Sơ đồ. Thanh tiến độ được dựng bằng chữ trong một ô duy nhất chứ không phải bằng chín mươi cột tô màu: hàm REPT lặp dấu chấm cho khoảng thời gian chưa tới lượt, rồi lặp ký tự khối cho số ngày thực hiện. MAX với 0 chặn trường hợp ngày bắt đầu nằm trước mốc gốc, vốn sẽ khiến REPT nhận số âm và báo lỗi.",
+      "caption": "Cả biểu đồ Gantt nằm gọn trong một cột"
+    },
+    {
+      "type": "paragraph",
+      "text": "Hệ quả về mặt in ấn là trực tiếp: một bảng mười ba cột thì ép vừa khổ ngang không khó, trong khi một bảng chín mươi cột thì không cách nào. Đây là ví dụ cho một nguyên tắc rộng hơn cả chuyện in — cách bạn bố trí dữ liệu quyết định phần lớn những rắc rối bạn sẽ gặp về sau, và sửa bố cục bao giờ cũng rẻ hơn sửa hậu quả của nó."
+    },
+    {
+      "type": "sheet",
+      "templateSlug": "gantt-chart-excel",
+      "sheetIndex": 0,
+      "note": "Chú ý cột Sơ đồ: toàn bộ phần nhìn của biểu đồ Gantt nằm trong một cột chữ. Nhờ vậy bảng vừa khổ A4 ngang mà không cần thu nhỏ, và in ra vẫn đọc được.",
+      "copyable": true
+    },
+    {
+      "type": "functionRef",
+      "slug": "rept",
+      "why": "Hàm dựng nên cả thanh tiến độ. Nó lặp một ký tự đúng số lần cần thiết, biến một biểu đồ vốn cần chín mươi cột thành một ô chữ."
+    },
+    {
+      "type": "functionRef",
+      "slug": "max",
+      "why": "Chặn REPT nhận số âm khi ngày bắt đầu nằm trước mốc gốc — REPT với số âm báo lỗi và làm hỏng cả ô."
+    },
+    {
+      "type": "functionRef",
+      "slug": "if",
+      "why": "Chặn công thức chạy trên dòng chưa có tên công việc, để bảng không mọc ra hàng loạt ô sơ đồ rỗng khi in."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Xem trước là bước bắt buộc"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "items": [
+        "Bấm Ctrl và P để xem bản in trước khi in thật. Cửa sổ đó hiện đúng số trang và đúng cách chia trang, kể cả những thiết lập bạn vừa đổi.",
+        "Đếm số trang trong ô hiển thị ở góc dưới. Con số lớn hơn bạn nghĩ thường có nghĩa vùng in đang bao cả những ô trống từng được dùng.",
+        "Lật sang trang hai trong cửa sổ xem trước để kiểm dòng tiêu đề có lặp lại không. Đây là thứ chỉ nhìn thấy từ trang hai trở đi.",
+        "Nếu định gửi file thay vì giấy, hãy xuất PDF từ chính cửa sổ này — bản PDF thừa hưởng toàn bộ thiết lập trang, còn chụp màn hình thì không."
+      ]
+    },
+    {
+      "type": "templateRef",
+      "slug": "gantt-chart-excel",
+      "why": "File mẫu dựng cả biểu đồ tiến độ trong một cột chữ, nên nó vừa khổ A4 ngang mà không cần thu nhỏ chữ."
+    }
+  ],
+
+  "faq": [
+    {
+      "q": "Vì sao trên màn hình bảng liền mạch mà in ra lại bị cắt?",
+      "a": "Vì Excel không có khái niệm trang giấy như Word — nó là một mặt phẳng vô hạn, và việc chia trang chỉ xảy ra lúc bấm in. Bật Page Break Preview để kéo ranh giới trang lên màn hình trước khi in."
+    },
+    {
+      "q": "Thiết lập nào giải quyết được nhiều trường hợp nhất?",
+      "a": "Ép Width thành 1 page trong nhóm Scale to Fit, và để Height là Automatic. Nó cấm Excel cắt cột sang trang bên trong khi vẫn cho bảng dài bao nhiêu trang cũng được theo chiều dọc."
+    },
+    {
+      "q": "Vì sao không nên ép cả hai chiều vào một trang?",
+      "a": "Vì đó là bảo Excel nhét cả bảng vào một tờ A4, và nó sẽ thu nhỏ chữ xuống cỡ không đọc nổi. Chỉ ép chiều rộng."
+    },
+    {
+      "q": "Làm sao để dòng tiêu đề xuất hiện ở mọi trang?",
+      "a": "Page Layout rồi Print Titles rồi Rows to repeat at top, chọn dòng tiêu đề. Không đặt thì từ trang hai trở đi người đọc chỉ thấy một khối số không có tên cột."
+    }
+  ],
+
+  "quiz": [
+    {
+      "q": "Vì sao Excel cắt cột khi in mà không cảnh báo gì?",
+      "options": [
+        "Vì máy in không hỗ trợ",
+        "Vì Excel không có khái niệm trang giấy — việc chia trang chỉ xảy ra lúc bấm in",
+        "Vì file quá lớn"
+      ],
+      "answer": 1,
+      "explain": "Excel là một mặt phẳng vô hạn. Cho tới lúc in, không có gì trên màn hình nói cột nào sẽ rơi sang trang sau — trừ khi bạn bật Page Break Preview."
+    },
+    {
+      "q": "Trong nhóm Scale to Fit, nên đặt thế nào?",
+      "options": [
+        "Width 1 page, Height Automatic",
+        "Width 1 page, Height 1 page",
+        "Cả hai để Automatic"
+      ],
+      "answer": 0,
+      "explain": "Ép chiều rộng cấm Excel cắt cột sang trang bên. Ép luôn chiều cao là bảo nó nhét cả bảng vào một tờ, và chữ sẽ nhỏ tới mức không đọc được."
+    },
+    {
+      "q": "Bản in dài mà từ trang hai trở đi chỉ thấy khối số không có tên cột. Thiếu gì?",
+      "options": [
+        "Vùng in",
+        "Print Titles với Rows to repeat at top",
+        "Hướng giấy ngang"
+      ],
+      "answer": 1,
+      "explain": "Mặc định dòng tiêu đề chỉ xuất hiện ở trang một. Print Titles lặp nó ở mọi trang, và đây là thiết lập bị bỏ quên nhiều nhất."
+    },
+    {
+      "q": "Mẫu Gantt trên site giải bài toán bảng quá rộng bằng cách nào?",
+      "options": [
+        "Thu nhỏ chữ xuống cỡ 6",
+        "Dựng cả thanh tiến độ bằng chữ trong một cột duy nhất, thay vì chín mươi cột tô màu",
+        "In trên khổ A3"
+      ],
+      "answer": 1,
+      "explain": "Hàm REPT lặp ký tự để vẽ thanh tiến độ trong một ô. Bảng mười ba cột thì ép vừa khổ ngang không khó; bảng chín mươi cột thì không cách nào."
+    }
+  ],
+
+  "templateRefs": ["gantt-chart-excel"],
+  "functionRefs": ["rept", "max", "if"],
+  "relatedSlugs": ["loi-font-chu-tieng-viet-trong-excel"],
+  "ctaText": "Học cách bố trí bảng tính để in ra vẫn đọc được",
+  "updatedAt": "2026-08-14"
+}

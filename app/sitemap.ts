@@ -2,6 +2,13 @@ import type { MetadataRoute } from "next";
 import { getAllTemplates } from "@/lib/templates";
 import { getAllSystems, getPopulatedCategories } from "@/lib/systems";
 import { getAllFunctions } from "@/lib/functions";
+import {
+  getAllExercises,
+  getAllPosts,
+  getPopulatedPillars,
+  getPostsByPillar,
+  getShortcuts,
+} from "@/lib/knowledge";
 import { absoluteUrl, latestUpdate, SITE_LAUNCHED } from "@/lib/site";
 
 // Bắt buộc khi output: "export" — Next cần biết chắc file này dựng lúc build.
@@ -28,11 +35,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const templates = getAllTemplates();
   const systems = getAllSystems();
   const functions = getAllFunctions();
+  const posts = getAllPosts();
+  const shortcuts = getShortcuts();
+  const exercises = getAllExercises();
   const templateBySlug = new Map(templates.map((t) => [t.slug, t]));
 
   // Trang tổng hợp không có updatedAt riêng: nội dung của chúng chính là những
   // gì nằm bên dưới, nên ngày sửa của chúng là ngày sửa mới nhất bên dưới.
-  const everything = [...templates, ...systems];
+  const everything = [...templates, ...systems, ...posts, ...exercises];
   const siteUpdated = latestUpdate(everything, SITE_LAUNCHED);
 
   return [
@@ -76,6 +86,51 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...templates.map((template) => ({
       url: absoluteUrl(template.href),
       lastModified: template.updatedAt,
+    })),
+    /*
+     * Khu kiến thức. Ngày của hub bám ngày bài mới nhất chứ không bám ngày
+     * toàn site: hub này chỉ liệt kê bài, nên sửa một template không làm nội
+     * dung của nó thay đổi.
+     */
+    { url: absoluteUrl("/kien-thuc-excel"), lastModified: latestUpdate(posts, siteUpdated) },
+    /*
+     * Trang lộ trình không có dữ liệu riêng — nội dung của nó là toàn bộ site
+     * ráp lại — nên ngày sửa của nó đúng là ngày sửa mới nhất toàn site.
+     */
+    { url: absoluteUrl("/kien-thuc-excel/lo-trinh"), lastModified: siteUpdated },
+    ...(shortcuts
+      ? [
+          {
+            url: absoluteUrl("/kien-thuc-excel/phim-tat"),
+            lastModified: shortcuts.updatedAt,
+          },
+        ]
+      : []),
+    /*
+     * getPopulatedPillars() là đúng hàm mà generateStaticParams của trang cụm
+     * dùng, nên sitemap không thể liệt kê một cụm chưa được dựng — cùng cách
+     * đã làm với getPopulatedCategories() ở trên.
+     */
+    ...getPopulatedPillars().map((pillar) => ({
+      url: absoluteUrl(`/kien-thuc-excel/${pillar}`),
+      lastModified: latestUpdate(getPostsByPillar(pillar), siteUpdated),
+    })),
+    ...posts.map((post) => ({
+      url: absoluteUrl(post.href),
+      lastModified: post.updatedAt,
+    })),
+    /*
+     * Hub bài tập chỉ liệt kê bài tập, nên ngày của nó bám bài tập mới nhất
+     * chứ không bám ngày toàn site. Danh sách rỗng thì hub vẫn có trang (nó
+     * nói thẳng là chưa có bài nào), nên không cần lọc như với cụm.
+     */
+    {
+      url: absoluteUrl("/kien-thuc-excel/bai-tap"),
+      lastModified: latestUpdate(exercises, siteUpdated),
+    },
+    ...exercises.map((e) => ({
+      url: absoluteUrl(e.href),
+      lastModified: e.updatedAt,
     })),
   ];
 }

@@ -1,0 +1,461 @@
+{
+  "updatedAt": "2026-08-14",
+  "shortcuts": [
+    {
+      "win": "Ctrl + Mũi tên",
+      "mac": "Cmd + Mũi tên",
+      "action": "Nhảy tới ô cuối cùng của khối dữ liệu theo hướng đó",
+      "group": "Di chuyển"
+    },
+    {
+      "win": "Ctrl + Home",
+      "mac": "Cmd + Home",
+      "action": "Về ô A1 của sheet",
+      "group": "Di chuyển"
+    },
+    {
+      "win": "Ctrl + End",
+      "mac": "Cmd + End",
+      "action": "Nhảy tới ô cuối cùng của vùng đã dùng — dùng để chẩn đoán file nặng",
+      "group": "Di chuyển"
+    },
+    {
+      "win": "Ctrl + Page Down",
+      "mac": "Option + Mũi tên phải",
+      "action": "Sang sheet kế tiếp",
+      "group": "Di chuyển"
+    },
+    {
+      "win": "Ctrl + Page Up",
+      "mac": "Option + Mũi tên trái",
+      "action": "Về sheet trước đó",
+      "group": "Di chuyển"
+    },
+    {
+      "win": "Ctrl + G",
+      "mac": "Ctrl + G",
+      "action": "Mở hộp thoại Go To để nhảy tới một ô hoặc vùng cụ thể",
+      "group": "Di chuyển"
+    },
+    {
+      "win": "F5",
+      "mac": "F5",
+      "action": "Mở Go To, từ đây vào Special để chọn ô lỗi hoặc ô trống",
+      "group": "Di chuyển"
+    },
+    {
+      "win": "Ctrl + F",
+      "mac": "Cmd + F",
+      "action": "Tìm kiếm trong sheet",
+      "group": "Di chuyển"
+    },
+    {
+      "win": "Ctrl + H",
+      "mac": "Ctrl + H",
+      "action": "Tìm và thay thế",
+      "group": "Di chuyển"
+    },
+    {
+      "win": "Alt + Page Down",
+      "mac": "Option + Page Down",
+      "action": "Cuộn sang phải một màn hình",
+      "group": "Di chuyển"
+    },
+    {
+      "win": "Ctrl + Backspace",
+      "mac": "Cmd + Delete",
+      "action": "Cuộn về đúng ô đang chọn khi bị lạc",
+      "group": "Di chuyển"
+    },
+    {
+      "win": "Ctrl + Shift + Mũi tên",
+      "mac": "Cmd + Shift + Mũi tên",
+      "action": "Chọn tới ô cuối cùng của khối dữ liệu theo hướng đó",
+      "group": "Chọn"
+    },
+    {
+      "win": "Ctrl + A",
+      "mac": "Cmd + A",
+      "action": "Chọn cả bảng hiện tại, bấm lần nữa để chọn cả sheet",
+      "group": "Chọn"
+    },
+    {
+      "win": "Ctrl + Space",
+      "mac": "Ctrl + Space",
+      "action": "Chọn cả cột",
+      "group": "Chọn"
+    },
+    {
+      "win": "Shift + Space",
+      "mac": "Shift + Space",
+      "action": "Chọn cả dòng",
+      "group": "Chọn"
+    },
+    {
+      "win": "Shift + Mũi tên",
+      "mac": "Shift + Mũi tên",
+      "action": "Mở rộng vùng chọn từng ô một",
+      "group": "Chọn"
+    },
+    {
+      "win": "Ctrl + Shift + End",
+      "mac": "Cmd + Shift + End",
+      "action": "Chọn từ ô hiện tại tới ô cuối vùng đã dùng",
+      "group": "Chọn"
+    },
+    {
+      "win": "Ctrl + Shift + O",
+      "mac": "Ctrl + Shift + O",
+      "action": "Chọn mọi ô có ghi chú",
+      "group": "Chọn"
+    },
+    {
+      "win": "Ctrl + \\",
+      "mac": "Ctrl + \\",
+      "action": "Chọn những ô trong dòng khác với ô đầu — dò lệch dữ liệu",
+      "group": "Chọn"
+    },
+    {
+      "win": "F2",
+      "mac": "Ctrl + U",
+      "action": "Sửa nội dung ô, con trỏ vào cuối chuỗi",
+      "group": "Nhập liệu"
+    },
+    {
+      "win": "Alt + Enter",
+      "mac": "Option + Enter",
+      "action": "Xuống dòng bên trong cùng một ô",
+      "group": "Nhập liệu"
+    },
+    {
+      "win": "Ctrl + Enter",
+      "mac": "Ctrl + Enter",
+      "action": "Điền cùng nội dung vào toàn bộ vùng đang chọn",
+      "group": "Nhập liệu"
+    },
+    {
+      "win": "Ctrl + D",
+      "mac": "Ctrl + D",
+      "action": "Sao chép ô phía trên xuống",
+      "group": "Nhập liệu"
+    },
+    {
+      "win": "Ctrl + R",
+      "mac": "Ctrl + R",
+      "action": "Sao chép ô bên trái sang",
+      "group": "Nhập liệu"
+    },
+    {
+      "win": "Ctrl + ;",
+      "mac": "Ctrl + ;",
+      "action": "Chèn ngày hôm nay dưới dạng giá trị cố định",
+      "group": "Nhập liệu"
+    },
+    {
+      "win": "Ctrl + Shift + :",
+      "mac": "Cmd + Shift + :",
+      "action": "Chèn giờ hiện tại dưới dạng giá trị cố định",
+      "group": "Nhập liệu"
+    },
+    {
+      "win": "Ctrl + Z",
+      "mac": "Cmd + Z",
+      "action": "Hoàn tác — cách duy nhất khôi phục công thức sau lỗi #REF!",
+      "group": "Nhập liệu"
+    },
+    {
+      "win": "Ctrl + Y",
+      "mac": "Cmd + Y",
+      "action": "Làm lại thao tác vừa hoàn tác",
+      "group": "Nhập liệu"
+    },
+    {
+      "win": "Ctrl + '",
+      "mac": "Ctrl + '",
+      "action": "Chép công thức của ô phía trên xuống, giữ nguyên tham chiếu",
+      "group": "Nhập liệu"
+    },
+    {
+      "win": "Alt + =",
+      "mac": "Cmd + Shift + T",
+      "action": "Chèn hàm tính tổng cho vùng phía trên",
+      "group": "Nhập liệu"
+    },
+    {
+      "win": "Ctrl + 1",
+      "mac": "Cmd + 1",
+      "action": "Mở hộp thoại Format Cells",
+      "group": "Định dạng"
+    },
+    {
+      "win": "Ctrl + B",
+      "mac": "Cmd + B",
+      "action": "In đậm chữ trong ô hoặc trong vùng đang chọn",
+      "group": "Định dạng"
+    },
+    {
+      "win": "Ctrl + I",
+      "mac": "Cmd + I",
+      "action": "In nghiêng",
+      "group": "Định dạng"
+    },
+    {
+      "win": "Ctrl + U",
+      "mac": "Cmd + U",
+      "action": "Gạch chân chữ trong ô hoặc trong vùng đang chọn",
+      "group": "Định dạng"
+    },
+    {
+      "win": "Ctrl + 5",
+      "mac": "Cmd + Shift + X",
+      "action": "Gạch ngang chữ",
+      "group": "Định dạng"
+    },
+    {
+      "win": "Ctrl + Shift + 1",
+      "mac": "Ctrl + Shift + 1",
+      "action": "Định dạng số có phân cách hàng nghìn, hai chữ số thập phân",
+      "group": "Định dạng"
+    },
+    {
+      "win": "Ctrl + Shift + 3",
+      "mac": "Ctrl + Shift + 3",
+      "action": "Định dạng ngày tháng",
+      "group": "Định dạng"
+    },
+    {
+      "win": "Ctrl + Shift + 4",
+      "mac": "Ctrl + Shift + 4",
+      "action": "Định dạng tiền tệ",
+      "group": "Định dạng"
+    },
+    {
+      "win": "Ctrl + Shift + 5",
+      "mac": "Ctrl + Shift + 5",
+      "action": "Định dạng phần trăm",
+      "group": "Định dạng"
+    },
+    {
+      "win": "Ctrl + Shift + ~",
+      "mac": "Ctrl + Shift + ~",
+      "action": "Về định dạng General — dùng để kiểm ô ngày tháng có phải số thật không",
+      "group": "Định dạng"
+    },
+    {
+      "win": "Alt + H rồi E rồi F",
+      "mac": "—",
+      "action": "Xóa định dạng, giữ nguyên nội dung",
+      "group": "Định dạng"
+    },
+    {
+      "win": "Ctrl + Shift + &",
+      "mac": "—",
+      "action": "Thêm viền quanh vùng đang chọn",
+      "group": "Định dạng"
+    },
+    {
+      "win": "Ctrl + Shift + _",
+      "mac": "—",
+      "action": "Bỏ mọi viền của vùng đang chọn",
+      "group": "Định dạng"
+    },
+    {
+      "win": "=",
+      "mac": "=",
+      "action": "Bắt đầu một công thức — phải là ký tự đầu tiên tuyệt đối",
+      "group": "Công thức"
+    },
+    {
+      "win": "F4",
+      "mac": "Cmd + T",
+      "action": "Đổi qua lại giữa tham chiếu tương đối và tuyệt đối",
+      "group": "Công thức"
+    },
+    {
+      "win": "F9",
+      "mac": "F9",
+      "action": "Tính lại toàn bộ workbook; bôi đen một đoạn công thức rồi bấm để xem giá trị đoạn đó",
+      "group": "Công thức"
+    },
+    {
+      "win": "Shift + F9",
+      "mac": "Shift + F9",
+      "action": "Chỉ tính lại sheet hiện tại",
+      "group": "Công thức"
+    },
+    {
+      "win": "Ctrl + `",
+      "mac": "Ctrl + `",
+      "action": "Bật tắt chế độ hiện công thức thay vì kết quả",
+      "group": "Công thức"
+    },
+    {
+      "win": "Ctrl + [",
+      "mac": "Ctrl + [",
+      "action": "Nhảy tới các ô mà công thức này tham chiếu",
+      "group": "Công thức"
+    },
+    {
+      "win": "Ctrl + ]",
+      "mac": "Ctrl + ]",
+      "action": "Nhảy tới các ô đang tham chiếu tới ô này",
+      "group": "Công thức"
+    },
+    {
+      "win": "Shift + F3",
+      "mac": "Shift + F3",
+      "action": "Mở hộp thoại chèn hàm",
+      "group": "Công thức"
+    },
+    {
+      "win": "Ctrl + Shift + Enter",
+      "mac": "Ctrl + Shift + Enter",
+      "action": "Nhập công thức mảng ở các bản Excel cũ",
+      "group": "Công thức"
+    },
+    {
+      "win": "Esc",
+      "mac": "Esc",
+      "action": "Hủy việc đang sửa ô — dùng sau khi bấm F9 để không ghi đè công thức",
+      "group": "Công thức"
+    },
+    {
+      "win": "Ctrl + Shift + +",
+      "mac": "Ctrl + Shift + +",
+      "action": "Chèn ô, dòng hoặc cột",
+      "group": "Hàng cột"
+    },
+    {
+      "win": "Ctrl + -",
+      "mac": "Cmd + -",
+      "action": "Xóa hẳn ô, dòng hoặc cột — khác với phím Delete chỉ xóa nội dung",
+      "group": "Hàng cột"
+    },
+    {
+      "win": "Ctrl + 9",
+      "mac": "Ctrl + 9",
+      "action": "Ẩn dòng đang chọn",
+      "group": "Hàng cột"
+    },
+    {
+      "win": "Ctrl + Shift + 9",
+      "mac": "Ctrl + Shift + 9",
+      "action": "Hiện lại dòng đã ẩn",
+      "group": "Hàng cột"
+    },
+    {
+      "win": "Ctrl + 0",
+      "mac": "Ctrl + 0",
+      "action": "Ẩn cột đang chọn",
+      "group": "Hàng cột"
+    },
+    {
+      "win": "Alt + H rồi O rồi I",
+      "mac": "—",
+      "action": "Tự động điều chỉnh độ rộng cột vừa nội dung",
+      "group": "Hàng cột"
+    },
+    {
+      "win": "Alt + H rồi O rồi A",
+      "mac": "—",
+      "action": "Tự động điều chỉnh chiều cao dòng",
+      "group": "Hàng cột"
+    },
+    {
+      "win": "Ctrl + Shift + L",
+      "mac": "Cmd + Shift + F",
+      "action": "Bật hoặc tắt bộ lọc",
+      "group": "Dữ liệu"
+    },
+    {
+      "win": "Ctrl + T",
+      "mac": "Ctrl + T",
+      "action": "Chuyển vùng thành Table — vùng lọc và vùng công thức tự nới theo",
+      "group": "Dữ liệu"
+    },
+    {
+      "win": "Alt + Mũi tên xuống",
+      "mac": "Option + Mũi tên xuống",
+      "action": "Mở danh sách lọc của cột đang đứng",
+      "group": "Dữ liệu"
+    },
+    {
+      "win": "Alt + ;",
+      "mac": "Cmd + Shift + Z",
+      "action": "Chỉ chọn những ô đang hiện, bỏ qua dòng bị lọc ẩn",
+      "group": "Dữ liệu"
+    },
+    {
+      "win": "Ctrl + Shift + V",
+      "mac": "Ctrl + Shift + V",
+      "action": "Mở Paste Special",
+      "group": "Dữ liệu"
+    },
+    {
+      "win": "Alt + A rồi E",
+      "mac": "—",
+      "action": "Mở Text to Columns — cách chuyển cả cột về đúng kiểu dữ liệu",
+      "group": "Dữ liệu"
+    },
+    {
+      "win": "Alt + N rồi V",
+      "mac": "—",
+      "action": "Tạo bảng tổng hợp PivotTable",
+      "group": "Dữ liệu"
+    },
+    {
+      "win": "Alt + F1",
+      "mac": "—",
+      "action": "Tạo biểu đồ từ vùng đang chọn, đặt ngay trong sheet",
+      "group": "Dữ liệu"
+    },
+    {
+      "win": "Ctrl + S",
+      "mac": "Cmd + S",
+      "action": "Lưu file — nhớ rằng lưu xong là không hoàn tác được lỗi #REF! nữa",
+      "group": "File và xem"
+    },
+    {
+      "win": "Ctrl + P",
+      "mac": "Cmd + P",
+      "action": "Xem trước bản in — bước bắt buộc trước khi in thật",
+      "group": "File và xem"
+    },
+    {
+      "win": "Ctrl + W",
+      "mac": "Cmd + W",
+      "action": "Đóng workbook hiện tại",
+      "group": "File và xem"
+    },
+    {
+      "win": "Ctrl + N",
+      "mac": "Cmd + N",
+      "action": "Tạo workbook mới",
+      "group": "File và xem"
+    },
+    {
+      "win": "Ctrl + F1",
+      "mac": "Cmd + Option + R",
+      "action": "Thu gọn hoặc mở lại dải ribbon",
+      "group": "File và xem"
+    },
+    {
+      "win": "Alt + W rồi F rồi F",
+      "mac": "—",
+      "action": "Đóng băng dòng và cột để tiêu đề dính khi cuộn",
+      "group": "File và xem"
+    },
+    {
+      "win": "Ctrl + F9",
+      "mac": "Cmd + M",
+      "action": "Thu nhỏ cửa sổ workbook",
+      "group": "File và xem"
+    },
+    {
+      "win": "Shift + F11",
+      "mac": "Shift + F11",
+      "action": "Chèn một sheet mới",
+      "group": "File và xem"
+    }
+  ]
+}

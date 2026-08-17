@@ -16,8 +16,43 @@ import type { Video } from "@/lib/videos";
  * đó chỉ làm đúng một việc là quét DOM rồi thay blockquote bằng chính iframe
  * này, nhưng nó lại nạp thêm JS và không tự chạy lại sau khi Next.js điều
  * hướng phía client — tức là vừa nặng hơn vừa dễ hỏng hơn.
+ *
+ * Không in `title` và `summary` ra trang: quyết định của chủ site, chỉ nhúng
+ * link. Hệ quả cần biết trước khi ai đó tính chuyện SEO cho khối này — trang
+ * không nhận được một chữ nào có thể index từ video, vì phần chữ duy nhất còn
+ * lại nằm trong `sr-only` và thuộc tính `title` của iframe, cả hai chỉ để
+ * người dùng screen reader biết nút này mở cái gì. `summary` vì thế cũng
+ * không còn bắt buộc trong schema, xem lib/videos.ts.
  */
-export function VideoTip({ video }: { video: Video }) {
+
+/**
+ * Khung embed của TikTok là một layout dọc CỐ ĐỊNH: header tài khoản + video
+ * dọc + dòng nhạc, đo được 738px và không co theo khung cha. Nó cũng không gửi
+ * postMessage báo chiều cao, nên không có cách nào tự đo — phải đặt cứng.
+ *
+ * Bản đầu để khung player theo `aspect-video` cho hợp bố cục desktop. Iframe
+ * vẫn nạp, vẫn có thẻ <video> bên trong, nên mọi kiểm tra "có render không"
+ * đều pass — nhưng khung chỉ cao 197px và người xem chỉ thấy một lát header.
+ * Trông y như hỏng. Đừng đổi hai hằng số này về đơn vị co giãn.
+ */
+const PLAYER_HEIGHT = 739;
+/** Dưới 325px layout trong iframe vỡ; trên 605px TikTok để hai dải đen hai bên. */
+const PLAYER_MAX_WIDTH = 605;
+
+/**
+ * Chỉ những trường component này thật sự dùng, KHÔNG phải cả `Video`.
+ *
+ * Props của client component bị serialize vào payload RSC của trang. Nhận
+ * nguyên `Video` thì `summary`, `url` và `publishedAt` cũng đi theo xuống
+ * trình duyệt dù không có gì render chúng — `summary` một mình đã hơn 200 ký
+ * tự mỗi video. Cùng lý do khiến VideoTipSection phải là server component.
+ */
+export type VideoTipProps = Pick<
+  Video,
+  "id" | "title" | "poster" | "templates" | "functions"
+>;
+
+export function VideoTip({ video }: { video: VideoTipProps }) {
   const [playing, setPlaying] = useState(false);
 
   function play() {
@@ -32,13 +67,26 @@ export function VideoTip({ video }: { video: Video }) {
   }
 
   return (
-    <figure className="overflow-hidden rounded-lg border border-rule bg-paper">
-      <div className="relative aspect-[9/16] w-full bg-surface-strong sm:aspect-video">
+    <figure
+      className="overflow-hidden rounded-lg border border-rule bg-paper"
+      style={playing ? { maxWidth: PLAYER_MAX_WIDTH } : undefined}
+    >
+      <div
+        /*
+         * Poster giữ đúng 9/16 ở mọi bề rộng, không đổi sang aspect-video ở
+         * desktop nữa. Poster TikTok là ảnh dọc và gần như luôn có chữ tiêu đề
+         * ở phần trên; khung 16/9 cắt đúng dải đó. Hồi còn caption bên dưới thì
+         * không sao, nhưng giờ trang không in tiêu đề nữa nên poster là thứ duy
+         * nhất nói cho người đọc biết video này về cái gì.
+         */
+        className={`relative w-full bg-surface-strong ${playing ? "" : "aspect-[9/16]"}`}
+        style={playing ? { height: PLAYER_HEIGHT } : undefined}
+      >
         {playing ? (
           <iframe
             src={`https://www.tiktok.com/embed/v2/${video.id}`}
             title={video.title}
-            allow="encrypted-media; picture-in-picture; fullscreen"
+            allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
             className="absolute inset-0 h-full w-full"
           />
         ) : (
@@ -71,19 +119,6 @@ export function VideoTip({ video }: { video: Video }) {
           </button>
         )}
       </div>
-
-      <figcaption className="border-t border-rule p-5">
-        <p className="font-medium text-ink">{video.title}</p>
-        <p className="mt-2 text-sm text-ink-soft">{video.summary}</p>
-        <a
-          href={video.url}
-          target="_blank"
-          rel="noopener"
-          className="mt-3 inline-block text-sm text-ink-faint underline decoration-rule underline-offset-2 hover:text-ink"
-        >
-          Xem trên TikTok của HVS Tài Chính Số
-        </a>
-      </figcaption>
     </figure>
   );
 }

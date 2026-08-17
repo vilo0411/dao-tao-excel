@@ -2,12 +2,12 @@
 
 Excel Template Hub — pSEO Lead Magnet → Khóa học HVS
 
-*v2.1 — bỏ bridge page khóa học, thêm glossary hàm Excel*
+*v2.2 — mở khu kiến thức /kien-thuc-excel với curriculum tuyến tính và lớp tương tác*
 
-| Version | v2.1 |
+| Version | v2.2 |
 | :---- | :---- |
-| **Ngày** | 31/07/2026 |
-| **Thay thế** | v2.0 (28/07/2026) |
+| **Ngày** | 14/08/2026 |
+| **Thay thế** | v2.1 (31/07/2026) |
 | **Trạng thái** | Đang triển khai — hạ tầng xong, đang scale nội dung |
 | **Thị trường** | Việt Nam (vi-VN) |
 | **Tech stack** | Next.js 16 (App Router) + TypeScript + Tailwind v4 |
@@ -15,7 +15,18 @@ Excel Template Hub — pSEO Lead Magnet → Khóa học HVS
 
 ---
 
-## 0. NHỮNG GÌ ĐÃ THAY ĐỔI SO VỚI v2.0
+## 0. NHỮNG GÌ ĐÃ THAY ĐỔI SO VỚI v2.1 (v2.2 — 14/08/2026)
+
+| Hạng mục | v2.1 | v2.2 (đang làm) | Lý do |
+| :---- | :---- | :---- | :---- |
+| `/blog` | "Không làm — chỉ xét sau khi 36 trang đã index" (mục 2.6) | **Mở tại `/kien-thuc-excel`**, xem mục 2.9 | Điều kiện đã đạt: 37 template + 1 bộ + 10 trang hàm. Hai intent hiện có ("tải mẫu", "tra hàm") không phủ được nhóm tìm kiếm lớn nhất của ngành — người đang bí một lỗi cụ thể |
+| Cấu trúc nội dung dài | Chưa có | **Curriculum tuyến tính**: bài có `order`, có Bài trước/Bài sau, mục lục cả cụm trên mỗi trang | Mô hình của w3schools.com/excel. Biến 15 trang rời thành một cụm mà Google đọc được thứ tự và độ đầy đủ; mỗi bài nhận thêm 14 link ngữ cảnh |
+| Lớp tương tác | Không có | **Copy dữ liệu (TSV) · quiz tự chấm · sandbox công thức**, thuần client | Site xuất tĩnh nên không có tài khoản, không lưu tiến độ, không chấm phía máy chủ. Đổi lại, không đối thủ Việt nào trong bốn site đã khảo sát có lớp này |
+| Bộ tính công thức | Không có | `lib/formula-eval.ts` — 10 hàm, đúng bằng số hàm có trang | Điều kiện để sandbox tồn tại. Không import được `FUNCTION_INFO` (nó kéo theo `node:fs`), nên chiều kiểm bị đảo: `lib/knowledge.ts` gãy build nếu evaluator không phủ hết hàm đang có trang |
+
+*(Changelog v1.0 → v2.1 giữ nguyên bên dưới, không xoá.)*
+
+## 0.1 NHỮNG GÌ ĐÃ THAY ĐỔI SO VỚI v2.0
 
 | Hạng mục | v2.0 (kế hoạch) | v2.1 (thực tế đang làm) | Lý do |
 | :---- | :---- | :---- | :---- |
@@ -25,7 +36,7 @@ Excel Template Hub — pSEO Lead Magnet → Khóa học HVS
 
 *(Changelog v1.0 → v2.0 giữ nguyên bên dưới, không xoá — để không ai đọc nhầm hướng cũ.)*
 
-## 0.1 NHỮNG GÌ ĐÃ THAY ĐỔI SO VỚI v1.0
+## 0.2 NHỮNG GÌ ĐÃ THAY ĐỔI SO VỚI v1.0
 
 Ghi lại rõ để không ai đọc PRD cũ rồi làm sai hướng.
 
@@ -107,6 +118,13 @@ Google search "hàm vlookup trong excel" (intent học hàm, không phải tải
 │
 ├── /ham-excel                             ✅ Glossary hàm Excel (mục 2.8) — nhánh riêng, không nằm dưới /mau-excel
 │   └── /ham-excel/[function]              ✅ 1 hàm/trang, chỉ mở khi có template thật dùng hàm đó
+│
+├── /kien-thuc-excel                       ✅ Khu kiến thức (mục 2.9) — nhánh riêng ở gốc
+│   ├── /kien-thuc-excel/[pillar]          ✅ Cụm chủ đề, chỉ mở khi ≥ 8 bài
+│   │   └── /[pillar]/[slug]               ✅ Bài viết, có Bài trước / Bài sau
+│   ├── /kien-thuc-excel/lo-trinh          ⬜ Nối cả ba nhánh, sinh từ dữ liệu đã có
+│   ├── /kien-thuc-excel/phim-tat          ⬜ Bảng tra phím tắt lọc được
+│   └── /kien-thuc-excel/bai-tap           ⬜ Hub bài tập + 1 trang / bài lý thuyết
 │
 ├── /sitemap.xml                           ✅ Tự sinh, lọc category rỗng
 ├── /robots.txt                            ✅ Allow all, disallow /api/
@@ -210,6 +228,32 @@ Ngoài trang template, một nguồn traffic khác đang bị bỏ trống: ngư
 | **Điều kiện mở** | Một hàm chỉ lên trang khi có ≥ 1 template thật dùng hàm đó — cùng nguyên tắc chống thin content với category (mục 2.1). `npm run validate` ném lỗi nếu một hàm mới xuất hiện trong công thức mà `FUNCTION_INFO` chưa có mục tương ứng |
 | **Trạng thái** | 8 hàm có trang: IF, IFERROR, AND, OR, N, ROUND, MAX, MIN — đúng số hàm thật đang chạy trong 18 template hiện có. Số này tự tăng khi viết thêm template dùng hàm mới, không cần sửa route |
 
+### 2.9 Khu Kiến thức Excel — `/kien-thuc-excel` ⭐ (v2.2)
+
+Hai intent site đang phục vụ — "tải mẫu" và "tra hàm" — không phủ được nhóm tìm kiếm lớn nhất của ngành: người đang **bí một lỗi cụ thể**. Khảo sát sitemap thật của bốn đối thủ (gitiho 1.053 bài Excel, hocexcel.online 1.867 bài, cộng hoanghamobile và phongvu) cho thấy đây cũng là chỗ họ mỏng nhất: `#NUM!` `#NULL!` `#SPILL!` không ai có bài nào, `#NAME?` và `#DIV/0!` mỗi mã một bài, và **không site nào có trang tổng hợp lỗi**.
+
+| | |
+| :---- | :---- |
+| **Vị trí URL** | `/kien-thuc-excel` → `/[pillar]` → `/[pillar]/[slug]`. Nhánh riêng ở gốc, cùng lý do `/ham-excel` không nằm dưới `/mau-excel`: khác intent thì khác cây |
+| **Nguồn dữ liệu** | `data/knowledge/[pillar]/*.json`, schema `lib/knowledge-schema.ts`, loader `lib/knowledge.ts` |
+| **Thân bài** | Mảng khối **có kiểu** (14 loại), không phải Markdown. Đổi lại việc viết dài dòng hơn, mọi thứ kiểm được lúc build |
+| **Cấu trúc** | **Curriculum tuyến tính**: mỗi bài có `order` duy nhất và liên tục 1..N, có Bài trước / Bài sau, và mang mục lục cả cụm. Mỗi bài vì thế nhận thêm 14 link ngữ cảnh |
+| **Tương tác** | Nút chép dữ liệu ra TSV · quiz tự chấm · sandbox công thức chạy bằng `lib/formula-eval.ts`. Thuần client, không tài khoản, không lưu tiến độ — site xuất tĩnh. **Tương tác là lớp phủ, không phải nội dung**: mọi thứ phải đọc được khi tắt JS |
+| **Điều kiện mở cụm** | `MIN_POSTS_PER_PILLAR = 8`. Cụm dở dang **fail build**, không lọc im lặng — cùng lý do đã ghi ở `MIN_TEMPLATES_PER_CATEGORY` |
+| **Trạng thái** | Cụm 1 "Lỗi Excel" đã mở với 8/15 bài. Cụm 2 (nghiệp vụ theo vai trò) và cụm 3 (Excel cơ bản) chưa khai trong `PILLARS` |
+
+**Luật chống ăn thịt keyword — ba tầng.** Đây là phần quan trọng nhất của mục này. Một bài chỉ được tồn tại nếu nội dung của nó **không thuộc `/mau-excel` lẫn `/ham-excel`**.
+
+| Tầng | Cơ chế | Ở đâu |
+| :--- | :---- | :---- |
+| A — hình dạng schema | Spec bài **không có** trường `syntax`, `definition`, `sheets`, `columns`, `downloadUrl`. Muốn nói về hàm thì chỉ có khối `functionRef` mang `slug` + `why`, cú pháp do component đọc từ `FUNCTION_INFO`. Vi phạm không bị cấm — nó **bất khả biểu diễn** | `lib/knowledge-schema.ts` |
+| B — tường lửa từ khóa | Sáu luật: chặn `primaryKeyword` dạng "mẫu/tải…", dạng "hàm X…", chứa tên hàm đã có trang; chặn trùng với 37 keyword template và mọi biến thể "hàm X"; chặn slug đụng không gian tên hai khu kia; chặn `h1`/`metaTitle` mở đầu bằng Mẫu/Tải/Hàm | `lib/knowledge.ts` |
+| C — công thức phải trỏ ra | Mọi hàm **đã có trang** xuất hiện trong khối `formula` đều phải khai trong `functionRefs`, và component render nó thành link sang `/ham-excel`. Dùng đúng regex của `lib/functions.ts` để hai nơi không lệch | `lib/knowledge.ts` |
+
+**Bất biến khác, đều gãy build:** đáp án sandbox phải khớp kết quả thật của `lib/formula-eval.ts`; evaluator phải phủ hết tập hàm đang có trang; `templateRefs` tối thiểu 1 và phải được render trong thân bài (khai mà không render là link ma); thân bài ≥ 1.000 từ, ≥ 3 heading cấp 2, ≥ 1 khối bằng chứng.
+
+**Cổng chưa từng thấy đỏ là cổng chưa biết có chạy hay không** — `scripts/test-knowledge-gates.mts` cố tình đưa dữ liệu bẩn vào và xác nhận từng cổng thật sự chặn. Chạy trong `npm run validate`.
+
 ### 2.5 Cấu trúc liên kết nội bộ (không được có trang mồ côi)
 
 ```
@@ -221,15 +265,27 @@ Mỗi trang template link ra:             ▼
   · breadcrumb  → Trang chủ / Mẫu Excel / Category
   · related     → 3 template (khai trong spec, thiếu thì tự bù cùng category)
   · CTA         → HVS (kèm UTM)
+
+Từ v2.2, khu kiến thức nối ba nhánh lại thành mạch hai chiều:
+
+  /kien-thuc-excel ──► cụm ──► bài ──┬──► /mau-excel/[category]/[slug]
+         ▲                    ▲      └──► /ham-excel/[function]
+         │                    │                    │        │
+         │              Bài trước ⇄ Bài sau        │        │
+         │                                         ▼        ▼
+         └───────────── "Lỗi hay gặp khi dùng file này" ────┘
+                        "Khi hàm X không chạy như mong đợi"
 ```
 
 `getRelatedTemplates()` đã tự bù related bằng template cùng category khi spec khai thiếu, nên điều kiện "không trang mồ côi" được bảo đảm ở tầng code, không phụ thuộc người viết nội dung.
+
+Khu kiến thức áp dụng cùng nguyên tắc ở cả hai chiều. **Chiều ra** bị schema ép: `templateRefs` tối thiểu 1, và slug khai ra phải thật sự được render trong thân bài. **Chiều vào** không cần khai gì cả — `getPostsForTemplate()` và `getPostsForFunction()` dựng chỉ mục ngược lúc build từ chính `templateRefs`/`functionRefs` của bài. Nhờ vậy viết thêm một bài là tự có link từ trang template và trang hàm về nó, không ai phải nhớ đi sửa 37 file spec. `getRelatedPosts()` tự bù bài liên quan bằng bài **đứng gần nhất trong chuỗi**, không phải bài bất kỳ cùng cụm.
 
 ### 2.6 Những trang KHÔNG làm
 
 | Trang | Lý do |
 | :---- | :---- |
-| `/blog`, bài viết dài | Ưu tiên template trước; blog chỉ xét sau khi 36 trang đã index |
+| ~~`/blog`, bài viết dài~~ | ~~Ưu tiên template trước; blog chỉ xét sau khi 36 trang đã index~~ — **điều kiện đã đạt** (37 template, 08/2026). Đã mở tại `/kien-thuc-excel`, xem mục 2.9 và sửa đổi v2.2 ở mục 0 |
 | Trang lọc theo hàm Excel như một trang danh mục độc lập | Tách khỏi mục 2.8 — trang glossary hàm (mục 2.8) không phải trang lọc, mà là nội dung phụ trợ dựng từ dữ liệu đã có sẵn |
 | Trang lọc theo độ khó | Trùng ý định tìm kiếm với category, dễ thành duplicate |
 | Đăng nhập, tài khoản, thanh toán | Nằm bên HVS |

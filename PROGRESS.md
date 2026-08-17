@@ -3,7 +3,7 @@
 Bảng theo dõi bám theo khung trong [prd-excel-template-hub.md](prd-excel-template-hub.md) mục 2.
 Cập nhật file này mỗi khi làm xong một template hoặc một hạng mục hạ tầng.
 
-**Cập nhật lần cuối:** 10/08/2026
+**Cập nhật lần cuối:** 14/08/2026
 
 ---
 
@@ -16,9 +16,11 @@ Cập nhật file này mỗi khi làm xong một template hoặc một hạng m�
 | Template `quan-ly-cong-viec` | 12 | 12 | `██████████` 100% |
 | **Tổng template** | **37** | **37** | `██████████` 100% |
 | Bộ file | 1 | 3 | `███░░░░░░░` 33% |
-| Hạ tầng | 15 | 18 | `████████░░` 83% |
+| Hạ tầng | 23 | 26 | `█████████░` 88% |
+| Bài cụm Lỗi Excel | 15 | 15 | `██████████` 100% |
+| Bài tập kèm theo | 3 | 15 | `██░░░░░░░░` 20% |
 
-**Giai đoạn hiện tại:** A — **đủ 37/37 template của Phase 1**, còn lại là rà nghiệp vụ và lên domain.
+**Giai đoạn hiện tại:** A — **đủ 37/37 template của Phase 1**, cộng khu kiến thức đã mở với 15/15 bài của cụm đầu. Còn lại là rà nghiệp vụ và lên domain.
 **Chặn giai đoạn B:** cần 12 trang qua DoD + lên domain thật + GSC nhận sitemap.
 Nút cổ chai giờ chỉ còn một: **cột Rà** — 37 trang đang chờ người rà soát, trong đó 25 trang nhân sự và kế toán cần người có nghiệp vụ, còn 12 trang quản lý công việc chỉ cần rà bằng mắt vì mọi ngưỡng trong đó là quy ước quản trị, không phải quy định pháp luật.
 
@@ -172,6 +174,50 @@ Số 3 (`gantt-chart-excel`) có một ràng buộc kỹ thuật cần kiểm b�
 
 ---
 
+## Kiến thức Excel — `/kien-thuc-excel`
+
+Khu thứ ba của site (PRD mục 2.9, v2.2). Cụm mở khi đủ **8 bài** — dưới ngưỡng thì fail build.
+
+### Cụm 1 · Lỗi Excel — `/kien-thuc-excel/loi-excel` ✅ đã mở
+
+Ba cột trạng thái, khác với template vì bài viết không sinh ra file .xlsx nào:
+**Spec** = Zod pass + 13 cổng kiểm qua (`npm run validate`) · **Rà** = người có nghiệp vụ đọc lại · **Live** = mở được URL thật.
+
+| # | Slug | Từ khóa chính | → file mẫu | Spec | Rà | Live |
+| :--- | :---- | :---- | :---- | :--- | :--- | :--- |
+| 1 | `loi-value-trong-excel` | lỗi #VALUE! trong Excel | `bang-tinh-luong-nhan-vien` | ✅ | ⬜ | ⬜ |
+| 2 | `loi-na-trong-excel` | lỗi #N/A trong Excel | `bang-theo-doi-cong-no-phai-thu` | ✅ | ⬜ | ⬜ |
+| 3 | `loi-ref-trong-excel` | lỗi #REF! trong Excel | `bang-cham-cong-nhan-vien` | ✅ | ⬜ | ⬜ |
+| 4 | `loi-div-0-trong-excel` | lỗi #DIV/0! trong Excel | `bang-danh-gia-kpi-nhan-vien` | ✅ | ⬜ | ⬜ |
+| 5 | `loi-name-trong-excel` | lỗi #NAME? trong Excel | `bang-ke-thu-chi` | ✅ | ⬜ | ⬜ |
+| 6 | `loi-num-trong-excel` | lỗi #NUM! trong Excel | `bang-tinh-khau-hao-tai-san-co-dinh` | ✅ | ⬜ | ⬜ |
+| 7 | `loi-font-chu-tieng-viet-trong-excel` | lỗi font chữ tiếng Việt trong Excel | `danh-sach-nhan-vien` | ✅ | ⬜ | ⬜ |
+| 8 | `excel-khong-tinh-tong-duoc` | Excel không tính tổng được | `so-quy-tien-mat` | ✅ | ⬜ | ⬜ |
+| 9 | `excel-hien-cong-thuc-thay-vi-ket-qua` | Excel hiện công thức thay vì kết quả | `bang-tinh-luong-lam-them-gio` | ✅ | ⬜ | ⬜ |
+| 10 | `loi-ngay-thang-trong-excel` | lỗi ngày tháng trong Excel | `bang-theo-doi-hop-dong-lao-dong` | ✅ | ⬜ | ⬜ |
+| 11 | `so-luu-dang-van-ban-trong-excel` | số lưu dạng văn bản trong Excel | `so-kho-nhap-xuat-ton` | ✅ | ⬜ | ⬜ |
+| 12 | `loi-tham-chieu-vong-trong-excel` | lỗi tham chiếu vòng trong Excel | `so-quy-tien-mat` | ✅ | ⬜ | ⬜ |
+| 13 | `loi-in-excel-bi-mat-cot` | lỗi in Excel bị mất cột | `gantt-chart-excel` | ✅ | ⬜ | ⬜ |
+| 14 | `file-excel-nang-va-cham` | file Excel nặng và chậm | `bang-theo-doi-du-an` | ✅ | ⬜ | ⬜ |
+| 15 | `excel-loc-khong-het-du-lieu` | Excel lọc không hết dữ liệu | `bang-phan-cong-cong-viec` | ✅ | ⬜ | ⬜ |
+
+⚠️ Cột **Rà** ở đây nhẹ hơn bên template — nội dung là kỹ thuật Excel chứ không phải số liệu thuế hay bảo hiểm. Nhưng bài 6 (`#NUM!`) có nhắc hàm tài chính và bài 4 dùng ví dụ KPI, nên vẫn nên có người đọc lại.
+
+### Cụm 2 · Nghiệp vụ theo vai trò ⬜ chưa khai trong `PILLARS`
+### Cụm 3 · Excel cơ bản cho người mới ⬜ chưa khai trong `PILLARS`
+
+Không khai trước một cụm chưa có bài. Khai trước rồi lấp dần chính là cách tạo ra trang mỏng mà `MIN_POSTS_PER_PILLAR` sinh ra để chặn.
+
+### Trang phụ
+
+| Trang | Trạng thái | Ghi chú |
+| :---- | :--- | :---- |
+| `/kien-thuc-excel/lo-trinh` | ✅ | Sinh hoàn toàn từ loader đã có, không cần nội dung mới. Nối `/mau-excel` ↔ `/ham-excel` ↔ `/kien-thuc-excel` |
+| `/kien-thuc-excel/phim-tat` | ✅ · 76 tổ hợp, 8 nhóm | `data/knowledge/phim-tat.json` + bảng tra lọc được. Toàn bộ dòng render vào HTML rồi mới ẩn bằng thuộc tính `hidden` — lọc mà chỉ render kết quả thì Google thấy một bảng rỗng |
+| `/kien-thuc-excel/bai-tap` | 🔨 3/15 | Hub + 1 trang / bài lý thuyết. Nhắm nhóm từ khóa riêng "bài tập excel … có lời giải" và **đi qua đúng tường lửa của bài viết, cùng một lượt với chúng** — đi riêng thì va chạm giữa bài tập với bài lý thuyết sẽ không ai thấy. JSON-LD `LearningResource` + `isBasedOn` trỏ về bài lý thuyết |
+
+---
+
 ## Hạ tầng & vận hành
 
 ### Đã xong
@@ -192,6 +238,14 @@ Số 3 (`gantt-chart-excel`) có một ràng buộc kỹ thuật cần kiểm b�
 - [x] **Tham chiếu dòng trên** trong công thức spec: ngoài `{row}` còn dùng được `{row-N}`. Đây là thứ mở khóa cả nhóm cột lũy kế của kế toán (tồn quỹ, dòng tiền ròng). Chỉ cho lùi lên, không cho `{row+N}` — trỏ xuống là tạo vòng lặp tham chiếu; schema chặn cả token gõ sai kiểu `{row -1}`, vốn sẽ lọt nguyên văn dấu ngoặc nhọn vào file và chỉ lộ ra ở tay người tải về
 - [x] **Ngưỡng ≥ 5 template cho một nhóm việc** (`MIN_TEMPLATES_PER_CATEGORY` trong `lib/systems.ts`). Nhóm dưới ngưỡng **fail build** chứ không bị lọc im lặng: lọc im lặng vẫn dựng các trang template, vẫn đưa chúng vào sitemap, mà breadcrumb của chúng trỏ về một hub 404 — trang mồ côi thật sự, tệ hơn cả trang mỏng mà quy tắc này định chặn
 - [x] **File gộp**: khối `bundle` trong spec bộ, `scripts/build_bundle.py`, cú pháp `[Tên sheet!key]` cho tham chiếu xuyên sheet, cổng QA kiểm khóa nối và kiểm lan truyền đầu-cuối
+- [x] **Khu kiến thức** `/kien-thuc-excel` (PRD mục 2.9): schema khối có kiểu (`lib/knowledge-schema.ts`), loader + tường lửa từ khóa (`lib/knowledge.ts`), ba route + ba ảnh OG, JSON-LD `BlogPosting` + `Person` + `BreadcrumbList` + `FAQPage`
+- [x] **Curriculum tuyến tính**: trường `order` bắt buộc duy nhất và **liên tục 1..N** trong mỗi cụm. Khoảng trống nghĩa là có bài đã xoá mà chuỗi chưa đánh số lại, và điều hướng Bài trước / Bài sau sẽ nhảy cóc — nên nó fail build chứ không tự bỏ qua
+- [x] **`lib/formula-eval.ts`** — bộ tính công thức thuần, chạy được ở client, 10 hàm đúng bằng số hàm có trang. Chiều kiểm bị đảo có chủ đích: nó không import `FUNCTION_INFO` (module đó kéo theo `node:fs`), nên `lib/knowledge.ts` gãy build nếu evaluator **không phủ hết** hàm đang có trang. Mở trang hàm mới mà quên cài vào evaluator thì hỏng ngay, thay vì để sandbox lặng lẽ trả `#NAME?` cho hàm site vừa dạy
+- [x] **Lớp tương tác thuần client**: `CopyButton` (chép TSV để dán ra đúng từng ô), `Quiz` (tự chấm, giải thích hiện cả khi đúng), `FormulaSandbox`. Không tài khoản, không lưu tiến độ — site xuất tĩnh. Mọi khối đều có bản đọc được khi tắt JS, kể cả đáp án sandbox (`<noscript>`)
+- [x] **`lib/jsonld.ts`** — rút `breadcrumbList()` / `faqPage()` / `personNode()` khỏi bốn bản sao. Thêm node `Person` (chưa từng có trên site) nhưng **không** thêm `Organization`: site đứng tên một người, không có logo asset để khai `publisher.logo`, và khai một Organization rỗng là khai bịa
+- [x] **`components/FaqList.tsx`** — trích khối `<dl>` FAQ đang bị nhân đôi giữa trang template và trang bộ file. Trang bài là chỗ thứ ba; ba bản sao là lúc chúng bắt đầu trôi khác nhau
+- [x] **Link hai chiều tự động**: `getPostsForTemplate()` / `getPostsForFunction()` dựng chỉ mục ngược lúc build, nên viết thêm một bài là tự có link từ trang template và trang hàm về nó — không phải sửa 37 file spec. Dải trả `null` khi rỗng nên 29 trang chưa có bài trỏ về không đổi gì
+- [x] **`scripts/test-knowledge-gates.mts`** — cố tình đưa dữ liệu bẩn vào và xác nhận **13 cổng** đều thật sự chặn, kèm đúng thông điệp. Một cổng viết sai điều kiện thì im lặng cho qua y hệt một cổng viết đúng gặp dữ liệu sạch; không có cách nào phân biệt ngoài việc thử cho nó gãy
 
 ### Còn lại
 
@@ -207,6 +261,10 @@ Ba việc còn lại đều **nằm ngoài repo** — không có dòng code nào
 
 | Ngày | Việc |
 | :---- | :---- |
+| 14/08/2026 | **Mở khu kiến thức `/kien-thuc-excel`** (PRD v2.2). Điều kiện "chỉ xét sau khi 36 trang đã index" ở mục 2.6 đã đạt nên đây là sửa đổi scope có chủ đích, không phải làm trái PRD. Khảo sát sitemap thật của bốn đối thủ trước khi chọn cụm: gitiho 3.617 URL blog (1.053 bài Excel, không có cụm chủ đề, `lastmod` chết từ 2024-02), hocexcel.online 1.867 bài / 86 category phân mảnh, hoanghamobile và phongvu thắng bằng domain authority với bài ~1.300–1.800 từ **không FAQ, không structured data**. Cụm "Lỗi Excel" là chỗ họ mỏng nhất: `#NUM!` `#NULL!` `#SPILL!` không ai có bài nào, `#NAME?` và `#DIV/0!` mỗi mã một bài, và không site nào có trang tổng hợp lỗi |
+| 14/08/2026 | **Luật chống ăn thịt keyword đặt ở tầng hình dạng dữ liệu**, không phải ở tài liệu. Spec bài không có trường nào chứa được cú pháp hàm hay cấu trúc file, nên viết lại nội dung của `/ham-excel` và `/mau-excel` là **bất khả biểu diễn** chứ không phải bị cấm. Hai tầng còn lại — tường lửa từ khóa và luật "công thức phải trỏ ra" — nằm ở loader vì chúng cần nhìn cả ba corpus |
+| 14/08/2026 | **Tường lửa bắt nhầm ngay lần chạy thật đầu tiên**, và đó là ca đáng ghi lại: `#N/A` chuẩn hoá thành `n a`, token `n` va đúng tên hàm `N` đang có trang, nên bài về lỗi #N/A bị chặn oan. Cách sửa là **bóc mã lỗi ra trước khi tách token**, chứ không phải nới luật thành "bỏ qua token ngắn" — nới như vậy sẽ để lọt cả `IF` và `OR`, hai tên hàm ngắn mà một từ khoá hoàn toàn có thể nhắm thật |
+| 14/08/2026 | **Nới khối `errorCase` cho lỗi không có mã.** Ràng buộc ban đầu chỉ nhận `#...`, và nó chặn mất đúng bài lỗi font tiếng Việt — một sự cố có thật, người ta có tìm, mà Excel không đặt tên bằng mã nào. Giờ `error` nhận cả triệu chứng viết bằng chữ, nhưng **chỉ mã thật mới lên nhãn thẻ bài**: nhãn để người đọc quét nhanh, nhét một câu tiếng Việt vào đó thì nhãn hết là nhãn |
 | 10/08/2026 | **Cài quy tắc ≥ 5 template cho một nhóm việc** (`MIN_TEMPLATES_PER_CATEGORY`, `lib/systems.ts`). Quy tắc có từ PRD v1.0 nhưng chưa bao giờ được cài; trước đó cổng chỉ hỏi nhóm có rỗng hay không. Chọn **fail build** thay vì lọc im lặng: lọc im lặng vẫn dựng trang template và vẫn đưa chúng vào sitemap, trong khi breadcrumb trỏ về một hub 404 — trang mồ côi, tệ hơn cả trang mỏng mà quy tắc định chặn. Đã thử bằng cách hạ `quan-ly-cong-viec` xuống 4 file: cổng chặn đúng và nói rõ hai lối ra |
 | 10/08/2026 | **Xong 12 template `quan-ly-cong-viec` — khung 37 trang của Phase 1 đủ 100%.** Ba ý tưởng dùng lại nhiều lần trong nhóm này: **tiến độ kỳ vọng** theo phần thời gian đã trôi (số 1, 6, 8) — một việc báo 50% khi đã đi hết 80% thời gian thì đang chậm, và đó là thứ cột phần trăm một mình không nói được; **kiểm chất lượng chính lệnh giao việc** (số 4, 12) — bắt dòng thiếu người thực hiện, thiếu hạn, thiếu tiêu chí nghiệm thu, và chỉ áp ràng buộc đúng loại dòng cần áp; **điểm ghép hai yếu tố** (số 5, 10) để danh sách sắp xếp được. Hàm mới: `REPT` — `gantt-chart-excel` vẽ thanh tiến độ ngay trong một ô thay vì tô màu hàng chục cột ngày, nên chèn thêm đầu việc là thanh tự vẽ. Đánh đổi đã ghi trong FAQ: thanh chỉ thẳng hàng với phông đều nét, và không vẽ được quan hệ phụ thuộc |
 | 10/08/2026 | **Xong 5 template kế toán còn lại — nhóm `ke-toan` đủ 12/12.** Khấu hao TSCĐ (đường thẳng, `MIN` chặn trần để tài sản hết giá trị tự dừng trích thay vì âm dần), bảng kê hóa đơn GTGT (đầu vào và đầu ra chung một bảng, cột thuế được khấu trừ **tự trả về 0** với hóa đơn từ 20 triệu trả tiền mặt — cảnh báo không đủ, phải đổi luôn con số), theo dõi tạm ứng (dùng cột `ngayChotSo` thay `TODAY` như hai file công nợ, để bảng in hôm nay và bảng mở lại tháng sau cho cùng một con số quá hạn), báo cáo kết quả kinh doanh (xếp ngang theo tháng thay vì dọc theo chỉ tiêu; `MAX(0;…)` chặn thuế âm ở tháng lỗ), tính giá thành (dở dang đầu kỳ + phát sinh − dở dang cuối kỳ), dự toán ngân sách (cột đánh giá **đảo chiều theo cột Loại**: cùng tỷ lệ 110% thì dòng Thu là đạt kế hoạch còn dòng Chi là vượt ngân sách) |

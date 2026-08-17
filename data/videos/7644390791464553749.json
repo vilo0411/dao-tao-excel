@@ -1,0 +1,11 @@
+{
+  "id": "7644390791464553749",
+  "url": "https://www.tiktok.com/@excel.taichinhso/video/7644390791464553749",
+  "title": "Cột deadline tự ghi còn mấy ngày, quá hạn hay đúng hôm nay",
+  "summary": "Mẹo này dùng định dạng số tùy chỉnh nên ô vẫn giữ nguyên con số để tính toán, chỉ phần chữ hiển thị là đổi theo. Code trong video: [Color10]General\" Ngày còn lại\";[Red]General\" Ngày quá hạn\";[Blue]\"Hôm nay\". Dán được thẳng vào cột số ngày còn lại của mẫu theo dõi tiến độ.",
+  "publishedAt": "2026-05-27",
+  "templates": [
+    "bang-theo-doi-tien-do-cong-viec"
+  ],
+  "functions": []
+}

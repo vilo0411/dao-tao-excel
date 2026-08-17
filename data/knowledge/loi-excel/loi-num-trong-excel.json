@@ -1,0 +1,210 @@
+{
+  "slug": "loi-num-trong-excel",
+  "pillar": "loi-excel",
+  "postType": "sua-loi",
+  "order": 6,
+  "h1": "Lỗi #NUM! trong Excel: phép tính đúng cú pháp nhưng không có kết quả",
+  "metaTitle": "Lỗi #NUM! trong Excel: nguyên nhân và cách xử lý",
+  "metaDesc": "Lỗi #NUM! xuất hiện khi phép tính vượt giới hạn số của Excel hoặc không có nghiệm. Bốn nguyên nhân và cách chặn trong bảng khấu hao tài sản.",
+  "intro": "Lỗi #NUM! trong Excel hiếm gặp hơn hẳn những mã lỗi khác, và chính vì hiếm nên khi gặp thì ít người biết phải làm gì. Nó không phải lỗi dữ liệu sai kiểu, cũng không phải lỗi cú pháp. Nó nghĩa là công thức của bạn hoàn toàn hợp lệ, Excel đã thử tính, và kết quả rơi ra ngoài phạm vi số mà nó biểu diễn được — hoặc đơn giản là phép tính đó không có nghiệm.",
+  "primaryKeyword": "lỗi #NUM! trong Excel",
+  "difficulty": "trung-cap",
+
+  "body": [
+    {
+      "type": "paragraph",
+      "text": "Có một cách hiểu giúp phân biệt nhanh #NUM! với hai mã dễ nhầm. #VALUE! là Excel không tính được vì dữ liệu sai kiểu. #DIV/0! là Excel không tính được vì phép chia không có nghĩa. Còn #NUM! là Excel đã tính rồi, nhưng con số ra được không nằm trong khoảng nó lưu trữ nổi, hoặc bài toán bạn đặt ra vốn không có lời giải bằng số thực."
+    },
+    {
+      "type": "errorCase",
+      "error": "#NUM!",
+      "cause": "Kết quả vượt giới hạn số của Excel, hoặc phép toán không có nghiệm trong tập số thực, hoặc một hàm lặp không hội tụ sau số vòng cho phép. Excel biểu diễn được số trong khoảng cỡ mười mũ ba trăm lẻ tám; vượt qua đó là #NUM!.",
+      "fix": "Xác định phép toán nào đang sinh ra con số quá lớn, thường là một luỹ thừa hoặc một phép nhân dây chuyền. Nếu đó là hệ quả của dữ liệu nhập sai — chẳng hạn số năm khấu hao gõ nhầm thành số rất lớn — thì sửa dữ liệu. Nếu là bài toán vốn không có nghiệm thì phải đổi cách đặt bài toán."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Bốn tình huống sinh ra #NUM!"
+    },
+    {
+      "type": "list",
+      "ordered": true,
+      "items": [
+        "Kết quả quá lớn hoặc quá nhỏ. Hay gặp nhất là một phép luỹ thừa mà số mũ bị nhập nhầm, ví dụ gõ thừa một con số 0.",
+        "Phép toán không có nghiệm thực, ví dụ căn bậc hai của một số âm — thường là hệ quả của một hiệu bị âm ngoài dự kiến ở bước trước.",
+        "Hàm tài chính lặp không hội tụ. Hàm tính tỷ suất hoàn vốn nội bộ cần dòng tiền đổi dấu ít nhất một lần; toàn bộ dòng tiền cùng dấu thì không có nghiệm để tìm.",
+        "Đối số nằm ngoài miền cho phép của hàm, ví dụ đưa một số âm vào chỗ đòi số kỳ hạn."
+      ]
+    },
+    {
+      "type": "callout",
+      "tone": "meo",
+      "title": "#NUM! thường là triệu chứng của một ô nhập sai ở phía trên",
+      "text": "Rất ít khi bạn cố ý viết một công thức cho ra số vượt giới hạn. Gần như luôn có một ô nhập liệu nào đó ở trên đang chứa con số vô lý, và công thức chỉ đang trung thực nhân nó lên. Trước khi sửa công thức, hãy nhìn lại đầu vào — con số vô lý đó thường nhìn ra ngay khi bạn để mắt tới nó."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Cách bảng khấu hao chặn cả hai đầu"
+    },
+    {
+      "type": "paragraph",
+      "text": "Bảng tính khấu hao tài sản cố định là ví dụ tốt vì nó có đủ hai loại rủi ro cùng lúc: một phép chia có thể gặp mẫu số bằng 0, và một phép trừ dồn có thể cho ra số âm nếu người dùng nhập lũy kế đầu kỳ lớn hơn nguyên giá. Mẫu trên site này chặn cả hai, và cách chặn khác nhau ở từng chỗ chứ không dùng chung một công cụ."
+    },
+    {
+      "type": "formula",
+      "formula": "=IF([tenTaiSan]{row}=\"\",\"\",IFERROR(ROUND([nguyenGia]{row}/[soNamKhauHao]{row},0),0))",
+      "note": "Cột Mức khấu hao năm. Ở đây rủi ro là số năm khấu hao bằng 0 hoặc bỏ trống, và IFERROR bắt trọn nó. Đáng chú ý là ROUND nằm bên trong chứ không bọc ngoài: làm tròn trước khi bắt lỗi thì mọi kết quả trả ra đều đã là số nguyên đồng, không có ô nào lẻ hàng xu.",
+      "caption": "Cột Mức khấu hao năm trong mẫu bảng khấu hao TSCĐ"
+    },
+    {
+      "type": "formula",
+      "formula": "=IF([tenTaiSan]{row}=\"\",\"\",MIN([mucKhauHaoThang]{row},MAX(0,[nguyenGia]{row}-[luyKeDauKy]{row})))",
+      "note": "Cột Khấu hao trong kỳ, và đây mới là chỗ thú vị. MAX với số 0 chặn kết quả âm khi lũy kế đầu kỳ bị nhập lớn hơn nguyên giá; MIN với mức khấu hao tháng chặn việc trích vượt phần giá trị còn lại. Hai hàm kẹp hai đầu, không cần bọc lỗi nào cả vì phép toán không bao giờ đi ra ngoài khoảng hợp lệ.",
+      "caption": "Kẹp hai đầu bằng MIN và MAX thay vì bắt lỗi sau khi đã xảy ra"
+    },
+    {
+      "type": "paragraph",
+      "text": "Sự khác biệt giữa hai công thức trên đáng để dừng lại một chút, vì nó là hai triết lý khác nhau. Công thức thứ nhất để phép toán chạy rồi bắt lỗi nếu có. Công thức thứ hai làm cho lỗi không thể xảy ra, bằng cách ép kết quả nằm trong khoảng cho phép trước khi nó kịp ra ngoài. Cách thứ hai luôn tốt hơn khi bạn biết trước khoảng hợp lệ là gì, vì nó không cần đoán xem nên thay lỗi bằng giá trị nào."
+    },
+    {
+      "type": "sheet",
+      "templateSlug": "bang-tinh-khau-hao-tai-san-co-dinh",
+      "sheetIndex": 0,
+      "note": "Bảng thật của mẫu khấu hao. Sáu cột xanh lá đều là số Excel tính ra, và không cột nào có thể vượt ra ngoài khoảng hợp lệ dù người dùng nhập gì vào các cột xanh dương.",
+      "copyable": true
+    },
+    {
+      "type": "sandbox",
+      "title": "Khi một phép luỹ thừa vượt giới hạn số của Excel",
+      "grid": [
+        ["Cơ số", "Số mũ"],
+        [10, 1000]
+      ],
+      "prompt": "Gõ thử =A2^B2 để thấy #NUM! — kết quả là số có một nghìn lẻ một chữ số, vượt xa khoảng Excel lưu được. Viết công thức trả về câu Vượt giới hạn thay vì để mã lỗi hiện ra.",
+      "answer": "=IFERROR(A2^B2, \"Vượt giới hạn\")",
+      "expected": "Vượt giới hạn",
+      "hint": "Thử đổi B2 xuống 100 để thấy phép tính chạy được — ranh giới nằm quanh mười mũ ba trăm lẻ tám."
+    },
+    {
+      "type": "functionRef",
+      "slug": "iferror",
+      "why": "Cách bắt #NUM! sau khi nó đã xảy ra. Dùng khi bạn không biết trước khoảng giá trị hợp lệ, ví dụ với một phép chia mà mẫu số do người dùng nhập."
+    },
+    {
+      "type": "functionRef",
+      "slug": "min",
+      "why": "Kẹp trần kết quả. Trong bảng khấu hao, nó chặn việc trích vượt quá phần giá trị còn lại của tài sản."
+    },
+    {
+      "type": "functionRef",
+      "slug": "max",
+      "why": "Kẹp sàn kết quả tại 0. Đây là cách chặn số âm ngoài dự kiến trước khi nó lan sang các cột phía sau."
+    },
+    {
+      "type": "functionRef",
+      "slug": "round",
+      "why": "Đặt bên trong IFERROR chứ không bọc ngoài, để mọi giá trị trả ra đều đã là số nguyên đồng."
+    },
+    {
+      "type": "functionRef",
+      "slug": "if",
+      "why": "Lớp ngoài cùng chặn công thức chạy trên dòng chưa có dữ liệu, dùng ở cả hai công thức trong bài."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Khi hàm tài chính không hội tụ"
+    },
+    {
+      "type": "paragraph",
+      "text": "Đây là trường hợp #NUM! khó chịu nhất vì công thức nhìn hoàn toàn bình thường. Các hàm tính tỷ suất hoàn vốn nội bộ hoạt động bằng cách thử dần cho tới khi tìm ra con số thỏa mãn, và chúng bỏ cuộc sau một số vòng nhất định. Nếu dãy dòng tiền của bạn không đổi dấu lần nào — chẳng hạn toàn bộ đều là số dương vì bạn quên ghi khoản đầu tư ban đầu bằng số âm — thì không tồn tại nghiệm nào để tìm, và hàm trả về #NUM! sau khi thử hết số vòng cho phép."
+    },
+    {
+      "type": "steps",
+      "items": [
+        {
+          "step": "Kiểm tra dãy dòng tiền có đổi dấu không",
+          "detail": "Phải có ít nhất một khoản âm và một khoản dương. Khoản đầu tư ban đầu là số âm, đây là chỗ hay bị bỏ sót nhất vì trong đầu ta vẫn nghĩ nó là một số tiền dương."
+        },
+        {
+          "step": "Đưa vào một giá trị phỏng đoán ban đầu",
+          "detail": "Các hàm này nhận một đối số phỏng đoán không bắt buộc. Đưa vào một con số gần với đáp án bạn nghĩ, ví dụ 0,1 cho mười phần trăm, sẽ giúp hàm hội tụ trong nhiều trường hợp mà mặc định thất bại."
+        },
+        {
+          "step": "Xem lại bài toán nếu vẫn không ra",
+          "detail": "Một dãy dòng tiền đổi dấu nhiều lần có thể có nhiều nghiệm hoặc không nghiệm nào. Lúc đó chỉ số này không phải công cụ phù hợp, và nên chuyển sang cách đánh giá khác."
+        }
+      ]
+    },
+    {
+      "type": "templateRef",
+      "slug": "bang-tinh-khau-hao-tai-san-co-dinh",
+      "why": "File mẫu minh họa cả hai cách chặn lỗi: bắt sau khi xảy ra bằng IFERROR, và ép nằm trong khoảng hợp lệ bằng MIN với MAX."
+    }
+  ],
+
+  "faq": [
+    {
+      "q": "Excel biểu diễn được số lớn tới đâu?",
+      "a": "Khoảng mười mũ ba trăm lẻ tám. Vượt qua ngưỡng đó là #NUM!. Ở chiều ngược lại, số dương quá nhỏ cũng bị làm tròn về 0 chứ không báo lỗi."
+    },
+    {
+      "q": "#NUM! và #VALUE! khác nhau chỗ nào?",
+      "a": "#VALUE! là Excel không tính được vì dữ liệu sai kiểu, ví dụ nhân chữ với số. #NUM! là dữ liệu đúng kiểu và Excel đã tính, nhưng kết quả nằm ngoài khoảng biểu diễn được hoặc bài toán không có nghiệm."
+    },
+    {
+      "q": "Vì sao hàm tính tỷ suất hoàn vốn báo #NUM! dù số liệu nhìn đầy đủ?",
+      "a": "Nhiều khả năng dãy dòng tiền không đổi dấu lần nào. Khoản đầu tư ban đầu phải được ghi là số âm; thiếu dấu trừ đó thì không tồn tại nghiệm nào để hàm tìm ra."
+    }
+  ],
+
+  "quiz": [
+    {
+      "q": "#NUM! khác #VALUE! ở điểm nào?",
+      "options": [
+        "#NUM! là dữ liệu sai kiểu, #VALUE! là số quá lớn",
+        "#NUM! là Excel đã tính nhưng kết quả ngoài khoảng biểu diễn được hoặc bài toán không có nghiệm",
+        "Hai mã hoàn toàn giống nhau"
+      ],
+      "answer": 1,
+      "explain": "#VALUE! là không tính được vì sai kiểu dữ liệu. #NUM! là dữ liệu đúng kiểu, Excel đã tính, nhưng kết quả rơi ra ngoài phạm vi số hoặc phép toán vốn không có nghiệm thực."
+    },
+    {
+      "q": "Trong công thức khấu hao trong kỳ, MAX với số 0 dùng để làm gì?",
+      "options": [
+        "Chọn giá trị lớn nhất trong cả cột",
+        "Chặn kết quả âm khi lũy kế đầu kỳ bị nhập lớn hơn nguyên giá",
+        "Làm tròn số lên"
+      ],
+      "answer": 1,
+      "explain": "MAX kẹp sàn tại 0. Nếu hiệu giữa nguyên giá và lũy kế đầu kỳ ra âm vì nhập sai, kết quả bị ép về 0 thay vì để số âm lan sang các cột phía sau."
+    },
+    {
+      "q": "Vì sao kẹp bằng MIN và MAX được coi là tốt hơn bọc IFERROR, khi bạn đã biết khoảng hợp lệ?",
+      "options": [
+        "Vì nó chạy nhanh hơn",
+        "Vì nó làm lỗi không thể xảy ra, thay vì để lỗi xảy ra rồi mới đoán nên thay bằng giá trị nào",
+        "Vì IFERROR chỉ dùng được một lần trong mỗi file"
+      ],
+      "answer": 1,
+      "explain": "Kẹp hai đầu ép kết quả nằm trong khoảng cho phép trước khi nó kịp đi ra ngoài. Bọc lỗi thì phải chọn một giá trị thay thế, mà việc chọn đó luôn là một phỏng đoán."
+    },
+    {
+      "q": "Hàm tính tỷ suất hoàn vốn nội bộ báo #NUM!. Nghi ngờ đầu tiên nên là gì?",
+      "options": [
+        "Dãy dòng tiền không đổi dấu lần nào, thường vì quên ghi khoản đầu tư ban đầu là số âm",
+        "File quá lớn",
+        "Định dạng ô đang là văn bản"
+      ],
+      "answer": 0,
+      "explain": "Hàm này tìm nghiệm bằng cách thử dần, và chỉ tồn tại nghiệm khi dòng tiền đổi dấu ít nhất một lần. Toàn bộ cùng dấu thì không có gì để tìm."
+    }
+  ],
+
+  "templateRefs": ["bang-tinh-khau-hao-tai-san-co-dinh"],
+  "functionRefs": ["iferror", "min", "max", "round", "if"],
+  "relatedSlugs": ["loi-div-0-trong-excel", "loi-value-trong-excel"],
+  "ctaText": "Học cách kẹp công thức để lỗi không thể xảy ra",
+  "updatedAt": "2026-08-14"
+}

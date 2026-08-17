@@ -94,15 +94,22 @@ export default function RootLayout({
               </span>
             </Link>
             <div className="flex items-center gap-6 text-sm">
-              {/* Một cửa vào duy nhất cho thư viện. Bộ file sống ngay trong
-                  từng trang category (/mau-excel/[category]), không đứng
-                  riêng trên nav — hai mục nav cho cùng một tập file thì người
-                  đọc phải đoán xem mục nào chứa thứ mình cần. */}
+              {/* Ba mục, và thứ tự là thứ tự phễu: file → hàm → chữ. Mỗi mục
+                  là một cửa vào cho một INTENT khác nhau — "cho tôi cái file",
+                  "hàm này cú pháp gì", "cái này hỏng sửa sao" — chứ không phải
+                  ba lối vào cùng một tập nội dung. Đó là điều kiện để thêm mục
+                  thứ ba mà nav không loãng: hai mục nav cho cùng một tập nội
+                  dung thì người đọc phải đoán xem mục nào chứa thứ mình cần.
+                  Bộ file vì vậy vẫn không có mục riêng, nó sống trong từng
+                  trang category. */}
               <Link href="/mau-excel" className="hover:text-input">
                 Thư viện file
               </Link>
               <Link href="/ham-excel" className="hover:text-input">
                 Hàm Excel
+              </Link>
+              <Link href="/kien-thuc-excel" className="hover:text-input">
+                Kiến thức
               </Link>
             </div>
           </nav>
